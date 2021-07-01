@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA956829-53B9-404A-ADAB-F1D8F95C85A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>CapaPresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="dsReceta.cs">
+      <DependentUpon>dsReceta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReceta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReceta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCitas.Designer.cs">
+      <DependentUpon>frmCitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiagnostico.Designer.cs">
+      <DependentUpon>frmDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarContrasena.Designer.cs">
+      <DependentUpon>frmEditarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoria.Designer.cs">
+      <DependentUpon>frmHistoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOperacion.Designer.cs">
+      <DependentUpon>frmOperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaciente.Designer.cs">
+      <DependentUpon>frmPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlanEstudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlanEstudio.Designer.cs">
+      <DependentUpon>frmPlanEstudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecetas.Designer.cs">
+      <DependentUpon>frmRecetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecuperarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContrasena.Designer.cs">
+      <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicios.Designer.cs">
+      <DependentUpon>frmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVistaPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPacientes.Designer.cs">
+      <DependentUpon>frmVistaPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graficoPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graficoPaciente.Designer.cs">
+      <DependentUpon>graficoPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InicioResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicioResumen.Designer.cs">
+      <DependentUpon>InicioResumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport_PlanEstudio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_PlanEstudio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportePlanEstudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportePlanEstudio.Designer.cs">
+      <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteRecetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteRecetas.Designer.cs">
+      <DependentUpon>frmReporteRecetas.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{5058c240-942a-4142-9d38-e45b6d7dbe3f}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{467eaf10-fd8f-44a3-bf46-f7c6f59e6961}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmCitas.resx">
+      <DependentUpon>frmCitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiagnostico.resx">
+      <DependentUpon>frmDiagnostico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarContrasena.resx">
+      <DependentUpon>frmEditarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoria.resx">
+      <DependentUpon>frmHistoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOperacion.resx">
+      <DependentUpon>frmOperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaciente.resx">
+      <DependentUpon>frmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlanEstudio.resx">
+      <DependentUpon>frmPlanEstudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecetas.resx">
+      <DependentUpon>frmRecetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarContrasena.resx">
+      <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicios.resx">
+      <DependentUpon>frmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPacientes.resx">
+      <DependentUpon>frmVistaPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graficoPaciente.resx">
+      <DependentUpon>graficoPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicioResumen.resx">
+      <DependentUpon>InicioResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport_PlanEstudio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_PlanEstudio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteRecetas.resx">
+      <DependentUpon>frmReporteRecetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="dsReceta.xsc">
+      <DependentUpon>dsReceta.xsd</DependentUpon>
+    </None>
+    <None Include="dsReceta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReceta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReceta.xss">
+      <DependentUpon>dsReceta.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Imagen Medico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barra de carga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
