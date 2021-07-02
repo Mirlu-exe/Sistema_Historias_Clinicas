@@ -702,7 +702,7 @@ namespace CapaPresentacion
 
         private void btnGrafica_Click(object sender, EventArgs e)
         {
-            graficoPaciente graficoPaciente = new graficoPaciente();
+            frmGenerarGraficos graficoPaciente = new frmGenerarGraficos();
             graficoPaciente.Show();
         }
 

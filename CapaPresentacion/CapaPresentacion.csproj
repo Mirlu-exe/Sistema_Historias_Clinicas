@@ -30,20 +30,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,6 +86,12 @@
     </Compile>
     <Compile Include="frmConfigPreguntasSeguridad.Designer.cs">
       <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmControlEstadistico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControlEstadistico.Designer.cs">
+      <DependentUpon>frmControlEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiagnostico.cs">
       <SubType>Form</SubType>
@@ -164,11 +177,11 @@
     <Compile Include="frmVistaPacientes.Designer.cs">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="graficoPaciente.cs">
+    <Compile Include="frmGenerarGraficos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="graficoPaciente.Designer.cs">
-      <DependentUpon>graficoPaciente.cs</DependentUpon>
+    <Compile Include="frmGenerarGraficos.Designer.cs">
+      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioResumen.cs">
       <SubType>Form</SubType>
@@ -193,18 +206,20 @@
       <DependentUpon>CrystalReport_PlanEstudio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\frmReportePacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportePacientes.Designer.cs">
+      <DependentUpon>frmReportePacientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportePlanEstudio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\frmReportePlanEstudio.Designer.cs">
       <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmReporteRecetas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\frmReporteRecetas.Designer.cs">
-      <DependentUpon>frmReporteRecetas.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Reportes\ReportePacientes.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
@@ -222,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfigPreguntasSeguridad.resx">
       <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmControlEstadistico.resx">
+      <DependentUpon>frmControlEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnostico.resx">
       <DependentUpon>frmDiagnostico.cs</DependentUpon>
@@ -265,8 +283,8 @@
     <EmbeddedResource Include="frmVistaPacientes.resx">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="graficoPaciente.resx">
-      <DependentUpon>graficoPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="frmGenerarGraficos.resx">
+      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioResumen.resx">
       <DependentUpon>InicioResumen.cs</DependentUpon>
@@ -279,9 +297,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_PlanEstudio.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\frmReporteRecetas.resx">
-      <DependentUpon>frmReporteRecetas.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\frmReportePacientes.resx">
+      <DependentUpon>frmReportePacientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportePlanEstudio.resx">
+      <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +340,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics_smoll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

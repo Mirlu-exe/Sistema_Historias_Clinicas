@@ -542,8 +542,6 @@ namespace CapaPresentacion
             if (this.cblBusqueda.Text.Equals("Paciente"))
             {
 
-
-
                 this.BuscarNombre();
             }
             else if (this.cblBusqueda.Text.Equals("Servicio"))

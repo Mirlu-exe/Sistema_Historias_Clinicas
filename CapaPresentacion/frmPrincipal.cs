@@ -22,7 +22,8 @@ namespace CapaPresentacion
 
         private void GestionUsuario()
         {
-            //Controlar los accesos
+            //Controlar los accesos según Nivel del Usuario
+
             if (this.lblAcceso.Text == "Medico")
             {
                 this.btnPacientes.Enabled = true;
@@ -34,6 +35,7 @@ namespace CapaPresentacion
                 this.btnRecetas.Enabled = true;
                 this.btnOperaciones.Enabled = true;
                 this.btnHerramientasAdmin.Enabled = false;
+                this.btnControlEstadistico.Enabled = true;
                 this.btnHerramientasAdmin.Hide();
 
             }
@@ -50,6 +52,7 @@ namespace CapaPresentacion
                 this.btnPlanEstudios.Enabled = false;
                 this.btnOperaciones.Enabled = false;
                 this.btnHerramientasAdmin.Enabled = false;
+                this.btnControlEstadistico.Enabled = false;
                 this.btnHerramientasAdmin.Hide();
             }
 
@@ -66,6 +69,7 @@ namespace CapaPresentacion
                 this.btnRecetas.Enabled = true;
                 this.btnOperaciones.Enabled = true;
                 this.btnHerramientasAdmin.Enabled = true;
+                this.btnControlEstadistico.Enabled = true;
                 this.btnHerramientasAdmin.Show();
 
             }
@@ -244,6 +248,11 @@ namespace CapaPresentacion
         private void btnHerramientasAdmin_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.btnHerramientasAdmin, "Herramientas de Administrador");
+        }
+
+        private void btnControlEstadistico_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmControlEstadistico());
         }
     }
 }

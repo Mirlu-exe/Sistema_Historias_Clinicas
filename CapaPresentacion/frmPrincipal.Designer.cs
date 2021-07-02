@@ -38,11 +38,13 @@
             this.lblAcceso = new System.Windows.Forms.Label();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.iconminimizar = new System.Windows.Forms.PictureBox();
             this.iconrestaurar = new System.Windows.Forms.PictureBox();
             this.iconmaximizar = new System.Windows.Forms.PictureBox();
             this.iconcerrar = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.btnControlEstadistico = new System.Windows.Forms.Button();
             this.btnHerramientasAdmin = new System.Windows.Forms.Button();
             this.btnConfigPersonal = new System.Windows.Forms.Button();
             this.btnPlanEstudios = new System.Windows.Forms.Button();
@@ -57,7 +59,6 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.MenuVertical.SuspendLayout();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).BeginInit();
@@ -72,6 +73,7 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.MenuVertical.Controls.Add(this.btnControlEstadistico);
             this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
             this.MenuVertical.Controls.Add(this.btnConfigPersonal);
             this.MenuVertical.Controls.Add(this.btnPlanEstudios);
@@ -192,6 +194,10 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // ttMensaje
+            // 
+            this.ttMensaje.IsBalloon = true;
+            // 
             // iconminimizar
             // 
             this.iconminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -262,6 +268,24 @@
             this.btnMenu.TabIndex = 0;
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnControlEstadistico
+            // 
+            this.btnControlEstadistico.FlatAppearance.BorderSize = 0;
+            this.btnControlEstadistico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnControlEstadistico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControlEstadistico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnControlEstadistico.ForeColor = System.Drawing.Color.White;
+            this.btnControlEstadistico.Image = global::CapaPresentacion.Properties.Resources.statistics_smoll;
+            this.btnControlEstadistico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnControlEstadistico.Location = new System.Drawing.Point(0, 661);
+            this.btnControlEstadistico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnControlEstadistico.Name = "btnControlEstadistico";
+            this.btnControlEstadistico.Size = new System.Drawing.Size(333, 49);
+            this.btnControlEstadistico.TabIndex = 37;
+            this.btnControlEstadistico.Text = "Control Estadístico";
+            this.btnControlEstadistico.UseVisualStyleBackColor = true;
+            this.btnControlEstadistico.Click += new System.EventHandler(this.btnControlEstadistico_Click);
             // 
             // btnHerramientasAdmin
             // 
@@ -349,7 +373,7 @@
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(1, 660);
+            this.button7.Location = new System.Drawing.Point(0, 718);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(333, 49);
@@ -496,10 +520,6 @@
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
-            // ttMensaje
-            // 
-            this.ttMensaje.IsBalloon = true;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -557,5 +577,6 @@
         private System.Windows.Forms.Button btnConfigPersonal;
         private System.Windows.Forms.Button btnHerramientasAdmin;
         private System.Windows.Forms.ToolTip ttMensaje;
+        private System.Windows.Forms.Button btnControlEstadistico;
     }
 }

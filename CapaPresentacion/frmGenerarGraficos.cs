@@ -12,9 +12,9 @@ using CapaNegocio;
 
 namespace CapaPresentacion
 {
-    public partial class graficoPaciente : Form
+    public partial class frmGenerarGraficos : Form
     {
-        public graficoPaciente()
+        public frmGenerarGraficos()
         {
             InitializeComponent();
         }
@@ -153,6 +153,30 @@ namespace CapaPresentacion
         private void btnImprimirGrafico_Click(object sender, EventArgs e)
         {
             //TO DO: añadir el codigo de importar PDF
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void graficoPaciente_Load(object sender, EventArgs e)
+        {
+            LblHora.Text = DateTime.Now.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LblHora.Text = DateTime.Now.ToString();
+        }
+
+        private void btnVerTodo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            frmControlEstadistico frm = new frmControlEstadistico();
+            frm.Show();
+
         }
     }
 }
