@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -122,6 +122,7 @@
             this.lblCantidadArchivosMuertos = new System.Windows.Forms.Label();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -190,7 +191,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1809, 79);
             this.panel1.TabIndex = 152;
@@ -230,7 +231,7 @@
             this.btnBuscarFecha.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscarFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarFecha.Location = new System.Drawing.Point(1064, 170);
-            this.btnBuscarFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarFecha.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarFecha.Name = "btnBuscarFecha";
             this.btnBuscarFecha.Size = new System.Drawing.Size(133, 46);
             this.btnBuscarFecha.TabIndex = 143;
@@ -247,7 +248,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(604, 170);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(133, 42);
             this.btnBuscar.TabIndex = 142;
@@ -340,7 +341,7 @@
             this.cmbTipoCedula.Enabled = false;
             this.cmbTipoCedula.FormattingEnabled = true;
             this.cmbTipoCedula.Location = new System.Drawing.Point(524, 228);
-            this.cmbTipoCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoCedula.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoCedula.Name = "cmbTipoCedula";
             this.cmbTipoCedula.Size = new System.Drawing.Size(65, 40);
             this.cmbTipoCedula.TabIndex = 14;
@@ -371,7 +372,7 @@
             // 
             this.dtpFechaBuscar2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.dtpFechaBuscar2.Location = new System.Drawing.Point(1227, 172);
-            this.dtpFechaBuscar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaBuscar2.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaBuscar2.Name = "dtpFechaBuscar2";
             this.dtpFechaBuscar2.Size = new System.Drawing.Size(277, 39);
             this.dtpFechaBuscar2.TabIndex = 11;
@@ -380,7 +381,7 @@
             // 
             this.dtpFechaBuscar1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.dtpFechaBuscar1.Location = new System.Drawing.Point(755, 171);
-            this.dtpFechaBuscar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaBuscar1.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaBuscar1.Name = "dtpFechaBuscar1";
             this.dtpFechaBuscar1.Size = new System.Drawing.Size(277, 39);
             this.dtpFechaBuscar1.TabIndex = 10;
@@ -397,7 +398,7 @@
             "Peso",
             "Talla"});
             this.cblBusqueda.Location = new System.Drawing.Point(215, 171);
-            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cblBusqueda.TabIndex = 9;
@@ -409,44 +410,44 @@
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
             this.dataListado.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(25, 353);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.RowHeadersWidth = 51;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1479, 383);
@@ -479,9 +480,9 @@
             // 
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 41);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1815, 938);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Historia Clínica";
@@ -489,6 +490,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnEditar);
@@ -526,9 +528,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.groupBox2.ForeColor = System.Drawing.Color.DarkCyan;
             this.groupBox2.Location = new System.Drawing.Point(27, 20);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1744, 882);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
@@ -541,7 +543,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(4, 36);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1736, 79);
             this.panel2.TabIndex = 153;
@@ -580,7 +582,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(1205, 566);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar.TabIndex = 145;
@@ -598,7 +600,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(1205, 472);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(188, 87);
             this.btnEditar.TabIndex = 144;
@@ -616,7 +618,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(1205, 299);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(188, 79);
             this.btnNuevo.TabIndex = 143;
@@ -634,7 +636,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(1205, 385);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(188, 79);
             this.btnGuardar.TabIndex = 142;
@@ -660,7 +662,7 @@
             "Activo",
             "Inactivo"});
             this.cmbEstadoHistoria.Location = new System.Drawing.Point(1223, 774);
-            this.cmbEstadoHistoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEstadoHistoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstadoHistoria.Name = "cmbEstadoHistoria";
             this.cmbEstadoHistoria.Size = new System.Drawing.Size(160, 40);
             this.cmbEstadoHistoria.TabIndex = 83;
@@ -841,7 +843,7 @@
             this.dtpFechaConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaConsulta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dtpFechaConsulta.Location = new System.Drawing.Point(315, 161);
-            this.dtpFechaConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaConsulta.Name = "dtpFechaConsulta";
             this.dtpFechaConsulta.Size = new System.Drawing.Size(297, 39);
             this.dtpFechaConsulta.TabIndex = 65;
@@ -959,7 +961,7 @@
             this.panel4.Controls.Add(this.label8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 2);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1809, 79);
             this.panel4.TabIndex = 153;
@@ -998,7 +1000,7 @@
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAnular.Location = new System.Drawing.Point(235, 222);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(164, 43);
             this.btnAnular.TabIndex = 144;
@@ -1012,45 +1014,45 @@
             this.datalistadohistorias.AllowUserToDeleteRows = false;
             this.datalistadohistorias.AllowUserToOrderColumns = true;
             this.datalistadohistorias.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.datalistadohistorias.ColumnHeadersHeight = 50;
             this.datalistadohistorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.datalistadohistorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle6;
             this.datalistadohistorias.GridColor = System.Drawing.Color.DarkCyan;
             this.datalistadohistorias.Location = new System.Drawing.Point(25, 299);
             this.datalistadohistorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datalistadohistorias.MultiSelect = false;
             this.datalistadohistorias.Name = "datalistadohistorias";
             this.datalistadohistorias.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.datalistadohistorias.RowHeadersWidth = 51;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.datalistadohistorias.RowTemplate.Height = 24;
             this.datalistadohistorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadohistorias.Size = new System.Drawing.Size(1741, 587);
@@ -1100,9 +1102,9 @@
             this.tabPage4.Controls.Add(this.datalistadoMuertos);
             this.tabPage4.Controls.Add(this.lblCantidadArchivosMuertos);
             this.tabPage4.Location = new System.Drawing.Point(4, 41);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(1815, 938);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Archivos Anulados (Muertos)";
@@ -1115,7 +1117,7 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(4, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1807, 79);
             this.panel5.TabIndex = 153;
@@ -1154,7 +1156,7 @@
             this.btnBuscarFechaMuertos.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscarFechaMuertos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarFechaMuertos.Location = new System.Drawing.Point(780, 255);
-            this.btnBuscarFechaMuertos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarFechaMuertos.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarFechaMuertos.Name = "btnBuscarFechaMuertos";
             this.btnBuscarFechaMuertos.Size = new System.Drawing.Size(164, 36);
             this.btnBuscarFechaMuertos.TabIndex = 144;
@@ -1165,7 +1167,7 @@
             // 
             this.dtpBuscarArchivoMuerto2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.dtpBuscarArchivoMuerto2.Location = new System.Drawing.Point(1027, 254);
-            this.dtpBuscarArchivoMuerto2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpBuscarArchivoMuerto2.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBuscarArchivoMuerto2.Name = "dtpBuscarArchivoMuerto2";
             this.dtpBuscarArchivoMuerto2.Size = new System.Drawing.Size(277, 39);
             this.dtpBuscarArchivoMuerto2.TabIndex = 32;
@@ -1174,7 +1176,7 @@
             // 
             this.dtpFechaBuscarMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.dtpFechaBuscarMuerto.Location = new System.Drawing.Point(425, 252);
-            this.dtpFechaBuscarMuerto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaBuscarMuerto.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaBuscarMuerto.Name = "dtpFechaBuscarMuerto";
             this.dtpFechaBuscarMuerto.Size = new System.Drawing.Size(277, 39);
             this.dtpFechaBuscarMuerto.TabIndex = 31;
@@ -1186,44 +1188,44 @@
             this.datalistadoMuertos.AllowUserToOrderColumns = true;
             this.datalistadoMuertos.BackgroundColor = System.Drawing.Color.White;
             this.datalistadoMuertos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoMuertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.datalistadoMuertos.ColumnHeadersHeight = 50;
             this.datalistadoMuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadoMuertos.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadoMuertos.DefaultCellStyle = dataGridViewCellStyle10;
             this.datalistadoMuertos.GridColor = System.Drawing.Color.DarkCyan;
             this.datalistadoMuertos.Location = new System.Drawing.Point(53, 346);
             this.datalistadoMuertos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datalistadoMuertos.MultiSelect = false;
             this.datalistadoMuertos.Name = "datalistadoMuertos";
             this.datalistadoMuertos.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoMuertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.datalistadoMuertos.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoMuertos.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoMuertos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.datalistadoMuertos.RowTemplate.Height = 24;
             this.datalistadoMuertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadoMuertos.Size = new System.Drawing.Size(1713, 516);
@@ -1244,6 +1246,19 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label2.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.label2.Location = new System.Drawing.Point(21, 163);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 32);
+            this.label2.TabIndex = 168;
+            this.label2.Text = "*";
+            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1252,7 +1267,7 @@
             this.ClientSize = new System.Drawing.Size(1942, 1102);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHistoria";
             this.Text = "frmHistoria";
             this.Load += new System.EventHandler(this.frmHistoria_Load);
@@ -1361,5 +1376,6 @@
         private System.Windows.Forms.Label lblCantidadArchivosMuertos;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -705,5 +705,15 @@ namespace CapaPresentacion
             graficoPaciente graficoPaciente = new graficoPaciente();
             graficoPaciente.Show();
         }
+
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label2, "Campo Obligatorio");
+        }
+
+        private void label12_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label12, "Campo Obligatorio");
+        }
     }
 }

@@ -71,7 +71,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(519, 60);
             this.label12.TabIndex = 7;
-            this.label12.Text = "Registro de Accesos";
+            this.label12.Text = "Historial de Operaciones del Sistema";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13

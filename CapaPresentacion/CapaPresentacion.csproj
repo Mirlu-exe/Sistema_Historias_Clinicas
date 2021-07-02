@@ -74,6 +74,12 @@
     <Compile Include="frmCitas.Designer.cs">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfigPreguntasSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigPreguntasSeguridad.Designer.cs">
+      <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiagnostico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigPreguntasSeguridad.resx">
+      <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnostico.resx">
       <DependentUpon>frmDiagnostico.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +312,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

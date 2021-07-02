@@ -15,9 +15,28 @@ namespace CapaPresentacion
     public partial class frmUsuarios : Form
     {
 
+
+        private static frmUsuarios _instancia;
+
+        public static frmUsuarios GetInstancia()
+        {
+            if (_instancia == null)
+            {
+                _instancia = new frmUsuarios();
+            }
+            return _instancia;
+        }
+
+
+
+
+
         private bool IsNuevo = false;
 
         private bool IsEditar = false;
+
+        private int id_del_usuario;
+
 
 
         public frmUsuarios()
@@ -39,6 +58,9 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+
+            this.btnPreguntasSeguridad.Enabled = false;
+
         }
 
 
@@ -462,6 +484,9 @@ namespace CapaPresentacion
             this.txtClave.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["password"].Value);
 
             this.cmbEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+
+            
+
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -650,6 +675,82 @@ namespace CapaPresentacion
 
         private void cblBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void label11_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label11, "Campo Obligatorio");
+        }
+
+        private void label14_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label14, "Campo Obligatorio");
+        }
+
+        private void label15_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label15, "Campo Obligatorio");
+        }
+
+        private void label16_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label16, "Campo Obligatorio");
+        }
+
+        private void label17_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label17, "Campo Obligatorio");
+        }
+
+        private void btnPreguntasSeguridad_Click(object sender, EventArgs e)
+        {
+
+            //aca le estoy pasando el valor de id_del_usuario, al form de preguntas de seguridad.
+            frmConfigPreguntasSeguridad id_del_usuario;
+
+            frmConfigPreguntasSeguridad frm = new frmConfigPreguntasSeguridad();
+
+           
+
+            frm.Show();
+
+
+        }
+
+        private void txtCodigoUsuario_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.txtCodigoUsuario.Text))  //en caso de que el codigo esté vacio
+            {
+
+                this.btnPreguntasSeguridad.Enabled = false;
+
+            }else if (this.txtCodigoUsuario.Text == "0") //en caso de que el id por alguna razon sea 0
+            {
+
+                this.btnPreguntasSeguridad.Enabled = false;
+
+            }
+            else //en caso de que tenga cualquier otro numero.
+            {
+                this.btnPreguntasSeguridad.Enabled = true;
+            }
+
+            
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.txtCodigoUsuario.Clear();
+            this.txtLogin.Clear();
+            this.txtNombreUsuario.Clear();
+            this.txtClave.Clear();
+            this.txtCargo.Clear();
+            this.txtEspecialidad.Clear();
+            this.cmbAcceso.SelectedIndex = -1;
+            this.cmbEstado.SelectedIndex = -1;
+
+
 
         }
     }

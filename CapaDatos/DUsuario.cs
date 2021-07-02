@@ -43,6 +43,8 @@ namespace CapaDatos
         private string _Estado;
 
 
+        private string _Resp1, _Resp2, _Resp3;
+
 
         private string _TextoBuscar;
 
@@ -106,7 +108,30 @@ namespace CapaDatos
             set { _TextoBuscar = value; }
         }
 
-          //Constructores
+
+
+        public string Resp1
+        {
+            get { return _Resp1; }
+            set { _Resp1 = value; }
+        }
+        public string Resp2
+        {
+            get { return _Resp2; }
+            set { _Resp2 = value; }
+        }
+        public string Resp3
+        {
+            get { return _Resp3; }
+            set { _Resp3 = value; }
+        }
+
+
+
+
+
+
+        //Constructores
         public DUsuario()
         {
 
@@ -554,6 +579,74 @@ namespace CapaDatos
             return DtResultado;
 
         }
+
+
+
+        //Método EditarRespSeguridad
+        public string EditarRespSeguridad(DUsuario Usuario)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speditar_usuario_respseguridad";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdusuario = new SqlParameter();
+                ParIdusuario.ParameterName = "@idusuario";
+                ParIdusuario.SqlDbType = SqlDbType.Int;
+                ParIdusuario.Value = Usuario.Idusuario;
+                SqlCmd.Parameters.Add(ParIdusuario);
+
+                SqlParameter ParR1 = new SqlParameter();
+                ParR1.ParameterName = "@r1";
+                ParR1.SqlDbType = SqlDbType.VarChar;
+                ParR1.Size = 50;
+                ParR1.Value = Usuario.Resp1;
+                SqlCmd.Parameters.Add(ParR1);
+
+                SqlParameter ParR2 = new SqlParameter();
+                ParR2.ParameterName = "@r2";
+                ParR2.SqlDbType = SqlDbType.VarChar;
+                ParR2.Size = 50;
+                ParR2.Value = Usuario.Resp2;
+                SqlCmd.Parameters.Add(ParR2);
+
+                SqlParameter ParR3 = new SqlParameter();
+                ParR3.ParameterName = "@r3";
+                ParR3.SqlDbType = SqlDbType.VarChar;
+                ParR3.Size = 50;
+                ParR3.Value = Usuario.Resp3;
+                SqlCmd.Parameters.Add(ParR3);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Actualizo las respuestas de seguridad";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }//fin funcion EditarRespSeguridad
+
+
+
+
+
 
 
 

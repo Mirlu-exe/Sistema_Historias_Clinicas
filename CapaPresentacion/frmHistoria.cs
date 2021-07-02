@@ -1038,6 +1038,9 @@ namespace CapaPresentacion
 
         }
 
-
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
+        }
     }
 }

@@ -26,13 +26,15 @@ namespace CapaPresentacion
             if (this.lblAcceso.Text == "Medico")
             {
                 this.btnPacientes.Enabled = true;
-                this.btnUsuarios.Enabled = true;
+                this.btnUsuarios.Enabled = false;
                 this.btnCitas.Enabled = true;
                 this.btnHistorias.Enabled = true;
                 this.btnServicios.Enabled = true;
                 this.btnDiagnosticos.Enabled = true;
                 this.btnRecetas.Enabled = true;
                 this.btnOperaciones.Enabled = true;
+                this.btnHerramientasAdmin.Enabled = false;
+                this.btnHerramientasAdmin.Hide();
 
             }
 
@@ -47,20 +49,13 @@ namespace CapaPresentacion
                 this.btnRecetas.Enabled = false;
                 this.btnPlanEstudios.Enabled = false;
                 this.btnOperaciones.Enabled = false;
-
+                this.btnHerramientasAdmin.Enabled = false;
+                this.btnHerramientasAdmin.Hide();
             }
 
 
-            else
+            if (this.lblAcceso.Text == "Administrador")
             {
-                /*this.btnPacientes.Enabled = true;
-                this.btnUsuarios.Enabled = false;
-                this.btnCitas.Enabled = true;
-                this.btnHistorias.Enabled = false;
-                this.btnServicios.Enabled = false;
-                this.btnDiagnosticos.Enabled = false;
-                this.btnRecetas.Enabled = false;
-                this.btnOperaciones.Enabled = false;*/
 
                 this.btnPacientes.Enabled = true;
                 this.btnUsuarios.Enabled = true;
@@ -70,6 +65,8 @@ namespace CapaPresentacion
                 this.btnDiagnosticos.Enabled = true;
                 this.btnRecetas.Enabled = true;
                 this.btnOperaciones.Enabled = true;
+                this.btnHerramientasAdmin.Enabled = true;
+                this.btnHerramientasAdmin.Show();
 
             }
         }
@@ -237,6 +234,16 @@ namespace CapaPresentacion
         private void lblAcceso_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConfigPersonal_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.btnConfigPersonal, "Configuración Personal");
+        }
+
+        private void btnHerramientasAdmin_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.btnHerramientasAdmin, "Herramientas de Administrador");
         }
     }
 }

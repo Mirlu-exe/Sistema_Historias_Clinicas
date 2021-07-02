@@ -586,15 +586,14 @@ namespace CapaPresentacion
 
 
 
+        private void lblCampoObligatorio_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.lblCampoObligatorio, "Campo Obligatorio");
+        }
 
-
-
-
-
-
-
-
-
-
+        private void label3_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
+        }
     }
 }

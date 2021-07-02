@@ -28,11 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblnombreusuario = new System.Windows.Forms.Label();
+            this.lblcodigoUsuario = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblAcceso = new System.Windows.Forms.Label();
+            this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.iconminimizar = new System.Windows.Forms.PictureBox();
+            this.iconrestaurar = new System.Windows.Forms.PictureBox();
+            this.iconmaximizar = new System.Windows.Forms.PictureBox();
+            this.iconcerrar = new System.Windows.Forms.PictureBox();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.btnHerramientasAdmin = new System.Windows.Forms.Button();
+            this.btnConfigPersonal = new System.Windows.Forms.Button();
             this.btnPlanEstudios = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnOperaciones = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnHistorias = new System.Windows.Forms.Button();
@@ -42,32 +56,24 @@
             this.btnCitas = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
-            this.lblnombreusuario = new System.Windows.Forms.Label();
-            this.lblcodigoUsuario = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblAcceso = new System.Windows.Forms.Label();
-            this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.iconminimizar = new System.Windows.Forms.PictureBox();
-            this.iconrestaurar = new System.Windows.Forms.PictureBox();
-            this.iconmaximizar = new System.Windows.Forms.PictureBox();
-            this.iconcerrar = new System.Windows.Forms.PictureBox();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.MenuVertical.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
+            this.MenuVertical.Controls.Add(this.btnConfigPersonal);
             this.MenuVertical.Controls.Add(this.btnPlanEstudios);
             this.MenuVertical.Controls.Add(this.pictureBox1);
             this.MenuVertical.Controls.Add(this.label3);
@@ -91,6 +97,201 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(333, 938);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(4, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(417, 95);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Crystal Clear";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblnombreusuario
+            // 
+            this.lblnombreusuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblnombreusuario.AutoSize = true;
+            this.lblnombreusuario.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lblnombreusuario.ForeColor = System.Drawing.Color.White;
+            this.lblnombreusuario.Location = new System.Drawing.Point(123, 816);
+            this.lblnombreusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblnombreusuario.Name = "lblnombreusuario";
+            this.lblnombreusuario.Size = new System.Drawing.Size(98, 32);
+            this.lblnombreusuario.TabIndex = 21;
+            this.lblnombreusuario.Text = "Nombre";
+            // 
+            // lblcodigoUsuario
+            // 
+            this.lblcodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblcodigoUsuario.AutoSize = true;
+            this.lblcodigoUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcodigoUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblcodigoUsuario.Location = new System.Drawing.Point(126, 795);
+            this.lblcodigoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblcodigoUsuario.Name = "lblcodigoUsuario";
+            this.lblcodigoUsuario.Size = new System.Drawing.Size(127, 21);
+            this.lblcodigoUsuario.TabIndex = 20;
+            this.lblcodigoUsuario.Text = "codigousuario";
+            this.lblcodigoUsuario.Visible = false;
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
+            this.lblLogin.Location = new System.Drawing.Point(123, 887);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(91, 32);
+            this.lblLogin.TabIndex = 16;
+            this.lblLogin.Text = "Usuario";
+            // 
+            // lblAcceso
+            // 
+            this.lblAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAcceso.AutoSize = true;
+            this.lblAcceso.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lblAcceso.ForeColor = System.Drawing.Color.White;
+            this.lblAcceso.Location = new System.Drawing.Point(124, 848);
+            this.lblAcceso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAcceso.Name = "lblAcceso";
+            this.lblAcceso.Size = new System.Drawing.Size(86, 32);
+            this.lblAcceso.TabIndex = 14;
+            this.lblAcceso.Text = "Acceso";
+            this.lblAcceso.Click += new System.EventHandler(this.lblAcceso_Click);
+            // 
+            // BarraTitulo
+            // 
+            this.BarraTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BarraTitulo.Controls.Add(this.iconminimizar);
+            this.BarraTitulo.Controls.Add(this.iconrestaurar);
+            this.BarraTitulo.Controls.Add(this.iconmaximizar);
+            this.BarraTitulo.Controls.Add(this.iconcerrar);
+            this.BarraTitulo.Controls.Add(this.btnMenu);
+            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BarraTitulo.Location = new System.Drawing.Point(333, 0);
+            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.BarraTitulo.Name = "BarraTitulo";
+            this.BarraTitulo.Size = new System.Drawing.Size(1609, 55);
+            this.BarraTitulo.TabIndex = 1;
+            this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(333, 55);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1609, 883);
+            this.panelContenedor.TabIndex = 2;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
+            // 
+            // iconminimizar
+            // 
+            this.iconminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconminimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconminimizar.Image")));
+            this.iconminimizar.Location = new System.Drawing.Point(1501, 6);
+            this.iconminimizar.Margin = new System.Windows.Forms.Padding(4);
+            this.iconminimizar.Name = "iconminimizar";
+            this.iconminimizar.Size = new System.Drawing.Size(24, 22);
+            this.iconminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconminimizar.TabIndex = 4;
+            this.iconminimizar.TabStop = false;
+            this.iconminimizar.Click += new System.EventHandler(this.iconminimizar_Click);
+            // 
+            // iconrestaurar
+            // 
+            this.iconrestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconrestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconrestaurar.Enabled = false;
+            this.iconrestaurar.Image = ((System.Drawing.Image)(resources.GetObject("iconrestaurar.Image")));
+            this.iconrestaurar.Location = new System.Drawing.Point(1536, 7);
+            this.iconrestaurar.Margin = new System.Windows.Forms.Padding(4);
+            this.iconrestaurar.Name = "iconrestaurar";
+            this.iconrestaurar.Size = new System.Drawing.Size(24, 22);
+            this.iconrestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconrestaurar.TabIndex = 3;
+            this.iconrestaurar.TabStop = false;
+            this.iconrestaurar.Visible = false;
+            this.iconrestaurar.Click += new System.EventHandler(this.iconrestaurar_Click);
+            // 
+            // iconmaximizar
+            // 
+            this.iconmaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconmaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconmaximizar.Image = ((System.Drawing.Image)(resources.GetObject("iconmaximizar.Image")));
+            this.iconmaximizar.Location = new System.Drawing.Point(1536, 6);
+            this.iconmaximizar.Margin = new System.Windows.Forms.Padding(4);
+            this.iconmaximizar.Name = "iconmaximizar";
+            this.iconmaximizar.Size = new System.Drawing.Size(24, 22);
+            this.iconmaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconmaximizar.TabIndex = 2;
+            this.iconmaximizar.TabStop = false;
+            this.iconmaximizar.Click += new System.EventHandler(this.iconmaximizar_Click);
+            // 
+            // iconcerrar
+            // 
+            this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
+            this.iconcerrar.Location = new System.Drawing.Point(1571, 6);
+            this.iconcerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.iconcerrar.Name = "iconcerrar";
+            this.iconcerrar.Size = new System.Drawing.Size(24, 22);
+            this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconcerrar.TabIndex = 1;
+            this.iconcerrar.TabStop = false;
+            this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.Location = new System.Drawing.Point(11, 7);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(47, 43);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnHerramientasAdmin
+            // 
+            this.btnHerramientasAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHerramientasAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnHerramientasAdmin.BackgroundImage = global::CapaPresentacion.Properties.Resources.tools;
+            this.btnHerramientasAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHerramientasAdmin.FlatAppearance.BorderSize = 0;
+            this.btnHerramientasAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHerramientasAdmin.Location = new System.Drawing.Point(44, 893);
+            this.btnHerramientasAdmin.Name = "btnHerramientasAdmin";
+            this.btnHerramientasAdmin.Size = new System.Drawing.Size(34, 29);
+            this.btnHerramientasAdmin.TabIndex = 36;
+            this.btnHerramientasAdmin.UseVisualStyleBackColor = false;
+            this.btnHerramientasAdmin.MouseHover += new System.EventHandler(this.btnHerramientasAdmin_MouseHover);
+            // 
+            // btnConfigPersonal
+            // 
+            this.btnConfigPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnConfigPersonal.BackColor = System.Drawing.Color.Transparent;
+            this.btnConfigPersonal.BackgroundImage = global::CapaPresentacion.Properties.Resources.settings;
+            this.btnConfigPersonal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnConfigPersonal.FlatAppearance.BorderSize = 0;
+            this.btnConfigPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfigPersonal.Location = new System.Drawing.Point(4, 893);
+            this.btnConfigPersonal.Name = "btnConfigPersonal";
+            this.btnConfigPersonal.Size = new System.Drawing.Size(34, 29);
+            this.btnConfigPersonal.TabIndex = 35;
+            this.btnConfigPersonal.UseVisualStyleBackColor = false;
+            this.btnConfigPersonal.MouseHover += new System.EventHandler(this.btnConfigPersonal_MouseHover);
             // 
             // btnPlanEstudios
             // 
@@ -121,19 +322,6 @@
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(4, 31);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(417, 95);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Crystal Clear";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnOperaciones
             // 
             this.btnOperaciones.FlatAppearance.BorderSize = 0;
@@ -148,7 +336,7 @@
             this.btnOperaciones.Name = "btnOperaciones";
             this.btnOperaciones.Size = new System.Drawing.Size(333, 49);
             this.btnOperaciones.TabIndex = 8;
-            this.btnOperaciones.Text = "Operaciones";
+            this.btnOperaciones.Text = "Historial Op.";
             this.btnOperaciones.UseVisualStyleBackColor = true;
             this.btnOperaciones.Click += new System.EventHandler(this.btnOperaciones_Click);
             // 
@@ -296,51 +484,11 @@
             this.btnPacientes.UseVisualStyleBackColor = true;
             this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
-            // lblnombreusuario
-            // 
-            this.lblnombreusuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblnombreusuario.AutoSize = true;
-            this.lblnombreusuario.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblnombreusuario.ForeColor = System.Drawing.Color.White;
-            this.lblnombreusuario.Location = new System.Drawing.Point(123, 816);
-            this.lblnombreusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblnombreusuario.Name = "lblnombreusuario";
-            this.lblnombreusuario.Size = new System.Drawing.Size(98, 32);
-            this.lblnombreusuario.TabIndex = 21;
-            this.lblnombreusuario.Text = "Nombre";
-            // 
-            // lblcodigoUsuario
-            // 
-            this.lblcodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblcodigoUsuario.AutoSize = true;
-            this.lblcodigoUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcodigoUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblcodigoUsuario.Location = new System.Drawing.Point(126, 795);
-            this.lblcodigoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblcodigoUsuario.Name = "lblcodigoUsuario";
-            this.lblcodigoUsuario.Size = new System.Drawing.Size(127, 21);
-            this.lblcodigoUsuario.TabIndex = 20;
-            this.lblcodigoUsuario.Text = "codigousuario";
-            this.lblcodigoUsuario.Visible = false;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(123, 887);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(91, 32);
-            this.lblLogin.TabIndex = 16;
-            this.lblLogin.Text = "Usuario";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 816);
+            this.pictureBox2.Location = new System.Drawing.Point(4, 795);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(95, 91);
@@ -348,117 +496,9 @@
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
-            // lblAcceso
+            // ttMensaje
             // 
-            this.lblAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAcceso.AutoSize = true;
-            this.lblAcceso.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblAcceso.ForeColor = System.Drawing.Color.White;
-            this.lblAcceso.Location = new System.Drawing.Point(123, 851);
-            this.lblAcceso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAcceso.Name = "lblAcceso";
-            this.lblAcceso.Size = new System.Drawing.Size(76, 32);
-            this.lblAcceso.TabIndex = 14;
-            this.lblAcceso.Text = "Cargo";
-            this.lblAcceso.Click += new System.EventHandler(this.lblAcceso_Click);
-            // 
-            // BarraTitulo
-            // 
-            this.BarraTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BarraTitulo.Controls.Add(this.iconminimizar);
-            this.BarraTitulo.Controls.Add(this.iconrestaurar);
-            this.BarraTitulo.Controls.Add(this.iconmaximizar);
-            this.BarraTitulo.Controls.Add(this.iconcerrar);
-            this.BarraTitulo.Controls.Add(this.btnMenu);
-            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(333, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
-            this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1609, 55);
-            this.BarraTitulo.TabIndex = 1;
-            this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
-            // 
-            // iconminimizar
-            // 
-            this.iconminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconminimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconminimizar.Image")));
-            this.iconminimizar.Location = new System.Drawing.Point(1501, 6);
-            this.iconminimizar.Margin = new System.Windows.Forms.Padding(4);
-            this.iconminimizar.Name = "iconminimizar";
-            this.iconminimizar.Size = new System.Drawing.Size(24, 22);
-            this.iconminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconminimizar.TabIndex = 4;
-            this.iconminimizar.TabStop = false;
-            this.iconminimizar.Click += new System.EventHandler(this.iconminimizar_Click);
-            // 
-            // iconrestaurar
-            // 
-            this.iconrestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconrestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconrestaurar.Enabled = false;
-            this.iconrestaurar.Image = ((System.Drawing.Image)(resources.GetObject("iconrestaurar.Image")));
-            this.iconrestaurar.Location = new System.Drawing.Point(1536, 7);
-            this.iconrestaurar.Margin = new System.Windows.Forms.Padding(4);
-            this.iconrestaurar.Name = "iconrestaurar";
-            this.iconrestaurar.Size = new System.Drawing.Size(24, 22);
-            this.iconrestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconrestaurar.TabIndex = 3;
-            this.iconrestaurar.TabStop = false;
-            this.iconrestaurar.Visible = false;
-            this.iconrestaurar.Click += new System.EventHandler(this.iconrestaurar_Click);
-            // 
-            // iconmaximizar
-            // 
-            this.iconmaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconmaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconmaximizar.Image = ((System.Drawing.Image)(resources.GetObject("iconmaximizar.Image")));
-            this.iconmaximizar.Location = new System.Drawing.Point(1536, 6);
-            this.iconmaximizar.Margin = new System.Windows.Forms.Padding(4);
-            this.iconmaximizar.Name = "iconmaximizar";
-            this.iconmaximizar.Size = new System.Drawing.Size(24, 22);
-            this.iconmaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconmaximizar.TabIndex = 2;
-            this.iconmaximizar.TabStop = false;
-            this.iconmaximizar.Click += new System.EventHandler(this.iconmaximizar_Click);
-            // 
-            // iconcerrar
-            // 
-            this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
-            this.iconcerrar.Location = new System.Drawing.Point(1571, 6);
-            this.iconcerrar.Margin = new System.Windows.Forms.Padding(4);
-            this.iconcerrar.Name = "iconcerrar";
-            this.iconcerrar.Size = new System.Drawing.Size(24, 22);
-            this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconcerrar.TabIndex = 1;
-            this.iconcerrar.TabStop = false;
-            this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.Location = new System.Drawing.Point(11, 7);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(47, 43);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(333, 55);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1609, 883);
-            this.panelContenedor.TabIndex = 2;
-            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
+            this.ttMensaje.IsBalloon = true;
             // 
             // frmPrincipal
             // 
@@ -475,14 +515,14 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.MenuVertical.ResumeLayout(false);
             this.MenuVertical.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -514,5 +554,8 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnPlanEstudios;
+        private System.Windows.Forms.Button btnConfigPersonal;
+        private System.Windows.Forms.Button btnHerramientasAdmin;
+        private System.Windows.Forms.ToolTip ttMensaje;
     }
 }

@@ -112,6 +112,15 @@ namespace CapaNegocio
             return Obj.BuscarAcceso(Obj);
         }
 
+        public static string EditarRespSeguridad(int idusuario, string resp1, string resp2, string resp3)
+        {
+            DUsuario Obj = new DUsuario();
+            Obj.Idusuario = idusuario;
+            Obj.Resp1 = resp1;
+            Obj.Resp2 = resp2;
+            Obj.Resp3 = resp3;
+            return Obj.EditarRespSeguridad(Obj);
+        }
 
     }
 }
