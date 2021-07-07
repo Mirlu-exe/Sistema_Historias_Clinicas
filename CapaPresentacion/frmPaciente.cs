@@ -136,7 +136,7 @@ namespace CapaPresentacion
         {
 
             this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[1].Visible = false;
 
         }
 
@@ -522,7 +522,7 @@ namespace CapaPresentacion
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un nuevo paciente. ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un paciente ");
 
 
 
@@ -706,14 +706,15 @@ namespace CapaPresentacion
             graficoPaciente.Show();
         }
 
-        private void label2_MouseHover(object sender, EventArgs e)
-        {
-            this.ttMensaje.SetToolTip(this.label2, "Campo Obligatorio");
-        }
 
         private void label12_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.label12, "Campo Obligatorio");
+        }
+
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label2, "Campo Obligatorio");
         }
     }
 }

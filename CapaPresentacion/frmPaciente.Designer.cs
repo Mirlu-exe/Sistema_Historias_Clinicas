@@ -79,8 +79,8 @@
             this.cblEstado_Civil = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnGrafica = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -393,7 +393,7 @@
             this.cblEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cblEstado.Location = new System.Drawing.Point(1206, 102);
+            this.cblEstado.Location = new System.Drawing.Point(1175, 170);
             this.cblEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cblEstado.Name = "cblEstado";
             this.cblEstado.Size = new System.Drawing.Size(87, 24);
@@ -409,13 +409,14 @@
             this.label3.Size = new System.Drawing.Size(92, 32);
             this.label3.TabIndex = 156;
             this.label3.Text = "Código:";
+            this.label3.Visible = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label17.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label17.Location = new System.Drawing.Point(1119, 94);
+            this.label17.Location = new System.Drawing.Point(1026, 170);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 32);
             this.label17.TabIndex = 183;
@@ -455,13 +456,13 @@
             // 
             // txtIdpaciente
             // 
-            this.txtIdpaciente.BackColor = System.Drawing.SystemColors.Control;
-            this.txtIdpaciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdpaciente.BackColor = System.Drawing.Color.White;
+            this.txtIdpaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdpaciente.Enabled = false;
             this.txtIdpaciente.Location = new System.Drawing.Point(220, 181);
             this.txtIdpaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdpaciente.Name = "txtIdpaciente";
-            this.txtIdpaciente.Size = new System.Drawing.Size(67, 22);
+            this.txtIdpaciente.Size = new System.Drawing.Size(67, 15);
             this.txtIdpaciente.TabIndex = 159;
             // 
             // txtPeso
@@ -674,19 +675,6 @@
             this.btnGrafica.UseVisualStyleBackColor = false;
             this.btnGrafica.Click += new System.EventHandler(this.btnGrafica_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label2.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.label2.Location = new System.Drawing.Point(91, 176);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 32);
-            this.label2.TabIndex = 200;
-            this.label2.Text = "*";
-            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -700,14 +688,27 @@
             this.label12.Text = "*";
             this.label12.MouseHover += new System.EventHandler(this.label12_MouseHover);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label2.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.label2.Location = new System.Drawing.Point(91, 280);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 32);
+            this.label2.TabIndex = 202;
+            this.label2.Text = "*";
+            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
+            // 
             // frmPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1475, 873);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnGrafica);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnNuevo);

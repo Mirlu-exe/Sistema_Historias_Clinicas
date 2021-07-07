@@ -48,7 +48,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(318, 39);
-            this.txtPassword.TabIndex = 146;
+            this.txtPassword.TabIndex = 0;
             // 
             // label9
             // 
@@ -70,7 +70,7 @@
             this.btnGenerarContrasena.Location = new System.Drawing.Point(305, 423);
             this.btnGenerarContrasena.Name = "btnGenerarContrasena";
             this.btnGenerarContrasena.Size = new System.Drawing.Size(318, 44);
-            this.btnGenerarContrasena.TabIndex = 147;
+            this.btnGenerarContrasena.TabIndex = 2;
             this.btnGenerarContrasena.Text = "Guardar nueva contraseña";
             this.btnGenerarContrasena.UseVisualStyleBackColor = false;
             this.btnGenerarContrasena.Click += new System.EventHandler(this.btnGenerarContrasena_Click);
@@ -87,7 +87,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(318, 39);
-            this.txtConfirmPassword.TabIndex = 149;
+            this.txtConfirmPassword.TabIndex = 1;
             // 
             // label1
             // 

@@ -8,12 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
+using CapaDatos;
 using CapaNegocio;
+using Utilidades;
 
 namespace CapaPresentacion
 {
     public partial class frmUsuarios : Form
     {
+
+
+        private int id_de_coincidencia;
+        //aqui se le da el valor del id del usuario actual.
+        public static DUsuario usuarioRespuestas = new DUsuario();
+
+        
 
 
         private static frmUsuarios _instancia;
@@ -31,11 +41,13 @@ namespace CapaPresentacion
 
 
 
+
+
         private bool IsNuevo = false;
 
         private bool IsEditar = false;
 
-        private int id_del_usuario;
+        private int id_selected_user;
 
 
 
@@ -60,6 +72,8 @@ namespace CapaPresentacion
             this.Botones();
 
             this.btnPreguntasSeguridad.Enabled = false;
+
+            OcultarColumnas();
 
         }
 
@@ -142,7 +156,10 @@ namespace CapaPresentacion
         {
 
             this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+
+            this.dataListado.Columns["idusuario"].Visible = false;
+            this.dataListado.Columns["password"].Visible = false;
+            this.dataListado.Columns["salt"].Visible = false;
 
         }
 
@@ -219,6 +236,15 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            if (this.txtClave.TextLength < 8)
+            {
+                MessageBox.Show("Contraseña muy corta, por motivos de seguridad debe tener minimo 8 caracteres");
+                this.txtClave.Clear();
+                this.txtClave.Focus();
+            }
+
+
             try
             {
                 string rpta = "";
@@ -247,10 +273,19 @@ namespace CapaPresentacion
                         if (this.IsNuevo)
                         {
 
+                            string pswd_plain;
+                            string pswd_encrypt;
+                            string pswd_salt;
+
+                            pswd_plain = this.txtClave.Text.Trim();
+
+                            HashWithSaltResult hashWithSaltResult = SHA256Implementation.CreateEncriptHashWithSalt(pswd_plain, DateTime.Now.ToString());
+                            pswd_encrypt = hashWithSaltResult.Digest;
+                            pswd_salt = hashWithSaltResult.Salt;
 
                             rpta = NUsuario.Insertar(this.txtNombreUsuario.Text.Trim().ToUpper(),
                             this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                            this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), this.txtClave.Text.Trim().ToUpper(), this.cmbEstado.Text);
+                            this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
 
 
@@ -295,11 +330,19 @@ namespace CapaPresentacion
                     else
                     {
 
+                        string pswd_plain;
+                        string pswd_encrypt;
+                        string pswd_salt;
 
+                        pswd_plain = this.txtClave.Text.Trim();
+
+                        HashWithSaltResult hashWithSaltResult = SHA256Implementation.CreateEncriptHashWithSalt(pswd_plain, DateTime.Now.ToString());
+                        pswd_encrypt = hashWithSaltResult.Digest;
+                        pswd_salt = hashWithSaltResult.Salt;
 
                         rpta = NUsuario.Editar(Convert.ToInt32(this.txtCodigoUsuario.Text), this.txtNombreUsuario.Text.Trim().ToUpper(),
                          this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                         this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), this.txtClave.Text.Trim().ToUpper(), this.cmbEstado.Text);
+                         this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
                         
 
@@ -706,14 +749,28 @@ namespace CapaPresentacion
         private void btnPreguntasSeguridad_Click(object sender, EventArgs e)
         {
 
-            //aca le estoy pasando el valor de id_del_usuario, al form de preguntas de seguridad.
-            frmConfigPreguntasSeguridad id_del_usuario;
 
-            frmConfigPreguntasSeguridad frm = new frmConfigPreguntasSeguridad();
+            if ( string.IsNullOrEmpty(this.txtCodigoUsuario.Text) ) //se verifica que contenga datos
+            {
 
-           
+                MessageBox.Show("Select a user!");
 
-            frm.Show();
+
+
+
+            }
+            else
+            {
+
+                //aca le estoy pasando el valor de id_del_usuario, al form de preguntas de seguridad.
+                usuarioRespuestas.Idusuario = id_selected_user;
+
+
+                frmConfigPreguntasSeguridad frm_preguntasseguridad = new frmConfigPreguntasSeguridad();
+
+                frm_preguntasseguridad.Show();
+            }
+
 
 
         }
@@ -733,6 +790,7 @@ namespace CapaPresentacion
             }
             else //en caso de que tenga cualquier otro numero.
             {
+                id_selected_user = Convert.ToInt32(this.txtCodigoUsuario.Text);
                 this.btnPreguntasSeguridad.Enabled = true;
             }
 
@@ -751,6 +809,22 @@ namespace CapaPresentacion
             this.cmbEstado.SelectedIndex = -1;
 
 
+
+        }
+
+        private void txtCodigoUsuario_Leave(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void txtClave_Leave(object sender, EventArgs e)
+        {
+            if (this.txtClave.TextLength < 8)
+            {
+                MessageBox.Show("Contraseña muy corta, por motivos de seguridad debe tener minimo 8 caracteres");
+                this.txtClave.Clear();
+                this.txtClave.Focus();
+            }
 
         }
     }

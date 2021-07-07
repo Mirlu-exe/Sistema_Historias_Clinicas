@@ -254,5 +254,20 @@ namespace CapaPresentacion
         {
             AbrirFormEnPanel(new frmControlEstadistico());
         }
+
+        private void btnHerramientasAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://drive.google.com/drive/u/0/folders/1G8cinwenhFmeDiVYBdMFqnaH8gbcohUK");
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.btnHerramientasAdmin, "Ayuda");
+        }
     }
 }

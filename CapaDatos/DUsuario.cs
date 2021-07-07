@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace CapaDatos
 {
-    public class DUsuario
+    public partial class DUsuario
     {
         //Variables
         private int _Idusuario;
@@ -41,6 +41,8 @@ namespace CapaDatos
 
 
         private string _Estado;
+
+        private string _Salt;
 
 
         private string _Resp1, _Resp2, _Resp3;
@@ -102,6 +104,12 @@ namespace CapaDatos
             set { _Estado = value; }
         }
 
+        public string Salt
+        {
+            get { return _Salt; }
+            set { _Salt = value; }
+        }
+
         public string TextoBuscar
         {
             get { return _TextoBuscar; }
@@ -138,7 +146,7 @@ namespace CapaDatos
         }
 
         public DUsuario(int idusuario,string nombre, string cargo, string especialidad, string acceso,
-            string log,string password,string estado, string textobuscar)
+            string log,string password,string estado, string textobuscar, string salt)
         {
             this.Idusuario = idusuario;
             this.Nombre=nombre;
@@ -148,6 +156,7 @@ namespace CapaDatos
             this.Log = log;
             this.Password = password;
             this.Estado = estado;
+            this.Salt = salt;
             this.TextoBuscar = textobuscar;
             
            
@@ -226,7 +235,13 @@ namespace CapaDatos
                 ParEstado.Value = Usuario.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 
-              
+                SqlParameter ParSalt = new SqlParameter();
+                ParSalt.ParameterName = "@salt";
+                ParSalt.SqlDbType = SqlDbType.VarChar;
+                ParSalt.Size = 256;
+                ParSalt.Value = Usuario.Salt;
+                SqlCmd.Parameters.Add(ParSalt);
+
 
 
                 //Ejecutamos nuestro comando
@@ -317,6 +332,13 @@ namespace CapaDatos
                 ParEstado.Size = 50;
                 ParEstado.Value = Usuario.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
+
+                SqlParameter ParSalt = new SqlParameter();
+                ParSalt.ParameterName = "@salt";
+                ParSalt.SqlDbType = SqlDbType.VarChar;
+                ParSalt.Size = 256;
+                ParSalt.Value = Usuario.Salt;
+                SqlCmd.Parameters.Add(ParSalt);
 
 
                 //Ejecutamos nuestro comando

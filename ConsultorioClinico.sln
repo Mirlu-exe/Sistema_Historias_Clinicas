@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioClinico", "ConsultorioClinico\ConsultorioClinico.csproj", "{589A9A5E-7A75-46FE-AD95-2C22325326D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{5058C240-942A-4142-9D38-E45B6D7DBE3F}"
@@ -8,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "CapaNegocio\CapaNegocio.csproj", "{467EAF10-FD8F-44A3-BF46-F7C6F59E6961}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaPresentacion", "CapaPresentacion\CapaPresentacion.csproj", "{CA956829-53B9-404A-ADAB-F1D8F95C85A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "Utilidades\Utilidades.csproj", "{0B2DB4D5-C495-483C-8D92-060A3B7C5929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,8 +35,15 @@ Global
 		{CA956829-53B9-404A-ADAB-F1D8F95C85A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA956829-53B9-404A-ADAB-F1D8F95C85A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA956829-53B9-404A-ADAB-F1D8F95C85A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B2DB4D5-C495-483C-8D92-060A3B7C5929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2DB4D5-C495-483C-8D92-060A3B7C5929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2DB4D5-C495-483C-8D92-060A3B7C5929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2DB4D5-C495-483C-8D92-060A3B7C5929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23F108E1-F3B5-4EC8-9E06-D98DE5946B8A}
 	EndGlobalSection
 EndGlobal

@@ -31,6 +31,14 @@ namespace CapaPresentacion
             //this.Mostrar();
             this.Habilitar();
             this.Botones();
+
+            lblFechaHora.Text = DateTime.Now.ToString();
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFechaHora.Text = DateTime.Now.ToString();
         }
 
 
@@ -59,6 +67,7 @@ namespace CapaPresentacion
         {
             this.rbPaciente.Enabled = true;
             this.rbHistoriaMedica.Enabled = true;
+            this.rbUsuarios.Enabled = true;
             this.cbCampo.Enabled = true;
             this.lblFechaHora.Enabled = true;
 
@@ -69,6 +78,7 @@ namespace CapaPresentacion
         {
             this.rbPaciente.Enabled = false;
             this.rbHistoriaMedica.Enabled = false;
+            this.rbUsuarios.Enabled = false;
             this.cbCampo.Enabled = false;
             this.lblFechaHora.Enabled = false;
 
@@ -90,8 +100,13 @@ namespace CapaPresentacion
                 MessageBox.Show("se mostrará la bd de pacientes");
                 //this.dataListado.DataSource = NControlEstadistico.Mostrar_Graficos_HistoriasMedicas();
             }
+            else if (this.rbUsuarios.Checked)
+            {
+                MessageBox.Show("se mostrará la bd de usuarios");
+                //this.dataListado.DataSource = NControlEstadistico.Mostrar_Graficos_Usuarios();
+            }
 
-            
+
 
 
 
@@ -103,9 +118,65 @@ namespace CapaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Habilitar();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            //guardar grafico
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Deshabilitar();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            rbHistoriaMedica.Checked = false;
+            rbPaciente.Checked = false;
+            rbUsuarios.Checked = false;
+
+            cbCampo.SelectedIndex = -1;
+
+            cblBusqueda.SelectedIndex = 0;
+            this.txtBuscar.Clear();
+
 
         }
 
+        private void rbPaciente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPaciente.Checked)
+            {
+                //cargar los campos
+                //Edad, Sexo, Estado Civil 
+                //en el cbCampo
+            }
+        }
 
+        private void rbHistoriaMedica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbHistoriaMedica.Checked)
+            {
+                //cargar los campos
+                //Diagnosticos, Tipo de Sangre, Razon consulta
+                //en el cbCampo
+            }
+        }
+
+        private void rbUsuarios_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbUsuarios.Checked)
+            {
+                //cargar los campos
+                //calcular la cantidad de Pacientes registrados por Asistente
+                //calcular la cantidad de Citas registradas por Asistentes
+                //calcular la cantidad de dinero que ha ganado cada Asistente por dia
+                //calcular la cantidad de dinero que ha ganado cada Asistente por mes
+                //calcular la cantidad de dinero que ha ganado cada Asistente por año
+                //en el cbCampo
+            }
+        }
     }
 }

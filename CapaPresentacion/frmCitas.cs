@@ -42,9 +42,24 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
             this.montoTotalCitas();
+
+            OcultarColumnas();
+ 
+
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnas()
+        {
 
+            this.dataListado.Columns[0].Visible = false;
+            this.dataListado.Columns[1].Visible = false;
+
+            this.dataListado.Columns["idusuario"].Visible = false;
+            this.dataListado.Columns["idpaciente"].Visible = false;
+            this.dataListado.Columns["idservicio"].Visible = false;
+
+        }
 
         public void cargarCodigoUsuario()
         {
@@ -278,15 +293,6 @@ namespace CapaPresentacion
 
         }
 
-
-        //Método para ocultar columnas
-        private void OcultarColumnas()
-        {
-
-            this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
-
-        }
 
 
         //Método Mostrar

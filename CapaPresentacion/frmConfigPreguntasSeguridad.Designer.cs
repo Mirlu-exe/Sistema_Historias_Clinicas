@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnLimpiarPreguntas = new System.Windows.Forms.Button();
-            this.btnConfirmarPreguntas = new System.Windows.Forms.Button();
+            this.btnIngresarRespuestas = new System.Windows.Forms.Button();
             this.txtMascota = new System.Windows.Forms.TextBox();
             this.txtAbuela = new System.Windows.Forms.TextBox();
             this.txtLibro = new System.Windows.Forms.TextBox();
@@ -149,20 +149,20 @@
             this.btnLimpiarPreguntas.UseVisualStyleBackColor = false;
             this.btnLimpiarPreguntas.Click += new System.EventHandler(this.btnLimpiarPreguntas_Click);
             // 
-            // btnConfirmarPreguntas
+            // btnIngresarRespuestas
             // 
-            this.btnConfirmarPreguntas.BackColor = System.Drawing.SystemColors.Control;
-            this.btnConfirmarPreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmarPreguntas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmarPreguntas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnConfirmarPreguntas.Location = new System.Drawing.Point(504, 402);
-            this.btnConfirmarPreguntas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConfirmarPreguntas.Name = "btnConfirmarPreguntas";
-            this.btnConfirmarPreguntas.Size = new System.Drawing.Size(129, 28);
-            this.btnConfirmarPreguntas.TabIndex = 53;
-            this.btnConfirmarPreguntas.Text = "Continuar";
-            this.btnConfirmarPreguntas.UseVisualStyleBackColor = false;
-            this.btnConfirmarPreguntas.Click += new System.EventHandler(this.btnConfirmarPreguntas_Click);
+            this.btnIngresarRespuestas.BackColor = System.Drawing.SystemColors.Control;
+            this.btnIngresarRespuestas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresarRespuestas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresarRespuestas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnIngresarRespuestas.Location = new System.Drawing.Point(504, 402);
+            this.btnIngresarRespuestas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIngresarRespuestas.Name = "btnIngresarRespuestas";
+            this.btnIngresarRespuestas.Size = new System.Drawing.Size(129, 28);
+            this.btnIngresarRespuestas.TabIndex = 53;
+            this.btnIngresarRespuestas.Text = "Continuar";
+            this.btnIngresarRespuestas.UseVisualStyleBackColor = false;
+            this.btnIngresarRespuestas.Click += new System.EventHandler(this.btnIngresarRespuestas_Click);
             // 
             // txtMascota
             // 
@@ -254,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 518);
+            this.ClientSize = new System.Drawing.Size(1082, 518);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -263,7 +263,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnLimpiarPreguntas);
-            this.Controls.Add(this.btnConfirmarPreguntas);
+            this.Controls.Add(this.btnIngresarRespuestas);
             this.Controls.Add(this.txtMascota);
             this.Controls.Add(this.txtAbuela);
             this.Controls.Add(this.txtLibro);
@@ -274,6 +274,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmConfigPreguntasSeguridad";
             this.Text = "frmConfigPreguntasSeguridad";
+            this.Load += new System.EventHandler(this.frmConfigPreguntasSeguridad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,7 +290,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnLimpiarPreguntas;
-        private System.Windows.Forms.Button btnConfirmarPreguntas;
+        private System.Windows.Forms.Button btnIngresarRespuestas;
         private System.Windows.Forms.TextBox txtMascota;
         private System.Windows.Forms.TextBox txtAbuela;
         private System.Windows.Forms.TextBox txtLibro;

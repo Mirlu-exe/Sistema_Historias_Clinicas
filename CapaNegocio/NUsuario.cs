@@ -13,7 +13,7 @@ namespace CapaNegocio
     {
 
         public static string Insertar(string nombre, string cargo, string especialidad, string acceso,
-           string log, string password, string estado)
+           string log, string password, string estado, string salt)
         {
             DUsuario Obj = new DUsuario();
             Obj.Nombre = nombre;
@@ -23,6 +23,7 @@ namespace CapaNegocio
             Obj.Log = log;
             Obj.Password = password;
             Obj.Estado = estado;
+            Obj.Salt = salt;
            
 
             return Obj.Insertar(Obj);
@@ -31,7 +32,7 @@ namespace CapaNegocio
         //Método Editar que llama al método Editar de la clase DTrabajador
         //de la CapaDatos
         public static string Editar(int idusuario, string nombre, string cargo, string especialidad, string acceso,
-           string log, string password, string estado)
+           string log, string password, string estado, string salt)
         {
             DUsuario Obj = new DUsuario();
             Obj.Idusuario = idusuario;
@@ -42,6 +43,7 @@ namespace CapaNegocio
             Obj.Log = log;
             Obj.Password = password;
             Obj.Estado = estado;
+            Obj.Salt = salt;
             return Obj.Editar(Obj);
         }
 

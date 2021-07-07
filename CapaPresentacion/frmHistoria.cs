@@ -56,6 +56,8 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+
+            OcultarColumnas();
         }
 
         DataTable dbdataset;
@@ -155,7 +157,7 @@ namespace CapaPresentacion
         {
 
             this.datalistadohistorias.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[1].Visible = false;
             //this.datalistadohistorias.Columns[1].Visible = true;
 
         }
