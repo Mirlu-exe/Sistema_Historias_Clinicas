@@ -702,8 +702,8 @@ namespace CapaPresentacion
 
         private void btnGrafica_Click(object sender, EventArgs e)
         {
-            frmGenerarGraficos graficoPaciente = new frmGenerarGraficos();
-            graficoPaciente.Show();
+            frmReportePacientes frm = new frmReportePacientes();
+            frm.Show();
         }
 
 

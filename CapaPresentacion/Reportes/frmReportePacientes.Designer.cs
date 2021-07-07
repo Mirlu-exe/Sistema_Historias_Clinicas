@@ -1,4 +1,4 @@
-﻿namespace CapaPresentacion.Reportes
+﻿namespace CapaPresentacion
 {
     partial class frmReportePacientes
     {
@@ -28,16 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
+            this.spmostrar_pacienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spmostrar_pacienteTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.spmostrar_pacienteTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spmostrar_pacienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(3, 12);
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.spmostrar_pacienteBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.Reportes.rptPacientes.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1330, 457);
+            this.reportViewer1.Size = new System.Drawing.Size(1345, 510);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // dsPrincipal
+            // 
+            this.dsPrincipal.DataSetName = "dsPrincipal";
+            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spmostrar_pacienteBindingSource
+            // 
+            this.spmostrar_pacienteBindingSource.DataMember = "spmostrar_paciente";
+            this.spmostrar_pacienteBindingSource.DataSource = this.dsPrincipal;
+            // 
+            // spmostrar_pacienteTableAdapter
+            // 
+            this.spmostrar_pacienteTableAdapter.ClearBeforeFill = true;
             // 
             // frmReportePacientes
             // 
@@ -48,6 +74,8 @@
             this.Name = "frmReportePacientes";
             this.Text = "frmReportePacientes";
             this.Load += new System.EventHandler(this.frmReportePacientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spmostrar_pacienteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -55,5 +83,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource spmostrar_pacienteBindingSource;
+        private dsPrincipal dsPrincipal;
+        private dsPrincipalTableAdapters.spmostrar_pacienteTableAdapter spmostrar_pacienteTableAdapter;
     }
 }

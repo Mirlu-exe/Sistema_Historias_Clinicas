@@ -106,10 +106,6 @@ namespace CapaPresentacion
                 //this.dataListado.DataSource = NControlEstadistico.Mostrar_Graficos_Usuarios();
             }
 
-
-
-
-
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
 
 
@@ -177,6 +173,11 @@ namespace CapaPresentacion
                 //calcular la cantidad de dinero que ha ganado cada Asistente por año
                 //en el cbCampo
             }
+        }
+
+        private void btnCrearGrafico_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

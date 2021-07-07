@@ -68,6 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="dsPrincipal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrincipal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsReceta.cs">
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
@@ -308,11 +313,22 @@
     <EmbeddedResource Include="Reportes\frmReportePlanEstudio.resx">
       <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\rptPacientes.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="dsPrincipal.xsc">
+      <DependentUpon>dsPrincipal.xsd</DependentUpon>
+    </None>
+    <None Include="dsPrincipal.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrincipal.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsPrincipal.xss">
+      <DependentUpon>dsPrincipal.xsd</DependentUpon>
+    </None>
     <None Include="dsReceta.xsc">
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </None>

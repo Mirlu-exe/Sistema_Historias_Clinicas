@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Reportes
+namespace CapaPresentacion
 {
     public partial class frmReportePacientes : Form
     {
@@ -19,7 +19,10 @@ namespace CapaPresentacion.Reportes
 
         private void frmReportePacientes_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spmostrar_paciente' Puede moverla o quitarla según sea necesario.
+            this.spmostrar_pacienteTableAdapter.Fill(this.dsPrincipal.spmostrar_paciente);
 
+            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }
