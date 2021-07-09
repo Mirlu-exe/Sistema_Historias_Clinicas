@@ -44,7 +44,7 @@ namespace CapaPresentacion
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void frmHistoria_Load(object sender, EventArgs e)
@@ -58,6 +58,7 @@ namespace CapaPresentacion
             this.Botones();
 
             OcultarColumnas();
+            dataListado.Columns["idpaciente"].Visible = false;
         }
 
         DataTable dbdataset;
@@ -156,9 +157,10 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.datalistadohistorias.Columns[0].Visible = false;
-            this.dataListado.Columns[1].Visible = false;
-            //this.datalistadohistorias.Columns[1].Visible = true;
+            //this.datalistadohistorias.Columns[0].Visible = false;
+            //this.dataListado.Columns[1].Visible = false;
+
+
 
         }
 
@@ -175,7 +177,7 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NPacientes.Mostrar();
-            this.OcultarColumnas();
+            OcultarColumnas();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
 
 
@@ -261,7 +263,7 @@ namespace CapaPresentacion
 
 
 
-
+            OcultarColumnas();
 
 
             lblHistoriasActivas.Text = "Total de Historias : " + Convert.ToString(datalistadohistorias.Rows.Count);
@@ -308,7 +310,7 @@ namespace CapaPresentacion
 
 
 
-
+            OcultarColumnas();
 
 
             lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
@@ -537,6 +539,8 @@ namespace CapaPresentacion
             //this.txtServicio.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
             this.txtMostrarPeso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["peso"].Value);
             this.txtMostrarTalla.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["talla"].Value);
+
+            this.OcultarColumnas();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -607,6 +611,8 @@ namespace CapaPresentacion
             this.txtPaciente.Focus();
 
             this.tabControl1.SelectedIndex = 1;
+
+            OcultarColumnas();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -744,6 +750,9 @@ namespace CapaPresentacion
                     this.MostrarHistoriasAnuladas();
 
 
+                    OcultarColumnas();
+
+
                 }
             }
             catch (Exception ex)
@@ -796,6 +805,9 @@ namespace CapaPresentacion
                 DataGridViewCheckBoxCell ChkAnular = (DataGridViewCheckBoxCell)datalistadohistorias.Rows[e.RowIndex].Cells["Anular"];
                 ChkAnular.Value = !Convert.ToBoolean(ChkAnular.Value);
             }
+
+            OcultarColumnas();
+
         }
 
         private void datalistadohistorias_DoubleClick(object sender, EventArgs e)
@@ -821,7 +833,11 @@ namespace CapaPresentacion
             this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
 
             this.tabControl1.SelectedIndex = 1;
+
+            OcultarColumnas();
         }
+
+
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
@@ -1035,12 +1051,44 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])
+            {
+                dataListado.Columns["idpaciente"].Visible = false;
+            }
+
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
+            {
+                datalistadohistorias.Columns["idhistoria"].Visible = false;
+                datalistadohistorias.Columns["idpaciente"].Visible = false;
+            }
+
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])
+            {
+                datalistadoMuertos.Columns["idhistoria"].Visible = false;
+                datalistadoMuertos.Columns["idpaciente"].Visible = false;
+            }
+
+
         }
     }
 }
