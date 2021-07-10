@@ -257,7 +257,7 @@ namespace CapaPresentacion
 
         private void btnHerramientasAdmin_Click(object sender, EventArgs e)
         {
-
+            AbrirFormEnPanel(new frmHerramientasAdmin());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -268,6 +268,11 @@ namespace CapaPresentacion
         private void button1_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.btnHerramientasAdmin, "Ayuda");
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

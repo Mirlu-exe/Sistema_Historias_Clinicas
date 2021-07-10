@@ -438,7 +438,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.20417cm</Top>
         <Left>1.0922cm</Left>
-        <Height>2.00433cm</Height>
+        <Height>2.00434cm</Height>
         <Width>20.26822cm</Width>
         <Style>
           <Border>
@@ -500,7 +500,6 @@
                 <TextRun>
                   <Value>Dr. Felix Montaño </Value>
                   <Style>
-                    <FontFamily>Comic Sans MS</FontFamily>
                     <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
@@ -540,9 +539,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>Consultorio</Value>
-                  <Style>
-                    <FontFamily>Comic Sans MS</FontFamily>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />

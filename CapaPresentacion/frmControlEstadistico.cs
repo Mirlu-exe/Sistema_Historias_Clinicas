@@ -119,7 +119,16 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //guardar grafico
+
+            //tomar el id del usuario actual
+
+            //seleccionar el nombre del tipo de grafica
+
+            //seleccionar el origen de datos
+
+            //seleccionar el campo
+
+            //seleccionar la fecha y hora en que se creo el grafico
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

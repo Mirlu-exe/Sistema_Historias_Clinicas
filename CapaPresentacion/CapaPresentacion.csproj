@@ -111,6 +111,18 @@
     <Compile Include="frmEditarContrasena.Designer.cs">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGestionReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionReportes.Designer.cs">
+      <DependentUpon>frmGestionReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHerramientasAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHerramientasAdmin.Designer.cs">
+      <DependentUpon>frmHerramientasAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHistoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +268,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarContrasena.resx">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionReportes.resx">
+      <DependentUpon>frmGestionReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHerramientasAdmin.resx">
+      <DependentUpon>frmHerramientasAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistoria.resx">
       <DependentUpon>frmHistoria.cs</DependentUpon>
