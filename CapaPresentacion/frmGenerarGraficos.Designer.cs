@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.btnLimpiarGrafico = new System.Windows.Forms.Button();
             this.btnCrearGrafico = new System.Windows.Forms.Button();
             this.cbCampo = new System.Windows.Forms.ComboBox();
@@ -113,10 +113,10 @@
             // 
             // chartLinea
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartLinea.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartLinea.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chartLinea.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartLinea.Legends.Add(legend1);
             this.chartLinea.Location = new System.Drawing.Point(3, 3);
             this.chartLinea.Name = "chartLinea";
             this.chartLinea.Size = new System.Drawing.Size(704, 516);
@@ -136,10 +136,10 @@
             // 
             // chartCircular
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartCircular.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartCircular.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chartCircular.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartCircular.Legends.Add(legend2);
             this.chartCircular.Location = new System.Drawing.Point(6, 6);
             this.chartCircular.Name = "chartCircular";
             this.chartCircular.Size = new System.Drawing.Size(698, 510);
@@ -159,10 +159,10 @@
             // 
             // chartBarras
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chartBarras.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chartBarras.Legends.Add(legend9);
+            chartArea3.Name = "ChartArea1";
+            this.chartBarras.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartBarras.Legends.Add(legend3);
             this.chartBarras.Location = new System.Drawing.Point(6, 6);
             this.chartBarras.Name = "chartBarras";
             this.chartBarras.Size = new System.Drawing.Size(698, 521);

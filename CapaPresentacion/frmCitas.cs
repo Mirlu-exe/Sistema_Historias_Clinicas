@@ -44,7 +44,8 @@ namespace CapaPresentacion
             this.montoTotalCitas();
 
             OcultarColumnas();
- 
+
+            LblHora.Text = DateTime.Now.Date.ToShortDateString();
 
         }
 
@@ -238,7 +239,6 @@ namespace CapaPresentacion
             this.txtCodUsuario.Text = string.Empty;
             this.txtCodigoPaciente.Text = string.Empty;
             this.txtCosto.Text = string.Empty;
-            this.txtCostoConsulta.Text = string.Empty;
             this.cmbUsuarios.SelectedIndex = -1;
             this.cmbPacientes.SelectedIndex = -1;
             this.cmbServicios.SelectedIndex = -1;
@@ -258,7 +258,6 @@ namespace CapaPresentacion
             this.cmbPacientes.Enabled = valor;
             this.cmbUsuarios.Enabled = valor;
             this.txtCosto.ReadOnly = !valor;
-            this.txtCostoConsulta.ReadOnly = !valor;
 
 
 
@@ -356,7 +355,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodUsuario.Text) || string.IsNullOrEmpty(txtCodServicio.Text) || string.IsNullOrEmpty(txtCostoConsulta.Text) ||
+                if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodUsuario.Text) || string.IsNullOrEmpty(txtCodServicio.Text) ||
                     cmbServicios.SelectedIndex == -1 || cmbPacientes.SelectedIndex == -1)
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -393,7 +392,6 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDecimal(this.txtCostoConsulta.Text));
                         SqlCmd.Parameters.AddWithValue("@d6", this.cmbEstadoCita.Text);
 
 
@@ -439,7 +437,6 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDecimal(this.txtCostoConsulta.Text));
                         SqlCmd.Parameters.AddWithValue("@d6", this.cmbEstadoCita.Text);
                         SqlCmd.Parameters.AddWithValue("@d7", Convert.ToInt32(this.txtCodCita.Text));
 
@@ -542,7 +539,6 @@ namespace CapaPresentacion
             this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
             this.cmbPacientes.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Paciente"].Value);
             this.txtCodServicio.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idservicio"].Value);
-            this.txtCostoConsulta.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["costo"].Value);
             this.cmbEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
         }
 
@@ -892,5 +888,6 @@ namespace CapaPresentacion
 
             }
         }
+
     }
 }
