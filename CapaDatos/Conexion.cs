@@ -15,6 +15,7 @@ namespace CapaDatos
 
         public static string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
 
-
+        //Direccion Mirla MIRLU\\SQLEXPRESS
+        //Direccion Diana DESKTOP-KA2T7KU\SQLEXPRESS 
     }
 }

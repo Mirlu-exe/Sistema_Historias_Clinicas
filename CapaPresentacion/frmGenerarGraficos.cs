@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using CapaDatos;
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -18,6 +19,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         private void btnCrearGrafico_Click(object sender, EventArgs e)
         {

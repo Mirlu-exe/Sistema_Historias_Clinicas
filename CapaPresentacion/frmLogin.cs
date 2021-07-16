@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapaDatos;
+using CapaNegocio;
+using CapaPresentacion;
+
 
 using Utilidades;
 
@@ -28,6 +32,9 @@ namespace CapaPresentacion
         }
 
 
+        
+
+
         string idusuario, login, clave, acceso, nombre;
 
         SqlDataReader dr;
@@ -38,6 +45,8 @@ namespace CapaPresentacion
         public frmLogin()
         {
             InitializeComponent();
+
+
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -152,13 +161,18 @@ namespace CapaPresentacion
                         this.OperacionAccesoSistema();
 
                         frmPrincipal menu = new frmPrincipal();
-                        //frmCitas citas = new frmCitas();
+                        
+                        
+
                         menu.lblcodigoUsuario.Text = this.idusuario;
                         menu.lblLogin.Text = this.login;
                         menu.lblAcceso.Text = this.acceso;
                         menu.lblnombreusuario.Text = this.nombre;
-                        //menu.lblcodigoUsuario.Text = this.idusuario;
-                        //citas.txtCodUsuario.Text = this.idusuario;
+
+
+                        frmPrincipal.Asignar_Session_Info(Convert.ToInt32(this.idusuario),this.login, this.acceso, this.nombre);
+
+
                         menu.Show();
                         this.Hide();
 
@@ -222,15 +236,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + this.txtUsuario.Text + " ha accedido al sistema. ");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + login + " ha accedido al sistema. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", login);
 
 
 

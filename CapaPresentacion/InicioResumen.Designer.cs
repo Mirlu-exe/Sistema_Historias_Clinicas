@@ -71,6 +71,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
@@ -575,12 +577,34 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "Historias ";
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAyuda.BackColor = System.Drawing.Color.LightGray;
+            this.btnAyuda.FlatAppearance.BorderSize = 0;
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAyuda.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAyuda.Location = new System.Drawing.Point(1527, 124);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(53, 43);
+            this.btnAyuda.TabIndex = 55;
+            this.btnAyuda.Text = "?";
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            this.btnAyuda.MouseHover += new System.EventHandler(this.btnAyuda_MouseHover);
+            // 
+            // ttMensaje
+            // 
+            this.ttMensaje.IsBalloon = true;
+            // 
             // InicioResumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel13);
@@ -674,5 +698,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.ToolTip ttMensaje;
     }
 }

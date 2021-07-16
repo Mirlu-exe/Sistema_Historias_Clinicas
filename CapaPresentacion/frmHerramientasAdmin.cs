@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapaDatos;
 
 
 namespace CapaPresentacion
@@ -21,6 +22,7 @@ namespace CapaPresentacion
 
 
 
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
 
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapaDatos;
 
 using System.Runtime.InteropServices;
 
@@ -18,7 +19,27 @@ namespace CapaPresentacion
         public frmPrincipal()
         {
             InitializeComponent();
+
+
         }
+
+        public static DUsuario User_Actual = new DUsuario();
+
+
+
+        public static DUsuario Asignar_Session_Info(int id_usuario, string login_user, string acceso, string nombre_completo)
+        {
+            User_Actual.Idusuario = Convert.ToInt32(id_usuario);
+            User_Actual.Log = login_user;
+            User_Actual.Acceso = acceso;
+            User_Actual.Nombre = nombre_completo;
+
+
+            return User_Actual;
+        }
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
 
         private void GestionUsuario()
         {
@@ -78,13 +99,63 @@ namespace CapaPresentacion
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             label3_Click(null, e);
+
+
+            
+
+
+            MessageBox.Show("Bienvenido " + Session_Actual.Log + " :) " );
+
+
+
             GestionUsuario();
+
             this.WindowState = FormWindowState.Maximized;
+
+
         }
 
         private void iconcerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            //registro de la operacion Cerrar sesion
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + User_Actual.Log + " ha cerrado sesión. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", User_Actual.Log);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+            this.Hide();
+            frmLogin login = new frmLogin();
+            login.Show();
+
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -187,6 +258,7 @@ namespace CapaPresentacion
         private void button7_Click(object sender, EventArgs e)
         {
 
+
             //registro de la operacion Cerrar sesion
             string rpta2 = "";
 
@@ -201,14 +273,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + this.lblnombreusuario.Text + " ha cerrado sesión. ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + User_Actual.Log + " ha cerrado sesión. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", User_Actual.Log);
 
 
 
@@ -260,10 +333,6 @@ namespace CapaPresentacion
             AbrirFormEnPanel(new frmHerramientasAdmin());
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://drive.google.com/drive/u/0/folders/1G8cinwenhFmeDiVYBdMFqnaH8gbcohUK");
-        }
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
@@ -278,6 +347,17 @@ namespace CapaPresentacion
         private void btnConfigPersonal_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new frmConfigPersonal());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //abrir form inicio
+            AbrirFormEnPanel(new InicioResumen());
+        }
+
+        private void MenuVertical_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

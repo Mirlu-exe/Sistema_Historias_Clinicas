@@ -39,8 +39,11 @@ namespace CapaPresentacion
             this.lblNombreUsuario.Hide();
             this.txtNombre.Hide();
 
-            this.lblFecha.Hide();
-            this.dtpFecha.Hide();
+            this.lblFechaInicio.Hide();
+            this.dtpFechaInicio.Hide();
+
+            this.lblFechaFin.Hide();
+            this.dtpFechaFin.Hide();
 
             this.lblSuceso.Hide();
             this.cbSuceso.Hide();
@@ -62,11 +65,6 @@ namespace CapaPresentacion
         //Método BuscarFecha
         private void BuscarFecha()
         {
-            /*DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("nombre LIKE '%{0}%'", this.txtBuscar.Text);
-            dataListado.DataSource = DV;*/
-
-
 
 
             lblCantidadOperaciones.Text = "Total de Operaciones: " + Convert.ToString(datalistadoOperaciones.Rows.Count);
@@ -78,49 +76,7 @@ namespace CapaPresentacion
 
         }
 
-        private void cblBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.cblBusqueda.Text.Equals("Nombre"))
-            {
-                this.lblNombreUsuario.Show();
-                this.txtNombre.Show();
-
-                this.lblFecha.Hide();
-                this.dtpFecha.Hide();
-
-                this.lblSuceso.Hide();
-                this.cbSuceso.Hide();
-
-                this.BuscarSegunNombreUsuario();
-            }
-            else if (this.cblBusqueda.Text.Equals("Fecha"))
-            {
-                this.lblFecha.Show();
-                this.dtpFecha.Show();
-
-                this.lblNombreUsuario.Hide();
-                this.txtNombre.Hide();
-
-                this.lblSuceso.Hide();
-                this.cbSuceso.Hide();
-
-                this.BuscarSegunFecha();
-            }
-            else if (this.cblBusqueda.Text.Equals("Suceso"))
-            {
-                this.lblSuceso.Show();
-                this.cbSuceso.Show();
-
-                this.lblNombreUsuario.Hide();
-                this.txtNombre.Hide();
-
-                this.lblFecha.Hide();
-                this.dtpFecha.Hide();
-
-                this.BuscarSegunSuceso();
-            }
-        }
-
+        
 
         //Método BuscarSegunNombreUsuario
         private void BuscarSegunNombreUsuario()
@@ -139,7 +95,7 @@ namespace CapaPresentacion
         private void BuscarSegunFecha()
         {
             DataView DV = new DataView(NOperacion.Mostrar());
-            DV.RowFilter = string.Format("fecha LIKE '%{0}%'", this.dtpFecha.Text);
+            DV.RowFilter = string.Format("fecha LIKE '%{0}%'", this.dtpFechaInicio.Text);
             datalistadoOperaciones.DataSource = DV;
 
 
@@ -160,49 +116,104 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+       
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (this.cblBusqueda.Text.Equals("Nombre"))
+
+            DataView DV = new DataView(NOperacion.Mostrar());
+
+            StringBuilder sb = new StringBuilder();
+
+            if (chkNombreUsuario.Checked)
+            {
+                if (sb.Length > 0)
+                {
+                    sb.Append(" and ");
+                }
+
+                sb.Append("usuario like '%" + this.txtNombre.Text + "%'");
+
+            }
+
+            if (chkSuceso.Checked)
+            {
+                if (sb.Length > 0)
+                {
+                    sb.Append(" and ");
+                }
+
+                sb.Append("descripcion like '%" + this.cbSuceso.Text + "%'");
+
+            }
+
+            if (chkRangoFechas.Checked)
+            {
+                if (sb.Length > 0)
+                {
+                    sb.Append(" and ");
+                }
+
+                sb.Append("fecha >= '" + this.dtpFechaInicio.Value.ToString() + "' AND fecha <= '" + this.dtpFechaFin.Value.ToString() + "'" );
+
+
+            }
+
+
+
+            DV.RowFilter = sb.ToString();
+
+            datalistadoOperaciones.DataSource = DV;
+
+
+        }
+
+        private void chkNombreUsuario_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkNombreUsuario.Checked)
             {
                 this.lblNombreUsuario.Show();
                 this.txtNombre.Show();
-
-                this.lblFecha.Hide();
-                this.dtpFecha.Hide();
-
-                this.BuscarSegunNombreUsuario();
             }
-        }
-
-        private void dtpFecha_ValueChanged(object sender, EventArgs e)
-        {
-           if (this.cblBusqueda.Text.Equals("Fecha"))
+            else
             {
-                this.lblFecha.Show();
-                this.dtpFecha.Show();
-
                 this.lblNombreUsuario.Hide();
                 this.txtNombre.Hide();
-
-                this.BuscarSegunFecha();
             }
         }
 
-
-        private void cbSuceso_SelectedIndexChanged(object sender, EventArgs e)
+        private void chkSuceso_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.cblBusqueda.Text.Equals("Suceso"))
+            if (chkSuceso.Checked)
             {
                 this.lblSuceso.Show();
                 this.cbSuceso.Show();
+            }
+            else
+            {
+                this.lblSuceso.Hide();
+                this.cbSuceso.Hide();
+            }
+        }
 
-                this.lblFecha.Hide();
-                this.dtpFecha.Hide();
+        private void chkRangoFechas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRangoFechas.Checked)
+            {
+                this.lblFechaInicio.Show();
+                this.dtpFechaInicio.Show();
 
-                this.lblNombreUsuario.Hide();
-                this.txtNombre.Hide();
+                this.lblFechaFin.Show();
+                this.dtpFechaFin.Show();
 
-                this.BuscarSegunSuceso();
+            }
+            else
+            {
+                this.lblFechaInicio.Hide();
+                this.dtpFechaInicio.Hide();
+
+                this.lblFechaFin.Hide();
+                this.dtpFechaFin.Hide();
             }
         }
     }

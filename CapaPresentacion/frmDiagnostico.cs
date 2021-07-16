@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 
+using CapaDatos;
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -22,6 +23,10 @@ namespace CapaPresentacion
         private bool IsEditar = false;
 
         public DataTable dbdataset;
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
 
         //frmMenu menu = new frmMenu();
 

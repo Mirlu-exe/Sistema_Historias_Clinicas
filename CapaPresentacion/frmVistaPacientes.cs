@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -17,6 +18,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
 
         //Método para ocultar columnas
         private void OcultarColumnas()

@@ -20,6 +20,7 @@ namespace CapaPresentacion
 
         private bool IsEditar = false;
 
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
 
         public frmPlanEstudio()

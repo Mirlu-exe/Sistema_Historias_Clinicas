@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-
+using CapaDatos;
 using CapaNegocio;
+
 
 namespace CapaPresentacion
 {
@@ -23,12 +24,13 @@ namespace CapaPresentacion
 
         public DataTable dbdataset;
 
-        
-       
-        SqlDataReader dr;
-        
 
-      
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
+        SqlDataReader dr;
+
+
 
         public frmPaciente()
         {
@@ -50,9 +52,14 @@ namespace CapaPresentacion
 
         private void frmPaciente_Load(object sender, EventArgs e)
         {
+            
+
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+
+            MessageBox.Show("el usuario " + Session_Actual.Log + " va a gestionar los pacientes ");
+
         }
 
 
@@ -219,14 +226,8 @@ namespace CapaPresentacion
                 }
 
 
-                if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
-                {
 
-                    MensajeError("Hay un paciente con este numero de cedula.");
-                }
-
-
-
+                
 
 
                 else
@@ -239,6 +240,14 @@ namespace CapaPresentacion
                     {
 
 
+                        if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
+                        {
+
+                                MensajeError("Ya existe un paciente con este numero de cedula.");
+
+                        }
+                        else
+                        {
 
                         rpta = NPacientes.Insertar(this.txtNombre_Paciente.Text.Trim().ToUpper(),
                         this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
@@ -246,19 +255,32 @@ namespace CapaPresentacion
                         this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
                         txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
 
+                        }
+
+                        
 
 
 
                     }
-                    else
+                    else if (this.IsEditar)
                     {
 
-                        rpta = NPacientes.Editar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                        this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
-                        this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
-                        this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
-                        txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
 
+                        if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
+                        {
+
+                            rpta = NPacientes.Editar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
+                            this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                            this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
+                            this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
+                            txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+
+
+                        }
+                        else
+                        {
+                            MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
+                        }
 
 
                     }
@@ -353,6 +375,7 @@ namespace CapaPresentacion
             if (!this.txtIdpaciente.Text.Equals(""))
             {
                 this.IsEditar = true;
+                this.IsNuevo = false;
                 this.Botones();
                 //this.Habilitar(true);
             }
@@ -417,6 +440,8 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
+
+
             this.txtIdpaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
             this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
             this.cblTipo_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_cedula"].Value);
@@ -432,11 +457,14 @@ namespace CapaPresentacion
 
 
 
-
-
             this.txtPeso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["peso"].Value);
             this.txtTalla.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["talla"].Value);
             this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+
+
+            this.Habilitar(false);
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -446,7 +474,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.txtIdpaciente.Text = string.Empty;
-            //this.Habilitar(false);
+            this.Habilitar(false);
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -500,9 +528,9 @@ namespace CapaPresentacion
         private void OperacionInsertarPaciente()
         {
 
-
             // Operacion Anular
             string rpta2 = "";
+
 
 
             SqlConnection SqlCon2 = new SqlConnection();
@@ -515,14 +543,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un paciente ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Registrado a un paciente. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -557,15 +586,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó un paciente ");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Editado un paciente. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -599,14 +628,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló un paciente");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Anulado a un paciente. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 

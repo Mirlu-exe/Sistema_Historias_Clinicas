@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -16,6 +17,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         private void label12_Click(object sender, EventArgs e)
         {
@@ -28,6 +32,11 @@ namespace CapaPresentacion
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmConfigPersonal_Load(object sender, EventArgs e)
         {
 
         }

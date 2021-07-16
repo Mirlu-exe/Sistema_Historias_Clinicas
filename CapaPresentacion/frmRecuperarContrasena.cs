@@ -42,6 +42,9 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
         private void frmRecuperarContrasena_Load(object sender, EventArgs e)
         {
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
+using CapaDatos;
 
 
 namespace CapaPresentacion
@@ -19,10 +20,11 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
 
         private bool IsEditar = false;
-        
-       
 
-       
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
 
         public frmRecetas()
         {

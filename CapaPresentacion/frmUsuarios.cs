@@ -50,6 +50,9 @@ namespace CapaPresentacion
         private int id_selected_user;
 
 
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
 
         public frmUsuarios()
         {

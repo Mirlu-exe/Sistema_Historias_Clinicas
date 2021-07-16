@@ -42,6 +42,9 @@ namespace CapaPresentacion
 
 
 
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)

@@ -20,6 +20,7 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
 
 
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         public frmControlEstadistico()
         {

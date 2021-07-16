@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnControlEstadistico = new System.Windows.Forms.Button();
             this.btnHerramientasAdmin = new System.Windows.Forms.Button();
             this.btnConfigPersonal = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSeaGreen;
             this.MenuVertical.Controls.Add(this.btnReportes);
-            this.MenuVertical.Controls.Add(this.button1);
             this.MenuVertical.Controls.Add(this.btnControlEstadistico);
             this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
             this.MenuVertical.Controls.Add(this.btnConfigPersonal);
@@ -103,6 +101,7 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(333, 1023);
             this.MenuVertical.TabIndex = 0;
+            this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
             // btnReportes
             // 
@@ -121,23 +120,6 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(299, 991);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 29);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "(?)";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // btnControlEstadistico
             // 
@@ -217,6 +199,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(99, 84);
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -230,6 +213,7 @@
             this.label3.TabIndex = 30;
             this.label3.Text = "Crystal Clear";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnOperaciones
             // 
@@ -410,15 +394,15 @@
             // 
             this.lblcodigoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblcodigoUsuario.AutoSize = true;
+            this.lblcodigoUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblcodigoUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcodigoUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblcodigoUsuario.ForeColor = System.Drawing.Color.LightGray;
             this.lblcodigoUsuario.Location = new System.Drawing.Point(126, 880);
             this.lblcodigoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcodigoUsuario.Name = "lblcodigoUsuario";
             this.lblcodigoUsuario.Size = new System.Drawing.Size(127, 21);
             this.lblcodigoUsuario.TabIndex = 20;
             this.lblcodigoUsuario.Text = "codigousuario";
-            this.lblcodigoUsuario.Visible = false;
             // 
             // lblLogin
             // 
@@ -619,7 +603,6 @@
         private System.Windows.Forms.Button btnHerramientasAdmin;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnControlEstadistico;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnReportes;
     }
 }

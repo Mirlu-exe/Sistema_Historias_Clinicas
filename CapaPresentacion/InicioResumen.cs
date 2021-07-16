@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+
 
 using System.Data.SqlClient;
 
@@ -20,7 +22,14 @@ namespace CapaPresentacion
         public InicioResumen()
         {
             InitializeComponent();
+            this.ttMensaje.SetToolTip(this.btnAyuda, "Ayuda");
+        
         }
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
 
         private void InicioResumen_Load(object sender, EventArgs e)
         {
@@ -284,5 +293,14 @@ namespace CapaPresentacion
             lblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://drive.google.com/drive/u/0/folders/1G8cinwenhFmeDiVYBdMFqnaH8gbcohUK");
+        }
+
+        private void btnAyuda_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.btnAyuda, "Ayuda");
+        }
     }
 }

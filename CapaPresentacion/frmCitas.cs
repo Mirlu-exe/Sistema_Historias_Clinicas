@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+using CapaDatos;
+
 namespace CapaPresentacion
 {
     public partial class frmCitas : Form
@@ -18,6 +20,8 @@ namespace CapaPresentacion
 
         private bool IsEditar = false;
 
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         public frmCitas()
         {

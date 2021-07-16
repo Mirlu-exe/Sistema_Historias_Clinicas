@@ -184,6 +184,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfigPersonal";
             this.Text = "frmConfigPersonal";
+            this.Load += new System.EventHandler(this.frmConfigPersonal_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
