@@ -274,5 +274,10 @@ namespace CapaPresentacion
         {
             AbrirFormEnPanel(new frmGestionReportes());
         }
+
+        private void btnConfigPersonal_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmConfigPersonal());
+        }
     }
 }

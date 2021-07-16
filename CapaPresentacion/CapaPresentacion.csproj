@@ -54,8 +54,26 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -65,6 +83,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
@@ -86,6 +105,12 @@
     </Compile>
     <Compile Include="frmCitas.Designer.cs">
       <DependentUpon>frmCitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigPersonal.Designer.cs">
+      <DependentUpon>frmConfigPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConfigPreguntasSeguridad.cs">
       <SubType>Form</SubType>
@@ -257,6 +282,9 @@
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigPersonal.resx">
+      <DependentUpon>frmConfigPersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConfigPreguntasSeguridad.resx">
       <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +413,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\medical-prescription_smoll.png" />
+    <None Include="Resources\informacion-personal.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -399,6 +428,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

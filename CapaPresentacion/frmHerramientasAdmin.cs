@@ -19,6 +19,11 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+
+
+
+
+
         SqlConnection conexion = new SqlConnection("SERVER=MIRLU\\SQLEXPRESS; DATABASE=dbclinica; Integrated Security=true");
 
 
@@ -61,6 +66,21 @@ namespace CapaPresentacion
 
                 //WIP
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmHerramientasAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
