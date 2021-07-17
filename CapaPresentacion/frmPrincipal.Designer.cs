@@ -135,7 +135,7 @@
             this.btnControlEstadistico.Name = "btnControlEstadistico";
             this.btnControlEstadistico.Size = new System.Drawing.Size(333, 49);
             this.btnControlEstadistico.TabIndex = 37;
-            this.btnControlEstadistico.Text = "Control Estadístico";
+            this.btnControlEstadistico.Text = "       Control Estadístico";
             this.btnControlEstadistico.UseVisualStyleBackColor = true;
             this.btnControlEstadistico.Click += new System.EventHandler(this.btnControlEstadistico_Click);
             // 

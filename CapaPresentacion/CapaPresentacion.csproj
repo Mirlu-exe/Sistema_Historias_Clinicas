@@ -263,6 +263,12 @@
     </Compile>
     <Compile Include="Reportes\ReportePacientes.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="usercontrol_evol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrol_evol.Designer.cs">
+      <DependentUpon>usercontrol_evol.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptPacientes.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
+    <EmbeddedResource Include="usercontrol_evol.resx">
+      <DependentUpon>usercontrol_evol.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -274,6 +274,9 @@ namespace CapaPresentacion
 
 
 
+
+
+
         //Método Mostrar
         private void MostrarHistoriasAnuladas()
         {
@@ -317,6 +320,13 @@ namespace CapaPresentacion
 
 
             lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
+        }
+
+
+        //Metodo BuscarPacienteSegunHistoria
+        private void BuscarPacienteSegunHistoria()
+        {
+
         }
 
 
@@ -716,7 +726,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
                         SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
-                        SqlCmd.Parameters.AddWithValue("@d16", this.lblCodigoHistoria.Text);
+                        SqlCmd.Parameters.AddWithValue("@d16", this.lbl_id_historia.Text);
 
 
 
@@ -766,7 +776,7 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.lblCodigoHistoria.Text.Equals(""))
+            if (!this.lbl_id_historia.Text.Equals(""))
             {
                 this.IsEditar = true;
                 this.Botones();
@@ -815,8 +825,13 @@ namespace CapaPresentacion
 
         private void datalistadohistorias_DoubleClick(object sender, EventArgs e)
         {
-            this.lblCodigoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+            this.lbl_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
             this.lblCodigoPaciente.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idpaciente"].Value);
+
+            this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+            this.lbl_nombre_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
+            
+
             this.dtpFechaConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["fecha_consulta"].Value);
             this.txtRazonConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["razon_consulta"].Value);
             this.txtEnfermedadActual.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["enfermedad_actual"].Value);
@@ -1091,6 +1106,55 @@ namespace CapaPresentacion
                 datalistadoMuertos.Columns["idpaciente"].Visible = false;
             }
 
+
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_Historias_con_evo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //int id_historia_seleccionada =  Convert.ToInt32(this.dgv_Historias_con_evo.CurrentRow.Cells["idhistoria"].Value);
+
+
+            //DataTable dt_evol = new DataTable();
+
+            //dt_evol = NEvolucion.MostrarEvolucion(id_historia_seleccionada);
+
+            //int cant_evoluciones = dt_evol.Rows.Count;
+
+            //MessageBox.Show("La cantidad de evoluciones asociadas con la historia seleccionada es: " + Convert.ToString(cant_evoluciones) + " :D");
+
+
+        }
+
+
+        private void btnAnadirEvol_Click(object sender, EventArgs e)
+        {
+
+            //para llevar los datos de la Historia a Evolucion
+            lbl_id_historia_evol.Text = this.lbl_id_historia.Text;
+            lblNombrePaciente_evol.Text = this.lbl_nombre_pac.Text;
+            lblCedulaPaciente_evol.Text = this.lbl_ci_pac.Text;
+
+            //para llevar los datos de la Historia a la pestaña de Lista Evolucion
+            lbl_lista_evol_id_historia.Text = this.lbl_id_historia.Text;
+            lbl_lista_evol_ci.Text = this.lbl_ci_pac.Text;
+            lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
+
+            //Para que se muestre la pestaña de Evolucion.
+            this.tabControl1.SelectedIndex = 4;
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datalistadohistorias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
