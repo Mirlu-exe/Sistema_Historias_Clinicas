@@ -243,7 +243,7 @@ namespace CapaPresentacion
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + login + " ha accedido al sistema. ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha accedido al sistema.");
             SqlCmd2.Parameters.AddWithValue("@d3", login);
 
 

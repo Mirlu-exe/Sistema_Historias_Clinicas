@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHerramientasAdmin));
             this.btnBrowseGenerar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -41,15 +42,18 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnMostrarRestaurar = new System.Windows.Forms.Button();
             this.btnGenerarCopia = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBrowseGenerar
             // 
-            this.btnBrowseGenerar.Location = new System.Drawing.Point(426, 44);
+            this.btnBrowseGenerar.Location = new System.Drawing.Point(584, 106);
             this.btnBrowseGenerar.Name = "btnBrowseGenerar";
             this.btnBrowseGenerar.Size = new System.Drawing.Size(121, 27);
             this.btnBrowseGenerar.TabIndex = 0;
@@ -66,14 +70,14 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1358, 76);
+            this.panel3.Size = new System.Drawing.Size(1532, 76);
             this.panel3.TabIndex = 185;
             // 
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(415, 9);
+            this.label12.Location = new System.Drawing.Point(503, 9);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(519, 60);
@@ -95,56 +99,64 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 49);
+            this.textBox1.Location = new System.Drawing.Point(271, 108);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(306, 22);
             this.textBox1.TabIndex = 186;
             // 
             // btnBackup
             // 
-            this.btnBackup.Location = new System.Drawing.Point(259, 110);
+            this.btnBackup.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnBackup.Location = new System.Drawing.Point(271, 148);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(121, 37);
+            this.btnBackup.Size = new System.Drawing.Size(434, 43);
             this.btnBackup.TabIndex = 188;
             this.btnBackup.Text = "Generar Copia";
-            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btnGenerarCopia);
             this.groupBox1.Controls.Add(this.btnBrowseGenerar);
             this.groupBox1.Controls.Add(this.btnBackup);
-            this.groupBox1.Location = new System.Drawing.Point(44, 202);
+            this.groupBox1.Location = new System.Drawing.Point(217, 146);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 177);
+            this.groupBox1.Size = new System.Drawing.Size(1105, 312);
             this.groupBox1.TabIndex = 191;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.btnMostrarRestaurar);
             this.groupBox2.Controls.Add(this.btnRestore);
             this.groupBox2.Controls.Add(this.btnBrowseRestaurar);
             this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(790, 202);
+            this.groupBox2.Location = new System.Drawing.Point(217, 527);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(470, 177);
+            this.groupBox2.Size = new System.Drawing.Size(1105, 300);
             this.groupBox2.TabIndex = 192;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btnRestore
             // 
-            this.btnRestore.Location = new System.Drawing.Point(170, 120);
+            this.btnRestore.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRestore.Location = new System.Drawing.Point(271, 186);
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(121, 35);
+            this.btnRestore.Size = new System.Drawing.Size(433, 35);
             this.btnRestore.TabIndex = 193;
             this.btnRestore.Text = "Restaurar";
-            this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.UseVisualStyleBackColor = false;
             // 
             // btnBrowseRestaurar
             // 
-            this.btnBrowseRestaurar.Location = new System.Drawing.Point(334, 60);
+            this.btnBrowseRestaurar.Location = new System.Drawing.Point(583, 135);
             this.btnBrowseRestaurar.Name = "btnBrowseRestaurar";
             this.btnBrowseRestaurar.Size = new System.Drawing.Size(121, 27);
             this.btnBrowseRestaurar.TabIndex = 192;
@@ -153,21 +165,21 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(22, 65);
+            this.textBox2.Location = new System.Drawing.Point(271, 140);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(306, 22);
             this.textBox2.TabIndex = 191;
             // 
             // btnMostrarRestaurar
             // 
-            this.btnMostrarRestaurar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMostrarRestaurar.BackColor = System.Drawing.Color.LightGray;
             this.btnMostrarRestaurar.FlatAppearance.BorderSize = 0;
             this.btnMostrarRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnMostrarRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarRestaurar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnMostrarRestaurar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnMostrarRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarRestaurar.Location = new System.Drawing.Point(937, 140);
+            this.btnMostrarRestaurar.Location = new System.Drawing.Point(540, 22);
             this.btnMostrarRestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMostrarRestaurar.Name = "btnMostrarRestaurar";
             this.btnMostrarRestaurar.Size = new System.Drawing.Size(165, 55);
@@ -177,14 +189,14 @@
             // 
             // btnGenerarCopia
             // 
-            this.btnGenerarCopia.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGenerarCopia.BackColor = System.Drawing.Color.Transparent;
             this.btnGenerarCopia.FlatAppearance.BorderSize = 0;
             this.btnGenerarCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnGenerarCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerarCopia.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGenerarCopia.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGenerarCopia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCopia.Location = new System.Drawing.Point(193, 140);
+            this.btnGenerarCopia.Location = new System.Drawing.Point(465, 0);
             this.btnGenerarCopia.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerarCopia.Name = "btnGenerarCopia";
             this.btnGenerarCopia.Size = new System.Drawing.Size(306, 55);
@@ -192,32 +204,33 @@
             this.btnGenerarCopia.Text = "Generar Copia de BD";
             this.btnGenerarCopia.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(44, 518);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1216, 157);
-            this.button1.TabIndex = 195;
-            this.button1.Text = "Cambiar la direccion de la BD";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(778, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 199);
+            this.pictureBox1.TabIndex = 195;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(778, 60);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(220, 199);
+            this.pictureBox2.TabIndex = 196;
+            this.pictureBox2.TabStop = false;
             // 
             // frmHerramientasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 747);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnGenerarCopia);
-            this.Controls.Add(this.btnMostrarRestaurar);
+            this.ClientSize = new System.Drawing.Size(1532, 896);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
@@ -230,6 +243,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,6 +264,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnMostrarRestaurar;
         private System.Windows.Forms.Button btnGenerarCopia;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

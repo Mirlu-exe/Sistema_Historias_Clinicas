@@ -22,6 +22,14 @@ namespace CapaPresentacion
         private bool IsEditar = false;
 
 
+
+        private bool IsNuevo_evol = false;
+
+        private bool IsEditar_evol = false;
+
+
+
+
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         public frmHistoria()
@@ -825,6 +833,8 @@ namespace CapaPresentacion
 
         private void datalistadohistorias_DoubleClick(object sender, EventArgs e)
         {
+            int id_historia_seleccionada = Convert.ToInt32(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+
             this.lbl_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
             this.lblCodigoPaciente.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idpaciente"].Value);
 
@@ -853,6 +863,61 @@ namespace CapaPresentacion
             this.tabControl1.SelectedIndex = 1;
 
             OcultarColumnas();
+
+            //si posee evoluciones, mostrarlas todas en la pestaña Lista de Evoluciones
+
+            DataTable evoluciones_por_historia = new DataTable();
+
+
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("SELECT * " +
+                "FROM Evoluciones " +
+                "INNER JOIN Historia ON Evoluciones.idhistoria = Historia.idhistoria " +
+                "WHERE Historia.estado = 'Activo' AND Evoluciones.idhistoria = " + id_historia_seleccionada + " ; ", conDataBase);
+
+
+
+            try
+            {
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                sda.Fill(evoluciones_por_historia);
+
+
+                int Cant_evol_por_historia;
+
+                Cant_evol_por_historia = evoluciones_por_historia.Rows.Count;
+
+                if (Cant_evol_por_historia > 0)
+                {
+                    MessageBox.Show("La historia tiene evoluciones :)");
+                }
+                else
+                {
+                    MessageBox.Show("La historia NO tiene evoluciones");
+                }
+
+                dgv_lista_evol.DataSource = evoluciones_por_historia;
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show("Ha ocurrido un error");
+            }
+
+
+
+            OcultarColumnas();
+
+
+
+
+
         }
 
 
@@ -1114,21 +1179,6 @@ namespace CapaPresentacion
 
         }
 
-        private void dgv_Historias_con_evo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int id_historia_seleccionada =  Convert.ToInt32(this.dgv_Historias_con_evo.CurrentRow.Cells["idhistoria"].Value);
-
-
-            //DataTable dt_evol = new DataTable();
-
-            //dt_evol = NEvolucion.MostrarEvolucion(id_historia_seleccionada);
-
-            //int cant_evoluciones = dt_evol.Rows.Count;
-
-            //MessageBox.Show("La cantidad de evoluciones asociadas con la historia seleccionada es: " + Convert.ToString(cant_evoluciones) + " :D");
-
-
-        }
 
 
         private void btnAnadirEvol_Click(object sender, EventArgs e)
@@ -1146,6 +1196,16 @@ namespace CapaPresentacion
 
             //Para que se muestre la pestaña de Evolucion.
             this.tabControl1.SelectedIndex = 4;
+
+
+
+            //insertar evolucion
+
+            //anular evolucion
+
+
+
+
         }
 
         private void tabPage5_Click(object sender, EventArgs e)
@@ -1156,6 +1216,153 @@ namespace CapaPresentacion
         private void datalistadohistorias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+
+        private int Contar_evol_segun_id_historia(int id_de_la_historia)
+        {
+
+
+            DataTable dt_evol = new DataTable();
+
+            dt_evol = NEvolucion.MostrarEvolucion(id_de_la_historia);
+
+            int cant_evoluciones = dt_evol.Rows.Count;
+
+            MessageBox.Show("La cantidad de evoluciones asociadas con la historia seleccionada es: " + Convert.ToString(cant_evoluciones) + " :D");
+
+            return cant_evoluciones;
+
+        }
+
+
+        private void btnGuardar_evol_Click(object sender, EventArgs e)
+        {
+
+
+                try
+                {
+
+                    //validacion de campos vacios
+
+                    string rpta = "";
+                    if (string.IsNullOrEmpty(this.textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+                    {
+                        //MensajeError("No se pueden dejar campos vacios");
+                        /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
+                        errorIcono.SetError(txtApellidos, "Ingrese un Valor");
+                        errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                        errorIcono.SetError(txtUsuario, "Ingrese un Valor");
+                        errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
+
+                    }
+                    else
+                    {
+
+
+
+
+                        if (this.IsNuevo_evol)
+                        {
+
+
+                        ////insertar nueva evolucion
+                        //    rpta = NEvolucion.Insertar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
+                        //        this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                        //        this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
+                        //        this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
+                        //        txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+
+                        }
+                        
+
+
+                    
+                        else if (this.IsEditar_evol)
+                        {
+
+
+                            if (Contar_evol_segun_id_historia(Convert.ToInt32(this.lbl_id_historia_evol.Text)) > 0)
+                            {
+                            //rpta = NEvolucion.Editar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
+                            //    this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                            //    this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
+                            //    this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
+                            //    txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+
+                            }
+                            else
+                            {
+                                MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
+                            }
+
+
+
+                        }
+
+
+                        if (rpta.Equals("OK"))
+                        {
+
+
+
+
+                            if (this.IsNuevo)
+                            {
+                                this.MensajeOk("Se Insertó de forma correcta la evolucion");
+                                this.OperacionInsertarEvol();
+                            }
+                            else
+                            {
+                                this.MensajeOk("Se Actualizó de forma correcta la evolucion");
+                                this.OperacionEditarEvol();
+                            }
+
+                        }
+                        else
+                        {
+
+
+                            this.MensajeError(rpta);
+                        }
+
+                        this.IsNuevo_evol = false;
+                        this.IsEditar_evol = false;
+                        this.Botones_evol();
+                        this.Limpiar_evol();
+                        this.lbl_id_historia_evol.Text = "";
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            
+
+
+        }
+
+        private void btnNueva_evol_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo_evol = true;
+            this.IsEditar_evol = false;
+            //this.Botones_evol();
+            //this.Limpiar_evol();
+            //this.Habilitar_evol(true);
+
+
+
+        }
+
+        private void btnEditar_evol_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo_evol = false;
+            this.IsEditar_evol = true;
+            //this.Boton_evol();
+            //this.Limpiar_evol();
+            //this.Habilitar_evol(true);
         }
     }
 }

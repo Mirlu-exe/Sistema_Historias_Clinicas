@@ -550,7 +550,7 @@ namespace CapaPresentacion
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Registrado a un paciente. ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Registrado a un paciente.");
             SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 

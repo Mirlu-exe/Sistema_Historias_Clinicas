@@ -117,7 +117,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(333, 49);
             this.btnReportes.TabIndex = 39;
-            this.btnReportes.Text = "Reportes";
+            this.btnReportes.Text = "            Reportes Guardados";
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -135,7 +135,7 @@
             this.btnControlEstadistico.Name = "btnControlEstadistico";
             this.btnControlEstadistico.Size = new System.Drawing.Size(333, 49);
             this.btnControlEstadistico.TabIndex = 37;
-            this.btnControlEstadistico.Text = "       Control Estadístico";
+            this.btnControlEstadistico.Text = "         Control Estadístico";
             this.btnControlEstadistico.UseVisualStyleBackColor = true;
             this.btnControlEstadistico.Click += new System.EventHandler(this.btnControlEstadistico_Click);
             // 
