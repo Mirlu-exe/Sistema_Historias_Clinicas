@@ -840,7 +840,20 @@ namespace CapaPresentacion
 
             this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
             this.lbl_nombre_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
-            
+
+
+            //aca se pasan los datos del Historia a Evolucion 
+            this.lbl_id_historia_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+            this.lblNombrePaciente_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
+            this.lblCedulaPaciente_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+
+            //aca se pasan los datos del Historia a Evolucion Lista
+            this.lbl_lista_evol_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+            this.lbl_lista_evol_nombre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
+            this.lbl_lista_evol_ci.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+
+
+
 
             this.dtpFechaConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["fecha_consulta"].Value);
             this.txtRazonConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["razon_consulta"].Value);
@@ -1246,7 +1259,7 @@ namespace CapaPresentacion
                     //validacion de campos vacios
 
                     string rpta = "";
-                    if (string.IsNullOrEmpty(this.textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+                    if (string.IsNullOrEmpty(this.txtRazonConsulta_Evol.Text) || string.IsNullOrEmpty(txtEdadSuc_Evol.Text))
                     {
                         //MensajeError("No se pueden dejar campos vacios");
                         /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
@@ -1266,12 +1279,11 @@ namespace CapaPresentacion
                         {
 
 
-                        ////insertar nueva evolucion
-                        //    rpta = NEvolucion.Insertar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                        //        this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
-                        //        this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
-                        //        this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
-                        //        txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+                        //insertar nueva evolucion
+                            rpta = NEvolucion.Insertar( Convert.ToInt32(this.lbl_id_historia_evol.Text),
+                            this.dt_fecha_consulta_evol.Value, this.txtEdadSuc_Evol.Text, this.txtRazonConsulta_Evol.Text, 
+                            this.txtPlanTerapeutico_Evol.Text, this.txtPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text, 
+                            this.txtDiagnosticos_Evol.Text, this.dt_prox_cita.Value, this.cbEstado_Evol.Text);
 
                         }
                         
@@ -1283,14 +1295,15 @@ namespace CapaPresentacion
 
 
                             if (Contar_evol_segun_id_historia(Convert.ToInt32(this.lbl_id_historia_evol.Text)) > 0)
-                            {
-                            //rpta = NEvolucion.Editar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                            //    this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
-                            //    this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
-                            //    this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
-                            //    txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+                        {
 
-                            }
+
+                            //editar evolucion
+                            rpta = NEvolucion.Editar(Convert.ToInt32(this.lbl_id_paciente_select.Text), Convert.ToInt32(this.lbl_id_historia_evol.Text),
+                            this.dt_fecha_consulta_evol.Value, this.txtEdadSuc_Evol.Text, this.txtRazonConsulta_Evol.Text,
+                            this.txtPlanTerapeutico_Evol.Text, this.txtPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text,
+                            this.txtDiagnosticos_Evol.Text, this.dt_prox_cita.Value, this.cbEstado_Evol.Text);
+                        }
                             else
                             {
                                 MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
@@ -1307,15 +1320,15 @@ namespace CapaPresentacion
 
 
 
-                            if (this.IsNuevo)
+                            if (this.IsNuevo_evol)
                             {
                                 this.MensajeOk("Se Insertó de forma correcta la evolucion");
-                                this.OperacionInsertarEvol();
+                                //this.OperacionInsertarEvol();
                             }
                             else
                             {
                                 this.MensajeOk("Se Actualizó de forma correcta la evolucion");
-                                this.OperacionEditarEvol();
+                                //this.OperacionEditarEvol();
                             }
 
                         }
@@ -1328,8 +1341,8 @@ namespace CapaPresentacion
 
                         this.IsNuevo_evol = false;
                         this.IsEditar_evol = false;
-                        this.Botones_evol();
-                        this.Limpiar_evol();
+                        //this.Botones_evol();
+                        //this.Limpiar_evol();
                         this.lbl_id_historia_evol.Text = "";
 
 
@@ -1363,6 +1376,11 @@ namespace CapaPresentacion
             //this.Boton_evol();
             //this.Limpiar_evol();
             //this.Habilitar_evol(true);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
