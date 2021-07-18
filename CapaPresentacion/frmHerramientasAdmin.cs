@@ -64,7 +64,20 @@ namespace CapaPresentacion
             }
             else
             {
-                string cmd = "BACKUP DATABASE [" + database + "] TO DISK '" + textBox1.Text + "";
+                string cmd = "BACKUP DATABASE[dbclinica] TO DISK = N'C:\\Users\\Usuario\\Desktop\\Sistema_Historias_Clinicas\\Prueba de respaldo y restore\\testttt.bak' WITH INIT, NAME = N'dbclinica-Full Database Backup', NOREWIND, NOUNLOAD,  STATS = 10, FORMAT";
+               
+                conexion.Open(); // open
+
+                SqlCommand command1 = new SqlCommand(cmd, conexion); // llamado
+               
+                command1.ExecuteNonQuery();
+                MessageBox.Show("Data base  done successfuly"); // mensaje de guardado
+
+                conexion.Close(); // close 
+
+                btnBackup.Enabled = false;
+
+
 
                 //WIP
             }
@@ -82,6 +95,60 @@ namespace CapaPresentacion
 
         private void frmHerramientasAdmin_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnBrowseRestaurar_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog dlg = new OpenFileDialog(); 
+
+            dlg.Filter = "SLQ SERVER database back files | .bak";
+            dlg.Title = "Data base Restore ";
+            
+            if ( dlg.ShowDialog() == DialogResult.OK ) // verificacion de restauracion que este cargada 
+            {
+
+                textBox2.Text = dlg.FileName;
+                btnRestore.Enabled = true;
+
+            }
+
+        }
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+
+            string database = conexion.Database.ToString();
+            conexion.Open();
+
+            try
+            {
+
+                string str1 = string.Format("ALTER DATA BASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE ");
+                SqlCommand cmd1 = new SqlCommand(str1, conexion);
+
+                cmd1.ExecuteNonQuery();
+
+                string str2 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK= '" + textBox2.Text + "' WITH REPLACE;";
+                SqlCommand cmd2 = new SqlCommand(str2, conexion);
+
+                cmd2.ExecuteNonQuery();
+
+                string str3 = string.Format("ALTER DATA BASE [" + database + "] SET MULTI_USER");
+                SqlCommand cmd3 = new SqlCommand(str3, conexion);
+
+                cmd3.ExecuteNonQuery();
+
+                MessageBox.Show("Database restore done succeessfuly ");
+                conexion.Close();
+
+            }
+            catch 
+            {
+                
+
+
+            }
 
         }
     }
