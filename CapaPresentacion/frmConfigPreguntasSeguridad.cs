@@ -51,6 +51,7 @@ namespace CapaPresentacion
         {
             MessageBox.Show(mensaje, "Clinica", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
         }
 
 
@@ -105,7 +106,7 @@ namespace CapaPresentacion
                 
                
 
-               // this.OperacionInsertarRespuestasSeguridad();
+                //this.OperacionInsertarRespuestasSeguridad();
 
                 this.txtLibro.Clear();
                 this.txtAbuela.Clear();

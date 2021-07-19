@@ -179,6 +179,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDiagnosticos_Historia = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -214,7 +216,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1576, 983);
+            this.tabControl1.Size = new System.Drawing.Size(1576, 1027);
             this.tabControl1.TabIndex = 16;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
@@ -372,7 +374,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label19.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label19.Location = new System.Drawing.Point(1221, 229);
+            this.label19.Location = new System.Drawing.Point(1233, 236);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(57, 32);
@@ -384,7 +386,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label18.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label18.Location = new System.Drawing.Point(907, 226);
+            this.label18.Location = new System.Drawing.Point(907, 236);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(61, 32);
@@ -549,13 +551,15 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage3.Size = new System.Drawing.Size(1568, 982);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Historia Clínica";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtDiagnosticos_Historia);
             this.groupBox2.Controls.Add(this.lbl_ci_pac);
             this.groupBox2.Controls.Add(this.lbl_nombre_pac);
             this.groupBox2.Controls.Add(this.btnAnadirEvol);
@@ -600,7 +604,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1744, 882);
+            this.groupBox2.Size = new System.Drawing.Size(1744, 978);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historia Clinica";
@@ -1987,6 +1991,26 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 876);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(141, 32);
+            this.label13.TabIndex = 172;
+            this.label13.Text = "Diagnósticos";
+            // 
+            // txtDiagnosticos_Historia
+            // 
+            this.txtDiagnosticos_Historia.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiagnosticos_Historia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDiagnosticos_Historia.Location = new System.Drawing.Point(315, 874);
+            this.txtDiagnosticos_Historia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDiagnosticos_Historia.Multiline = true;
+            this.txtDiagnosticos_Historia.Name = "txtDiagnosticos_Historia";
+            this.txtDiagnosticos_Historia.Size = new System.Drawing.Size(825, 82);
+            this.txtDiagnosticos_Historia.TabIndex = 173;
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2165,5 +2189,7 @@
         private System.Windows.Forms.Label lbl_lista_evol_nombre;
         private System.Windows.Forms.DataGridView dgv_lista_evol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtDiagnosticos_Historia;
     }
 }

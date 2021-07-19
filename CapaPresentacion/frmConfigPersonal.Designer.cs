@@ -89,7 +89,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button1.ForeColor = System.Drawing.Color.DarkCyan;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(434, 169);
+            this.button1.Location = new System.Drawing.Point(436, 228);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(437, 43);
@@ -116,7 +116,7 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button2.ForeColor = System.Drawing.Color.DarkCyan;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(434, 241);
+            this.button2.Location = new System.Drawing.Point(436, 177);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(437, 43);
@@ -144,7 +144,7 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button3.ForeColor = System.Drawing.Color.DarkCyan;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(434, 379);
+            this.button3.Location = new System.Drawing.Point(436, 330);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(437, 49);
@@ -161,7 +161,7 @@
             this.button4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button4.ForeColor = System.Drawing.Color.DarkCyan;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(434, 309);
+            this.button4.Location = new System.Drawing.Point(436, 279);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(437, 43);

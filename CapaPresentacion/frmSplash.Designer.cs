@@ -41,9 +41,10 @@
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.Color.White;
-            this.progressBar1.Location = new System.Drawing.Point(23, 134);
+            this.progressBar1.Location = new System.Drawing.Point(31, 165);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(352, 75);
+            this.progressBar1.Size = new System.Drawing.Size(469, 92);
             this.progressBar1.TabIndex = 153;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
@@ -52,9 +53,10 @@
             this.lblCarga.AutoSize = true;
             this.lblCarga.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCarga.ForeColor = System.Drawing.Color.White;
-            this.lblCarga.Location = new System.Drawing.Point(161, 265);
+            this.lblCarga.Location = new System.Drawing.Point(215, 326);
+            this.lblCarga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCarga.Name = "lblCarga";
-            this.lblCarga.Size = new System.Drawing.Size(91, 25);
+            this.lblCarga.Size = new System.Drawing.Size(114, 32);
             this.lblCarga.TabIndex = 152;
             this.lblCarga.Text = "Cargando";
             this.lblCarga.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,9 +66,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(254, 9);
+            this.label4.Location = new System.Drawing.Point(339, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 62);
+            this.label4.Size = new System.Drawing.Size(177, 76);
             this.label4.TabIndex = 151;
             this.label4.Text = "Sistema de Historias Clínicas Electrónicas";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,9 +80,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(97, 300);
+            this.label1.Location = new System.Drawing.Point(111, 369);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 44);
+            this.label1.Size = new System.Drawing.Size(317, 57);
             this.label1.TabIndex = 150;
             this.label1.Text = "Crystal Clear";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,25 +96,27 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Barra_de_carga;
-            this.pictureBox1.Location = new System.Drawing.Point(-15, -8);
+            this.pictureBox1.Location = new System.Drawing.Point(-20, -10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(424, 364);
+            this.pictureBox1.Size = new System.Drawing.Size(565, 448);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 149;
             this.pictureBox1.TabStop = false;
             // 
             // frmSplash
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(394, 362);
+            this.ClientSize = new System.Drawing.Size(525, 446);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblCarga);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSplash";

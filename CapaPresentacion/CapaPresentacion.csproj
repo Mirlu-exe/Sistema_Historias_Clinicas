@@ -136,6 +136,12 @@
     <Compile Include="frmEditarContrasena.Designer.cs">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarPreguntasSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarPreguntasSeguridad.Designer.cs">
+      <DependentUpon>frmEditarPreguntasSeguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,12 @@
     </Compile>
     <Compile Include="frmHistoria.Designer.cs">
       <DependentUpon>frmHistoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformesMedicosReferenciaMedicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformesMedicosReferenciaMedicas.Designer.cs">
+      <DependentUpon>frmInformesMedicosReferenciaMedicas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -369,6 +381,9 @@
     <EmbeddedResource Include="frmEditarContrasena.resx">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarPreguntasSeguridad.resx">
+      <DependentUpon>frmEditarPreguntasSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionReportes.resx">
       <DependentUpon>frmGestionReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistoria.resx">
       <DependentUpon>frmHistoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformesMedicosReferenciaMedicas.resx">
+      <DependentUpon>frmInformesMedicosReferenciaMedicas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

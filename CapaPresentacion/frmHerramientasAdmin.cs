@@ -101,9 +101,10 @@ namespace CapaPresentacion
         private void btnBrowseRestaurar_Click(object sender, EventArgs e)
         {
 
-            OpenFileDialog dlg = new OpenFileDialog(); 
+            OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.Filter = "SLQ SERVER database back files | .bak";
+
+            dlg.Filter = "SLQ SERVER database back files (*.bak) | *.bak";
             dlg.Title = "Data base Restore ";
             
             if ( dlg.ShowDialog() == DialogResult.OK ) // verificacion de restauracion que este cargada 
@@ -124,7 +125,7 @@ namespace CapaPresentacion
             try
             {
 
-                string str1 = string.Format("ALTER DATA BASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE ");
+                string str1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE ");
                 SqlCommand cmd1 = new SqlCommand(str1, conexion);
 
                 cmd1.ExecuteNonQuery();
@@ -134,7 +135,7 @@ namespace CapaPresentacion
 
                 cmd2.ExecuteNonQuery();
 
-                string str3 = string.Format("ALTER DATA BASE [" + database + "] SET MULTI_USER");
+                string str3 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
                 SqlCommand cmd3 = new SqlCommand(str3, conexion);
 
                 cmd3.ExecuteNonQuery();
@@ -143,12 +144,13 @@ namespace CapaPresentacion
                 conexion.Close();
 
             }
-            catch 
+            catch (Exception ex)
             {
-                
-
+                MessageBox.Show(ex.ToString());
+                conexion.Close();
 
             }
+
 
         }
     }

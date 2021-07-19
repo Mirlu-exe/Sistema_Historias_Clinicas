@@ -18,7 +18,7 @@ namespace CapaPresentacion
     public partial class frmRecuperarContrasena : Form
     {
 
-
+        
 
         private static frmRecuperarContrasena _instancia;
         private int id_de_coincidencia;
@@ -73,6 +73,9 @@ namespace CapaPresentacion
 
         private void btnConfirmarPreguntas_Click(object sender, EventArgs e)
         {
+
+
+
             //recoger la respuesta #1, #2 y la #3
             string Resp1 = (this.txtLibro.Text).ToUpper();
             string Resp2 = (this.txtAbuela.Text).ToUpper();
@@ -85,23 +88,8 @@ namespace CapaPresentacion
 
             id_de_coincidencia = TraerIdQueCoincidaRespuestas(Resp1, Resp2, Resp3);
 
-            MessageBox.Show("El id del usuario que coincide es: " + id_de_coincidencia + ".");
 
-
-
-            editarContrasena.Idusuario = id_de_coincidencia;
-
-            //abrir un form con 3 txtbox con 3 lbls con las preguntas de seguridad
-
-            frmEditarContrasena frm = new frmEditarContrasena();
-            frm.Show();
-
-            this.txtAbuela.Clear();
-            this.txtLibro.Clear();
-            this.txtMascota.Clear();
-
-            //mostrar la cedula y mostrar una ventana para ingresar la nueva contraseña.
-            this.Hide();
+           
 
 
         }
@@ -131,14 +119,33 @@ namespace CapaPresentacion
 
                     id_de_coincidencia = Convert.ToInt32(DtResultado.Rows[0][0]);
 
+                    MessageBox.Show("El id del usuario que coincide es: " + id_de_coincidencia + ".");
+
+
+
+                    editarContrasena.Idusuario = id_de_coincidencia;
+
+                    //abrir un form con 3 txtbox con 3 lbls con las preguntas de seguridad
+
+                    frmEditarContrasena frm = new frmEditarContrasena();
+                    frm.Show();
+
+                    this.txtAbuela.Clear();
+                    this.txtLibro.Clear();
+                    this.txtMascota.Clear();
+
+                    //mostrar la cedula y mostrar una ventana para ingresar la nueva contraseña.
+                    this.Hide();
+
+
                 }
                 else if (DtResultado.Rows.Count == 0) {
 
-                    id_de_coincidencia = 0;
+                    MessageBox.Show("Error no existe ninguna coincidencia");
                 }
                 else
                 {
-                    id_de_coincidencia = 0;
+                    MessageBox.Show("Error no existe ninguna coincidencia1");
                 }
 
 
