@@ -29,7 +29,7 @@ namespace CapaPresentacion
 
             this.ttMensaje.SetToolTip(this.txtbuscarpaciente, "Seleccione un paciente");
 
-            this.ttMensaje.SetToolTip(this.txtCosto, "Ingrese el costo del servicio");
+            //this.ttMensaje.SetToolTip(this.txtCosto, "Ingrese el costo del servicio");
             this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la reserva");
             fillComboServicios();
             fillComboPacientes();
@@ -42,6 +42,10 @@ namespace CapaPresentacion
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Servicio' Puede moverla o quitarla según sea necesario.
+            this.servicioTableAdapter.Fill(this.dsPrincipal.Servicio);
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Cita' Puede moverla o quitarla según sea necesario.
+            this.citaTableAdapter.Fill(this.dsPrincipal.Cita);
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
@@ -307,7 +311,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre as Paciente, Cita.idusuario, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Costo, Cita.Estado from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre as Paciente, Cita.idusuario, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
 
             try
             {
@@ -385,7 +389,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, costo, estado) values (@d1,@d2,@d3,@d4,@d5,@d6)";
+                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado) values (@d1,@d2,@d3,@d4,@d5)";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -396,7 +400,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d6", this.cmbEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", this.cmbEstadoCita.Text);
 
 
 
@@ -430,7 +434,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, costo = @d5, estado = @d6 where idcita=@d7";
+                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, estado = @d5 where idcita=@d6";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -441,8 +445,8 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d6", this.cmbEstadoCita.Text);
-                        SqlCmd.Parameters.AddWithValue("@d7", Convert.ToInt32(this.txtCodCita.Text));
+                        SqlCmd.Parameters.AddWithValue("@d5", this.cmbEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToInt32(this.txtCodCita.Text));
 
 
 
@@ -825,17 +829,17 @@ namespace CapaPresentacion
         public void montoTotalCitas()
         {
 
-            int sum = 0;
+            //int sum = 0;
 
 
-            for (int i = 0; i < dataListado.Rows.Count; i++)
-            {
+            //for (int i = 0; i < dataListado.Rows.Count; i++)
+            //{
 
 
-                sum += Convert.ToInt32(dataListado.Rows[i].Cells["costo"].Value);
-            }
+            //    sum += Convert.ToInt32(dataListado.Rows[i].Cells["costo"].Value);
+            //}
 
-            this.lblMontoTotal.Text = sum.ToString() + "$ ";
+            //this.lblMontoTotal.Text = sum.ToString() + "$ ";
 
 
         }
@@ -893,5 +897,30 @@ namespace CapaPresentacion
             }
         }
 
+        
+        private void RevisarCitasHoy() 
+        {
+
+          string Citashoy = DateTime.Now.Date.ToShortDateString();
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
+            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.fecha from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
+
+
+
+        }
+
+        private void dgv_citas_hoy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void LblHora_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

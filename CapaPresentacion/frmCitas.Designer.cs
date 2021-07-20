@@ -84,7 +84,21 @@
             this.LblHora = new System.Windows.Forms.Label();
             this.dgv_citas_hoy = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idcitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idservicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.citaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
             this.label4 = new System.Windows.Forms.Label();
+            this.citaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.citaTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.CitaTableAdapter();
+            this.dsPrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.servicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.servicioTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.ServicioTableAdapter();
+            this.fKCitaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -92,6 +106,12 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_citas_hoy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKCitaServicioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // errorIcono
@@ -453,6 +473,7 @@
             // cmbPacientes
             // 
             this.cmbPacientes.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPacientes.FormattingEnabled = true;
             this.cmbPacientes.Location = new System.Drawing.Point(132, 119);
             this.cmbPacientes.Margin = new System.Windows.Forms.Padding(4);
@@ -708,12 +729,14 @@
             this.LblHora.Size = new System.Drawing.Size(75, 32);
             this.LblHora.TabIndex = 178;
             this.LblHora.Text = "label4";
+            this.LblHora.Click += new System.EventHandler(this.LblHora_Click);
             // 
             // dgv_citas_hoy
             // 
             this.dgv_citas_hoy.AllowUserToAddRows = false;
             this.dgv_citas_hoy.AllowUserToDeleteRows = false;
             this.dgv_citas_hoy.AllowUserToOrderColumns = true;
+            this.dgv_citas_hoy.AutoGenerateColumns = false;
             this.dgv_citas_hoy.BackgroundColor = System.Drawing.Color.White;
             this.dgv_citas_hoy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_citas_hoy.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -728,7 +751,14 @@
             this.dgv_citas_hoy.ColumnHeadersHeight = 50;
             this.dgv_citas_hoy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_citas_hoy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1});
+            this.dataGridViewCheckBoxColumn1,
+            this.idcitaDataGridViewTextBoxColumn,
+            this.idpacienteDataGridViewTextBoxColumn,
+            this.idusuarioDataGridViewTextBoxColumn,
+            this.fechaDataGridViewTextBoxColumn,
+            this.idservicioDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn});
+            this.dgv_citas_hoy.DataSource = this.citaBindingSource;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -738,7 +768,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_citas_hoy.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_citas_hoy.GridColor = System.Drawing.Color.DarkCyan;
-            this.dgv_citas_hoy.Location = new System.Drawing.Point(76, 124);
+            this.dgv_citas_hoy.Location = new System.Drawing.Point(140, 94);
             this.dgv_citas_hoy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_citas_hoy.MultiSelect = false;
             this.dgv_citas_hoy.Name = "dgv_citas_hoy";
@@ -759,8 +789,9 @@
             this.dgv_citas_hoy.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_citas_hoy.RowTemplate.Height = 24;
             this.dgv_citas_hoy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_citas_hoy.Size = new System.Drawing.Size(805, 572);
+            this.dgv_citas_hoy.Size = new System.Drawing.Size(1361, 572);
             this.dgv_citas_hoy.TabIndex = 177;
+            this.dgv_citas_hoy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_citas_hoy_CellContentClick);
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -770,6 +801,70 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Width = 125;
             // 
+            // idcitaDataGridViewTextBoxColumn
+            // 
+            this.idcitaDataGridViewTextBoxColumn.DataPropertyName = "idcita";
+            this.idcitaDataGridViewTextBoxColumn.HeaderText = "idcita";
+            this.idcitaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idcitaDataGridViewTextBoxColumn.Name = "idcitaDataGridViewTextBoxColumn";
+            this.idcitaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idcitaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idpacienteDataGridViewTextBoxColumn
+            // 
+            this.idpacienteDataGridViewTextBoxColumn.DataPropertyName = "idpaciente";
+            this.idpacienteDataGridViewTextBoxColumn.HeaderText = "idpaciente";
+            this.idpacienteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idpacienteDataGridViewTextBoxColumn.Name = "idpacienteDataGridViewTextBoxColumn";
+            this.idpacienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idpacienteDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idusuarioDataGridViewTextBoxColumn
+            // 
+            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "idusuario";
+            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "idusuario";
+            this.idusuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
+            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idusuarioDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
+            this.fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idservicioDataGridViewTextBoxColumn
+            // 
+            this.idservicioDataGridViewTextBoxColumn.DataPropertyName = "idservicio";
+            this.idservicioDataGridViewTextBoxColumn.HeaderText = "idservicio";
+            this.idservicioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idservicioDataGridViewTextBoxColumn.Name = "idservicioDataGridViewTextBoxColumn";
+            this.idservicioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idservicioDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // citaBindingSource
+            // 
+            this.citaBindingSource.DataMember = "Cita";
+            this.citaBindingSource.DataSource = this.dsPrincipal;
+            // 
+            // dsPrincipal
+            // 
+            this.dsPrincipal.DataSetName = "dsPrincipal";
+            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -778,6 +873,34 @@
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "DIA: ";
+            // 
+            // citaBindingSource1
+            // 
+            this.citaBindingSource1.DataMember = "Cita";
+            this.citaBindingSource1.DataSource = this.dsPrincipal;
+            // 
+            // citaTableAdapter
+            // 
+            this.citaTableAdapter.ClearBeforeFill = true;
+            // 
+            // dsPrincipalBindingSource
+            // 
+            this.dsPrincipalBindingSource.DataSource = this.dsPrincipal;
+            this.dsPrincipalBindingSource.Position = 0;
+            // 
+            // servicioBindingSource
+            // 
+            this.servicioBindingSource.DataMember = "Servicio";
+            this.servicioBindingSource.DataSource = this.dsPrincipalBindingSource;
+            // 
+            // servicioTableAdapter
+            // 
+            this.servicioTableAdapter.ClearBeforeFill = true;
+            // 
+            // fKCitaServicioBindingSource
+            // 
+            this.fKCitaServicioBindingSource.DataMember = "FK_Cita_Servicio";
+            this.fKCitaServicioBindingSource.DataSource = this.servicioBindingSource;
             // 
             // frmCitas
             // 
@@ -804,6 +927,12 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_citas_hoy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKCitaServicioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -856,8 +985,22 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.DataGridView dgv_citas_hoy;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblHora;
+        private dsPrincipal dsPrincipal;
+        private System.Windows.Forms.BindingSource citaBindingSource;
+        private dsPrincipalTableAdapters.CitaTableAdapter citaTableAdapter;
+        private System.Windows.Forms.BindingSource citaBindingSource1;
+        private System.Windows.Forms.BindingSource dsPrincipalBindingSource;
+        private System.Windows.Forms.BindingSource servicioBindingSource;
+        private dsPrincipalTableAdapters.ServicioTableAdapter servicioTableAdapter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.BindingSource fKCitaServicioBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcitaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpacienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idservicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
     }
 }

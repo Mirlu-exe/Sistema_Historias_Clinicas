@@ -62,6 +62,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblCodPac = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Cedulatxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             this.panel3.SuspendLayout();
@@ -183,7 +185,6 @@
             this.cmbTipoReceta.Name = "cmbTipoReceta";
             this.cmbTipoReceta.Size = new System.Drawing.Size(167, 36);
             this.cmbTipoReceta.TabIndex = 205;
-            this.cmbTipoReceta.Text = "Paciente";
             // 
             // dataListado
             // 
@@ -363,7 +364,7 @@
             this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPacientes.Enabled = false;
             this.cmbPacientes.FormattingEnabled = true;
-            this.cmbPacientes.Location = new System.Drawing.Point(344, 335);
+            this.cmbPacientes.Location = new System.Drawing.Point(344, 378);
             this.cmbPacientes.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPacientes.Name = "cmbPacientes";
             this.cmbPacientes.Size = new System.Drawing.Size(207, 24);
@@ -376,7 +377,7 @@
             // 
             this.txtidPlanEstudio.BackColor = System.Drawing.SystemColors.Control;
             this.txtidPlanEstudio.Enabled = false;
-            this.txtidPlanEstudio.Location = new System.Drawing.Point(344, 291);
+            this.txtidPlanEstudio.Location = new System.Drawing.Point(344, 301);
             this.txtidPlanEstudio.Margin = new System.Windows.Forms.Padding(4);
             this.txtidPlanEstudio.Name = "txtidPlanEstudio";
             this.txtidPlanEstudio.Size = new System.Drawing.Size(105, 22);
@@ -399,7 +400,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(89, 378);
+            this.label2.Location = new System.Drawing.Point(89, 415);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 32);
@@ -411,7 +412,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(89, 335);
+            this.label1.Location = new System.Drawing.Point(89, 370);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 32);
@@ -428,7 +429,7 @@
             "Ecocardiograma",
             "Examen de Orina",
             "Examen de Eses"});
-            this.listboxEstudios.Location = new System.Drawing.Point(344, 378);
+            this.listboxEstudios.Location = new System.Drawing.Point(344, 415);
             this.listboxEstudios.Name = "listboxEstudios";
             this.listboxEstudios.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listboxEstudios.Size = new System.Drawing.Size(207, 196);
@@ -470,12 +471,36 @@
             this.label5.TabIndex = 213;
             this.label5.Text = "Codigo Paciente";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label6.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label6.Location = new System.Drawing.Point(89, 332);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 32);
+            this.label6.TabIndex = 214;
+            this.label6.Text = "Cedula";
+            // 
+            // Cedulatxt
+            // 
+            this.Cedulatxt.BackColor = System.Drawing.SystemColors.Control;
+            this.Cedulatxt.Enabled = false;
+            this.Cedulatxt.Location = new System.Drawing.Point(344, 342);
+            this.Cedulatxt.Margin = new System.Windows.Forms.Padding(4);
+            this.Cedulatxt.Name = "Cedulatxt";
+            this.Cedulatxt.Size = new System.Drawing.Size(105, 22);
+            this.Cedulatxt.TabIndex = 215;
+            // 
             // frmPlanEstudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1497, 770);
+            this.Controls.Add(this.Cedulatxt);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblCodPac);
             this.Controls.Add(this.label3);
@@ -543,5 +568,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblCodPac;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Cedulatxt;
     }
 }

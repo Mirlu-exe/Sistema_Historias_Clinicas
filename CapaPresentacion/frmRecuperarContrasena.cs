@@ -47,14 +47,14 @@ namespace CapaPresentacion
 
         private void frmRecuperarContrasena_Load(object sender, EventArgs e)
         {
-
+            this.gbPreguntasSeguridad.Enabled = false;
         }
 
         private void btnLimpiarPreguntas_Click(object sender, EventArgs e)
         {
-            txtLibro.Clear();
-            txtAbuela.Clear();
-            txtMascota.Clear();
+            txtResp1.Clear();
+            txtResp2.Clear();
+            txtResp3.Clear();
 
         }
 
@@ -64,9 +64,9 @@ namespace CapaPresentacion
             frmLogin frm = frmLogin.GetInstancia();
             frm.Show();
 
-            txtLibro.Clear();
-            txtAbuela.Clear();
-            txtMascota.Clear();
+            txtResp1.Clear();
+            txtResp2.Clear();
+            txtResp3.Clear();
 
             this.Hide();
         }
@@ -77,9 +77,9 @@ namespace CapaPresentacion
 
 
             //recoger la respuesta #1, #2 y la #3
-            string Resp1 = (this.txtLibro.Text).ToUpper();
-            string Resp2 = (this.txtAbuela.Text).ToUpper();
-            string Resp3 = (this.txtMascota.Text).ToUpper();
+            string Resp1 = (this.txtResp1.Text).ToUpper();
+            string Resp2 = (this.txtResp2.Text).ToUpper();
+            string Resp3 = (this.txtResp3.Text).ToUpper();
 
             MessageBox.Show("Sus respuestas fueron: 1=" + Resp1 + "  2=" + Resp2 + "  3=" + Resp3 + ".");
 
@@ -130,9 +130,9 @@ namespace CapaPresentacion
                     frmEditarContrasena frm = new frmEditarContrasena();
                     frm.Show();
 
-                    this.txtAbuela.Clear();
-                    this.txtLibro.Clear();
-                    this.txtMascota.Clear();
+                    this.txtResp2.Clear();
+                    this.txtResp1.Clear();
+                    this.txtResp3.Clear();
 
                     //mostrar la cedula y mostrar una ventana para ingresar la nueva contraseña.
                     this.Hide();
@@ -160,7 +160,33 @@ namespace CapaPresentacion
             return id_de_coincidencia;
         }
 
+        private void cbPregunta3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResp3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerificarExistenciaUsername_Click(object sender, EventArgs e)
+        {
+
+            //si NO existe:
+
+                //mensaje: no existe el usuario. 
+                //desactivar el siguiente groupbox
+
+            //si SI existe:
+                //activar el siguiente groupbox y cargar los datos.
 
 
+        }
     }
 }

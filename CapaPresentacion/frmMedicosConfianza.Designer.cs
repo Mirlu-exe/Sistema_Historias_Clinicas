@@ -239,6 +239,7 @@
             // cblEstado
             // 
             this.cblEstado.BackColor = System.Drawing.SystemColors.Control;
+            this.cblEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cblEstado.FormattingEnabled = true;
             this.cblEstado.Items.AddRange(new object[] {
             "Activo",
@@ -299,6 +300,7 @@
             // cblBusqueda
             // 
             this.cblBusqueda.BackColor = System.Drawing.SystemColors.Control;
+            this.cblBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cblBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cblBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
             this.cblBusqueda.FormattingEnabled = true;
@@ -310,7 +312,6 @@
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cblBusqueda.TabIndex = 225;
-            this.cblBusqueda.Text = "Nombre";
             // 
             // dataListado
             // 

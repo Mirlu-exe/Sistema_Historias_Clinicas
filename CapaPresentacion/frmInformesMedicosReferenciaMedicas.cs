@@ -317,7 +317,29 @@ namespace CapaPresentacion
 
         }
 
-        private void btnGuardar_evol_Click(object sender, EventArgs e)
+        private void btnGuardar_informe_Click(object sender, EventArgs e)
+        {
+            
+            //Guardar todos los datos de los txtbox en una tabla llamada InformesParaReferencias, incluyendo la fecha en la que se guardó esta referencia.
+
+        }
+
+        private void btnNueva_informe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_informe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_informe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMedicosConfianza_Validated(object sender, EventArgs e)
         {
 
         }

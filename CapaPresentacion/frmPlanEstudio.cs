@@ -164,6 +164,15 @@ namespace CapaPresentacion
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
+        // Metodo BuscarPacienteporCedula
+
+            private void BuscarCedulaPaciente() 
+        {
+
+           
+
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.IsNuevo = true;
@@ -206,6 +215,8 @@ namespace CapaPresentacion
                         foreach (object estudios in listboxEstudios.SelectedItems)
                         {
                             estudiosSeleccionados += (estudiosSeleccionados == "" ? "" : ", ") + estudios.ToString();
+
+
                         }
 
                         MessageBox.Show(estudiosSeleccionados);
@@ -213,7 +224,7 @@ namespace CapaPresentacion
 
                         // Operacion Insertar
 
-                        rpta = NPlanEstudio.Insertar(Convert.ToInt32(this.lblCodPac.Text), estudiosSeleccionados);
+                        //rpta = NPlanEstudio.Insertar(Convert.ToInt32(this.lblCodPac.Text), estudiosSeleccionados);
 
 
 
