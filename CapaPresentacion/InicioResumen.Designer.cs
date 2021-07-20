@@ -585,9 +585,9 @@
             this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAyuda.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnAyuda.Location = new System.Drawing.Point(1527, 124);
+            this.btnAyuda.Location = new System.Drawing.Point(1517, 115);
             this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(53, 43);
+            this.btnAyuda.Size = new System.Drawing.Size(63, 52);
             this.btnAyuda.TabIndex = 55;
             this.btnAyuda.Text = "?";
             this.btnAyuda.UseVisualStyleBackColor = false;

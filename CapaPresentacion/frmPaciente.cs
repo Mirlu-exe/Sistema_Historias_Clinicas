@@ -58,7 +58,6 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
 
-            MessageBox.Show("el usuario " + Session_Actual.Log + " va a gestionar los pacientes ");
 
         }
 

@@ -27,6 +27,8 @@ namespace CapaPresentacion
 
 
 
+
+
         public static DUsuario Asignar_Session_Info(int id_usuario, string login_user, string acceso, string nombre_completo)
         {
             User_Actual.Idusuario = Convert.ToInt32(id_usuario);
@@ -48,7 +50,6 @@ namespace CapaPresentacion
             if (this.lblAcceso.Text == "Medico")
             {
                 this.btnPacientes.Enabled = true;
-                this.btnUsuarios.Enabled = false;
                 this.btnCitas.Enabled = true;
                 this.btnHistorias.Enabled = true;
                 this.btnServicios.Enabled = true;
@@ -64,7 +65,6 @@ namespace CapaPresentacion
             if (this.lblAcceso.Text == "Asistente")
             {
                 this.btnPacientes.Enabled = true;
-                this.btnUsuarios.Enabled = false;
                 this.btnCitas.Enabled = true;
                 this.btnHistorias.Enabled = false;
                 this.btnServicios.Enabled = false;
@@ -82,7 +82,6 @@ namespace CapaPresentacion
             {
 
                 this.btnPacientes.Enabled = true;
-                this.btnUsuarios.Enabled = true;
                 this.btnCitas.Enabled = true;
                 this.btnHistorias.Enabled = true;
                 this.btnServicios.Enabled = true;
@@ -95,6 +94,12 @@ namespace CapaPresentacion
 
             }
         }
+
+
+
+
+
+
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
@@ -160,12 +165,17 @@ namespace CapaPresentacion
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            if (MenuVertical.Width == 250)
+
+
+            if (MenuVertical.Width == 273)
             {
                 MenuVertical.Width = 70;
             }
             else
-                MenuVertical.Width = 250;
+            {
+                MenuVertical.Width = 273;
+            }
+                
         }
 
         private void iconmaximizar_Click(object sender, EventArgs e)
@@ -358,6 +368,16 @@ namespace CapaPresentacion
         private void MenuVertical_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmInformesMedicosReferenciaMedicas());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmMedicosConfianza());
         }
     }
 }

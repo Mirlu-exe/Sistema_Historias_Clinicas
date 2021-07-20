@@ -172,6 +172,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMedicosConfianza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedicosConfianza.Designer.cs">
+      <DependentUpon>frmMedicosConfianza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModuloAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModuloAyuda.Designer.cs">
+      <DependentUpon>frmModuloAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOperacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +219,12 @@
     </Compile>
     <Compile Include="frmRecuperarContrasena.Designer.cs">
       <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRespaldoBaseDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRespaldoBaseDatos.Designer.cs">
+      <DependentUpon>frmRespaldoBaseDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmServicios.cs">
       <SubType>Form</SubType>
@@ -399,6 +417,12 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMedicosConfianza.resx">
+      <DependentUpon>frmMedicosConfianza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModuloAyuda.resx">
+      <DependentUpon>frmModuloAyuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOperacion.resx">
       <DependentUpon>frmOperacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarContrasena.resx">
       <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRespaldoBaseDatos.resx">
+      <DependentUpon>frmRespaldoBaseDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
@@ -551,6 +578,17 @@
   <ItemGroup>
     <None Include="Resources\medical-prescription_smoll.png" />
     <None Include="Resources\informacion-personal.png" />
+    <None Include="Resources\bowl-1_smoll.png" />
+    <None Include="Resources\list-3_smoll.png" />
+    <None Include="Resources\tools1.png" />
+    <None Include="Resources\cerrar-sesion.png" />
+    <None Include="Resources\salir_icon.png" />
+    <None Include="Resources\salir_icon1.png" />
+    <None Include="Resources\salir_icon2.png" />
+    <None Include="Resources\ayudar.png" />
+    <None Include="Resources\heart-1_smoll.png" />
+    <None Include="Resources\nurse-2_smoll.png" />
+    <None Include="Resources\database-configuration.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

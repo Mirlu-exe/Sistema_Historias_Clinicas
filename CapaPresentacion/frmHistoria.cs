@@ -1382,5 +1382,10 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void dgv_lista_evol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

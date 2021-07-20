@@ -293,9 +293,14 @@ namespace CapaPresentacion
             lblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
+
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://drive.google.com/drive/u/0/folders/1G8cinwenhFmeDiVYBdMFqnaH8gbcohUK");
+
+            frmModuloAyuda frm = new frmModuloAyuda();
+
+            frm.ShowDialog();
+
         }
 
         private void btnAyuda_MouseHover(object sender, EventArgs e)

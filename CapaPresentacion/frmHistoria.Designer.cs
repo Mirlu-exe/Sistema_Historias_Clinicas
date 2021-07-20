@@ -70,6 +70,8 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDiagnosticos_Historia = new System.Windows.Forms.TextBox();
             this.lbl_ci_pac = new System.Windows.Forms.Label();
             this.lbl_nombre_pac = new System.Windows.Forms.Label();
             this.btnAnadirEvol = new System.Windows.Forms.Button();
@@ -179,8 +181,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtDiagnosticos_Historia = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -246,7 +246,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage1.Size = new System.Drawing.Size(1568, 982);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -608,6 +608,26 @@
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historia Clinica";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 876);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(141, 32);
+            this.label13.TabIndex = 172;
+            this.label13.Text = "Diagnósticos";
+            // 
+            // txtDiagnosticos_Historia
+            // 
+            this.txtDiagnosticos_Historia.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiagnosticos_Historia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDiagnosticos_Historia.Location = new System.Drawing.Point(315, 874);
+            this.txtDiagnosticos_Historia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDiagnosticos_Historia.Multiline = true;
+            this.txtDiagnosticos_Historia.Name = "txtDiagnosticos_Historia";
+            this.txtDiagnosticos_Historia.Size = new System.Drawing.Size(825, 82);
+            this.txtDiagnosticos_Historia.TabIndex = 173;
             // 
             // lbl_ci_pac
             // 
@@ -1073,7 +1093,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage2.Size = new System.Drawing.Size(1568, 982);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lista de Historias Clínicas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1231,7 +1251,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage4.Size = new System.Drawing.Size(1568, 982);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Archivos Anulados (Muertos)";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1404,7 +1424,7 @@
             this.tabPage5.Controls.Add(this.panel3);
             this.tabPage5.Location = new System.Drawing.Point(4, 41);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage5.Size = new System.Drawing.Size(1568, 982);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Evoluciones";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1790,7 +1810,7 @@
             this.tabPage6.Controls.Add(this.checkBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 41);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1568, 938);
+            this.tabPage6.Size = new System.Drawing.Size(1568, 982);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Lista de Evoluciones";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1890,6 +1910,7 @@
             this.dgv_lista_evol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_lista_evol.Size = new System.Drawing.Size(1741, 587);
             this.dgv_lista_evol.TabIndex = 15;
+            this.dgv_lista_evol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_lista_evol_CellContentClick);
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -1990,26 +2011,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 876);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(141, 32);
-            this.label13.TabIndex = 172;
-            this.label13.Text = "Diagnósticos";
-            // 
-            // txtDiagnosticos_Historia
-            // 
-            this.txtDiagnosticos_Historia.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDiagnosticos_Historia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiagnosticos_Historia.Location = new System.Drawing.Point(315, 874);
-            this.txtDiagnosticos_Historia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDiagnosticos_Historia.Multiline = true;
-            this.txtDiagnosticos_Historia.Name = "txtDiagnosticos_Historia";
-            this.txtDiagnosticos_Historia.Size = new System.Drawing.Size(825, 82);
-            this.txtDiagnosticos_Historia.TabIndex = 173;
             // 
             // frmHistoria
             // 

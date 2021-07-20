@@ -28,38 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHerramientasAdmin));
-            this.btnBrowseGenerar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBackup = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnGenerarCopia = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnMostrarRestaurar = new System.Windows.Forms.Button();
-            this.btnRestore = new System.Windows.Forms.Button();
-            this.btnBrowseRestaurar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnBrowseGenerar
-            // 
-            this.btnBrowseGenerar.Location = new System.Drawing.Point(584, 106);
-            this.btnBrowseGenerar.Name = "btnBrowseGenerar";
-            this.btnBrowseGenerar.Size = new System.Drawing.Size(121, 27);
-            this.btnBrowseGenerar.TabIndex = 0;
-            this.btnBrowseGenerar.Text = "Examinar";
-            this.btnBrowseGenerar.UseVisualStyleBackColor = true;
-            this.btnBrowseGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // panel3
             // 
@@ -70,14 +48,14 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1532, 76);
-            this.panel3.TabIndex = 185;
+            this.panel3.Size = new System.Drawing.Size(1532, 42);
+            this.panel3.TabIndex = 194;
             // 
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(503, 9);
+            this.label12.Location = new System.Drawing.Point(506, -12);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(519, 60);
@@ -97,176 +75,83 @@
             this.label13.Text = "Crystal Clear";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // panelContenedor
             // 
-            this.textBox1.Location = new System.Drawing.Point(271, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 22);
-            this.textBox1.TabIndex = 186;
+            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 42);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1532, 854);
+            this.panelContenedor.TabIndex = 197;
             // 
-            // btnBackup
+            // panel1
             // 
-            this.btnBackup.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnBackup.Location = new System.Drawing.Point(271, 148);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(434, 43);
-            this.btnBackup.TabIndex = 188;
-            this.btnBackup.Text = "Generar Copia";
-            this.btnBackup.UseVisualStyleBackColor = false;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 42);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1532, 60);
+            this.panel1.TabIndex = 198;
             // 
-            // groupBox1
+            // button1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.btnGenerarCopia);
-            this.groupBox1.Controls.Add(this.btnBrowseGenerar);
-            this.groupBox1.Controls.Add(this.btnBackup);
-            this.groupBox1.Location = new System.Drawing.Point(217, 146);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1105, 312);
-            this.groupBox1.TabIndex = 191;
-            this.groupBox1.TabStop = false;
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.database_configuration;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(781, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(575, 57);
+            this.button1.TabIndex = 197;
+            this.button1.Text = "Respaldos de Base de datos";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox1
+            // button2
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(778, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 199);
-            this.pictureBox1.TabIndex = 195;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnGenerarCopia
-            // 
-            this.btnGenerarCopia.BackColor = System.Drawing.Color.Transparent;
-            this.btnGenerarCopia.FlatAppearance.BorderSize = 0;
-            this.btnGenerarCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnGenerarCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarCopia.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnGenerarCopia.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnGenerarCopia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCopia.Location = new System.Drawing.Point(465, 0);
-            this.btnGenerarCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGenerarCopia.Name = "btnGenerarCopia";
-            this.btnGenerarCopia.Size = new System.Drawing.Size(306, 55);
-            this.btnGenerarCopia.TabIndex = 194;
-            this.btnGenerarCopia.Text = "Generar Copia de BD";
-            this.btnGenerarCopia.UseVisualStyleBackColor = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Controls.Add(this.btnMostrarRestaurar);
-            this.groupBox2.Controls.Add(this.btnRestore);
-            this.groupBox2.Controls.Add(this.btnBrowseRestaurar);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(217, 527);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1105, 300);
-            this.groupBox2.TabIndex = 192;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(778, 60);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 199);
-            this.pictureBox2.TabIndex = 196;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnMostrarRestaurar
-            // 
-            this.btnMostrarRestaurar.BackColor = System.Drawing.Color.LightGray;
-            this.btnMostrarRestaurar.FlatAppearance.BorderSize = 0;
-            this.btnMostrarRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnMostrarRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrarRestaurar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnMostrarRestaurar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnMostrarRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarRestaurar.Location = new System.Drawing.Point(540, 22);
-            this.btnMostrarRestaurar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMostrarRestaurar.Name = "btnMostrarRestaurar";
-            this.btnMostrarRestaurar.Size = new System.Drawing.Size(165, 55);
-            this.btnMostrarRestaurar.TabIndex = 193;
-            this.btnMostrarRestaurar.Text = "Restaurar BD";
-            this.btnMostrarRestaurar.UseVisualStyleBackColor = false;
-            // 
-            // btnRestore
-            // 
-            this.btnRestore.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnRestore.Location = new System.Drawing.Point(271, 186);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(433, 35);
-            this.btnRestore.TabIndex = 193;
-            this.btnRestore.Text = "Restaurar";
-            this.btnRestore.UseVisualStyleBackColor = false;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
-            // 
-            // btnBrowseRestaurar
-            // 
-            this.btnBrowseRestaurar.Location = new System.Drawing.Point(583, 135);
-            this.btnBrowseRestaurar.Name = "btnBrowseRestaurar";
-            this.btnBrowseRestaurar.Size = new System.Drawing.Size(121, 27);
-            this.btnBrowseRestaurar.TabIndex = 192;
-            this.btnBrowseRestaurar.Text = "Examinar";
-            this.btnBrowseRestaurar.UseVisualStyleBackColor = true;
-            this.btnBrowseRestaurar.Click += new System.EventHandler(this.btnBrowseRestaurar_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(271, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(306, 22);
-            this.textBox2.TabIndex = 191;
+            this.button2.BackColor = System.Drawing.Color.DarkCyan;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 10.8F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::CapaPresentacion.Properties.Resources.nurse_2_smoll;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(171, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(575, 57);
+            this.button2.TabIndex = 198;
+            this.button2.Text = "Usuarios del sistema";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmHerramientasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1532, 896);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHerramientasAdmin";
             this.Text = "frmHerramientasAdmin";
-            this.Load += new System.EventHandler(this.frmHerramientasAdmin_Load);
             this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnBrowseGenerar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnBackup;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnRestore;
-        private System.Windows.Forms.Button btnBrowseRestaurar;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnMostrarRestaurar;
-        private System.Windows.Forms.Button btnGenerarCopia;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

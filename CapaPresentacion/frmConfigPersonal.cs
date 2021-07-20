@@ -40,5 +40,26 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmEditarContrasena frm = new frmEditarContrasena();
+
+            frm.Show();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmEditarPreguntasSeguridad frm = new frmEditarPreguntasSeguridad();
+
+            frm.Show();
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

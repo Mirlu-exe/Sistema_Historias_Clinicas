@@ -91,6 +91,8 @@ namespace CapaPresentacion
 
         private void btnIngresarRespuestas_Click(object sender, EventArgs e)
         {
+
+
             string Resp1 = this.txtLibro.Text.Trim().ToUpper();
             string Resp2 = this.txtAbuela.Text.Trim().ToUpper();
             string Resp3 = this.txtMascota.Text.Trim().ToUpper();

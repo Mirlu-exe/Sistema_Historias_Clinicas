@@ -37,7 +37,6 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -73,6 +72,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.btnPreguntasSeguridad = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -89,7 +89,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -101,27 +100,16 @@
             // 
             // label12
             // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(484, 11);
+            this.label12.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label12.Location = new System.Drawing.Point(495, 74);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(519, 60);
             this.label12.TabIndex = 7;
             this.label12.Text = "Usuarios";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(36, 48);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(520, 95);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Crystal Clear";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -632,12 +620,25 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(36, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(520, 95);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Crystal Clear";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1916, 1018);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnPreguntasSeguridad);
             this.Controls.Add(this.label17);
@@ -692,7 +693,6 @@
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnCancelar;
@@ -728,5 +728,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnPreguntasSeguridad;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label label13;
     }
 }

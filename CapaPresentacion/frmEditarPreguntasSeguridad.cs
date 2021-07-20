@@ -16,5 +16,13 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnIngresarRespuestas_Click(object sender, EventArgs e)
+        {
+            //Editar las preguntas de seguridad
+
+            //Editar las respuestas de seguridad}
+
+        }
     }
 }
