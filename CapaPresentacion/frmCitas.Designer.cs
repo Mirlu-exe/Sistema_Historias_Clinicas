@@ -199,6 +199,7 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Citas Médicas";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -267,7 +268,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label11.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label11.Location = new System.Drawing.Point(525, 716);
+            this.label11.Location = new System.Drawing.Point(524, 719);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(155, 32);
             this.label11.TabIndex = 180;
@@ -350,7 +351,7 @@
             this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(764, 313);
+            this.dataListado.Size = new System.Drawing.Size(1197, 313);
             this.dataListado.TabIndex = 176;
             this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
@@ -587,11 +588,13 @@
             // 
             // dtpFechaCita
             // 
-            this.dtpFechaCita.Location = new System.Drawing.Point(1090, 82);
+            this.dtpFechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCita.Location = new System.Drawing.Point(1090, 84);
             this.dtpFechaCita.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaCita.Name = "dtpFechaCita";
-            this.dtpFechaCita.Size = new System.Drawing.Size(265, 22);
+            this.dtpFechaCita.Size = new System.Drawing.Size(93, 22);
             this.dtpFechaCita.TabIndex = 154;
+            this.dtpFechaCita.Value = new System.DateTime(2021, 7, 20, 14, 3, 8, 0);
             // 
             // lblCodigoPaciente
             // 
@@ -653,6 +656,7 @@
             this.btnCitasHoy.TabIndex = 190;
             this.btnCitasHoy.Text = "Mostrar Citas para Hoy";
             this.btnCitasHoy.UseVisualStyleBackColor = false;
+            this.btnCitasHoy.Click += new System.EventHandler(this.btnCitasHoy_Click);
             // 
             // tabControl1
             // 
@@ -705,6 +709,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Todas las Citas";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
@@ -718,6 +723,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Citas para Hoy";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // LblHora
             // 
@@ -768,7 +774,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_citas_hoy.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_citas_hoy.GridColor = System.Drawing.Color.DarkCyan;
-            this.dgv_citas_hoy.Location = new System.Drawing.Point(140, 94);
+            this.dgv_citas_hoy.Location = new System.Drawing.Point(149, 92);
             this.dgv_citas_hoy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_citas_hoy.MultiSelect = false;
             this.dgv_citas_hoy.Name = "dgv_citas_hoy";

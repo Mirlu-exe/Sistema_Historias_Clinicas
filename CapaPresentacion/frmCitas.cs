@@ -50,6 +50,7 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
             this.montoTotalCitas();
+            this.RevisarCitasHoy();
 
             OcultarColumnas();
 
@@ -61,12 +62,12 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.dataListado.Columns[0].Visible = false;
-            this.dataListado.Columns[1].Visible = false;
+            //this.dataListado.Columns[0].Visible = false;
+            //this.dataListado.Columns[1].Visible = false;
 
-            this.dataListado.Columns["idusuario"].Visible = false;
-            this.dataListado.Columns["idpaciente"].Visible = false;
-            this.dataListado.Columns["idservicio"].Visible = false;
+            //this.dataListado.Columns["idusuario"].Visible = false;
+            //this.dataListado.Columns["idpaciente"].Visible = false;
+            //this.dataListado.Columns["idservicio"].Visible = false;
 
         }
 
@@ -897,18 +898,88 @@ namespace CapaPresentacion
             }
         }
 
-        
-        private void RevisarCitasHoy() 
+
+        private void RevisarCitasHoy()
         {
 
-          string Citashoy = DateTime.Now.Date.ToShortDateString();
+
+            string Citashoy = DateTime.Now.Date.ToShortDateString();
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.fecha from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
 
+            SqlDataAdapter cmdDataBase = new SqlDataAdapter("Cita", conDataBase);
+
+            DataView DV = new DataView(dbdataset);
+
+          //  DataView DV = new DataView(dbdataset);
+            DV.RowFilter = string.Format("fecha LIKE '%{0}%'", Citashoy);
+            dgv_citas_hoy.DataSource = DV;
+
+
+
+           /* string sb ;
+
+            sb = "fecha = '" + Citashoy.ToString() + "'";
+
+            //tablita.RowFilter = sb;
+
+            //  datalistadoOperaciones.DataSource = DV;
+
+
+            /**
+                       //SqlCommand cmdDataBase = new SqlCommand("Cita " , conDataBase);
+                       SqlDataAdapter cmdDataBase = new SqlDataAdapter("Cita",conDataBase);
+                       cmdDataBase.SelectCommand.Parameters.Add("@CitasHoy")
+
+
+                       Intento de filtrar fechas fallido
+                        * //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
+                         //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
+                          SqlCommand cmdDataBase = new SqlCommand("select * from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
+                       // 
+                         try
+                         {
+
+                             SqlDataAdapter sda = new SqlDataAdapter();
+                             sda.SelectCommand = cmdDataBase;
+                             dbdataset = new DataTable();
+                             sda.Fill(dbdataset);
+                             BindingSource jSource = new BindingSource();
+
+                             jSource.DataSource = dbdataset;
+                             dataListado.DataSource = jSource;
+                             sda.Update(dbdataset);
+
+
+                           
+
+
+                         }
+                         catch (Exception ex)
+                         {
+                             MessageBox.Show("pucha wea");
+                         }
+
+                         //int i = 0;
+                         MessageBox.Show("Fecha " + dbdataset.ToString() );
+
+                         
+
+                         dgv_citas_hoy.DataSource = dbdataset;
+
+                         
+
+
+                         //for (int i = 0; i < dbdataset.Rows[i].["fecha"].Value; i++)
+                         //{
+
+
+                           //  i += Convert.ToInt32(dbdataset.Rows[i].Cells["costo"].Value);
+                         //}
+
+                         //this.lblMontoTotal.Text = sum.ToString() + "$ ";
+                 */
 
 
         }
@@ -916,9 +987,32 @@ namespace CapaPresentacion
         private void dgv_citas_hoy_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+           
+
+
         }
 
         private void LblHora_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCitasHoy_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
