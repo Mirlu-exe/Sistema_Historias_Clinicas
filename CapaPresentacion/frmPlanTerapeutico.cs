@@ -15,6 +15,11 @@ namespace CapaPresentacion
 {
     public partial class frmPlanTerapeutico : Form
     {
+
+
+        private bool IsNuevo = false;
+
+
         public frmPlanTerapeutico()
         {
             InitializeComponent();
@@ -156,11 +161,117 @@ namespace CapaPresentacion
         private void btnNuevo_informe_Click(object sender, EventArgs e)
         {
             Habilitar();
+            IsNuevo = true;
         }
 
         private void cbMedicamento_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void btnAñadir_Click(object sender, EventArgs e)
+        {
+
+            string med = this.cbMedicamento.Text;
+            string presentacion = this.cbPresentacion.Text;
+            string dosis = this.cbDosis.Text;
+            string indic = this.txtIndicaciones.Text;
+
+
+            // Add more items to the list  
+            listBox1.Items.Add( med + presentacion + dosis + "  \n Indicaciones: " + indic + "  \n");
+
+
+
+            //// Read List items  
+            //foreach (string name in names)
+            //{
+            //    Console.Write($"{name}, ");
+            //}
+
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_informe_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string rpta = "";
+                if (this.txtNombre_Paciente.Text == string.Empty)
+                {
+                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    this.tabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+
+
+
+                    if (this.IsNuevo)
+                    {
+
+
+                        SqlConnection SqlCon = new SqlConnection();
+
+
+
+                        //Código
+                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.Open();
+                        //Establecer el Comando
+                        SqlCommand SqlCmd = new SqlCommand();
+                        SqlCmd.Connection = SqlCon;
+                        SqlCmd.CommandText = "insert into PlanTerapeutico (cedula_pac, nombre_pac, sexo, recipe_indicaciones, fecha_emision) values (@d1,@d2,@d3,@d4,@d5);";
+                        //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                        DateTime hoy = DateTime.Now;
+
+                        SqlCmd.Parameters.AddWithValue("@d1", this.txtNumero_Documento.Text);
+                        SqlCmd.Parameters.AddWithValue("@d2", this.txtNombre_Paciente.Text);
+                        SqlCmd.Parameters.AddWithValue("@d3", this.txtSexo.Text);
+                        SqlCmd.Parameters.AddWithValue("@d4", this.listBox1.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", hoy);
+
+
+
+
+                        //Ejecutamos nuestro comando
+
+                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+
+                    }
+                    
+
+
+                    if (this.IsNuevo)
+                    {
+                        MessageBox.Show("Se Insertó de forma correcta el plan terapeutico");
+                    }
+
+
+                    this.IsNuevo = false;
+                    //this.Limpiar();
+                    this.Deshabilitar();
+
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
 
         }
     }

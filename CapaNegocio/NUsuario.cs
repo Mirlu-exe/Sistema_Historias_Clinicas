@@ -12,11 +12,12 @@ namespace CapaNegocio
     public class NUsuario
     {
 
-        public static string Insertar(string nombre, string cargo, string especialidad, string acceso,
+        public static string Insertar(string nombre, string correo, string cargo, string especialidad, string acceso,
            string log, string password, string estado, string salt)
         {
             DUsuario Obj = new DUsuario();
             Obj.Nombre = nombre;
+            Obj.Correo = correo;
             Obj.Cargo = cargo;
             Obj.Especialidad = especialidad;
             Obj.Acceso = acceso;
@@ -31,12 +32,13 @@ namespace CapaNegocio
 
         //Método Editar que llama al método Editar de la clase DTrabajador
         //de la CapaDatos
-        public static string Editar(int idusuario, string nombre, string cargo, string especialidad, string acceso,
+        public static string Editar(int idusuario, string nombre, string correo, string cargo, string especialidad, string acceso,
            string log, string password, string estado, string salt)
         {
             DUsuario Obj = new DUsuario();
             Obj.Idusuario = idusuario;
             Obj.Nombre = nombre;
+            Obj.Correo = correo;
             Obj.Cargo = cargo;
             Obj.Especialidad = especialidad;
             Obj.Acceso = acceso;

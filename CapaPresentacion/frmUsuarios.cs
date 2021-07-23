@@ -242,9 +242,27 @@ namespace CapaPresentacion
 
             if (this.txtClave.TextLength < 8)
             {
+
+           
                 MessageBox.Show("Contraseña muy corta, por motivos de seguridad debe tener minimo 8 caracteres");
+
+                
+                
+
+
                 this.txtClave.Clear();
                 this.txtClave.Focus();
+            }
+             
+            if (this.txtClave.Text.Any(Char.IsPunctuation) == false)
+            {
+                MessageBox.Show("Contraseña poco segura, por motivos de seguridad debe tener almenos un caracter especial");
+
+
+
+                this.txtClave.Clear();
+                this.txtClave.Focus();
+
             }
 
 
@@ -286,7 +304,7 @@ namespace CapaPresentacion
                             pswd_encrypt = hashWithSaltResult.Digest;
                             pswd_salt = hashWithSaltResult.Salt;
 
-                            rpta = NUsuario.Insertar(this.txtNombreUsuario.Text.Trim().ToUpper(),
+                            rpta = NUsuario.Insertar(this.txtNombreUsuario.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(),
                             this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
                             this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
@@ -343,7 +361,7 @@ namespace CapaPresentacion
                         pswd_encrypt = hashWithSaltResult.Digest;
                         pswd_salt = hashWithSaltResult.Salt;
 
-                        rpta = NUsuario.Editar(Convert.ToInt32(this.txtCodigoUsuario.Text), this.txtNombreUsuario.Text.Trim().ToUpper(),
+                        rpta = NUsuario.Editar(Convert.ToInt32(this.txtCodigoUsuario.Text), this.txtNombreUsuario.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(),
                          this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
                          this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
@@ -831,6 +849,17 @@ namespace CapaPresentacion
                 this.txtClave.Clear();
                 this.txtClave.Focus();
             }
+
+            if (this.txtClave.Text.Any(Char.IsPunctuation) == false)
+            {
+                MessageBox.Show("Contraseña poco segura, por motivos de seguridad debe tener almenos un caracter especial");
+
+
+                this.txtClave.Clear();
+                this.txtClave.Focus();
+
+            }
+
 
         }
     }

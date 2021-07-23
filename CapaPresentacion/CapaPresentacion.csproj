@@ -244,6 +244,12 @@
     <Compile Include="frmSplash.Designer.cs">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTipoSangre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoSangre.Designer.cs">
+      <DependentUpon>frmTipoSangre.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTipoSangre.resx">
+      <DependentUpon>frmTipoSangre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -598,6 +607,7 @@
     <None Include="Resources\heart-1_smoll.png" />
     <None Include="Resources\nurse-2_smoll.png" />
     <None Include="Resources\database-configuration.png" />
+    <None Include="Resources\drop.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

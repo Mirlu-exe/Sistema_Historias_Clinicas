@@ -110,6 +110,7 @@ namespace CapaPresentacion
             this.txtEcocardiograma.Text = string.Empty;
             this.txtPlanEstudio.Text = string.Empty;
             this.txtTerapeutico.Text = string.Empty;
+            this.cblTipo_Sangre.Text = string.Empty;
 
 
 
@@ -666,7 +667,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Historia (idpaciente, fecha_consulta, razon_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio, plan_terapeutico, estado) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15);";
+                        SqlCmd.CommandText = "insert into Historia (idpaciente, fecha_consulta, razon_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio, plan_terapeutico, estado, tipo_sangre) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15, @d16);";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -687,6 +688,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
                         SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
+                        SqlCmd.Parameters.AddWithValue("@d16", this.cblTipo_Sangre.Text);
 
 
 
@@ -713,7 +715,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "update Historia set idpaciente = @d1, fecha_consulta = @d2, razon_consulta = @d3, enfermedad_actual = @d4, historia_familiar = @d5, historia_personal = @d6, tratamiento_actual = @d7, examen_fisico = @d8, laboratorio = @d9, ecg = @d10, rayos_x = @d11, ecocardiograma = @d12, plan_estudio = @d13, plan_terapeutico = @d14, estado = @d15 where idhistoria=@d16";
+                        SqlCmd.CommandText = "update Historia set idpaciente = @d1, fecha_consulta = @d2, razon_consulta = @d3, enfermedad_actual = @d4, historia_familiar = @d5, historia_personal = @d6, tratamiento_actual = @d7, examen_fisico = @d8, laboratorio = @d9, ecg = @d10, rayos_x = @d11, ecocardiograma = @d12, plan_estudio = @d13, plan_terapeutico = @d14,  estado = @d15 , tipo_sangre = @d17 where idhistoria=@d16";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -735,6 +737,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
                         SqlCmd.Parameters.AddWithValue("@d16", this.lbl_id_historia.Text);
+                        SqlCmd.Parameters.AddWithValue("@d17", this.cblTipo_Sangre.Text);
 
 
 
@@ -872,6 +875,8 @@ namespace CapaPresentacion
             this.txtPlanEstudio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_estudio"].Value);
             this.txtTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
             this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
+
+            //this.cblTipo_Sangre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tipo_sangre"].Value);
 
             this.tabControl1.SelectedIndex = 1;
 

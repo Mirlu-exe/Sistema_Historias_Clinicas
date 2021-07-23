@@ -58,6 +58,7 @@ namespace CapaPresentacion
                 this.btnOperaciones.Enabled = true;
                 this.btnHerramientasAdmin.Enabled = false;
                 this.btnControlEstadistico.Enabled = true;
+                this.button4.Enabled = true;
                 this.btnHerramientasAdmin.Hide();
 
             }
@@ -90,6 +91,7 @@ namespace CapaPresentacion
                 this.btnOperaciones.Enabled = true;
                 this.btnHerramientasAdmin.Enabled = true;
                 this.btnControlEstadistico.Enabled = true;
+                this.button4.Enabled = true;
                 this.btnHerramientasAdmin.Show();
 
             }
@@ -383,6 +385,11 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new frmPlanTerapeutico());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmTipoSangre());
         }
     }
 }
