@@ -29,7 +29,7 @@ namespace CapaDatos
 
         private string _Acceso;
 
-
+        private string _Correo;
 
 
         private string _log;
@@ -134,6 +134,11 @@ namespace CapaDatos
             set { _Resp3 = value; }
         }
 
+        public string Correo
+        {
+            get { return _Correo; }
+            set { _Correo = value; }
+        }
 
 
 
@@ -146,7 +151,7 @@ namespace CapaDatos
         }
 
         public DUsuario(int idusuario,string nombre, string cargo, string especialidad, string acceso,
-            string log,string password,string estado, string textobuscar, string salt)
+            string log,string password,string estado, string textobuscar, string salt, string correo)
         {
             this.Idusuario = idusuario;
             this.Nombre=nombre;
@@ -155,6 +160,7 @@ namespace CapaDatos
             this.Acceso = acceso;
             this.Log = log;
             this.Password = password;
+            this.Correo = correo;
             this.Estado = estado;
             this.Salt = salt;
             this.TextoBuscar = textobuscar;
@@ -206,6 +212,13 @@ namespace CapaDatos
                 ParEspecialidad.Size = 50;
                 ParEspecialidad.Value = Usuario.Especialidad;
                 SqlCmd.Parameters.Add(ParEspecialidad);
+
+                SqlParameter ParCorreo = new SqlParameter();
+                ParCorreo.ParameterName = "@correo";
+                ParCorreo.SqlDbType = SqlDbType.VarChar;
+                ParCorreo.Size = 50;
+                ParCorreo.Value = Usuario.Correo;
+                SqlCmd.Parameters.Add(ParCorreo);
 
                 SqlParameter ParAcceso = new SqlParameter();
                 ParAcceso.ParameterName = "@acceso";
@@ -290,6 +303,13 @@ namespace CapaDatos
                 ParNombre.Size = 50;
                 ParNombre.Value = Usuario.Nombre;
                 SqlCmd.Parameters.Add(ParNombre);
+
+                SqlParameter ParCorreo = new SqlParameter();
+                ParCorreo.ParameterName = "@correo";
+                ParCorreo.SqlDbType = SqlDbType.VarChar;
+                ParCorreo.Size = 50;
+                ParCorreo.Value = Usuario.Correo;
+                SqlCmd.Parameters.Add(ParCorreo);
 
                 SqlParameter ParCargo = new SqlParameter();
                 ParCargo.ParameterName = "@cargo";

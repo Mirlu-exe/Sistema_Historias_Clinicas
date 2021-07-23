@@ -86,7 +86,7 @@ namespace CapaPresentacion
 
             //abrir un form con 3 txtbox con 3 lbls con las preguntas de seguridad
 
-            frmRecuperarContrasena frm = frmRecuperarContrasena.GetInstancia();
+            frmRecuperarContrasenaEmail frm = frmRecuperarContrasenaEmail.GetInstancia();
             frm.Show();
 
 

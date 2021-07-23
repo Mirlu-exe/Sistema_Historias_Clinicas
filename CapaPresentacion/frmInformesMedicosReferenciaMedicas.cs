@@ -16,6 +16,19 @@ namespace CapaPresentacion
 {
     public partial class frmInformesMedicosReferenciaMedicas : Form
     {
+
+
+
+        private bool IsNuevo = false;
+
+        private bool IsEditar = false;
+
+
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
         public frmInformesMedicosReferenciaMedicas()
         {
             InitializeComponent();
@@ -26,6 +39,12 @@ namespace CapaPresentacion
             LlenarComboMedicos();
 
             Deshabilitar();
+
+            this.Top = 0;
+            this.Left = 0;
+            //this.Mostrar();
+            //this.Botones();
+
 
 
         }
@@ -319,14 +338,168 @@ namespace CapaPresentacion
 
         private void btnGuardar_informe_Click(object sender, EventArgs e)
         {
-            
-            //Guardar todos los datos de los txtbox en una tabla llamada InformesParaReferencias, incluyendo la fecha en la que se guardó esta referencia.
+
+            //Guardar todos los datos de los txtbox en una tabla llamada InformesParaReferencias, 
+            //incluyendo la fecha en la que se guardó esta referencia.
+
+            //try
+            //{
+            //    string rpta = "";
+            //    if (this.txtNumero_Documento.Text == string.Empty)
+            //    {
+            //        MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //        this.tabControl1.SelectedIndex = 1;
+            //    }
+            //    else
+            //    {
+
+
+
+            //        if (this.IsNuevo)
+            //        {
+
+
+            //            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //            //Código
+            //            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //            SqlCon.Open();
+            //            //Establecer el Comando
+            //            SqlCommand SqlCmd = new SqlCommand();
+            //            SqlCmd.Connection = SqlCon;
+            //            SqlCmd.CommandText = "insert into Historia (idpaciente, fecha_consulta, razon_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio, plan_terapeutico, estado) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15);";
+            //            //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+
+            //            //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d1", this.lblCodigoPaciente.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d2", this.dtpFechaConsulta.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d3", this.txtRazonConsulta.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d4", this.txtEnfermedadActual.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d5", this.txtHistoriaFamiliar.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d6", this.txtHistoriaPersonal.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d7", this.txtTratamiento_Actual.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d8", this.txtExamenFisico.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d9", this.txtLaboratorio.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d10", this.txtecg.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d11", this.txtRayos_X.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d12", this.txtEcocardiograma.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
+
+
+
+
+
+            //            //Ejecutamos nuestro comando
+
+            //            rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+
+            //        }
+            //        else
+            //        {
+
+            //            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //            //Código
+            //            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //            SqlCon.Open();
+            //            //Establecer el Comando
+            //            SqlCommand SqlCmd = new SqlCommand();
+            //            SqlCmd.Connection = SqlCon;
+            //            SqlCmd.CommandText = "update Historia set idpaciente = @d1, fecha_consulta = @d2, razon_consulta = @d3, enfermedad_actual = @d4, historia_familiar = @d5, historia_personal = @d6, tratamiento_actual = @d7, examen_fisico = @d8, laboratorio = @d9, ecg = @d10, rayos_x = @d11, ecocardiograma = @d12, plan_estudio = @d13, plan_terapeutico = @d14, estado = @d15 where idhistoria=@d16";
+            //            //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+
+            //            //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d1", this.lblCodigoPaciente.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d2", this.dtpFechaConsulta.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d3", this.txtRazonConsulta.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d4", this.txtEnfermedadActual.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d5", this.txtHistoriaFamiliar.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d6", this.txtHistoriaPersonal.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d7", this.txtTratamiento_Actual.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d8", this.txtExamenFisico.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d9", this.txtLaboratorio.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d10", this.txtecg.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d11", this.txtRayos_X.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d12", this.txtEcocardiograma.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
+            //            SqlCmd.Parameters.AddWithValue("@d16", this.lbl_id_historia.Text);
+
+
+
+
+
+            //            //Ejecutamos nuestro comando
+
+            //            rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+            //        }
+
+
+            //        if (this.IsNuevo)
+            //        {
+            //            this.MensajeOk("Se Insertó de forma correcta la historia clinica");
+            //            this.OperacionInsertarHistoria();
+            //        }
+            //        else
+            //        {
+            //            this.MensajeOk("Se Actualizó de forma correcta la historia clinica");
+            //            this.OperacionEditarHistoria();
+            //        }
+
+
+
+            //        this.IsNuevo = false;
+            //        this.IsEditar = false;
+            //        this.Botones();
+            //        this.Limpiar();
+            //        this.Mostrar();
+            //        this.MostrarHistoriasActivas();
+            //        this.MostrarHistoriasAnuladas();
+
+
+            //        OcultarColumnas();
+
+
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message + ex.StackTrace);
+            //}
+
 
         }
 
         private void btnNueva_informe_Click(object sender, EventArgs e)
         {
+        //    this.IsNuevo = true;
+        //    this.IsEditar = false;
+        //    this.Botones();
+        //    this.Limpiar();
+        //    this.Habilitar(true);
+        //    this.txtPaciente.Focus();
 
+        //    this.tabControl1.SelectedIndex = 1;
+
+        //    OcultarColumnas();
         }
 
         private void btnEditar_informe_Click(object sender, EventArgs e)

@@ -220,6 +220,12 @@
     <Compile Include="frmRecuperarContrasena.Designer.cs">
       <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecuperarContrasenaEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContrasenaEmail.Designer.cs">
+      <DependentUpon>frmRecuperarContrasenaEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRespaldoBaseDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarContrasena.resx">
       <DependentUpon>frmRecuperarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarContrasenaEmail.resx">
+      <DependentUpon>frmRecuperarContrasenaEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRespaldoBaseDatos.resx">
       <DependentUpon>frmRespaldoBaseDatos.cs</DependentUpon>

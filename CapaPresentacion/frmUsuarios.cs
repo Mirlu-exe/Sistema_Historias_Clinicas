@@ -60,6 +60,7 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtNombreUsuario, "Ingrese el Nombre del Usuario");
 
             this.ttMensaje.SetToolTip(this.txtCargo, "Seleccione el cargo del usuario");
+            this.ttMensaje.SetToolTip(this.txtCorreo, "Ingrese el correo del usuario");
             this.ttMensaje.SetToolTip(this.txtEspecialidad, "Ingrese la especialidad del usuario");
             this.ttMensaje.SetToolTip(this.cmbAcceso, "Seleccione el tipo de acceso");
             this.ttMensaje.SetToolTip(this.txtLogin, "Ingrese el nombre de acceso");
@@ -103,6 +104,7 @@ namespace CapaPresentacion
 
             this.txtNombreUsuario.Text = string.Empty;
             this.txtCargo.Text = string.Empty;
+            this.txtCorreo.Text = string.Empty;
             this.txtEspecialidad.Text = string.Empty;
             this.cmbAcceso.Text = string.Empty;
             this.txtClave.Text = string.Empty;
@@ -122,6 +124,7 @@ namespace CapaPresentacion
             this.txtEspecialidad.ReadOnly = !valor;
             this.txtClave.ReadOnly = !valor;
             this.txtLogin.ReadOnly = !valor;
+            this.txtCorreo.ReadOnly = !valor;
 
 
 
@@ -287,7 +290,7 @@ namespace CapaPresentacion
                             pswd_salt = hashWithSaltResult.Salt;
 
                             rpta = NUsuario.Insertar(this.txtNombreUsuario.Text.Trim().ToUpper(),
-                            this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
+                            this.txtCargo.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(),  this.txtEspecialidad.Text.Trim().ToUpper(),
                             this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
 
@@ -344,7 +347,7 @@ namespace CapaPresentacion
                         pswd_salt = hashWithSaltResult.Salt;
 
                         rpta = NUsuario.Editar(Convert.ToInt32(this.txtCodigoUsuario.Text), this.txtNombreUsuario.Text.Trim().ToUpper(),
-                         this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
+                         this.txtCargo.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
                          this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
 
                         
