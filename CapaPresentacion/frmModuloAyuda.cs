@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+
 
 namespace CapaPresentacion
 {
@@ -19,8 +21,26 @@ namespace CapaPresentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (frmPrincipal.Session_Actual.Acceso.Equals("Administrador"))
+            {
+                System.Diagnostics.Process.Start("C:\\Users\\Usuario\\Desktop\\Sistema_Historias_Clinicas\\Manuales de Usuario Crystal Clear\\Manual_de_Usuario_Administrador_Crystal_Clear_usando_plantilla.docx");
+            
 
-           
+            }
+            else if (frmPrincipal.Session_Actual.Acceso.Equals("Medico"))
+            {
+
+                System.Diagnostics.Process.Start("C:\\Users\\Usuario\\Desktop\\Sistema_Historias_Clinicas\\Manuales de Usuario Crystal Clear\\Manual_de_Usuario_Medico_Crystal_Clear_usando_plantilla.docx");
+
+
+            }
+            else if (frmPrincipal.Session_Actual.Acceso.Equals("Asistente"))
+            {
+
+                System.Diagnostics.Process.Start("C:\\Users\\Usuario\\Desktop\\Sistema_Historias_Clinicas\\Manuales de Usuario Crystal Clear\\Manual_de_Usuario_Asistente_Crystal_Clear_usando_plantilla.docx");
+
+            }
+
 
         }
 
