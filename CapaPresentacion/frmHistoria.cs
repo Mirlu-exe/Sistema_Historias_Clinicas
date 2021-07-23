@@ -1214,6 +1214,8 @@ namespace CapaPresentacion
 
             //insertar evolucion
 
+
+
             //anular evolucion
 
 

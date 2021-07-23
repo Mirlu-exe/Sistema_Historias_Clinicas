@@ -37,9 +37,9 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnLimpiarPreguntas = new System.Windows.Forms.Button();
             this.btnIngresarRespuestas = new System.Windows.Forms.Button();
-            this.txtMascota = new System.Windows.Forms.TextBox();
-            this.txtAbuela = new System.Windows.Forms.TextBox();
-            this.txtLibro = new System.Windows.Forms.TextBox();
+            this.txtResp3 = new System.Windows.Forms.TextBox();
+            this.txtResp2 = new System.Windows.Forms.TextBox();
+            this.txtResp1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pregunta1Cbx = new System.Windows.Forms.ComboBox();
@@ -167,29 +167,29 @@
             this.btnIngresarRespuestas.UseVisualStyleBackColor = false;
             this.btnIngresarRespuestas.Click += new System.EventHandler(this.btnIngresarRespuestas_Click);
             // 
-            // txtMascota
+            // txtResp3
             // 
-            this.txtMascota.Location = new System.Drawing.Point(315, 310);
-            this.txtMascota.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMascota.Name = "txtMascota";
-            this.txtMascota.Size = new System.Drawing.Size(436, 22);
-            this.txtMascota.TabIndex = 52;
+            this.txtResp3.Location = new System.Drawing.Point(315, 310);
+            this.txtResp3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtResp3.Name = "txtResp3";
+            this.txtResp3.Size = new System.Drawing.Size(436, 22);
+            this.txtResp3.TabIndex = 52;
             // 
-            // txtAbuela
+            // txtResp2
             // 
-            this.txtAbuela.Location = new System.Drawing.Point(309, 233);
-            this.txtAbuela.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAbuela.Name = "txtAbuela";
-            this.txtAbuela.Size = new System.Drawing.Size(442, 22);
-            this.txtAbuela.TabIndex = 51;
+            this.txtResp2.Location = new System.Drawing.Point(309, 233);
+            this.txtResp2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtResp2.Name = "txtResp2";
+            this.txtResp2.Size = new System.Drawing.Size(442, 22);
+            this.txtResp2.TabIndex = 51;
             // 
-            // txtLibro
+            // txtResp1
             // 
-            this.txtLibro.Location = new System.Drawing.Point(315, 153);
-            this.txtLibro.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLibro.Name = "txtLibro";
-            this.txtLibro.Size = new System.Drawing.Size(436, 22);
-            this.txtLibro.TabIndex = 50;
+            this.txtResp1.Location = new System.Drawing.Point(315, 153);
+            this.txtResp1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtResp1.Name = "txtResp1";
+            this.txtResp1.Size = new System.Drawing.Size(436, 22);
+            this.txtResp1.TabIndex = 50;
             // 
             // label5
             // 
@@ -223,7 +223,7 @@
             this.Pregunta1Cbx.FormattingEnabled = true;
             this.Pregunta1Cbx.Location = new System.Drawing.Point(315, 122);
             this.Pregunta1Cbx.Name = "Pregunta1Cbx";
-            this.Pregunta1Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta1Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta1Cbx.TabIndex = 62;
             this.Pregunta1Cbx.DropDownClosed += new System.EventHandler(this.Pregunta1Cbx_DropDownClosed);
             // 
@@ -233,7 +233,7 @@
             this.Pregunta2Cbx.FormattingEnabled = true;
             this.Pregunta2Cbx.Location = new System.Drawing.Point(315, 197);
             this.Pregunta2Cbx.Name = "Pregunta2Cbx";
-            this.Pregunta2Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta2Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta2Cbx.TabIndex = 63;
             this.Pregunta2Cbx.DropDownClosed += new System.EventHandler(this.Pregunta2Cbx_DropDownClosed);
             // 
@@ -243,7 +243,7 @@
             this.Pregunta3Cbx.FormattingEnabled = true;
             this.Pregunta3Cbx.Location = new System.Drawing.Point(315, 278);
             this.Pregunta3Cbx.Name = "Pregunta3Cbx";
-            this.Pregunta3Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta3Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta3Cbx.TabIndex = 64;
             this.Pregunta3Cbx.DropDownClosed += new System.EventHandler(this.Pregunta3Cbx_DropDownClosed);
             // 
@@ -300,9 +300,9 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnLimpiarPreguntas);
             this.Controls.Add(this.btnIngresarRespuestas);
-            this.Controls.Add(this.txtMascota);
-            this.Controls.Add(this.txtAbuela);
-            this.Controls.Add(this.txtLibro);
+            this.Controls.Add(this.txtResp3);
+            this.Controls.Add(this.txtResp2);
+            this.Controls.Add(this.txtResp1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "frmConfigPreguntasSeguridad";
@@ -324,9 +324,9 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnLimpiarPreguntas;
         private System.Windows.Forms.Button btnIngresarRespuestas;
-        private System.Windows.Forms.TextBox txtMascota;
-        private System.Windows.Forms.TextBox txtAbuela;
-        private System.Windows.Forms.TextBox txtLibro;
+        private System.Windows.Forms.TextBox txtResp3;
+        private System.Windows.Forms.TextBox txtResp2;
+        private System.Windows.Forms.TextBox txtResp1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox Pregunta1Cbx;

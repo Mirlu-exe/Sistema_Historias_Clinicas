@@ -38,7 +38,7 @@ namespace CapaPresentacion
         public frmConfigPreguntasSeguridad()
         {
             InitializeComponent();
-            OperacionInsertarRespuestasSeguridad();
+            
 
         }
 
@@ -67,9 +67,9 @@ namespace CapaPresentacion
         private void btnLimpiarPreguntas_Click(object sender, EventArgs e)
         {
 
-            this.txtLibro.Clear();
-            this.txtAbuela.Clear();
-            this.txtMascota.Clear();
+            this.txtResp1.Clear();
+            this.txtResp2.Clear();
+            this.txtResp3.Clear();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -78,52 +78,99 @@ namespace CapaPresentacion
             frmUsuarios frm = frmUsuarios.GetInstancia();
             frm.Show();
 
-            txtLibro.Clear();
-            txtAbuela.Clear();
-            txtMascota.Clear();
+            txtResp1.Clear();
+            txtResp2.Clear();
+            txtResp3.Clear();
 
             this.Hide();
         }
 
         private void frmConfigPreguntasSeguridad_Load(object sender, EventArgs e)
         {
+
             //aca se guarda el id sacado de el formulario de usuarios.
             id_usuario = frmUsuarios.usuarioRespuestas.Idusuario;
+
+
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+
+            SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Preguntas_Usuario", conDataBase);
+
+            DataTable dbdataset = new DataTable();
+
+            cmdDataBase.Fill(dbdataset);
+
+
+            Pregunta1Cbx.DataSource = dbdataset;
+            Pregunta1Cbx.ValueMember = "id_pregunta";
+            Pregunta1Cbx.DisplayMember = "Pregunta";
+
+            Pregunta2Cbx.DataSource = dbdataset;
+            Pregunta2Cbx.ValueMember = "id_pregunta";
+            Pregunta2Cbx.DisplayMember = "Pregunta";
+
+            Pregunta3Cbx.DataSource = dbdataset;
+            Pregunta3Cbx.ValueMember = "id_pregunta";
+            Pregunta3Cbx.DisplayMember = "Pregunta";
+
+
         }
 
         private void btnIngresarRespuestas_Click(object sender, EventArgs e)
         {
 
+            int Preg1 = Convert.ToInt32(this.Pregunta1Cbx.Text);
+            int Preg2 = Convert.ToInt32(this.Pregunta2Cbx.Text);
+            int Preg3 = Convert.ToInt32(this.Pregunta3Cbx.Text);
 
-            string Resp1 = this.txtLibro.Text.Trim().ToUpper();
-            string Resp2 = this.txtAbuela.Text.Trim().ToUpper();
-            string Resp3 = this.txtMascota.Text.Trim().ToUpper();
+            string Resp1 = this.txtResp1.Text.Trim().ToUpper();
+            string Resp2 = this.txtResp2.Text.Trim().ToUpper();
+            string Resp3 = this.txtResp3.Text.Trim().ToUpper();
 
-            string rpta = "";
 
-            rpta = NUsuario.EditarRespSeguridad(id_usuario, Resp1, Resp2, Resp3);
+            int id_user = 0;
 
-            if (rpta.Equals("OK"))
+            if (this.txtResp1.Text == "" || this.txtResp2.Text == "" || this.txtResp3.Text == "")
             {
 
-                this.MensajeOk("Se añadieron las respuestas correctamente");
-
-
-
-                //this.OperacionInsertarRespuestasSeguridad();
-
-                this.txtLibro.Clear();
-                this.txtAbuela.Clear();
-                this.txtMascota.Clear();
-
-                this.Hide();
-
+                MessageBox.Show("No deje campos vacios ");
 
             }
             else
             {
-                this.MensajeError(rpta);
+                InsertarRespuestasSeguridad(id_user, Preg1, Resp1);
+                InsertarRespuestasSeguridad(id_user, Preg2, Resp2);
+                InsertarRespuestasSeguridad(id_user, Preg3, Resp3);
+
             }
+
+            //string rpta = "";
+
+            //rpta = NUsuario.EditarRespSeguridad(id_usuario, Resp1, Resp2, Resp3);
+
+            //if (rpta.Equals("OK"))
+            //{
+
+            //    this.MensajeOk("Se añadieron las respuestas correctamente");
+
+
+
+            //    //this.OperacionInsertarRespuestasSeguridad();
+
+            //    this.txtLibro.Clear();
+            //    this.txtAbuela.Clear();
+            //    this.txtMascota.Clear();
+
+            //    this.Hide();
+
+
+            //}
+            //else
+            //{
+            //    this.MensajeError(rpta);
+            //}
 
         }
 
@@ -291,23 +338,13 @@ namespace CapaPresentacion
 
 
         // Operacion Insertar (Falta por terminar)
-        private void OperacionInsertarRespuestasSeguridad()
+        private void InsertarRespuestasSeguridad( int Id_Usuario, int Preg, string Resp )
         {
 
 
-
-            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            //SqlConnection conDataBase = new SqlConnection(Cn);
-
-            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("sp_insertar_pregunta_respuesta", conDataBase);
-
-            //DataTable dbdataset = new DataTable();
-
-            //cmdDataBase.Fill(dbdataset);
-
-            //Operacion Anular
             string rpta2 = "";
 
+            DataTable dbdataset = new DataTable();
 
             SqlConnection SqlCon2 = new SqlConnection();
 
@@ -317,21 +354,19 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Respuestas_Usuario (idusuario, idpregunta, pregunta, estado) values (@d1,@d2,@d3,@d4)";
+            SqlCmd2.CommandText = "insert into Respuestas_Usuario (idusuario, idpregunta, respuesta, estado) values (@d1,@d2,@d3,@d4)";
 
 
-            SqlCmd2.Parameters.AddWithValue("@d1", this.);
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló un usuario");
-            SqlCmd2.Parameters.AddWithValue("@d3", "Se anuló un usuario");
-            SqlCmd2.Parameters.AddWithValue("@d4", "Se anuló un usuario");
+            SqlCmd2.Parameters.AddWithValue("@d1", Id_Usuario);
+
+            SqlCmd2.Parameters.AddWithValue("@d2", Preg);
+            SqlCmd2.Parameters.AddWithValue("@d3", Resp);
+
+            SqlCmd2.Parameters.AddWithValue("@d4", "Activo");
 
 
 
 
-
-            Pregunta1Cbx.DataSource = dbdataset;
-            Pregunta1Cbx.ValueMember = "id_pregunta";
-            Pregunta1Cbx.DisplayMember = "Pregunta";
 
 
 

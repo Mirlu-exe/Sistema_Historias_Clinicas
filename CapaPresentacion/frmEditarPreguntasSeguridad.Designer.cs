@@ -272,6 +272,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmEditarPreguntasSeguridad";
             this.Text = "frmEditarPreguntasSeguridad";
+            this.Load += new System.EventHandler(this.frmEditarPreguntasSeguridad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
