@@ -19,7 +19,8 @@ namespace CapaPresentacion
     {
 
 
-        private int id_usuario ;
+
+        private int id_usuario;
 
 
         private static frmConfigPreguntasSeguridad _instancia;
@@ -37,6 +38,7 @@ namespace CapaPresentacion
         public frmConfigPreguntasSeguridad()
         {
             InitializeComponent();
+            OperacionInsertarRespuestasSeguridad();
 
         }
 
@@ -105,8 +107,8 @@ namespace CapaPresentacion
             {
 
                 this.MensajeOk("Se añadieron las respuestas correctamente");
-                
-               
+
+
 
                 //this.OperacionInsertarRespuestasSeguridad();
 
@@ -125,8 +127,215 @@ namespace CapaPresentacion
 
         }
 
+        //evento Close 1
+        private void Pregunta1Cbx_DropDownClosed(object sender, EventArgs e)
+        {
 
-        //private void OperacionInsertarRespuestasSeguridad()
+            if (this.Pregunta1Cbx.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione una pregunta de la lista");
+            }
+            else
+            {
+                //MessageBox.Show(Convert.ToString(this.cmbPacientes.Text));
+
+                string Pregunt1 = this.Pregunta1Cbx.Text;
+
+
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Query = "select * from Preguntas_Usuario where nombre = '" + Pregunt1 + "' ;";
+                SqlConnection conDataBase = new SqlConnection(CN);
+                SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+                SqlDataReader myReader;
+
+                try
+                {
+
+                    conDataBase.Open();
+                    myReader = cmdDataBase.ExecuteReader();
+
+                    while (myReader.Read())
+                    {
+
+                        string id_pregunta = myReader["id_pregunta"].ToString();
+                        string Pregunta = myReader["Pregunta"].ToString();
+
+                        //MessageBox.Show(idpaciente);
+
+                        this.lbl_Id1.Text = id_pregunta;
+
+
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+
+
+            }
+        }
+        
+        //evento Close 2
+        private void Pregunta2Cbx_DropDownClosed(object sender, EventArgs e)
+        {
+
+            if (this.Pregunta2Cbx.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione una pregunta de la lista");
+            }
+            else
+            {
+                //MessageBox.Show(Convert.ToString(this.cmbPacientes.Text));
+
+                string Pregunt2 = this.Pregunta2Cbx.Text;
+
+
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Query = "select * from Preguntas_Usuario where nombre = '" + Pregunt2 + "' ;";
+                SqlConnection conDataBase = new SqlConnection(CN);
+                SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+                SqlDataReader myReader;
+
+                try
+                {
+
+                    conDataBase.Open();
+                    myReader = cmdDataBase.ExecuteReader();
+
+                    while (myReader.Read())
+                    {
+
+                        string id_pregunta2 = myReader["id_pregunta"].ToString();
+                        string Pregunta2 = myReader["Pregunta"].ToString();
+
+                        //MessageBox.Show(idpaciente);
+
+                        this.lbl_Id2.Text = id_pregunta2;
+
+
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+
+
+            }
+        }
+
+        //evento Close 3
+        private void Pregunta3Cbx_DropDownClosed(object sender, EventArgs e)
+        {
+
+            if (this.Pregunta3Cbx.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione una pregunta de la lista");
+            }
+            else
+            {
+                //MessageBox.Show(Convert.ToString(this.cmbPacientes.Text));
+
+                string Pregunt3 = this.Pregunta3Cbx.Text;
+
+
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Query = "select * from Preguntas_Usuario where nombre = '" + Pregunt3 + "' ;";
+                SqlConnection conDataBase = new SqlConnection(CN);
+                SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+                SqlDataReader myReader;
+
+                try
+                {
+
+                    conDataBase.Open();
+                    myReader = cmdDataBase.ExecuteReader();
+
+                    while (myReader.Read())
+                    {
+
+                        string id_pregunta3 = myReader["id_pregunta"].ToString();
+                        string Pregunta3 = myReader["Pregunta"].ToString();
+
+                        //MessageBox.Show(idpaciente);
+
+                        this.lbl_Id3.Text = id_pregunta3;
+
+
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+
+
+            }
+        }
+
+
+        // Operacion Insertar (Falta por terminar)
+        private void OperacionInsertarRespuestasSeguridad()
+        {
+
+
+
+            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //SqlConnection conDataBase = new SqlConnection(Cn);
+
+            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("sp_insertar_pregunta_respuesta", conDataBase);
+
+            //DataTable dbdataset = new DataTable();
+
+            //cmdDataBase.Fill(dbdataset);
+
+            //Operacion Anular
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Respuestas_Usuario (idusuario, idpregunta, pregunta, estado) values (@d1,@d2,@d3,@d4)";
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", this.);
+            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló un usuario");
+            SqlCmd2.Parameters.AddWithValue("@d3", "Se anuló un usuario");
+            SqlCmd2.Parameters.AddWithValue("@d4", "Se anuló un usuario");
+
+
+
+
+
+            Pregunta1Cbx.DataSource = dbdataset;
+            Pregunta1Cbx.ValueMember = "id_pregunta";
+            Pregunta1Cbx.DisplayMember = "Pregunta";
+
+
+
+        }
         //{
 
 

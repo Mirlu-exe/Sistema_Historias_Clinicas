@@ -42,9 +42,12 @@
             this.txtLibro = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Pregunta1Cbx = new System.Windows.Forms.ComboBox();
+            this.Pregunta2Cbx = new System.Windows.Forms.ComboBox();
+            this.Pregunta3Cbx = new System.Windows.Forms.ComboBox();
+            this.lbl_Id1 = new System.Windows.Forms.Label();
+            this.lbl_Id2 = new System.Windows.Forms.Label();
+            this.lbl_Id3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label11
@@ -52,7 +55,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.SlateGray;
-            this.label11.Location = new System.Drawing.Point(83, 318);
+            this.label11.Location = new System.Drawing.Point(181, 307);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 23);
@@ -64,7 +67,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.SlateGray;
-            this.label10.Location = new System.Drawing.Point(83, 241);
+            this.label10.Location = new System.Drawing.Point(181, 232);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 23);
@@ -76,7 +79,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.SlateGray;
-            this.label9.Location = new System.Drawing.Point(82, 145);
+            this.label9.Location = new System.Drawing.Point(181, 148);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 23);
@@ -88,7 +91,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label8.ForeColor = System.Drawing.Color.Teal;
-            this.label8.Location = new System.Drawing.Point(64, 294);
+            this.label8.Location = new System.Drawing.Point(163, 270);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 32);
@@ -100,7 +103,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Location = new System.Drawing.Point(59, 214);
+            this.label7.Location = new System.Drawing.Point(158, 189);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(139, 32);
@@ -112,7 +115,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.Teal;
-            this.label6.Location = new System.Drawing.Point(62, 112);
+            this.label6.Location = new System.Drawing.Point(161, 112);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(136, 32);
@@ -125,7 +128,7 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnVolver.Location = new System.Drawing.Point(193, 402);
+            this.btnVolver.Location = new System.Drawing.Point(292, 402);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(129, 28);
@@ -140,7 +143,7 @@
             this.btnLimpiarPreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarPreguntas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarPreguntas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLimpiarPreguntas.Location = new System.Drawing.Point(350, 402);
+            this.btnLimpiarPreguntas.Location = new System.Drawing.Point(449, 402);
             this.btnLimpiarPreguntas.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarPreguntas.Name = "btnLimpiarPreguntas";
             this.btnLimpiarPreguntas.Size = new System.Drawing.Size(129, 28);
@@ -155,7 +158,7 @@
             this.btnIngresarRespuestas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresarRespuestas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarRespuestas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnIngresarRespuestas.Location = new System.Drawing.Point(504, 402);
+            this.btnIngresarRespuestas.Location = new System.Drawing.Point(603, 402);
             this.btnIngresarRespuestas.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresarRespuestas.Name = "btnIngresarRespuestas";
             this.btnIngresarRespuestas.Size = new System.Drawing.Size(129, 28);
@@ -166,7 +169,7 @@
             // 
             // txtMascota
             // 
-            this.txtMascota.Location = new System.Drawing.Point(216, 321);
+            this.txtMascota.Location = new System.Drawing.Point(315, 310);
             this.txtMascota.Margin = new System.Windows.Forms.Padding(4);
             this.txtMascota.Name = "txtMascota";
             this.txtMascota.Size = new System.Drawing.Size(436, 22);
@@ -174,15 +177,15 @@
             // 
             // txtAbuela
             // 
-            this.txtAbuela.Location = new System.Drawing.Point(216, 241);
+            this.txtAbuela.Location = new System.Drawing.Point(309, 233);
             this.txtAbuela.Margin = new System.Windows.Forms.Padding(4);
             this.txtAbuela.Name = "txtAbuela";
-            this.txtAbuela.Size = new System.Drawing.Size(436, 22);
+            this.txtAbuela.Size = new System.Drawing.Size(442, 22);
             this.txtAbuela.TabIndex = 51;
             // 
             // txtLibro
             // 
-            this.txtLibro.Location = new System.Drawing.Point(216, 148);
+            this.txtLibro.Location = new System.Drawing.Point(315, 153);
             this.txtLibro.Margin = new System.Windows.Forms.Padding(4);
             this.txtLibro.Name = "txtLibro";
             this.txtLibro.Size = new System.Drawing.Size(436, 22);
@@ -207,54 +210,87 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(220, 18);
+            this.label4.Location = new System.Drawing.Point(256, 18);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(510, 32);
             this.label4.TabIndex = 48;
             this.label4.Text = "Ingresar Respuestas a las Preguntas de Seguridad";
             // 
-            // label3
+            // Pregunta1Cbx
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.Teal;
-            this.label3.Location = new System.Drawing.Point(210, 285);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(355, 32);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "¿Nombre de su primera mascota?";
+            this.Pregunta1Cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pregunta1Cbx.FormattingEnabled = true;
+            this.Pregunta1Cbx.Location = new System.Drawing.Point(315, 122);
+            this.Pregunta1Cbx.Name = "Pregunta1Cbx";
+            this.Pregunta1Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta1Cbx.TabIndex = 62;
+            this.Pregunta1Cbx.DropDownClosed += new System.EventHandler(this.Pregunta1Cbx_DropDownClosed);
             // 
-            // label1
+            // Pregunta2Cbx
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(210, 205);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 32);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "¿Cual es el nombre de su abuela materna?";
+            this.Pregunta2Cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pregunta2Cbx.FormattingEnabled = true;
+            this.Pregunta2Cbx.Location = new System.Drawing.Point(315, 197);
+            this.Pregunta2Cbx.Name = "Pregunta2Cbx";
+            this.Pregunta2Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta2Cbx.TabIndex = 63;
+            this.Pregunta2Cbx.DropDownClosed += new System.EventHandler(this.Pregunta2Cbx_DropDownClosed);
             // 
-            // label2
+            // Pregunta3Cbx
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(210, 112);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 32);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "¿Cual es su libro favorito?";
+            this.Pregunta3Cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pregunta3Cbx.FormattingEnabled = true;
+            this.Pregunta3Cbx.Location = new System.Drawing.Point(315, 278);
+            this.Pregunta3Cbx.Name = "Pregunta3Cbx";
+            this.Pregunta3Cbx.Size = new System.Drawing.Size(121, 24);
+            this.Pregunta3Cbx.TabIndex = 64;
+            this.Pregunta3Cbx.DropDownClosed += new System.EventHandler(this.Pregunta3Cbx_DropDownClosed);
+            // 
+            // lbl_Id1
+            // 
+            this.lbl_Id1.AutoSize = true;
+            this.lbl_Id1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lbl_Id1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_Id1.Location = new System.Drawing.Point(732, 117);
+            this.lbl_Id1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Id1.Name = "lbl_Id1";
+            this.lbl_Id1.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id1.TabIndex = 65;
+            // 
+            // lbl_Id2
+            // 
+            this.lbl_Id2.AutoSize = true;
+            this.lbl_Id2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lbl_Id2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_Id2.Location = new System.Drawing.Point(732, 197);
+            this.lbl_Id2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Id2.Name = "lbl_Id2";
+            this.lbl_Id2.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id2.TabIndex = 66;
+            // 
+            // lbl_Id3
+            // 
+            this.lbl_Id3.AutoSize = true;
+            this.lbl_Id3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lbl_Id3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_Id3.Location = new System.Drawing.Point(732, 268);
+            this.lbl_Id3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Id3.Name = "lbl_Id3";
+            this.lbl_Id3.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id3.TabIndex = 67;
             // 
             // frmConfigPreguntasSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 518);
+            this.Controls.Add(this.lbl_Id3);
+            this.Controls.Add(this.lbl_Id2);
+            this.Controls.Add(this.lbl_Id1);
+            this.Controls.Add(this.Pregunta3Cbx);
+            this.Controls.Add(this.Pregunta2Cbx);
+            this.Controls.Add(this.Pregunta1Cbx);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -269,9 +305,6 @@
             this.Controls.Add(this.txtLibro);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Name = "frmConfigPreguntasSeguridad";
             this.Text = "frmConfigPreguntasSeguridad";
             this.Load += new System.EventHandler(this.frmConfigPreguntasSeguridad_Load);
@@ -296,8 +329,11 @@
         private System.Windows.Forms.TextBox txtLibro;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox Pregunta1Cbx;
+        private System.Windows.Forms.ComboBox Pregunta2Cbx;
+        private System.Windows.Forms.ComboBox Pregunta3Cbx;
+        private System.Windows.Forms.Label lbl_Id1;
+        private System.Windows.Forms.Label lbl_Id2;
+        private System.Windows.Forms.Label lbl_Id3;
     }
 }

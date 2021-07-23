@@ -898,7 +898,7 @@ namespace CapaPresentacion
             }
         }
 
-
+        // Listo
         private void RevisarCitasHoy()
         {
 
@@ -912,74 +912,12 @@ namespace CapaPresentacion
 
             DataView DV = new DataView(dbdataset);
 
-          //  DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("fecha LIKE '%{0}%'", Citashoy);
             dgv_citas_hoy.DataSource = DV;
 
 
 
-           /* string sb ;
-
-            sb = "fecha = '" + Citashoy.ToString() + "'";
-
-            //tablita.RowFilter = sb;
-
-            //  datalistadoOperaciones.DataSource = DV;
-
-
-            /**
-                       //SqlCommand cmdDataBase = new SqlCommand("Cita " , conDataBase);
-                       SqlDataAdapter cmdDataBase = new SqlDataAdapter("Cita",conDataBase);
-                       cmdDataBase.SelectCommand.Parameters.Add("@CitasHoy")
-
-
-                       Intento de filtrar fechas fallido
-                        * //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-                         //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-                          SqlCommand cmdDataBase = new SqlCommand("select * from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
-                       // 
-                         try
-                         {
-
-                             SqlDataAdapter sda = new SqlDataAdapter();
-                             sda.SelectCommand = cmdDataBase;
-                             dbdataset = new DataTable();
-                             sda.Fill(dbdataset);
-                             BindingSource jSource = new BindingSource();
-
-                             jSource.DataSource = dbdataset;
-                             dataListado.DataSource = jSource;
-                             sda.Update(dbdataset);
-
-
-                           
-
-
-                         }
-                         catch (Exception ex)
-                         {
-                             MessageBox.Show("pucha wea");
-                         }
-
-                         //int i = 0;
-                         MessageBox.Show("Fecha " + dbdataset.ToString() );
-
-                         
-
-                         dgv_citas_hoy.DataSource = dbdataset;
-
-                         
-
-
-                         //for (int i = 0; i < dbdataset.Rows[i].["fecha"].Value; i++)
-                         //{
-
-
-                           //  i += Convert.ToInt32(dbdataset.Rows[i].Cells["costo"].Value);
-                         //}
-
-                         //this.lblMontoTotal.Text = sum.ToString() + "$ ";
-                 */
+           
 
 
         }
