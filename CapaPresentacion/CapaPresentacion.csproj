@@ -202,6 +202,12 @@
     <Compile Include="frmPlanEstudio.Designer.cs">
       <DependentUpon>frmPlanEstudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPlanTerapeutico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlanTerapeutico.Designer.cs">
+      <DependentUpon>frmPlanTerapeutico.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlanEstudio.resx">
       <DependentUpon>frmPlanEstudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlanTerapeutico.resx">
+      <DependentUpon>frmPlanTerapeutico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

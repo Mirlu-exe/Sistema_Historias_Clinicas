@@ -16,8 +16,6 @@ namespace CapaDatos
 
 
 
-        private int _Idpaciente;
-
 
 
 
@@ -40,17 +38,6 @@ namespace CapaDatos
 
 
 
-
-        private string _Duracion;
-
-
-
-
-
-
-        private int _Cantidad;
-
-
         private string _TextoBuscar;
 
        
@@ -59,12 +46,6 @@ namespace CapaDatos
         {
             get { return _Idreceta; }
             set { _Idreceta = value; }
-        }
-
-        public int Idpaciente
-        {
-            get { return _Idpaciente; }
-            set { _Idpaciente = value; }
         }
 
         public string Medicamento
@@ -87,18 +68,6 @@ namespace CapaDatos
         }
 
 
-        public string Duracion
-        {
-            get { return _Duracion; }
-            set { _Duracion = value; }
-        }
-
-
-        public int Cantidad
-        {
-            get { return _Cantidad; }
-            set { _Cantidad = value; }
-        }
 
         public string TextoBuscar
         {
@@ -113,14 +82,12 @@ namespace CapaDatos
 
         }
 
-        public DReceta(int idreceta, int idpaciente, string medicamento, string presentacion, string dosis, string duracion, int cantidad, string texto_buscar)
+        public DReceta(int idreceta, int idpaciente, string medicamento, string presentacion, string dosis, string texto_buscar)
         {
             this.Idreceta = idreceta;
             this.Medicamento = medicamento;
             this.Presentacion = presentacion;
             this.Dosis = dosis;
-            this.Duracion = duracion;
-            this.Cantidad = cantidad;
             this.TextoBuscar = texto_buscar;
             
            
@@ -151,12 +118,6 @@ namespace CapaDatos
                 ParIdreceta.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIdreceta);
 
-                SqlParameter ParIdPaciente = new SqlParameter();
-                ParIdPaciente.ParameterName = "@idpaciente";
-                ParIdPaciente.SqlDbType = SqlDbType.Int;
-
-                ParIdPaciente.Value = Receta.Idpaciente;
-                SqlCmd.Parameters.Add(ParIdPaciente);
 
                 SqlParameter ParMedicamento = new SqlParameter();
                 ParMedicamento.ParameterName = "@medicamento";
@@ -179,19 +140,6 @@ namespace CapaDatos
                 ParDosis.Value = Receta.Dosis;
                 SqlCmd.Parameters.Add(ParDosis);
 
-                SqlParameter ParDuracion = new SqlParameter();
-                ParDuracion.ParameterName = "@duracion";
-                ParDuracion.SqlDbType = SqlDbType.VarChar;
-                ParDuracion.Size = 50;
-                ParDuracion.Value = Receta.Duracion;
-                SqlCmd.Parameters.Add(ParDuracion);
-
-                SqlParameter ParCantidad = new SqlParameter();
-                ParCantidad.ParameterName = "@cantidad";
-                ParCantidad.SqlDbType = SqlDbType.Int;
-
-                ParCantidad.Value = Receta.Cantidad;
-                SqlCmd.Parameters.Add(ParCantidad);
 
 
                 //Ejecutamos nuestro comando
@@ -234,12 +182,6 @@ namespace CapaDatos
                 ParIdreceta.Value = Receta.Idreceta;
                 SqlCmd.Parameters.Add(ParIdreceta);
 
-                SqlParameter ParIdPaciente = new SqlParameter();
-                ParIdPaciente.ParameterName = "@idpaciente";
-                ParIdPaciente.SqlDbType = SqlDbType.Int;
-
-                ParIdPaciente.Value = Receta.Idpaciente;
-                SqlCmd.Parameters.Add(ParIdPaciente);
 
                 SqlParameter ParMedicamento = new SqlParameter();
                 ParMedicamento.ParameterName = "@medicamento";
@@ -262,19 +204,6 @@ namespace CapaDatos
                 ParDosis.Value = Receta.Dosis;
                 SqlCmd.Parameters.Add(ParDosis);
 
-                SqlParameter ParDuracion = new SqlParameter();
-                ParDuracion.ParameterName = "@duracion";
-                ParDuracion.SqlDbType = SqlDbType.VarChar;
-                ParDuracion.Size = 50;
-                ParDuracion.Value = Receta.Duracion;
-                SqlCmd.Parameters.Add(ParDuracion);
-
-                SqlParameter ParCantidad = new SqlParameter();
-                ParCantidad.ParameterName = "@cantidad";
-                ParCantidad.SqlDbType = SqlDbType.Int;
-
-                ParCantidad.Value = Receta.Cantidad;
-                SqlCmd.Parameters.Add(ParCantidad);
 
 
                 //Ejecutamos nuestro comando

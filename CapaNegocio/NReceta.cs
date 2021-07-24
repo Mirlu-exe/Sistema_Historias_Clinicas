@@ -16,15 +16,12 @@ namespace CapaNegocio
         //Métodos para comunicarnos con la capa datos
         //Método Insertar que llama al método Insertar de la clase DPacientes
         //de la CapaDatos
-        public static string Insertar(int idpaciente, string medicamento, string presentacion, string dosis, string duracion, int cantidad)
+        public static string Insertar(string medicamento, string presentacion, string dosis)
         {
             DReceta Obj = new DReceta();
-            Obj.Idpaciente = idpaciente;
             Obj.Medicamento = medicamento;
             Obj.Presentacion = presentacion;
             Obj.Dosis = dosis;
-            Obj.Duracion = duracion;
-            Obj.Cantidad = cantidad;
 
 
             return Obj.Insertar(Obj);
@@ -32,16 +29,13 @@ namespace CapaNegocio
 
         //Método Editar que llama al método Editar de la clase DPacientes
         //de la CapaDatos
-        public static string Editar(int idreceta, int idpaciente, string medicamento, string presentacion, string dosis, string duracion, int cantidad)
+        public static string Editar(int idreceta, string medicamento, string presentacion, string dosis)
         {
             DReceta Obj = new DReceta();
             Obj.Idreceta = idreceta;
-            Obj.Idpaciente = idpaciente;
             Obj.Medicamento = medicamento;
             Obj.Presentacion = presentacion;
             Obj.Dosis = dosis;
-            Obj.Duracion = duracion;
-            Obj.Cantidad = cantidad;
             return Obj.Editar(Obj);
         }
 

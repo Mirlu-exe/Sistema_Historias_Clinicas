@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,11 +50,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
-            this.cmbPacientes = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDuracion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtDosis = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPresentacion = new System.Windows.Forms.TextBox();
@@ -63,7 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMedicamento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dsReceta = new CapaPresentacion.dsReceta();
             this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +98,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(519, 60);
             this.label9.TabIndex = 7;
-            this.label9.Text = "Gestión de Plan Terapeutico";
+            this.label9.Text = "Registro de Recetas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -179,45 +172,45 @@
             this.dataListado.AllowUserToOrderColumns = true;
             this.dataListado.BackgroundColor = System.Drawing.Color.White;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(644, 250);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataListado.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(653, 289);
@@ -340,67 +333,10 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // txtCantidad
-            // 
-            this.txtCantidad.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCantidad.Location = new System.Drawing.Point(344, 529);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(89, 22);
-            this.txtCantidad.TabIndex = 168;
-            // 
-            // cmbPacientes
-            // 
-            this.cmbPacientes.BackColor = System.Drawing.SystemColors.Control;
-            this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPacientes.Enabled = false;
-            this.cmbPacientes.FormattingEnabled = true;
-            this.cmbPacientes.Location = new System.Drawing.Point(344, 310);
-            this.cmbPacientes.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbPacientes.Name = "cmbPacientes";
-            this.cmbPacientes.Size = new System.Drawing.Size(207, 24);
-            this.cmbPacientes.TabIndex = 167;
-            this.cmbPacientes.SelectedIndexChanged += new System.EventHandler(this.cmbPacientes_SelectedIndexChanged);
-            this.cmbPacientes.DropDownClosed += new System.EventHandler(this.cmbPacientes_DropDownClosed);
-            this.cmbPacientes.SelectedValueChanged += new System.EventHandler(this.cmbPacientes_SelectedValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label8.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label8.Location = new System.Drawing.Point(87, 529);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 32);
-            this.label8.TabIndex = 166;
-            this.label8.Text = "Cantidad";
-            // 
-            // txtDuracion
-            // 
-            this.txtDuracion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDuracion.Location = new System.Drawing.Point(344, 491);
-            this.txtDuracion.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDuracion.Name = "txtDuracion";
-            this.txtDuracion.Size = new System.Drawing.Size(183, 22);
-            this.txtDuracion.TabIndex = 165;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label7.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label7.Location = new System.Drawing.Point(88, 484);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 32);
-            this.label7.TabIndex = 164;
-            this.label7.Text = "Duracion";
-            // 
             // txtDosis
             // 
             this.txtDosis.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDosis.Location = new System.Drawing.Point(344, 448);
+            this.txtDosis.Location = new System.Drawing.Point(344, 427);
             this.txtDosis.Margin = new System.Windows.Forms.Padding(4);
             this.txtDosis.Name = "txtDosis";
             this.txtDosis.Size = new System.Drawing.Size(183, 22);
@@ -411,7 +347,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(89, 442);
+            this.label6.Location = new System.Drawing.Point(89, 421);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 32);
@@ -421,7 +357,7 @@
             // txtPresentacion
             // 
             this.txtPresentacion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPresentacion.Location = new System.Drawing.Point(344, 406);
+            this.txtPresentacion.Location = new System.Drawing.Point(344, 385);
             this.txtPresentacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresentacion.Name = "txtPresentacion";
             this.txtPresentacion.Size = new System.Drawing.Size(183, 22);
@@ -432,7 +368,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(89, 399);
+            this.label5.Location = new System.Drawing.Point(89, 378);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 32);
@@ -443,7 +379,7 @@
             // 
             this.txtidReceta.BackColor = System.Drawing.SystemColors.Control;
             this.txtidReceta.Enabled = false;
-            this.txtidReceta.Location = new System.Drawing.Point(344, 266);
+            this.txtidReceta.Location = new System.Drawing.Point(344, 293);
             this.txtidReceta.Margin = new System.Windows.Forms.Padding(4);
             this.txtidReceta.Name = "txtidReceta";
             this.txtidReceta.Size = new System.Drawing.Size(105, 22);
@@ -454,7 +390,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(89, 266);
+            this.label4.Location = new System.Drawing.Point(87, 283);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 32);
@@ -464,7 +400,7 @@
             // txtMedicamento
             // 
             this.txtMedicamento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMedicamento.Location = new System.Drawing.Point(344, 361);
+            this.txtMedicamento.Location = new System.Drawing.Point(344, 340);
             this.txtMedicamento.Margin = new System.Windows.Forms.Padding(4);
             this.txtMedicamento.Name = "txtMedicamento";
             this.txtMedicamento.Size = new System.Drawing.Size(183, 22);
@@ -475,24 +411,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(89, 353);
+            this.label2.Location = new System.Drawing.Point(89, 332);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 32);
             this.label2.TabIndex = 155;
             this.label2.Text = "Medicamento";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(89, 310);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 32);
-            this.label1.TabIndex = 154;
-            this.label1.Text = "Paciente";
             // 
             // btnImprimir
             // 
@@ -527,7 +451,7 @@
             this.lblCodPac.AutoSize = true;
             this.lblCodPac.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCodPac.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblCodPac.Location = new System.Drawing.Point(338, 212);
+            this.lblCodPac.Location = new System.Drawing.Point(457, 283);
             this.lblCodPac.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodPac.Name = "lblCodPac";
             this.lblCodPac.Size = new System.Drawing.Size(22, 32);
@@ -554,11 +478,6 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtCantidad);
-            this.Controls.Add(this.cmbPacientes);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtDuracion);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDosis);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPresentacion);
@@ -567,7 +486,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMedicamento);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRecetas";
@@ -576,7 +494,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -603,11 +520,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.NumericUpDown txtCantidad;
-        private System.Windows.Forms.ComboBox cmbPacientes;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDuracion;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDosis;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPresentacion;
@@ -616,7 +528,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMedicamento;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.BindingSource dsRecetaBindingSource;
         private dsReceta dsReceta;
