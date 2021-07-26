@@ -4,6 +4,9 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using CapaDatos;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -1417,6 +1420,12 @@ namespace CapaPresentacion
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reportes.frmListaHistorialTotal frm = new Reportes.frmListaHistorialTotal();
+            frm.Show();
         }
     }
 }

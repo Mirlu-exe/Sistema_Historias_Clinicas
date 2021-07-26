@@ -183,6 +183,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1118,6 +1119,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.btnAnular);
             this.tabPage2.Controls.Add(this.datalistadohistorias);
@@ -2046,6 +2048,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1229, 200);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 62);
+            this.button1.TabIndex = 154;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2228,5 +2240,6 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
         private System.Windows.Forms.ComboBox cbDiagnosticos;
+        private System.Windows.Forms.Button button1;
     }
 }
