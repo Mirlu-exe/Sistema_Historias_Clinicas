@@ -74,7 +74,7 @@ namespace CapaPresentacion
             this.Habilitar(false);
             this.Botones();
 
-            this.btnPreguntasSeguridad.Enabled = false;
+            //this.btnPreguntasSeguridad.Enabled = false;
 
             OcultarColumnas();
 
@@ -799,27 +799,27 @@ namespace CapaPresentacion
 
         }
 
-        private void txtCodigoUsuario_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(this.txtCodigoUsuario.Text))  //en caso de que el codigo esté vacio
-            {
+        //private void txtCodigoUsuario_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(this.txtCodigoUsuario.Text))  //en caso de que el codigo esté vacio
+        //    {
 
-                this.btnPreguntasSeguridad.Enabled = false;
+        //        this.btnPreguntasSeguridad.Enabled = false;
 
-            }else if (this.txtCodigoUsuario.Text == "0") //en caso de que el id por alguna razon sea 0
-            {
+        //    }else if (this.txtCodigoUsuario.Text == "0") //en caso de que el id por alguna razon sea 0
+        //    {
 
-                this.btnPreguntasSeguridad.Enabled = false;
+        //        this.btnPreguntasSeguridad.Enabled = false;
 
-            }
-            else //en caso de que tenga cualquier otro numero.
-            {
-                id_selected_user = Convert.ToInt32(this.txtCodigoUsuario.Text);
-                this.btnPreguntasSeguridad.Enabled = true;
-            }
+        //    }
+        //    else //en caso de que tenga cualquier otro numero.
+        //    {
+        //        id_selected_user = Convert.ToInt32(this.txtCodigoUsuario.Text);
+        //        this.btnPreguntasSeguridad.Enabled = true;
+        //    }
 
             
-        }
+        //}
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

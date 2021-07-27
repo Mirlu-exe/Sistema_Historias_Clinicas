@@ -71,7 +71,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnPreguntasSeguridad = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -508,7 +507,6 @@
             this.txtCodigoUsuario.Size = new System.Drawing.Size(199, 22);
             this.txtCodigoUsuario.TabIndex = 147;
             this.txtCodigoUsuario.Visible = false;
-            this.txtCodigoUsuario.TextChanged += new System.EventHandler(this.txtCodigoUsuario_TextChanged);
             this.txtCodigoUsuario.Leave += new System.EventHandler(this.txtCodigoUsuario_Leave);
             // 
             // cmbEstado
@@ -604,18 +602,6 @@
             this.label17.Text = "*";
             this.label17.MouseHover += new System.EventHandler(this.label17_MouseHover);
             // 
-            // btnPreguntasSeguridad
-            // 
-            this.btnPreguntasSeguridad.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnPreguntasSeguridad.ForeColor = System.Drawing.Color.White;
-            this.btnPreguntasSeguridad.Location = new System.Drawing.Point(1322, 299);
-            this.btnPreguntasSeguridad.Name = "btnPreguntasSeguridad";
-            this.btnPreguntasSeguridad.Size = new System.Drawing.Size(210, 67);
-            this.btnPreguntasSeguridad.TabIndex = 182;
-            this.btnPreguntasSeguridad.Text = "Config. Preguntas de Seguridad";
-            this.btnPreguntasSeguridad.UseVisualStyleBackColor = false;
-            this.btnPreguntasSeguridad.Click += new System.EventHandler(this.btnPreguntasSeguridad_Click);
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
@@ -666,7 +652,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnPreguntasSeguridad);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -752,7 +737,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnPreguntasSeguridad;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCorreo;

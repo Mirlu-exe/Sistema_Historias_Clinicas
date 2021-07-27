@@ -78,14 +78,25 @@ namespace CapaPresentacion
 
             MessageBox.Show("Sus respuestas fueron: 1=" + Resp1 + "  2=" + Resp2 + "  3=" + Resp3 + ".");
 
-            //realizar una busqueda en la tabla de Respuestas de preguntas.
-            //seleccionar el ID del Usuario que aparezca en el resultado.
-
-            id_de_coincidencia = TraerIdQueCoincidaRespuestas(Resp1, Resp2, Resp3);
 
 
-           
+            if (CompararRespuestas(Convert.ToInt32(lbl_id_user.Text), Convert.ToInt32(label1.Text), this.txtResp1.Text) == true &&
+                CompararRespuestas(Convert.ToInt32(lbl_id_user.Text), Convert.ToInt32(label2.Text), this.txtResp2.Text) == true &&
+                CompararRespuestas(Convert.ToInt32(lbl_id_user.Text), Convert.ToInt32(label3.Text), this.txtResp3.Text) == true)
+            {
 
+                MessageBox.Show("Felicitaciones! todas las respuestas coinciden :D");
+
+                frmEditarContrasena frm2 = new frmEditarContrasena(lbl_id_user.Text, "fuera del principal");
+                frm2.Show();
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("una o mas respuestas no coinciden :(");
+            }
 
         }
 
@@ -99,68 +110,6 @@ namespace CapaPresentacion
         }
 
 
-        private int TraerIdQueCoincidaRespuestas(string Resp1, string Resp2, string Resp3)
-        {
-            DataTable DtResultado = new DataTable("Respuestas_Usuario");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.Cn;
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "SELECT idusuario FROM dbo.Respuestas_Usuario WHERE " +
-                    "Respuesta_1 = '" + Resp1 + "' AND " +
-                    "Respuesta_2 = '" + Resp2 + "' AND " +
-                    "Respuesta_3 = '" + Resp3 + "' ;";
-                SqlCmd.CommandType = CommandType.Text;
-
-
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                SqlDat.Fill(DtResultado);
-
-                if (DtResultado.Rows.Count == 1)
-                {
-
-                    id_de_coincidencia = Convert.ToInt32(DtResultado.Rows[0][0]);
-
-                    MessageBox.Show("El id del usuario que coincide es: " + id_de_coincidencia + ".");
-
-
-
-                    editarContrasena.Idusuario = id_de_coincidencia;
-
-                    //abrir un form con 3 txtbox con 3 lbls con las preguntas de seguridad
-
-                    frmEditarContrasena frm = new frmEditarContrasena();
-                    frm.Show();
-
-                    Limpiar();
-
-                    //mostrar la cedula y mostrar una ventana para ingresar la nueva contraseña.
-                    this.Hide();
-
-
-                }
-                else if (DtResultado.Rows.Count == 0) {
-
-                    MessageBox.Show("Error no existe ninguna coincidencia");
-                }
-                else
-                {
-                    MessageBox.Show("Error no existe ninguna coincidencia1");
-                }
-
-
-                
-
-            }
-            catch (Exception ex)
-            {
-                DtResultado = null;
-                MessageBox.Show(ex.ToString());
-            }
-            return id_de_coincidencia;
-        }
 
         private void cbPregunta3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,6 +149,8 @@ namespace CapaPresentacion
                 MessageBox.Show("El id del usuario es: " + id_del_usuario + "");
 
                 CargarPreguntas(id_del_usuario);
+
+                this.lbl_id_user.Text = Convert.ToString(id_del_usuario);
 
                 //CompararRespuestas();
 
@@ -244,6 +195,7 @@ namespace CapaPresentacion
                 /////////////sacando pregunta 1
                 ///
                 int id_de_la_pregunta1 = Convert.ToInt32(tablita_preguntas.Rows[0][2]);
+                this.label1.Text = Convert.ToString(id_de_la_pregunta1);
 
 
                 string Con = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
@@ -257,11 +209,14 @@ namespace CapaPresentacion
 
                 this.cbPregunta1.Text = Convert.ToString(tablita_wea.Rows[0][1]);
 
+                
+
+
 
                 //////sacando pregunta 2
                 ///
                 int id_de_la_pregunta2 = Convert.ToInt32(tablita_preguntas.Rows[1][2]);
-
+                this.label2.Text = Convert.ToString(id_de_la_pregunta2);
 
                 string Con2 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBasewea2 = new SqlConnection(Con2);
@@ -279,7 +234,7 @@ namespace CapaPresentacion
                 //////sacando pregunta 3
                 ///
                 int id_de_la_pregunta3 = Convert.ToInt32(tablita_preguntas.Rows[2][2]);
-
+                this.label3.Text = Convert.ToString(id_de_la_pregunta3);
 
                 string Con3 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBasewea3 = new SqlConnection(Con3);
@@ -310,10 +265,37 @@ namespace CapaPresentacion
         }
 
 
-        private void CompararRespuestas()
+        private bool CompararRespuestas(int id_user, int id_de_pregunta, string txtResp)
         {
 
+            bool coinciden;
+
             //me traigo las respuestas de las preguntas y las comparo con los textbox
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+
+            SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + id_user + "' and idpregunta = '" + id_de_pregunta +  "' ", conDataBase);
+
+            DataTable tablita_preguntas = new DataTable();
+
+            cmdDataBase.Fill(tablita_preguntas);
+
+            string respOriginal = Convert.ToString(tablita_preguntas.Rows[0][3]);
+
+
+            if (respOriginal == txtResp)
+            {
+                //MessageBox.Show("Las respuestas coinciden! :D");
+                coinciden = true;
+            }
+            else
+            {
+                //MessageBox.Show("Las respuestas no coinciden :(");
+                coinciden = false;
+            }
+
+            return coinciden;
 
         }
 

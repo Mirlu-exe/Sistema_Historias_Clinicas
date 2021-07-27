@@ -608,6 +608,7 @@
     <None Include="Resources\nurse-2_smoll.png" />
     <None Include="Resources\database-configuration.png" />
     <None Include="Resources\drop.png" />
+    <None Include="Resources\blood_drop.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

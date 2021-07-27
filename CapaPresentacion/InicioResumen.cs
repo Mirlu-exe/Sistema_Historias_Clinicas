@@ -43,6 +43,7 @@ namespace CapaPresentacion
         }
 
 
+
         public void cantidadpacientes()
         {
 
@@ -306,6 +307,18 @@ namespace CapaPresentacion
         private void btnAyuda_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.btnAyuda, "Ayuda");
+        }
+
+        public void btnSangre_Click(object sender, EventArgs e)
+        {
+            frmTipoSangre frm = new frmTipoSangre();
+
+            frm.ShowDialog();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

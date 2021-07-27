@@ -169,6 +169,7 @@
             // 
             // txtResp3
             // 
+            this.txtResp3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtResp3.Location = new System.Drawing.Point(315, 310);
             this.txtResp3.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp3.Name = "txtResp3";
@@ -177,6 +178,7 @@
             // 
             // txtResp2
             // 
+            this.txtResp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtResp2.Location = new System.Drawing.Point(309, 233);
             this.txtResp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp2.Name = "txtResp2";
@@ -185,6 +187,7 @@
             // 
             // txtResp1
             // 
+            this.txtResp1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtResp1.Location = new System.Drawing.Point(315, 153);
             this.txtResp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtResp1.Name = "txtResp1";

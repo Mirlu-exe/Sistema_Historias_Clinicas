@@ -27,8 +27,8 @@ namespace CapaPresentacion
         private void frmTipoSangre_Load(object sender, EventArgs e)
         {
             this.MostrarHistoriasActivas();
-            this.Top = 0;
-            this.Left = 0;
+            //this.Top = 0;
+            //this.Left = 0;
         }
 
         //Mostrar Mensaje de Confirmación
@@ -549,6 +549,14 @@ namespace CapaPresentacion
             this.cblTipo_Sangre2.Text = Convert.ToString(this.datalistadohistorias2.CurrentRow.Cells["tipo_sangre"].Value);
         }
 
+        private void btnVerHistoria_1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnVerHistoria_2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
