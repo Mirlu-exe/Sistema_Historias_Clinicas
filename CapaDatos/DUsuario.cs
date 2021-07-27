@@ -47,7 +47,6 @@ namespace CapaDatos
 
         private string _Resp1, _Resp2, _Resp3;
 
-        private string _Correo;
 
 
         private string _TextoBuscar;
@@ -142,11 +141,6 @@ namespace CapaDatos
             set { _Correo = value; }
         }
 
-        public string Correo
-        {
-            get { return _Correo; }
-            set { _Correo = value; }
-        }
 
 
 
@@ -226,13 +220,6 @@ namespace CapaDatos
                 ParEspecialidad.Size = 50;
                 ParEspecialidad.Value = Usuario.Especialidad;
                 SqlCmd.Parameters.Add(ParEspecialidad);
-
-                SqlParameter ParCorreo = new SqlParameter();
-                ParCorreo.ParameterName = "@correo";
-                ParCorreo.SqlDbType = SqlDbType.VarChar;
-                ParCorreo.Size = 50;
-                ParCorreo.Value = Usuario.Correo;
-                SqlCmd.Parameters.Add(ParCorreo);
 
                 SqlParameter ParAcceso = new SqlParameter();
                 ParAcceso.ParameterName = "@acceso";

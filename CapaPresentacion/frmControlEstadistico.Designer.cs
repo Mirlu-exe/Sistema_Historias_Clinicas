@@ -111,7 +111,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(1318, 847);
+            this.btnAnular.Location = new System.Drawing.Point(1227, 847);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(121, 43);
@@ -131,7 +131,7 @@
             "Tipo de Grafico",
             "Fuente de datos",
             "Campo"});
-            this.cblBusqueda.Location = new System.Drawing.Point(1164, 146);
+            this.cblBusqueda.Location = new System.Drawing.Point(1014, 126);
             this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(231, 40);
@@ -169,7 +169,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
-            this.dataListado.Location = new System.Drawing.Point(1164, 198);
+            this.dataListado.Location = new System.Drawing.Point(1014, 198);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
@@ -189,7 +189,7 @@
             this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(519, 645);
+            this.dataListado.Size = new System.Drawing.Size(563, 645);
             this.dataListado.TabIndex = 202;
             // 
             // Anular
@@ -216,7 +216,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(1410, 159);
+            this.txtBuscar.Location = new System.Drawing.Point(1014, 172);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(273, 22);
@@ -265,7 +265,7 @@
             this.groupBox1.Controls.Add(this.rbHistoriaMedica);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox1.Location = new System.Drawing.Point(825, 223);
+            this.groupBox1.Location = new System.Drawing.Point(728, 223);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(263, 240);
             this.groupBox1.TabIndex = 212;
@@ -343,7 +343,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(718, 645);
+            this.tabControl1.Size = new System.Drawing.Size(671, 645);
             this.tabControl1.TabIndex = 209;
             // 
             // tabPage1
@@ -352,7 +352,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(710, 616);
+            this.tabPage1.Size = new System.Drawing.Size(663, 616);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Barras";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -395,7 +395,7 @@
             this.btnCrearGrafico.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnCrearGrafico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCrearGrafico.ForeColor = System.Drawing.Color.White;
-            this.btnCrearGrafico.Location = new System.Drawing.Point(825, 757);
+            this.btnCrearGrafico.Location = new System.Drawing.Point(734, 757);
             this.btnCrearGrafico.Name = "btnCrearGrafico";
             this.btnCrearGrafico.Size = new System.Drawing.Size(263, 86);
             this.btnCrearGrafico.TabIndex = 207;
@@ -409,7 +409,7 @@
             this.cbCampo.FormattingEnabled = true;
             this.cbCampo.Items.AddRange(new object[] {
             "Sexo"});
-            this.cbCampo.Location = new System.Drawing.Point(825, 536);
+            this.cbCampo.Location = new System.Drawing.Point(730, 534);
             this.cbCampo.Name = "cbCampo";
             this.cbCampo.Size = new System.Drawing.Size(263, 24);
             this.cbCampo.TabIndex = 206;
@@ -419,7 +419,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(819, 501);
+            this.label6.Location = new System.Drawing.Point(724, 499);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 32);
             this.label6.TabIndex = 211;
@@ -448,7 +448,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(1158, 110);
+            this.label2.Location = new System.Drawing.Point(1008, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 32);
             this.label2.TabIndex = 217;
@@ -459,7 +459,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(819, 625);
+            this.label3.Location = new System.Drawing.Point(724, 625);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(269, 32);
             this.label3.TabIndex = 219;
@@ -470,7 +470,7 @@
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaHora.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFechaHora.Location = new System.Drawing.Point(819, 657);
+            this.lblFechaHora.Location = new System.Drawing.Point(728, 657);
             this.lblFechaHora.Name = "lblFechaHora";
             this.lblFechaHora.Size = new System.Drawing.Size(146, 32);
             this.lblFechaHora.TabIndex = 220;
@@ -481,7 +481,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotal.Location = new System.Drawing.Point(1446, 852);
+            this.lblTotal.Location = new System.Drawing.Point(1355, 851);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(182, 32);
             this.lblTotal.TabIndex = 221;
