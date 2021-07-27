@@ -29,6 +29,7 @@ namespace CapaDatos
 
         private string _Password;
 
+        private string _Salt;
 
 
 
@@ -45,6 +46,12 @@ namespace CapaDatos
             set { _Password = value; }
         }
 
+        public string Salt
+        {
+            get { return _Salt; }
+            set { _Salt = value; }
+        }
+
 
 
         //Constructores
@@ -53,10 +60,11 @@ namespace CapaDatos
 
         }
 
-        public DEditarContrasena(int idusuario, string password)
+        public DEditarContrasena(int idusuario, string password, string salt)
         {
             this.Idusuario = idusuario;
             this.Password = password;
+            this.Salt = salt;
 
         }
 
@@ -91,6 +99,12 @@ namespace CapaDatos
                 ParPassword.Value = EditarContrasena.Password;
                 SqlCmd.Parameters.Add(ParPassword);
 
+                SqlParameter ParSalt = new SqlParameter();
+                ParSalt.ParameterName = "@salt";
+                ParSalt.SqlDbType = SqlDbType.VarChar;
+                ParSalt.Size = 50;
+                ParSalt.Value = EditarContrasena.Salt;
+                SqlCmd.Parameters.Add(ParSalt);
 
                 //Ejecutamos nuestro comando
 

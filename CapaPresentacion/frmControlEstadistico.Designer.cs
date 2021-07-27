@@ -408,9 +408,7 @@
             this.cbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCampo.FormattingEnabled = true;
             this.cbCampo.Items.AddRange(new object[] {
-            "Ejemplo 1",
-            "Ejemplo 2",
-            "Ejemplo 3"});
+            "Sexo"});
             this.cbCampo.Location = new System.Drawing.Point(825, 536);
             this.cbCampo.Name = "cbCampo";
             this.cbCampo.Size = new System.Drawing.Size(263, 24);

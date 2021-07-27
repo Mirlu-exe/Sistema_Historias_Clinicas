@@ -43,7 +43,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmEditarContrasena frm = new frmEditarContrasena();
+            frmEditarContrasena frm = new frmEditarContrasena(Convert.ToString(Session_Actual.Idusuario), "dentro del principal");
 
             frm.Show();
 
@@ -51,7 +51,7 @@ namespace CapaPresentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frmEditarPreguntasSeguridad frm = new frmEditarPreguntasSeguridad();
+            frmConfigPreguntasSeguridad frm = new frmConfigPreguntasSeguridad();
 
             frm.Show();
 

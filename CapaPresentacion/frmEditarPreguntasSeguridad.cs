@@ -24,5 +24,10 @@ namespace CapaPresentacion
             //Editar las respuestas de seguridad}
 
         }
+
+        private void frmEditarPreguntasSeguridad_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

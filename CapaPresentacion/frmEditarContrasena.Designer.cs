@@ -34,6 +34,7 @@
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbl_id_usuario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -113,11 +114,21 @@
             this.label4.TabIndex = 150;
             this.label4.Text = "Ingrese su nueva contraseña.";
             // 
+            // lbl_id_usuario
+            // 
+            this.lbl_id_usuario.AutoSize = true;
+            this.lbl_id_usuario.Location = new System.Drawing.Point(174, 222);
+            this.lbl_id_usuario.Name = "lbl_id_usuario";
+            this.lbl_id_usuario.Size = new System.Drawing.Size(96, 17);
+            this.lbl_id_usuario.TabIndex = 151;
+            this.lbl_id_usuario.Text = "lbl_id_usuario";
+            // 
             // frmEditarContrasena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 539);
+            this.Controls.Add(this.lbl_id_usuario);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.label1);
@@ -140,5 +151,6 @@
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_id_usuario;
     }
 }

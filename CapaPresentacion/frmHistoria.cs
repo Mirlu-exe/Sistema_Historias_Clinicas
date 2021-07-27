@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using System.Data.SqlClient;
+﻿using CapaDatos;
 using CapaNegocio;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using CapaDatos;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -67,6 +63,7 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+            this.LlenarComboDiagnosticos();
 
             OcultarColumnas();
             dataListado.Columns["idpaciente"].Visible = false;
@@ -110,6 +107,9 @@ namespace CapaPresentacion
             this.txtEcocardiograma.Text = string.Empty;
             this.txtPlanEstudio.Text = string.Empty;
             this.txtTerapeutico.Text = string.Empty;
+            this.cblTipo_Sangre.Text = string.Empty;
+            this.cbDiagnosticos.Text = string.Empty;
+            
 
 
 
@@ -161,6 +161,26 @@ namespace CapaPresentacion
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
+
+        }
+
+
+
+        private void LlenarComboDiagnosticos()
+        {
+
+
+
+            //traer toda la tabla de medicamentos
+
+
+            this.cbDiagnosticos.DataSource = NDiagnostico.Mostrar();
+            cbDiagnosticos.ValueMember = "enfermedad";
+            cbDiagnosticos.DisplayMember = "enfermedad";
+
+
+
+
 
         }
 
@@ -244,7 +264,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
 
 
 
@@ -666,7 +686,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Historia (idpaciente, fecha_consulta, razon_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio, plan_terapeutico, estado) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15);";
+                        SqlCmd.CommandText = "insert into Historia (idpaciente, fecha_consulta, razon_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio, plan_terapeutico, estado, tipo_sangre, diagnosticos) values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15, @d16, @d17);";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -687,6 +707,8 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
                         SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
+                        SqlCmd.Parameters.AddWithValue("@d16", this.cblTipo_Sangre.Text);
+                        SqlCmd.Parameters.AddWithValue("@d17", this.cbDiagnosticos.Text);
 
 
 
@@ -713,7 +735,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "update Historia set idpaciente = @d1, fecha_consulta = @d2, razon_consulta = @d3, enfermedad_actual = @d4, historia_familiar = @d5, historia_personal = @d6, tratamiento_actual = @d7, examen_fisico = @d8, laboratorio = @d9, ecg = @d10, rayos_x = @d11, ecocardiograma = @d12, plan_estudio = @d13, plan_terapeutico = @d14, estado = @d15 where idhistoria=@d16";
+                        SqlCmd.CommandText = "update Historia set idpaciente = @d1, fecha_consulta = @d2, razon_consulta = @d3, enfermedad_actual = @d4, historia_familiar = @d5, historia_personal = @d6, tratamiento_actual = @d7, examen_fisico = @d8, laboratorio = @d9, ecg = @d10, rayos_x = @d11, ecocardiograma = @d12, plan_estudio = @d13, plan_terapeutico = @d14,  estado = @d15 , tipo_sangre = @d17, diagnosticos = @d18 where idhistoria=@d16";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -735,6 +757,8 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
                         SqlCmd.Parameters.AddWithValue("@d16", this.lbl_id_historia.Text);
+                        SqlCmd.Parameters.AddWithValue("@d17", this.cblTipo_Sangre.Text);
+                        SqlCmd.Parameters.AddWithValue("@d18", this.cbDiagnosticos.Text);
 
 
 
@@ -872,6 +896,9 @@ namespace CapaPresentacion
             this.txtPlanEstudio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_estudio"].Value);
             this.txtTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
             this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
+
+            this.cbDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
+            this.cblTipo_Sangre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tipo_sangre"].Value);
 
             this.tabControl1.SelectedIndex = 1;
 
@@ -1214,6 +1241,8 @@ namespace CapaPresentacion
 
             //insertar evolucion
 
+
+
             //anular evolucion
 
 
@@ -1386,6 +1415,17 @@ namespace CapaPresentacion
         private void dgv_lista_evol_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reportes.frmListaHistorialTotal frm = new Reportes.frmListaHistorialTotal();
+            frm.Show();
         }
     }
 }

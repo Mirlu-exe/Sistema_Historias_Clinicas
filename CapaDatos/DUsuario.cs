@@ -47,6 +47,8 @@ namespace CapaDatos
 
         private string _Resp1, _Resp2, _Resp3;
 
+        private string _Correo;
+
 
         private string _TextoBuscar;
 
@@ -140,7 +142,11 @@ namespace CapaDatos
             set { _Correo = value; }
         }
 
-
+        public string Correo
+        {
+            get { return _Correo; }
+            set { _Correo = value; }
+        }
 
 
 
@@ -150,11 +156,12 @@ namespace CapaDatos
 
         }
 
-        public DUsuario(int idusuario,string nombre, string cargo, string especialidad, string acceso,
-            string log,string password,string estado, string textobuscar, string salt, string correo)
+        public DUsuario(int idusuario,string nombre, string correo, string cargo, string especialidad, string acceso,
+            string log,string password,string estado, string textobuscar, string salt)
         {
             this.Idusuario = idusuario;
             this.Nombre=nombre;
+            this.Correo = correo;
             this.Cargo = cargo;
             this.Especialidad=especialidad;
             this.Acceso = acceso;
@@ -198,6 +205,13 @@ namespace CapaDatos
                 ParNombre.Size = 50;
                 ParNombre.Value = Usuario.Nombre;
                 SqlCmd.Parameters.Add(ParNombre);
+
+                SqlParameter ParCorreo = new SqlParameter();
+                ParCorreo.ParameterName = "@correo";
+                ParCorreo.SqlDbType = SqlDbType.VarChar;
+                ParCorreo.Size = 50;
+                ParCorreo.Value = Usuario.Correo;
+                SqlCmd.Parameters.Add(ParCorreo);
 
                 SqlParameter ParCargo = new SqlParameter();
                 ParCargo.ParameterName = "@cargo";

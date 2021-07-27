@@ -174,6 +174,7 @@
             // cmbTipoReceta
             // 
             this.cmbTipoReceta.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbTipoReceta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoReceta.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cmbTipoReceta.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbTipoReceta.FormattingEnabled = true;

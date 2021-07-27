@@ -70,8 +70,10 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbDiagnosticos = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.cblTipo_Sangre = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtDiagnosticos_Historia = new System.Windows.Forms.TextBox();
             this.lbl_ci_pac = new System.Windows.Forms.Label();
             this.lbl_nombre_pac = new System.Windows.Forms.Label();
             this.btnAnadirEvol = new System.Windows.Forms.Button();
@@ -181,6 +183,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -558,8 +561,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbDiagnosticos);
+            this.groupBox2.Controls.Add(this.label48);
+            this.groupBox2.Controls.Add(this.cblTipo_Sangre);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.txtDiagnosticos_Historia);
             this.groupBox2.Controls.Add(this.lbl_ci_pac);
             this.groupBox2.Controls.Add(this.lbl_nombre_pac);
             this.groupBox2.Controls.Add(this.btnAnadirEvol);
@@ -608,6 +613,46 @@
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historia Clinica";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cbDiagnosticos
+            // 
+            this.cbDiagnosticos.BackColor = System.Drawing.SystemColors.Control;
+            this.cbDiagnosticos.FormattingEnabled = true;
+            this.cbDiagnosticos.Location = new System.Drawing.Point(315, 876);
+            this.cbDiagnosticos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDiagnosticos.Name = "cbDiagnosticos";
+            this.cbDiagnosticos.Size = new System.Drawing.Size(825, 40);
+            this.cbDiagnosticos.TabIndex = 268;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(1199, 853);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(90, 32);
+            this.label48.TabIndex = 267;
+            this.label48.Text = "Sangre:";
+            // 
+            // cblTipo_Sangre
+            // 
+            this.cblTipo_Sangre.BackColor = System.Drawing.SystemColors.Control;
+            this.cblTipo_Sangre.FormattingEnabled = true;
+            this.cblTipo_Sangre.Items.AddRange(new object[] {
+            "A+",
+            "A-",
+            "B+",
+            "B-",
+            "AB+",
+            "AB-",
+            "O+",
+            "O-"});
+            this.cblTipo_Sangre.Location = new System.Drawing.Point(1205, 887);
+            this.cblTipo_Sangre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cblTipo_Sangre.Name = "cblTipo_Sangre";
+            this.cblTipo_Sangre.Size = new System.Drawing.Size(67, 40);
+            this.cblTipo_Sangre.TabIndex = 266;
+            this.cblTipo_Sangre.Text = "A+";
             // 
             // label13
             // 
@@ -618,17 +663,6 @@
             this.label13.TabIndex = 172;
             this.label13.Text = "Diagnósticos";
             // 
-            // txtDiagnosticos_Historia
-            // 
-            this.txtDiagnosticos_Historia.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDiagnosticos_Historia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiagnosticos_Historia.Location = new System.Drawing.Point(315, 874);
-            this.txtDiagnosticos_Historia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDiagnosticos_Historia.Multiline = true;
-            this.txtDiagnosticos_Historia.Name = "txtDiagnosticos_Historia";
-            this.txtDiagnosticos_Historia.Size = new System.Drawing.Size(825, 82);
-            this.txtDiagnosticos_Historia.TabIndex = 173;
-            // 
             // lbl_ci_pac
             // 
             this.lbl_ci_pac.AutoSize = true;
@@ -638,6 +672,7 @@
             this.lbl_ci_pac.Size = new System.Drawing.Size(110, 32);
             this.lbl_ci_pac.TabIndex = 171;
             this.lbl_ci_pac.Text = "lbl_ci_pac";
+            this.lbl_ci_pac.Visible = false;
             // 
             // lbl_nombre_pac
             // 
@@ -825,7 +860,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(634, 788);
+            this.label35.Location = new System.Drawing.Point(635, 773);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(179, 32);
             this.label35.TabIndex = 80;
@@ -1084,6 +1119,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.btnAnular);
             this.tabPage2.Controls.Add(this.datalistadohistorias);
@@ -2012,6 +2048,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1229, 200);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 62);
+            this.button1.TabIndex = 154;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2191,6 +2237,9 @@
         private System.Windows.Forms.DataGridView dgv_lista_evol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtDiagnosticos_Historia;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.ComboBox cblTipo_Sangre;
+        private System.Windows.Forms.ComboBox cbDiagnosticos;
+        private System.Windows.Forms.Button button1;
     }
 }

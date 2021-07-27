@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion;
+using Utilidades;
 
 namespace CapaPresentacion
 {
@@ -37,23 +38,25 @@ namespace CapaPresentacion
         //el id del usuario que cambiara su contraseña
         private int id_del_usuario;
 
+        private string Valorcito;
 
-        public frmEditarContrasena()
+        public frmEditarContrasena(string num_id, string valorcito)
         {
             InitializeComponent();
+
+            this.lbl_id_usuario.Text = num_id;
+
+            this.Valorcito = valorcito;
+
         }
 
-
-        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         private void frmEditarContrasena_Load(object sender, EventArgs e)
         {
 
-            id_del_usuario = frmRecuperarContrasena.editarContrasena.Idusuario;
+            id_del_usuario = Convert.ToInt32(lbl_id_usuario.Text);
 
-
-
-            MessageBox.Show("El id del usuario que coincide es: " + id_del_usuario + ".");
+            MessageBox.Show("El id del usuario que coincide es: " +id_del_usuario+ ".");
 
             DataTable tablita = new DataTable();
 
@@ -79,38 +82,92 @@ namespace CapaPresentacion
                 MessageBox.Show("Campos vacios. Ingrese la nueva contraseña");
 
             }
-            else if (this.txtPassword.Text == this.txtConfirmPassword.Text)
+            else if (this.txtPassword.TextLength < 8)
             {
-                string rpta = "";
+                MessageBox.Show("Contraseña muy corta, por motivos de seguridad debe tener minimo 8 caracteres");
+                this.txtPassword.Clear();
+                this.txtConfirmPassword.Clear();
+                this.txtPassword.Focus();
+            }
+            else if (this.txtPassword.Text.Any(Char.IsPunctuation) == false)
+            {
+                MessageBox.Show("Contraseña poco segura, por motivos de seguridad debe tener almenos un caracter especial");
 
-                rpta = NEditarContrasena.Editar(Convert.ToInt32(this.id_del_usuario),
-                               this.txtConfirmPassword.Text.Trim().ToUpper());
+                this.txtPassword.Clear();
+                this.txtConfirmPassword.Clear();
+                this.txtPassword.Focus();
 
-                if (rpta.Equals("OK"))
+            }
+
+            else 
+            {
+
+                if (this.txtPassword.Text == this.txtConfirmPassword.Text)
                 {
 
-                    this.MensajeOk("Se cambió la contraseña correctamente");
+                    string rpta = "";
 
-                    //esto ayuda a que solo se pueda abrir 1 sola ventana de login.
-                    frmLogin frm = frmLogin.GetInstancia();
-                    frm.Show();
-                    
-                    this.OperacionCambiarContrasena();
-                    this.txtPassword.Clear();
-                    this.txtConfirmPassword.Clear();
+                    string pswd_plain;
+                    string pswd_encrypt;
+                    string pswd_salt;
 
-                    this.Hide();
+                    pswd_plain = this.txtPassword.Text.Trim();
+
+                    HashWithSaltResult hashWithSaltResult = SHA256Implementation.CreateEncriptHashWithSalt(pswd_plain, DateTime.Now.ToString());
+                    pswd_encrypt = hashWithSaltResult.Digest;
+                    pswd_salt = hashWithSaltResult.Salt;
+
+                    rpta = NEditarContrasena.Editar(id_del_usuario, pswd_encrypt,  pswd_salt);
+
+
+
+                    if (rpta.Equals("OK"))
+                    {
+
+                        this.MensajeOk("Se cambió la contraseña correctamente");
+
+                        
+
+
+                        if (Valorcito == "dentro del principal")
+                        {
+                            //MessageBox.Show("test dentro del frmPrincipal");
+                        }
+                        else if(Valorcito == "fuera del principal")
+                        {
+                            //MessageBox.Show("test fuera del frmPrincipal");
+
+                            frmLogin frm = frmLogin.GetInstancia();
+                            frm.Show();
+                        }
+
+
+                        this.OperacionCambiarContrasena();
+                        this.txtPassword.Clear();
+                        this.txtConfirmPassword.Clear();
+
+                        this.Close();
+
+
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
 
 
                 }
                 else
                 {
-                    this.MensajeError(rpta);
+                    MessageBox.Show("Las contraseñas no coinciden. Vuelva a intentarlo");
                 }
 
-            }else 
-            {
-                MessageBox.Show("Las contraseñas no coinciden. Vuelva a intentarlo");
+                    
+                
+
+
+              
+
             }
 
 
