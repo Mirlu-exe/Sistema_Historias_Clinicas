@@ -46,9 +46,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnVerificarExistenciaUsername = new System.Windows.Forms.Button();
             this.gbPreguntasSeguridad = new System.Windows.Forms.GroupBox();
-            this.cbPregunta1 = new System.Windows.Forms.ComboBox();
-            this.cbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cbPregunta3 = new System.Windows.Forms.ComboBox();
+            this.cbPregunta2 = new System.Windows.Forms.ComboBox();
+            this.cbPregunta1 = new System.Windows.Forms.ComboBox();
             this.gbVerificarUsername = new System.Windows.Forms.GroupBox();
             this.gbPreguntasSeguridad.SuspendLayout();
             this.gbVerificarUsername.SuspendLayout();
@@ -283,35 +283,10 @@
             this.gbPreguntasSeguridad.TabStop = false;
             this.gbPreguntasSeguridad.Text = "Preguntas de Seguridad";
             // 
-            // cbPregunta1
-            // 
-            this.cbPregunta1.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPregunta1.FormattingEnabled = true;
-            this.cbPregunta1.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cbPregunta1.Location = new System.Drawing.Point(239, 117);
-            this.cbPregunta1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPregunta1.Name = "cbPregunta1";
-            this.cbPregunta1.Size = new System.Drawing.Size(436, 24);
-            this.cbPregunta1.TabIndex = 233;
-            // 
-            // cbPregunta2
-            // 
-            this.cbPregunta2.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPregunta2.FormattingEnabled = true;
-            this.cbPregunta2.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cbPregunta2.Location = new System.Drawing.Point(239, 210);
-            this.cbPregunta2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPregunta2.Name = "cbPregunta2";
-            this.cbPregunta2.Size = new System.Drawing.Size(436, 24);
-            this.cbPregunta2.TabIndex = 234;
-            // 
             // cbPregunta3
             // 
             this.cbPregunta3.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPregunta3.Enabled = false;
             this.cbPregunta3.FormattingEnabled = true;
             this.cbPregunta3.Items.AddRange(new object[] {
             "Masculino",
@@ -322,6 +297,34 @@
             this.cbPregunta3.Size = new System.Drawing.Size(436, 24);
             this.cbPregunta3.TabIndex = 235;
             this.cbPregunta3.SelectedIndexChanged += new System.EventHandler(this.cbPregunta3_SelectedIndexChanged);
+            // 
+            // cbPregunta2
+            // 
+            this.cbPregunta2.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPregunta2.Enabled = false;
+            this.cbPregunta2.FormattingEnabled = true;
+            this.cbPregunta2.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cbPregunta2.Location = new System.Drawing.Point(239, 210);
+            this.cbPregunta2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPregunta2.Name = "cbPregunta2";
+            this.cbPregunta2.Size = new System.Drawing.Size(436, 24);
+            this.cbPregunta2.TabIndex = 234;
+            // 
+            // cbPregunta1
+            // 
+            this.cbPregunta1.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPregunta1.Enabled = false;
+            this.cbPregunta1.FormattingEnabled = true;
+            this.cbPregunta1.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cbPregunta1.Location = new System.Drawing.Point(239, 117);
+            this.cbPregunta1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPregunta1.Name = "cbPregunta1";
+            this.cbPregunta1.Size = new System.Drawing.Size(436, 24);
+            this.cbPregunta1.TabIndex = 233;
             // 
             // gbVerificarUsername
             // 

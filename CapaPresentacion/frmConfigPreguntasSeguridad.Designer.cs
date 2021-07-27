@@ -225,6 +225,7 @@
             this.Pregunta1Cbx.Name = "Pregunta1Cbx";
             this.Pregunta1Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta1Cbx.TabIndex = 62;
+            this.Pregunta1Cbx.SelectionChangeCommitted += new System.EventHandler(this.Pregunta1Cbx_SelectionChangeCommitted);
             this.Pregunta1Cbx.DropDownClosed += new System.EventHandler(this.Pregunta1Cbx_DropDownClosed);
             // 
             // Pregunta2Cbx
@@ -235,6 +236,7 @@
             this.Pregunta2Cbx.Name = "Pregunta2Cbx";
             this.Pregunta2Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta2Cbx.TabIndex = 63;
+            this.Pregunta2Cbx.SelectionChangeCommitted += new System.EventHandler(this.Pregunta2Cbx_SelectionChangeCommitted);
             this.Pregunta2Cbx.DropDownClosed += new System.EventHandler(this.Pregunta2Cbx_DropDownClosed);
             // 
             // Pregunta3Cbx
@@ -245,6 +247,7 @@
             this.Pregunta3Cbx.Name = "Pregunta3Cbx";
             this.Pregunta3Cbx.Size = new System.Drawing.Size(436, 24);
             this.Pregunta3Cbx.TabIndex = 64;
+            this.Pregunta3Cbx.SelectionChangeCommitted += new System.EventHandler(this.Pregunta3Cbx_SelectionChangeCommitted);
             this.Pregunta3Cbx.DropDownClosed += new System.EventHandler(this.Pregunta3Cbx_DropDownClosed);
             // 
             // lbl_Id1

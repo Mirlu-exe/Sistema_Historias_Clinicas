@@ -43,7 +43,6 @@ namespace CapaPresentacion
         }
 
 
-        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
         private void frmRecuperarContrasena_Load(object sender, EventArgs e)
         {
@@ -52,9 +51,7 @@ namespace CapaPresentacion
 
         private void btnLimpiarPreguntas_Click(object sender, EventArgs e)
         {
-            txtResp1.Clear();
-            txtResp2.Clear();
-            txtResp3.Clear();
+            Limpiar();
 
         }
 
@@ -64,9 +61,7 @@ namespace CapaPresentacion
             frmLogin frm = frmLogin.GetInstancia();
             frm.Show();
 
-            txtResp1.Clear();
-            txtResp2.Clear();
-            txtResp3.Clear();
+            Limpiar();
 
             this.Hide();
         }
@@ -91,6 +86,15 @@ namespace CapaPresentacion
 
            
 
+
+        }
+
+        private void Limpiar()
+        {
+
+            txtResp1.Clear();
+            txtResp2.Clear();
+            txtResp3.Clear();
 
         }
 
@@ -130,9 +134,7 @@ namespace CapaPresentacion
                     frmEditarContrasena frm = new frmEditarContrasena();
                     frm.Show();
 
-                    this.txtResp2.Clear();
-                    this.txtResp1.Clear();
-                    this.txtResp3.Clear();
+                    Limpiar();
 
                     //mostrar la cedula y mostrar una ventana para ingresar la nueva contraseña.
                     this.Hide();
@@ -178,15 +180,146 @@ namespace CapaPresentacion
         private void btnVerificarExistenciaUsername_Click(object sender, EventArgs e)
         {
 
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+
+            SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Usuario where login like '" + txt_verificar_username.Text + "' ", conDataBase);
+
+            DataTable tablita_usuarios = new DataTable();
+
+            cmdDataBase.Fill(tablita_usuarios);
+
+            if (tablita_usuarios.Rows.Count > 0)
+            {
+                MessageBox.Show("Se encontro una coincidencia :) ");
+
+                this.gbPreguntasSeguridad.Enabled = true;
+
+                int id_del_usuario = Convert.ToInt32(tablita_usuarios.Rows[0][0]);
+
+                MessageBox.Show("El id del usuario es: " + id_del_usuario + "");
+
+                CargarPreguntas(id_del_usuario);
+
+                //CompararRespuestas();
+
+
+
+            }else
+            {
+                MessageBox.Show("Ese usuario no existe! >:( ");
+                this.gbPreguntasSeguridad.Enabled = false;
+            }
+
             //si NO existe:
 
-                //mensaje: no existe el usuario. 
-                //desactivar el siguiente groupbox
+            //mensaje: no existe el usuario. 
+            //desactivar el siguiente groupbox
 
             //si SI existe:
-                //activar el siguiente groupbox y cargar los datos.
+            //activar el siguiente groupbox y cargar los datos.
 
 
         }
+
+        private void CargarPreguntas( int id_usuario)
+        {
+
+            //
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+
+            SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = " + id_usuario + "", conDataBase);
+
+            DataTable tablita_preguntas = new DataTable();
+
+            cmdDataBase.Fill(tablita_preguntas);
+
+            if (tablita_preguntas.Rows.Count > 0)
+            {
+                MessageBox.Show("Tiene preguntas de seguridad :)");
+
+                
+                /////////////sacando pregunta 1
+                ///
+                int id_de_la_pregunta1 = Convert.ToInt32(tablita_preguntas.Rows[0][2]);
+
+
+                string Con = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                SqlConnection conDataBasewea = new SqlConnection(Con);
+
+                SqlDataAdapter cmdDataBasewea = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta1+ "", conDataBasewea);
+
+                DataTable tablita_wea = new DataTable();
+
+                cmdDataBasewea.Fill(tablita_wea);
+
+                this.cbPregunta1.Text = Convert.ToString(tablita_wea.Rows[0][1]);
+
+
+                //////sacando pregunta 2
+                ///
+                int id_de_la_pregunta2 = Convert.ToInt32(tablita_preguntas.Rows[1][2]);
+
+
+                string Con2 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                SqlConnection conDataBasewea2 = new SqlConnection(Con2);
+
+                SqlDataAdapter cmdDataBasewea2 = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta2 + "", conDataBasewea2);
+
+                DataTable tablita_wea2 = new DataTable();
+
+                cmdDataBasewea2.Fill(tablita_wea2);
+
+                this.cbPregunta2.Text = Convert.ToString(tablita_wea2.Rows[0][1]);
+
+
+
+                //////sacando pregunta 3
+                ///
+                int id_de_la_pregunta3 = Convert.ToInt32(tablita_preguntas.Rows[2][2]);
+
+
+                string Con3 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                SqlConnection conDataBasewea3 = new SqlConnection(Con3);
+
+                SqlDataAdapter cmdDataBasewea3 = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta3 + "", conDataBasewea3);
+
+                DataTable tablita_wea3 = new DataTable();
+
+                cmdDataBasewea3.Fill(tablita_wea3);
+
+                this.cbPregunta3.Text = Convert.ToString(tablita_wea3.Rows[0][1]);
+
+
+
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("No se han configurado las preguntas de seguridad");
+                this.gbPreguntasSeguridad.Enabled = false;
+            }
+
+
+
+
+        }
+
+
+        private void CompararRespuestas()
+        {
+
+            //me traigo las respuestas de las preguntas y las comparo con los textbox
+
+        }
+
+
+
+
+
     }
 }
