@@ -745,5 +745,13 @@ namespace CapaPresentacion
         {
             this.ttMensaje.SetToolTip(this.label2, "Campo Obligatorio");
         }
+
+        private void btnSangre_Click(object sender, EventArgs e)
+        {
+                frmTipoSangre frm = new frmTipoSangre();
+
+                frm.ShowDialog();
+            
+        }
     }
 }

@@ -29,22 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoria));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,7 +67,8 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbDiagnosticos = new System.Windows.Forms.ComboBox();
+            this.cbPlanEstudio = new System.Windows.Forms.ComboBox();
+            this.cbPlanTerapeutico = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
             this.cblTipo_Sangre = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -80,7 +78,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -89,9 +86,7 @@
             this.cmbEstadoHistoria = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.txtTerapeutico = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.txtPlanEstudio = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtEcocardiograma = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -115,6 +110,7 @@
             this.txtRazonConsulta = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -123,15 +119,6 @@
             this.Anular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblHistoriasActivas = new System.Windows.Forms.Label();
             this.chkAnular = new System.Windows.Forms.CheckBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnBuscarFechaMuertos = new System.Windows.Forms.Button();
-            this.dtpBuscarArchivoMuerto2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaBuscarMuerto = new System.Windows.Forms.DateTimePicker();
-            this.datalistadoMuertos = new System.Windows.Forms.DataGridView();
-            this.lblCantidadArchivosMuertos = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label46 = new System.Windows.Forms.Label();
             this.lblCedulaPaciente_evol = new System.Windows.Forms.Label();
@@ -183,7 +170,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
+            this.txtDiagnosticos = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -194,9 +182,6 @@
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadohistorias)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoMuertos)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -211,15 +196,14 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Location = new System.Drawing.Point(12, 14);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1576, 1027);
+            this.tabControl1.Size = new System.Drawing.Size(1650, 913);
             this.tabControl1.TabIndex = 16;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
@@ -249,7 +233,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1568, 982);
+            this.tabPage1.Size = new System.Drawing.Size(1642, 978);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -264,7 +248,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1562, 79);
+            this.panel1.Size = new System.Drawing.Size(1636, 79);
             this.panel1.TabIndex = 152;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -481,44 +465,44 @@
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
             this.dataListado.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle62;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(25, 353);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
             this.dataListado.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle64;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1479, 383);
@@ -554,14 +538,16 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1568, 982);
+            this.tabPage3.Size = new System.Drawing.Size(1642, 868);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Historia Clínica";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbDiagnosticos);
+            this.groupBox2.Controls.Add(this.txtDiagnosticos);
+            this.groupBox2.Controls.Add(this.cbPlanEstudio);
+            this.groupBox2.Controls.Add(this.cbPlanTerapeutico);
             this.groupBox2.Controls.Add(this.label48);
             this.groupBox2.Controls.Add(this.cblTipo_Sangre);
             this.groupBox2.Controls.Add(this.label13);
@@ -578,9 +564,7 @@
             this.groupBox2.Controls.Add(this.cmbEstadoHistoria);
             this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.txtTerapeutico);
             this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.txtPlanEstudio);
             this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.txtEcocardiograma);
             this.groupBox2.Controls.Add(this.label32);
@@ -605,30 +589,39 @@
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.groupBox2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox2.Location = new System.Drawing.Point(27, 20);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(8, 8);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox2.Size = new System.Drawing.Size(1744, 978);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Historia Clinica";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // cbDiagnosticos
+            // cbPlanEstudio
             // 
-            this.cbDiagnosticos.BackColor = System.Drawing.SystemColors.Control;
-            this.cbDiagnosticos.FormattingEnabled = true;
-            this.cbDiagnosticos.Location = new System.Drawing.Point(315, 876);
-            this.cbDiagnosticos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbDiagnosticos.Name = "cbDiagnosticos";
-            this.cbDiagnosticos.Size = new System.Drawing.Size(825, 40);
-            this.cbDiagnosticos.TabIndex = 268;
+            this.cbPlanEstudio.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPlanEstudio.FormattingEnabled = true;
+            this.cbPlanEstudio.Location = new System.Drawing.Point(924, 190);
+            this.cbPlanEstudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPlanEstudio.Name = "cbPlanEstudio";
+            this.cbPlanEstudio.Size = new System.Drawing.Size(393, 40);
+            this.cbPlanEstudio.TabIndex = 270;
+            // 
+            // cbPlanTerapeutico
+            // 
+            this.cbPlanTerapeutico.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPlanTerapeutico.FormattingEnabled = true;
+            this.cbPlanTerapeutico.Location = new System.Drawing.Point(924, 321);
+            this.cbPlanTerapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPlanTerapeutico.Name = "cbPlanTerapeutico";
+            this.cbPlanTerapeutico.Size = new System.Drawing.Size(393, 40);
+            this.cbPlanTerapeutico.TabIndex = 269;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(1199, 853);
+            this.label48.Location = new System.Drawing.Point(1154, 101);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(90, 32);
             this.label48.TabIndex = 267;
@@ -647,7 +640,7 @@
             "AB-",
             "O+",
             "O-"});
-            this.cblTipo_Sangre.Location = new System.Drawing.Point(1205, 887);
+            this.cblTipo_Sangre.Location = new System.Drawing.Point(1250, 96);
             this.cblTipo_Sangre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cblTipo_Sangre.Name = "cblTipo_Sangre";
             this.cblTipo_Sangre.Size = new System.Drawing.Size(67, 40);
@@ -657,7 +650,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 876);
+            this.label13.Location = new System.Drawing.Point(39, 670);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 32);
             this.label13.TabIndex = 172;
@@ -666,7 +659,7 @@
             // lbl_ci_pac
             // 
             this.lbl_ci_pac.AutoSize = true;
-            this.lbl_ci_pac.Location = new System.Drawing.Point(1199, 227);
+            this.lbl_ci_pac.Location = new System.Drawing.Point(1362, 173);
             this.lbl_ci_pac.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ci_pac.Name = "lbl_ci_pac";
             this.lbl_ci_pac.Size = new System.Drawing.Size(110, 32);
@@ -677,7 +670,7 @@
             // lbl_nombre_pac
             // 
             this.lbl_nombre_pac.AutoSize = true;
-            this.lbl_nombre_pac.Location = new System.Drawing.Point(1199, 182);
+            this.lbl_nombre_pac.Location = new System.Drawing.Point(1362, 141);
             this.lbl_nombre_pac.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_nombre_pac.Name = "lbl_nombre_pac";
             this.lbl_nombre_pac.Size = new System.Drawing.Size(173, 32);
@@ -693,7 +686,7 @@
             this.btnAnadirEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnadirEvol.ForeColor = System.Drawing.Color.MintCream;
             this.btnAnadirEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnadirEvol.Location = new System.Drawing.Point(1205, 304);
+            this.btnAnadirEvol.Location = new System.Drawing.Point(1372, 214);
             this.btnAnadirEvol.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnadirEvol.Name = "btnAnadirEvol";
             this.btnAnadirEvol.Size = new System.Drawing.Size(188, 79);
@@ -707,7 +700,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.label2.Location = new System.Drawing.Point(21, 163);
+            this.label2.Location = new System.Drawing.Point(22, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 32);
@@ -719,37 +712,24 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(4, 36);
+            this.panel2.Location = new System.Drawing.Point(0, 32);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1736, 79);
+            this.panel2.Size = new System.Drawing.Size(1744, 50);
             this.panel2.TabIndex = 153;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(632, 11);
+            this.label5.Location = new System.Drawing.Point(632, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(519, 60);
             this.label5.TabIndex = 7;
             this.label5.Text = "Historia Clínica";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(36, 48);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(520, 95);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Crystal Clear";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCancelar
             // 
@@ -760,7 +740,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1205, 679);
+            this.btnCancelar.Location = new System.Drawing.Point(1372, 568);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(188, 90);
@@ -778,7 +758,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(1205, 585);
+            this.btnEditar.Location = new System.Drawing.Point(1372, 474);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(188, 87);
@@ -796,7 +776,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(1205, 412);
+            this.btnNuevo.Location = new System.Drawing.Point(1372, 301);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(188, 79);
@@ -814,7 +794,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGuardar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(1205, 498);
+            this.btnGuardar.Location = new System.Drawing.Point(1372, 387);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(188, 79);
@@ -827,7 +807,7 @@
             // 
             this.lbl_id_historia.AutoSize = true;
             this.lbl_id_historia.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_id_historia.Location = new System.Drawing.Point(1199, 129);
+            this.lbl_id_historia.Location = new System.Drawing.Point(1362, 104);
             this.lbl_id_historia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id_historia.Name = "lbl_id_historia";
             this.lbl_id_historia.Size = new System.Drawing.Size(128, 32);
@@ -841,17 +821,17 @@
             this.cmbEstadoHistoria.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cmbEstadoHistoria.Location = new System.Drawing.Point(1205, 809);
+            this.cmbEstadoHistoria.Location = new System.Drawing.Point(1381, 740);
             this.cmbEstadoHistoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstadoHistoria.Name = "cmbEstadoHistoria";
-            this.cmbEstadoHistoria.Size = new System.Drawing.Size(160, 40);
+            this.cmbEstadoHistoria.Size = new System.Drawing.Size(179, 40);
             this.cmbEstadoHistoria.TabIndex = 83;
             this.cmbEstadoHistoria.Text = "Activo";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(1205, 773);
+            this.label36.Location = new System.Drawing.Point(1375, 704);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(81, 32);
             this.label36.TabIndex = 82;
@@ -860,67 +840,45 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(635, 773);
+            this.label35.Location = new System.Drawing.Point(919, 286);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(179, 32);
             this.label35.TabIndex = 80;
             this.label35.Text = "Plan Terapeutico";
             // 
-            // txtTerapeutico
-            // 
-            this.txtTerapeutico.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTerapeutico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTerapeutico.Location = new System.Drawing.Point(886, 762);
-            this.txtTerapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTerapeutico.Multiline = true;
-            this.txtTerapeutico.Name = "txtTerapeutico";
-            this.txtTerapeutico.Size = new System.Drawing.Size(254, 80);
-            this.txtTerapeutico.TabIndex = 81;
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(32, 769);
+            this.label34.Location = new System.Drawing.Point(919, 156);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(169, 32);
             this.label34.TabIndex = 78;
             this.label34.Text = "Plan de estudio";
             // 
-            // txtPlanEstudio
-            // 
-            this.txtPlanEstudio.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPlanEstudio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPlanEstudio.Location = new System.Drawing.Point(315, 767);
-            this.txtPlanEstudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPlanEstudio.Multiline = true;
-            this.txtPlanEstudio.Name = "txtPlanEstudio";
-            this.txtPlanEstudio.Size = new System.Drawing.Size(298, 82);
-            this.txtPlanEstudio.TabIndex = 79;
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(635, 673);
+            this.label33.Location = new System.Drawing.Point(919, 546);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(178, 32);
+            this.label33.Size = new System.Drawing.Size(60, 32);
             this.label33.TabIndex = 76;
-            this.label33.Text = "Ecocardiograma";
+            this.label33.Text = "ECO";
             // 
             // txtEcocardiograma
             // 
             this.txtEcocardiograma.BackColor = System.Drawing.SystemColors.Control;
             this.txtEcocardiograma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEcocardiograma.Location = new System.Drawing.Point(886, 650);
+            this.txtEcocardiograma.Location = new System.Drawing.Point(924, 580);
             this.txtEcocardiograma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEcocardiograma.Multiline = true;
             this.txtEcocardiograma.Name = "txtEcocardiograma";
-            this.txtEcocardiograma.Size = new System.Drawing.Size(254, 76);
+            this.txtEcocardiograma.Size = new System.Drawing.Size(393, 70);
             this.txtEcocardiograma.TabIndex = 77;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(634, 566);
+            this.label32.Location = new System.Drawing.Point(477, 546);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(94, 32);
             this.label32.TabIndex = 74;
@@ -930,37 +888,37 @@
             // 
             this.txtRayos_X.BackColor = System.Drawing.SystemColors.Control;
             this.txtRayos_X.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRayos_X.Location = new System.Drawing.Point(886, 543);
+            this.txtRayos_X.Location = new System.Drawing.Point(483, 580);
             this.txtRayos_X.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRayos_X.Multiline = true;
             this.txtRayos_X.Name = "txtRayos_X";
-            this.txtRayos_X.Size = new System.Drawing.Size(254, 76);
+            this.txtRayos_X.Size = new System.Drawing.Size(393, 70);
             this.txtRayos_X.TabIndex = 75;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(635, 442);
+            this.label31.Location = new System.Drawing.Point(919, 414);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(57, 32);
+            this.label31.Size = new System.Drawing.Size(54, 32);
             this.label31.TabIndex = 72;
-            this.label31.Text = "ECG";
+            this.label31.Text = "EKG";
             // 
             // txtecg
             // 
             this.txtecg.BackColor = System.Drawing.SystemColors.Control;
             this.txtecg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtecg.Location = new System.Drawing.Point(886, 433);
+            this.txtecg.Location = new System.Drawing.Point(924, 448);
             this.txtecg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtecg.Multiline = true;
             this.txtecg.Name = "txtecg";
-            this.txtecg.Size = new System.Drawing.Size(254, 73);
+            this.txtecg.Size = new System.Drawing.Size(393, 70);
             this.txtecg.TabIndex = 73;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(635, 351);
+            this.label30.Location = new System.Drawing.Point(477, 416);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(130, 32);
             this.label30.TabIndex = 70;
@@ -970,17 +928,17 @@
             // 
             this.txtLaboratorio.BackColor = System.Drawing.SystemColors.Control;
             this.txtLaboratorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLaboratorio.Location = new System.Drawing.Point(886, 351);
+            this.txtLaboratorio.Location = new System.Drawing.Point(483, 450);
             this.txtLaboratorio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLaboratorio.Multiline = true;
             this.txtLaboratorio.Name = "txtLaboratorio";
-            this.txtLaboratorio.Size = new System.Drawing.Size(254, 65);
+            this.txtLaboratorio.Size = new System.Drawing.Size(393, 70);
             this.txtLaboratorio.TabIndex = 71;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(635, 258);
+            this.label29.Location = new System.Drawing.Point(477, 286);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(155, 32);
             this.label29.TabIndex = 68;
@@ -990,17 +948,17 @@
             // 
             this.txtExamenFisico.BackColor = System.Drawing.SystemColors.Control;
             this.txtExamenFisico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtExamenFisico.Location = new System.Drawing.Point(886, 253);
+            this.txtExamenFisico.Location = new System.Drawing.Point(483, 320);
             this.txtExamenFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtExamenFisico.Multiline = true;
             this.txtExamenFisico.Name = "txtExamenFisico";
-            this.txtExamenFisico.Size = new System.Drawing.Size(254, 71);
+            this.txtExamenFisico.Size = new System.Drawing.Size(393, 70);
             this.txtExamenFisico.TabIndex = 69;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(634, 163);
+            this.label28.Location = new System.Drawing.Point(477, 156);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(203, 32);
             this.label28.TabIndex = 66;
@@ -1010,11 +968,11 @@
             // 
             this.txtTratamiento_Actual.BackColor = System.Drawing.SystemColors.Control;
             this.txtTratamiento_Actual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTratamiento_Actual.Location = new System.Drawing.Point(886, 161);
+            this.txtTratamiento_Actual.Location = new System.Drawing.Point(483, 190);
             this.txtTratamiento_Actual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento_Actual.Multiline = true;
             this.txtTratamiento_Actual.Name = "txtTratamiento_Actual";
-            this.txtTratamiento_Actual.Size = new System.Drawing.Size(254, 64);
+            this.txtTratamiento_Actual.Size = new System.Drawing.Size(393, 70);
             this.txtTratamiento_Actual.TabIndex = 67;
             // 
             // dtpFechaConsulta
@@ -1022,16 +980,16 @@
             this.dtpFechaConsulta.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaConsulta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtpFechaConsulta.Location = new System.Drawing.Point(315, 161);
+            this.dtpFechaConsulta.Location = new System.Drawing.Point(266, 96);
             this.dtpFechaConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaConsulta.Name = "dtpFechaConsulta";
-            this.dtpFechaConsulta.Size = new System.Drawing.Size(297, 39);
+            this.dtpFechaConsulta.Size = new System.Drawing.Size(169, 39);
             this.dtpFechaConsulta.TabIndex = 65;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(33, 642);
+            this.label27.Location = new System.Drawing.Point(36, 546);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(181, 32);
             this.label27.TabIndex = 63;
@@ -1041,17 +999,17 @@
             // 
             this.txtHistoriaPersonal.BackColor = System.Drawing.SystemColors.Control;
             this.txtHistoriaPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHistoriaPersonal.Location = new System.Drawing.Point(315, 626);
+            this.txtHistoriaPersonal.Location = new System.Drawing.Point(42, 580);
             this.txtHistoriaPersonal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHistoriaPersonal.Multiline = true;
             this.txtHistoriaPersonal.Name = "txtHistoriaPersonal";
-            this.txtHistoriaPersonal.Size = new System.Drawing.Size(298, 92);
+            this.txtHistoriaPersonal.Size = new System.Drawing.Size(393, 70);
             this.txtHistoriaPersonal.TabIndex = 64;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(32, 535);
+            this.label26.Location = new System.Drawing.Point(36, 416);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(174, 32);
             this.label26.TabIndex = 61;
@@ -1061,17 +1019,17 @@
             // 
             this.txtHistoriaFamiliar.BackColor = System.Drawing.SystemColors.Control;
             this.txtHistoriaFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHistoriaFamiliar.Location = new System.Drawing.Point(315, 490);
+            this.txtHistoriaFamiliar.Location = new System.Drawing.Point(42, 450);
             this.txtHistoriaFamiliar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHistoriaFamiliar.Multiline = true;
             this.txtHistoriaFamiliar.Name = "txtHistoriaFamiliar";
-            this.txtHistoriaFamiliar.Size = new System.Drawing.Size(298, 98);
+            this.txtHistoriaFamiliar.Size = new System.Drawing.Size(393, 70);
             this.txtHistoriaFamiliar.TabIndex = 62;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(33, 386);
+            this.label25.Location = new System.Drawing.Point(36, 286);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(207, 32);
             this.label25.TabIndex = 59;
@@ -1081,17 +1039,17 @@
             // 
             this.txtEnfermedadActual.BackColor = System.Drawing.SystemColors.Control;
             this.txtEnfermedadActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnfermedadActual.Location = new System.Drawing.Point(315, 377);
+            this.txtEnfermedadActual.Location = new System.Drawing.Point(42, 320);
             this.txtEnfermedadActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEnfermedadActual.Multiline = true;
             this.txtEnfermedadActual.Name = "txtEnfermedadActual";
-            this.txtEnfermedadActual.Size = new System.Drawing.Size(298, 88);
+            this.txtEnfermedadActual.Size = new System.Drawing.Size(393, 70);
             this.txtEnfermedadActual.TabIndex = 60;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(33, 247);
+            this.label24.Location = new System.Drawing.Point(36, 156);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(223, 32);
             this.label24.TabIndex = 57;
@@ -1101,17 +1059,17 @@
             // 
             this.txtRazonConsulta.BackColor = System.Drawing.SystemColors.Control;
             this.txtRazonConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRazonConsulta.Location = new System.Drawing.Point(315, 247);
+            this.txtRazonConsulta.Location = new System.Drawing.Point(42, 190);
             this.txtRazonConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRazonConsulta.Multiline = true;
             this.txtRazonConsulta.Name = "txtRazonConsulta";
-            this.txtRazonConsulta.Size = new System.Drawing.Size(298, 93);
+            this.txtRazonConsulta.Size = new System.Drawing.Size(393, 70);
             this.txtRazonConsulta.TabIndex = 58;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(39, 166);
+            this.label23.Location = new System.Drawing.Point(39, 96);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(220, 32);
             this.label23.TabIndex = 47;
@@ -1129,11 +1087,21 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1568, 982);
+            this.tabPage2.Size = new System.Drawing.Size(1642, 978);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lista de Historias Clínicas";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1229, 200);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 62);
+            this.button1.TabIndex = 154;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -1144,7 +1112,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1562, 79);
+            this.panel4.Size = new System.Drawing.Size(1636, 79);
             this.panel4.TabIndex = 153;
             // 
             // label7
@@ -1195,45 +1163,45 @@
             this.datalistadohistorias.AllowUserToDeleteRows = false;
             this.datalistadohistorias.AllowUserToOrderColumns = true;
             this.datalistadohistorias.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
             this.datalistadohistorias.ColumnHeadersHeight = 50;
             this.datalistadohistorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.datalistadohistorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle66;
             this.datalistadohistorias.GridColor = System.Drawing.Color.DarkCyan;
             this.datalistadohistorias.Location = new System.Drawing.Point(25, 299);
             this.datalistadohistorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datalistadohistorias.MultiSelect = false;
             this.datalistadohistorias.Name = "datalistadohistorias";
             this.datalistadohistorias.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.datalistadohistorias.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle68.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle68;
             this.datalistadohistorias.RowTemplate.Height = 24;
             this.datalistadohistorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadohistorias.Size = new System.Drawing.Size(1741, 587);
@@ -1275,156 +1243,6 @@
             this.chkAnular.UseVisualStyleBackColor = true;
             this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.panel5);
-            this.tabPage4.Controls.Add(this.btnBuscarFechaMuertos);
-            this.tabPage4.Controls.Add(this.dtpBuscarArchivoMuerto2);
-            this.tabPage4.Controls.Add(this.dtpFechaBuscarMuerto);
-            this.tabPage4.Controls.Add(this.datalistadoMuertos);
-            this.tabPage4.Controls.Add(this.lblCantidadArchivosMuertos);
-            this.tabPage4.Location = new System.Drawing.Point(4, 41);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1568, 982);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Archivos Anulados (Muertos)";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(4, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1560, 79);
-            this.panel5.TabIndex = 153;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(632, 11);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(519, 60);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Archivos Muertos";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(36, 48);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(520, 95);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Crystal Clear";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBuscarFechaMuertos
-            // 
-            this.btnBuscarFechaMuertos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFechaMuertos.FlatAppearance.BorderSize = 0;
-            this.btnBuscarFechaMuertos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnBuscarFechaMuertos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarFechaMuertos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnBuscarFechaMuertos.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnBuscarFechaMuertos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFechaMuertos.Location = new System.Drawing.Point(780, 255);
-            this.btnBuscarFechaMuertos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarFechaMuertos.Name = "btnBuscarFechaMuertos";
-            this.btnBuscarFechaMuertos.Size = new System.Drawing.Size(164, 36);
-            this.btnBuscarFechaMuertos.TabIndex = 144;
-            this.btnBuscarFechaMuertos.Text = "Buscar";
-            this.btnBuscarFechaMuertos.UseVisualStyleBackColor = false;
-            // 
-            // dtpBuscarArchivoMuerto2
-            // 
-            this.dtpBuscarArchivoMuerto2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dtpBuscarArchivoMuerto2.Location = new System.Drawing.Point(1027, 254);
-            this.dtpBuscarArchivoMuerto2.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpBuscarArchivoMuerto2.Name = "dtpBuscarArchivoMuerto2";
-            this.dtpBuscarArchivoMuerto2.Size = new System.Drawing.Size(277, 39);
-            this.dtpBuscarArchivoMuerto2.TabIndex = 32;
-            // 
-            // dtpFechaBuscarMuerto
-            // 
-            this.dtpFechaBuscarMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dtpFechaBuscarMuerto.Location = new System.Drawing.Point(425, 252);
-            this.dtpFechaBuscarMuerto.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpFechaBuscarMuerto.Name = "dtpFechaBuscarMuerto";
-            this.dtpFechaBuscarMuerto.Size = new System.Drawing.Size(277, 39);
-            this.dtpFechaBuscarMuerto.TabIndex = 31;
-            // 
-            // datalistadoMuertos
-            // 
-            this.datalistadoMuertos.AllowUserToAddRows = false;
-            this.datalistadoMuertos.AllowUserToDeleteRows = false;
-            this.datalistadoMuertos.AllowUserToOrderColumns = true;
-            this.datalistadoMuertos.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoMuertos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.datalistadoMuertos.ColumnHeadersHeight = 50;
-            this.datalistadoMuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadoMuertos.DefaultCellStyle = dataGridViewCellStyle10;
-            this.datalistadoMuertos.GridColor = System.Drawing.Color.DarkCyan;
-            this.datalistadoMuertos.Location = new System.Drawing.Point(53, 346);
-            this.datalistadoMuertos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.datalistadoMuertos.MultiSelect = false;
-            this.datalistadoMuertos.Name = "datalistadoMuertos";
-            this.datalistadoMuertos.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.datalistadoMuertos.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoMuertos.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.datalistadoMuertos.RowTemplate.Height = 24;
-            this.datalistadoMuertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoMuertos.Size = new System.Drawing.Size(1713, 516);
-            this.datalistadoMuertos.TabIndex = 29;
-            // 
-            // lblCantidadArchivosMuertos
-            // 
-            this.lblCantidadArchivosMuertos.AutoSize = true;
-            this.lblCantidadArchivosMuertos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblCantidadArchivosMuertos.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblCantidadArchivosMuertos.Location = new System.Drawing.Point(47, 298);
-            this.lblCantidadArchivosMuertos.Name = "lblCantidadArchivosMuertos";
-            this.lblCantidadArchivosMuertos.Size = new System.Drawing.Size(75, 32);
-            this.lblCantidadArchivosMuertos.TabIndex = 28;
-            this.lblCantidadArchivosMuertos.Text = "label4";
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.label46);
@@ -1460,7 +1278,7 @@
             this.tabPage5.Controls.Add(this.panel3);
             this.tabPage5.Location = new System.Drawing.Point(4, 41);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1568, 982);
+            this.tabPage5.Size = new System.Drawing.Size(1642, 978);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Evoluciones";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1805,7 +1623,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1568, 79);
+            this.panel3.Size = new System.Drawing.Size(1642, 79);
             this.panel3.TabIndex = 154;
             // 
             // label11
@@ -1846,7 +1664,7 @@
             this.tabPage6.Controls.Add(this.checkBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 41);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1568, 982);
+            this.tabPage6.Size = new System.Drawing.Size(1642, 978);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Lista de Evoluciones";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1903,45 +1721,45 @@
             this.dgv_lista_evol.AllowUserToDeleteRows = false;
             this.dgv_lista_evol.AllowUserToOrderColumns = true;
             this.dgv_lista_evol.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.dgv_lista_evol.ColumnHeadersHeight = 50;
             this.dgv_lista_evol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_lista_evol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle70;
             this.dgv_lista_evol.GridColor = System.Drawing.Color.DarkCyan;
             this.dgv_lista_evol.Location = new System.Drawing.Point(3, 2);
             this.dgv_lista_evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_lista_evol.MultiSelect = false;
             this.dgv_lista_evol.Name = "dgv_lista_evol";
             this.dgv_lista_evol.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle71;
             this.dgv_lista_evol.RowHeadersWidth = 51;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle72;
             this.dgv_lista_evol.RowTemplate.Height = 24;
             this.dgv_lista_evol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_lista_evol.Size = new System.Drawing.Size(1741, 587);
@@ -1976,7 +1794,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1568, 79);
+            this.panel6.Size = new System.Drawing.Size(1642, 79);
             this.panel6.TabIndex = 158;
             // 
             // label40
@@ -2048,15 +1866,36 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // button1
+            // btnAbrirArchivoMuerto
             // 
-            this.button1.Location = new System.Drawing.Point(1229, 200);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 62);
-            this.button1.TabIndex = 154;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAbrirArchivoMuerto.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAbrirArchivoMuerto.FlatAppearance.BorderSize = 0;
+            this.btnAbrirArchivoMuerto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAbrirArchivoMuerto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrirArchivoMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnAbrirArchivoMuerto.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAbrirArchivoMuerto.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirArchivoMuerto.Image")));
+            this.btnAbrirArchivoMuerto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbrirArchivoMuerto.Location = new System.Drawing.Point(1322, 8);
+            this.btnAbrirArchivoMuerto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAbrirArchivoMuerto.Name = "btnAbrirArchivoMuerto";
+            this.btnAbrirArchivoMuerto.Size = new System.Drawing.Size(340, 41);
+            this.btnAbrirArchivoMuerto.TabIndex = 160;
+            this.btnAbrirArchivoMuerto.Text = "Abrir Archivo Muerto";
+            this.btnAbrirArchivoMuerto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
+            this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
+            // 
+            // txtDiagnosticos
+            // 
+            this.txtDiagnosticos.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiagnosticos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDiagnosticos.Location = new System.Drawing.Point(45, 704);
+            this.txtDiagnosticos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDiagnosticos.Multiline = true;
+            this.txtDiagnosticos.Name = "txtDiagnosticos";
+            this.txtDiagnosticos.Size = new System.Drawing.Size(1273, 87);
+            this.txtDiagnosticos.TabIndex = 271;
             // 
             // frmHistoria
             // 
@@ -2064,6 +1903,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.Controls.Add(this.btnAbrirArchivoMuerto);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -2083,10 +1923,6 @@
             this.tabPage2.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadohistorias)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoMuertos)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -2129,7 +1965,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
@@ -2138,9 +1973,7 @@
         private System.Windows.Forms.ComboBox cmbEstadoHistoria;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox txtTerapeutico;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox txtPlanEstudio;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtEcocardiograma;
         private System.Windows.Forms.Label label32;
@@ -2172,15 +2005,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Anular;
         private System.Windows.Forms.Label lblHistoriasActivas;
         private System.Windows.Forms.CheckBox chkAnular;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnBuscarFechaMuertos;
-        private System.Windows.Forms.DateTimePicker dtpBuscarArchivoMuerto2;
-        private System.Windows.Forms.DateTimePicker dtpFechaBuscarMuerto;
-        private System.Windows.Forms.DataGridView datalistadoMuertos;
-        private System.Windows.Forms.Label lblCantidadArchivosMuertos;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label2;
@@ -2239,7 +2063,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
-        private System.Windows.Forms.ComboBox cbDiagnosticos;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAbrirArchivoMuerto;
+        private System.Windows.Forms.ComboBox cbPlanEstudio;
+        private System.Windows.Forms.ComboBox cbPlanTerapeutico;
+        private System.Windows.Forms.TextBox txtDiagnosticos;
     }
 }

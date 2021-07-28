@@ -100,6 +100,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmArchivosMuertos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArchivosMuertos.Designer.cs">
+      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +141,6 @@
     </Compile>
     <Compile Include="frmEditarContrasena.Designer.cs">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEditarPreguntasSeguridad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditarPreguntasSeguridad.Designer.cs">
-      <DependentUpon>frmEditarPreguntasSeguridad.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionReportes.cs">
       <SubType>Form</SubType>
@@ -399,6 +399,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmArchivosMuertos.resx">
+      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,9 +419,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarContrasena.resx">
       <DependentUpon>frmEditarContrasena.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditarPreguntasSeguridad.resx">
-      <DependentUpon>frmEditarPreguntasSeguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionReportes.resx">
       <DependentUpon>frmGestionReportes.cs</DependentUpon>
@@ -618,6 +618,9 @@
     <None Include="Resources\database-configuration.png" />
     <None Include="Resources\drop.png" />
     <None Include="Resources\blood_drop.png" />
+    <None Include="Resources\coffin_smoll.png" />
+    <None Include="Resources\calendar_smoll.png" />
+    <None Include="Resources\check  calendar.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

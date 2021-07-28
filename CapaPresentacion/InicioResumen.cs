@@ -309,12 +309,7 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.btnAyuda, "Ayuda");
         }
 
-        public void btnSangre_Click(object sender, EventArgs e)
-        {
-            frmTipoSangre frm = new frmTipoSangre();
 
-            frm.ShowDialog();
-        }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {

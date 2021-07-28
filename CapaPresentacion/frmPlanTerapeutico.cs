@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 using CapaNegocio;
 using CapaDatos;
 
@@ -52,6 +53,33 @@ namespace CapaPresentacion
 
         private void LlenarComboRecipe()
         {
+
+
+            //llenar el cb medicinas aplicando autocompletado
+
+            DataTable tabla_meds = new DataTable();
+
+            tabla_meds = NReceta.Mostrar();
+
+            List<string> meds = tabla_meds.AsEnumerable().Select(r => r.Field<string>("medicamento")).ToList();
+
+             string[] meds_array = meds.ToArray();
+
+            var autoComplete = new AutoCompleteStringCollection();
+            autoComplete.AddRange(meds_array);
+
+            this.cbMedicamento.AutoCompleteCustomSource = autoComplete;
+
+            
+
+
+
+            //para testear el contenido del array
+            //foreach (string item in meds_array)
+            //{
+            //    MessageBox.Show(" wea: " + item + "");
+            //}
+
 
 
 
@@ -273,6 +301,36 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
+        }
+
+
+
+        private void MostrarInfoMedicamento()
+        {
+
+            //usar este metodo para hacer querys segun el medicamento seleccionado
+            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //SqlConnection conDataBase = new SqlConnection(Cn);
+
+            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + Id_Usuario + "' ;", conDataBase);
+
+            //DataTable tablita = new DataTable();
+
+            //cmdDataBase.Fill(tablita);
+
+            //int cant_registros = 0;
+
+            //cant_registros = tablita.Rows.Count;
+
+            //int cellValue1 = Convert.ToInt32(tablita.Rows[0][0]);
+            //int cellValue2 = Convert.ToInt32(tablita.Rows[1][0]);
+            //int cellValue3 = Convert.ToInt32(tablita.Rows[2][0]);
+
+        }
+
+        private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

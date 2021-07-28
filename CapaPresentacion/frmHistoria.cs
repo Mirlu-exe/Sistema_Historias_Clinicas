@@ -43,8 +43,8 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtecg, "Ingrese el ecg paciente");
             this.ttMensaje.SetToolTip(this.txtRayos_X, "Ingrese los rayos X del paciente");
             this.ttMensaje.SetToolTip(this.txtEcocardiograma, "Ingrese el ecocardiograma del paciente");
-            this.ttMensaje.SetToolTip(this.txtPlanEstudio, "Ingrese el plan de estudio");
-            this.ttMensaje.SetToolTip(this.txtTerapeutico, "Ingrese el plan terapeutico");
+            this.ttMensaje.SetToolTip(this.cbPlanEstudio, "Ingrese el plan de estudio");
+            this.ttMensaje.SetToolTip(this.cbPlanTerapeutico, "Ingrese el plan terapeutico");
 
             this.btnAnular.Enabled = false;
         }
@@ -57,7 +57,6 @@ namespace CapaPresentacion
         private void frmHistoria_Load(object sender, EventArgs e)
         {
             this.MostrarHistoriasActivas();
-            this.MostrarHistoriasAnuladas();
             this.Top = 0;
             this.Left = 0;
             this.Mostrar();
@@ -105,10 +104,10 @@ namespace CapaPresentacion
             this.txtecg.Text = string.Empty;
             this.txtRayos_X.Text = string.Empty;
             this.txtEcocardiograma.Text = string.Empty;
-            this.txtPlanEstudio.Text = string.Empty;
-            this.txtTerapeutico.Text = string.Empty;
+            this.cbPlanEstudio.Text = string.Empty;
+            this.cbPlanTerapeutico.Text = string.Empty;
             this.cblTipo_Sangre.Text = string.Empty;
-            this.cbDiagnosticos.Text = string.Empty;
+            this.txtDiagnosticos.Text = string.Empty;
             
 
 
@@ -133,8 +132,8 @@ namespace CapaPresentacion
             this.txtecg.ReadOnly = !valor;
             this.txtRayos_X.ReadOnly = !valor;
             this.txtEcocardiograma.ReadOnly = !valor;
-            this.txtPlanEstudio.ReadOnly = !valor;
-            this.txtTerapeutico.ReadOnly = !valor;
+            this.cbPlanEstudio.Enabled = !valor;
+            this.cbPlanTerapeutico.Enabled = !valor;
 
 
 
@@ -174,9 +173,9 @@ namespace CapaPresentacion
             //traer toda la tabla de medicamentos
 
 
-            this.cbDiagnosticos.DataSource = NDiagnostico.Mostrar();
-            cbDiagnosticos.ValueMember = "enfermedad";
-            cbDiagnosticos.DisplayMember = "enfermedad";
+            //this.txtDiagnosticos.DataSource = NDiagnostico.Mostrar();
+            //txtDiagnosticos.ValueMember = "enfermedad";
+            //txtDiagnosticos.DisplayMember = "enfermedad";
 
 
 
@@ -305,50 +304,50 @@ namespace CapaPresentacion
 
 
 
-        //Método Mostrar
-        private void MostrarHistoriasAnuladas()
-        {
+        ////Método Mostrar Muertos
+        //private void MostrarHistoriasAnuladas()
+        //{
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            SqlConnection conDataBase = new SqlConnection(Cn);
-            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("SELECT Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Inactivo'; ", conDataBase);
-
-
-
-
-
-            try
-            {
-
-                SqlDataAdapter sda = new SqlDataAdapter();
-                sda.SelectCommand = cmdDataBase;
-                dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                datalistadoMuertos.DataSource = bSource;
-                sda.Update(dbdataset);
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-                MessageBox.Show("Ha ocurrido un error");
-            }
+        //    string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+        //    SqlConnection conDataBase = new SqlConnection(Cn);
+        //    //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
+        //    //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
+        //    SqlCommand cmdDataBase = new SqlCommand("SELECT Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Inactivo'; ", conDataBase);
 
 
 
-            OcultarColumnas();
 
 
-            lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
-        }
+        //    try
+        //    {
+
+        //        SqlDataAdapter sda = new SqlDataAdapter();
+        //        sda.SelectCommand = cmdDataBase;
+        //        dbdataset = new DataTable();
+        //        sda.Fill(dbdataset);
+        //        BindingSource bSource = new BindingSource();
+
+        //        bSource.DataSource = dbdataset;
+        //        datalistadoMuertos.DataSource = bSource;
+        //        sda.Update(dbdataset);
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+
+        //        MessageBox.Show("Ha ocurrido un error");
+        //    }
+
+
+
+        //    OcultarColumnas();
+
+
+        //    lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
+        //}
 
 
         //Metodo BuscarPacienteSegunHistoria
@@ -704,11 +703,11 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d10", this.txtecg.Text);
                         SqlCmd.Parameters.AddWithValue("@d11", this.txtRayos_X.Text);
                         SqlCmd.Parameters.AddWithValue("@d12", this.txtEcocardiograma.Text);
-                        SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
-                        SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
+                        SqlCmd.Parameters.AddWithValue("@d13", this.cbPlanEstudio.Text);
+                        SqlCmd.Parameters.AddWithValue("@d14", this.cbPlanTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
                         SqlCmd.Parameters.AddWithValue("@d16", this.cblTipo_Sangre.Text);
-                        SqlCmd.Parameters.AddWithValue("@d17", this.cbDiagnosticos.Text);
+                        SqlCmd.Parameters.AddWithValue("@d17", this.txtDiagnosticos.Text);
 
 
 
@@ -753,12 +752,12 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d10", this.txtecg.Text);
                         SqlCmd.Parameters.AddWithValue("@d11", this.txtRayos_X.Text);
                         SqlCmd.Parameters.AddWithValue("@d12", this.txtEcocardiograma.Text);
-                        SqlCmd.Parameters.AddWithValue("@d13", this.txtPlanEstudio.Text);
-                        SqlCmd.Parameters.AddWithValue("@d14", this.txtTerapeutico.Text);
+                        SqlCmd.Parameters.AddWithValue("@d13", this.cbPlanEstudio.Text);
+                        SqlCmd.Parameters.AddWithValue("@d14", this.cbPlanTerapeutico.Text);
                         SqlCmd.Parameters.AddWithValue("@d15", this.cmbEstadoHistoria.Text);
                         SqlCmd.Parameters.AddWithValue("@d16", this.lbl_id_historia.Text);
                         SqlCmd.Parameters.AddWithValue("@d17", this.cblTipo_Sangre.Text);
-                        SqlCmd.Parameters.AddWithValue("@d18", this.cbDiagnosticos.Text);
+                        SqlCmd.Parameters.AddWithValue("@d18", this.txtDiagnosticos.Text);
 
 
 
@@ -792,7 +791,6 @@ namespace CapaPresentacion
                     this.Limpiar();
                     this.Mostrar();
                     this.MostrarHistoriasActivas();
-                    this.MostrarHistoriasAnuladas();
 
 
                     OcultarColumnas();
@@ -893,11 +891,11 @@ namespace CapaPresentacion
             this.txtecg.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["ecg"].Value);
             this.txtRayos_X.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["rayos_x"].Value);
             this.txtEcocardiograma.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["ecocardiograma"].Value);
-            this.txtPlanEstudio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_estudio"].Value);
-            this.txtTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
+            this.cbPlanEstudio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_estudio"].Value);
+            this.cbPlanTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
             this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
 
-            this.cbDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
+            this.txtDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
             this.cblTipo_Sangre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tipo_sangre"].Value);
 
             this.tabControl1.SelectedIndex = 1;
@@ -1023,7 +1021,6 @@ namespace CapaPresentacion
                             {
                                 this.MensajeOk("Se Anuló Correctamente la historia");
                                 this.OperacionAnularHistoria();
-                                this.MostrarHistoriasAnuladas();
                             }
                             else
                             {
@@ -1205,11 +1202,7 @@ namespace CapaPresentacion
                 datalistadohistorias.Columns["idpaciente"].Visible = false;
             }
 
-            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])
-            {
-                datalistadoMuertos.Columns["idhistoria"].Visible = false;
-                datalistadoMuertos.Columns["idpaciente"].Visible = false;
-            }
+            
 
 
         }
@@ -1426,6 +1419,17 @@ namespace CapaPresentacion
         {
             Reportes.frmListaHistorialTotal frm = new Reportes.frmListaHistorialTotal();
             frm.Show();
+        }
+
+        private void datalistadoMuertos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAbrirArchivoMuerto_Click(object sender, EventArgs e)
+        {
+            frmArchivosMuertos frm = new frmArchivosMuertos();
+            frm.ShowDialog();
         }
     }
 }
