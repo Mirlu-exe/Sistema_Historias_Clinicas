@@ -1304,7 +1304,7 @@ namespace CapaPresentacion
                         //insertar nueva evolucion
                             rpta = NEvolucion.Insertar( Convert.ToInt32(this.lbl_id_historia_evol.Text),
                             this.dt_fecha_consulta_evol.Value, this.txtEdadSuc_Evol.Text, this.txtRazonConsulta_Evol.Text, 
-                            this.txtPlanTerapeutico_Evol.Text, this.txtPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text, 
+                            this.cbPlanTerapeutico_Evol.Text, this.cbPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text, 
                             this.txtDiagnosticos_Evol.Text, this.dt_prox_cita.Value, this.cbEstado_Evol.Text);
 
                         }
@@ -1323,7 +1323,7 @@ namespace CapaPresentacion
                             //editar evolucion
                             rpta = NEvolucion.Editar(Convert.ToInt32(this.lbl_id_paciente_select.Text), Convert.ToInt32(this.lbl_id_historia_evol.Text),
                             this.dt_fecha_consulta_evol.Value, this.txtEdadSuc_Evol.Text, this.txtRazonConsulta_Evol.Text,
-                            this.txtPlanTerapeutico_Evol.Text, this.txtPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text,
+                            this.cbPlanTerapeutico_Evol.Text, this.cbPlanEstudio_Evol.Text, this.txtObservaciones_Evol.Text,
                             this.txtDiagnosticos_Evol.Text, this.dt_prox_cita.Value, this.cbEstado_Evol.Text);
                         }
                             else
