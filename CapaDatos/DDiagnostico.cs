@@ -29,6 +29,8 @@ namespace CapaDatos
 
         private string _Tipo;
 
+        private string _Estado;
+
         private string _TextoBuscar;
 
        
@@ -61,6 +63,11 @@ namespace CapaDatos
             set { _Tipo = value; }
         }
 
+        public string Estado
+        {
+            get { return _Estado; }
+            set { _Estado = value; }
+        }
 
         public string TextoBuscar
         {
@@ -76,12 +83,13 @@ namespace CapaDatos
 
         }
 
-        public DDiagnostico(int iddiagnostico, string codigo, string enfermedad, string tipo, string texto_buscar)
+        public DDiagnostico(int iddiagnostico, string codigo, string enfermedad, string tipo, string Estado, string texto_buscar)
         {
             this.Iddiagnostico = iddiagnostico;
             this.Codigo = codigo;
             this.Enfermedad = enfermedad;
             this.Tipo = tipo;
+            this.Estado = Estado;
             this.TextoBuscar = texto_buscar;
            
 
@@ -132,7 +140,12 @@ namespace CapaDatos
                 ParTipo.Value = Diagnostico.Tipo;
                 SqlCmd.Parameters.Add(ParTipo);
 
-               
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                ParEstado.SqlDbType = SqlDbType.VarChar;
+                ParEstado.Size = 30;
+                ParEstado.Value = Diagnostico.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
 
 
                 //Ejecutamos nuestro comando
@@ -196,6 +209,12 @@ namespace CapaDatos
                 ParTipo.Value = Diagnostico.Tipo;
                 SqlCmd.Parameters.Add(ParTipo);
 
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                ParEstado.SqlDbType = SqlDbType.VarChar;
+                ParEstado.Size = 30;
+                ParEstado.Value = Diagnostico.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
 
                 //Ejecutamos nuestro comando
 
@@ -216,8 +235,48 @@ namespace CapaDatos
 
 
 
-        //Método Eliminar
+        /*        //Método Eliminar: razon por que se sustituyo el eliminar por anular
         public string Eliminar(DDiagnostico Diagnostico)
+                {
+                    string rpta = "";
+                    SqlConnection SqlCon = new SqlConnection();
+                    try
+                    {
+                        //Código
+                        SqlCon.ConnectionString = Conexion.Cn;
+                        SqlCon.Open();
+                        //Establecer el Comando
+                        SqlCommand SqlCmd = new SqlCommand();
+                        SqlCmd.Connection = SqlCon;
+                        SqlCmd.CommandText = "speliminar_diagnostico";
+                        SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                        SqlParameter ParIddiagnostico = new SqlParameter();
+                        ParIddiagnostico.ParameterName = "@iddiagnostico";
+                        ParIddiagnostico.SqlDbType = SqlDbType.Int;
+                        ParIddiagnostico.Value = Diagnostico.Iddiagnostico;
+                        SqlCmd.Parameters.Add(ParIddiagnostico);
+
+
+                        //Ejecutamos nuestro comando
+
+                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Elimino el Registro";
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        rpta = ex.Message;
+                    }
+                    finally
+                    {
+                        if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+                    }
+                    return rpta;
+                }
+                */
+        //Metodo Anular
+        public string Anular(DDiagnostico Diagnostico)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -229,7 +288,7 @@ namespace CapaDatos
                 //Establecer el Comando
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speliminar_diagnostico";
+                SqlCmd.CommandText = "spanular_diagnostico";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIddiagnostico = new SqlParameter();

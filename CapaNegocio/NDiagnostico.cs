@@ -15,12 +15,13 @@ namespace CapaNegocio
         //Métodos para comunicarnos con la capa datos
         //Método Insertar que llama al método Insertar de la clase DPacientes
         //de la CapaDatos
-        public static string Insertar(string codigo, string enfermedad, string tipo)
+        public static string Insertar(string codigo, string enfermedad, string tipo, string estado)
         {
             DDiagnostico Obj = new DDiagnostico();
             Obj.Codigo = codigo;
             Obj.Enfermedad = enfermedad;
             Obj.Tipo = tipo;
+            Obj.Estado = estado;
             
 
             return Obj.Insertar(Obj);
@@ -41,17 +42,25 @@ namespace CapaNegocio
 
         //Método Eliminar que llama al método Eliminar de la clase DPacientes
         //de la CapaDatos
-        public static string Eliminar(int iddiagnostico)
+        /*  public static string Eliminar(int iddiagnostico)
+          {
+              DDiagnostico Obj = new DDiagnostico();
+              Obj.Iddiagnostico = iddiagnostico;
+              return Obj.Eliminar(Obj);*/
+
+
+        public static string Anular(int iddiagnostico)
         {
             DDiagnostico Obj = new DDiagnostico();
+            Obj = new DDiagnostico();
             Obj.Iddiagnostico = iddiagnostico;
-            return Obj.Eliminar(Obj);
+            return Obj.Anular(Obj);
+
         }
 
-        
-        //Método Mostrar que llama al método Mostrar de la clase DPacientes
-        //de la CapaDatos
-        public static DataTable Mostrar()
+            //Método Mostrar que llama al método Mostrar de la clase DPacientes
+            //de la CapaDatos
+            public static DataTable Mostrar()
         {
             return new DDiagnostico().Mostrar();
         }

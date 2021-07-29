@@ -131,10 +131,6 @@ namespace CapaPresentacion
 
 
 
-
-
-
-
             this.dataListado.DataSource = NDiagnostico.Mostrar();
             this.OcultarColumnas();
             lblTotal.Text = "Total de Diagnosticos: " + Convert.ToString(dataListado.Rows.Count);
@@ -219,7 +215,7 @@ namespace CapaPresentacion
 
                          rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
                          this.txtEnfermedad.Text.Trim().ToUpper(),
-                         this.txtTipo.Text.Trim().ToUpper());
+                         this.txtTipo.Text.Trim().ToUpper(),this.Txtestado.Text.Trim());
 
 
 
@@ -400,10 +396,12 @@ namespace CapaPresentacion
             if (chkAnular.Checked)
             {
                 this.dataListado.Columns[0].Visible = true;
+                this.btnAnular.Enabled = true;
             }
             else
             {
                 this.dataListado.Columns[0].Visible = false;
+                this.btnAnular.Enabled = false;
             }
         }
 
@@ -433,7 +431,7 @@ namespace CapaPresentacion
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = Convert.ToString(row.Cells[1].Value);
-                            rpta = NDiagnostico.Eliminar(Convert.ToInt32(Codigo));
+                            rpta = NDiagnostico.Anular(Convert.ToInt32(Codigo));
 
 
                             if (rpta.Equals("OK"))
@@ -600,6 +598,11 @@ namespace CapaPresentacion
         private void label3_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

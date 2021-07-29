@@ -60,6 +60,8 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.lblCampoObligatorio = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Txtestado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -118,7 +120,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(635, 572);
+            this.btnBuscar.Location = new System.Drawing.Point(630, 578);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 55);
@@ -138,7 +140,7 @@
             "Codigo",
             "Enfermedad",
             "Tipo"});
-            this.cmbBusquedaDiag.Location = new System.Drawing.Point(635, 212);
+            this.cmbBusquedaDiag.Location = new System.Drawing.Point(598, 207);
             this.cmbBusquedaDiag.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusquedaDiag.Name = "cmbBusquedaDiag";
             this.cmbBusquedaDiag.Size = new System.Drawing.Size(160, 40);
@@ -173,7 +175,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
-            this.dataListado.Location = new System.Drawing.Point(635, 257);
+            this.dataListado.Location = new System.Drawing.Point(596, 257);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
@@ -195,7 +197,7 @@
             this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(653, 289);
+            this.dataListado.Size = new System.Drawing.Size(735, 289);
             this.dataListado.TabIndex = 161;
             this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
@@ -213,12 +215,12 @@
             this.chkAnular.AutoSize = true;
             this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(635, 155);
+            this.chkAnular.Location = new System.Drawing.Point(605, 158);
             this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(117, 36);
+            this.chkAnular.Size = new System.Drawing.Size(103, 36);
             this.chkAnular.TabIndex = 160;
-            this.chkAnular.Text = "Eliminar";
+            this.chkAnular.Text = "Anular";
             this.chkAnular.UseVisualStyleBackColor = true;
             this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
@@ -227,7 +229,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(1025, 582);
+            this.lblTotal.Location = new System.Drawing.Point(1025, 588);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 159;
@@ -237,7 +239,7 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(817, 215);
+            this.txtBuscar.Location = new System.Drawing.Point(773, 215);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(177, 22);
@@ -253,7 +255,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(184, 581);
+            this.btnEditar.Location = new System.Drawing.Point(171, 581);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(165, 55);
@@ -271,7 +273,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGuardar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(184, 518);
+            this.btnGuardar.Location = new System.Drawing.Point(171, 518);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(165, 55);
@@ -289,7 +291,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(357, 518);
+            this.btnCancelar.Location = new System.Drawing.Point(344, 518);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(165, 55);
@@ -307,7 +309,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(357, 581);
+            this.btnNuevo.Location = new System.Drawing.Point(344, 581);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(165, 55);
@@ -320,7 +322,7 @@
             // 
             this.txtCodigoDiag.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodigoDiag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodigoDiag.Location = new System.Drawing.Point(372, 277);
+            this.txtCodigoDiag.Location = new System.Drawing.Point(359, 277);
             this.txtCodigoDiag.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoDiag.Name = "txtCodigoDiag";
             this.txtCodigoDiag.Size = new System.Drawing.Size(183, 22);
@@ -331,7 +333,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(151, 277);
+            this.label6.Location = new System.Drawing.Point(225, 277);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 32);
@@ -343,7 +345,7 @@
             this.txtidDiagnostico.BackColor = System.Drawing.SystemColors.Control;
             this.txtidDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtidDiagnostico.Enabled = false;
-            this.txtidDiagnostico.Location = new System.Drawing.Point(372, 214);
+            this.txtidDiagnostico.Location = new System.Drawing.Point(359, 214);
             this.txtidDiagnostico.Margin = new System.Windows.Forms.Padding(4);
             this.txtidDiagnostico.Name = "txtidDiagnostico";
             this.txtidDiagnostico.Size = new System.Drawing.Size(106, 22);
@@ -354,7 +356,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(151, 208);
+            this.label4.Location = new System.Drawing.Point(227, 211);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 32);
@@ -365,7 +367,7 @@
             // 
             this.txtTipo.BackColor = System.Drawing.SystemColors.Control;
             this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTipo.Location = new System.Drawing.Point(372, 417);
+            this.txtTipo.Location = new System.Drawing.Point(359, 421);
             this.txtTipo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(183, 22);
@@ -376,7 +378,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(151, 417);
+            this.label2.Location = new System.Drawing.Point(225, 411);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 32);
@@ -387,7 +389,7 @@
             // 
             this.txtEnfermedad.BackColor = System.Drawing.SystemColors.Control;
             this.txtEnfermedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnfermedad.Location = new System.Drawing.Point(372, 340);
+            this.txtEnfermedad.Location = new System.Drawing.Point(359, 344);
             this.txtEnfermedad.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnfermedad.Multiline = true;
             this.txtEnfermedad.Name = "txtEnfermedad";
@@ -399,7 +401,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(151, 348);
+            this.label1.Location = new System.Drawing.Point(194, 360);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 32);
@@ -409,13 +411,14 @@
             // btnAnular
             // 
             this.btnAnular.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAnular.Enabled = false;
             this.btnAnular.FlatAppearance.BorderSize = 0;
             this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(817, 572);
+            this.btnAnular.Location = new System.Drawing.Point(814, 578);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
@@ -429,7 +432,7 @@
             this.lblCampoObligatorio.AutoSize = true;
             this.lblCampoObligatorio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCampoObligatorio.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.lblCampoObligatorio.Location = new System.Drawing.Point(132, 277);
+            this.lblCampoObligatorio.Location = new System.Drawing.Point(194, 277);
             this.lblCampoObligatorio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoObligatorio.Name = "lblCampoObligatorio";
             this.lblCampoObligatorio.Size = new System.Drawing.Size(25, 32);
@@ -442,7 +445,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.label3.Location = new System.Drawing.Point(132, 212);
+            this.label3.Location = new System.Drawing.Point(194, 212);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 32);
@@ -450,12 +453,37 @@
             this.label3.Text = "*";
             this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label5.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label5.Location = new System.Drawing.Point(227, 469);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 32);
+            this.label5.TabIndex = 168;
+            this.label5.Text = "Estado";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // Txtestado
+            // 
+            this.Txtestado.BackColor = System.Drawing.SystemColors.Control;
+            this.Txtestado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txtestado.Location = new System.Drawing.Point(344, 479);
+            this.Txtestado.Margin = new System.Windows.Forms.Padding(4);
+            this.Txtestado.Name = "Txtestado";
+            this.Txtestado.Size = new System.Drawing.Size(183, 22);
+            this.Txtestado.TabIndex = 169;
+            // 
             // frmDiagnostico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1475, 873);
+            this.Controls.Add(this.Txtestado);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCampoObligatorio);
             this.Controls.Add(this.panel3);
@@ -520,5 +548,7 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Label lblCampoObligatorio;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Txtestado;
     }
 }
