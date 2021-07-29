@@ -420,7 +420,7 @@ namespace CapaPresentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar los/el diagnostico", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Anular los/el diagnostico", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -429,6 +429,7 @@ namespace CapaPresentacion
 
                     foreach (DataGridViewRow row in dataListado.Rows)
                     {
+
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = Convert.ToString(row.Cells[1].Value);
@@ -437,7 +438,7 @@ namespace CapaPresentacion
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se Eliminó Correctamente El Diagnostico");
+                                this.MensajeOk("Se Anulo Correctamente El Diagnostico");
                                 this.OperacionEliminarDiagnostico();
                             }
                             else

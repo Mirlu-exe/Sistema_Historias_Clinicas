@@ -130,6 +130,7 @@
             // cmbBusquedaDiag
             // 
             this.cmbBusquedaDiag.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbBusquedaDiag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBusquedaDiag.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cmbBusquedaDiag.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbBusquedaDiag.FormattingEnabled = true;
@@ -142,7 +143,6 @@
             this.cmbBusquedaDiag.Name = "cmbBusquedaDiag";
             this.cmbBusquedaDiag.Size = new System.Drawing.Size(160, 40);
             this.cmbBusquedaDiag.TabIndex = 162;
-            this.cmbBusquedaDiag.Text = "Codigo";
             // 
             // dataListado
             // 
@@ -227,7 +227,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(1025, 572);
+            this.lblTotal.Location = new System.Drawing.Point(1025, 582);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 159;
@@ -420,7 +420,7 @@
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
             this.btnAnular.TabIndex = 164;
-            this.btnAnular.Text = "Eliminar";
+            this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = false;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
