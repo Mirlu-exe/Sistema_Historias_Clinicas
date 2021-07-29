@@ -42,7 +42,7 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtTalla, "Ingrese la talla del paciente");
             this.ttMensaje.SetToolTip(this.cblSexo, "Seleccione el sexo del paciente");
             this.ttMensaje.SetToolTip(this.cblEstado_Civil, "Seleccione el estado civil del paciente");
-            
+
             this.ttMensaje.SetToolTip(this.txtDireccion, "Ingrese la direccion del paciente");
             this.ttMensaje.SetToolTip(this.txtOcupacion, "Ingrese la ocupacion del paciente");
             this.ttMensaje.SetToolTip(this.txtTelefono, "Ingrese el telefono del paciente");
@@ -52,11 +52,12 @@ namespace CapaPresentacion
 
         private void frmPaciente_Load(object sender, EventArgs e)
         {
-            
+
 
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+            SoloPacientesActivos();
 
 
         }
@@ -86,7 +87,7 @@ namespace CapaPresentacion
             this.txtCorreo.Text = string.Empty;
             this.txtPeso.Text = string.Empty;
             this.txtTalla.Text = string.Empty;
-            
+
             this.txtDireccion.Text = string.Empty;
             this.txtOcupacion.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
@@ -104,7 +105,7 @@ namespace CapaPresentacion
             this.txtCorreo.ReadOnly = !valor;
             this.txtPeso.ReadOnly = !valor;
             this.txtTalla.ReadOnly = !valor;
-            
+
             this.txtDireccion.ReadOnly = !valor;
             this.txtOcupacion.ReadOnly = !valor;
             this.txtTelefono.ReadOnly = !valor;
@@ -153,7 +154,9 @@ namespace CapaPresentacion
 
             this.dataListado.DataSource = NPacientes.Mostrar();
             this.OcultarColumnas();
+            SoloPacientesActivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
+           
         }
 
 
@@ -163,10 +166,11 @@ namespace CapaPresentacion
             /*DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("nombre LIKE '%{0}%'", this.txtBuscar.Text);
             dataListado.DataSource = DV;*/
+            
 
             this.dataListado.DataSource = NPacientes.BuscarNombre(this.txtBuscar.Text);
             this.OcultarColumnas();
-            
+            SoloPacientesActivos();
 
 
 
@@ -186,7 +190,7 @@ namespace CapaPresentacion
 
             this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar.Text);
             this.OcultarColumnas();
-
+            SoloPacientesActivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
         }
 
@@ -203,7 +207,7 @@ namespace CapaPresentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-           
+
 
             try
             {
@@ -218,7 +222,7 @@ namespace CapaPresentacion
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
-                  
+
 
 
 
@@ -226,7 +230,7 @@ namespace CapaPresentacion
 
 
 
-                
+
 
 
                 else
@@ -242,21 +246,21 @@ namespace CapaPresentacion
                         if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
                         {
 
-                                MensajeError("Ya existe un paciente con este numero de cedula.");
+                            MensajeError("Ya existe un paciente con este numero de cedula.");
 
                         }
                         else
                         {
 
-                        rpta = NPacientes.Insertar(this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                        this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
-                        this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
-                        this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
-                        txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
+                            rpta = NPacientes.Insertar(this.txtNombre_Paciente.Text.Trim().ToUpper(),
+                            this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                            this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
+                            this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
+                            txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
 
                         }
 
-                        
+
 
 
 
@@ -342,13 +346,13 @@ namespace CapaPresentacion
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' ");
             SqlCmd.Connection = SqlCon;
-            
+
             //SqlCmd.CommandType = CommandType.StoredProcedure;
-            
+
 
             try
             {
-                
+
                 dr = SqlCmd.ExecuteReader();
 
                 if (dr.Read())
@@ -439,30 +443,40 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
+            // tengo que hacer un if aca para validar que el campo esta vacio !!
+
+            if (dataListado.Rows != null && dataListado.Rows.Count != 0)
+            {
+               
+
+                this.txtIdpaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+                this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
+                this.cblTipo_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_cedula"].Value);
+                this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
+                this.dtpFecha_Nacimiento.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["fecha_nacimiento"].Value);
+                this.cblSexo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["sexo"].Value);
+                this.cblEstado_Civil.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado_civil"].Value);
+
+                this.txtDireccion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["direccion"].Value);
+                this.txtOcupacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["ocupacion"].Value);
+                this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
+                this.txtCorreo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["correo"].Value);
 
 
-            this.txtIdpaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
-            this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
-            this.cblTipo_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_cedula"].Value);
-            this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
-            this.dtpFecha_Nacimiento.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["fecha_nacimiento"].Value);
-            this.cblSexo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["sexo"].Value);
-            this.cblEstado_Civil.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado_civil"].Value);
 
-            this.txtDireccion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["direccion"].Value);
-            this.txtOcupacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["ocupacion"].Value);
-            this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
-            this.txtCorreo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["correo"].Value);
+                this.txtPeso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["peso"].Value);
+                this.txtTalla.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["talla"].Value);
+                this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
 
+                this.Habilitar(false);
+            }
+            else
+            {
 
-            this.txtPeso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["peso"].Value);
-            this.txtTalla.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["talla"].Value);
-            this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+                MessageBox.Show("ERROR!! La lista esta vacia, por favor revise bien las credenciales que desea buscar");
 
-
-            this.Habilitar(false);
-
+            }
 
         }
 
@@ -748,10 +762,56 @@ namespace CapaPresentacion
 
         private void btnSangre_Click(object sender, EventArgs e)
         {
-                frmTipoSangre frm = new frmTipoSangre();
+            frmTipoSangre frm = new frmTipoSangre();
 
-                frm.ShowDialog();
-            
+            frm.ShowDialog();
+
         }
+
+        //Filtro de Paciente activo
+        private void SoloPacientesActivos()
+        {
+
+
+            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //SqlConnection conDataBase = new SqlConnection(Cn);
+
+            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("Paciente", conDataBase);
+
+            //DataView DV = new DataView(dbdataset);
+
+
+            //DV.RowFilter = string.Format("estado = 'Activo' ");
+
+            //dataListado.DataSource = DV;
+
+
+            (dataListado.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo'");
+
+        }
+      
+
+        private void txtNombre_Paciente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+
+       
     }
 }
