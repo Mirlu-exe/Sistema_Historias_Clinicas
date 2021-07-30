@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Reportes
+namespace CapaPresentacion
 {
     public partial class frmGraficosInicionSesion : Form
     {

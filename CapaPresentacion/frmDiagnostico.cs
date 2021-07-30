@@ -213,9 +213,9 @@ namespace CapaPresentacion
                     {
 
 
-                         rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
-                         this.txtEnfermedad.Text.Trim().ToUpper(),
-                         this.txtTipo.Text.Trim().ToUpper(),this.Txtestado.Text.Trim());
+                        rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
+                        this.txtEnfermedad.Text.Trim().ToUpper(),
+                        this.txtTipo.Text.Trim().ToUpper(), "Activo");
 
 
 
@@ -411,8 +411,9 @@ namespace CapaPresentacion
             this.txtCodigoDiag.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["codigo"].Value);
             this.txtEnfermedad.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["enfermedad"].Value);
             this.txtTipo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo"].Value);
+            this.TxtEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
         }
-
+            
         private void btnAnular_Click(object sender, EventArgs e)
         {
             try
@@ -600,9 +601,6 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

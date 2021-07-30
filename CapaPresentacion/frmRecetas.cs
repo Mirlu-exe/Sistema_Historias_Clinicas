@@ -20,7 +20,7 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
 
         private bool IsEditar = false;
-
+        
 
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
@@ -45,9 +45,13 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+
+            //aca uso el left join
+            this.dataListado.DataSource = Operacion_Mostrar();
+
         }
 
-        DataTable dbdataset;
+      
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
@@ -200,7 +204,7 @@ namespace CapaPresentacion
                     {
 
 
-                        rpta = NReceta.Insertar( this.txtMedicamento.Text.Trim().ToUpper(), this.txtPresentacion.Text.Trim().ToUpper(), this.txtDosis.Text.Trim().ToUpper());
+                        //rpta = NReceta.Insertar( this.txtMedicamento.Text.Trim().ToUpper(), this.txtPresentacion.Text.Trim().ToUpper(), this.txtDosis.Text.Trim().ToUpper());
 
 
 
@@ -297,6 +301,8 @@ namespace CapaPresentacion
             }
         }
 
+
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (!this.txtidReceta.Text.Equals(""))
@@ -373,12 +379,12 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
-            int idpacienteseleccionado;
-            idpacienteseleccionado = Convert.ToInt32(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+            int IdMedicamentoSeleccionado;
+            IdMedicamentoSeleccionado = Convert.ToInt32(this.dataListado.CurrentRow.Cells["id"].Value);
 
 
             string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Paciente where idpaciente ='" + idpacienteseleccionado + "' ;";
+            string Query = "select * from Medicamneto_Pivote where id ='" + IdMedicamentoSeleccionado + "' ;";
             SqlConnection conDataBase = new SqlConnection(CN);
             SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
             SqlDataReader myReader;
@@ -410,20 +416,53 @@ namespace CapaPresentacion
 
 
             this.txtidReceta.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idreceta"].Value);
-            this.lblCodPac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+            this.lblCodPac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id"].Value);
             this.txtMedicamento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["medicamento"].Value);
             this.txtPresentacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["presentacion"].Value);
             this.txtDosis.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["dosis"].Value);
         }
 
 
-
-        private void OperacionInsertarReceta()
+        //OPERACIONES INSERTAR MEDICAMENTOS
+//--------------------------------------------------------------
+         //1-.INSERTAR NOMBRE DE MEDICAMIENTOS
+        private void OperacionInsertar_Meds_Nombres()
         {
 
 
-            // Operacion Anular
             string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Meds_Nombres (nombre, descripcion) values (@d1,@d2)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", txtMedicamento.Text);
+            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionNombreMed.Text);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+            /**string rpta2 = "";
 
 
             SqlConnection SqlCon2 = new SqlConnection();
@@ -453,13 +492,187 @@ namespace CapaPresentacion
 
             rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
 
-            
+           **/
 
 
         }
 
+        //2-.INSERTAR DOSIS DE MEDICAMIENTOS
+        private void OperacionInsertar_Meds_Dosis()
+        {
 
 
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Meds_Dosis (nombre, descripcion) values (@d1,@d2)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", txtDosis.Text);
+            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionDosis.Text);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+            /**string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado el nuevo plan terapeutico al sistema");
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+           **/
+
+
+        }
+
+        //3-. INSETAR PRESENTACION
+        private void OperacionInsertar_Meds_Presentacion()
+        {
+
+
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Meds_Presentacion (nombre, descripcion) values (@d1,@d2)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", txtPresentacion.Text);
+            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionPresent.Text);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+            /**string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado el nuevo plan terapeutico al sistema");
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+           **/
+
+
+        }
+        //----------------------------------------------------------------
+
+
+        //MOSTRAR TODOS LOS DATOS
+       
+        private DataTable Operacion_Mostrar() 
+        {
+
+            DataTable DtResultado = new DataTable("tablita");
+
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_meds";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+
+                MessageBox.Show("NO FURULA " + ex.ToString() + "");
+            }
+            return DtResultado;
+
+        }
         private void OperacionEditarReceta()
         {
 
@@ -501,7 +714,7 @@ namespace CapaPresentacion
         }
 
 
-
+        // Operacion Anular en funcionamiento chquear mas tarde
         private void OperacionAnularReceta()
         {
 
@@ -559,7 +772,7 @@ namespace CapaPresentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar las/la receta", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Anular las/la receta", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -576,7 +789,7 @@ namespace CapaPresentacion
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se Eliminó Correctamente el plan terapeutico");
+                                this.MensajeOk("Se Anular Correctamente el plan terapeutico");
                                 this.OperacionAnularReceta();
                             }
                             else
@@ -612,6 +825,10 @@ namespace CapaPresentacion
 
         }
 
+        private void txtPresentacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

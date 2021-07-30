@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Reportes
+namespace CapaPresentacion
 {
     public partial class frmReporteCitasMedicasTotales : Form
     {
@@ -19,6 +19,8 @@ namespace CapaPresentacion.Reportes
 
         private void frmReporteCitasMedicasTotales_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaCitasMedicasTotales' Puede moverla o quitarla según sea necesario.
+            this.spListaCitasMedicasTotalesTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasTotales);
 
             this.reportViewer1.RefreshReport();
         }

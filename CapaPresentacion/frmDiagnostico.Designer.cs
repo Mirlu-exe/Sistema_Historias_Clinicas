@@ -61,7 +61,7 @@
             this.lblCampoObligatorio = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Txtestado = new System.Windows.Forms.TextBox();
+            this.TxtEstado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -322,7 +322,7 @@
             // 
             this.txtCodigoDiag.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodigoDiag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodigoDiag.Location = new System.Drawing.Point(359, 277);
+            this.txtCodigoDiag.Location = new System.Drawing.Point(359, 288);
             this.txtCodigoDiag.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoDiag.Name = "txtCodigoDiag";
             this.txtCodigoDiag.Size = new System.Drawing.Size(183, 22);
@@ -333,7 +333,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(225, 277);
+            this.label6.Location = new System.Drawing.Point(225, 288);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 32);
@@ -345,7 +345,7 @@
             this.txtidDiagnostico.BackColor = System.Drawing.SystemColors.Control;
             this.txtidDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtidDiagnostico.Enabled = false;
-            this.txtidDiagnostico.Location = new System.Drawing.Point(359, 214);
+            this.txtidDiagnostico.Location = new System.Drawing.Point(359, 231);
             this.txtidDiagnostico.Margin = new System.Windows.Forms.Padding(4);
             this.txtidDiagnostico.Name = "txtidDiagnostico";
             this.txtidDiagnostico.Size = new System.Drawing.Size(106, 22);
@@ -356,7 +356,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(227, 211);
+            this.label4.Location = new System.Drawing.Point(227, 228);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 32);
@@ -367,7 +367,7 @@
             // 
             this.txtTipo.BackColor = System.Drawing.SystemColors.Control;
             this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTipo.Location = new System.Drawing.Point(359, 421);
+            this.txtTipo.Location = new System.Drawing.Point(359, 416);
             this.txtTipo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(183, 22);
@@ -378,7 +378,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(225, 411);
+            this.label2.Location = new System.Drawing.Point(225, 405);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 32);
@@ -401,7 +401,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(194, 360);
+            this.label1.Location = new System.Drawing.Point(194, 344);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 32);
@@ -432,7 +432,7 @@
             this.lblCampoObligatorio.AutoSize = true;
             this.lblCampoObligatorio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCampoObligatorio.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.lblCampoObligatorio.Location = new System.Drawing.Point(194, 277);
+            this.lblCampoObligatorio.Location = new System.Drawing.Point(194, 288);
             this.lblCampoObligatorio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoObligatorio.Name = "lblCampoObligatorio";
             this.lblCampoObligatorio.Size = new System.Drawing.Size(25, 32);
@@ -445,7 +445,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.label3.Location = new System.Drawing.Point(194, 212);
+            this.label3.Location = new System.Drawing.Point(194, 229);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 32);
@@ -464,17 +464,13 @@
             this.label5.Size = new System.Drawing.Size(81, 32);
             this.label5.TabIndex = 168;
             this.label5.Text = "Estado";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // Txtestado
+            // TxtEstado
             // 
-            this.Txtestado.BackColor = System.Drawing.SystemColors.Control;
-            this.Txtestado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txtestado.Location = new System.Drawing.Point(344, 479);
-            this.Txtestado.Margin = new System.Windows.Forms.Padding(4);
-            this.Txtestado.Name = "Txtestado";
-            this.Txtestado.Size = new System.Drawing.Size(183, 22);
-            this.Txtestado.TabIndex = 169;
+            this.TxtEstado.Location = new System.Drawing.Point(359, 479);
+            this.TxtEstado.Name = "TxtEstado";
+            this.TxtEstado.Size = new System.Drawing.Size(106, 22);
+            this.TxtEstado.TabIndex = 169;
             // 
             // frmDiagnostico
             // 
@@ -482,7 +478,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1475, 873);
-            this.Controls.Add(this.Txtestado);
+            this.Controls.Add(this.TxtEstado);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCampoObligatorio);
@@ -549,6 +545,6 @@
         private System.Windows.Forms.Label lblCampoObligatorio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Txtestado;
+        private System.Windows.Forms.TextBox TxtEstado;
     }
 }

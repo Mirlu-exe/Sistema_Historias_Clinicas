@@ -51,7 +51,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.83867cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>6.8815cm</Width>
@@ -238,7 +238,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Razon consulta</Value>
+                              <Value>Razon consulta98</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -541,7 +541,7 @@
         <Top>2.91253cm</Top>
         <Left>0.96196cm</Left>
         <Height>1.2cm</Height>
-        <Width>22.5165cm</Width>
+        <Width>22.85518cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
