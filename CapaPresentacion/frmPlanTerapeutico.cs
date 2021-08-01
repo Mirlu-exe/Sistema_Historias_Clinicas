@@ -41,12 +41,86 @@ namespace CapaPresentacion
 
         private void frmPlanTerapeutico_Load(object sender, EventArgs e)
         {
-            LlenarComboRecipe();
+
+
+            //LlenarComboRecipe();
+
+            LlenarCbMedicamento();
 
 
             Deshabilitar();
 
         }
+
+
+        //Para llenar el cbMedicamento
+        private void LlenarCbMedicamento()
+        {
+
+            //llenar el cb medicinas aplicando autocompletado
+
+            DataTable tabla_meds = new DataTable();
+
+            tabla_meds = NReceta.CargarNombreMeds();
+
+            if (tabla_meds == null)
+            {
+                MessageBox.Show("No hay registros en medicamentos ");
+
+            }
+            else
+            {
+                List<string> meds = tabla_meds.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+                string[] meds_array = meds.ToArray();
+
+                var autoComplete = new AutoCompleteStringCollection();
+                autoComplete.AddRange(meds_array);
+
+                this.cbMedicamento.AutoCompleteCustomSource = autoComplete;
+
+                //traer toda la tabla de medicamentos
+                cbMedicamento.ValueMember = "id"; //id
+                cbMedicamento.DisplayMember = "nombre"; //medicamento
+
+                
+
+
+            }
+
+
+
+
+
+            //this.cbPresentacion.DataSource = NReceta.Mostrar();
+            //cbPresentacion.ValueMember = "presentacion";
+            //cbPresentacion.DisplayMember = "presentacion";
+
+            //this.cbDosis.DataSource = NReceta.Mostrar();
+            //cbDosis.ValueMember = "dosis";
+            //cbDosis.DisplayMember = "dosis";
+
+        }
+
+
+
+
+
+        //Para llenar el cbPresentacion
+        private void LlenarCbPresentacion()
+        {
+             
+            //SQL
+            //buscar en la tabla Medicamento_Pivote, las presentaciones que compartan el mismo id
+
+
+
+        }
+
+
+
+
+
 
 
 
@@ -339,9 +413,51 @@ namespace CapaPresentacion
 
         }
 
-        private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
+        private void cbPresentacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("helloooooo");
+        }
+
+        private void cbMedicamento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void cbMedicamento_DropDownClosed(object sender, EventArgs e)
+        {
+
+            LlenarCbPresentacion();
+
+        }
+
+        private void cbMedicamento_ValueMemberChanged(object sender, EventArgs e)
         {
             
         }
+
+        private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void cbPresentacion_Enter(object sender, EventArgs e)
+        {
+
+            LlenarCbPresentacion();
+
+        }
+
+        //private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    //if (Char.IsLetter(e.KeyChar)) 
+
+        //    //{
+
+        //    //    e.KeyChar = Char.ToUpper(e.KeyChar);
+
+        //    //}
+
+        //}
     }
 }

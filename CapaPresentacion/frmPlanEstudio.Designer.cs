@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsReceta = new CapaPresentacion.dsReceta();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
@@ -42,7 +42,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbPresentacion = new System.Windows.Forms.ComboBox();
+            this.cbMuestras = new System.Windows.Forms.ComboBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -61,8 +61,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIndicaciones = new System.Windows.Forms.TextBox();
-            this.cbMedicamento = new System.Windows.Forms.ComboBox();
+            this.txtNota = new System.Windows.Forms.TextBox();
+            this.cbExamenes = new System.Windows.Forms.ComboBox();
             this.btnCancelar_informe = new System.Windows.Forms.Button();
             this.btnGuardar_informe = new System.Windows.Forms.Button();
             this.btnNuevo_informe = new System.Windows.Forms.Button();
@@ -153,25 +153,34 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(17, 52);
+            this.label7.Location = new System.Drawing.Point(17, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 32);
+            this.label7.Size = new System.Drawing.Size(96, 32);
             this.label7.TabIndex = 242;
-            this.label7.Text = "Examenes";
+            this.label7.Text = "Estudios";
             // 
-            // cbPresentacion
+            // cbMuestras
             // 
-            this.cbPresentacion.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPresentacion.FormattingEnabled = true;
-            this.cbPresentacion.Items.AddRange(new object[] {
-            "Examen de Orina",
-            "Examen de Eses",
-            "Examen de Sangre"});
-            this.cbPresentacion.Location = new System.Drawing.Point(23, 178);
-            this.cbPresentacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPresentacion.Name = "cbPresentacion";
-            this.cbPresentacion.Size = new System.Drawing.Size(365, 30);
-            this.cbPresentacion.TabIndex = 241;
+            this.cbMuestras.BackColor = System.Drawing.SystemColors.Control;
+            this.cbMuestras.FormattingEnabled = true;
+            this.cbMuestras.Items.AddRange(new object[] {
+            "Hematologia completa",
+            "Glicemia",
+            "Urea",
+            "Creatinina",
+            "Acido urico",
+            "Colesterol total y fraccionado",
+            "Trigliceridos ",
+            "Transaminasas piruvica",
+            "Transaminasas oxalacetica",
+            "Proteinas totales y fraccionadas",
+            "Tiempo de protrombina",
+            "TIempo parcial de tromboplastina"});
+            this.cbMuestras.Location = new System.Drawing.Point(23, 201);
+            this.cbMuestras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMuestras.Name = "cbMuestras";
+            this.cbMuestras.Size = new System.Drawing.Size(365, 30);
+            this.cbMuestras.TabIndex = 241;
             // 
             // btnQuitar
             // 
@@ -192,6 +201,7 @@
             this.btnAñadir.TabIndex = 239;
             this.btnAñadir.Text = "+";
             this.btnAñadir.UseVisualStyleBackColor = false;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // tabPage2
             // 
@@ -268,50 +278,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -441,38 +451,47 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(20, 144);
+            this.label1.Location = new System.Drawing.Point(20, 167);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 32);
+            this.label1.Size = new System.Drawing.Size(263, 32);
             this.label1.TabIndex = 238;
-            this.label1.Text = "Muestras";
+            this.label1.Text = "Examenes de laboratorio";
             // 
-            // txtIndicaciones
+            // txtNota
             // 
-            this.txtIndicaciones.BackColor = System.Drawing.SystemColors.Control;
-            this.txtIndicaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIndicaciones.Location = new System.Drawing.Point(23, 65);
-            this.txtIndicaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIndicaciones.Multiline = true;
-            this.txtIndicaciones.Name = "txtIndicaciones";
-            this.txtIndicaciones.Size = new System.Drawing.Size(365, 182);
-            this.txtIndicaciones.TabIndex = 235;
+            this.txtNota.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNota.Location = new System.Drawing.Point(23, 65);
+            this.txtNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNota.Multiline = true;
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(365, 182);
+            this.txtNota.TabIndex = 235;
             // 
-            // cbMedicamento
+            // cbExamenes
             // 
-            this.cbMedicamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbMedicamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbMedicamento.BackColor = System.Drawing.SystemColors.Control;
-            this.cbMedicamento.FormattingEnabled = true;
-            this.cbMedicamento.Items.AddRange(new object[] {
+            this.cbExamenes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbExamenes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbExamenes.BackColor = System.Drawing.SystemColors.Control;
+            this.cbExamenes.FormattingEnabled = true;
+            this.cbExamenes.Items.AddRange(new object[] {
             "Electroencefalograma",
-            "Trigliseridos",
-            "Ecocardiograma"});
-            this.cbMedicamento.Location = new System.Drawing.Point(20, 86);
-            this.cbMedicamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMedicamento.Name = "cbMedicamento";
-            this.cbMedicamento.Size = new System.Drawing.Size(368, 30);
-            this.cbMedicamento.TabIndex = 232;
+            "Ecosonograma Abdominal",
+            "Ecosonograma Prostatico",
+            "Rayos X de torax",
+            "Ecocardiograma",
+            "Holter del ritmo",
+            "Monitoreo ambulatorio de presion artereal (MAPA)",
+            "Prueba de esfuerzo",
+            "Ecocardiograma Estres con Dobutamina",
+            "Angiografia de arterias coronarias",
+            "Calcio Score Coronario",
+            "Angiotomografia de coronarias"});
+            this.cbExamenes.Location = new System.Drawing.Point(20, 109);
+            this.cbExamenes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbExamenes.Name = "cbExamenes";
+            this.cbExamenes.Size = new System.Drawing.Size(368, 30);
+            this.cbExamenes.TabIndex = 232;
             // 
             // btnCancelar_informe
             // 
@@ -507,6 +526,7 @@
             this.btnGuardar_informe.TabIndex = 243;
             this.btnGuardar_informe.Text = "Guardar";
             this.btnGuardar_informe.UseVisualStyleBackColor = false;
+            this.btnGuardar_informe.Click += new System.EventHandler(this.btnGuardar_informe_Click);
             // 
             // btnNuevo_informe
             // 
@@ -632,6 +652,7 @@
             this.txtNumero_Documento.Name = "txtNumero_Documento";
             this.txtNumero_Documento.Size = new System.Drawing.Size(143, 28);
             this.txtNumero_Documento.TabIndex = 231;
+            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
             // 
             // groupBox3
             // 
@@ -652,7 +673,7 @@
             // 
             this.groupBox_Indicaciones.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox_Indicaciones.Controls.Add(this.label9);
-            this.groupBox_Indicaciones.Controls.Add(this.txtIndicaciones);
+            this.groupBox_Indicaciones.Controls.Add(this.txtNota);
             this.groupBox_Indicaciones.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox_Indicaciones.Location = new System.Drawing.Point(24, 404);
             this.groupBox_Indicaciones.Name = "groupBox_Indicaciones";
@@ -675,9 +696,9 @@
             // 
             this.groupBox_Recipe.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox_Recipe.Controls.Add(this.label7);
-            this.groupBox_Recipe.Controls.Add(this.cbPresentacion);
+            this.groupBox_Recipe.Controls.Add(this.cbMuestras);
             this.groupBox_Recipe.Controls.Add(this.label5);
-            this.groupBox_Recipe.Controls.Add(this.cbMedicamento);
+            this.groupBox_Recipe.Controls.Add(this.cbExamenes);
             this.groupBox_Recipe.Controls.Add(this.label1);
             this.groupBox_Recipe.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox_Recipe.Location = new System.Drawing.Point(24, 25);
@@ -691,11 +712,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label5.Location = new System.Drawing.Point(151, 24);
+            this.label5.Location = new System.Drawing.Point(98, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 32);
+            this.label5.Size = new System.Drawing.Size(238, 32);
             this.label5.TabIndex = 227;
-            this.label5.Text = "Estudios";
+            this.label5.Text = "Examenes Paraclínicos";
             // 
             // toolTip1
             // 
@@ -759,12 +780,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox_Indicaciones;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtIndicaciones;
+        private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.GroupBox groupBox_Recipe;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbPresentacion;
+        private System.Windows.Forms.ComboBox cbMuestras;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbMedicamento;
+        private System.Windows.Forms.ComboBox cbExamenes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox_Plan_Terapeutico_Lista;
         private System.Windows.Forms.ListBox listBox1;

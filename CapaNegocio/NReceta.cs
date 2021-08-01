@@ -69,6 +69,25 @@ namespace CapaNegocio
         }
 
 
+        //Método CargarNombreMeds que llama al método Mostrar de la clase DReceta
+        //de la CapaDatos
+        public static DataTable CargarNombreMeds()
+        {
+            return new DReceta().CargarNombreMeds();
+        }
+
+
+        //Método CargarPresentacionMeds que llama al método Mostrar de la clase DReceta
+        //de la CapaDatos
+        public static DataTable CargarPresentacionMeds(int id_med_a_buscar)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Idedicamento = id_med_a_buscar;
+            return Obj.BuscarMedicamento(Obj);
+        }
+
+
+
         public static DataTable BuscarMedicamento(string textobuscar)
         {
             DReceta Obj = new DReceta();

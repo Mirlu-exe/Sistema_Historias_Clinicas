@@ -24,7 +24,7 @@ namespace CapaDatos
         private string _Medicamento;
 
 
-
+        private int _Idmedicamento;
 
 
 
@@ -52,6 +52,12 @@ namespace CapaDatos
         {
             get { return _Medicamento; }
             set { _Medicamento = value; }
+        }
+
+        public int Idedicamento
+        {
+            get { return _Idmedicamento; }
+            set { _Idmedicamento = value; }
         }
 
         public string Presentacion
@@ -89,9 +95,7 @@ namespace CapaDatos
             this.Presentacion = presentacion;
             this.Dosis = dosis;
             this.TextoBuscar = texto_buscar;
-            
-           
-
+        
         }
 
 
@@ -318,7 +322,7 @@ namespace CapaDatos
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_receta";
+                SqlCmd.CommandText = "sp_mostrar_meds";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
@@ -332,6 +336,65 @@ namespace CapaDatos
             return DtResultado;
 
         }
+
+        //Método Mostrar
+        public DataTable CargarNombreMeds()
+        {
+            DataTable DtResultado = new DataTable("Receta");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_nombre_meds";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+        //Método Mostrar
+        public DataTable CargarPresentacionMeds(DReceta Receta)
+        {
+            DataTable DtResultado = new DataTable("Presentacion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_presentacion_meds";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParmedicamentoBuscar = new SqlParameter();
+                ParmedicamentoBuscar.ParameterName = "@nombre_del_medicamento";
+                ParmedicamentoBuscar.SqlDbType = SqlDbType.VarChar;
+                ParmedicamentoBuscar.Size = 50;
+                ParmedicamentoBuscar.Value = Receta.Idedicamento;
+                SqlCmd.Parameters.Add(ParmedicamentoBuscar);
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
 
         //Método BuscarMedicamento
         public DataTable BuscarMedicamento(DReceta Receta)
@@ -381,7 +444,7 @@ namespace CapaDatos
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();
-                ParTextoBuscar.ParameterName = "@textobuscar";
+                ParTextoBuscar.ParameterName = "@id_del_medicamento";
                 ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
                 ParTextoBuscar.Size = 50;
                 ParTextoBuscar.Value = Receta.TextoBuscar;
