@@ -258,7 +258,7 @@ namespace CapaPresentacion
         {
 
             string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select count(*) AS Cantidad from Receta;";
+            string Query = "select count(*) AS Cantidad from Medicamentos_Pivote;";
             SqlConnection conDataBase = new SqlConnection(CN);
             SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
             SqlDataReader Lectura;

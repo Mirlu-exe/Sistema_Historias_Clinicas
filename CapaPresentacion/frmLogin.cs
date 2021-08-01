@@ -103,6 +103,31 @@ namespace CapaPresentacion
         private void btnlogin_Click(object sender, EventArgs e)
         {
 
+            this.AccederAlSistema();
+     
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)13)
+            {
+
+                this.AccederAlSistema();
+
+            }
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+
+        private void AccederAlSistema()
+        {
+
             //tomar los datos del login y asignarlo a variables
             string username_ingresado;
             string password_ingresado;
@@ -162,8 +187,8 @@ namespace CapaPresentacion
                         this.OperacionAccesoSistema();
 
                         frmPrincipal menu = new frmPrincipal();
-                        
-                        
+
+
 
                         menu.lblcodigoUsuario.Text = this.idusuario;
                         menu.lblLogin.Text = this.login;
@@ -171,7 +196,7 @@ namespace CapaPresentacion
                         menu.lblnombreusuario.Text = this.nombre;
 
 
-                        frmPrincipal.Asignar_Session_Info(Convert.ToInt32(this.idusuario),this.login, this.acceso, this.nombre);
+                        frmPrincipal.Asignar_Session_Info(Convert.ToInt32(this.idusuario), this.login, this.acceso, this.nombre);
 
 
                         menu.Show();
@@ -207,16 +232,16 @@ namespace CapaPresentacion
 
             }
 
-            
 
 
-     
+
+
+
+
         }
 
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
+
 
 
         private void OperacionAccesoSistema()
