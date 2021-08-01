@@ -359,48 +359,11 @@ namespace CapaPresentacion
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
 
-
-
-            //int IdMedicamentoSeleccionado;
-            //IdMedicamentoSeleccionado = Convert.ToInt32(this.dataListado.CurrentRow.Cells["id"].Value);
-
-
-            //string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            //string Query = "select * from Medicamento_Pivote where id ='" + IdMedicamentoSeleccionado + "' ;";
-            //SqlConnection conDataBase = new SqlConnection(CN);
-            //SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
-            //SqlDataReader myReader;
-
-            //try
-            //{
-
-            //    conDataBase.Open();
-            //    myReader = cmdDataBase.ExecuteReader();
-
-            //    while (myReader.Read())
-            //    {
-
-            //        string nombre = myReader["nombre"].ToString();
-
-
-
-
-            //    }
-
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-
-            //}
-
-
             this.txtidReceta.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id"].Value);
             this.txtMedicamento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[2].Value);
             this.txtPresentacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[3].Value);
             this.txtDosis.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[4].Value);
+
         }
 
 

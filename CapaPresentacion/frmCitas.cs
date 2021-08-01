@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using CapaDatos;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -27,16 +28,14 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            this.ttMensaje.SetToolTip(this.txtbuscarpaciente, "Seleccione un paciente");
+            this.ttMensaje.SetToolTip(this.txtNumero_Documento, "Escriba la cedula del paciente");
 
-            //this.ttMensaje.SetToolTip(this.txtCosto, "Ingrese el costo del servicio");
-            this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la reserva");
+            this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la cita");
+
             fillComboServicios();
-            fillComboPacientes();
-            fillComboUsuarios();
+            
 
 
-            //cargarCodigoUsuario();
             this.btnAnular.Enabled = false;
         }
 
@@ -46,15 +45,21 @@ namespace CapaPresentacion
             this.servicioTableAdapter.Fill(this.dsPrincipal.Servicio);
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Cita' Puede moverla o quitarla según sea necesario.
             this.citaTableAdapter.Fill(this.dsPrincipal.Cita);
-            this.Mostrar();
             this.Habilitar(false);
             this.Botones();
-            this.montoTotalCitas();
             this.RevisarCitasHoy();
 
             OcultarColumnas();
             dtpFechaCita.Value = DateTime.Now.Date;
             LblHora.Text = DateTime.Now.Date.ToShortDateString();
+
+            Mostrar();
+
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+
+
+            //UsuarioResponsable();
 
         }
 
@@ -71,12 +76,6 @@ namespace CapaPresentacion
 
         }
 
-        public void cargarCodigoUsuario()
-        {
-            frmPrincipal menu = new frmPrincipal();
-            this.txtCodUsuario.Text = menu.lblcodigoUsuario.Text;
-
-        }
 
         public void fillComboServicios()
         {
@@ -108,48 +107,23 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-
-
+                MessageBox.Show(ex.ToString());
             }
 
         }
 
 
-        public void fillComboUsuarios()
+
+
+        public void UsuarioResponsable()
         {
 
-            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Usuario where estado = 'Activo' ;";
-            SqlConnection conDataBase = new SqlConnection(CN);
-            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
-            SqlDataReader Lectura;
-
-            try
-            {
-
-                conDataBase.Open();
-                Lectura = cmdDataBase.ExecuteReader();
-
-                while (Lectura.Read())
-                {
-
-                    cmbUsuarios.Items.Add(Lectura["nombre"].ToString());
+            this.txtCodUsuario.Text = Convert.ToString(Session_Actual.Idusuario);
 
 
-
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-            }
+            this.lbl_usuario.Text = Session_Actual.Log;
 
         }
-
 
 
         //Método BuscarPaciente
@@ -185,43 +159,6 @@ namespace CapaPresentacion
         }
 
 
-        public void fillComboPacientes()
-        {
-
-
-            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Paciente where estado = 'Activo' ;";
-            SqlConnection conDataBase = new SqlConnection(CN);
-            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
-            SqlDataReader Lectura;
-
-            try
-            {
-
-                conDataBase.Open();
-                Lectura = cmdDataBase.ExecuteReader();
-
-                while (Lectura.Read())
-                {
-
-                    cmbPacientes.Items.Add(Lectura["nombre"].ToString());
-
-
-
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-            }
-
-        }
-
-
 
         DataTable dbdataset;
 
@@ -242,14 +179,15 @@ namespace CapaPresentacion
         //Limpiar todos los controles del formulario
         private void Limpiar()
         {
-            this.txtbuscarpaciente.Text = string.Empty;
+            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNombre_Paciente.Text = string.Empty;
+            this.txtTelefono.Text = string.Empty;
 
             this.txtCodServicio.Text = string.Empty;
             this.txtCodUsuario.Text = string.Empty;
             this.txtCodigoPaciente.Text = string.Empty;
             this.txtCosto.Text = string.Empty;
-            this.cmbUsuarios.SelectedIndex = -1;
-            this.cmbPacientes.SelectedIndex = -1;
+            this.lbl_usuario.Text = string.Empty;
             this.cmbServicios.SelectedIndex = -1;
 
 
@@ -261,20 +199,10 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar(bool valor)
         {
-            this.txtCodCita.ReadOnly = !valor;
-            this.txtbuscarpaciente.ReadOnly = !valor;
+            this.txtNumero_Documento.ReadOnly = !valor;
             //this.txtBuscarServicio.ReadOnly = !valor;
-            this.cmbPacientes.Enabled = valor;
-            this.cmbUsuarios.Enabled = valor;
-            this.txtCosto.ReadOnly = !valor;
 
 
-
-
-
-
-
-            //this.btnLimpiar.Enabled = valor;
 
         }
 
@@ -312,7 +240,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre as Paciente, Cita.idusuario, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita inner join dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario ", conDataBase);
 
             try
             {
@@ -356,7 +284,19 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar(true);
-            this.txtbuscarpaciente.Focus();
+
+            groupBox1.Enabled = true;
+            groupBox2.Enabled = true;
+
+
+            this.txtNumero_Documento.Focus();
+
+            UsuarioResponsable();
+
+            this.txtEstadoCita.Text = "Activa";
+
+
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -364,8 +304,8 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodUsuario.Text) || string.IsNullOrEmpty(txtCodServicio.Text) ||
-                    cmbServicios.SelectedIndex == -1 || cmbPacientes.SelectedIndex == -1)
+                if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodServicio.Text) ||
+                    cmbServicios.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Documento.Text))
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -378,6 +318,8 @@ namespace CapaPresentacion
 
                     if (this.IsNuevo)
                     {
+
+                        int id_usuario_que_lo_registro = Session_Actual.Idusuario;
 
 
                         SqlConnection SqlCon = new SqlConnection();
@@ -397,11 +339,11 @@ namespace CapaPresentacion
 
                         //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
                         SqlCmd.Parameters.AddWithValue("@d1", Convert.ToInt32(this.txtCodigoPaciente.Text));
-                        SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(this.txtCodUsuario.Text));
+                        SqlCmd.Parameters.AddWithValue("@d2", id_usuario_que_lo_registro);
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.cmbEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
 
 
 
@@ -446,7 +388,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.cmbEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToInt32(this.txtCodCita.Text));
 
 
@@ -466,13 +408,11 @@ namespace CapaPresentacion
                     {
                         this.MensajeOk("Se Insertó de forma correcta la cita");
                         this.OperacionInsertarCita();
-                        this.montoTotalCitas();
                     }
                     else
                     {
                         this.MensajeOk("Se Actualizó de forma correcta la cita");
                         this.OperacionEditarCita();
-                        this.montoTotalCitas();
                     }
 
 
@@ -481,8 +421,13 @@ namespace CapaPresentacion
                     this.IsEditar = false;
                     this.Botones();
                     this.Limpiar();
-                    this.Mostrar();
-                    this.montoTotalCitas();
+
+                    groupBox1.Enabled = false;
+                    groupBox2.Enabled = false;
+
+                    Mostrar();
+
+                    this.txtEstadoCita.Text = string.Empty;
 
 
                 }
@@ -500,7 +445,9 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.Botones();
                 this.Habilitar(true);
-               
+                groupBox1.Enabled = true;
+                groupBox2.Enabled = true;
+
             }
             else
             {
@@ -515,6 +462,12 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar(false);
+
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+
+            this.txtEstadoCita.Text = string.Empty;
+
         }
 
         private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -542,51 +495,31 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
+
+            //cargar todos los datos en el formulario
+
             this.txtCodCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcita"].Value);
+
+
             this.txtCodigoPaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+            this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Paciente"].Value);
+            this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
+
             this.txtCodUsuario.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idusuario"].Value);
-            this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
-            this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
-            this.cmbPacientes.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Paciente"].Value);
+            this.lbl_usuario.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["login"].Value);
+
+
             this.txtCodServicio.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idservicio"].Value);
-            this.cmbEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+            this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
+
+            this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
+
+            this.txtEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+
+
         }
 
-        private void cmbPacientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Paciente where nombre = '" + this.cmbPacientes.Text + "' ;";
-            SqlConnection conDataBase = new SqlConnection(CN);
-            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
-            SqlDataReader myReader;
-
-            try
-            {
-
-                conDataBase.Open();
-                myReader = cmdDataBase.ExecuteReader();
-
-                while (myReader.Read())
-                {
-
-                    string idpaciente = myReader["idpaciente"].ToString();
-                    string nombre = myReader["nombre"].ToString();
-
-                    this.txtCodigoPaciente.Text = idpaciente;
-                    //this.txtbuscarpaciente.Text = nombre;
-
-
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-            }
-        }
 
         private void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -693,7 +626,8 @@ namespace CapaPresentacion
 
                         }
                     }
-                    this.Mostrar();
+
+                    Mostrar();
                 }
             }
             catch (Exception ex)
@@ -747,7 +681,7 @@ namespace CapaPresentacion
 
         private void OperacionEditarCita()
         {
-            cmbEstadoCita.Enabled = false;
+            txtEstadoCita.Enabled = false;
 
             // Operacion Anular
             string rpta2 = "";
@@ -827,22 +761,34 @@ namespace CapaPresentacion
 
         }
 
+        //MOSTRAR TODOS LOS DATOS
 
-        public void montoTotalCitas()
+        private DataTable Operacion_Mostrar()
         {
 
-            //int sum = 0;
+            DataTable DtResultado = new DataTable("tablita");
+
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_citas";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
-            //for (int i = 0; i < dataListado.Rows.Count; i++)
-            //{
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
 
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
 
-            //    sum += Convert.ToInt32(dataListado.Rows[i].Cells["costo"].Value);
-            //}
-
-            //this.lblMontoTotal.Text = sum.ToString() + "$ ";
-
+                MessageBox.Show("NO FURULA " + ex.ToString() + "");
+            }
+            return DtResultado;
 
         }
 
@@ -852,21 +798,19 @@ namespace CapaPresentacion
             {
 
                 this.BuscarPaciente();
-                this.montoTotalCitas();
 
             }
             else
             {
 
                 this.BuscarServicio();
-                this.montoTotalCitas();
             }
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Usuario where nombre = '" + this.cmbUsuarios.Text + "' ;";
+            string Query = "select * from Usuario where nombre = '" + this.lbl_usuario.Text + "' ;";
             SqlConnection conDataBase = new SqlConnection(CN);
             SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
             SqlDataReader myReader;
@@ -938,5 +882,65 @@ namespace CapaPresentacion
         {
             
         }
+
+
+
+
+        private int Buscar_idPac_por_cedula()
+        {
+
+            string cedula_del_pac = this.txtNumero_Documento.Text;
+
+            DataTable paciente_tabla = new DataTable();
+
+            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+
+            int id_del_pac = 0;
+
+            if (paciente_tabla.Rows.Count == 0)
+            {
+                MessageBox.Show("no existe ese paciente");
+                id_del_pac = 0;
+            }
+            else
+            {
+
+                id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                string telefono_del_pac = Convert.ToString(paciente_tabla.Rows[0][9]);
+
+                this.txtNombre_Paciente.Text = nombre_del_pac;
+                this.txtTelefono.Text = telefono_del_pac;
+
+
+
+            }
+
+            return id_del_pac;
+
+        }
+
+
+        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+
+                int id_del_paciente_a_cargar;
+
+                id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
+
+                if (id_del_paciente_a_cargar > 0)
+                {
+                    this.txtCodigoPaciente.Text = id_del_paciente_a_cargar.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Este paciente no esta registrado");
+                }
+
+            }
+        }
+
     }
 }
