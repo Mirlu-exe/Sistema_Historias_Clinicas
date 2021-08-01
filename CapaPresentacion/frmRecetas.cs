@@ -42,12 +42,17 @@ namespace CapaPresentacion
 
         private void frmRecetas_Load(object sender, EventArgs e)
         {
-            this.Mostrar();
+            
             this.Habilitar(false);
             this.Botones();
 
             //aca uso el left join
             this.dataListado.DataSource = Operacion_Mostrar();
+
+
+            lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
+
+            this.OcultarColumnas();
 
         }
 
@@ -71,9 +76,13 @@ namespace CapaPresentacion
         private void Limpiar()
         {
             this.txtidReceta.Text = string.Empty;
+
             this.txtMedicamento.Text = string.Empty;
+            this.TxtDescripcionNombreMed.Text = string.Empty;
             this.txtPresentacion.Text = string.Empty;
+            this.TxtDescripcionPresent.Text = string.Empty;
             this.txtDosis.Text = string.Empty;
+            this.TxtDescripcionDosis.Text = string.Empty;
 
 
 
@@ -107,7 +116,6 @@ namespace CapaPresentacion
                 this.Habilitar(true);
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
-                this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
             else
@@ -115,7 +123,6 @@ namespace CapaPresentacion
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
 
@@ -126,9 +133,9 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.dataListado.Columns[0].Visible = false;
+            //this.dataListado.Columns[0].Visible = false;
             //this.dataListado.Columns[1].Visible = false;
-
+            this.dataListado.Columns[1].Visible = false;
         }
 
 
@@ -204,43 +211,13 @@ namespace CapaPresentacion
                     {
 
 
-                        //rpta = NReceta.Insertar( this.txtMedicamento.Text.Trim().ToUpper(), this.txtPresentacion.Text.Trim().ToUpper(), this.txtDosis.Text.Trim().ToUpper());
+                        //rpta = NReceta.Insertar(this.txtMedicamento.Text.Trim().ToUpper(), this.txtPresentacion.Text.Trim().ToUpper(), this.txtDosis.Text.Trim().ToUpper());
+
+                        
 
 
 
-
-
-                        // Operacion Insertar
-
-
-                        /*SqlConnection SqlCon2 = new SqlConnection();
-
-
-
-
-                        SqlCon2.ConnectionString = Conexion.Cn;
-                        SqlCon2.Open();
-
-                        SqlCommand SqlCmd2 = new SqlCommand();
-                        SqlCmd2.Connection = SqlCon2;
-                        SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
-
-
-
-
-
-                        SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-                        SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un nuevo diagnostico al sistema");
-
-
-
-
-
-                        //Ejecutamos nuestro comando
-
-                        rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";*/
-
-
+                        rpta = OperacionInsertar_Receta();
 
 
 
@@ -283,14 +260,19 @@ namespace CapaPresentacion
 
 
                         this.MensajeError(rpta);
+
                     }
 
                     this.IsNuevo = false;
                     this.IsEditar = false;
                     this.Botones();
                     this.Limpiar();
-                    this.Mostrar();
+                    //this.Mostrar();
+                    this.dataListado.DataSource = Operacion_Mostrar();
                     this.txtidReceta.Text = "";
+
+
+                    lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
 
 
                 }
@@ -426,11 +408,13 @@ namespace CapaPresentacion
         //OPERACIONES INSERTAR MEDICAMENTOS
 //--------------------------------------------------------------
          //1-.INSERTAR NOMBRE DE MEDICAMIENTOS
-        private void OperacionInsertar_Meds_Nombres()
+        private int OperacionInsertar_Meds_Nombres()
         {
 
+            int resultado = 0;
 
             string rpta2 = "";
+            string rpta3 = "";
 
 
             SqlConnection SqlCon2 = new SqlConnection();
@@ -443,64 +427,47 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Meds_Nombres (nombre, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "INSERT INTO Meds_Nombres (nombre, descripcion) VALUES (@d1,@d2)  SELECT SCOPE_IDENTITY()";
 
 
 
 
 
-            SqlCmd2.Parameters.AddWithValue("@d1", txtMedicamento.Text);
-            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionNombreMed.Text);
+            SqlCmd2.Parameters.AddWithValue("@d1", this.txtMedicamento.Text);
+            SqlCmd2.Parameters.AddWithValue("@d2", this.TxtDescripcionNombreMed.Text);
 
 
 
 
+            DataTable DtResultado = new DataTable();
 
-            //Ejecutamos nuestro comando
+            try
+            {
 
-            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd2);
+                SqlDat.Fill(DtResultado);
 
+                resultado = Convert.ToInt32(DtResultado.Rows[0][0]);
+    
 
+             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
 
-            /**string rpta2 = "";
-
-
-            SqlConnection SqlCon2 = new SqlConnection();
-
-
-
-
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            SqlCon2.Open();
-
-            SqlCommand SqlCmd2 = new SqlCommand();
-            SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            return resultado;
 
 
-
-
-
-            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado el nuevo plan terapeutico al sistema");
-
-
-
-
-
-            //Ejecutamos nuestro comando
-
-            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-           **/
 
 
         }
 
         //2-.INSERTAR DOSIS DE MEDICAMIENTOS
-        private void OperacionInsertar_Meds_Dosis()
+        private int OperacionInsertar_Meds_Dosis()
         {
 
+            int resultado = 0;
 
             string rpta2 = "";
 
@@ -515,7 +482,7 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Meds_Dosis (nombre, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "INSERT INTO Meds_Dosis (nombre, descripcion) VALUES (@d1,@d2) SELECT SCOPE_IDENTITY()";
 
 
 
@@ -528,9 +495,26 @@ namespace CapaPresentacion
 
 
 
-            //Ejecutamos nuestro comando
 
-            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+            DataTable DtResultado = new DataTable();
+
+            try
+            {
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd2);
+                SqlDat.Fill(DtResultado);
+
+                resultado = Convert.ToInt32(DtResultado.Rows[0][0]);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
+
+            return resultado;
+
 
 
 
@@ -570,9 +554,10 @@ namespace CapaPresentacion
         }
 
         //3-. INSETAR PRESENTACION
-        private void OperacionInsertar_Meds_Presentacion()
+        private int OperacionInsertar_Meds_Presentacion()
         {
 
+            int resultado = 0;
 
             string rpta2 = "";
 
@@ -587,7 +572,7 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Meds_Presentacion (nombre, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "INSERT INTO Meds_Presentacion (nombre, descripcion) VALUES (@d1,@d2) SELECT SCOPE_IDENTITY()";
 
 
 
@@ -598,11 +583,25 @@ namespace CapaPresentacion
 
 
 
+            DataTable DtResultado = new DataTable();
+
+            try
+            {
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd2);
+                SqlDat.Fill(DtResultado);
+
+                resultado = Convert.ToInt32(DtResultado.Rows[0][0]);
 
 
-            //Ejecutamos nuestro comando
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
 
-            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+            return resultado;
+
 
 
 
@@ -673,6 +672,86 @@ namespace CapaPresentacion
             return DtResultado;
 
         }
+
+
+
+
+        private string OperacionInsertar_Receta()
+        {
+
+
+
+            int id_med;
+
+            id_med = OperacionInsertar_Meds_Nombres();
+
+            //MessageBox.Show("Hola! el id del nombre que acabas de escribir es: " + id_med + ":)");
+
+
+
+            int id_presentacion;
+
+            id_presentacion = OperacionInsertar_Meds_Presentacion();
+
+            //MessageBox.Show("Hola! el id de la presentacion que acabas de escribir es: " + id_presentacion + ":)");
+
+
+
+            int id_dosis;
+
+            id_dosis = OperacionInsertar_Meds_Dosis();
+
+            //MessageBox.Show("Hola! el id de la dosis que acabas de escribir es: " + id_dosis + ":)");
+
+
+
+            string estado;
+
+            estado = "Activo";
+
+
+
+            //Aqui es donde se guardan las id en la tabla pivote:
+
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+          
+
+            SqlCmd2.CommandText = "insert into Medicamentos_Pivote (idmed, idpresentacion, iddosis, estado) values (@d1,@d2, @d3, @d4)";
+
+            //SqlCmd2.CommandText = "INSERT INTO Medicamentos_Pivote (idmed, idpresentacion, iddosis) SELECT idmed, idpresentacion, iddosis FROM Medicamentos_Pivote    LEFT JOIN Meds_Nombres ON Medicamentos_Pivote.idmed = Meds_Nombres.id     LEFT JOIN Meds_Presentacion ON Medicamentos_Pivote.idpresentacion = Meds_Presentacion.id    LEFT JOIN Meds_Dosis ON Medicamentos_Pivote.iddosis = Meds_Dosis.id; ";
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", id_med);
+            SqlCmd2.Parameters.AddWithValue("@d2", id_presentacion);
+            SqlCmd2.Parameters.AddWithValue("@d3", id_dosis);
+            SqlCmd2.Parameters.AddWithValue("@d4", estado);
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+            return rpta2;
+
+        }
+
+
+
+
         private void OperacionEditarReceta()
         {
 
@@ -784,12 +863,12 @@ namespace CapaPresentacion
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = Convert.ToString(row.Cells[1].Value);
-                            rpta = NReceta.Eliminar(Convert.ToInt32(Codigo));
+                            rpta = NReceta.Anular(Convert.ToInt32(Codigo));
 
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se Anular Correctamente el plan terapeutico");
+                                this.MensajeOk("Se Anular Correctamente la receta");
                                 this.OperacionAnularReceta();
                             }
                             else
@@ -798,13 +877,9 @@ namespace CapaPresentacion
                             }
 
 
-
-
-
-
                         }
                     }
-                    this.Mostrar();
+                    
                 }
             }
             catch (Exception ex)

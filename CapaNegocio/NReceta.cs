@@ -40,6 +40,17 @@ namespace CapaNegocio
         }
 
 
+        //Método Anular que llama al método Anular de la clase DPacientes
+        //de la CapaDatos
+        public static string Anular(int idreceta)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Idreceta = idreceta;
+            return Obj.Anular(Obj);
+        }
+
+
+
         //Método Eliminar que llama al método Eliminar de la clase DPacientes
         //de la CapaDatos
         public static string Eliminar(int idreceta)

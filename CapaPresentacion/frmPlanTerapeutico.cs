@@ -61,6 +61,13 @@ namespace CapaPresentacion
 
             tabla_meds = NReceta.Mostrar();
 
+            if (tabla_meds == null)
+            {
+                MessageBox.Show("No hay registros en medicamentos ");
+
+            }
+            else
+            {
             List<string> meds = tabla_meds.AsEnumerable().Select(r => r.Field<string>("medicamento")).ToList();
 
              string[] meds_array = meds.ToArray();
@@ -69,6 +76,10 @@ namespace CapaPresentacion
             autoComplete.AddRange(meds_array);
 
             this.cbMedicamento.AutoCompleteCustomSource = autoComplete;
+
+            }
+
+          
 
             
 
