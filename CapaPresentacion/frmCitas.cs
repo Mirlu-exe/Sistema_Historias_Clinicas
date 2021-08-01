@@ -49,7 +49,6 @@ namespace CapaPresentacion
             this.Botones();
             this.RevisarCitasHoy();
 
-            OcultarColumnas();
             dtpFechaCita.Value = DateTime.Now.Date;
             LblHora.Text = DateTime.Now.Date.ToShortDateString();
 
@@ -59,6 +58,8 @@ namespace CapaPresentacion
             groupBox2.Enabled = false;
 
 
+            OcultarColumnas();
+
             //UsuarioResponsable();
 
         }
@@ -67,12 +68,10 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            //this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
-
-            //this.dataListado.Columns["idusuario"].Visible = false;
-            //this.dataListado.Columns["idpaciente"].Visible = false;
-            //this.dataListado.Columns["idservicio"].Visible = false;
+            this.dataListado.Columns["idcita"].Visible = false;
+            this.dataListado.Columns["idpaciente"].Visible = false;
+            this.dataListado.Columns["idusuario"].Visible = false;
+            this.dataListado.Columns["idservicio"].Visible = false;
 
         }
 
@@ -268,7 +267,6 @@ namespace CapaPresentacion
 
 
 
-            this.OcultarColumnas();
             lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
