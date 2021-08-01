@@ -30,9 +30,10 @@ namespace CapaNegocio
 
         //Método Editar que llama al método Editar de la clase DPacientes
         //de la CapaDatos
-        //public static string Editar(string especialidad, string direccion, string telefono, string correo, string estado)
+        //public static string Editar(string nombre, string especialidad, string direccion, string telefono, string correo, string estado)
         //{
         //    DMedicosConfianza Obj = new DMedicosConfianza();
+        //    Obj.Nombre = nombre;
         //    Obj.Especialidad = especialidad;
         //    Obj.Direccion = direccion;
         //    Obj.Telefono = telefono;

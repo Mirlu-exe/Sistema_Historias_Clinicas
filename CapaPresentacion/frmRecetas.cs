@@ -78,11 +78,8 @@ namespace CapaPresentacion
             this.txtidReceta.Text = string.Empty;
 
             this.txtMedicamento.Text = string.Empty;
-            this.TxtDescripcionNombreMed.Text = string.Empty;
             this.txtPresentacion.Text = string.Empty;
-            this.TxtDescripcionPresent.Text = string.Empty;
             this.txtDosis.Text = string.Empty;
-            this.TxtDescripcionDosis.Text = string.Empty;
 
 
 
@@ -361,47 +358,49 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
-            int IdMedicamentoSeleccionado;
-            IdMedicamentoSeleccionado = Convert.ToInt32(this.dataListado.CurrentRow.Cells["id"].Value);
-
-
-            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select * from Medicamneto_Pivote where id ='" + IdMedicamentoSeleccionado + "' ;";
-            SqlConnection conDataBase = new SqlConnection(CN);
-            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
-            SqlDataReader myReader;
-
-            try
-            {
-
-                conDataBase.Open();
-                myReader = cmdDataBase.ExecuteReader();
-
-                while (myReader.Read())
-                {
-
-                    string nombre = myReader["nombre"].ToString();
 
 
 
-
-                }
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-
-            }
+            //int IdMedicamentoSeleccionado;
+            //IdMedicamentoSeleccionado = Convert.ToInt32(this.dataListado.CurrentRow.Cells["id"].Value);
 
 
-            this.txtidReceta.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idreceta"].Value);
-            this.lblCodPac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id"].Value);
-            this.txtMedicamento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["medicamento"].Value);
-            this.txtPresentacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["presentacion"].Value);
-            this.txtDosis.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["dosis"].Value);
+            //string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //string Query = "select * from Medicamento_Pivote where id ='" + IdMedicamentoSeleccionado + "' ;";
+            //SqlConnection conDataBase = new SqlConnection(CN);
+            //SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+            //SqlDataReader myReader;
+
+            //try
+            //{
+
+            //    conDataBase.Open();
+            //    myReader = cmdDataBase.ExecuteReader();
+
+            //    while (myReader.Read())
+            //    {
+
+            //        string nombre = myReader["nombre"].ToString();
+
+
+
+
+            //    }
+
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+
+            //}
+
+
+            this.txtidReceta.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id"].Value);
+            this.txtMedicamento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[2].Value);
+            this.txtPresentacion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[3].Value);
+            this.txtDosis.Text = Convert.ToString(this.dataListado.CurrentRow.Cells[4].Value);
         }
 
 
@@ -427,14 +426,10 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "INSERT INTO Meds_Nombres (nombre, descripcion) VALUES (@d1,@d2)  SELECT SCOPE_IDENTITY()";
-
-
-
+            SqlCmd2.CommandText = "INSERT INTO Meds_Nombres (nombre) VALUES (@d1)  SELECT SCOPE_IDENTITY()";
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", this.txtMedicamento.Text);
-            SqlCmd2.Parameters.AddWithValue("@d2", this.TxtDescripcionNombreMed.Text);
 
 
 
@@ -482,14 +477,10 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "INSERT INTO Meds_Dosis (nombre, descripcion) VALUES (@d1,@d2) SELECT SCOPE_IDENTITY()";
-
-
-
+            SqlCmd2.CommandText = "INSERT INTO Meds_Dosis (nombre) VALUES (@d1) SELECT SCOPE_IDENTITY()";
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", txtDosis.Text);
-            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionDosis.Text);
 
 
 
@@ -572,14 +563,10 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "INSERT INTO Meds_Presentacion (nombre, descripcion) VALUES (@d1,@d2) SELECT SCOPE_IDENTITY()";
-
-
-
+            SqlCmd2.CommandText = "INSERT INTO Meds_Presentacion (nombre) VALUES (@d1) SELECT SCOPE_IDENTITY()";
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", txtPresentacion.Text);
-            SqlCmd2.Parameters.AddWithValue("@d2", TxtDescripcionPresent.Text);
 
 
 

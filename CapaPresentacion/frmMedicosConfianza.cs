@@ -106,7 +106,6 @@ namespace CapaPresentacion
                 this.Habilitar(true);
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
-                this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
             else
@@ -114,7 +113,6 @@ namespace CapaPresentacion
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
 
@@ -223,7 +221,7 @@ namespace CapaPresentacion
 
 
                             rpta = NMedicosConfianza.Insertar(this.txtNombre_Medico.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                            this.txtDireccion.Text.Trim().ToUpper(),this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), this.cblEstado.Text);
+                            this.txtDireccion.Text.Trim().ToUpper(),this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), "Activo");
 
                        
 
