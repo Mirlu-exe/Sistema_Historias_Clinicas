@@ -46,7 +46,6 @@
             this.chkAnular = new System.Windows.Forms.CheckBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -57,11 +56,16 @@
             this.txtidReceta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMedicamento = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.dsReceta = new CapaPresentacion.dsReceta();
             this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblCodPac = new System.Windows.Forms.Label();
+            this.TxtDescripcionNombreMed = new System.Windows.Forms.TextBox();
+            this.TxtDescripcionPresent = new System.Windows.Forms.TextBox();
+            this.TxtDescripcionDosis = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -122,7 +126,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(831, 555);
+            this.btnAnular.Location = new System.Drawing.Point(644, 549);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
@@ -140,7 +144,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(644, 555);
+            this.btnBuscar.Location = new System.Drawing.Point(1037, 186);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 55);
@@ -213,7 +217,7 @@
             this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(653, 289);
+            this.dataListado.Size = new System.Drawing.Size(688, 289);
             this.dataListado.TabIndex = 176;
             this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
@@ -231,12 +235,12 @@
             this.chkAnular.AutoSize = true;
             this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(1191, 208);
+            this.chkAnular.Location = new System.Drawing.Point(1229, 205);
             this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(117, 36);
+            this.chkAnular.Size = new System.Drawing.Size(103, 36);
             this.chkAnular.TabIndex = 175;
-            this.chkAnular.Text = "Eliminar";
+            this.chkAnular.Text = "Anular";
             this.chkAnular.UseVisualStyleBackColor = true;
             this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
@@ -245,7 +249,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(1031, 555);
+            this.lblTotal.Location = new System.Drawing.Point(1118, 554);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 174;
@@ -254,30 +258,13 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscar.Location = new System.Drawing.Point(831, 208);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(197, 22);
             this.txtBuscar.TabIndex = 173;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(93, 666);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(165, 55);
-            this.btnEditar.TabIndex = 172;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -288,7 +275,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGuardar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(93, 603);
+            this.btnGuardar.Location = new System.Drawing.Point(317, 637);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(165, 55);
@@ -306,7 +293,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(267, 603);
+            this.btnCancelar.Location = new System.Drawing.Point(490, 637);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(165, 55);
@@ -324,7 +311,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(267, 666);
+            this.btnNuevo.Location = new System.Drawing.Point(144, 637);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(165, 55);
@@ -336,7 +323,8 @@
             // txtDosis
             // 
             this.txtDosis.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDosis.Location = new System.Drawing.Point(344, 427);
+            this.txtDosis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDosis.Location = new System.Drawing.Point(389, 540);
             this.txtDosis.Margin = new System.Windows.Forms.Padding(4);
             this.txtDosis.Name = "txtDosis";
             this.txtDosis.Size = new System.Drawing.Size(183, 22);
@@ -347,7 +335,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(89, 421);
+            this.label6.Location = new System.Drawing.Point(134, 534);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 32);
@@ -357,18 +345,20 @@
             // txtPresentacion
             // 
             this.txtPresentacion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPresentacion.Location = new System.Drawing.Point(344, 385);
+            this.txtPresentacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPresentacion.Location = new System.Drawing.Point(389, 442);
             this.txtPresentacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresentacion.Name = "txtPresentacion";
             this.txtPresentacion.Size = new System.Drawing.Size(183, 22);
             this.txtPresentacion.TabIndex = 161;
+            this.txtPresentacion.TextChanged += new System.EventHandler(this.txtPresentacion_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(89, 378);
+            this.label5.Location = new System.Drawing.Point(134, 432);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 32);
@@ -379,7 +369,7 @@
             // 
             this.txtidReceta.BackColor = System.Drawing.SystemColors.Control;
             this.txtidReceta.Enabled = false;
-            this.txtidReceta.Location = new System.Drawing.Point(344, 293);
+            this.txtidReceta.Location = new System.Drawing.Point(389, 293);
             this.txtidReceta.Margin = new System.Windows.Forms.Padding(4);
             this.txtidReceta.Name = "txtidReceta";
             this.txtidReceta.Size = new System.Drawing.Size(105, 22);
@@ -390,7 +380,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(87, 283);
+            this.label4.Location = new System.Drawing.Point(132, 283);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 32);
@@ -400,41 +390,12 @@
             // txtMedicamento
             // 
             this.txtMedicamento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMedicamento.Location = new System.Drawing.Point(344, 340);
+            this.txtMedicamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMedicamento.Location = new System.Drawing.Point(389, 340);
             this.txtMedicamento.Margin = new System.Windows.Forms.Padding(4);
             this.txtMedicamento.Name = "txtMedicamento";
             this.txtMedicamento.Size = new System.Drawing.Size(183, 22);
             this.txtMedicamento.TabIndex = 156;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(89, 332);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 32);
-            this.label2.TabIndex = 155;
-            this.label2.Text = "Medicamento";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.SystemColors.Control;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnImprimir.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(644, 654);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(165, 55);
-            this.btnImprimir.TabIndex = 181;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // dsReceta
             // 
@@ -451,12 +412,90 @@
             this.lblCodPac.AutoSize = true;
             this.lblCodPac.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCodPac.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblCodPac.Location = new System.Drawing.Point(457, 283);
+            this.lblCodPac.Location = new System.Drawing.Point(502, 283);
             this.lblCodPac.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodPac.Name = "lblCodPac";
             this.lblCodPac.Size = new System.Drawing.Size(22, 32);
             this.lblCodPac.TabIndex = 182;
             this.lblCodPac.Text = " ";
+            // 
+            // TxtDescripcionNombreMed
+            // 
+            this.TxtDescripcionNombreMed.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDescripcionNombreMed.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescripcionNombreMed.Location = new System.Drawing.Point(341, 382);
+            this.TxtDescripcionNombreMed.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtDescripcionNombreMed.Name = "TxtDescripcionNombreMed";
+            this.TxtDescripcionNombreMed.Size = new System.Drawing.Size(231, 22);
+            this.TxtDescripcionNombreMed.TabIndex = 183;
+            // 
+            // TxtDescripcionPresent
+            // 
+            this.TxtDescripcionPresent.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDescripcionPresent.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescripcionPresent.Location = new System.Drawing.Point(341, 486);
+            this.TxtDescripcionPresent.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtDescripcionPresent.Name = "TxtDescripcionPresent";
+            this.TxtDescripcionPresent.Size = new System.Drawing.Size(231, 22);
+            this.TxtDescripcionPresent.TabIndex = 184;
+            // 
+            // TxtDescripcionDosis
+            // 
+            this.TxtDescripcionDosis.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDescripcionDosis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescripcionDosis.Location = new System.Drawing.Point(341, 570);
+            this.TxtDescripcionDosis.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtDescripcionDosis.Name = "TxtDescripcionDosis";
+            this.TxtDescripcionDosis.Size = new System.Drawing.Size(231, 22);
+            this.TxtDescripcionDosis.TabIndex = 185;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label2.Location = new System.Drawing.Point(134, 332);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 32);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "Medicamento";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label1.Location = new System.Drawing.Point(134, 372);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 32);
+            this.label1.TabIndex = 186;
+            this.label1.Text = "Descripcion";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label3.Location = new System.Drawing.Point(132, 476);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 32);
+            this.label3.TabIndex = 187;
+            this.label3.Text = "Descripcion";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label7.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label7.Location = new System.Drawing.Point(134, 566);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 32);
+            this.label7.TabIndex = 188;
+            this.label7.Text = "Descripcion";
             // 
             // frmRecetas
             // 
@@ -464,8 +503,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1515, 817);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtDescripcionDosis);
+            this.Controls.Add(this.TxtDescripcionPresent);
+            this.Controls.Add(this.TxtDescripcionNombreMed);
             this.Controls.Add(this.lblCodPac);
-            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnBuscar);
@@ -474,7 +518,6 @@
             this.Controls.Add(this.chkAnular);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
@@ -516,7 +559,6 @@
         private System.Windows.Forms.CheckBox chkAnular;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
@@ -527,10 +569,15 @@
         private System.Windows.Forms.TextBox txtidReceta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMedicamento;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.BindingSource dsRecetaBindingSource;
         private dsReceta dsReceta;
         private System.Windows.Forms.Label lblCodPac;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtDescripcionDosis;
+        private System.Windows.Forms.TextBox TxtDescripcionPresent;
+        private System.Windows.Forms.TextBox TxtDescripcionNombreMed;
+        private System.Windows.Forms.Label label2;
     }
 }

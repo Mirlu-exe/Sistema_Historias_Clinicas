@@ -299,9 +299,9 @@ namespace CapaPresentacion
 
         }
 
+        private void gbPreguntasSeguridad_Enter(object sender, EventArgs e)
+        {
 
-
-
-
+        }
     }
 }

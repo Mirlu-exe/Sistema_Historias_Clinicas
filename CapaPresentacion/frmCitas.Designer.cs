@@ -29,21 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.lblMontoTotal = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,7 +59,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.cmbPacientes = new System.Windows.Forms.ComboBox();
             this.cmbServicios = new System.Windows.Forms.ComboBox();
             this.txtCodUsuario = new System.Windows.Forms.TextBox();
             this.txtCodServicio = new System.Windows.Forms.TextBox();
@@ -76,7 +72,6 @@
             this.lblCodigoPaciente = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.txtbuscarpaciente = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnCitasHoy = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -99,6 +94,8 @@
             this.servicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.servicioTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.ServicioTableAdapter();
             this.fKCitaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbPacientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -145,36 +142,6 @@
             this.label14.TabIndex = 188;
             this.label14.Text = "Usuario";
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(1038, 778);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(132, 22);
-            this.maskedTextBox1.TabIndex = 187;
-            // 
-            // lblMontoTotal
-            // 
-            this.lblMontoTotal.AutoSize = true;
-            this.lblMontoTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblMontoTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblMontoTotal.Location = new System.Drawing.Point(886, 778);
-            this.lblMontoTotal.Name = "lblMontoTotal";
-            this.lblMontoTotal.Size = new System.Drawing.Size(27, 32);
-            this.lblMontoTotal.TabIndex = 186;
-            this.lblMontoTotal.Text = "$";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(534, 778);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(224, 32);
-            this.label5.TabIndex = 185;
-            this.label5.Text = "Monto total por citas";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -199,7 +166,6 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Citas Médicas";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -222,7 +188,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(287, 708);
+            this.btnAnular.Location = new System.Drawing.Point(287, 661);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
@@ -240,7 +206,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(114, 708);
+            this.btnBuscar.Location = new System.Drawing.Point(114, 661);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 55);
@@ -250,25 +216,26 @@
             // 
             // cmbEstadoCita
             // 
+            this.cmbEstadoCita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoCita.Enabled = false;
             this.cmbEstadoCita.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cmbEstadoCita.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbEstadoCita.FormattingEnabled = true;
             this.cmbEstadoCita.Items.AddRange(new object[] {
             "Activo",
-            "Cancelada"});
-            this.cmbEstadoCita.Location = new System.Drawing.Point(687, 716);
+            "Anular"});
+            this.cmbEstadoCita.Location = new System.Drawing.Point(1069, 84);
             this.cmbEstadoCita.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstadoCita.Name = "cmbEstadoCita";
             this.cmbEstadoCita.Size = new System.Drawing.Size(160, 40);
             this.cmbEstadoCita.TabIndex = 181;
-            this.cmbEstadoCita.Text = "Activo";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label11.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label11.Location = new System.Drawing.Point(524, 719);
+            this.label11.Location = new System.Drawing.Point(878, 87);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(155, 32);
             this.label11.TabIndex = 180;
@@ -288,6 +255,7 @@
             // 
             // cmbBusqueda
             // 
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cmbBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbBusqueda.FormattingEnabled = true;
@@ -299,7 +267,6 @@
             this.cmbBusqueda.Name = "cmbBusqueda";
             this.cmbBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cmbBusqueda.TabIndex = 177;
-            this.cmbBusqueda.Text = "Paciente";
             // 
             // dataListado
             // 
@@ -309,46 +276,46 @@
             this.dataListado.BackgroundColor = System.Drawing.Color.White;
             this.dataListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 12.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 12.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(128, 309);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataListado.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1197, 313);
@@ -383,7 +350,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(904, 711);
+            this.lblTotal.Location = new System.Drawing.Point(909, 673);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 174;
@@ -392,7 +359,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(305, 276);
+            this.txtBuscar.Location = new System.Drawing.Point(304, 274);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(176, 22);
@@ -471,21 +438,10 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // cmbPacientes
-            // 
-            this.cmbPacientes.BackColor = System.Drawing.SystemColors.Control;
-            this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPacientes.FormattingEnabled = true;
-            this.cmbPacientes.Location = new System.Drawing.Point(132, 119);
-            this.cmbPacientes.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbPacientes.Name = "cmbPacientes";
-            this.cmbPacientes.Size = new System.Drawing.Size(207, 24);
-            this.cmbPacientes.TabIndex = 168;
-            this.cmbPacientes.SelectedIndexChanged += new System.EventHandler(this.cmbPacientes_SelectedIndexChanged);
-            // 
             // cmbServicios
             // 
             this.cmbServicios.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbServicios.FormattingEnabled = true;
             this.cmbServicios.Location = new System.Drawing.Point(668, 84);
             this.cmbServicios.Margin = new System.Windows.Forms.Padding(4);
@@ -579,7 +535,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(883, 76);
+            this.label1.Location = new System.Drawing.Point(878, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 32);
@@ -589,12 +545,13 @@
             // dtpFechaCita
             // 
             this.dtpFechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCita.Location = new System.Drawing.Point(1090, 84);
+            this.dtpFechaCita.Location = new System.Drawing.Point(1094, 47);
             this.dtpFechaCita.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaCita.Name = "dtpFechaCita";
-            this.dtpFechaCita.Size = new System.Drawing.Size(93, 22);
+            this.dtpFechaCita.Size = new System.Drawing.Size(117, 22);
             this.dtpFechaCita.TabIndex = 154;
-            this.dtpFechaCita.Value = new System.DateTime(2021, 7, 20, 14, 3, 8, 0);
+            this.dtpFechaCita.Value = new System.DateTime(2021, 7, 28, 23, 50, 6, 0);
+            this.dtpFechaCita.ValueChanged += new System.EventHandler(this.dtpFechaCita_ValueChanged);
             // 
             // lblCodigoPaciente
             // 
@@ -629,17 +586,6 @@
             this.txtbuscarpaciente.TabIndex = 151;
             this.txtbuscarpaciente.Visible = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(21, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 32);
-            this.label3.TabIndex = 150;
-            this.label3.Text = "Paciente";
-            // 
             // btnCitasHoy
             // 
             this.btnCitasHoy.BackColor = System.Drawing.SystemColors.Control;
@@ -670,9 +616,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.lblMontoTotal);
-            this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.btnBuscar);
             this.tabPage1.Controls.Add(this.btnAnular);
             this.tabPage1.Controls.Add(this.btnCitasHoy);
@@ -709,7 +652,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Todas las Citas";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
@@ -723,7 +665,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Citas para Hoy";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // LblHora
             // 
@@ -735,7 +676,6 @@
             this.LblHora.Size = new System.Drawing.Size(75, 32);
             this.LblHora.TabIndex = 178;
             this.LblHora.Text = "label4";
-            this.LblHora.Click += new System.EventHandler(this.LblHora_Click);
             // 
             // dgv_citas_hoy
             // 
@@ -746,14 +686,14 @@
             this.dgv_citas_hoy.BackgroundColor = System.Drawing.Color.White;
             this.dgv_citas_hoy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_citas_hoy.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 12.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_citas_hoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Light", 12.25F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_citas_hoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_citas_hoy.ColumnHeadersHeight = 50;
             this.dgv_citas_hoy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_citas_hoy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -765,39 +705,38 @@
             this.idservicioDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
             this.dgv_citas_hoy.DataSource = this.citaBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_citas_hoy.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_citas_hoy.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_citas_hoy.GridColor = System.Drawing.Color.DarkCyan;
             this.dgv_citas_hoy.Location = new System.Drawing.Point(149, 92);
             this.dgv_citas_hoy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_citas_hoy.MultiSelect = false;
             this.dgv_citas_hoy.Name = "dgv_citas_hoy";
             this.dgv_citas_hoy.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_citas_hoy.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_citas_hoy.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_citas_hoy.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_citas_hoy.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_citas_hoy.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_citas_hoy.RowTemplate.Height = 24;
             this.dgv_citas_hoy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_citas_hoy.Size = new System.Drawing.Size(1361, 572);
             this.dgv_citas_hoy.TabIndex = 177;
-            this.dgv_citas_hoy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_citas_hoy_CellContentClick);
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -908,6 +847,29 @@
             this.fKCitaServicioBindingSource.DataMember = "FK_Cita_Servicio";
             this.fKCitaServicioBindingSource.DataSource = this.servicioBindingSource;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label3.Location = new System.Drawing.Point(21, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 32);
+            this.label3.TabIndex = 150;
+            this.label3.Text = "Paciente";
+            // 
+            // cmbPacientes
+            // 
+            this.cmbPacientes.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPacientes.FormattingEnabled = true;
+            this.cmbPacientes.Location = new System.Drawing.Point(132, 119);
+            this.cmbPacientes.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbPacientes.Name = "cmbPacientes";
+            this.cmbPacientes.Size = new System.Drawing.Size(207, 24);
+            this.cmbPacientes.TabIndex = 168;
+            this.cmbPacientes.SelectedIndexChanged += new System.EventHandler(this.cmbPacientes_SelectedIndexChanged);
+            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -949,9 +911,6 @@
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label lblMontoTotal;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -970,7 +929,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.ComboBox cmbPacientes;
         private System.Windows.Forms.ComboBox cmbServicios;
         public System.Windows.Forms.TextBox txtCodUsuario;
         public System.Windows.Forms.TextBox txtCodServicio;
@@ -984,7 +942,6 @@
         private System.Windows.Forms.Label lblCodigoPaciente;
         public System.Windows.Forms.TextBox txtCosto;
         public System.Windows.Forms.TextBox txtbuscarpaciente;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnCitasHoy;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1008,5 +965,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idservicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbPacientes;
     }
 }

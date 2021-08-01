@@ -1417,7 +1417,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Reportes.frmListaHistorialTotal frm = new Reportes.frmListaHistorialTotal();
+            frmListaHistorialTotal frm = new frmListaHistorialTotal();
             frm.Show();
         }
 
@@ -1431,5 +1431,7 @@ namespace CapaPresentacion
             frmArchivosMuertos frm = new frmArchivosMuertos();
             frm.ShowDialog();
         }
+
+       
     }
 }

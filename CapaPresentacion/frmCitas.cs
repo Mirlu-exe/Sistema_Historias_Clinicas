@@ -53,7 +53,7 @@ namespace CapaPresentacion
             this.RevisarCitasHoy();
 
             OcultarColumnas();
-
+            dtpFechaCita.Value = DateTime.Now.Date;
             LblHora.Text = DateTime.Now.Date.ToShortDateString();
 
         }
@@ -500,6 +500,7 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.Botones();
                 this.Habilitar(true);
+               
             }
             else
             {
@@ -628,7 +629,7 @@ namespace CapaPresentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Cancelar Esta cita pacientes", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Anular Esta cita pacientes", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -663,7 +664,7 @@ namespace CapaPresentacion
 
 
                             //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
-                            SqlCmd.Parameters.AddWithValue("@d1", "Cancelada");
+                            SqlCmd.Parameters.AddWithValue("@d1", "Anular");
                             SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo));
 
 
@@ -682,7 +683,7 @@ namespace CapaPresentacion
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se canceló Correctamente la cita");
+                                this.MensajeOk("Se Anulo Correctamente la cita");
                                 this.OperacionAnularCita();
                             }
                             else
@@ -746,7 +747,7 @@ namespace CapaPresentacion
 
         private void OperacionEditarCita()
         {
-
+            cmbEstadoCita.Enabled = false;
 
             // Operacion Anular
             string rpta2 = "";
@@ -902,7 +903,7 @@ namespace CapaPresentacion
         private void RevisarCitasHoy()
         {
 
-
+           
             string Citashoy = DateTime.Now.Date.ToShortDateString();
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
@@ -912,47 +913,30 @@ namespace CapaPresentacion
 
             DataView DV = new DataView(dbdataset);
 
-            DV.RowFilter = string.Format("fecha LIKE '%{0}%'", Citashoy);
+
+            DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo' ", Citashoy);
+           
             dgv_citas_hoy.DataSource = DV;
 
 
 
-           
-
-
-        }
-
-        private void dgv_citas_hoy_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
            
 
 
         }
 
-        private void LblHora_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void btnCitasHoy_Click(object sender, EventArgs e)
         {
-            
+            tabControl1.SelectedIndex = 1;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
+   
 
+        private void dtpFechaCita_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

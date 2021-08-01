@@ -46,13 +46,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnVerificarExistenciaUsername = new System.Windows.Forms.Button();
             this.gbPreguntasSeguridad = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbPregunta3 = new System.Windows.Forms.ComboBox();
             this.cbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cbPregunta1 = new System.Windows.Forms.ComboBox();
             this.gbVerificarUsername = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lbl_id_user = new System.Windows.Forms.Label();
             this.gbPreguntasSeguridad.SuspendLayout();
             this.gbVerificarUsername.SuspendLayout();
@@ -293,6 +293,34 @@
             this.gbPreguntasSeguridad.TabIndex = 48;
             this.gbPreguntasSeguridad.TabStop = false;
             this.gbPreguntasSeguridad.Text = "Preguntas de Seguridad";
+            this.gbPreguntasSeguridad.Enter += new System.EventHandler(this.gbPreguntasSeguridad_Enter);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(696, 304);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.TabIndex = 238;
+            this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(696, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 237;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(696, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 236;
+            this.label1.Text = "label1";
             // 
             // cbPregunta3
             // 
@@ -348,33 +376,6 @@
             this.gbVerificarUsername.Size = new System.Drawing.Size(830, 100);
             this.gbVerificarUsername.TabIndex = 49;
             this.gbVerificarUsername.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(696, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 236;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(696, 210);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 237;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(696, 304);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 238;
-            this.label3.Text = "label3";
             // 
             // lbl_id_user
             // 

@@ -155,6 +155,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.lbldesde = new System.Windows.Forms.Label();
+            this.DtpFecha2 = new System.Windows.Forms.DateTimePicker();
+            this.DtpFecha1 = new System.Windows.Forms.DateTimePicker();
+            this.BtnReporteListaEvolucion = new System.Windows.Forms.Button();
             this.lbl_lista_evol_ci = new System.Windows.Forms.Label();
             this.lbl_lista_evol_nombre = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
@@ -172,6 +176,7 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
+            this.lblhasta = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1670,6 +1675,11 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.lblhasta);
+            this.tabPage6.Controls.Add(this.lbldesde);
+            this.tabPage6.Controls.Add(this.DtpFecha2);
+            this.tabPage6.Controls.Add(this.DtpFecha1);
+            this.tabPage6.Controls.Add(this.BtnReporteListaEvolucion);
             this.tabPage6.Controls.Add(this.lbl_lista_evol_ci);
             this.tabPage6.Controls.Add(this.lbl_lista_evol_nombre);
             this.tabPage6.Controls.Add(this.label47);
@@ -1687,6 +1697,43 @@
             this.tabPage6.Text = "Lista de Evoluciones";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
+            // 
+            // lbldesde
+            // 
+            this.lbldesde.AutoSize = true;
+            this.lbldesde.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lbldesde.Location = new System.Drawing.Point(49, 503);
+            this.lbldesde.Name = "lbldesde";
+            this.lbldesde.Size = new System.Drawing.Size(89, 32);
+            this.lbldesde.TabIndex = 203;
+            this.lbldesde.Text = "Desde: ";
+            // 
+            // DtpFecha2
+            // 
+            this.DtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFecha2.Location = new System.Drawing.Point(147, 590);
+            this.DtpFecha2.Name = "DtpFecha2";
+            this.DtpFecha2.Size = new System.Drawing.Size(192, 39);
+            this.DtpFecha2.TabIndex = 202;
+            this.DtpFecha2.Value = new System.DateTime(2021, 7, 29, 13, 43, 44, 0);
+            // 
+            // DtpFecha1
+            // 
+            this.DtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFecha1.Location = new System.Drawing.Point(147, 503);
+            this.DtpFecha1.Name = "DtpFecha1";
+            this.DtpFecha1.Size = new System.Drawing.Size(192, 39);
+            this.DtpFecha1.TabIndex = 201;
+            this.DtpFecha1.Value = new System.DateTime(2021, 7, 29, 13, 43, 44, 0);
+            // 
+            // BtnReporteListaEvolucion
+            // 
+            this.BtnReporteListaEvolucion.Location = new System.Drawing.Point(112, 675);
+            this.BtnReporteListaEvolucion.Name = "BtnReporteListaEvolucion";
+            this.BtnReporteListaEvolucion.Size = new System.Drawing.Size(192, 69);
+            this.BtnReporteListaEvolucion.TabIndex = 200;
+            this.BtnReporteListaEvolucion.Text = "Generar reporte";
+            this.BtnReporteListaEvolucion.UseVisualStyleBackColor = true;
             // 
             // lbl_lista_evol_ci
             // 
@@ -1908,6 +1955,16 @@
             this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
             this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
             // 
+            // lblhasta
+            // 
+            this.lblhasta.AutoSize = true;
+            this.lblhasta.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblhasta.Location = new System.Drawing.Point(49, 595);
+            this.lblhasta.Name = "lblhasta";
+            this.lblhasta.Size = new System.Drawing.Size(76, 32);
+            this.lblhasta.TabIndex = 204;
+            this.lblhasta.Text = "Hasta:";
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2065,7 +2122,6 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lbl_lista_evol_id_historia;
-        private System.Windows.Forms.Label lbl_lista_evol_ci;
         private System.Windows.Forms.Label lbl_lista_evol_nombre;
         private System.Windows.Forms.DataGridView dgv_lista_evol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
@@ -2079,5 +2135,11 @@
         private System.Windows.Forms.TextBox txtDiagnosticos;
         private System.Windows.Forms.ComboBox cbPlanTerapeutico_Evol;
         private System.Windows.Forms.ComboBox cbPlanEstudio_Evol;
+        private System.Windows.Forms.Label lbldesde;
+        private System.Windows.Forms.DateTimePicker DtpFecha2;
+        private System.Windows.Forms.DateTimePicker DtpFecha1;
+        private System.Windows.Forms.Button BtnReporteListaEvolucion;
+        private System.Windows.Forms.Label lbl_lista_evol_ci;
+        private System.Windows.Forms.Label lblhasta;
     }
 }

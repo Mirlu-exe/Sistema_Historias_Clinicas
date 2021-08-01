@@ -78,7 +78,7 @@
             this.panel3.Controls.Add(this.label18);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1515, 78);
             this.panel3.TabIndex = 182;
@@ -92,7 +92,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(519, 60);
             this.label9.TabIndex = 7;
-            this.label9.Text = "Estudios";
+            this.label9.Text = "Servicios";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -116,8 +116,8 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(869, 534);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnular.Location = new System.Drawing.Point(814, 534);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
             this.btnAnular.TabIndex = 181;
@@ -134,8 +134,8 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(683, 534);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(628, 534);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 55);
             this.btnBuscar.TabIndex = 180;
@@ -148,7 +148,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(679, 196);
+            this.label6.Location = new System.Drawing.Point(624, 196);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 32);
@@ -183,7 +183,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataListado.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
-            this.dataListado.Location = new System.Drawing.Point(683, 234);
+            this.dataListado.Location = new System.Drawing.Point(628, 234);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
@@ -221,7 +221,7 @@
             this.chkAnular.AutoSize = true;
             this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(1229, 196);
+            this.chkAnular.Location = new System.Drawing.Point(1174, 196);
             this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAnular.Name = "chkAnular";
             this.chkAnular.Size = new System.Drawing.Size(103, 36);
@@ -235,7 +235,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(1092, 549);
+            this.lblTotal.Location = new System.Drawing.Point(1037, 549);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 176;
@@ -244,7 +244,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(797, 202);
+            this.txtBuscar.Location = new System.Drawing.Point(742, 202);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(176, 22);
@@ -261,7 +261,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(129, 538);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(165, 55);
             this.btnEditar.TabIndex = 174;
@@ -279,7 +279,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(129, 475);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(165, 55);
             this.btnGuardar.TabIndex = 173;
@@ -297,7 +297,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(303, 475);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(165, 55);
             this.btnCancelar.TabIndex = 172;
@@ -315,7 +315,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(303, 538);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(165, 55);
             this.btnNuevo.TabIndex = 171;
@@ -326,12 +326,13 @@
             // cmbEstado
             // 
             this.cmbEstado.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
             this.cmbEstado.Location = new System.Drawing.Point(284, 394);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(183, 24);
             this.cmbEstado.TabIndex = 170;
@@ -353,7 +354,7 @@
             this.txtidServicio.BackColor = System.Drawing.SystemColors.Control;
             this.txtidServicio.Enabled = false;
             this.txtidServicio.Location = new System.Drawing.Point(284, 224);
-            this.txtidServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtidServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtidServicio.Name = "txtidServicio";
             this.txtidServicio.Size = new System.Drawing.Size(105, 22);
             this.txtidServicio.TabIndex = 168;
@@ -374,7 +375,7 @@
             // 
             this.txtCosto.BackColor = System.Drawing.SystemColors.Control;
             this.txtCosto.Location = new System.Drawing.Point(284, 340);
-            this.txtCosto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(183, 22);
             this.txtCosto.TabIndex = 166;
@@ -396,7 +397,7 @@
             // 
             this.txtNombreServicio.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombreServicio.Location = new System.Drawing.Point(284, 284);
-            this.txtNombreServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreServicio.Name = "txtNombreServicio";
             this.txtNombreServicio.Size = new System.Drawing.Size(183, 22);
             this.txtNombreServicio.TabIndex = 164;
@@ -440,7 +441,7 @@
             this.Controls.Add(this.txtNombreServicio);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmServicios";
             this.Text = "frmServicios";
             this.Load += new System.EventHandler(this.frmServicios_Load);

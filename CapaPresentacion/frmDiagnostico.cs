@@ -100,7 +100,6 @@ namespace CapaPresentacion
                 this.Habilitar(true);
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
-                this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
             else
@@ -108,7 +107,6 @@ namespace CapaPresentacion
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
 
@@ -119,8 +117,7 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[1].Visible = false;
 
         }
 
@@ -128,10 +125,6 @@ namespace CapaPresentacion
         //Método Mostrar
         private void Mostrar()
         {
-
-
-
-
 
 
 
@@ -217,9 +210,9 @@ namespace CapaPresentacion
                     {
 
 
-                         rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
-                         this.txtEnfermedad.Text.Trim().ToUpper(),
-                         this.txtTipo.Text.Trim().ToUpper());
+                        rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
+                        this.txtEnfermedad.Text.Trim().ToUpper(),
+                        this.txtTipo.Text.Trim().ToUpper(), "Activo");
 
 
 
@@ -400,10 +393,12 @@ namespace CapaPresentacion
             if (chkAnular.Checked)
             {
                 this.dataListado.Columns[0].Visible = true;
+                this.btnAnular.Enabled = true;
             }
             else
             {
                 this.dataListado.Columns[0].Visible = false;
+                this.btnAnular.Enabled = false;
             }
         }
 
@@ -413,14 +408,15 @@ namespace CapaPresentacion
             this.txtCodigoDiag.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["codigo"].Value);
             this.txtEnfermedad.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["enfermedad"].Value);
             this.txtTipo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo"].Value);
+            this.TxtEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
         }
-
+            
         private void btnAnular_Click(object sender, EventArgs e)
         {
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar los/el diagnostico", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Anular los/el diagnostico", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -429,15 +425,16 @@ namespace CapaPresentacion
 
                     foreach (DataGridViewRow row in dataListado.Rows)
                     {
+
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = Convert.ToString(row.Cells[1].Value);
-                            rpta = NDiagnostico.Eliminar(Convert.ToInt32(Codigo));
+                            rpta = NDiagnostico.Anular(Convert.ToInt32(Codigo));
 
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Se Eliminó Correctamente El Diagnostico");
+                                this.MensajeOk("Se Anulo Correctamente El Diagnostico");
                                 this.OperacionEliminarDiagnostico();
                             }
                             else
@@ -600,5 +597,7 @@ namespace CapaPresentacion
         {
             this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
         }
+
+        
     }
 }

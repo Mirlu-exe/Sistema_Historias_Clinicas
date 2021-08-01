@@ -169,7 +169,10 @@ namespace CapaPresentacion
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase2 = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Paciente.direccion, Paciente.telefono, Paciente.correo, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo' and Historia.tipo_sangre = 'A-' and Historia.idpaciente != '" + Convert.ToInt32(this.lblCodigoPaciente.Text) + "' and Paciente.estado = 'Activo' or Historia.tipo_sangre = 'O-'; ", conDataBase2);
+            SqlCommand cmdDataBase2 = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Paciente.direccion, Paciente.telefono, Paciente.correo, Historia.tipo_sangre, Historia.diagnosticos " +
+                "FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente " +
+                "WHERE Historia.estado = 'Activo' and Historia.tipo_sangre = 'A-' and Historia.idpaciente != '" + Convert.ToInt32(this.lblCodigoPaciente.Text) + "' and Paciente.estado = 'Activo' " +
+                "or Historia.tipo_sangre = 'O-' or Historia.tipo_sangre = 'A-'; ", conDataBase2);
 
 
 
