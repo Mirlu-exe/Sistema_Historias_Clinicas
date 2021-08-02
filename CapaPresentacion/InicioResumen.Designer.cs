@@ -616,6 +616,7 @@
             this.btnCuposDisponiblesHoy.Text = "Para el día de hoy hay N cupos disponibles!";
             this.btnCuposDisponiblesHoy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCuposDisponiblesHoy.UseVisualStyleBackColor = false;
+            this.btnCuposDisponiblesHoy.Click += new System.EventHandler(this.btnCuposDisponiblesHoy_Click);
             // 
             // InicioResumen
             // 

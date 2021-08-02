@@ -47,13 +47,13 @@ namespace CapaPresentacion
             this.citaTableAdapter.Fill(this.dsPrincipal.Cita);
             this.Habilitar(false);
             this.Botones();
-            this.RevisarCitasHoy();
+           
 
             dtpFechaCita.Value = DateTime.Now.Date;
             LblHora.Text = DateTime.Now.Date.ToShortDateString();
 
             Mostrar();
-
+            this.RevisarCitasHoy();
             groupBox1.Enabled = false;
             groupBox2.Enabled = false;
 
@@ -112,6 +112,7 @@ namespace CapaPresentacion
         }
 
 
+        DataTable dbdataset;
 
 
         public void UsuarioResponsable()
@@ -159,7 +160,7 @@ namespace CapaPresentacion
 
 
 
-        DataTable dbdataset;
+        
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
@@ -258,7 +259,7 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
 
                 MessageBox.Show("Ha ocurrido un error");
             }
@@ -291,7 +292,7 @@ namespace CapaPresentacion
 
             UsuarioResponsable();
 
-            this.txtEstadoCita.Text = "Activa";
+            this.txtEstadoCita.Text = "Activo";
 
 
 
@@ -845,7 +846,110 @@ namespace CapaPresentacion
         private void RevisarCitasHoy()
         {
 
-           
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario ", conDataBase);
+
+            try
+            {
+
+                string Citashoy = DateTime.Now.ToShortDateString();
+
+               // MessageBox.Show("hoy es: " + Citashoy + " :)");
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                DataTable tablita = new DataTable();
+                sda.Fill(tablita);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = tablita;
+                dgv_citashoy.DataSource = bSource;
+                sda.Update(tablita);
+
+                DataView DV = new DataView(tablita);
+
+                DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo'", Citashoy);
+
+                dgv_citashoy.DataSource = DV;
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+                MessageBox.Show("Ha ocurrido un error");
+            }
+
+
+
+
+
+            lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /** otro fail 
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
+            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
+           SqlDataAdapter cmdDataBase = new SqlDataAdapter("Cita", conDataBase);
+
+            try
+            {
+
+                DataView DV = new DataView(dbdataset);
+
+
+                DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo'", Citashoy );
+
+                dgv_citashoy.DataSource = DV;
+
+                //SqlDataAdapter sda = new SqlDataAdapter();
+                //sda.SelectCommand = cmdDataBase;
+                //dbdataset = new DataTable();
+                //sda.Fill(dbdataset);
+                //BindingSource bSource = new BindingSource();
+
+
+
+                //bSource.DataSource = dbdataset;
+                //dgv_citashoy.DataSource = bSource;
+                //sda.Update(dbdataset);
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show("Ha ocurrido un error");
+            }
+
+*/
+
+            /** Se murio :c
+
             string Citashoy = DateTime.Now.Date.ToShortDateString();
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
@@ -853,17 +957,16 @@ namespace CapaPresentacion
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("Cita", conDataBase);
 
+
+
             DataView DV = new DataView(dbdataset);
 
 
-            DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo' ", Citashoy);
-           
-            dgv_citas_hoy.DataSource = DV;
+            DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo'",Citashoy);
 
+            dgv_citashoy.DataSource = DV;
 
-
-
-           
+    */
 
 
         }
@@ -940,5 +1043,19 @@ namespace CapaPresentacion
             }
         }
 
+        private void dgv_citashoy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -315,5 +315,10 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnCuposDisponiblesHoy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
