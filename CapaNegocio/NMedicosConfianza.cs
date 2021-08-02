@@ -59,6 +59,7 @@ namespace CapaNegocio
             return new DMedicosConfianza().Mostrar();
         }
 
+        //buscar nombre medicos
         public static DataTable BuscarNombre(string textobuscar)
         {
             DMedicosConfianza Obj = new DMedicosConfianza();
@@ -66,8 +67,40 @@ namespace CapaNegocio
             return Obj.BuscarNombre(Obj);
         }
 
+        //buscar especialidad medicos
+        public static DataTable BuscarEspecialidad(string textobuscar)
+        {
+            DMedicosConfianza Obj = new DMedicosConfianza();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarEspecialidad(Obj);
+        }
 
+        //editar medicos
 
+        public static string Editar( string especialidad, string direccion, string telefono,
+            string correo, string estado, int idreferencia, string nombre)
+        {
+            DMedicosConfianza Obj = new DMedicosConfianza();
+
+            Obj.Especialidad = especialidad;
+            Obj.Direccion =direccion;
+            Obj.Telefono= telefono;
+            Obj.Correo = correo;
+            Obj.Estado= estado;
+            Obj.Idmedico= idreferencia;
+            Obj.Nombre = nombre;
+
+            return Obj.Editar(Obj);
+        }
+
+        //Método Anular que llama al método Anular de la clase DMedicosConfianza
+        //de la CapaDatos
+        public static string Anular(string nombre)
+        {
+            DMedicosConfianza Obj = new DMedicosConfianza();
+            Obj.Nombre = nombre;
+            return Obj.Anular(Obj);
+        }
 
 
     }

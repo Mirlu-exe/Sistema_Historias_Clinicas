@@ -448,6 +448,11 @@ namespace CapaPresentacion
 
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
         //{
         //    //if (Char.IsLetter(e.KeyChar)) 

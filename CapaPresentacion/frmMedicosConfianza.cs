@@ -41,7 +41,6 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtTelefono, "Ingrese el telefono del Médico");
             this.ttMensaje.SetToolTip(this.txtCorreo, "Ingrese el correo del Médico");
 
-            this.btnAnular.Enabled = false;
         }
 
         private void frmMedicosConfianza_Load(object sender, EventArgs e)
@@ -200,9 +199,6 @@ namespace CapaPresentacion
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
 
-
-
-
                 }
 
 
@@ -220,10 +216,10 @@ namespace CapaPresentacion
                     {
 
 
-                            rpta = NMedicosConfianza.Insertar(this.txtNombre_Medico.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                            this.txtDireccion.Text.Trim().ToUpper(),this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), "Activo");
+                        rpta = NMedicosConfianza.Insertar(this.txtNombre_Medico.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
+                        this.txtDireccion.Text.Trim().ToUpper(), this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), "Activo");
 
-                       
+
 
 
 
@@ -231,10 +227,9 @@ namespace CapaPresentacion
                     else if (this.IsEditar)
                     {
 
-                        MessageBox.Show("falta el Metodo Editar en NMedicosConfianza");
 
-                        //rpta = NMedicosConfianza.Editar(this.txtNombre_Medico.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                        //this.txtDireccion.Text.Trim().ToUpper(),this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), this.cblEstado.Text);
+                        rpta = NMedicosConfianza.Editar(this.txtEspecialidad.Text.Trim().ToUpper(),
+                        this.txtDireccion.Text.Trim().ToUpper(),this.txtTelefono.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(), this.cblEstado.Text,1, this.txtNombre_Medico.Text.Trim().ToUpper() );
 
 
 
@@ -251,12 +246,12 @@ namespace CapaPresentacion
                         if (this.IsNuevo)
                         {
                             this.MensajeOk("Se Insertó de forma correcta el medico de confianza");
-                            //this.OperacionInsertarMedicoConfianza();
+                            this.OperacionInsertarMedicoConfianza();
                         }
                         else
                         {
                             this.MensajeOk("Se Actualizó de forma correcta el medico de confianza");
-                            //this.OperacionEditarMedicoConfianza();
+                            this.OperacionEditarMedicoConfianza();
                         }
 
                     }
@@ -342,27 +337,27 @@ namespace CapaPresentacion
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            //if (this.cblBusqueda.Text.Equals("Nombre"))
-            //{
-            //    this.Buscar_Medico_Nombre();
-            //}
-            //else if (this.cblBusqueda.Text.Equals("Especialidad"))
-            //{
-            //    this.Buscar_Medico_Especialidad();
-            //}
+            if (this.cblBusqueda.Text.Equals("Nombre"))
+            {
+                this.BuscarNombre();
+            }
+            else if (this.cblBusqueda.Text.Equals("Especialidad"))
+            {
+                this.Buscar_Medico_Especialidad();
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //if (this.cblBusqueda.Text.Equals("Nombre"))
-            //{
+            if (this.cblBusqueda.Text.Equals("Nombre"))
+            {
 
-            //    this.Buscar_Medico_Nombre();
-            //}
-            //else if (this.cblBusqueda.Text.Equals("Especialidad"))
-            //{
-            //    this.Buscar_Medico_Especialidad();
-            //}
+                this.BuscarNombre();
+            }
+            else if (this.cblBusqueda.Text.Equals("Especialidad"))
+            {
+                this.Buscar_Medico_Especialidad();
+            }
         }
 
         private void chkAnular_CheckedChanged(object sender, EventArgs e)
@@ -418,48 +413,134 @@ namespace CapaPresentacion
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
-        //    try
-        //    {
-        //        DialogResult Opcion;
-        //        Opcion = MessageBox.Show("Realmente Desea Anular los/el registros de medicos ", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Anular los/el registros de medicos ", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-        //        if (Opcion == DialogResult.OK)
-        //        {
-        //            string Codigo;
-        //            string rpta = "";
+                if (Opcion == DialogResult.OK)
+                {
+                    string Nombre;
+                    string rpta = "";
 
-        //            foreach (DataGridViewRow row in dataListado.Rows)
-        //            {
-        //                if (Convert.ToBoolean(row.Cells[0].Value))
-        //                {
-        //                    Codigo = Convert.ToString(row.Cells[1].Value);
-        //                    rpta = NMedicosConfianza.Anular(Convert.ToInt32(Codigo));
+                    foreach (DataGridViewRow row in dataListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Nombre = Convert.ToString(row.Cells[1].Value);
+                            rpta = NMedicosConfianza.Anular(Nombre);
+                            
 
-
-        //                    if (rpta.Equals("OK"))
-        //                    {
-        //                        this.MensajeOk("Se Anuló Correctamente El Paciente");
-        //                        this.OperacionAnularMedicoConfianza();
-        //                    }
-        //                    else
-        //                    {
-        //                        this.MensajeError(rpta);
-        //                    }
-
-
-
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Anuló Correctamente el medico");
+                                this.OperacionAnularMedicoConfianza();
+                                
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
 
 
 
-        //                }
-        //            }
-        //            this.Mostrar();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message + ex.StackTrace);
-        //    }
+
+
+
+                        }
+                    }
+                    this.Mostrar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+
+
+        private void OperacionInsertarMedicoConfianza()
+        {
+
+            // Operacion Anular
+            string rpta2 = "";
+
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Registrado a un medico de confianza.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+
+        }
+
+
+        private void OperacionEditarMedicoConfianza()
+        {
+
+            // Operacion Anular
+            string rpta2 = "";
+
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
+
+
+
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Editado a un medico de confianza.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
+
+
+
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+
         }
 
 
@@ -482,15 +563,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Anulado a un medico de confianza. ");
-            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Anulado a un medico de confianza. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Convert.ToString( Session_Actual.Log));
 
 
 
@@ -500,6 +581,31 @@ namespace CapaPresentacion
 
             rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
 
+
+            MessageBox.Show("HOLAAAAA :D");
+
+
+        }
+
+        //Medoto para buscar especialidad  
+        private void Buscar_Medico_Especialidad()
+        {
+
+            this.dataListado.DataSource = NMedicosConfianza.BuscarEspecialidad(this.txtBuscar.Text);
+            this.OcultarColumnas();
+
+
+
+
+            lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
+
+
+        }
+
+        //Metodo para editar medicos
+
+        private void Editar_medicos()
+        {
 
 
 
@@ -592,6 +698,70 @@ namespace CapaPresentacion
         private void labe4_MouseHover(object sender, EventArgs e)
         {
             this.ttMensaje.SetToolTip(this.label4, "Campo Obligatorio");
+        }
+
+        private void txtBuscar_TextChanged_1(object sender, EventArgs e)
+        {
+            if (this.cblBusqueda.Text.Equals("Nombre"))
+            {
+
+                this.BuscarNombre();
+            }
+            else if (this.cblBusqueda.Text.Equals("Especialidad"))
+            {
+                this.Buscar_Medico_Especialidad();
+            }
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (!this.txtNombre_Medico.Text.Equals(""))
+            {
+                this.IsEditar = true;
+                this.IsNuevo = false;
+                this.Botones();
+                //this.Habilitar(true);
+            }
+            else
+            {
+                this.MensajeError("Debe de seleccionar primero el paciente a Modificar");
+            }
+
+        }
+
+        private void txtNombre_Medico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void chkAnular_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chkAnular.Checked = true)
+            {
+
+                btnAnular.Enabled = true;
+
+            }
+            else if (chkAnular.Checked = false) 
+            {
+                btnAnular.Enabled = false;
+            } 
+            else { btnAnular.Enabled = false; }
         }
     }
 
