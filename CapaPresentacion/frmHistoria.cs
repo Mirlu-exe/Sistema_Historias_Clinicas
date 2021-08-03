@@ -688,10 +688,13 @@ namespace CapaPresentacion
             this.Limpiar();
             this.Habilitar(true);
             this.txtPaciente.Focus();
-
             this.tabControl1.SelectedIndex = 1;
 
             OcultarColumnas();
+
+
+
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -1486,5 +1489,37 @@ namespace CapaPresentacion
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
         }
+
+
+        private void buscar_plan_estudio_del_pac()
+        {
+
+            //aca se buscará cual es el ID de el PlanEstudio de ese paciente.
+            
+            //Se cargara en el txtbox 2 opciones: 
+            // 1. Sin PlanEstudio
+            // 2. Con PlanEstudio
+
+            //el id dependera de la opcion
+            //en caso de ser la primera, el id será 0
+            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
+                //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
+
+        }
+
+        private void buscar_plan_terapeutico_del_pac()
+        {
+            //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
+
+            //Se cargara en el txtbox 2 opciones: 
+            // 1. Sin PlanTerapeutico
+            // 2. Con PlanTerapeutico
+
+            //el id dependera de la opcion
+            //en caso de ser la primera, el id será 0
+            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
+                //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanTerapeutico
+        }
+
     }
 }

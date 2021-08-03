@@ -68,6 +68,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDiagnosticos = new System.Windows.Forms.TextBox();
+            this.cbPlanEstudio = new System.Windows.Forms.ComboBox();
+            this.cbPlanTerapeutico = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
             this.cblTipo_Sangre = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -175,8 +177,6 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
-            this.cbPlanEstudio = new System.Windows.Forms.ComboBox();
-            this.cbPlanTerapeutico = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -612,6 +612,32 @@
             this.txtDiagnosticos.Size = new System.Drawing.Size(1273, 87);
             this.txtDiagnosticos.TabIndex = 271;
             this.txtDiagnosticos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiagnosticos_KeyPress);
+            // 
+            // cbPlanEstudio
+            // 
+            this.cbPlanEstudio.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPlanEstudio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlanEstudio.FormattingEnabled = true;
+            this.cbPlanEstudio.Items.AddRange(new object[] {
+            "Sin Plan de Estudio",
+            "Plan de Estudio (hoy)"});
+            this.cbPlanEstudio.Location = new System.Drawing.Point(924, 190);
+            this.cbPlanEstudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPlanEstudio.Name = "cbPlanEstudio";
+            this.cbPlanEstudio.Size = new System.Drawing.Size(393, 40);
+            this.cbPlanEstudio.TabIndex = 270;
+            // 
+            // cbPlanTerapeutico
+            // 
+            this.cbPlanTerapeutico.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPlanTerapeutico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlanTerapeutico.FormattingEnabled = true;
+            this.cbPlanTerapeutico.Location = new System.Drawing.Point(924, 321);
+            this.cbPlanTerapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPlanTerapeutico.Name = "cbPlanTerapeutico";
+            this.cbPlanTerapeutico.Size = new System.Drawing.Size(393, 40);
+            this.cbPlanTerapeutico.TabIndex = 269;
+            this.cbPlanTerapeutico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbPlanTerapeutico_MouseDoubleClick);
             // 
             // label48
             // 
@@ -1943,28 +1969,6 @@
             this.btnAbrirArchivoMuerto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
             this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
-            // 
-            // cbPlanEstudio
-            // 
-            this.cbPlanEstudio.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPlanEstudio.FormattingEnabled = true;
-            this.cbPlanEstudio.Location = new System.Drawing.Point(924, 190);
-            this.cbPlanEstudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPlanEstudio.Name = "cbPlanEstudio";
-            this.cbPlanEstudio.Size = new System.Drawing.Size(393, 40);
-            this.cbPlanEstudio.TabIndex = 270;
-            // 
-            // cbPlanTerapeutico
-            // 
-            this.cbPlanTerapeutico.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPlanTerapeutico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlanTerapeutico.FormattingEnabled = true;
-            this.cbPlanTerapeutico.Location = new System.Drawing.Point(924, 321);
-            this.cbPlanTerapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPlanTerapeutico.Name = "cbPlanTerapeutico";
-            this.cbPlanTerapeutico.Size = new System.Drawing.Size(393, 40);
-            this.cbPlanTerapeutico.TabIndex = 269;
-            this.cbPlanTerapeutico.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbPlanTerapeutico_MouseDoubleClick);
             // 
             // frmHistoria
             // 
