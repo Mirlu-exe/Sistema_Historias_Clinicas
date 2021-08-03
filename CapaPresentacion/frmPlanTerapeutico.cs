@@ -415,7 +415,9 @@ namespace CapaPresentacion
                         SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
-                        DateTime hoy = DateTime.Now;
+
+
+                        string hoy = DateTime.Now.ToShortDateString();
 
 
 

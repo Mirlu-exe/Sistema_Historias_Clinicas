@@ -180,9 +180,7 @@ namespace CapaPresentacion
                         SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
-                        DateTime hoy = DateTime.Now;
-
-
+                        string hoy = DateTime.Now.ToShortDateString();
 
 
                         //construir el string de Laboratorios
@@ -214,7 +212,6 @@ namespace CapaPresentacion
 
                         rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
 
-                        MessageBox.Show("hey wtf " );
 
 
 
