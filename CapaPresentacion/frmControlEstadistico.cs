@@ -34,6 +34,9 @@ namespace CapaPresentacion
             this.Botones();
 
             lblFechaHora.Text = DateTime.Now.ToString();
+
+            MessageBox.Show("Hola! :) la fecha de hoy: " + DateTime.Now.ToString() + "");
+
         }
 
 
