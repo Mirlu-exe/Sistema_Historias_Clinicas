@@ -1476,5 +1476,15 @@ namespace CapaPresentacion
             frm.ShowDialog();
         }
 
+        private void cbPlanTerapeutico_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Mostrar el nombre y cedula del pac, fecha del plan terapeutico, y lista de Recipe e Indicaciones");
+        }
+
+        private void txtDiagnosticos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
     }
 }
