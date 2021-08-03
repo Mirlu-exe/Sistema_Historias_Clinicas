@@ -130,6 +130,7 @@
             this.cbMedicamento.SelectionChangeCommitted += new System.EventHandler(this.cbMedicamento_SelectionChangeCommitted);
             this.cbMedicamento.DropDownClosed += new System.EventHandler(this.cbMedicamento_DropDownClosed);
             this.cbMedicamento.ValueMemberChanged += new System.EventHandler(this.cbMedicamento_ValueMemberChanged);
+            this.cbMedicamento.TextChanged += new System.EventHandler(this.cbMedicamento_TextChanged);
             this.cbMedicamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMedicamento_KeyPress);
             // 
             // btnCancelar_informe

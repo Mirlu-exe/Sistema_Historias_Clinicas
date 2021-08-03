@@ -68,10 +68,16 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
+
             this.dataListado.Columns["idcita"].Visible = false;
             this.dataListado.Columns["idpaciente"].Visible = false;
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["idservicio"].Visible = false;
+
+            this.dgv_citashoy.Columns["idcita"].Visible = false;
+            this.dgv_citashoy.Columns["idpaciente"].Visible = false;
+            this.dgv_citashoy.Columns["idusuario"].Visible = false;
+            this.dgv_citashoy.Columns["idservicio"].Visible = false;
 
         }
 
@@ -424,7 +430,8 @@ namespace CapaPresentacion
                     groupBox1.Enabled = false;
                     groupBox2.Enabled = false;
 
-                    Mostrar();
+                    this.Mostrar();
+                    this.RevisarCitasHoy();
 
                     this.txtEstadoCita.Text = string.Empty;
 
@@ -654,15 +661,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado una nueva cita ");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Registrado a un Cita.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -696,14 +703,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó una cita ");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Editar a un Cita.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -738,15 +746,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló una cita");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Anular a una Cita.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -848,7 +856,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) +"' AND Cita.estado = 'Activo' ", conDataBase);
 
             try
             {
@@ -869,7 +877,7 @@ namespace CapaPresentacion
 
                 DataView DV = new DataView(tablita);
 
-                DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo'", Citashoy);
+                //DV.RowFilter = string.Format("fecha LIKE '%{0}' AND estado = 'Activo'", Citashoy);
 
                 dgv_citashoy.DataSource = DV;
 
@@ -885,15 +893,22 @@ namespace CapaPresentacion
             }
 
 
+            OcultarColumnas();
+            int Cupos = dgv_citashoy.Rows.Count;
+
+            lblCitasHoy.Text = "Total de Citas: " + Convert.ToString(Cupos);
 
 
+            //validacion de cupos maximos
 
-            lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);
+            if (Cupos == 5) 
+            {
+                MessageBox.Show("A alcanzado le monto maximo de citas diarias");
+                btnNuevo.Enabled = false;
 
-
-
-
-
+            }
+            else 
+            { btnNuevo.Enabled = true; }
 
 
 
@@ -1057,5 +1072,11 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

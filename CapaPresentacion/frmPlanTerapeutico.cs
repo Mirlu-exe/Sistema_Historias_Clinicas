@@ -107,12 +107,65 @@ namespace CapaPresentacion
 
 
         //Para llenar el cbPresentacion
-        private void LlenarCbPresentacion()
+        private List<string> LlenarCbPresentacion( int id_del_medicamento_a_buscar)
         {
-             
+
             //SQL
             //buscar en la tabla Medicamento_Pivote, las presentaciones que compartan el mismo id
 
+            string rpta = "";
+
+            List<string> Lista_de_id_presentaciones = new List<string>();
+
+
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_presentacion_segun_nombre_med";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+                SqlParameter ParNombre = new SqlParameter();
+                ParNombre.ParameterName = "@presentacion_a_buscar";
+                ParNombre.SqlDbType = SqlDbType.Int;
+                ParNombre.Size = 50;
+                ParNombre.Value = id_del_medicamento_a_buscar;
+                SqlCmd.Parameters.Add(ParNombre);
+
+
+                //Ejecutamos nuestro comando
+
+                int resultados = SqlCmd.ExecuteNonQuery();
+                MessageBox.Show("heeelloooooo :B " + resultados.ToString() +  "");
+
+
+                //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+                //// Add a range of items  
+                //int[] presentaciones = { rpta };
+                //AuthorList.AddRange(authors);
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+
+
+
+            return Lista_de_id_presentaciones;
 
 
         }
@@ -219,7 +272,9 @@ namespace CapaPresentacion
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.Mostrar();
+
+
 
             int id_del_pac = 0;
 
@@ -246,6 +301,44 @@ namespace CapaPresentacion
             return id_del_pac;
 
         }
+
+
+
+        private void Buscar_id_med_por_nombre()
+        {
+
+            //string nombre_med = this.cbMedicamento.Text;
+
+            //DataTable tablita = new DataTable();
+
+            //tablita = NPacientes.BuscarNum_Documento(cedula_del_pac);
+
+            //int id_del_pac = 0;
+
+            //if (tablita.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("no existe ese paciente");
+            //    id_del_pac = 0;
+            //}
+            //else
+            //{
+
+            //    id_del_pac = Convert.ToInt32(tablita.Rows[0][0]);
+            //    string nombre_del_pac = Convert.ToString(tablita.Rows[0][1]);
+            //    string sexo_del_pac = Convert.ToString(tablita.Rows[0][5]);
+
+            //    this.txtNombre_Paciente.Text = nombre_del_pac;
+            //    this.txtSexo.Text = sexo_del_pac;
+
+
+
+            //    //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(paciente_tabla.Rows.Count);
+            //}
+
+            //return id_del_pac;
+
+        }
+
 
 
 
@@ -279,6 +372,8 @@ namespace CapaPresentacion
 
         private void cbMedicamento_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+
 
 
         }
@@ -427,7 +522,6 @@ namespace CapaPresentacion
         private void cbMedicamento_DropDownClosed(object sender, EventArgs e)
         {
 
-            LlenarCbPresentacion();
 
         }
 
@@ -444,12 +538,23 @@ namespace CapaPresentacion
         private void cbPresentacion_Enter(object sender, EventArgs e)
         {
 
-            LlenarCbPresentacion();
 
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cbMedicamento_TextChanged(object sender, EventArgs e)
+        {
+            string nombre_med;
+
+            nombre_med = this.cbMedicamento.Text;
+
+            
+
+
 
         }
 

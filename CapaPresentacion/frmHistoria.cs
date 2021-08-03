@@ -64,6 +64,9 @@ namespace CapaPresentacion
             this.Botones();
             this.LlenarComboDiagnosticos();
 
+            this.LlenarCbPlanTerapeutico();
+
+
             OcultarColumnas();
             dataListado.Columns["idpaciente"].Visible = false;
         }
@@ -182,6 +185,33 @@ namespace CapaPresentacion
 
 
         }
+
+        private void LlenarCbPlanTerapeutico()
+        {
+
+            //crear un list que contenga 2 display member: "Sin Plan Terapeutico" y "Plan Terapeutico del dia 02/08/2021"
+            //dichos valuemembers seran: "id=0" y "id= id_del_plan_terapeutico_del_dia_02/08/2021"
+
+            //si se selecciona "Sin Plan Terapeutico" se guardará el id 0 en la historia.
+            //pero en caso de que se seleccione "Plan Terapeutico del dia 02/08/2021" se cargará el id correspondiente a ese PlanTerapeutico
+
+            //en caso de que no haya PlanTerapeutico de ese mismo dia, se mostrara un messagebox que 
+            //diga "Los Planes Terapeuticos registrados son muy antiguos, desea crear uno con la fecha de hoy?"
+
+
+
+            ////// Create a list  
+            ////List<string> AuthorList = new List<string>();
+
+            ////// Add items using Add method   
+            ////AuthorList.Add("Mahesh Chand");
+            ////AuthorList.Add("Praveen Kumar");
+            ////AuthorList.Add("Raj Kumar");
+
+            ////this.cbPlanTerapeutico.DataSource = 
+
+        }
+
 
         //Método para ocultar columnas
         private void OcultarColumnas()
@@ -361,7 +391,7 @@ namespace CapaPresentacion
         private void BuscarNombre()
         {
 
-            this.dataListado.DataSource = NPacientes.BuscarNombre(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarNombre(this.txtBuscar1.Text);
             this.OcultarColumnas();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
             
@@ -394,7 +424,7 @@ namespace CapaPresentacion
         //Método BuscarTalla
         private void BuscarTalla()
         {
-            this.dataListado.DataSource = NPacientes.BuscarTalla(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarTalla(this.txtBuscar1.Text);
             this.OcultarColumnas();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
         }
@@ -412,7 +442,7 @@ namespace CapaPresentacion
         private void BuscarCedula()
         {
 
-            this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar1.Text);
             this.OcultarColumnas();
 
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
@@ -580,6 +610,11 @@ namespace CapaPresentacion
             this.txtMostrarPeso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["peso"].Value);
             this.txtMostrarTalla.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["talla"].Value);
 
+            this.lbl_nombre_pac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
+            this.lbl_id_historia.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+            this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+
+
             this.OcultarColumnas();
         }
 
@@ -589,6 +624,7 @@ namespace CapaPresentacion
             {
 
                 this.BuscarNombre();
+                
             }
             else if (this.cblBusqueda.Text.Equals("Servicio"))
             {
@@ -608,6 +644,7 @@ namespace CapaPresentacion
             else if (this.cblBusqueda.Text.Equals("Cedula"))
             {
                 this.BuscarCedula();
+                
             }
         }
 
@@ -619,6 +656,7 @@ namespace CapaPresentacion
 
 
                 this.BuscarNombre();
+                
             }
             else if (this.cblBusqueda.Text.Equals("Servicio"))
             {
@@ -638,6 +676,7 @@ namespace CapaPresentacion
             else if (this.cblBusqueda.Text.Equals("Cedula"))
             {
                 this.BuscarCedula();
+                
             }
         }
 
@@ -874,6 +913,11 @@ namespace CapaPresentacion
             this.lbl_lista_evol_nombre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
             this.lbl_lista_evol_ci.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
+            //aca pasan de lista a historias clinicas
+
+            this.lbl_nombre_pac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
+            this.lbl_id_historia.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
+            this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
 
 
@@ -1432,6 +1476,5 @@ namespace CapaPresentacion
             frm.ShowDialog();
         }
 
-       
     }
 }
