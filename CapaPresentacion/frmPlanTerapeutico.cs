@@ -145,7 +145,6 @@ namespace CapaPresentacion
                 //Ejecutamos nuestro comando
 
                 int resultados = SqlCmd.ExecuteNonQuery();
-                MessageBox.Show("heeelloooooo :B " + resultados.ToString() +  "");
 
 
                 //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
@@ -787,17 +786,5 @@ namespace CapaPresentacion
 
 
 
-
-        //private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    //if (Char.IsLetter(e.KeyChar)) 
-
-        //    //{
-
-        //    //    e.KeyChar = Char.ToUpper(e.KeyChar);
-
-        //    //}
-
-        //}
     }
 }
