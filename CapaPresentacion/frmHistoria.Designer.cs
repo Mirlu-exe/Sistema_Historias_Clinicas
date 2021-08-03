@@ -64,7 +64,7 @@
             this.cblBusqueda = new System.Windows.Forms.ComboBox();
             this.dataListado = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtBuscar1 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDiagnosticos = new System.Windows.Forms.TextBox();
@@ -155,6 +155,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.lblhasta = new System.Windows.Forms.Label();
             this.lbldesde = new System.Windows.Forms.Label();
             this.DtpFecha2 = new System.Windows.Forms.DateTimePicker();
             this.DtpFecha1 = new System.Windows.Forms.DateTimePicker();
@@ -176,7 +177,6 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
-            this.lblhasta = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -233,7 +233,7 @@
             this.tabPage1.Controls.Add(this.cblBusqueda);
             this.tabPage1.Controls.Add(this.dataListado);
             this.tabPage1.Controls.Add(this.lblTotal);
-            this.tabPage1.Controls.Add(this.txtBuscar);
+            this.tabPage1.Controls.Add(this.txtBuscar1);
             this.tabPage1.Location = new System.Drawing.Point(4, 41);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
@@ -449,20 +449,18 @@
             // cblBusqueda
             // 
             this.cblBusqueda.BackColor = System.Drawing.SystemColors.Control;
+            this.cblBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cblBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cblBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
             this.cblBusqueda.FormattingEnabled = true;
             this.cblBusqueda.Items.AddRange(new object[] {
             "Paciente",
-            "Cedula",
-            "Peso",
-            "Talla"});
+            "Cedula"});
             this.cblBusqueda.Location = new System.Drawing.Point(215, 171);
             this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cblBusqueda.TabIndex = 9;
-            this.cblBusqueda.Text = "Paciente";
             // 
             // dataListado
             // 
@@ -526,15 +524,15 @@
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "label3";
             // 
-            // txtBuscar
+            // txtBuscar1
             // 
-            this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(409, 172);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(176, 39);
-            this.txtBuscar.TabIndex = 1;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar1.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBuscar1.Location = new System.Drawing.Point(409, 172);
+            this.txtBuscar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBuscar1.Name = "txtBuscar1";
+            this.txtBuscar1.Size = new System.Drawing.Size(176, 39);
+            this.txtBuscar1.TabIndex = 1;
+            this.txtBuscar1.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // tabPage3
             // 
@@ -869,7 +867,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(169, 32);
             this.label34.TabIndex = 78;
-            this.label34.Text = "Plan de estudio";
+            this.label34.Text = "Plan de Estudio";
             // 
             // label33
             // 
@@ -1698,6 +1696,16 @@
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
+            // lblhasta
+            // 
+            this.lblhasta.AutoSize = true;
+            this.lblhasta.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblhasta.Location = new System.Drawing.Point(49, 595);
+            this.lblhasta.Name = "lblhasta";
+            this.lblhasta.Size = new System.Drawing.Size(76, 32);
+            this.lblhasta.TabIndex = 204;
+            this.lblhasta.Text = "Hasta:";
+            // 
             // lbldesde
             // 
             this.lbldesde.AutoSize = true;
@@ -1955,16 +1963,6 @@
             this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
             this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
             // 
-            // lblhasta
-            // 
-            this.lblhasta.AutoSize = true;
-            this.lblhasta.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblhasta.Location = new System.Drawing.Point(49, 595);
-            this.lblhasta.Name = "lblhasta";
-            this.lblhasta.Size = new System.Drawing.Size(76, 32);
-            this.lblhasta.TabIndex = 204;
-            this.lblhasta.Text = "Hasta:";
-            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2028,7 +2026,7 @@
         private System.Windows.Forms.ComboBox cblBusqueda;
         private System.Windows.Forms.DataGridView dataListado;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtBuscar1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel2;

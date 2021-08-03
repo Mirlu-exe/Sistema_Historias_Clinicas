@@ -23,7 +23,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.ttMensaje.SetToolTip(this.btnAyuda, "Ayuda");
-        
+
         }
 
 
@@ -33,6 +33,8 @@ namespace CapaPresentacion
 
         private void InicioResumen_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Cita' Puede moverla o quitarla según sea necesario.
+            this.citaTableAdapter.Fill(this.dsPrincipal.Cita);
             cantidadpacientes();
             cantidadusuarios();
             cantidadcitas();
@@ -40,6 +42,9 @@ namespace CapaPresentacion
             cantidaddiagnosticos();
             cantidadservicios();
             cantidadrecetas();
+
+            ContarCitasParaHoy();
+
         }
 
 
@@ -116,8 +121,9 @@ namespace CapaPresentacion
         public void cantidadcitas()
         {
 
+
             string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            string Query = "select count(*) AS Cantidad from Cita where estado = 'Activo' ;";
+            string Query = "select count(*) AS Cantidad from Cita where estado = 'Activo'";
             SqlConnection conDataBase = new SqlConnection(CN);
             SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
             SqlDataReader Lectura;
@@ -313,6 +319,83 @@ namespace CapaPresentacion
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnCuposDisponiblesHoy_Click(object sender, EventArgs e)
+        {
+
+           
+        }
+
+        
+        private void ContarCitasParaHoy()
+        {
+          
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '" + DateTime.Now.ToShortDateString() + "' AND Cita.estado = 'Activo'", conDataBase);
+
+            try
+            {
+
+                string Citashoy = DateTime.Now.ToShortDateString();
+
+                // MessageBox.Show("hoy es: " + Citashoy + " :)");
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                DataTable tablita = new DataTable();
+                sda.Fill(tablita);
+
+
+                //contar los row desde aqui!!! ojo
+                int citas_para_hoy = tablita.Rows.Count;
+
+
+
+                int cant_max_cupos = 5;
+
+                int total_cupos_disponibles = (cant_max_cupos - citas_para_hoy);
+
+                btnCuposDisponiblesHoy.Text = "Para el día de hoy hay " + Convert.ToString(total_cupos_disponibles) + " cupos disponibles!!";
+                 
+                if (total_cupos_disponibles == 0 ) 
+                {
+
+                    btnCuposAgotados.Visible = true;
+
+                    btnCuposDisponiblesHoy.Visible = false;
+                }
+                else 
+                {
+
+                    btnCuposAgotados.Visible = false;
+
+                    btnCuposDisponiblesHoy.Visible = true;
+
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+                MessageBox.Show("Ha ocurrido un error");
+            }
+
+
+
+
+        }
+
+        private void btnCuposAgotados_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("No hay mas cupos disponibles!!, intente otro dia por favor");
 
         }
     }

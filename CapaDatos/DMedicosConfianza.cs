@@ -97,7 +97,7 @@ namespace CapaDatos
 
         }
 
-        public DMedicosConfianza( string nombre, string especialidad,  string direccion, string telefono, string correo, string estado, string texto_buscar)
+        public DMedicosConfianza( string nombre, string especialidad,  string direccion, string telefono, string correo, string estado, int idreferencia, string texto_buscar)
         {
             this.Nombre = nombre;
             this.Especialidad = especialidad;
@@ -105,12 +105,15 @@ namespace CapaDatos
             this.Telefono = telefono;
             this.Correo = correo;
             this.Estado = estado;
+            this.Idmedico = idreferencia;
             this.TextoBuscar = texto_buscar;
 
 
         }
 
         //Métodos
+
+            //Insertar
         public string Insertar(DMedicosConfianza medicoconfianza)
         {
             string rpta = "";
@@ -217,6 +220,136 @@ namespace CapaDatos
 
         }
 
+        //Metodo Editar
+        public string Editar(DMedicosConfianza medico)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speditar_medico_Confianza";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+               
+
+                SqlParameter EspecialidadMedic = new SqlParameter();
+                EspecialidadMedic.ParameterName = "@especialidad";
+                EspecialidadMedic.SqlDbType = SqlDbType.VarChar;
+                EspecialidadMedic.Size = 50;
+                EspecialidadMedic.Value = medico.Especialidad;
+                SqlCmd.Parameters.Add(EspecialidadMedic);
+
+                SqlParameter DirecionMedic = new SqlParameter();
+                DirecionMedic.ParameterName = "@direccion";
+                DirecionMedic.SqlDbType = SqlDbType.VarChar;
+                DirecionMedic.Size = 100;
+                DirecionMedic.Value = medico.Direccion;
+                SqlCmd.Parameters.Add(DirecionMedic);
+
+                SqlParameter TelefMedic = new SqlParameter();
+                TelefMedic.ParameterName = "@telefono";
+                TelefMedic.SqlDbType = SqlDbType.VarChar;
+                TelefMedic.Size = 20;
+                TelefMedic.Value = medico.Telefono;
+                SqlCmd.Parameters.Add(TelefMedic);
+
+                SqlParameter CorreoMedic = new SqlParameter();
+                CorreoMedic.ParameterName = "@correo";
+                CorreoMedic.SqlDbType = SqlDbType.VarChar;
+                CorreoMedic.Size = 50;
+                CorreoMedic.Value = medico.Correo;
+                SqlCmd.Parameters.Add(CorreoMedic);
+
+                SqlParameter EstadoMedic = new SqlParameter();
+                EstadoMedic.ParameterName = "@estado";
+                EstadoMedic.SqlDbType = SqlDbType.VarChar;
+                EstadoMedic.Size = 10;
+                EstadoMedic.Value = medico.Estado;
+                SqlCmd.Parameters.Add(EstadoMedic);
+
+                SqlParameter Id_Referencia = new SqlParameter();
+                Id_Referencia.ParameterName = "@idreferencia";
+                Id_Referencia.SqlDbType = SqlDbType.Int;
+                Id_Referencia.Value = medico.Idmedico;
+                SqlCmd.Parameters.Add(Id_Referencia);
+
+                SqlParameter NombreMedic = new SqlParameter();
+                NombreMedic.ParameterName = "@nombre";
+                NombreMedic.SqlDbType = SqlDbType.VarChar;
+                NombreMedic.Size = 50;
+                NombreMedic.Value = medico.Nombre;
+                SqlCmd.Parameters.Add(NombreMedic);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Actualizo el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+
+        //Método Anular
+        public string Anular(DMedicosConfianza MedicosConfianza)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spanular_medico_confianza";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParNombre = new SqlParameter();
+                ParNombre.ParameterName = "@nombre";
+                ParNombre.SqlDbType = SqlDbType.VarChar;
+                ParNombre.Size = 50;
+                ParNombre.Value = MedicosConfianza.Nombre;
+                SqlCmd.Parameters.Add(ParNombre);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Anulo el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+
+
+
+
 
         //Método BuscarNombre
         public DataTable BuscarNombre(DMedicosConfianza medico)
@@ -229,6 +362,37 @@ namespace CapaDatos
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
                 SqlCmd.CommandText = "spbuscar_medico_nombre";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@textobuscar";
+                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = medico.TextoBuscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+        //Metodo BuscarEspecialidad
+        public DataTable BuscarEspecialidad(DMedicosConfianza medico)
+        {
+            DataTable DtResultado = new DataTable("Paciente");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spbuscar_medico_especialidad";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();

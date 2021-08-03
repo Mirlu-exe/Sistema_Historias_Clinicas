@@ -518,10 +518,10 @@ namespace CapaDatos
                 ParIdpaciente.Value = Paciente.Idpaciente;
                 SqlCmd.Parameters.Add(ParIdpaciente);
 
-
+                
                 //Ejecutamos nuestro comando
 
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Elimino el Registro";
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Anulo el Registro";
 
 
             }

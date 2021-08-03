@@ -480,15 +480,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un nuevo diagnostico al sistema");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Registrado un Diagnostico.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -522,15 +522,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó un diagnostico");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Editado un diagnostico.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -564,16 +564,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se eliminó un diagnostico");
-
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha Anulado un diagnostico.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 

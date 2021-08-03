@@ -513,7 +513,7 @@ namespace CapaPresentacion
                             if (rpta.Equals("OK"))
                             {
                                 this.MensajeOk("Se Anuló Correctamente El Paciente");
-                                this.OperacionAnularPaciente();
+                                //this.OperacionAnularPaciente();
                             }
                             else
                             {

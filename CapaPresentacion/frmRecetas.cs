@@ -132,7 +132,7 @@ namespace CapaPresentacion
 
             //this.dataListado.Columns[0].Visible = false;
             //this.dataListado.Columns[1].Visible = false;
-            this.dataListado.Columns[1].Visible = false;
+             //this.dataListado.Columns[1].Visible = false;
         }
 
 
@@ -720,15 +720,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó una receta");
-
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha editado un medicamento.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -762,14 +762,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2, @d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló una receta");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario ha anulado un medicamento.");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 

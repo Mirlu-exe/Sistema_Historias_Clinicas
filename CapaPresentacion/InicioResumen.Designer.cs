@@ -74,6 +74,10 @@
             this.btnAyuda = new System.Windows.Forms.Button();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.btnCuposDisponiblesHoy = new System.Windows.Forms.Button();
+            this.citaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
+            this.citaTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.CitaTableAdapter();
+            this.btnCuposAgotados = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
@@ -93,6 +97,8 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFecha
@@ -616,6 +622,39 @@
             this.btnCuposDisponiblesHoy.Text = "Para el día de hoy hay N cupos disponibles!";
             this.btnCuposDisponiblesHoy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCuposDisponiblesHoy.UseVisualStyleBackColor = false;
+            this.btnCuposDisponiblesHoy.Click += new System.EventHandler(this.btnCuposDisponiblesHoy_Click);
+            // 
+            // citaBindingSource
+            // 
+            this.citaBindingSource.DataMember = "Cita";
+            this.citaBindingSource.DataSource = this.dsPrincipal;
+            // 
+            // dsPrincipal
+            // 
+            this.dsPrincipal.DataSetName = "dsPrincipal";
+            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // citaTableAdapter
+            // 
+            this.citaTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnCuposAgotados
+            // 
+            this.btnCuposAgotados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCuposAgotados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCuposAgotados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuposAgotados.Font = new System.Drawing.Font("Segoe UI Light", 16F);
+            this.btnCuposAgotados.ForeColor = System.Drawing.Color.Maroon;
+            this.btnCuposAgotados.Image = global::CapaPresentacion.Properties.Resources.check__calendar;
+            this.btnCuposAgotados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCuposAgotados.Location = new System.Drawing.Point(325, 784);
+            this.btnCuposAgotados.Name = "btnCuposAgotados";
+            this.btnCuposAgotados.Padding = new System.Windows.Forms.Padding(5);
+            this.btnCuposAgotados.Size = new System.Drawing.Size(685, 79);
+            this.btnCuposAgotados.TabIndex = 59;
+            this.btnCuposAgotados.Text = "No Hay Cupos disponibles !!";
+            this.btnCuposAgotados.UseVisualStyleBackColor = false;
+            this.btnCuposAgotados.Click += new System.EventHandler(this.btnCuposAgotados_Click);
             // 
             // InicioResumen
             // 
@@ -623,6 +662,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.Controls.Add(this.btnCuposAgotados);
             this.Controls.Add(this.btnCuposDisponiblesHoy);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.panel3);
@@ -671,6 +711,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,5 +763,9 @@
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnCuposDisponiblesHoy;
+        private dsPrincipal dsPrincipal;
+        private System.Windows.Forms.BindingSource citaBindingSource;
+        private dsPrincipalTableAdapters.CitaTableAdapter citaTableAdapter;
+        private System.Windows.Forms.Button btnCuposAgotados;
     }
 }
