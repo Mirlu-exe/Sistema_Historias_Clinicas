@@ -315,8 +315,8 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-
-                Console.WriteLine("No se encontro la Salt del username seleccionado.");
+                //MessageBox.Show(ex.ToString());
+                //Console.WriteLine("No se encontro la Salt del username seleccionado.");
             }
 
 
@@ -358,7 +358,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("No se encontro la contrasela del username seleccionado");
 
-                Console.WriteLine("No se encontro la contraseña del username seleccionado.");
             }
 
 

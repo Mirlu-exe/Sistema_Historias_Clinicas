@@ -443,6 +443,7 @@
             this.lblcodigoUsuario.Size = new System.Drawing.Size(127, 21);
             this.lblcodigoUsuario.TabIndex = 20;
             this.lblcodigoUsuario.Text = "codigousuario";
+            this.lblcodigoUsuario.Visible = false;
             // 
             // lblLogin
             // 
@@ -497,6 +498,7 @@
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(1578, 55);
             this.BarraTitulo.TabIndex = 1;
+            this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
             // iconminimizar

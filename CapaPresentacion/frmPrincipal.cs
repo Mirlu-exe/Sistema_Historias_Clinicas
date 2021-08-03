@@ -118,7 +118,7 @@ namespace CapaPresentacion
             
 
 
-            MessageBox.Show("Bienvenido " + Session_Actual.Log + " :) " );
+            MessageBox.Show("Bienvenido al sistema " + Session_Actual.Log + " " );
 
 
 
@@ -399,9 +399,9 @@ namespace CapaPresentacion
             
         }
 
-        
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
 
-
-
+        }
     }
 }
