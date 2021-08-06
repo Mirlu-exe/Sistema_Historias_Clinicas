@@ -274,9 +274,7 @@ namespace CapaPresentacion
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.Mostrar();
-
-
+            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -303,6 +301,7 @@ namespace CapaPresentacion
             return id_del_pac;
 
         }
+
 
 
 
