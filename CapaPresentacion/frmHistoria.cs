@@ -66,7 +66,7 @@ namespace CapaPresentacion
             this.Top = 0;
             this.Left = 0;
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
             this.LlenarComboDiagnosticos();
 
@@ -129,11 +129,10 @@ namespace CapaPresentacion
         private void Limpiar()
         {
 
-            //this.txtPaciente.Text = string.Empty;
-            //this.txtCedula.Text = string.Empty;
-            ////this.txtServicio.Text = string.Empty;
-            //this.txtMostrarPeso.Text = string.Empty;
-            //this.txtMostrarTalla.Text = string.Empty;
+            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNombre_Paciente.Text = string.Empty;
+            this.txtSexo.Text = string.Empty;
+
             this.txtRazonConsulta.Text = string.Empty;
             this.txtEnfermedadActual.Text = string.Empty;
             this.txtHistoriaPersonal.Text = string.Empty;
@@ -155,38 +154,50 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            //this.txtPaciente.ReadOnly = !valor;
-            //this.txtCedula.ReadOnly = !valor;
-            ////this.txtServicio.ReadOnly = !valor;
-            //this.txtMostrarPeso.ReadOnly = !valor;
-            //this.txtMostrarTalla.ReadOnly = !valor;
-            this.txtEnfermedadActual.ReadOnly = !valor;
-            this.txtRazonConsulta.ReadOnly = !valor;
-            this.txtHistoriaPersonal.ReadOnly = !valor;
-            this.txtHistoriaFamiliar.ReadOnly = !valor;
-            this.txtTratamiento_Actual.ReadOnly = !valor;
-            this.txtExamenFisico.ReadOnly = !valor;
-            this.txtLaboratorio.ReadOnly = !valor;
-            this.txtecg.ReadOnly = !valor;
-            this.txtRayos_X.ReadOnly = !valor;
-            this.txtEcocardiograma.ReadOnly = !valor;
-            //this.cbPlanEstudio.Enabled = !valor;
-            //this.cbPlanTerapeutico.Enabled = !valor;
-
-
-
-            //this.btnLimpiar.Enabled = valor;
-
+            this.txtRazonConsulta.Enabled = true;
+            this.txtEnfermedadActual.Enabled = true;
+            this.txtHistoriaPersonal.Enabled = true;
+            this.txtHistoriaFamiliar.Enabled = true;
+            this.txtTratamiento_Actual.Enabled = true;
+            this.txtExamenFisico.Enabled = true;
+            this.txtLaboratorio.Enabled = true;
+            this.txtecg.Enabled = true;
+            this.txtRayos_X.Enabled = true;
+            this.txtEcocardiograma.Enabled = true;
+            //this.cbPlanEstudio.Enabled = true;
+            //this.cbPlanTerapeutico.Enabled = true;
+            this.cblTipo_Sangre.Enabled = true;
+            this.cbDiagnosticos.Enabled = true;
         }
+
+        //Habilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtRazonConsulta.Enabled = false;
+            this.txtEnfermedadActual.Enabled = false;
+            this.txtHistoriaPersonal.Enabled = false;
+            this.txtHistoriaFamiliar.Enabled = false;
+            this.txtTratamiento_Actual.Enabled = false;
+            this.txtExamenFisico.Enabled = false;
+            this.txtLaboratorio.Enabled = false;
+            this.txtecg.Enabled = false;
+            this.txtRayos_X.Enabled = false;
+            this.txtEcocardiograma.Enabled = false;
+            //this.cbPlanEstudio.Enabled = false;
+            //this.cbPlanTerapeutico.Enabled = false;
+            this.cblTipo_Sangre.Enabled = false;
+            this.cbDiagnosticos.Enabled = false;
+        }
+
 
         //Habilitar los botones
         private void Botones()
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
@@ -194,7 +205,7 @@ namespace CapaPresentacion
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
@@ -523,6 +534,94 @@ namespace CapaPresentacion
 
             lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);*/
         }
+
+
+        private DataTable Datos_De_La_Historia( int id_pac)
+        {
+            //aca se buscará la historia del paciente segun su id
+
+            DataTable DtResultado = new DataTable("Datos_Historia");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_historia";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_pac";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = id_pac;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+            return DtResultado;
+
+
+        }
+
+
+        private void Cargar_Historia_En_Campos()
+        {
+
+            int id_pac = Buscar_idPac_por_cedula();
+
+            DataTable HistoriaDelPac = Datos_De_La_Historia(id_pac);
+
+            if (HistoriaDelPac.Rows.Count <= 0)
+            {
+
+                MessageBox.Show("Oops, este paciente no tiene historia!");
+                HistoriaDelPac = null;
+
+            }
+            else
+            {
+
+                MessageBox.Show("Este paciente posee historia");
+
+                //meter los row/column de esa datatable en cada campo del form
+
+
+                this.dtpFechaConsulta.Value = Convert.ToDateTime(HistoriaDelPac.Rows[0][2]);
+                this.txtRazonConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
+                this.txtEnfermedadActual.Text = Convert.ToString(HistoriaDelPac.Rows[0][4]);
+                this.txtHistoriaFamiliar.Text = Convert.ToString(HistoriaDelPac.Rows[0][5]);
+                this.txtHistoriaPersonal.Text = Convert.ToString(HistoriaDelPac.Rows[0][6]);
+                this.txtTratamiento_Actual.Text = Convert.ToString(HistoriaDelPac.Rows[0][7]);
+                this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][8]);
+                this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
+                this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
+                this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
+                this.txtRayos_X.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
+                this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][13]);
+                this.cblTipo_Sangre.Text = Convert.ToString(HistoriaDelPac.Rows[0][14]);
+
+
+
+            }
+
+            
+
+
+        }
+
+
+
+
 
 
 
@@ -857,13 +956,12 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
-           // this.txtPaciente.Focus();
-            this.tabControl1.SelectedIndex = 1;
+            this.Habilitar();
 
             OcultarColumnas();
 
-            
+
+            this.dtpFechaConsulta.Value = DateTime.Today;
 
 
         }
@@ -1023,7 +1121,7 @@ namespace CapaPresentacion
             {
                 this.IsEditar = true;
                 this.Botones();
-                this.Habilitar(true);
+                this.Habilitar();
             }
             else
             {
@@ -1037,7 +1135,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void chkAnular_CheckedChanged(object sender, EventArgs e)
@@ -1654,8 +1752,15 @@ namespace CapaPresentacion
 
         private void cbDiagnosticos_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+            {
                 e.KeyChar -= (char)32;
+            }
+
+
+
         }
 
 
@@ -1808,7 +1913,7 @@ namespace CapaPresentacion
 
             if (paciente_tabla.Rows.Count == 0)
             {
-                MessageBox.Show("no existe ese paciente");
+                //MessageBox.Show("no existe ese paciente");
                 id_del_pac = 0;
             }
             else
@@ -1818,9 +1923,11 @@ namespace CapaPresentacion
                 string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
                 string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
 
+
                 this.txtNombre_Paciente.Text = nombre_del_pac;
                 this.txtSexo.Text = sexo_del_pac;
 
+                this.dtpNacimientoPac.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
 
 
                 //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(paciente_tabla.Rows.Count);
@@ -1901,6 +2008,8 @@ namespace CapaPresentacion
                 if (id_del_paciente_a_cargar > 0)
                 {
                     this.lbl_idpac.Text = id_del_paciente_a_cargar.ToString();
+
+                    Cargar_Historia_En_Campos();
 
                     Gestionar_PlanEstudio();
 
