@@ -35,6 +35,10 @@ namespace CapaPresentacion
         public frmHistoria()
         {
             InitializeComponent();
+
+           
+            
+
             this.ttMensaje.SetToolTip(this.dtpFechaConsulta, "Ingrese la fecha de consulta");
 
             this.ttMensaje.SetToolTip(this.txtRazonConsulta, "Ingrese la razon de la consulta");
@@ -58,17 +62,19 @@ namespace CapaPresentacion
             
         }
 
-        private void 
-            
-            frmHistoria_Load(object sender, EventArgs e)
+        private void  frmHistoria_Load(object sender, EventArgs e)
         {
+
+            autocompletar_diagnosticos();
+            
+
             this.MostrarHistoriasActivas();
             this.Top = 0;
             this.Left = 0;
             this.Mostrar();
             this.Deshabilitar();
             this.Botones();
-            this.LlenarComboDiagnosticos();
+            //this.LlenarComboDiagnosticos();
 
             //this.LlenarCbPlanTerapeutico();
 
@@ -146,7 +152,7 @@ namespace CapaPresentacion
             //this.cbPlanEstudio.Text = string.Empty;
             //this.cbPlanTerapeutico.Text = string.Empty;
             this.cblTipo_Sangre.Text = string.Empty;
-            this.cbDiagnosticos.Text = string.Empty;
+            //this.cbDiagnosticos.Text = string.Empty;
             
 
 
@@ -169,7 +175,9 @@ namespace CapaPresentacion
             //this.cbPlanEstudio.Enabled = true;
             //this.cbPlanTerapeutico.Enabled = true;
             this.cblTipo_Sangre.Enabled = true;
-            this.cbDiagnosticos.Enabled = true;
+            //this.cbDiagnosticos.Enabled = true;
+            this.txtDiagnosticos.Enabled = true;
+            this.listboxDiagnosticosFinales.Enabled = true;
         }
 
         //Habilitar los controles del formulario
@@ -188,7 +196,9 @@ namespace CapaPresentacion
             //this.cbPlanEstudio.Enabled = false;
             //this.cbPlanTerapeutico.Enabled = false;
             this.cblTipo_Sangre.Enabled = false;
-            this.cbDiagnosticos.Enabled = false;
+            //this.cbDiagnosticos.Enabled = false;
+            this.txtDiagnosticos.Enabled = false;
+            this.listboxDiagnosticosFinales.Enabled = false;
         }
 
 
@@ -216,76 +226,83 @@ namespace CapaPresentacion
 
 
 
-        private void LlenarComboDiagnosticos()
-        {
-            //llenar el cb diagnostico aplicando autocompletado
+        //private void LlenarComboDiagnosticos()
+        //{
+        //    //llenar el cb diagnostico aplicando autocompletado
 
-            DataTable tabla_meds = new DataTable();
+        //    DataTable tabla_meds = new DataTable();
 
-            tabla_meds = NDiagnostico.Mostrar();
+        //    tabla_meds = NDiagnostico.Mostrar();
 
-            if (tabla_meds == null)
-            {
-                MessageBox.Show("No hay registros en medicamentos ");
+        //    if (tabla_meds == null)
+        //    {
+        //        MessageBox.Show("No hay registros en medicamentos ");
 
-            }
-            else
-            {
-                List<string> meds = tabla_meds.AsEnumerable().Select(r => r.Field<string>("enfermedad")).ToList();
+        //    }
+        //    else
+        //    {
+        //        List<string> meds = tabla_meds.AsEnumerable().Select(r => r.Field<string>("enfermedad")).ToList();
 
-                string[] meds_array = meds.ToArray();
+        //        string[] meds_array = meds.ToArray();
 
-                var autoComplete = new AutoCompleteStringCollection();
-                autoComplete.AddRange(meds_array);
+        //        var autoComplete = new AutoCompleteStringCollection();
+        //        autoComplete.AddRange(meds_array);
 
-                this.cbDiagnosticos.AutoCompleteCustomSource = autoComplete;
+        //        this.cbDiagnosticos.AutoCompleteCustomSource = autoComplete;
 
-                //traer toda la tabla de medicamentos
-                cbDiagnosticos.ValueMember = "id"; //id
-                cbDiagnosticos.DisplayMember = "enfermedad"; //medicamento
-
-
-
-
-            }
+        //        //traer toda la tabla de medicamentos
+        //        cbDiagnosticos.ValueMember = "id"; //id
+        //        cbDiagnosticos.DisplayMember = "enfermedad"; //medicamento
 
 
 
 
+        //    }
 
-            //this.cbPresentacion.DataSource = NReceta.Mostrar();
-            //cbPresentacion.ValueMember = "presentacion";
-            //cbPresentacion.DisplayMember = "presentacion";
 
-            //this.cbDosis.DataSource = NReceta.Mostrar();
-            //cbDosis.ValueMember = "dosis";
-            //cbDosis.DisplayMember = "dosis";
 
-        }
+
+
+        //    //this.cbPresentacion.DataSource = NReceta.Mostrar();
+        //    //cbPresentacion.ValueMember = "presentacion";
+        //    //cbPresentacion.DisplayMember = "presentacion";
+
+        //    //this.cbDosis.DataSource = NReceta.Mostrar();
+        //    //cbDosis.ValueMember = "dosis";
+        //    //cbDosis.DisplayMember = "dosis";
+
+        //}
+
+
+
+
+
+
+
 
         //private void LlenarCbPlanTerapeutico()
         //{
 
-            //crear un list que contenga 2 display member: "Sin Plan Terapeutico" y "Plan Terapeutico del dia 02/08/2021"
-            //dichos valuemembers seran: "id=0" y "id= id_del_plan_terapeutico_del_dia_02/08/2021"
+        //crear un list que contenga 2 display member: "Sin Plan Terapeutico" y "Plan Terapeutico del dia 02/08/2021"
+        //dichos valuemembers seran: "id=0" y "id= id_del_plan_terapeutico_del_dia_02/08/2021"
 
-            //si se selecciona "Sin Plan Terapeutico" se guardará el id 0 en la historia.
-            //pero en caso de que se seleccione "Plan Terapeutico del dia 02/08/2021" se cargará el id correspondiente a ese PlanTerapeutico
+        //si se selecciona "Sin Plan Terapeutico" se guardará el id 0 en la historia.
+        //pero en caso de que se seleccione "Plan Terapeutico del dia 02/08/2021" se cargará el id correspondiente a ese PlanTerapeutico
 
-            //en caso de que no haya PlanTerapeutico de ese mismo dia, se mostrara un messagebox que 
-            //diga "Los Planes Terapeuticos registrados son muy antiguos, desea crear uno con la fecha de hoy?"
+        //en caso de que no haya PlanTerapeutico de ese mismo dia, se mostrara un messagebox que 
+        //diga "Los Planes Terapeuticos registrados son muy antiguos, desea crear uno con la fecha de hoy?"
 
 
 
-            ////// Create a list  
-            ////List<string> AuthorList = new List<string>();
+        ////// Create a list  
+        ////List<string> AuthorList = new List<string>();
 
-            ////// Add items using Add method   
-            ////AuthorList.Add("Mahesh Chand");
-            ////AuthorList.Add("Praveen Kumar");
-            ////AuthorList.Add("Raj Kumar");
+        ////// Add items using Add method   
+        ////AuthorList.Add("Mahesh Chand");
+        ////AuthorList.Add("Praveen Kumar");
+        ////AuthorList.Add("Raj Kumar");
 
-            ////this.cbPlanTerapeutico.DataSource = 
+        ////this.cbPlanTerapeutico.DataSource = 
 
         //}
 
@@ -455,6 +472,40 @@ namespace CapaPresentacion
 
         //    lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
         //}
+
+
+        void autocompletar_diagnosticos()
+        {
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+
+            DataTable datos = new DataTable();
+
+            AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+            SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Diagnostico", conDataBase);
+
+            adaptador.Fill(datos);
+
+            for (int i=0; i < datos.Rows.Count; i++)
+            {
+
+                lista.Add(datos.Rows[i]["enfermedad"].ToString());
+
+            }
+
+            txtDiagnosticos.AutoCompleteCustomSource = lista;
+
+        }
+
+
+
+
+
+
+
+
 
 
         //Metodo BuscarPacienteSegunHistoria
@@ -696,6 +747,9 @@ namespace CapaPresentacion
 
 
 
+
+
+
         //Método Mostrar
         private void MostrarFechas(string fecha1, string fecha2)
         {
@@ -850,6 +904,9 @@ namespace CapaPresentacion
 
 
 
+        
+
+
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
             //aca te lleva a la pestaña de historia
@@ -957,6 +1014,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar();
+
 
             OcultarColumnas();
 
@@ -1211,7 +1269,7 @@ namespace CapaPresentacion
             //this.cbPlanTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
             this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
 
-            this.cbDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
+            //this.cbDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
             this.cblTipo_Sangre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tipo_sangre"].Value);
 
             this.tabControl1.SelectedIndex = 1;
@@ -2021,6 +2079,177 @@ namespace CapaPresentacion
                     MessageBox.Show("Este paciente no esta registrado");
                 }
 
+            }
+        }
+
+        private void cbDiagnosticos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiagnosticos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddDiagnosticToList()
+        {
+
+            
+
+
+            string diagnostico = this.txtDiagnosticos.Text;
+
+            if (validarExisteDiagnostico(diagnostico))
+            {
+                //si el texto escrito existe en la base de datos de Diagnosticos 
+
+                bool found = false;
+
+                foreach (var item in listboxDiagnosticosFinales.Items)
+                {
+                    if (item.ToString().Equals(diagnostico))
+                    {
+                        found = true;
+
+                        MessageBox.Show("El diagnostico " + diagnostico + " ya fue previamente añadido. No se pueden agregar duplicados");
+
+                        this.Focus();
+
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    listboxDiagnosticosFinales.Items.Add(diagnostico);
+                    this.txtDiagnosticos.Text = string.Empty;
+                }
+
+
+            }
+            else
+            {
+                //si el texto escrito NO existe en la base de datos de Diagnosticos
+                MessageBox.Show("ERROR! El diagnostico '" + diagnostico + "' no se encuentra en la base de datos. Porfavor, verifique el texto ingresado.");
+
+                DialogResult res = MessageBox.Show("Desea registrar '" + diagnostico + "' como un nuevo diagnostico?", "Diagnostico invalido", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+
+                    frmDiagnostico frm = new frmDiagnostico();
+
+                    frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+
+                    frm.ShowDialog();
+
+                }
+                if (res == DialogResult.No)
+                {
+                    this.txtDiagnosticos.Text = string.Empty;
+                }
+                if (res == DialogResult.Cancel)
+                {
+                    this.txtDiagnosticos.Text = string.Empty;
+                }
+
+            }
+
+           
+
+
+
+        }
+
+        private void RemoveDiagnosticFromList()
+        {
+            int posicion = listboxDiagnosticosFinales.SelectedIndex;
+
+            if (posicion == -1)
+            {
+                MessageBox.Show("seleccione un elemento para quitar de la lista de Diagnosticos");
+            }
+            else
+            {
+                //quitar el item del listbox
+                listboxDiagnosticosFinales.Items.RemoveAt(posicion);
+            }
+        }
+
+
+        private void btnAñadirDiag_Click(object sender, EventArgs e)
+        {
+            AddDiagnosticToList();
+        }
+
+        private void btnQuitarDiag_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosticFromList();
+        }
+
+        //private void txtDiagnosticos_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyData == Keys.Return)
+        //    {
+        //        AddDiagnosticToList();
+        //    }
+
+
+        //}
+
+        public bool validarExisteDiagnostico(string diagnostico_escrito)
+        {
+
+
+            SqlDataReader dr;
+
+            bool resultado = false;
+
+
+            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //Código
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.Open();
+            //Establecer el Comando
+            SqlCommand SqlCmd = new SqlCommand("select * from Diagnostico where enfermedad ='" + diagnostico_escrito + "' ");
+            SqlCmd.Connection = SqlCon;
+
+
+
+            try
+            {
+
+                dr = SqlCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    resultado = true;
+
+                }
+
+                dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
+
+            return resultado;
+
+        }
+
+
+
+        private void listboxDiagnosticosFinales_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                RemoveDiagnosticFromList();
             }
         }
     }

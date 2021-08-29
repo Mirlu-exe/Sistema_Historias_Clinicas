@@ -282,5 +282,10 @@ namespace CapaPresentacion
             Habilitar();
             IsNuevo = true;
         }
+
+        private void btnQuitarLab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

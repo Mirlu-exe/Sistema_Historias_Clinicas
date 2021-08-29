@@ -277,12 +277,12 @@ namespace CapaPresentacion
 
                         if (this.IsNuevo)
                         {
-                            this.MensajeOk("Se Insertó de forma correcta el paciente");
+                            this.MensajeOk("Se Insertó de forma correcta el diagnostico");
                             this.OperacionInsertarDiagnostico();
                         }
                         else
                         {
-                            this.MensajeOk("Se Actualizó de forma correcta el paciente");
+                            this.MensajeOk("Se Actualizó de forma correcta el diagnostico");
                             this.OperacionEditarDiagnostico();
                         }
 
