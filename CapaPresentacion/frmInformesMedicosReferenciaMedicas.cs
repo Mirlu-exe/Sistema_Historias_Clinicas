@@ -406,10 +406,7 @@ namespace CapaPresentacion
 
         }
 
-
-
-
-        private void cbMedicosConfianza_DropDownClosed(object sender, EventArgs e)
+        private void Medicos_Cargar_Txt()
         {
             if (this.cbMedicosConfianza.SelectedIndex == -1)
             {
@@ -463,11 +460,17 @@ namespace CapaPresentacion
                 catch (Exception ex)
                 {
 
-
+                    MessageBox.Show(ex.ToString());
                 }
 
 
             }
+        }
+
+
+        private void cbMedicosConfianza_DropDownClosed(object sender, EventArgs e)
+        {
+            this.Medicos_Cargar_Txt();
 
         }
 
@@ -597,6 +600,14 @@ namespace CapaPresentacion
 
         }
 
+        private void cbMedicosConfianza_Leave(object sender, EventArgs e)
+        {
+            this.Medicos_Cargar_Txt();
+        }
 
+        private void cbMedicosConfianza_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //this.Medicos_Cargar_Txt();
+        }
     }
 }

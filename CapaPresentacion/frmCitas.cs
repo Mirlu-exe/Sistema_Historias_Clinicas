@@ -1078,5 +1078,10 @@ namespace CapaPresentacion
 
         }
 
+        private void btnReporte_Cita_Click(object sender, EventArgs e)
+        {
+            frmListadoCitasUsuario frm = new frmListadoCitasUsuario();
+            frm.Show();
+        }
     }
 }

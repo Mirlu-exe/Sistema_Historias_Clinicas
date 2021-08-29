@@ -50,6 +50,9 @@ namespace CapaPresentacion
 
             Deshabilitar();
 
+
+            this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
+
         }
 
 
@@ -142,7 +145,6 @@ namespace CapaPresentacion
                 //Ejecutamos nuestro comando
 
                 int resultados = SqlCmd.ExecuteNonQuery();
-                MessageBox.Show("heeelloooooo :B " + resultados.ToString() +  "");
 
 
                 //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
@@ -272,9 +274,7 @@ namespace CapaPresentacion
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.Mostrar();
-
-
+            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -304,40 +304,6 @@ namespace CapaPresentacion
 
 
 
-        private void Buscar_id_med_por_nombre()
-        {
-
-            //string nombre_med = this.cbMedicamento.Text;
-
-            //DataTable tablita = new DataTable();
-
-            //tablita = NPacientes.BuscarNum_Documento(cedula_del_pac);
-
-            //int id_del_pac = 0;
-
-            //if (tablita.Rows.Count == 0)
-            //{
-            //    MessageBox.Show("no existe ese paciente");
-            //    id_del_pac = 0;
-            //}
-            //else
-            //{
-
-            //    id_del_pac = Convert.ToInt32(tablita.Rows[0][0]);
-            //    string nombre_del_pac = Convert.ToString(tablita.Rows[0][1]);
-            //    string sexo_del_pac = Convert.ToString(tablita.Rows[0][5]);
-
-            //    this.txtNombre_Paciente.Text = nombre_del_pac;
-            //    this.txtSexo.Text = sexo_del_pac;
-
-
-
-            //    //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(paciente_tabla.Rows.Count);
-            //}
-
-            //return id_del_pac;
-
-        }
 
 
 
@@ -368,15 +334,10 @@ namespace CapaPresentacion
         {
             Habilitar();
             IsNuevo = true;
-        }
-
-        private void cbMedicamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-
 
         }
+
+     
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
@@ -388,7 +349,7 @@ namespace CapaPresentacion
 
 
             // Add more items to the list  
-            listBox1.Items.Add( med + presentacion + dosis + "  \n Indicaciones: " + indic + "  \n");
+            listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  \n Indicaciones: " + indic + "  \n");
 
 
 
@@ -402,6 +363,19 @@ namespace CapaPresentacion
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
+            int posicion = listBox1.SelectedIndex;
+
+            if(posicion == -1)
+            {
+                MessageBox.Show("seleccione un elemento para quitar de el Plan Terapeutico");
+            }
+            else
+            {
+               
+
+                listBox1.Items.RemoveAt(posicion);
+            }
+            
 
         }
 
@@ -436,18 +410,26 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into PlanTerapeutico (cedula_pac, nombre_pac, sexo, recipe_indicaciones, fecha_emision) values (@d1,@d2,@d3,@d4,@d5);";
-                        //SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                        DateTime hoy = DateTime.Now;
-
-                        SqlCmd.Parameters.AddWithValue("@d1", this.txtNumero_Documento.Text);
-                        SqlCmd.Parameters.AddWithValue("@d2", this.txtNombre_Paciente.Text);
-                        SqlCmd.Parameters.AddWithValue("@d3", this.txtSexo.Text);
-                        SqlCmd.Parameters.AddWithValue("@d4", this.listBox1.Text);
-                        SqlCmd.Parameters.AddWithValue("@d5", hoy);
+                        SqlCmd.CommandText = "spinsertar_planterapeutico";
+                        SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
+
+
+                        string hoy = DateTime.Now.ToShortDateString();
+
+
+
+                        StringBuilder sb = new StringBuilder();
+                        foreach (string s in listBox1.Items)
+                        sb.Append(s);
+
+                        string recipe_e_indicaciones = sb.ToString();
+
+
+                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
+                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", recipe_e_indicaciones);
+                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
 
 
                         //Ejecutamos nuestro comando
@@ -485,32 +467,18 @@ namespace CapaPresentacion
 
 
 
-        private void MostrarInfoMedicamento()
-        {
-
-            //usar este metodo para hacer querys segun el medicamento seleccionado
-            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            //SqlConnection conDataBase = new SqlConnection(Cn);
-
-            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + Id_Usuario + "' ;", conDataBase);
-
-            //DataTable tablita = new DataTable();
-
-            //cmdDataBase.Fill(tablita);
-
-            //int cant_registros = 0;
-
-            //cant_registros = tablita.Rows.Count;
-
-            //int cellValue1 = Convert.ToInt32(tablita.Rows[0][0]);
-            //int cellValue2 = Convert.ToInt32(tablita.Rows[1][0]);
-            //int cellValue3 = Convert.ToInt32(tablita.Rows[2][0]);
-
-        }
 
         private void cbPresentacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("helloooooo");
+            DataTable tablita = new DataTable();
+
+            tablita = TraerDosisMedicamento(this.cbMedicamento.Text, this.cbPresentacion.Text);
+
+            List<string> dosis = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+
+
+            this.cbDosis.DataSource = dosis;
         }
 
         private void cbMedicamento_SelectionChangeCommitted(object sender, EventArgs e)
@@ -522,7 +490,6 @@ namespace CapaPresentacion
         private void cbMedicamento_DropDownClosed(object sender, EventArgs e)
         {
 
-
         }
 
         private void cbMedicamento_ValueMemberChanged(object sender, EventArgs e)
@@ -532,7 +499,8 @@ namespace CapaPresentacion
 
         private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
         }
 
         private void cbPresentacion_Enter(object sender, EventArgs e)
@@ -558,16 +526,266 @@ namespace CapaPresentacion
 
         }
 
-        //private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    //if (Char.IsLetter(e.KeyChar)) 
+        private void cbMedicamento_Leave(object sender, EventArgs e)
+        {
+            
 
-        //    //{
+            if ( validarExisteMedicamento(this.cbMedicamento.Text)  )
+            {
 
-        //    //    e.KeyChar = Char.ToUpper(e.KeyChar);
 
-        //    //}
 
-        //}
+                MessageBox.Show("el medicamento si existe :) ");
+
+
+                DataTable tablita = new DataTable();
+
+                tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
+
+                List<string> presentaciones = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+
+
+                this.cbPresentacion.DataSource = presentaciones;
+
+
+
+
+
+            }
+            else if ( !validarExisteMedicamento(this.cbMedicamento.Text))
+            {
+
+
+                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                this.cbMedicamento.Text = string.Empty;
+                this.cbPresentacion.Text = string.Empty;
+                this.cbDosis.Text = string.Empty;
+                this.cbMedicamento.Focus();
+
+
+            }
+            else
+            {
+                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                this.cbMedicamento.Text = string.Empty;
+                this.cbPresentacion.Text = string.Empty;
+                this.cbDosis.Text = string.Empty;
+                this.cbMedicamento.Focus();
+            }
+
+        }
+
+
+
+
+
+
+        public bool validarExisteMedicamento(string nombre_medicamento)
+        {
+
+
+            SqlDataReader dr;
+
+            bool resultado = false;
+
+
+            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //Código
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.Open();
+            //Establecer el Comando
+            SqlCommand SqlCmd = new SqlCommand("select * from Meds_Nombres where nombre ='" + nombre_medicamento + "' ");
+            SqlCmd.Connection = SqlCon;
+
+
+
+            try
+            {
+
+                dr = SqlCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    resultado = true;
+
+                }
+
+                dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
+
+            return resultado;
+
+        }
+
+
+        private int TraerIDMedicamento(string nombre)
+        {
+            int id_del_med = 0;
+
+            DataTable DtResultado = new DataTable("IDMedicamento");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_id_segun_nombre_med";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParMedBuscar = new SqlParameter();
+                ParMedBuscar.ParameterName = "@nombre_a_buscar";
+                ParMedBuscar.SqlDbType = SqlDbType.VarChar;
+                ParMedBuscar.Value = nombre;
+                SqlCmd.Parameters.Add(ParMedBuscar);
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+            id_del_med = Convert.ToInt32(DtResultado.Rows[0][0]);
+
+
+            return id_del_med;
+
+
+        }
+
+
+        private DataTable TraerPresentacionMedicamento(string nombre_med)
+        {
+
+            DataTable DtResultado = new DataTable("PresentacionMedicamento");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_presentacion_medicamento_segun_nombre";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParMedBuscar = new SqlParameter();
+                ParMedBuscar.ParameterName = "@nombre_med";
+                ParMedBuscar.SqlDbType = SqlDbType.VarChar;
+                ParMedBuscar.Value = nombre_med;
+                SqlCmd.Parameters.Add(ParMedBuscar);
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+            return DtResultado;
+
+
+        }
+
+
+        private DataTable TraerDosisMedicamento(string nombre_med, string presentacion)
+        {
+
+            DataTable DtResultado = new DataTable("DosisMedicamento");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_dosis_presentacion_meds";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParMedBuscar = new SqlParameter();
+                ParMedBuscar.ParameterName = "@nombre_med";
+                ParMedBuscar.SqlDbType = SqlDbType.VarChar;
+                ParMedBuscar.Value = nombre_med;
+                SqlCmd.Parameters.Add(ParMedBuscar);
+
+                SqlParameter ParPresBuscar = new SqlParameter();
+                ParPresBuscar.ParameterName = "@presentacion_med";
+                ParPresBuscar.SqlDbType = SqlDbType.VarChar;
+                ParPresBuscar.Value = presentacion;
+                SqlCmd.Parameters.Add(ParPresBuscar);
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+            return DtResultado;
+
+
+        }
+
+
+
+        private void cbPresentacion_Leave(object sender, EventArgs e)
+        {
+
+
+            DataTable tablita = new DataTable();
+
+            tablita = TraerDosisMedicamento(this.cbMedicamento.Text, this.cbPresentacion.Text);
+
+            List<string> dosis = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+            
+
+            this.cbDosis.DataSource = dosis;
+
+            
+
+
+            
+        }
+
+
+        private void cbDosis_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("tamos listos con el recipe");
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int posicion = listBox1.SelectedIndex;
+
+            MessageBox.Show("aaaa  "  + posicion.ToString() + "");
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

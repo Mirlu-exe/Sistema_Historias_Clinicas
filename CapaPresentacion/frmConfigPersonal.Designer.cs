@@ -88,7 +88,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(437, 248);
+            this.button1.Location = new System.Drawing.Point(437, 186);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(437, 43);
@@ -106,7 +106,7 @@
             this.button4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(437, 310);
+            this.button4.Location = new System.Drawing.Point(437, 237);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(437, 43);
@@ -144,14 +144,13 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button2.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(437, 186);
+            this.button2.Location = new System.Drawing.Point(437, 288);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(437, 43);
             this.button2.TabIndex = 232;
-            this.button2.Text = "Cambiar mi numero de telefono";
+            this.button2.Text = "Cambiar tema del sistema";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // frmConfigPersonal
             // 
