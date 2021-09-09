@@ -1224,57 +1224,31 @@ namespace CapaPresentacion
 
         private void datalistadohistorias_DoubleClick(object sender, EventArgs e)
         {
+
             int id_historia_seleccionada = Convert.ToInt32(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
             this.lbl_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
-           // this.lblCodigoPaciente.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idpaciente"].Value);
 
-            //this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
-            //this.lbl_nombre_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
+            this.txtNumero_Documento.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
-
-            //aca se pasan los datos del Historia a Evolucion 
-            this.lbl_id_historia_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
-            this.lblNombrePaciente_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
-            this.lblCedulaPaciente_evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
-
-            //aca se pasan los datos del Historia a Evolucion Lista
-            this.lbl_lista_evol_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
-            this.lbl_lista_evol_nombre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["Paciente"].Value);
-            this.lbl_lista_evol_ci.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
-
-            //aca pasan de lista a historias clinicas
-
-            //this.lbl_nombre_pac.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
-            //this.lbl_id_historia.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
-            //this.lbl_ci_pac.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
-
-
-
-            this.dtpFechaConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["fecha_consulta"].Value);
-            this.txtRazonConsulta.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["razon_consulta"].Value);
-            this.txtEnfermedadActual.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["enfermedad_actual"].Value);
-            this.txtHistoriaFamiliar.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["historia_familiar"].Value);
-            this.txtHistoriaPersonal.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["historia_personal"].Value);
-
-            this.txtTratamiento_Actual.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tratamiento_actual"].Value);
-            this.txtExamenFisico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["examen_fisico"].Value);
-            this.txtHistoriaFamiliar.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["historia_familiar"].Value);
-            this.txtEnfermedadActual.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["enfermedad_actual"].Value);
-            this.txtLaboratorio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["laboratorio"].Value);
-            this.txtecg.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["ecg"].Value);
-            this.txtRayos_X.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["rayos_x"].Value);
-            this.txtEcocardiograma.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["ecocardiograma"].Value);
-            //this.cbPlanEstudio.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_estudio"].Value);
-            //this.cbPlanTerapeutico.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["plan_terapeutico"].Value);
-            this.cmbEstadoHistoria.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["estado"].Value);
-
-            //this.cbDiagnosticos.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["diagnosticos"].Value);
-            this.cblTipo_Sangre.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["tipo_sangre"].Value);
-
-            this.tabControl1.SelectedIndex = 1;
+            //Mostrar el tab de Historia
+            this.tabControl1.SelectedIndex = 0;
 
             OcultarColumnas();
+
+
+
+
+            ///////////////////////////////////////////////// HISTORIA /////////////////////////////////////////////////
+
+
+            Cargar_Todo_Historia();
+            
+
+
+
+
+            ///////////////////////////////////////////////// EVOLUCIONES /////////////////////////////////////////////////
 
             //si posee evoluciones, mostrarlas todas en la pestaña Lista de Evoluciones
 
@@ -1317,9 +1291,10 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Ha ocurrido un error al cargar las evoluciones");
 
+                MessageBox.Show(ex.ToString());
 
-                MessageBox.Show("Ha ocurrido un error");
             }
 
 
@@ -1618,11 +1593,6 @@ namespace CapaPresentacion
         }
 
         private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void datalistadohistorias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -2059,25 +2029,7 @@ namespace CapaPresentacion
             if (e.KeyChar == (char)13)
             {
 
-                int id_del_paciente_a_cargar;
-
-                id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
-
-                if (id_del_paciente_a_cargar > 0)
-                {
-                    this.lbl_idpac.Text = id_del_paciente_a_cargar.ToString();
-
-                    Cargar_Historia_En_Campos();
-
-                    Gestionar_PlanEstudio();
-
-                    Gestionar_PlanTerapeutico();
-
-                }
-                else
-                {
-                    MessageBox.Show("Este paciente no esta registrado");
-                }
+                Cargar_Todo_Historia();
 
             }
         }
@@ -2091,6 +2043,35 @@ namespace CapaPresentacion
         {
 
         }
+
+
+
+        private void Cargar_Todo_Historia()
+        {
+
+            int id_del_paciente_a_cargar;
+
+            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
+
+            if (id_del_paciente_a_cargar > 0)
+            {
+                this.lbl_idpac.Text = id_del_paciente_a_cargar.ToString();
+
+                Cargar_Historia_En_Campos();
+
+                Gestionar_PlanEstudio();
+
+                Gestionar_PlanTerapeutico();
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
+
+        }
+
+
 
         private void AddDiagnosticToList()
         {
@@ -2251,6 +2232,11 @@ namespace CapaPresentacion
             {
                 RemoveDiagnosticFromList();
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

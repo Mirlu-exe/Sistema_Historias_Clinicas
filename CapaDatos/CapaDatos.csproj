@@ -62,6 +62,7 @@
     <Compile Include="DDiagnostico.cs" />
     <Compile Include="DEditarContrasena.cs" />
     <Compile Include="DEvolucion.cs" />
+    <Compile Include="DHistoria.cs" />
     <Compile Include="DMedicosConfianza.cs" />
     <Compile Include="DOperacion.cs" />
     <Compile Include="DPacientes.cs" />

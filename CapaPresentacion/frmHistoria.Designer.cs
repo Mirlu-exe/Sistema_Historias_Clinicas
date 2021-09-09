@@ -623,6 +623,7 @@
             this.btnGuardar.TabIndex = 142;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lbl_id_historia
             // 
@@ -1032,7 +1033,6 @@
             this.datalistadohistorias.Size = new System.Drawing.Size(1556, 537);
             this.datalistadohistorias.TabIndex = 14;
             this.datalistadohistorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadohistorias_CellContentClick);
-            this.datalistadohistorias.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadohistorias_CellContentDoubleClick);
             this.datalistadohistorias.DoubleClick += new System.EventHandler(this.datalistadohistorias_DoubleClick);
             // 
             // Anular
