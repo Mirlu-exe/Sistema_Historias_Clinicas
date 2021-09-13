@@ -16,7 +16,7 @@ namespace CapaDatos
 
         private int _Id_paciente;
 
-        private string _Fecha_consulta;
+        private DateTime _Fecha_consulta;
 
         private string _Razon_consulta;
 
@@ -53,7 +53,7 @@ namespace CapaDatos
 
         //encapsulamiento
 
-        public string Fecha_consulta { get => _Fecha_consulta; set => _Fecha_consulta = value; }
+        public DateTime Fecha_consulta { get => _Fecha_consulta; set => _Fecha_consulta = value; }
         public string Razon_consulta { get => _Razon_consulta; set => _Razon_consulta = value; }
         public string Enfermedad_actual { get => _Enfermedad_actual; set => _Enfermedad_actual = value; }
         public string Antecedentes_familiares { get => _Antecedentes_familiares; set => _Antecedentes_familiares = value; }
@@ -78,7 +78,7 @@ namespace CapaDatos
 
         }
 
-        public DHistoria(int id_paciente, string fecha_consulta, string razon_consulta, 
+        public DHistoria(int id_paciente, DateTime fecha_consulta, string razon_consulta, 
             string enfermedad_actual, string antecedentes_familiares, string antecedentes_personales, 
             string tratamiento_actual, string examen_fisico, string laboratorio, 
             string ecg, string rayos_x, string ecocardiograma, 

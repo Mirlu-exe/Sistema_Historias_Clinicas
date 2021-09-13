@@ -1021,6 +1021,12 @@ namespace CapaPresentacion
 
             this.dtpFechaConsulta.Value = DateTime.Today;
 
+            ////TODO: AÑADIR PLANTILLAS QUE APAREZCAN AUTOMATICAMENTE EN LOS SIGUIENTES CAMPOS:
+            ///EKG (RS/80X'/0,12''/0,36''/+60° TRAZO: NORMAL)
+            ///Examenes Paraclinicos (Escribir resultados normales comunes)
+            ///Examen fisico (Describir las cosas que el medico examina siempre)
+            ///Enumerar los Diagnosticos (Ennumerar los elementos de la lista a medida que se añaden o que quitan.
+
 
         }
 

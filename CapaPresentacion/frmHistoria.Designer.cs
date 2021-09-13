@@ -446,7 +446,7 @@
             this.btnVerPlanTerapeutico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnVerPlanTerapeutico.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnVerPlanTerapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanTerapeutico.Location = new System.Drawing.Point(923, 351);
+            this.btnVerPlanTerapeutico.Location = new System.Drawing.Point(923, 585);
             this.btnVerPlanTerapeutico.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerPlanTerapeutico.Name = "btnVerPlanTerapeutico";
             this.btnVerPlanTerapeutico.Size = new System.Drawing.Size(392, 47);
@@ -465,7 +465,7 @@
             this.btnVerPlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnVerPlanEstudio.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnVerPlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanEstudio.Location = new System.Drawing.Point(923, 240);
+            this.btnVerPlanEstudio.Location = new System.Drawing.Point(923, 474);
             this.btnVerPlanEstudio.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerPlanEstudio.Name = "btnVerPlanEstudio";
             this.btnVerPlanEstudio.Size = new System.Drawing.Size(392, 47);
@@ -665,7 +665,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(918, 315);
+            this.label35.Location = new System.Drawing.Point(918, 549);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(179, 32);
             this.label35.TabIndex = 80;
@@ -674,7 +674,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(918, 204);
+            this.label34.Location = new System.Drawing.Point(918, 438);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(169, 32);
             this.label34.TabIndex = 78;
@@ -683,18 +683,18 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(918, 552);
+            this.label33.Location = new System.Drawing.Point(917, 317);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(60, 32);
+            this.label33.Size = new System.Drawing.Size(178, 32);
             this.label33.TabIndex = 76;
-            this.label33.Text = "ECO";
+            this.label33.Text = "Ecocardiograma";
             // 
             // txtEcocardiograma
             // 
             this.txtEcocardiograma.BackColor = System.Drawing.SystemColors.Control;
             this.txtEcocardiograma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEcocardiograma.Enabled = false;
-            this.txtEcocardiograma.Location = new System.Drawing.Point(923, 586);
+            this.txtEcocardiograma.Location = new System.Drawing.Point(922, 351);
             this.txtEcocardiograma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEcocardiograma.Multiline = true;
             this.txtEcocardiograma.Name = "txtEcocardiograma";
@@ -706,9 +706,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(476, 552);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(94, 32);
+            this.label32.Size = new System.Drawing.Size(238, 32);
             this.label32.TabIndex = 74;
-            this.label32.Text = "Rayos X";
+            this.label32.Text = "Examenes Paraclínicos";
             // 
             // txtRayos_X
             // 
@@ -725,7 +725,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(918, 438);
+            this.label31.Location = new System.Drawing.Point(917, 203);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(54, 32);
             this.label31.TabIndex = 72;
@@ -736,7 +736,7 @@
             this.txtecg.BackColor = System.Drawing.SystemColors.Control;
             this.txtecg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtecg.Enabled = false;
-            this.txtecg.Location = new System.Drawing.Point(923, 472);
+            this.txtecg.Location = new System.Drawing.Point(922, 237);
             this.txtecg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtecg.Multiline = true;
             this.txtecg.Name = "txtecg";
@@ -822,9 +822,9 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(35, 552);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(181, 32);
+            this.label27.Size = new System.Drawing.Size(263, 32);
             this.label27.TabIndex = 63;
-            this.label27.Text = "Historia Personal";
+            this.label27.Text = "Antecedentes Personales";
             // 
             // txtHistoriaPersonal
             // 
@@ -843,9 +843,9 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(35, 440);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(174, 32);
+            this.label26.Size = new System.Drawing.Size(256, 32);
             this.label26.TabIndex = 61;
-            this.label26.Text = "Historia Familiar";
+            this.label26.Text = "Antecedentes Familiares";
             // 
             // txtHistoriaFamiliar
             // 
@@ -885,9 +885,9 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(35, 206);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(223, 32);
+            this.label24.Size = new System.Drawing.Size(174, 32);
             this.label24.TabIndex = 57;
-            this.label24.Text = "Razon de la consulta";
+            this.label24.Text = "Motivo consulta";
             // 
             // txtRazonConsulta
             // 
