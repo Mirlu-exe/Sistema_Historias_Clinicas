@@ -32,6 +32,12 @@ namespace CapaPresentacion
 
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
+
+
+        SqlDataReader dr;
+
+
+
         public frmHistoria()
         {
             InitializeComponent();
@@ -41,7 +47,7 @@ namespace CapaPresentacion
 
             this.ttMensaje.SetToolTip(this.dtpFechaConsulta, "Ingrese la fecha de consulta");
 
-            this.ttMensaje.SetToolTip(this.txtRazonConsulta, "Ingrese la razon de la consulta");
+            this.ttMensaje.SetToolTip(this.txtMotivoConsulta, "Ingrese la razon de la consulta");
             this.ttMensaje.SetToolTip(this.txtEnfermedadActual, "Ingrese la enfermedad actual");
             this.ttMensaje.SetToolTip(this.txtHistoriaPersonal, "Ingrese la historia personal");
             this.ttMensaje.SetToolTip(this.txtHistoriaFamiliar, "Ingrese la historia familiar");
@@ -49,7 +55,7 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtExamenFisico, "Ingrese el examen fisico");
             this.ttMensaje.SetToolTip(this.txtLaboratorio, "Ingrese el laboratorio");
             this.ttMensaje.SetToolTip(this.txtecg, "Ingrese el ecg paciente");
-            this.ttMensaje.SetToolTip(this.txtRayos_X, "Ingrese los rayos X del paciente");
+            this.ttMensaje.SetToolTip(this.txtParaclinicos, "Ingrese los rayos X del paciente");
             this.ttMensaje.SetToolTip(this.txtEcocardiograma, "Ingrese el ecocardiograma del paciente");
             //this.ttMensaje.SetToolTip(this.cbPlanEstudio, "Ingrese el plan de estudio");
             //this.ttMensaje.SetToolTip(this.cbPlanTerapeutico, "Ingrese el plan terapeutico");
@@ -139,7 +145,7 @@ namespace CapaPresentacion
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtSexo.Text = string.Empty;
 
-            this.txtRazonConsulta.Text = string.Empty;
+            this.txtMotivoConsulta.Text = string.Empty;
             this.txtEnfermedadActual.Text = string.Empty;
             this.txtHistoriaPersonal.Text = string.Empty;
             this.txtHistoriaFamiliar.Text = string.Empty;
@@ -147,7 +153,7 @@ namespace CapaPresentacion
             this.txtExamenFisico.Text = string.Empty;
             this.txtLaboratorio.Text = string.Empty;
             this.txtecg.Text = string.Empty;
-            this.txtRayos_X.Text = string.Empty;
+            this.txtParaclinicos.Text = string.Empty;
             this.txtEcocardiograma.Text = string.Empty;
             //this.cbPlanEstudio.Text = string.Empty;
             //this.cbPlanTerapeutico.Text = string.Empty;
@@ -162,7 +168,7 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar()
         {
-            this.txtRazonConsulta.Enabled = true;
+            this.txtMotivoConsulta.Enabled = true;
             this.txtEnfermedadActual.Enabled = true;
             this.txtHistoriaPersonal.Enabled = true;
             this.txtHistoriaFamiliar.Enabled = true;
@@ -170,7 +176,7 @@ namespace CapaPresentacion
             this.txtExamenFisico.Enabled = true;
             this.txtLaboratorio.Enabled = true;
             this.txtecg.Enabled = true;
-            this.txtRayos_X.Enabled = true;
+            this.txtParaclinicos.Enabled = true;
             this.txtEcocardiograma.Enabled = true;
             //this.cbPlanEstudio.Enabled = true;
             //this.cbPlanTerapeutico.Enabled = true;
@@ -183,7 +189,7 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Deshabilitar()
         {
-            this.txtRazonConsulta.Enabled = false;
+            this.txtMotivoConsulta.Enabled = false;
             this.txtEnfermedadActual.Enabled = false;
             this.txtHistoriaPersonal.Enabled = false;
             this.txtHistoriaFamiliar.Enabled = false;
@@ -191,7 +197,7 @@ namespace CapaPresentacion
             this.txtExamenFisico.Enabled = false;
             this.txtLaboratorio.Enabled = false;
             this.txtecg.Enabled = false;
-            this.txtRayos_X.Enabled = false;
+            this.txtParaclinicos.Enabled = false;
             this.txtEcocardiograma.Enabled = false;
             //this.cbPlanEstudio.Enabled = false;
             //this.cbPlanTerapeutico.Enabled = false;
@@ -199,6 +205,7 @@ namespace CapaPresentacion
             //this.cbDiagnosticos.Enabled = false;
             this.txtDiagnosticos.Enabled = false;
             this.listboxDiagnosticosFinales.Enabled = false;
+            this.cblTipo_Sangre.SelectedIndex = 0;
         }
 
 
@@ -387,7 +394,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
 
 
 
@@ -635,7 +642,7 @@ namespace CapaPresentacion
             if (HistoriaDelPac.Rows.Count <= 0)
             {
 
-                MessageBox.Show("Oops, este paciente no tiene historia!");
+                MessageBox.Show("Este paciente NO tiene historia.");
                 HistoriaDelPac = null;
 
             }
@@ -648,7 +655,7 @@ namespace CapaPresentacion
 
 
                 this.dtpFechaConsulta.Value = Convert.ToDateTime(HistoriaDelPac.Rows[0][2]);
-                this.txtRazonConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
+                this.txtMotivoConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
                 this.txtEnfermedadActual.Text = Convert.ToString(HistoriaDelPac.Rows[0][4]);
                 this.txtHistoriaFamiliar.Text = Convert.ToString(HistoriaDelPac.Rows[0][5]);
                 this.txtHistoriaPersonal.Text = Convert.ToString(HistoriaDelPac.Rows[0][6]);
@@ -657,9 +664,17 @@ namespace CapaPresentacion
                 this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
                 this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
                 this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
-                this.txtRayos_X.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
+                this.txtParaclinicos.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
                 this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][13]);
-                this.cblTipo_Sangre.Text = Convert.ToString(HistoriaDelPac.Rows[0][14]);
+                this.cblTipo_Sangre.Text = Convert.ToString(HistoriaDelPac.Rows[0][16]);
+
+                string diagnosticos_cadena = Convert.ToString(HistoriaDelPac.Rows[0][17]);
+
+                MessageBox.Show("TEST DIAGNOSTICOS:" + diagnosticos_cadena + " .");
+
+                List<string> diagnosticos_separados_con_coma = diagnosticos_cadena.Split(new char[] { ',' }).ToList();
+
+                this.listboxDiagnosticosFinales.DataSource = diagnosticos_separados_con_coma;
 
 
 
@@ -2240,9 +2255,181 @@ namespace CapaPresentacion
             }
         }
 
+
+
+
+
+
+
+
+
+        public bool validarExisteHistoria(int idpac)
+        {
+            bool resultado = false;
+
+
+            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //Código
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.Open();
+            //Establecer el Comando
+            SqlCommand SqlCmd = new SqlCommand("select * from Historia where idpaciente ='" + idpac + "' ");
+            SqlCmd.Connection = SqlCon;
+
+            //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+            try
+            {
+
+                dr = SqlCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    resultado = true;
+
+                }
+
+                dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
+
+            return resultado;
+
+        }
+
+
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+                string rpta = "";
+                if (string.IsNullOrEmpty(this.txtNumero_Documento.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
+                    string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
+                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
+
+                {
+                    MensajeError("No se pueden dejar campos vacios");
+                    /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
+                    errorIcono.SetError(txtApellidos, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtUsuario, "Ingrese un Valor");
+                    errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
+
+                }
+                
+
+                else
+                {
+
+
+
+
+                    if (this.IsNuevo)
+                    {
+
+
+                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+                        {
+
+                            MensajeError("Ya existe una historia para este paciente.");
+
+                        }
+                        else
+                        {
+                            int idPlanEstudio = TraerIdPlanEstudio(this.txtNumero_Documento.Text);
+                            int idPlanTerapeutico = TraerIdPlanTerapeutico(this.txtNumero_Documento.Text);
+
+                            var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
+                            string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
+
+                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                            this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+                            
+
+                        }
+
+
+
+
+
+                    }
+                    else if (this.IsEditar)
+                    {
+
+
+                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+                        //{
+
+                        //    rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtRazonConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                        //this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtRayos_X.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, this.txtDiagnosticos.Text, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+
+
+
+                        //}
+                        //else
+                        //{
+                        //    MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
+                        //}
+
+
+                    }
+
+
+                    if (rpta.Equals("OK"))
+                    {
+
+
+
+
+                        if (this.IsNuevo)
+                        {
+                            this.MensajeOk("Se Insertó de forma correcta la historia medica");
+                            this.OperacionInsertarHistoria();
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se Actualizó de forma correcta la historia medica");
+                            this.OperacionEditarHistoria();
+                        }
+
+                    }
+                    else
+                    {
+
+
+                        this.MensajeError(rpta);
+                    }
+
+                    this.IsNuevo = false;
+                    this.IsEditar = false;
+                    this.Botones();
+                    this.Limpiar();
+                    this.Mostrar();
+                    this.lbl_idpac.Text = "";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Cargar_Todo_Historia();
         }
     }
 }

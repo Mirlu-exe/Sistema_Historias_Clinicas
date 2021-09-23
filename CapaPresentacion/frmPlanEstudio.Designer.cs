@@ -84,6 +84,7 @@
             this.btnQuitarEstudios = new System.Windows.Forms.Button();
             this.btnAñadirEstudios = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
@@ -556,6 +557,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSexo);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label10);
@@ -607,7 +609,7 @@
             // 
             this.txtNombre_Paciente.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombre_Paciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre_Paciente.Location = new System.Drawing.Point(449, 44);
+            this.txtNombre_Paciente.Location = new System.Drawing.Point(484, 43);
             this.txtNombre_Paciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre_Paciente.Name = "txtNombre_Paciente";
             this.txtNombre_Paciente.ReadOnly = true;
@@ -619,7 +621,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(345, 34);
+            this.label6.Location = new System.Drawing.Point(380, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 32);
             this.label6.TabIndex = 227;
@@ -762,6 +764,17 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.CadetBlue;
+            this.label3.ForeColor = System.Drawing.Color.MintCream;
+            this.label3.Location = new System.Drawing.Point(319, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 24);
+            this.label3.TabIndex = 282;
+            this.label3.Text = "🔎";
+            // 
             // frmPlanEstudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -852,5 +865,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label lbl_fecha_emision;
+        private System.Windows.Forms.Label label3;
     }
 }

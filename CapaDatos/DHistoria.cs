@@ -18,7 +18,7 @@ namespace CapaDatos
 
         private DateTime _Fecha_consulta;
 
-        private string _Razon_consulta;
+        private string _Motivo_consulta;
 
         private string _Enfermedad_actual;
 
@@ -34,7 +34,7 @@ namespace CapaDatos
 
         private string _ECG;
 
-        private string _Rayos_x;
+        private string _Paraclinicos;
 
         private string _Ecocardiograma;
 
@@ -54,7 +54,7 @@ namespace CapaDatos
         //encapsulamiento
 
         public DateTime Fecha_consulta { get => _Fecha_consulta; set => _Fecha_consulta = value; }
-        public string Razon_consulta { get => _Razon_consulta; set => _Razon_consulta = value; }
+        public string Motivo_consulta { get => _Motivo_consulta; set => _Motivo_consulta = value; }
         public string Enfermedad_actual { get => _Enfermedad_actual; set => _Enfermedad_actual = value; }
         public string Antecedentes_familiares { get => _Antecedentes_familiares; set => _Antecedentes_familiares = value; }
         public string Antecedentes_personales { get => _Antecedentes_personales; set => _Antecedentes_personales = value; }
@@ -62,7 +62,7 @@ namespace CapaDatos
         public string Examen_fisico { get => _Examen_fisico; set => _Examen_fisico = value; }
         public string Laboratorio { get => _Laboratorio; set => _Laboratorio = value; }
         public string ECG { get => _ECG; set => _ECG = value; }
-        public string Rayos_x { get => _Rayos_x; set => _Rayos_x = value; }
+        public string Paraclinicos { get => _Paraclinicos; set => _Paraclinicos = value; }
         public string Ecocardiograma { get => _Ecocardiograma; set => _Ecocardiograma = value; }
         public int Plan_estudio { get => _Plan_estudio; set => _Plan_estudio = value; }
         public int Plan_terapeutico { get => _Plan_terapeutico; set => _Plan_terapeutico = value; }
@@ -78,16 +78,16 @@ namespace CapaDatos
 
         }
 
-        public DHistoria(int id_paciente, DateTime fecha_consulta, string razon_consulta, 
+        public DHistoria(int id_paciente, DateTime fecha_consulta, string motivo_consulta, 
             string enfermedad_actual, string antecedentes_familiares, string antecedentes_personales, 
             string tratamiento_actual, string examen_fisico, string laboratorio, 
-            string ecg, string rayos_x, string ecocardiograma, 
+            string ecg, string paraclinicos, string ecocardiograma, 
             int plan_estudio, int plan_terapeutico, string estado, 
             string tipo_sangre, string diagnosticos )
         {
             this.Id_paciente = id_paciente;
             this.Fecha_consulta = fecha_consulta;
-            this.Razon_consulta = razon_consulta;
+            this.Motivo_consulta = motivo_consulta;
             this.Enfermedad_actual = enfermedad_actual;
             this.Antecedentes_familiares = antecedentes_familiares;
             this.Antecedentes_personales = antecedentes_familiares;
@@ -95,7 +95,7 @@ namespace CapaDatos
             this.Examen_fisico = examen_fisico;
             this.Laboratorio = laboratorio;
             this.ECG = ecg;
-            this.Rayos_x = rayos_x;
+            this.Paraclinicos = paraclinicos;
             this.Ecocardiograma = ecocardiograma;
             this.Plan_estudio = plan_estudio;
             this.Plan_terapeutico = plan_terapeutico;
@@ -124,11 +124,11 @@ namespace CapaDatos
                 SqlCmd.CommandText = "spinsertar_historia";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter ParIdhistoria= new SqlParameter();
-                ParIdhistoria.ParameterName = "@id_historia";
-                ParIdhistoria.SqlDbType = SqlDbType.Int;
-                ParIdhistoria.Direction = ParameterDirection.Output;
-                SqlCmd.Parameters.Add(ParIdhistoria);
+                //SqlParameter ParIdhistoria= new SqlParameter();
+                //ParIdhistoria.ParameterName = "@id_historia";
+                //ParIdhistoria.SqlDbType = SqlDbType.Int;
+                //ParIdhistoria.Direction = ParameterDirection.Output;
+                //SqlCmd.Parameters.Add(ParIdhistoria);
 
                 SqlParameter ParIdpaciente = new SqlParameter();
                 ParIdpaciente.ParameterName = "@id_paciente";
@@ -144,12 +144,12 @@ namespace CapaDatos
                 ParFechaconsulta.Value = Historia.Fecha_consulta;
                 SqlCmd.Parameters.Add(ParFechaconsulta);
 
-                SqlParameter Parrazon_consulta = new SqlParameter();
-                Parrazon_consulta.ParameterName = "@razon_consulta";
-                Parrazon_consulta.SqlDbType = SqlDbType.VarChar;
-                Parrazon_consulta.Size = 50;
-                Parrazon_consulta.Value = Historia.Razon_consulta;
-                SqlCmd.Parameters.Add(Parrazon_consulta);
+                SqlParameter Parmotivo_consulta = new SqlParameter();
+                Parmotivo_consulta.ParameterName = "@motivo_consulta";
+                Parmotivo_consulta.SqlDbType = SqlDbType.VarChar;
+                Parmotivo_consulta.Size = 50;
+                Parmotivo_consulta.Value = Historia.Motivo_consulta;
+                SqlCmd.Parameters.Add(Parmotivo_consulta);
 
                 SqlParameter Parenfermedad_actual = new SqlParameter();
                 Parenfermedad_actual.ParameterName = "@enfermedad_actual";
@@ -201,12 +201,12 @@ namespace CapaDatos
                 Parecg.Value = Historia.ECG;
                 SqlCmd.Parameters.Add(Parecg);
 
-                SqlParameter Parrayos_x = new SqlParameter();
-                Parrayos_x.ParameterName = "@rayos_x";
-                Parrayos_x.SqlDbType = SqlDbType.VarChar;
-                Parrayos_x.Size = 100;
-                Parrayos_x.Value = Historia.Rayos_x;
-                SqlCmd.Parameters.Add(Parrayos_x);
+                SqlParameter Parparaclinicos = new SqlParameter();
+                Parparaclinicos.ParameterName = "@paraclinicos";
+                Parparaclinicos.SqlDbType = SqlDbType.VarChar;
+                Parparaclinicos.Size = 100;
+                Parparaclinicos.Value = Historia.Paraclinicos;
+                SqlCmd.Parameters.Add(Parparaclinicos);
 
                 SqlParameter Parecocardiograma = new SqlParameter();
                 Parecocardiograma.ParameterName = "@ecocardiograma";
