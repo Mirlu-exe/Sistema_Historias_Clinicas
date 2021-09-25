@@ -21,15 +21,39 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
 
 
+        ////variables donde se guardaran valores traidos de otros forms
+        //public string Id_historia_perteneciente
+        //{
+        //    get { return lbl_id_historia.Text; }
+        //}
+
+        //public string Id_evolucion_perteneciente
+        //{
+        //    get { return lbl_id_evol.Text; }
+        //}
+
+        //public string Id_paciente_perteneciente
+        //{
+        //    get { return lbl_id_paciente.Text; }
+        //}
+
+        //public string Cedula_paciente_perteneciente
+        //{
+        //    get { return txtCedulaPac_Terapeutico.Text; }
+        //}
+
+
+
         public frmPlanTerapeutico()
         {
             InitializeComponent();
 
             this.ttMensaje.SetToolTip(this.txtNombre_Paciente, "Ingrese el Nombre del Paciente");
-            this.ttMensaje.SetToolTip(this.txtNumero_Documento, "Ingrese el numero de documento");
+            this.ttMensaje.SetToolTip(this.txtCedulaPac_Terapeutico, "Ingrese el numero de documento");
 
             this.ttMensaje.SetToolTip(this.btnAñadir, "Añadir Recipe e Indicaciones al Plan de Estudio");
             this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan de Estudio");
+
 
 
         }
@@ -43,6 +67,8 @@ namespace CapaPresentacion
         {
 
 
+            CargarDatosPaciente();
+
             //LlenarComboRecipe();
 
             LlenarCbMedicamento();
@@ -52,6 +78,15 @@ namespace CapaPresentacion
 
 
             this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
+
+        }
+
+
+        private void CargarDatosPaciente()
+        {
+            // mandar la cedula del paciente a este form y cargar los datos.
+            
+            MessageBox.Show("testtt");
 
         }
 
@@ -270,7 +305,7 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtCedulaPac_Terapeutico.Text;
 
             DataTable paciente_tabla = new DataTable();
 
@@ -785,7 +820,36 @@ namespace CapaPresentacion
 
         }
 
+        private void txtNumero_Documento_TextChanged(object sender, EventArgs e)
+        {
+            int id_del_paciente_a_cargar;
 
+            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
 
+            if (id_del_paciente_a_cargar > 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            int id_del_paciente_a_cargar;
+
+            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
+
+            if (id_del_paciente_a_cargar > 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
+        }
     }
 }

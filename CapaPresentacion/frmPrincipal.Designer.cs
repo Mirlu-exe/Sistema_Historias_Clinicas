@@ -34,12 +34,10 @@
             this.btnMedicosConfianza = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnInformeMedicoRef = new System.Windows.Forms.Button();
-            this.btnPlanTerapeutico = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnControlEstadistico = new System.Windows.Forms.Button();
             this.btnHerramientasAdmin = new System.Windows.Forms.Button();
             this.btnConfigPersonal = new System.Windows.Forms.Button();
-            this.btnPlanEstudios = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOperaciones = new System.Windows.Forms.Button();
@@ -79,12 +77,10 @@
             this.MenuVertical.Controls.Add(this.btnMedicosConfianza);
             this.MenuVertical.Controls.Add(this.button7);
             this.MenuVertical.Controls.Add(this.btnInformeMedicoRef);
-            this.MenuVertical.Controls.Add(this.btnPlanTerapeutico);
             this.MenuVertical.Controls.Add(this.btnReportes);
             this.MenuVertical.Controls.Add(this.btnControlEstadistico);
             this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
             this.MenuVertical.Controls.Add(this.btnConfigPersonal);
-            this.MenuVertical.Controls.Add(this.btnPlanEstudios);
             this.MenuVertical.Controls.Add(this.pictureBox1);
             this.MenuVertical.Controls.Add(this.label3);
             this.MenuVertical.Controls.Add(this.btnOperaciones);
@@ -116,7 +112,7 @@
             this.btnMedicosConfianza.ForeColor = System.Drawing.Color.White;
             this.btnMedicosConfianza.Image = global::CapaPresentacion.Properties.Resources.heart_1_smoll;
             this.btnMedicosConfianza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMedicosConfianza.Location = new System.Drawing.Point(0, 393);
+            this.btnMedicosConfianza.Location = new System.Drawing.Point(-4, 450);
             this.btnMedicosConfianza.Margin = new System.Windows.Forms.Padding(4);
             this.btnMedicosConfianza.Name = "btnMedicosConfianza";
             this.btnMedicosConfianza.Size = new System.Drawing.Size(364, 49);
@@ -134,7 +130,7 @@
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Image = global::CapaPresentacion.Properties.Resources.salir_icon2;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(4, 843);
+            this.button7.Location = new System.Drawing.Point(0, 823);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(360, 49);
@@ -152,7 +148,7 @@
             this.btnInformeMedicoRef.ForeColor = System.Drawing.Color.White;
             this.btnInformeMedicoRef.Image = global::CapaPresentacion.Properties.Resources.list_3_smoll;
             this.btnInformeMedicoRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInformeMedicoRef.Location = new System.Drawing.Point(0, 672);
+            this.btnInformeMedicoRef.Location = new System.Drawing.Point(-4, 507);
             this.btnInformeMedicoRef.Margin = new System.Windows.Forms.Padding(4);
             this.btnInformeMedicoRef.Name = "btnInformeMedicoRef";
             this.btnInformeMedicoRef.Size = new System.Drawing.Size(364, 49);
@@ -160,24 +156,6 @@
             this.btnInformeMedicoRef.Text = "          Informe Médico Ref.";
             this.btnInformeMedicoRef.UseVisualStyleBackColor = true;
             this.btnInformeMedicoRef.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnPlanTerapeutico
-            // 
-            this.btnPlanTerapeutico.FlatAppearance.BorderSize = 0;
-            this.btnPlanTerapeutico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnPlanTerapeutico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlanTerapeutico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnPlanTerapeutico.ForeColor = System.Drawing.Color.White;
-            this.btnPlanTerapeutico.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanTerapeutico.Image")));
-            this.btnPlanTerapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlanTerapeutico.Location = new System.Drawing.Point(0, 450);
-            this.btnPlanTerapeutico.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPlanTerapeutico.Name = "btnPlanTerapeutico";
-            this.btnPlanTerapeutico.Size = new System.Drawing.Size(364, 49);
-            this.btnPlanTerapeutico.TabIndex = 40;
-            this.btnPlanTerapeutico.Text = "     Plan Terapeutico";
-            this.btnPlanTerapeutico.UseVisualStyleBackColor = true;
-            this.btnPlanTerapeutico.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnReportes
             // 
@@ -188,7 +166,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::CapaPresentacion.Properties.Resources.medical_prescription_smoll;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 786);
+            this.btnReportes.Location = new System.Drawing.Point(-4, 621);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(364, 49);
@@ -206,7 +184,7 @@
             this.btnControlEstadistico.ForeColor = System.Drawing.Color.White;
             this.btnControlEstadistico.Image = global::CapaPresentacion.Properties.Resources.statistics_smoll;
             this.btnControlEstadistico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnControlEstadistico.Location = new System.Drawing.Point(0, 615);
+            this.btnControlEstadistico.Location = new System.Drawing.Point(-4, 678);
             this.btnControlEstadistico.Margin = new System.Windows.Forms.Padding(4);
             this.btnControlEstadistico.Name = "btnControlEstadistico";
             this.btnControlEstadistico.Size = new System.Drawing.Size(364, 49);
@@ -247,24 +225,6 @@
             this.btnConfigPersonal.Click += new System.EventHandler(this.btnConfigPersonal_Click);
             this.btnConfigPersonal.MouseHover += new System.EventHandler(this.btnConfigPersonal_MouseHover);
             // 
-            // btnPlanEstudios
-            // 
-            this.btnPlanEstudios.FlatAppearance.BorderSize = 0;
-            this.btnPlanEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnPlanEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlanEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnPlanEstudios.ForeColor = System.Drawing.Color.White;
-            this.btnPlanEstudios.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanEstudios.Image")));
-            this.btnPlanEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlanEstudios.Location = new System.Drawing.Point(0, 507);
-            this.btnPlanEstudios.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPlanEstudios.Name = "btnPlanEstudios";
-            this.btnPlanEstudios.Size = new System.Drawing.Size(364, 49);
-            this.btnPlanEstudios.TabIndex = 6;
-            this.btnPlanEstudios.Text = "     Plan de Estudios";
-            this.btnPlanEstudios.UseVisualStyleBackColor = true;
-            this.btnPlanEstudios.Click += new System.EventHandler(this.btnPlanEstudios_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Azure;
@@ -300,7 +260,7 @@
             this.btnOperaciones.ForeColor = System.Drawing.Color.White;
             this.btnOperaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOperaciones.Image")));
             this.btnOperaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOperaciones.Location = new System.Drawing.Point(4, 729);
+            this.btnOperaciones.Location = new System.Drawing.Point(-4, 564);
             this.btnOperaciones.Margin = new System.Windows.Forms.Padding(4);
             this.btnOperaciones.Name = "btnOperaciones";
             this.btnOperaciones.Size = new System.Drawing.Size(364, 49);
@@ -318,7 +278,7 @@
             this.btnHistorias.ForeColor = System.Drawing.Color.White;
             this.btnHistorias.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorias.Image")));
             this.btnHistorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorias.Location = new System.Drawing.Point(0, 558);
+            this.btnHistorias.Location = new System.Drawing.Point(-4, 393);
             this.btnHistorias.Margin = new System.Windows.Forms.Padding(4);
             this.btnHistorias.Name = "btnHistorias";
             this.btnHistorias.Size = new System.Drawing.Size(364, 49);
@@ -336,7 +296,7 @@
             this.btnRecetas.ForeColor = System.Drawing.Color.White;
             this.btnRecetas.Image = global::CapaPresentacion.Properties.Resources.bowl_1_smoll;
             this.btnRecetas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecetas.Location = new System.Drawing.Point(0, 336);
+            this.btnRecetas.Location = new System.Drawing.Point(-4, 336);
             this.btnRecetas.Margin = new System.Windows.Forms.Padding(4);
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(364, 49);
@@ -354,7 +314,7 @@
             this.btnDiagnosticos.ForeColor = System.Drawing.Color.White;
             this.btnDiagnosticos.Image = ((System.Drawing.Image)(resources.GetObject("btnDiagnosticos.Image")));
             this.btnDiagnosticos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiagnosticos.Location = new System.Drawing.Point(0, 279);
+            this.btnDiagnosticos.Location = new System.Drawing.Point(-4, 279);
             this.btnDiagnosticos.Margin = new System.Windows.Forms.Padding(4);
             this.btnDiagnosticos.Name = "btnDiagnosticos";
             this.btnDiagnosticos.Size = new System.Drawing.Size(364, 49);
@@ -372,7 +332,7 @@
             this.btnServicios.ForeColor = System.Drawing.Color.White;
             this.btnServicios.Image = ((System.Drawing.Image)(resources.GetObject("btnServicios.Image")));
             this.btnServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServicios.Location = new System.Drawing.Point(0, 222);
+            this.btnServicios.Location = new System.Drawing.Point(-4, 222);
             this.btnServicios.Margin = new System.Windows.Forms.Padding(4);
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Size = new System.Drawing.Size(364, 49);
@@ -390,7 +350,7 @@
             this.btnCitas.ForeColor = System.Drawing.Color.White;
             this.btnCitas.Image = ((System.Drawing.Image)(resources.GetObject("btnCitas.Image")));
             this.btnCitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCitas.Location = new System.Drawing.Point(0, 166);
+            this.btnCitas.Location = new System.Drawing.Point(-4, 165);
             this.btnCitas.Margin = new System.Windows.Forms.Padding(4);
             this.btnCitas.Name = "btnCitas";
             this.btnCitas.Size = new System.Drawing.Size(364, 49);
@@ -408,7 +368,7 @@
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
             this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
             this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacientes.Location = new System.Drawing.Point(0, 109);
+            this.btnPacientes.Location = new System.Drawing.Point(0, 108);
             this.btnPacientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnPacientes.Name = "btnPacientes";
             this.btnPacientes.Size = new System.Drawing.Size(364, 49);
@@ -639,13 +599,11 @@
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnCitas;
         private System.Windows.Forms.Button btnPacientes;
-        private System.Windows.Forms.Button btnPlanEstudios;
         private System.Windows.Forms.Button btnConfigPersonal;
         private System.Windows.Forms.Button btnHerramientasAdmin;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnControlEstadistico;
         private System.Windows.Forms.Button btnReportes;
-        private System.Windows.Forms.Button btnPlanTerapeutico;
         private System.Windows.Forms.Button btnInformeMedicoRef;
         private System.Windows.Forms.Button btnMedicosConfianza;
     }

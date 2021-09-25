@@ -20,17 +20,15 @@ namespace CapaDatos
 
         public string edad_suc { get; set; }
 
-        public string razon_consulta { get; set; }
+        public int plan_terapeutico { get; set; }
 
-        public string plan_terapeutico { get; set; }
-
-        public string plan_estudio { get; set; }
+        public int plan_estudio { get; set; }
 
         public string observaciones { get; set; }
 
         public string diagnosticos { get; set; }
 
-        public DateTime prox_consulta { get; set; }
+        public string prox_consulta { get; set; }
 
         public string estado { get; set; }
 
@@ -114,13 +112,6 @@ namespace CapaDatos
                 ParEdad_suc.Value = Evolucion.edad_suc;
                 SqlCmd.Parameters.Add(ParEdad_suc);
 
-                SqlParameter ParRazonConsulta = new SqlParameter();
-                ParRazonConsulta.ParameterName = "@razon_consulta";
-                ParRazonConsulta.SqlDbType = SqlDbType.VarChar;
-                ParRazonConsulta.Size = 100;
-                ParRazonConsulta.Value = Evolucion.razon_consulta;
-                SqlCmd.Parameters.Add(ParRazonConsulta);
-
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
                 ParDiagnosticos.SqlDbType = SqlDbType.VarChar;
@@ -130,14 +121,14 @@ namespace CapaDatos
 
                 SqlParameter ParPlanEstudio = new SqlParameter();
                 ParPlanEstudio.ParameterName = "@plan_estudio";
-                ParPlanEstudio.SqlDbType = SqlDbType.VarChar;
+                ParPlanEstudio.SqlDbType = SqlDbType.Int;
                 ParPlanEstudio.Size = 100;
                 ParPlanEstudio.Value = Evolucion.plan_estudio;
                 SqlCmd.Parameters.Add(ParPlanEstudio);
 
                 SqlParameter ParPlanTera = new SqlParameter();
                 ParPlanTera.ParameterName = "@plan_terapeutico";
-                ParPlanTera.SqlDbType = SqlDbType.VarChar;
+                ParPlanTera.SqlDbType = SqlDbType.Int;
                 ParPlanTera.Size = 100;
                 ParPlanTera.Value = Evolucion.plan_terapeutico;
                 SqlCmd.Parameters.Add(ParPlanTera);
@@ -226,13 +217,6 @@ namespace CapaDatos
                 ParEdad_suc.Value = Evolucion.edad_suc;
                 SqlCmd.Parameters.Add(ParEdad_suc);
 
-                SqlParameter ParRazonConsulta = new SqlParameter();
-                ParRazonConsulta.ParameterName = "@razon_consulta";
-                ParRazonConsulta.SqlDbType = SqlDbType.VarChar;
-                ParRazonConsulta.Size = 100;
-                ParRazonConsulta.Value = Evolucion.edad_suc;
-                SqlCmd.Parameters.Add(ParRazonConsulta);
-
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
                 ParDiagnosticos.SqlDbType = SqlDbType.VarChar;
@@ -242,14 +226,14 @@ namespace CapaDatos
 
                 SqlParameter ParPlanEstudio = new SqlParameter();
                 ParPlanEstudio.ParameterName = "@plan_estudio";
-                ParPlanEstudio.SqlDbType = SqlDbType.VarChar;
+                ParPlanEstudio.SqlDbType = SqlDbType.Int;
                 ParPlanEstudio.Size = 10;
                 ParPlanEstudio.Value = Evolucion.plan_estudio;
                 SqlCmd.Parameters.Add(ParDiagnosticos);
 
                 SqlParameter ParPlanTera = new SqlParameter();
                 ParPlanTera.ParameterName = "@plan_terapeutico";
-                ParPlanTera.SqlDbType = SqlDbType.VarChar;
+                ParPlanTera.SqlDbType = SqlDbType.Int;
                 ParPlanTera.Size = 10;
                 ParPlanTera.Value = Evolucion.plan_terapeutico;
                 SqlCmd.Parameters.Add(ParDiagnosticos);

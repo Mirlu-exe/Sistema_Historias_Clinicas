@@ -68,6 +68,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbl_fecha_emision = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtSexo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -84,7 +85,10 @@
             this.btnQuitarEstudios = new System.Windows.Forms.Button();
             this.btnAñadirEstudios = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_id_evol = new System.Windows.Forms.Label();
+            this.lbl_id_historia = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
@@ -557,6 +561,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lbl_id_evol);
+            this.groupBox1.Controls.Add(this.lbl_id_historia);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSexo);
             this.groupBox1.Controls.Add(this.label4);
@@ -572,15 +580,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.CadetBlue;
+            this.label3.ForeColor = System.Drawing.Color.MintCream;
+            this.label3.Location = new System.Drawing.Point(291, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 24);
+            this.label3.TabIndex = 282;
+            this.label3.Text = "🔎";
+            // 
             // txtSexo
             // 
             this.txtSexo.BackColor = System.Drawing.SystemColors.Control;
             this.txtSexo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSexo.Location = new System.Drawing.Point(950, 43);
+            this.txtSexo.Location = new System.Drawing.Point(903, 38);
             this.txtSexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSexo.Name = "txtSexo";
             this.txtSexo.ReadOnly = true;
-            this.txtSexo.Size = new System.Drawing.Size(258, 28);
+            this.txtSexo.Size = new System.Drawing.Size(171, 28);
             this.txtSexo.TabIndex = 232;
             // 
             // label4
@@ -588,7 +607,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(77, 34);
+            this.label4.Location = new System.Drawing.Point(49, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 32);
             this.label4.TabIndex = 226;
@@ -599,7 +618,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label10.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label10.Location = new System.Drawing.Point(882, 33);
+            this.label10.Location = new System.Drawing.Point(835, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 32);
             this.label10.TabIndex = 229;
@@ -609,7 +628,7 @@
             // 
             this.txtNombre_Paciente.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombre_Paciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre_Paciente.Location = new System.Drawing.Point(484, 43);
+            this.txtNombre_Paciente.Location = new System.Drawing.Point(451, 37);
             this.txtNombre_Paciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre_Paciente.Name = "txtNombre_Paciente";
             this.txtNombre_Paciente.ReadOnly = true;
@@ -621,7 +640,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(380, 36);
+            this.label6.Location = new System.Drawing.Point(347, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 32);
             this.label6.TabIndex = 227;
@@ -630,7 +649,7 @@
             // txtNumero_Documento
             // 
             this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(169, 43);
+            this.txtNumero_Documento.Location = new System.Drawing.Point(141, 38);
             this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero_Documento.Mask = "##.###.###";
             this.txtNumero_Documento.Name = "txtNumero_Documento";
@@ -764,16 +783,49 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // label3
+            // lbl_id_evol
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.CadetBlue;
-            this.label3.ForeColor = System.Drawing.Color.MintCream;
-            this.label3.Location = new System.Drawing.Point(319, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 24);
-            this.label3.TabIndex = 282;
-            this.label3.Text = "🔎";
+            this.lbl_id_evol.AutoSize = true;
+            this.lbl_id_evol.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_evol.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_evol.Location = new System.Drawing.Point(1247, 46);
+            this.lbl_id_evol.Name = "lbl_id_evol";
+            this.lbl_id_evol.Size = new System.Drawing.Size(70, 19);
+            this.lbl_id_evol.TabIndex = 290;
+            this.lbl_id_evol.Text = "lbl_id_evol";
+            // 
+            // lbl_id_historia
+            // 
+            this.lbl_id_historia.AutoSize = true;
+            this.lbl_id_historia.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_historia.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_historia.Location = new System.Drawing.Point(1247, 24);
+            this.lbl_id_historia.Name = "lbl_id_historia";
+            this.lbl_id_historia.Size = new System.Drawing.Size(88, 19);
+            this.lbl_id_historia.TabIndex = 289;
+            this.lbl_id_historia.Text = "lbl_id_historia";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label14.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label14.Location = new System.Drawing.Point(1158, 45);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 19);
+            this.label14.TabIndex = 288;
+            this.label14.Text = "ID Evolucion:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label11.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label11.Location = new System.Drawing.Point(1158, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 19);
+            this.label11.TabIndex = 287;
+            this.label11.Text = "ID Historia:";
             // 
             // frmPlanEstudio
             // 
@@ -866,5 +918,9 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label lbl_fecha_emision;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_id_evol;
+        private System.Windows.Forms.Label lbl_id_historia;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label11;
     }
 }

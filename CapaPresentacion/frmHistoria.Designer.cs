@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoria));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -48,6 +48,7 @@
             this.lbl_idpac = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpNacimientoPac = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSexo = new System.Windows.Forms.TextBox();
@@ -105,39 +106,60 @@
             this.lblHistoriasActivas = new System.Windows.Forms.Label();
             this.chkAnular = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.cbPlanTerapeutico_Evol = new System.Windows.Forms.ComboBox();
-            this.cbPlanEstudio_Evol = new System.Windows.Forms.ComboBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.lblCedulaPaciente_evol = new System.Windows.Forms.Label();
-            this.lbl_id_paciente_select = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.txtProxConsultaEvol = new System.Windows.Forms.TextBox();
+            this.lblobs = new System.Windows.Forms.Label();
+            this.txtObservacionesEvol = new System.Windows.Forms.TextBox();
+            this.listboxDiagnosticosFinales_Evol = new System.Windows.Forms.ListBox();
+            this.btnQuitarDiag_Evol = new System.Windows.Forms.Button();
+            this.btnAñadirDiag_Evol = new System.Windows.Forms.Button();
+            this.txtDiagnosticosEvol = new System.Windows.Forms.TextBox();
             this.lbl_id_historia_evol = new System.Windows.Forms.Label();
-            this.lblNombrePaciente_evol = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtRazonConsulta_Evol = new System.Windows.Forms.TextBox();
-            this.dt_prox_cita = new System.Windows.Forms.DateTimePicker();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtObservaciones_Evol = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtDiagnosticos_Evol = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtEdadSuc_Evol = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtEdadActual = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.dt_fecha_consulta_evol = new System.Windows.Forms.DateTimePicker();
+            this.txtSexoEvol = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtNombre_Evol = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtNumero_Documento_Evol = new System.Windows.Forms.MaskedTextBox();
+            this.btnVerPlanTerapeuticoEvol = new System.Windows.Forms.Button();
+            this.btnVerPlanEstudioEvol = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbTipoSangreEvol = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtCancelarEvol = new System.Windows.Forms.Button();
+            this.txtEditarEvol = new System.Windows.Forms.Button();
+            this.txtNuevoEvol = new System.Windows.Forms.Button();
+            this.txtGuardarEvol = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbEstadoEvol = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.txtEcocardiogramaEvol = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.txtParaclinicosEvol = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtEkgEvol = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.txtLaboratorioEvol = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.txtExamenFisicoEvol = new System.Windows.Forms.TextBox();
+            this.dtpFechaConsulta_Evol = new System.Windows.Forms.DateTimePicker();
             this.btnCancelar_evol = new System.Windows.Forms.Button();
             this.btnEditar_evol = new System.Windows.Forms.Button();
             this.btnNueva_evol = new System.Windows.Forms.Button();
             this.btnGuardar_evol = new System.Windows.Forms.Button();
             this.cbEstado_Evol = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.lblhasta = new System.Windows.Forms.Label();
             this.lbldesde = new System.Windows.Forms.Label();
@@ -161,7 +183,6 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,7 +192,9 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadohistorias)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lista_evol)).BeginInit();
@@ -347,6 +370,18 @@
             this.groupBox1.TabIndex = 277;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.CadetBlue;
+            this.label3.ForeColor = System.Drawing.Color.MintCream;
+            this.label3.Location = new System.Drawing.Point(233, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 32);
+            this.label3.TabIndex = 281;
+            this.label3.Text = "🔎";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // dtpNacimientoPac
             // 
@@ -990,45 +1025,45 @@
             this.datalistadohistorias.AllowUserToDeleteRows = false;
             this.datalistadohistorias.AllowUserToOrderColumns = true;
             this.datalistadohistorias.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.datalistadohistorias.ColumnHeadersHeight = 50;
             this.datalistadohistorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.datalistadohistorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle10;
             this.datalistadohistorias.GridColor = System.Drawing.Color.DarkCyan;
             this.datalistadohistorias.Location = new System.Drawing.Point(25, 299);
             this.datalistadohistorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datalistadohistorias.MultiSelect = false;
             this.datalistadohistorias.Name = "datalistadohistorias";
             this.datalistadohistorias.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.datalistadohistorias.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.datalistadohistorias.RowTemplate.Height = 24;
             this.datalistadohistorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadohistorias.Size = new System.Drawing.Size(1556, 537);
@@ -1071,37 +1106,13 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.cbPlanTerapeutico_Evol);
-            this.tabPage5.Controls.Add(this.cbPlanEstudio_Evol);
-            this.tabPage5.Controls.Add(this.label46);
-            this.tabPage5.Controls.Add(this.lblCedulaPaciente_evol);
-            this.tabPage5.Controls.Add(this.lbl_id_paciente_select);
-            this.tabPage5.Controls.Add(this.label45);
-            this.tabPage5.Controls.Add(this.lbl_id_historia_evol);
-            this.tabPage5.Controls.Add(this.lblNombrePaciente_evol);
-            this.tabPage5.Controls.Add(this.label44);
-            this.tabPage5.Controls.Add(this.label16);
-            this.tabPage5.Controls.Add(this.txtRazonConsulta_Evol);
-            this.tabPage5.Controls.Add(this.dt_prox_cita);
-            this.tabPage5.Controls.Add(this.label39);
-            this.tabPage5.Controls.Add(this.label38);
-            this.tabPage5.Controls.Add(this.txtObservaciones_Evol);
-            this.tabPage5.Controls.Add(this.label37);
-            this.tabPage5.Controls.Add(this.label22);
-            this.tabPage5.Controls.Add(this.label21);
-            this.tabPage5.Controls.Add(this.txtDiagnosticos_Evol);
-            this.tabPage5.Controls.Add(this.label20);
-            this.tabPage5.Controls.Add(this.txtEdadSuc_Evol);
-            this.tabPage5.Controls.Add(this.label15);
-            this.tabPage5.Controls.Add(this.dt_fecha_consulta_evol);
-            this.tabPage5.Controls.Add(this.label17);
+            this.tabPage5.Controls.Add(this.groupBox3);
             this.tabPage5.Controls.Add(this.btnCancelar_evol);
             this.tabPage5.Controls.Add(this.btnEditar_evol);
             this.tabPage5.Controls.Add(this.btnNueva_evol);
             this.tabPage5.Controls.Add(this.btnGuardar_evol);
             this.tabPage5.Controls.Add(this.cbEstado_Evol);
             this.tabPage5.Controls.Add(this.label14);
-            this.tabPage5.Controls.Add(this.panel3);
             this.tabPage5.Location = new System.Drawing.Point(4, 41);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1642, 975);
@@ -1110,247 +1121,620 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
-            // cbPlanTerapeutico_Evol
+            // groupBox3
             // 
-            this.cbPlanTerapeutico_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPlanTerapeutico_Evol.FormattingEnabled = true;
-            this.cbPlanTerapeutico_Evol.Location = new System.Drawing.Point(936, 375);
-            this.cbPlanTerapeutico_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPlanTerapeutico_Evol.Name = "cbPlanTerapeutico_Evol";
-            this.cbPlanTerapeutico_Evol.Size = new System.Drawing.Size(317, 40);
-            this.cbPlanTerapeutico_Evol.TabIndex = 272;
+            this.groupBox3.Controls.Add(this.label52);
+            this.groupBox3.Controls.Add(this.txtProxConsultaEvol);
+            this.groupBox3.Controls.Add(this.lblobs);
+            this.groupBox3.Controls.Add(this.txtObservacionesEvol);
+            this.groupBox3.Controls.Add(this.listboxDiagnosticosFinales_Evol);
+            this.groupBox3.Controls.Add(this.btnQuitarDiag_Evol);
+            this.groupBox3.Controls.Add(this.btnAñadirDiag_Evol);
+            this.groupBox3.Controls.Add(this.txtDiagnosticosEvol);
+            this.groupBox3.Controls.Add(this.lbl_id_historia_evol);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.btnVerPlanTerapeuticoEvol);
+            this.groupBox3.Controls.Add(this.btnVerPlanEstudioEvol);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.cbTipoSangreEvol);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.panel1);
+            this.groupBox3.Controls.Add(this.txtCancelarEvol);
+            this.groupBox3.Controls.Add(this.txtEditarEvol);
+            this.groupBox3.Controls.Add(this.txtNuevoEvol);
+            this.groupBox3.Controls.Add(this.txtGuardarEvol);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.cbEstadoEvol);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label37);
+            this.groupBox3.Controls.Add(this.label38);
+            this.groupBox3.Controls.Add(this.label39);
+            this.groupBox3.Controls.Add(this.txtEcocardiogramaEvol);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Controls.Add(this.txtParaclinicosEvol);
+            this.groupBox3.Controls.Add(this.label45);
+            this.groupBox3.Controls.Add(this.txtEkgEvol);
+            this.groupBox3.Controls.Add(this.label46);
+            this.groupBox3.Controls.Add(this.txtLaboratorioEvol);
+            this.groupBox3.Controls.Add(this.label49);
+            this.groupBox3.Controls.Add(this.txtExamenFisicoEvol);
+            this.groupBox3.Controls.Add(this.dtpFechaConsulta_Evol);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.groupBox3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.groupBox3.Location = new System.Drawing.Point(0, 1);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Size = new System.Drawing.Size(1744, 978);
+            this.groupBox3.TabIndex = 162;
+            this.groupBox3.TabStop = false;
             // 
-            // cbPlanEstudio_Evol
+            // label52
             // 
-            this.cbPlanEstudio_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.cbPlanEstudio_Evol.FormattingEnabled = true;
-            this.cbPlanEstudio_Evol.Location = new System.Drawing.Point(937, 470);
-            this.cbPlanEstudio_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPlanEstudio_Evol.Name = "cbPlanEstudio_Evol";
-            this.cbPlanEstudio_Evol.Size = new System.Drawing.Size(317, 40);
-            this.cbPlanEstudio_Evol.TabIndex = 271;
+            this.label52.AutoSize = true;
+            this.label52.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label52.Location = new System.Drawing.Point(36, 440);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(158, 32);
+            this.label52.TabIndex = 287;
+            this.label52.Text = "Prox. Consulta";
             // 
-            // label46
+            // txtProxConsultaEvol
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(591, 200);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(120, 32);
-            this.label46.TabIndex = 195;
-            this.label46.Text = "ID historia:";
+            this.txtProxConsultaEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtProxConsultaEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProxConsultaEvol.Enabled = false;
+            this.txtProxConsultaEvol.Location = new System.Drawing.Point(42, 474);
+            this.txtProxConsultaEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProxConsultaEvol.Multiline = true;
+            this.txtProxConsultaEvol.Name = "txtProxConsultaEvol";
+            this.txtProxConsultaEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtProxConsultaEvol.TabIndex = 288;
             // 
-            // lblCedulaPaciente_evol
+            // lblobs
             // 
-            this.lblCedulaPaciente_evol.AutoSize = true;
-            this.lblCedulaPaciente_evol.Location = new System.Drawing.Point(756, 143);
-            this.lblCedulaPaciente_evol.Name = "lblCedulaPaciente_evol";
-            this.lblCedulaPaciente_evol.Size = new System.Drawing.Size(243, 32);
-            this.lblCedulaPaciente_evol.TabIndex = 194;
-            this.lblCedulaPaciente_evol.Text = "lblCedulaPaciente_evol";
+            this.lblobs.AutoSize = true;
+            this.lblobs.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblobs.Location = new System.Drawing.Point(36, 293);
+            this.lblobs.Name = "lblobs";
+            this.lblobs.Size = new System.Drawing.Size(162, 32);
+            this.lblobs.TabIndex = 285;
+            this.lblobs.Text = "Observaciones";
             // 
-            // lbl_id_paciente_select
+            // txtObservacionesEvol
             // 
-            this.lbl_id_paciente_select.AutoSize = true;
-            this.lbl_id_paciente_select.Location = new System.Drawing.Point(632, 92);
-            this.lbl_id_paciente_select.Name = "lbl_id_paciente_select";
-            this.lbl_id_paciente_select.Size = new System.Drawing.Size(69, 32);
-            this.lbl_id_paciente_select.TabIndex = 193;
-            this.lbl_id_paciente_select.Text = "idpac";
+            this.txtObservacionesEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtObservacionesEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservacionesEvol.Enabled = false;
+            this.txtObservacionesEvol.Location = new System.Drawing.Point(42, 327);
+            this.txtObservacionesEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtObservacionesEvol.Multiline = true;
+            this.txtObservacionesEvol.Name = "txtObservacionesEvol";
+            this.txtObservacionesEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtObservacionesEvol.TabIndex = 286;
             // 
-            // label45
+            // listboxDiagnosticosFinales_Evol
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(493, 92);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(133, 32);
-            this.label45.TabIndex = 192;
-            this.label45.Text = "ID paciente:";
+            this.listboxDiagnosticosFinales_Evol.BackColor = System.Drawing.SystemColors.Control;
+            this.listboxDiagnosticosFinales_Evol.Enabled = false;
+            this.listboxDiagnosticosFinales_Evol.FormattingEnabled = true;
+            this.listboxDiagnosticosFinales_Evol.ItemHeight = 32;
+            this.listboxDiagnosticosFinales_Evol.Location = new System.Drawing.Point(41, 764);
+            this.listboxDiagnosticosFinales_Evol.Name = "listboxDiagnosticosFinales_Evol";
+            this.listboxDiagnosticosFinales_Evol.ScrollAlwaysVisible = true;
+            this.listboxDiagnosticosFinales_Evol.Size = new System.Drawing.Size(1179, 132);
+            this.listboxDiagnosticosFinales_Evol.TabIndex = 284;
+            // 
+            // btnQuitarDiag_Evol
+            // 
+            this.btnQuitarDiag_Evol.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnQuitarDiag_Evol.Location = new System.Drawing.Point(1226, 808);
+            this.btnQuitarDiag_Evol.Name = "btnQuitarDiag_Evol";
+            this.btnQuitarDiag_Evol.Size = new System.Drawing.Size(89, 86);
+            this.btnQuitarDiag_Evol.TabIndex = 283;
+            this.btnQuitarDiag_Evol.Text = "-";
+            this.btnQuitarDiag_Evol.UseVisualStyleBackColor = false;
+            this.btnQuitarDiag_Evol.Click += new System.EventHandler(this.btnQuitarDiag_Evol_Click);
+            // 
+            // btnAñadirDiag_Evol
+            // 
+            this.btnAñadirDiag_Evol.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAñadirDiag_Evol.Location = new System.Drawing.Point(1226, 716);
+            this.btnAñadirDiag_Evol.Name = "btnAñadirDiag_Evol";
+            this.btnAñadirDiag_Evol.Size = new System.Drawing.Size(89, 86);
+            this.btnAñadirDiag_Evol.TabIndex = 282;
+            this.btnAñadirDiag_Evol.Text = "+";
+            this.btnAñadirDiag_Evol.UseVisualStyleBackColor = false;
+            this.btnAñadirDiag_Evol.Click += new System.EventHandler(this.btnAñadirDiag_Evol_Click);
+            // 
+            // txtDiagnosticosEvol
+            // 
+            this.txtDiagnosticosEvol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDiagnosticosEvol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDiagnosticosEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiagnosticosEvol.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDiagnosticosEvol.Location = new System.Drawing.Point(41, 719);
+            this.txtDiagnosticosEvol.Name = "txtDiagnosticosEvol";
+            this.txtDiagnosticosEvol.Size = new System.Drawing.Size(1179, 39);
+            this.txtDiagnosticosEvol.TabIndex = 280;
             // 
             // lbl_id_historia_evol
             // 
             this.lbl_id_historia_evol.AutoSize = true;
-            this.lbl_id_historia_evol.Location = new System.Drawing.Point(707, 200);
+            this.lbl_id_historia_evol.Location = new System.Drawing.Point(1539, 204);
             this.lbl_id_historia_evol.Name = "lbl_id_historia_evol";
-            this.lbl_id_historia_evol.Size = new System.Drawing.Size(199, 32);
-            this.lbl_id_historia_evol.TabIndex = 191;
-            this.lbl_id_historia_evol.Text = "lbl_id_historia_evol";
+            this.lbl_id_historia_evol.Size = new System.Drawing.Size(27, 32);
+            this.lbl_id_historia_evol.TabIndex = 279;
+            this.lbl_id_historia_evol.Text = "0";
             // 
-            // lblNombrePaciente_evol
+            // label11
             // 
-            this.lblNombrePaciente_evol.AutoSize = true;
-            this.lblNombrePaciente_evol.Location = new System.Drawing.Point(756, 92);
-            this.lblNombrePaciente_evol.Name = "lblNombrePaciente_evol";
-            this.lblNombrePaciente_evol.Size = new System.Drawing.Size(256, 32);
-            this.lblNombrePaciente_evol.TabIndex = 190;
-            this.lblNombrePaciente_evol.Text = "lblNombrePaciente_evol";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1375, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(205, 32);
+            this.label11.TabIndex = 278;
+            this.label11.Text = "Fecha de Consulta:";
             // 
-            // label44
+            // groupBox4
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(490, 143);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(218, 32);
-            this.label44.TabIndex = 188;
-            this.label44.Text = "Cedula del Paciente:";
+            this.groupBox4.BackColor = System.Drawing.Color.White;
+            this.groupBox4.Controls.Add(this.txtEdadActual);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.txtSexoEvol);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.txtNombre_Evol);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.txtNumero_Documento_Evol);
+            this.groupBox4.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.groupBox4.Location = new System.Drawing.Point(27, 85);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1339, 105);
+            this.groupBox4.TabIndex = 277;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Información del Paciente";
             // 
-            // label16
+            // txtEdadActual
             // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label16.Location = new System.Drawing.Point(157, 327);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(228, 32);
-            this.label16.TabIndex = 186;
-            this.label16.Text = "Razon de la consulta:";
+            this.txtEdadActual.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEdadActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEdadActual.Enabled = false;
+            this.txtEdadActual.Location = new System.Drawing.Point(963, 43);
+            this.txtEdadActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEdadActual.Name = "txtEdadActual";
+            this.txtEdadActual.ReadOnly = true;
+            this.txtEdadActual.Size = new System.Drawing.Size(89, 39);
+            this.txtEdadActual.TabIndex = 282;
             // 
-            // txtRazonConsulta_Evol
+            // label12
             // 
-            this.txtRazonConsulta_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtRazonConsulta_Evol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRazonConsulta_Evol.Location = new System.Drawing.Point(163, 361);
-            this.txtRazonConsulta_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtRazonConsulta_Evol.Multiline = true;
-            this.txtRazonConsulta_Evol.Name = "txtRazonConsulta_Evol";
-            this.txtRazonConsulta_Evol.Size = new System.Drawing.Size(298, 93);
-            this.txtRazonConsulta_Evol.TabIndex = 187;
-            // 
-            // dt_prox_cita
-            // 
-            this.dt_prox_cita.CustomFormat = "dd/MM/yyyy";
-            this.dt_prox_cita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_prox_cita.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dt_prox_cita.Location = new System.Drawing.Point(937, 566);
-            this.dt_prox_cita.Margin = new System.Windows.Forms.Padding(4);
-            this.dt_prox_cita.Name = "dt_prox_cita";
-            this.dt_prox_cita.Size = new System.Drawing.Size(315, 39);
-            this.dt_prox_cita.TabIndex = 185;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label39.Location = new System.Drawing.Point(931, 530);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(204, 32);
-            this.label39.TabIndex = 184;
-            this.label39.Text = "Fecha de prox cita:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label38.Location = new System.Drawing.Point(541, 478);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(167, 32);
-            this.label38.TabIndex = 182;
-            this.label38.Text = "Observaciones:";
-            // 
-            // txtObservaciones_Evol
-            // 
-            this.txtObservaciones_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtObservaciones_Evol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtObservaciones_Evol.Location = new System.Drawing.Point(547, 512);
-            this.txtObservaciones_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtObservaciones_Evol.Multiline = true;
-            this.txtObservaciones_Evol.Name = "txtObservaciones_Evol";
-            this.txtObservaciones_Evol.Size = new System.Drawing.Size(316, 93);
-            this.txtObservaciones_Evol.TabIndex = 183;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label37.Location = new System.Drawing.Point(931, 341);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(183, 32);
-            this.label37.TabIndex = 180;
-            this.label37.Text = "Plan terapeutico:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label22.Location = new System.Drawing.Point(931, 436);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(174, 32);
-            this.label22.TabIndex = 178;
-            this.label22.Text = "Plan de estudio:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label21.Location = new System.Drawing.Point(156, 627);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(146, 32);
-            this.label21.TabIndex = 176;
-            this.label21.Text = "Diagnosticos:";
-            // 
-            // txtDiagnosticos_Evol
-            // 
-            this.txtDiagnosticos_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDiagnosticos_Evol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiagnosticos_Evol.Location = new System.Drawing.Point(162, 661);
-            this.txtDiagnosticos_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDiagnosticos_Evol.Multiline = true;
-            this.txtDiagnosticos_Evol.Name = "txtDiagnosticos_Evol";
-            this.txtDiagnosticos_Evol.Size = new System.Drawing.Size(1089, 93);
-            this.txtDiagnosticos_Evol.TabIndex = 177;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label20.Location = new System.Drawing.Point(157, 478);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(137, 32);
-            this.label20.TabIndex = 174;
-            this.label20.Text = "Edad actual:";
-            // 
-            // txtEdadSuc_Evol
-            // 
-            this.txtEdadSuc_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEdadSuc_Evol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEdadSuc_Evol.Location = new System.Drawing.Point(163, 512);
-            this.txtEdadSuc_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEdadSuc_Evol.Multiline = true;
-            this.txtEdadSuc_Evol.Name = "txtEdadSuc_Evol";
-            this.txtEdadSuc_Evol.Size = new System.Drawing.Size(298, 93);
-            this.txtEdadSuc_Evol.TabIndex = 175;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.CadetBlue;
+            this.label12.ForeColor = System.Drawing.Color.MintCream;
+            this.label12.Location = new System.Drawing.Point(233, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 32);
+            this.label12.TabIndex = 281;
+            this.label12.Text = "🔎";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label15.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.label15.Location = new System.Drawing.Point(478, 92);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label15.Location = new System.Drawing.Point(892, 43);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(25, 32);
-            this.label15.TabIndex = 173;
-            this.label15.Text = "*";
+            this.label15.Size = new System.Drawing.Size(65, 32);
+            this.label15.TabIndex = 233;
+            this.label15.Text = "Edad";
             // 
-            // dt_fecha_consulta_evol
+            // txtSexoEvol
             // 
-            this.dt_fecha_consulta_evol.CustomFormat = "dd/MM/yyyy";
-            this.dt_fecha_consulta_evol.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_fecha_consulta_evol.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dt_fecha_consulta_evol.Location = new System.Drawing.Point(547, 376);
-            this.dt_fecha_consulta_evol.Margin = new System.Windows.Forms.Padding(4);
-            this.dt_fecha_consulta_evol.Name = "dt_fecha_consulta_evol";
-            this.dt_fecha_consulta_evol.Size = new System.Drawing.Size(297, 39);
-            this.dt_fecha_consulta_evol.TabIndex = 172;
-            this.dt_fecha_consulta_evol.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.txtSexoEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSexoEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSexoEvol.Enabled = false;
+            this.txtSexoEvol.Location = new System.Drawing.Point(1199, 41);
+            this.txtSexoEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSexoEvol.Name = "txtSexoEvol";
+            this.txtSexoEvol.ReadOnly = true;
+            this.txtSexoEvol.Size = new System.Drawing.Size(89, 39);
+            this.txtSexoEvol.TabIndex = 232;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label16.Location = new System.Drawing.Point(6, 44);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 32);
+            this.label16.TabIndex = 226;
+            this.label16.Text = "Cedula";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label17.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label17.Location = new System.Drawing.Point(541, 341);
+            this.label17.Location = new System.Drawing.Point(1131, 45);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(220, 32);
-            this.label17.TabIndex = 169;
-            this.label17.Text = "Fecha de la consulta";
+            this.label17.Size = new System.Drawing.Size(62, 32);
+            this.label17.TabIndex = 229;
+            this.label17.Text = "Sexo";
+            // 
+            // txtNombre_Evol
+            // 
+            this.txtNombre_Evol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombre_Evol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre_Evol.Enabled = false;
+            this.txtNombre_Evol.Location = new System.Drawing.Point(397, 45);
+            this.txtNombre_Evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre_Evol.Name = "txtNombre_Evol";
+            this.txtNombre_Evol.ReadOnly = true;
+            this.txtNombre_Evol.Size = new System.Drawing.Size(445, 39);
+            this.txtNombre_Evol.TabIndex = 228;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label18.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label18.Location = new System.Drawing.Point(293, 43);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(98, 32);
+            this.label18.TabIndex = 227;
+            this.label18.Text = "Nombre";
+            // 
+            // txtNumero_Documento_Evol
+            // 
+            this.txtNumero_Documento_Evol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Documento_Evol.Location = new System.Drawing.Point(98, 41);
+            this.txtNumero_Documento_Evol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Documento_Evol.Mask = "##.###.###";
+            this.txtNumero_Documento_Evol.Name = "txtNumero_Documento_Evol";
+            this.txtNumero_Documento_Evol.Size = new System.Drawing.Size(128, 39);
+            this.txtNumero_Documento_Evol.TabIndex = 231;
+            // 
+            // btnVerPlanTerapeuticoEvol
+            // 
+            this.btnVerPlanTerapeuticoEvol.BackColor = System.Drawing.Color.DarkGray;
+            this.btnVerPlanTerapeuticoEvol.Enabled = false;
+            this.btnVerPlanTerapeuticoEvol.FlatAppearance.BorderSize = 0;
+            this.btnVerPlanTerapeuticoEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnVerPlanTerapeuticoEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerPlanTerapeuticoEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnVerPlanTerapeuticoEvol.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnVerPlanTerapeuticoEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerPlanTerapeuticoEvol.Location = new System.Drawing.Point(925, 612);
+            this.btnVerPlanTerapeuticoEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerPlanTerapeuticoEvol.Name = "btnVerPlanTerapeuticoEvol";
+            this.btnVerPlanTerapeuticoEvol.Size = new System.Drawing.Size(392, 47);
+            this.btnVerPlanTerapeuticoEvol.TabIndex = 275;
+            this.btnVerPlanTerapeuticoEvol.Text = "sin/con plan terapeutico";
+            this.btnVerPlanTerapeuticoEvol.UseVisualStyleBackColor = false;
+            this.btnVerPlanTerapeuticoEvol.Click += new System.EventHandler(this.btnVerPlanTerapeuticoEvol_Click);
+            // 
+            // btnVerPlanEstudioEvol
+            // 
+            this.btnVerPlanEstudioEvol.BackColor = System.Drawing.Color.DarkGray;
+            this.btnVerPlanEstudioEvol.Enabled = false;
+            this.btnVerPlanEstudioEvol.FlatAppearance.BorderSize = 0;
+            this.btnVerPlanEstudioEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnVerPlanEstudioEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerPlanEstudioEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnVerPlanEstudioEvol.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnVerPlanEstudioEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerPlanEstudioEvol.Location = new System.Drawing.Point(926, 524);
+            this.btnVerPlanEstudioEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerPlanEstudioEvol.Name = "btnVerPlanEstudioEvol";
+            this.btnVerPlanEstudioEvol.Size = new System.Drawing.Size(392, 47);
+            this.btnVerPlanEstudioEvol.TabIndex = 274;
+            this.btnVerPlanEstudioEvol.Text = "sin/con plan estudio";
+            this.btnVerPlanEstudioEvol.UseVisualStyleBackColor = false;
+            this.btnVerPlanEstudioEvol.Click += new System.EventHandler(this.btnVerPlanEstudioEvol_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1375, 710);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(172, 32);
+            this.label19.TabIndex = 267;
+            this.label19.Text = "Tipo de Sangre:";
+            // 
+            // cbTipoSangreEvol
+            // 
+            this.cbTipoSangreEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.cbTipoSangreEvol.FormattingEnabled = true;
+            this.cbTipoSangreEvol.Items.AddRange(new object[] {
+            "Desconocido",
+            "A+",
+            "A-",
+            "B+",
+            "B-",
+            "AB+",
+            "AB-",
+            "O+",
+            "O-"});
+            this.cbTipoSangreEvol.Location = new System.Drawing.Point(1378, 744);
+            this.cbTipoSangreEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTipoSangreEvol.Name = "cbTipoSangreEvol";
+            this.cbTipoSangreEvol.Size = new System.Drawing.Size(188, 40);
+            this.cbTipoSangreEvol.TabIndex = 266;
+            this.cbTipoSangreEvol.Text = "Desconocido";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(36, 673);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(141, 32);
+            this.label20.TabIndex = 172;
+            this.label20.Text = "Diagnósticos";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1744, 39);
+            this.panel1.TabIndex = 153;
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(632, -10);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(519, 60);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Evolución";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCancelarEvol
+            // 
+            this.txtCancelarEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCancelarEvol.FlatAppearance.BorderSize = 0;
+            this.txtCancelarEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.txtCancelarEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtCancelarEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtCancelarEvol.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txtCancelarEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtCancelarEvol.Location = new System.Drawing.Point(1381, 509);
+            this.txtCancelarEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCancelarEvol.Name = "txtCancelarEvol";
+            this.txtCancelarEvol.Size = new System.Drawing.Size(188, 90);
+            this.txtCancelarEvol.TabIndex = 145;
+            this.txtCancelarEvol.Text = "Cancelar";
+            this.txtCancelarEvol.UseVisualStyleBackColor = false;
+            // 
+            // txtEditarEvol
+            // 
+            this.txtEditarEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEditarEvol.FlatAppearance.BorderSize = 0;
+            this.txtEditarEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.txtEditarEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtEditarEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtEditarEvol.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txtEditarEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtEditarEvol.Location = new System.Drawing.Point(1381, 327);
+            this.txtEditarEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEditarEvol.Name = "txtEditarEvol";
+            this.txtEditarEvol.Size = new System.Drawing.Size(188, 87);
+            this.txtEditarEvol.TabIndex = 144;
+            this.txtEditarEvol.Text = "Editar";
+            this.txtEditarEvol.UseVisualStyleBackColor = false;
+            // 
+            // txtNuevoEvol
+            // 
+            this.txtNuevoEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNuevoEvol.FlatAppearance.BorderSize = 0;
+            this.txtNuevoEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.txtNuevoEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtNuevoEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtNuevoEvol.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txtNuevoEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtNuevoEvol.Location = new System.Drawing.Point(1381, 240);
+            this.txtNuevoEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNuevoEvol.Name = "txtNuevoEvol";
+            this.txtNuevoEvol.Size = new System.Drawing.Size(188, 79);
+            this.txtNuevoEvol.TabIndex = 143;
+            this.txtNuevoEvol.Text = "Nuevo";
+            this.txtNuevoEvol.UseVisualStyleBackColor = false;
+            this.txtNuevoEvol.Click += new System.EventHandler(this.txtNuevoEvol_Click);
+            // 
+            // txtGuardarEvol
+            // 
+            this.txtGuardarEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtGuardarEvol.FlatAppearance.BorderSize = 0;
+            this.txtGuardarEvol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.txtGuardarEvol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtGuardarEvol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtGuardarEvol.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txtGuardarEvol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGuardarEvol.Location = new System.Drawing.Point(1381, 422);
+            this.txtGuardarEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGuardarEvol.Name = "txtGuardarEvol";
+            this.txtGuardarEvol.Size = new System.Drawing.Size(188, 79);
+            this.txtGuardarEvol.TabIndex = 142;
+            this.txtGuardarEvol.Text = "Guardar";
+            this.txtGuardarEvol.UseVisualStyleBackColor = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.DarkGray;
+            this.label22.Location = new System.Drawing.Point(1404, 204);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(135, 32);
+            this.label22.TabIndex = 88;
+            this.label22.Text = "Codigo evol";
+            this.label22.Visible = false;
+            // 
+            // cbEstadoEvol
+            // 
+            this.cbEstadoEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.cbEstadoEvol.FormattingEnabled = true;
+            this.cbEstadoEvol.Items.AddRange(new object[] {
+            "Activo",
+            "Anulado"});
+            this.cbEstadoEvol.Location = new System.Drawing.Point(1378, 832);
+            this.cbEstadoEvol.Margin = new System.Windows.Forms.Padding(4);
+            this.cbEstadoEvol.Name = "cbEstadoEvol";
+            this.cbEstadoEvol.Size = new System.Drawing.Size(191, 40);
+            this.cbEstadoEvol.TabIndex = 83;
+            this.cbEstadoEvol.Text = "Activo";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(1488, 796);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(81, 32);
+            this.label23.TabIndex = 82;
+            this.label23.Text = "Estado";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(920, 576);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(179, 32);
+            this.label37.TabIndex = 80;
+            this.label37.Text = "Plan Terapeutico";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(921, 488);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(169, 32);
+            this.label38.TabIndex = 78;
+            this.label38.Text = "Plan de Estudio";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(921, 358);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(178, 32);
+            this.label39.TabIndex = 76;
+            this.label39.Text = "Ecocardiograma";
+            // 
+            // txtEcocardiogramaEvol
+            // 
+            this.txtEcocardiogramaEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEcocardiogramaEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEcocardiogramaEvol.Enabled = false;
+            this.txtEcocardiogramaEvol.Location = new System.Drawing.Point(926, 392);
+            this.txtEcocardiogramaEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEcocardiogramaEvol.Multiline = true;
+            this.txtEcocardiogramaEvol.Name = "txtEcocardiogramaEvol";
+            this.txtEcocardiogramaEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtEcocardiogramaEvol.TabIndex = 77;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(482, 490);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(238, 32);
+            this.label44.TabIndex = 74;
+            this.label44.Text = "Examenes Paraclínicos";
+            // 
+            // txtParaclinicosEvol
+            // 
+            this.txtParaclinicosEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtParaclinicosEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtParaclinicosEvol.Enabled = false;
+            this.txtParaclinicosEvol.Location = new System.Drawing.Point(488, 524);
+            this.txtParaclinicosEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtParaclinicosEvol.Multiline = true;
+            this.txtParaclinicosEvol.Name = "txtParaclinicosEvol";
+            this.txtParaclinicosEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtParaclinicosEvol.TabIndex = 75;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(919, 230);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(54, 32);
+            this.label45.TabIndex = 72;
+            this.label45.Text = "EKG";
+            // 
+            // txtEkgEvol
+            // 
+            this.txtEkgEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEkgEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEkgEvol.Enabled = false;
+            this.txtEkgEvol.Location = new System.Drawing.Point(924, 264);
+            this.txtEkgEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEkgEvol.Multiline = true;
+            this.txtEkgEvol.Name = "txtEkgEvol";
+            this.txtEkgEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtEkgEvol.TabIndex = 73;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(482, 358);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(130, 32);
+            this.label46.TabIndex = 70;
+            this.label46.Text = "Laboratorio";
+            // 
+            // txtLaboratorioEvol
+            // 
+            this.txtLaboratorioEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLaboratorioEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLaboratorioEvol.Enabled = false;
+            this.txtLaboratorioEvol.Location = new System.Drawing.Point(488, 392);
+            this.txtLaboratorioEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLaboratorioEvol.Multiline = true;
+            this.txtLaboratorioEvol.Name = "txtLaboratorioEvol";
+            this.txtLaboratorioEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtLaboratorioEvol.TabIndex = 71;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(482, 235);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(155, 32);
+            this.label49.TabIndex = 68;
+            this.label49.Text = "Examen Fisico";
+            // 
+            // txtExamenFisicoEvol
+            // 
+            this.txtExamenFisicoEvol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtExamenFisicoEvol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExamenFisicoEvol.Enabled = false;
+            this.txtExamenFisicoEvol.Location = new System.Drawing.Point(488, 269);
+            this.txtExamenFisicoEvol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtExamenFisicoEvol.Multiline = true;
+            this.txtExamenFisicoEvol.Name = "txtExamenFisicoEvol";
+            this.txtExamenFisicoEvol.Size = new System.Drawing.Size(393, 70);
+            this.txtExamenFisicoEvol.TabIndex = 69;
+            // 
+            // dtpFechaConsulta_Evol
+            // 
+            this.dtpFechaConsulta_Evol.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaConsulta_Evol.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaConsulta_Evol.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpFechaConsulta_Evol.Location = new System.Drawing.Point(1381, 140);
+            this.dtpFechaConsulta_Evol.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaConsulta_Evol.Name = "dtpFechaConsulta_Evol";
+            this.dtpFechaConsulta_Evol.Size = new System.Drawing.Size(191, 39);
+            this.dtpFechaConsulta_Evol.TabIndex = 65;
             // 
             // btnCancelar_evol
             // 
@@ -1446,42 +1830,6 @@
             this.label14.Size = new System.Drawing.Size(81, 32);
             this.label14.TabIndex = 155;
             this.label14.Text = "Estado";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1642, 50);
-            this.panel3.TabIndex = 154;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(632, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(519, 60);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Evoluciones";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(36, 48);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(520, 95);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Crystal Clear";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage6
             // 
@@ -1610,45 +1958,45 @@
             this.dgv_lista_evol.AllowUserToDeleteRows = false;
             this.dgv_lista_evol.AllowUserToOrderColumns = true;
             this.dgv_lista_evol.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_lista_evol.ColumnHeadersHeight = 50;
             this.dgv_lista_evol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_lista_evol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_lista_evol.GridColor = System.Drawing.Color.DarkCyan;
             this.dgv_lista_evol.Location = new System.Drawing.Point(3, 2);
             this.dgv_lista_evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_lista_evol.MultiSelect = false;
             this.dgv_lista_evol.Name = "dgv_lista_evol";
             this.dgv_lista_evol.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_lista_evol.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_lista_evol.RowTemplate.Height = 24;
             this.dgv_lista_evol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_lista_evol.Size = new System.Drawing.Size(1106, 587);
@@ -1775,18 +2123,6 @@
             this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
             this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.CadetBlue;
-            this.label3.ForeColor = System.Drawing.Color.MintCream;
-            this.label3.Location = new System.Drawing.Point(233, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 32);
-            this.label3.TabIndex = 281;
-            this.label3.Text = "🔎";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1814,7 +2150,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadohistorias)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1873,29 +2213,6 @@
         private System.Windows.Forms.CheckBox chkAnular;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dt_prox_cita;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox txtObservaciones_Evol;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtDiagnosticos_Evol;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtEdadSuc_Evol;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dt_fecha_consulta_evol;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btnCancelar_evol;
-        private System.Windows.Forms.Button btnEditar_evol;
-        private System.Windows.Forms.Button btnNueva_evol;
-        private System.Windows.Forms.Button btnGuardar_evol;
-        private System.Windows.Forms.ComboBox cbEstado_Evol;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label40;
@@ -1904,17 +2221,8 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtRazonConsulta_Evol;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button btnAnadirEvol;
-        private System.Windows.Forms.Label lblNombrePaciente_evol;
-        private System.Windows.Forms.Label lbl_id_paciente_select;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label lbl_id_historia_evol;
-        private System.Windows.Forms.Label lblCedulaPaciente_evol;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lbl_lista_evol_id_historia;
         private System.Windows.Forms.Label lbl_lista_evol_nombre;
@@ -1924,8 +2232,6 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
         private System.Windows.Forms.Button btnAbrirArchivoMuerto;
-        private System.Windows.Forms.ComboBox cbPlanTerapeutico_Evol;
-        private System.Windows.Forms.ComboBox cbPlanEstudio_Evol;
         private System.Windows.Forms.Label lbldesde;
         private System.Windows.Forms.DateTimePicker DtpFecha2;
         private System.Windows.Forms.DateTimePicker DtpFecha1;
@@ -1951,5 +2257,60 @@
         private System.Windows.Forms.Button btnAñadirDiag;
         private System.Windows.Forms.ListBox listboxDiagnosticosFinales;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox listboxDiagnosticosFinales_Evol;
+        private System.Windows.Forms.Button btnQuitarDiag_Evol;
+        private System.Windows.Forms.Button btnAñadirDiag_Evol;
+        private System.Windows.Forms.TextBox txtDiagnosticosEvol;
+        private System.Windows.Forms.Label lbl_id_historia_evol;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtSexoEvol;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtNombre_Evol;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Documento_Evol;
+        private System.Windows.Forms.Button btnVerPlanTerapeuticoEvol;
+        private System.Windows.Forms.Button btnVerPlanEstudioEvol;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cbTipoSangreEvol;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button txtCancelarEvol;
+        private System.Windows.Forms.Button txtEditarEvol;
+        private System.Windows.Forms.Button txtNuevoEvol;
+        private System.Windows.Forms.Button txtGuardarEvol;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cbEstadoEvol;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox txtEcocardiogramaEvol;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox txtParaclinicosEvol;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox txtEkgEvol;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox txtLaboratorioEvol;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox txtExamenFisicoEvol;
+        private System.Windows.Forms.DateTimePicker dtpFechaConsulta_Evol;
+        private System.Windows.Forms.Button btnCancelar_evol;
+        private System.Windows.Forms.Button btnEditar_evol;
+        private System.Windows.Forms.Button btnNueva_evol;
+        private System.Windows.Forms.Button btnGuardar_evol;
+        private System.Windows.Forms.ComboBox cbEstado_Evol;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox txtProxConsultaEvol;
+        private System.Windows.Forms.Label lblobs;
+        private System.Windows.Forms.TextBox txtObservacionesEvol;
+        private System.Windows.Forms.TextBox txtEdadActual;
     }
 }
