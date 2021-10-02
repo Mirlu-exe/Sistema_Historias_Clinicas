@@ -463,8 +463,9 @@ namespace CapaPresentacion
                         cmd.Connection = SqlCon;
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = "select @@IDENTITY";
-                        Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
+                        int Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
 
+                        
                         
 
 
