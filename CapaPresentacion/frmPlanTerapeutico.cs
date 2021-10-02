@@ -22,29 +22,15 @@ namespace CapaPresentacion
 
 
         ////variables donde se guardaran valores traidos de otros forms
-        //public string Id_historia_perteneciente
-        //{
-        //    get { return lbl_id_historia.Text; }
-        //}
 
-        //public string Id_evolucion_perteneciente
-        //{
-        //    get { return lbl_id_evol.Text; }
-        //}
+        public string Cedula_paciente_perteneciente { get; set; }
 
-        //public string Id_paciente_perteneciente
-        //{
-        //    get { return lbl_id_paciente.Text; }
-        //}
-
-        //public string Cedula_paciente_perteneciente
-        //{
-        //    get { return txtCedulaPac_Terapeutico.Text; }
-        //}
+        public string Cedula_paciente_perteneciente_evol { get; set; }
 
 
 
-        public frmPlanTerapeutico()
+
+        public frmPlanTerapeutico(string cedula)
         {
             InitializeComponent();
 
@@ -54,7 +40,7 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.btnAñadir, "Añadir Recipe e Indicaciones al Plan de Estudio");
             this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan de Estudio");
 
-
+            txtCedulaPac_Terapeutico.Text = cedula;
 
         }
 
@@ -86,7 +72,6 @@ namespace CapaPresentacion
         {
             // mandar la cedula del paciente a este form y cargar los datos.
             
-            MessageBox.Show("testtt");
 
         }
 
@@ -473,6 +458,15 @@ namespace CapaPresentacion
 
 
 
+                        //Establecer el Comando para traer el id del ultimo row añadido
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = SqlCon;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "select @@IDENTITY";
+                        Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        
+
 
                     }
                     
@@ -850,6 +844,12 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Este paciente no esta registrado");
             }
+        }
+
+        private void frmPlanTerapeutico_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+           
         }
     }
 }

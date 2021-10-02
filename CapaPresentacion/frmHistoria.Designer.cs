@@ -41,6 +41,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_planterapeutico_id = new System.Windows.Forms.Label();
+            this.lbl_planestudio_id = new System.Windows.Forms.Label();
             this.listboxDiagnosticosFinales = new System.Windows.Forms.ListBox();
             this.btnQuitarDiag = new System.Windows.Forms.Button();
             this.btnAñadirDiag = new System.Windows.Forms.Button();
@@ -232,6 +234,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbl_planterapeutico_id);
+            this.groupBox2.Controls.Add(this.lbl_planestudio_id);
             this.groupBox2.Controls.Add(this.listboxDiagnosticosFinales);
             this.groupBox2.Controls.Add(this.btnQuitarDiag);
             this.groupBox2.Controls.Add(this.btnAñadirDiag);
@@ -286,6 +290,28 @@
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // lbl_planterapeutico_id
+            // 
+            this.lbl_planterapeutico_id.AutoSize = true;
+            this.lbl_planterapeutico_id.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbl_planterapeutico_id.Location = new System.Drawing.Point(1104, 549);
+            this.lbl_planterapeutico_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_planterapeutico_id.Name = "lbl_planterapeutico_id";
+            this.lbl_planterapeutico_id.Size = new System.Drawing.Size(232, 32);
+            this.lbl_planterapeutico_id.TabIndex = 286;
+            this.lbl_planterapeutico_id.Text = "lbl_planterapeutico_id";
+            // 
+            // lbl_planestudio_id
+            // 
+            this.lbl_planestudio_id.AutoSize = true;
+            this.lbl_planestudio_id.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbl_planestudio_id.Location = new System.Drawing.Point(1094, 438);
+            this.lbl_planestudio_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_planestudio_id.Name = "lbl_planestudio_id";
+            this.lbl_planestudio_id.Size = new System.Drawing.Size(191, 32);
+            this.lbl_planestudio_id.TabIndex = 285;
+            this.lbl_planestudio_id.Text = "lbl_planestudio_id";
             // 
             // listboxDiagnosticosFinales
             // 
@@ -1319,6 +1345,7 @@
             this.label12.Size = new System.Drawing.Size(48, 32);
             this.label12.TabIndex = 281;
             this.label12.Text = "🔎";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label15
             // 
@@ -2136,6 +2163,7 @@
             this.Name = "frmHistoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHistoria";
+            this.Activated += new System.EventHandler(this.frmHistoria_Activated);
             this.Load += new System.EventHandler(this.frmHistoria_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -2312,5 +2340,7 @@
         private System.Windows.Forms.Label lblobs;
         private System.Windows.Forms.TextBox txtObservacionesEvol;
         private System.Windows.Forms.TextBox txtEdadActual;
+        private System.Windows.Forms.Label lbl_planterapeutico_id;
+        private System.Windows.Forms.Label lbl_planestudio_id;
     }
 }

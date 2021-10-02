@@ -86,6 +86,7 @@ namespace CapaPresentacion
             //this.LlenarCbPlanTerapeutico();
 
 
+
             OcultarColumnas();
             //dataListado.Columns["idpaciente"].Visible = false;
 
@@ -1562,7 +1563,7 @@ namespace CapaPresentacion
         }
 
 
-
+        //Este es el boton de añadir evolucion nueva (el boton azul que esta en el formulario Historias)
         private void btnAnadirEvol_Click(object sender, EventArgs e)
         {
 
@@ -1577,7 +1578,11 @@ namespace CapaPresentacion
             //lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
 
             //Para que se muestre la pestaña de Evolucion.
-            this.tabControl1.SelectedIndex = 4;
+            this.tabControl1.SelectedIndex = 2;
+
+            this.txtNumero_Documento_Evol.Text = txtNumero_Documento.Text;
+
+            //cargar los datos segun cedula cargada
 
 
 
@@ -1930,6 +1935,8 @@ namespace CapaPresentacion
 
 
 
+
+
         private int Buscar_idPac_por_cedula()
         {
 
@@ -2019,11 +2026,11 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeutico_Click(object sender, EventArgs e)
         {
-            //frmPlanTerapeutico frm = new frmPlanTerapeutico();
-            //frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            //frm.MinimizeBox = false;
-            //this.txtNumero_Documento.Text = frm.Cedula_paciente_perteneciente;
-            //frm.Show();
+            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
+            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            frm.MinimizeBox = false;
+            frm.Show();
+
 
         }
 
@@ -2294,6 +2301,9 @@ namespace CapaPresentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
+            
+
+
             try
             {
                 string rpta = "";
@@ -2534,10 +2544,11 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico();
+            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
+            MessageBox.Show("a");
         }
 
         private void AddDiagnosticToList_Evol()
@@ -2737,9 +2748,15 @@ namespace CapaPresentacion
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void frmHistoria_Activated(object sender, EventArgs e)
+        {
 
+        }
 
 
     }

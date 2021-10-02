@@ -387,7 +387,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmPlanTerapeutico());
+           
         }
 
         private void button4_Click(object sender, EventArgs e)

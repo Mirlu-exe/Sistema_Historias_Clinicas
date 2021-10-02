@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndicaciones = new System.Windows.Forms.TextBox();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
@@ -46,6 +46,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lbl_fecha_emision = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCedulaPac_Terapeutico = new System.Windows.Forms.TextBox();
+            this.lbl_id_paciente = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbl_id_evol = new System.Windows.Forms.Label();
+            this.lbl_id_historia = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSexo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,13 +90,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbl_id_historia = new System.Windows.Forms.Label();
-            this.lbl_id_evol = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lbl_id_paciente = new System.Windows.Forms.Label();
-            this.txtCedulaPac_Terapeutico = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -294,6 +294,83 @@
             this.groupBox1.TabIndex = 232;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
+            // 
+            // txtCedulaPac_Terapeutico
+            // 
+            this.txtCedulaPac_Terapeutico.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCedulaPac_Terapeutico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedulaPac_Terapeutico.Location = new System.Drawing.Point(135, 40);
+            this.txtCedulaPac_Terapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCedulaPac_Terapeutico.Name = "txtCedulaPac_Terapeutico";
+            this.txtCedulaPac_Terapeutico.ReadOnly = true;
+            this.txtCedulaPac_Terapeutico.Size = new System.Drawing.Size(145, 28);
+            this.txtCedulaPac_Terapeutico.TabIndex = 289;
+            // 
+            // lbl_id_paciente
+            // 
+            this.lbl_id_paciente.AutoSize = true;
+            this.lbl_id_paciente.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_paciente.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_paciente.Location = new System.Drawing.Point(1129, 24);
+            this.lbl_id_paciente.Name = "lbl_id_paciente";
+            this.lbl_id_paciente.Size = new System.Drawing.Size(95, 19);
+            this.lbl_id_paciente.TabIndex = 288;
+            this.lbl_id_paciente.Text = "lbl_id_paciente";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label15.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label15.Location = new System.Drawing.Point(1040, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 19);
+            this.label15.TabIndex = 287;
+            this.label15.Text = "ID Historia:";
+            // 
+            // lbl_id_evol
+            // 
+            this.lbl_id_evol.AutoSize = true;
+            this.lbl_id_evol.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_evol.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_evol.Location = new System.Drawing.Point(1129, 62);
+            this.lbl_id_evol.Name = "lbl_id_evol";
+            this.lbl_id_evol.Size = new System.Drawing.Size(70, 19);
+            this.lbl_id_evol.TabIndex = 286;
+            this.lbl_id_evol.Text = "lbl_id_evol";
+            // 
+            // lbl_id_historia
+            // 
+            this.lbl_id_historia.AutoSize = true;
+            this.lbl_id_historia.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_historia.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_historia.Location = new System.Drawing.Point(1129, 43);
+            this.lbl_id_historia.Name = "lbl_id_historia";
+            this.lbl_id_historia.Size = new System.Drawing.Size(88, 19);
+            this.lbl_id_historia.TabIndex = 285;
+            this.lbl_id_historia.Text = "lbl_id_historia";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label14.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label14.Location = new System.Drawing.Point(1040, 62);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 19);
+            this.label14.TabIndex = 284;
+            this.label14.Text = "ID Evolucion:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label11.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label11.Location = new System.Drawing.Point(1040, 43);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 19);
+            this.label11.TabIndex = 283;
+            this.label11.Text = "ID Historia:";
             // 
             // label2
             // 
@@ -611,50 +688,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -796,83 +873,6 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.label11.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label11.Location = new System.Drawing.Point(1040, 43);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 19);
-            this.label11.TabIndex = 283;
-            this.label11.Text = "ID Historia:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.label14.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label14.Location = new System.Drawing.Point(1040, 62);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 19);
-            this.label14.TabIndex = 284;
-            this.label14.Text = "ID Evolucion:";
-            // 
-            // lbl_id_historia
-            // 
-            this.lbl_id_historia.AutoSize = true;
-            this.lbl_id_historia.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lbl_id_historia.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbl_id_historia.Location = new System.Drawing.Point(1129, 43);
-            this.lbl_id_historia.Name = "lbl_id_historia";
-            this.lbl_id_historia.Size = new System.Drawing.Size(88, 19);
-            this.lbl_id_historia.TabIndex = 285;
-            this.lbl_id_historia.Text = "lbl_id_historia";
-            // 
-            // lbl_id_evol
-            // 
-            this.lbl_id_evol.AutoSize = true;
-            this.lbl_id_evol.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lbl_id_evol.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbl_id_evol.Location = new System.Drawing.Point(1129, 62);
-            this.lbl_id_evol.Name = "lbl_id_evol";
-            this.lbl_id_evol.Size = new System.Drawing.Size(70, 19);
-            this.lbl_id_evol.TabIndex = 286;
-            this.lbl_id_evol.Text = "lbl_id_evol";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.label15.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label15.Location = new System.Drawing.Point(1040, 24);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 19);
-            this.label15.TabIndex = 287;
-            this.label15.Text = "ID Historia:";
-            // 
-            // lbl_id_paciente
-            // 
-            this.lbl_id_paciente.AutoSize = true;
-            this.lbl_id_paciente.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lbl_id_paciente.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbl_id_paciente.Location = new System.Drawing.Point(1129, 24);
-            this.lbl_id_paciente.Name = "lbl_id_paciente";
-            this.lbl_id_paciente.Size = new System.Drawing.Size(95, 19);
-            this.lbl_id_paciente.TabIndex = 288;
-            this.lbl_id_paciente.Text = "lbl_id_paciente";
-            // 
-            // txtCedulaPac_Terapeutico
-            // 
-            this.txtCedulaPac_Terapeutico.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCedulaPac_Terapeutico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCedulaPac_Terapeutico.Location = new System.Drawing.Point(135, 40);
-            this.txtCedulaPac_Terapeutico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCedulaPac_Terapeutico.Name = "txtCedulaPac_Terapeutico";
-            this.txtCedulaPac_Terapeutico.ReadOnly = true;
-            this.txtCedulaPac_Terapeutico.Size = new System.Drawing.Size(145, 28);
-            this.txtCedulaPac_Terapeutico.TabIndex = 289;
-            // 
             // frmPlanTerapeutico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -885,6 +885,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPlanTerapeutico";
             this.Text = "frmPlanTerapeutico";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlanTerapeutico_FormClosing);
             this.Load += new System.EventHandler(this.frmPlanTerapeutico_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
