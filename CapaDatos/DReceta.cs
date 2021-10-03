@@ -433,18 +433,18 @@ namespace CapaDatos
 
         public DataTable BuscarPresentacion(DReceta Receta)
         {
-            DataTable DtResultado = new DataTable("Receta");
+            DataTable DtResultado = new DataTable("Meds_Nombres");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sbbuscar_receta_presentacion";
+                SqlCmd.CommandText = "sbbuscar_receta_Nomb_medicamento";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();
-                ParTextoBuscar.ParameterName = "@id_del_medicamento";
+                ParTextoBuscar.ParameterName = "@textobuscar";
                 ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
                 ParTextoBuscar.Size = 50;
                 ParTextoBuscar.Value = Receta.TextoBuscar;
