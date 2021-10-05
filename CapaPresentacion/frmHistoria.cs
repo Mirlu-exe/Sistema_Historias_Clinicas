@@ -2250,9 +2250,6 @@ namespace CapaPresentacion
 
 
 
-
-
-
         public bool validarExisteHistoria(int idpac)
         {
             bool resultado = false;
