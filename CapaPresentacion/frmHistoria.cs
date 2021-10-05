@@ -650,7 +650,7 @@ namespace CapaPresentacion
 
                 string diagnosticos_cadena = Convert.ToString(HistoriaDelPac.Rows[0][17]);
 
-                MessageBox.Show("TEST DIAGNOSTICOS:" + diagnosticos_cadena + " .");
+                //MessageBox.Show("TEST DIAGNOSTICOS:" + diagnosticos_cadena + " .");
 
                 List<string> diagnosticos_separados_con_coma = diagnosticos_cadena.Split(new char[] { ',' }).ToList();
 
