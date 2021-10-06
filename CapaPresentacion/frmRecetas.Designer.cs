@@ -150,6 +150,7 @@
             // cmbTipoReceta
             // 
             this.cmbTipoReceta.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbTipoReceta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoReceta.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cmbTipoReceta.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbTipoReceta.FormattingEnabled = true;
@@ -161,7 +162,6 @@
             this.cmbTipoReceta.Name = "cmbTipoReceta";
             this.cmbTipoReceta.Size = new System.Drawing.Size(167, 36);
             this.cmbTipoReceta.TabIndex = 177;
-            this.cmbTipoReceta.Text = "Medicamento";
             // 
             // dataListado
             // 
@@ -253,7 +253,7 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Location = new System.Drawing.Point(917, 199);
+            this.txtBuscar.Location = new System.Drawing.Point(904, 205);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(197, 22);

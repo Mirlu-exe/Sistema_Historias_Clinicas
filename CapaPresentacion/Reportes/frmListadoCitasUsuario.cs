@@ -14,7 +14,7 @@ namespace CapaPresentacion
     {
         private int _usuario;
 
-        public int Usuario
+        public int Usuarios
         {
             get { return _usuario; }
             set { _usuario = value; }
@@ -27,8 +27,10 @@ namespace CapaPresentacion
 
         private void frmListadoCitasUsuario_Load(object sender, EventArgs e)
         {
+
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaCitasMedicasUsuarios' Puede moverla o quitarla según sea necesario.
-            this.spListaCitasMedicasUsuariosTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasUsuarios, Usuario);
+
+           this.spListaCitasMedicasUsuariosTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasUsuarios, Usuarios);
             this.reportViewer1.RefreshReport();
         }
     }
