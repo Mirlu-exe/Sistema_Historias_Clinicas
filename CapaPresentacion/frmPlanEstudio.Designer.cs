@@ -68,6 +68,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbl_fecha_emision = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_id_evol = new System.Windows.Forms.Label();
+            this.lbl_id_historia = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSexo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,10 +89,7 @@
             this.btnQuitarEstudios = new System.Windows.Forms.Button();
             this.btnAñadirEstudios = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbl_id_evol = new System.Windows.Forms.Label();
-            this.lbl_id_historia = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.btnSeleccionarPlanEstudio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
@@ -534,6 +535,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.tabPage1.Controls.Add(this.btnSeleccionarPlanEstudio);
             this.tabPage1.Controls.Add(this.lbl_fecha_emision);
             this.tabPage1.Controls.Add(this.btnCancelar_informe);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -552,7 +554,7 @@
             this.lbl_fecha_emision.AutoSize = true;
             this.lbl_fecha_emision.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_fecha_emision.ForeColor = System.Drawing.Color.MintCream;
-            this.lbl_fecha_emision.Location = new System.Drawing.Point(1391, 395);
+            this.lbl_fecha_emision.Location = new System.Drawing.Point(1387, 395);
             this.lbl_fecha_emision.Name = "lbl_fecha_emision";
             this.lbl_fecha_emision.Size = new System.Drawing.Size(190, 32);
             this.lbl_fecha_emision.TabIndex = 247;
@@ -579,6 +581,50 @@
             this.groupBox1.TabIndex = 232;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
+            // 
+            // lbl_id_evol
+            // 
+            this.lbl_id_evol.AutoSize = true;
+            this.lbl_id_evol.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_evol.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_evol.Location = new System.Drawing.Point(1247, 46);
+            this.lbl_id_evol.Name = "lbl_id_evol";
+            this.lbl_id_evol.Size = new System.Drawing.Size(70, 19);
+            this.lbl_id_evol.TabIndex = 290;
+            this.lbl_id_evol.Text = "lbl_id_evol";
+            // 
+            // lbl_id_historia
+            // 
+            this.lbl_id_historia.AutoSize = true;
+            this.lbl_id_historia.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lbl_id_historia.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbl_id_historia.Location = new System.Drawing.Point(1247, 24);
+            this.lbl_id_historia.Name = "lbl_id_historia";
+            this.lbl_id_historia.Size = new System.Drawing.Size(88, 19);
+            this.lbl_id_historia.TabIndex = 289;
+            this.lbl_id_historia.Text = "lbl_id_historia";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label14.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label14.Location = new System.Drawing.Point(1158, 45);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 19);
+            this.label14.TabIndex = 288;
+            this.label14.Text = "ID Evolucion:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.label11.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label11.Location = new System.Drawing.Point(1158, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 19);
+            this.label11.TabIndex = 287;
+            this.label11.Text = "ID Historia:";
             // 
             // label3
             // 
@@ -783,49 +829,22 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // lbl_id_evol
+            // btnSeleccionarPlanEstudio
             // 
-            this.lbl_id_evol.AutoSize = true;
-            this.lbl_id_evol.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lbl_id_evol.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbl_id_evol.Location = new System.Drawing.Point(1247, 46);
-            this.lbl_id_evol.Name = "lbl_id_evol";
-            this.lbl_id_evol.Size = new System.Drawing.Size(70, 19);
-            this.lbl_id_evol.TabIndex = 290;
-            this.lbl_id_evol.Text = "lbl_id_evol";
-            // 
-            // lbl_id_historia
-            // 
-            this.lbl_id_historia.AutoSize = true;
-            this.lbl_id_historia.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lbl_id_historia.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbl_id_historia.Location = new System.Drawing.Point(1247, 24);
-            this.lbl_id_historia.Name = "lbl_id_historia";
-            this.lbl_id_historia.Size = new System.Drawing.Size(88, 19);
-            this.lbl_id_historia.TabIndex = 289;
-            this.lbl_id_historia.Text = "lbl_id_historia";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.label14.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label14.Location = new System.Drawing.Point(1158, 45);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 19);
-            this.label14.TabIndex = 288;
-            this.label14.Text = "ID Evolucion:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.label11.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label11.Location = new System.Drawing.Point(1158, 24);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 19);
-            this.label11.TabIndex = 287;
-            this.label11.Text = "ID Historia:";
+            this.btnSeleccionarPlanEstudio.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSeleccionarPlanEstudio.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionarPlanEstudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnSeleccionarPlanEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarPlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnSeleccionarPlanEstudio.ForeColor = System.Drawing.Color.MintCream;
+            this.btnSeleccionarPlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeleccionarPlanEstudio.Location = new System.Drawing.Point(1393, 464);
+            this.btnSeleccionarPlanEstudio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSeleccionarPlanEstudio.Name = "btnSeleccionarPlanEstudio";
+            this.btnSeleccionarPlanEstudio.Size = new System.Drawing.Size(188, 122);
+            this.btnSeleccionarPlanEstudio.TabIndex = 250;
+            this.btnSeleccionarPlanEstudio.Text = "☑ Seleccionar este Plan Estudio";
+            this.btnSeleccionarPlanEstudio.UseVisualStyleBackColor = false;
             // 
             // frmPlanEstudio
             // 
@@ -922,5 +941,6 @@
         private System.Windows.Forms.Label lbl_id_historia;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnSeleccionarPlanEstudio;
     }
 }

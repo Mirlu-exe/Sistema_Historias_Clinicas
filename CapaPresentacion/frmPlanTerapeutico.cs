@@ -29,6 +29,17 @@ namespace CapaPresentacion
 
 
 
+        /// <summary>
+        /// Data to transfer into / out of form
+        /// </summary>
+        public string Data
+        {
+            get { return lbl_idplanterapeutico.Text; }
+            set { lbl_idplanterapeutico.Text = value; }
+        }
+
+
+
 
         public frmPlanTerapeutico(string cedula)
         {
@@ -44,6 +55,139 @@ namespace CapaPresentacion
 
         }
 
+
+        /// <summary>
+        /// Event to indicate new data is available
+        /// </summary>
+        public event EventHandler DataAvailable;
+        /// <summary>
+        /// Called to signal to subscribers that new data is available
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnDataAvailable(EventArgs e)
+        {
+            EventHandler eh = DataAvailable;
+            if (eh != null)
+            {
+                eh(this, e);
+            }
+        }
+        /// <summary>
+        /// Tell the parent the data is ready.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private void btnSeleccionarPlanTerapeutico_Click(object sender, EventArgs e)
+        {
+
+            //Dentro de este try se hace la insercion de los datos de PlanTerapeutico a la BD
+            try
+            {
+                string rpta = "";
+                if (this.txtNombre_Paciente.Text == string.Empty)
+                {
+                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    this.tabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+
+
+
+                    if (this.IsNuevo)
+                    {
+
+
+                        SqlConnection SqlCon = new SqlConnection();
+
+
+
+                        //Código
+                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.Open();
+                        //Establecer el Comando
+                        SqlCommand SqlCmd = new SqlCommand();
+                        SqlCmd.Connection = SqlCon;
+                        SqlCmd.CommandText = "spinsertar_planterapeutico";
+                        SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                        string hoy = DateTime.Now.ToShortDateString();
+
+                        StringBuilder sb = new StringBuilder();
+                        foreach (string s in listBox1.Items)
+                            sb.Append(s);
+
+                        string recipe_e_indicaciones = sb.ToString();
+
+
+                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
+                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", recipe_e_indicaciones);
+                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
+
+
+                        //Ejecutamos nuestro comando
+
+                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+                        //Establecer el Comando para traer el id del ultimo row añadido
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = SqlCon;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "select @@IDENTITY";
+                        int Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        //se asigna el id al label para mostrar cual es el id del plan terapeutico recien guardado
+                        this.lbl_idplanterapeutico.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+
+                       
+
+                    }
+
+
+
+                    if (this.IsNuevo)
+                    {
+                        MessageBox.Show("Se Insertó de forma correcta el plan terapeutico");
+                    }
+
+
+                    this.IsNuevo = false;
+                    this.Deshabilitar();
+                    //this.Close();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+
+
+
+
+
+
+            //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+            OnDataAvailable(null);
+
+
+
+
+
+
+        }
+
+
+
+
+
+
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -52,18 +196,22 @@ namespace CapaPresentacion
         private void frmPlanTerapeutico_Load(object sender, EventArgs e)
         {
 
-
+            // Realizar la carga de datos del paciente y bloquear los txtbox
             CargarDatosPaciente();
 
-            //LlenarComboRecipe();
 
+            //Asignar la fecha de emision de hoy
+            this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
+
+
+
+            //Llenar el combobox de Medicamentos que estan registrados en la BD
             LlenarCbMedicamento();
 
 
             Deshabilitar();
 
 
-            this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
 
         }
 
@@ -399,103 +547,6 @@ namespace CapaPresentacion
 
         }
 
-        private void btnGuardar_informe_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                string rpta = "";
-                if (this.txtNombre_Paciente.Text == string.Empty)
-                {
-                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    this.tabControl1.SelectedIndex = 1;
-                }
-                else
-                {
-
-
-
-                    if (this.IsNuevo)
-                    {
-
-
-                        SqlConnection SqlCon = new SqlConnection();
-
-
-
-                        //Código
-                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-                        SqlCon.Open();
-                        //Establecer el Comando
-                        SqlCommand SqlCmd = new SqlCommand();
-                        SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "spinsertar_planterapeutico";
-                        SqlCmd.CommandType = CommandType.StoredProcedure;
-
-
-
-
-                        string hoy = DateTime.Now.ToShortDateString();
-
-
-
-                        StringBuilder sb = new StringBuilder();
-                        foreach (string s in listBox1.Items)
-                        sb.Append(s);
-
-                        string recipe_e_indicaciones = sb.ToString();
-
-
-                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
-                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", recipe_e_indicaciones);
-                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
-
-
-                        //Ejecutamos nuestro comando
-
-                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-
-                        //Establecer el Comando para traer el id del ultimo row añadido
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = SqlCon;
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "select @@IDENTITY";
-  //                      Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        
-                        
-
-
-                    }
-                    
-
-
-                    if (this.IsNuevo)
-                    {
-                        MessageBox.Show("Se Insertó de forma correcta el plan terapeutico");
-                    }
-
-
-                    this.IsNuevo = false;
-                    //this.Limpiar();
-                    this.Deshabilitar();
-
-
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-
-        }
-
-
 
 
         private void cbPresentacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -800,14 +851,14 @@ namespace CapaPresentacion
 
         private void cbDosis_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("tamos listos con el recipe");
+            //MessageBox.Show("tamos listos con el recipe");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //agarra la posicion del item seleccionado en el listbox
             int posicion = listBox1.SelectedIndex;
 
-            MessageBox.Show("aaaa  "  + posicion.ToString() + "");
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -852,5 +903,6 @@ namespace CapaPresentacion
 
            
         }
+
     }
 }

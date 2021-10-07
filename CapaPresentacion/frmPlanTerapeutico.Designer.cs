@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndicaciones = new System.Windows.Forms.TextBox();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
             this.btnCancelar_informe = new System.Windows.Forms.Button();
-            this.btnGuardar_informe = new System.Windows.Forms.Button();
             this.btnNuevo_informe = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -90,6 +89,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAsignarPlanTerapeutico = new System.Windows.Forms.Button();
+            this.lbl_idplanterapeutico = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -152,31 +154,13 @@
             this.btnCancelar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar_informe.Location = new System.Drawing.Point(1393, 301);
+            this.btnCancelar_informe.Location = new System.Drawing.Point(1372, 337);
             this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar_informe.Name = "btnCancelar_informe";
             this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar_informe.TabIndex = 246;
             this.btnCancelar_informe.Text = "Cancelar";
             this.btnCancelar_informe.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar_informe
-            // 
-            this.btnGuardar_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar_informe.FlatAppearance.BorderSize = 0;
-            this.btnGuardar_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnGuardar_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnGuardar_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnGuardar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar_informe.Location = new System.Drawing.Point(1393, 214);
-            this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuardar_informe.Name = "btnGuardar_informe";
-            this.btnGuardar_informe.Size = new System.Drawing.Size(188, 79);
-            this.btnGuardar_informe.TabIndex = 243;
-            this.btnGuardar_informe.Text = "Guardar";
-            this.btnGuardar_informe.UseVisualStyleBackColor = false;
-            this.btnGuardar_informe.Click += new System.EventHandler(this.btnGuardar_informe_Click);
             // 
             // btnNuevo_informe
             // 
@@ -187,7 +171,7 @@
             this.btnNuevo_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo_informe.Location = new System.Drawing.Point(1393, 127);
+            this.btnNuevo_informe.Location = new System.Drawing.Point(1372, 120);
             this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo_informe.Name = "btnNuevo_informe";
             this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
@@ -201,27 +185,29 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(44, 95);
+            this.tabControl1.Location = new System.Drawing.Point(-5, 59);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1601, 892);
+            this.tabControl1.Size = new System.Drawing.Size(1595, 892);
             this.tabControl1.TabIndex = 249;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.tabPage1.BackColor = System.Drawing.Color.Teal;
+            this.tabPage1.Controls.Add(this.lbl_idplanterapeutico);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.btnAsignarPlanTerapeutico);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.lbl_fecha_emision);
             this.tabPage1.Controls.Add(this.btnCancelar_informe);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.btnGuardar_informe);
             this.tabPage1.Controls.Add(this.btnNuevo_informe);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1593, 857);
+            this.tabPage1.Size = new System.Drawing.Size(1587, 857);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Plan Terapeutico";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -235,7 +221,7 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button3.ForeColor = System.Drawing.Color.DarkCyan;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(1398, 635);
+            this.button3.Location = new System.Drawing.Point(1371, 728);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(188, 90);
@@ -252,7 +238,7 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button2.ForeColor = System.Drawing.Color.DarkCyan;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1398, 537);
+            this.button2.Location = new System.Drawing.Point(1371, 633);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 90);
@@ -265,7 +251,7 @@
             this.lbl_fecha_emision.AutoSize = true;
             this.lbl_fecha_emision.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_fecha_emision.ForeColor = System.Drawing.Color.MintCream;
-            this.lbl_fecha_emision.Location = new System.Drawing.Point(1392, 418);
+            this.lbl_fecha_emision.Location = new System.Drawing.Point(1370, 46);
             this.lbl_fecha_emision.Name = "lbl_fecha_emision";
             this.lbl_fecha_emision.Size = new System.Drawing.Size(190, 32);
             this.lbl_fecha_emision.TabIndex = 233;
@@ -288,7 +274,7 @@
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox1.Location = new System.Drawing.Point(45, 24);
+            this.groupBox1.Location = new System.Drawing.Point(23, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1341, 84);
             this.groupBox1.TabIndex = 232;
@@ -451,7 +437,7 @@
             this.groupBox3.Controls.Add(this.btnQuitar);
             this.groupBox3.Controls.Add(this.btnAñadir);
             this.groupBox3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox3.Location = new System.Drawing.Point(45, 123);
+            this.groupBox3.Location = new System.Drawing.Point(23, 120);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1341, 698);
             this.groupBox3.TabIndex = 233;
@@ -593,8 +579,10 @@
             // 
             // btnQuitar
             // 
-            this.btnQuitar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnQuitar.Location = new System.Drawing.Point(439, 117);
+            this.btnQuitar.BackColor = System.Drawing.Color.Teal;
+            this.btnQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitar.ForeColor = System.Drawing.Color.MintCream;
+            this.btnQuitar.Location = new System.Drawing.Point(439, 132);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(89, 86);
             this.btnQuitar.TabIndex = 240;
@@ -604,8 +592,10 @@
             // 
             // btnAñadir
             // 
-            this.btnAñadir.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnAñadir.Location = new System.Drawing.Point(439, 25);
+            this.btnAñadir.BackColor = System.Drawing.Color.Teal;
+            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadir.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAñadir.Location = new System.Drawing.Point(439, 40);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(89, 86);
             this.btnAñadir.TabIndex = 239;
@@ -688,50 +678,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle63;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle65;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -833,24 +823,24 @@
             // 
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(409, 9);
+            this.label12.Location = new System.Drawing.Point(413, -4);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(639, 60);
             this.label12.TabIndex = 7;
-            this.label12.Text = "Plan Terapeutico";
+            this.label12.Text = "💊    Plan Terapeutico";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.BackColor = System.Drawing.Color.Teal;
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1690, 70);
+            this.panel3.Size = new System.Drawing.Size(1690, 52);
             this.panel3.TabIndex = 248;
             // 
             // label13
@@ -873,6 +863,47 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // btnAsignarPlanTerapeutico
+            // 
+            this.btnAsignarPlanTerapeutico.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAsignarPlanTerapeutico.FlatAppearance.BorderSize = 0;
+            this.btnAsignarPlanTerapeutico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAsignarPlanTerapeutico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarPlanTerapeutico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnAsignarPlanTerapeutico.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnAsignarPlanTerapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarPlanTerapeutico.Location = new System.Drawing.Point(1371, 207);
+            this.btnAsignarPlanTerapeutico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAsignarPlanTerapeutico.Name = "btnAsignarPlanTerapeutico";
+            this.btnAsignarPlanTerapeutico.Size = new System.Drawing.Size(188, 122);
+            this.btnAsignarPlanTerapeutico.TabIndex = 249;
+            this.btnAsignarPlanTerapeutico.Text = "☑ Guardar y asignar este Plan Terapeutico";
+            this.btnAsignarPlanTerapeutico.UseVisualStyleBackColor = false;
+            this.btnAsignarPlanTerapeutico.Click += new System.EventHandler(this.btnSeleccionarPlanTerapeutico_Click);
+            // 
+            // lbl_idplanterapeutico
+            // 
+            this.lbl_idplanterapeutico.AutoSize = true;
+            this.lbl_idplanterapeutico.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idplanterapeutico.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl_idplanterapeutico.Location = new System.Drawing.Point(1520, 78);
+            this.lbl_idplanterapeutico.Name = "lbl_idplanterapeutico";
+            this.lbl_idplanterapeutico.Size = new System.Drawing.Size(22, 28);
+            this.lbl_idplanterapeutico.TabIndex = 281;
+            this.lbl_idplanterapeutico.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.LightGray;
+            this.label16.Location = new System.Drawing.Point(1371, 79);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(105, 28);
+            this.label16.TabIndex = 280;
+            this.label16.Text = "ID del plan:";
+            // 
             // frmPlanTerapeutico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -884,6 +915,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimizeBox = false;
             this.Name = "frmPlanTerapeutico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPlanTerapeutico";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlanTerapeutico_FormClosing);
             this.Load += new System.EventHandler(this.frmPlanTerapeutico_Load);
@@ -913,7 +945,6 @@
         private System.Windows.Forms.TextBox txtIndicaciones;
         private System.Windows.Forms.ComboBox cbMedicamento;
         private System.Windows.Forms.Button btnCancelar_informe;
-        private System.Windows.Forms.Button btnGuardar_informe;
         private System.Windows.Forms.Button btnNuevo_informe;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -965,5 +996,8 @@
         private System.Windows.Forms.Label lbl_id_paciente;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtCedulaPac_Terapeutico;
+        private System.Windows.Forms.Button btnAsignarPlanTerapeutico;
+        private System.Windows.Forms.Label lbl_idplanterapeutico;
+        private System.Windows.Forms.Label label16;
     }
 }

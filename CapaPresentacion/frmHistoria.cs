@@ -63,10 +63,23 @@ namespace CapaPresentacion
             this.btnAnular.Enabled = false;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// The child has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable(object sender, EventArgs e)
         {
-            
+            frmPlanTerapeutico child = sender as frmPlanTerapeutico;
+            if (child != null)
+            {
+                lbl_planterapeutico_id.Text = child.Data;
+            }
         }
+
+
 
         private void  frmHistoria_Load(object sender, EventArgs e)
         {
@@ -2026,11 +2039,19 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeutico_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
 
+            // Add a child form
+
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
+
+            child.DataAvailable += new EventHandler(child_DataAvailable);
+            child.Data = "000"; //dato default
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
 
         }
 
