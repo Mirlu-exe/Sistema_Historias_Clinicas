@@ -37,8 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndicaciones = new System.Windows.Forms.TextBox();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
-            this.btnCancelar_informe = new System.Windows.Forms.Button();
-            this.btnNuevo_informe = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnNuevo_plan_terapeutico = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbl_idplanterapeutico = new System.Windows.Forms.Label();
@@ -78,8 +78,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.chkAnular = new System.Windows.Forms.CheckBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -136,40 +134,40 @@
             this.cbMedicamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMedicamento_KeyPress);
             this.cbMedicamento.Leave += new System.EventHandler(this.cbMedicamento_Leave);
             // 
-            // btnCancelar_informe
+            // btnCancelar
             // 
-            this.btnCancelar_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar_informe.FlatAppearance.BorderSize = 0;
-            this.btnCancelar_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCancelar_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar_informe.Location = new System.Drawing.Point(1372, 337);
-            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar_informe.Name = "btnCancelar_informe";
-            this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
-            this.btnCancelar_informe.TabIndex = 246;
-            this.btnCancelar_informe.Text = "Cancelar";
-            this.btnCancelar_informe.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(1372, 337);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(188, 90);
+            this.btnCancelar.TabIndex = 246;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // btnNuevo_informe
+            // btnNuevo_plan_terapeutico
             // 
-            this.btnNuevo_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNuevo_informe.FlatAppearance.BorderSize = 0;
-            this.btnNuevo_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnNuevo_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo_informe.Location = new System.Drawing.Point(1372, 120);
-            this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNuevo_informe.Name = "btnNuevo_informe";
-            this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
-            this.btnNuevo_informe.TabIndex = 244;
-            this.btnNuevo_informe.Text = "Nuevo";
-            this.btnNuevo_informe.UseVisualStyleBackColor = false;
-            this.btnNuevo_informe.Click += new System.EventHandler(this.btnNuevo_informe_Click);
+            this.btnNuevo_plan_terapeutico.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNuevo_plan_terapeutico.FlatAppearance.BorderSize = 0;
+            this.btnNuevo_plan_terapeutico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnNuevo_plan_terapeutico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo_plan_terapeutico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnNuevo_plan_terapeutico.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnNuevo_plan_terapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo_plan_terapeutico.Location = new System.Drawing.Point(1372, 120);
+            this.btnNuevo_plan_terapeutico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo_plan_terapeutico.Name = "btnNuevo_plan_terapeutico";
+            this.btnNuevo_plan_terapeutico.Size = new System.Drawing.Size(188, 79);
+            this.btnNuevo_plan_terapeutico.TabIndex = 244;
+            this.btnNuevo_plan_terapeutico.Text = "Nuevo";
+            this.btnNuevo_plan_terapeutico.UseVisualStyleBackColor = false;
+            this.btnNuevo_plan_terapeutico.Click += new System.EventHandler(this.btnNuevo_informe_Click);
             // 
             // tabControl1
             // 
@@ -190,9 +188,9 @@
             this.tabPage1.Controls.Add(this.btnAsignarPlanTerapeutico);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.btnCancelar_informe);
+            this.tabPage1.Controls.Add(this.btnCancelar);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.btnNuevo_informe);
+            this.tabPage1.Controls.Add(this.btnNuevo_plan_terapeutico);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
@@ -573,8 +571,6 @@
             this.tabPage2.Controls.Add(this.lblTotal);
             this.tabPage2.Controls.Add(this.chkAnular);
             this.tabPage2.Controls.Add(this.txtBuscar);
-            this.tabPage2.Controls.Add(this.btnCancelar);
-            this.tabPage2.Controls.Add(this.btnEditar);
             this.tabPage2.Controls.Add(this.btnBuscar);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
@@ -729,40 +725,6 @@
             this.txtBuscar.Size = new System.Drawing.Size(176, 28);
             this.txtBuscar.TabIndex = 232;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(150, 69);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(121, 43);
-            this.btnCancelar.TabIndex = 231;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnEditar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(21, 69);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(121, 43);
-            this.btnEditar.TabIndex = 230;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
@@ -864,8 +826,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIndicaciones;
         private System.Windows.Forms.ComboBox cbMedicamento;
-        private System.Windows.Forms.Button btnCancelar_informe;
-        private System.Windows.Forms.Button btnNuevo_informe;
+        private System.Windows.Forms.Button btnNuevo_plan_terapeutico;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -886,7 +847,6 @@
         private System.Windows.Forms.CheckBox chkAnular;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;

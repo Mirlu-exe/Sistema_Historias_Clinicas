@@ -542,44 +542,14 @@ namespace CapaPresentacion
             lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);
         }*/
 
-        //Método BuscarTalla
-        private void BuscarTalla()
-        {
-           // this.dataListado.DataSource = NPacientes.BuscarTalla(this.txtBuscar1.Text);
-            this.OcultarColumnas();
-          //  lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-        }
+     
 
 
-        //Método BuscarPeso
-        private void BuscarPeso()
-        {
-            //this.dataListado.DataSource = NPacientes.BuscarPeso(this.txtBuscar.Text);
-            this.OcultarColumnas();
-            //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-        }
-
-        //Método BuscarPeso
-        private void BuscarCedula()
-        {
-
-            //this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar1.Text);
-            this.OcultarColumnas();
-
-            //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-            
-            /*DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("num_cedula LIKE '%{0}%'", this.txtBuscar.Text);
-            dataListado.DataSource = DV;
-
-
-
-
-
-            lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);*/
-        }
-
-
+        /// <summary>
+        /// Es una tabla donde se guardan todos los datos de la historia extraidos de un query.
+        /// </summary>
+        /// <param name="id_pac"></param>
+        /// <returns></returns>
         private DataTable Datos_De_La_Historia(int id_pac)
         {
             //aca se buscará la historia del paciente segun su id
@@ -614,8 +584,8 @@ namespace CapaPresentacion
 
             return DtResultado;
 
-
         }
+
 
 
         private void Cargar_Historia_En_Campos()
@@ -2133,7 +2103,7 @@ namespace CapaPresentacion
             frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
 
             child.DataAvailable += new EventHandler(child_DataAvailable);
-            child.Data = "000"; //dato default
+            child.Data = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
 
             child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
             child.MinimizeBox = false; //quitar boton de minimizar
@@ -2220,6 +2190,7 @@ namespace CapaPresentacion
                         break;
                     }
                 }
+
                 if (!found)
                 {
                     listboxDiagnosticosFinales.Items.Add(diagnostico);
@@ -2865,12 +2836,21 @@ namespace CapaPresentacion
 
         }
 
+
+        //Este evento es para que cada vez que cambie el valor de este txtbox, se pueda cambiar el color y texto del boton.
         private void lbl_planterapeutico_id_TextChanged(object sender, EventArgs e)
         {
-            Gestionar_PlanTerapeutico_Historia();
+            if (this.lbl_planterapeutico_id.Text == "0")
+            {
+                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico";
+                this.btnVerPlanTerapeutico.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanTerapeutico.Text = "Plan terapeutico asignado";
+                this.btnVerPlanTerapeutico.BackColor = Color.LightSeaGreen;
+
+            }
         }
-
-
-
     }
 }

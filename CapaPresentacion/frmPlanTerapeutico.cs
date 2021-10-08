@@ -207,7 +207,24 @@ namespace CapaPresentacion
 
 
             //en caso de que la historia ya tenga un ID de PlanTerapeutico almacenado en la BD
+            if (this.lbl_idplanterapeutico.Text == "0")
+            {
+                //no posee un plan terapeutico
+                this.btnNuevo_plan_terapeutico.Enabled = true;
+                this.btnAsignarPlanTerapeutico.Enabled = true;
+                this.btnCancelar.Enabled = true;
+            }
+            else
+            {
+                //ya tiene un plan terapeutico asignado
+                this.btnNuevo_plan_terapeutico.Enabled = false;
+                this.btnAsignarPlanTerapeutico.Enabled = false;
+                this.btnCancelar.Enabled = false;
 
+                //cargar dicho plan terapeutico
+                Cargar_Plan_Terapeutico_En_Campos();
+
+            }
 
 
         }
@@ -226,6 +243,83 @@ namespace CapaPresentacion
             }
 
         }
+
+
+        /// <summary>
+        /// Es una tabla donde se guardan todos los datos de el Plan Terapeutico extraidos de un query.
+        /// </summary>
+        /// <param name="idplanterapeutico"></param>
+        /// <returns></returns>
+        private DataTable Datos_PlanTerapeutico(int idplanterapeutico)
+        {
+            //aca se buscará el plan terapeutico que coincida con ese id exacto
+
+            DataTable DtResultado = new DataTable("Datos_PlanTerapeutico");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_plan_terapeutico";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_plan_terapeutico";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idplanterapeutico;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+            return DtResultado;
+
+        }
+
+
+        private void Cargar_Plan_Terapeutico_En_Campos()
+        {
+
+            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(Convert.ToInt32(this.lbl_idplanterapeutico.Text));
+
+            if (PlanTerapeutico_del_Paciente.Rows.Count <= 0)
+            {
+
+                MessageBox.Show("Este paciente NO tiene plan terapeutico :s porfavor contacte al admin");
+                PlanTerapeutico_del_Paciente = null;
+
+            }
+            else
+            {
+
+
+                //meter los row/column de esa datatable en cada campo del form
+
+                this.lbl_idplanterapeutico.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
+                this.lbl_fecha_emision.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][3]);
+
+                //string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);
+
+                //List<string> recipe_indicaciones_separados_con_coma = recipe_indicaciones_cadena.Split(new char[] { ',' }).ToList();
+
+                //this.listBox1.DataSource = recipe_indicaciones_separados_con_coma;
+
+
+            }
+
+
+        }
+
 
 
         //Para llenar el cbMedicamento
