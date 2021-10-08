@@ -105,7 +105,7 @@ namespace CapaPresentacion
 
             Gestionar_PlanEstudio();
 
-            Gestionar_PlanTerapeutico();
+            Gestionar_PlanTerapeutico_Historia();
 
             Gestionar_PlanEstudio_Evol();
 
@@ -120,21 +120,14 @@ namespace CapaPresentacion
         {
             int id_plan_estudio = 0;
 
-            id_plan_estudio = buscar_plan_estudio_del_pac(Convert.ToInt32(this.lbl_idpac.Text));
+            id_plan_estudio = buscar_plan_estudio_del_pac(Convert.ToInt32(this.lbl_idhistoria.Text));
         
             return id_plan_estudio;
 
         }
 
-        private int TraerIdPlanTerapeutico(string cedula_pac)
-        {
-            int id_plan_terapeutico = 0;
 
-            id_plan_terapeutico = buscar_plan_terapeutico_del_pac(Convert.ToInt32(this.lbl_idpac.Text));
 
-            return id_plan_terapeutico;
-
-        }
 
 
 
@@ -587,7 +580,7 @@ namespace CapaPresentacion
         }
 
 
-        private DataTable Datos_De_La_Historia( int id_pac)
+        private DataTable Datos_De_La_Historia(int id_pac)
         {
             //aca se buscará la historia del paciente segun su id
 
@@ -646,7 +639,7 @@ namespace CapaPresentacion
 
                 //meter los row/column de esa datatable en cada campo del form
 
-
+                this.lbl_idhistoria.Text = Convert.ToString(HistoriaDelPac.Rows[0][0]);
                 this.dtpFechaConsulta.Value = Convert.ToDateTime(HistoriaDelPac.Rows[0][2]);
                 this.txtMotivoConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
                 this.txtEnfermedadActual.Text = Convert.ToString(HistoriaDelPac.Rows[0][4]);
@@ -721,30 +714,29 @@ namespace CapaPresentacion
         }
 
 
-        private void Gestionar_PlanTerapeutico()
+        private void Gestionar_PlanTerapeutico_Historia()
         {
 
 
             ///////////////////////////// PLAN TERAPEUTICO WIP //////////////////////////////
 
-            //se busca segun la cedula y segun la fecha de emision a ver si existe un plan terapeutico
-
-            //si la fecha es igual a la de la historia, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan terapeutico
+            //se busca segun el id de la historia a ver si existe un plan terapeutico
 
 
-            if (TraerIdPlanTerapeutico(this.txtNumero_Documento.Text) == 0)
+            int id_plan_terapeutico_historia = buscar_plan_terapeutico_de_historia(Convert.ToInt32(this.lbl_idhistoria.Text));
+
+            if ( id_plan_terapeutico_historia == 0)
             {
-                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico seleccionado";
+                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico";
                 this.btnVerPlanTerapeutico.BackColor = Color.DarkGray;
+                this.lbl_planterapeutico_id.Text = Convert.ToString(id_plan_terapeutico_historia);
             }
             else
             {
-                //buscar la fecha de ese plan terapeutico para ver si es del dia de hoy, o es muy vieja.
 
                 this.btnVerPlanTerapeutico.Text = "Plan terapeutico asignado";
                 this.btnVerPlanTerapeutico.BackColor = Color.LightSeaGreen;
+                this.lbl_planterapeutico_id.Text = Convert.ToString(id_plan_terapeutico_historia);
 
             }
         }
@@ -1189,7 +1181,7 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.lbl_id_historia.Text.Equals(""))
+            if (!this.label_hstra.Text.Equals(""))
             {
                 this.IsEditar = true;
                 this.Botones();
@@ -1241,7 +1233,7 @@ namespace CapaPresentacion
 
             int id_historia_seleccionada = Convert.ToInt32(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
-            this.lbl_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+            this.label_hstra.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
             this.txtNumero_Documento.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
@@ -1581,12 +1573,12 @@ namespace CapaPresentacion
         {
 
             //para llevar los datos de la Historia a Evolucion
-            lbl_id_historia_evol.Text = this.lbl_id_historia.Text;
+            lbl_id_historia_evol.Text = this.label_hstra.Text;
             //lblNombrePaciente_evol.Text = this.lbl_nombre_pac.Text;
             //lblCedulaPaciente_evol.Text = this.lbl_ci_pac.Text;
 
             //para llevar los datos de la Historia a la pestaña de Lista Evolucion
-            lbl_lista_evol_id_historia.Text = this.lbl_id_historia.Text;
+            lbl_lista_evol_id_historia.Text = this.label_hstra.Text;
             //lbl_lista_evol_ci.Text = this.lbl_ci_pac.Text;
             //lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
 
@@ -1880,26 +1872,162 @@ namespace CapaPresentacion
 
 
 
-        private int buscar_plan_terapeutico_del_pac(int id_pac)
+
+        //private int buscar_plan_terapeutico_del_pac(int id_pac)
+        //{
+
+        //    //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
+
+        //    DataTable DtResultado = new DataTable("PlanTerapeuticoDelPac");
+        //    SqlConnection SqlCon = new SqlConnection();
+        //    try
+        //    {
+        //        SqlCon.ConnectionString = Conexion.Cn;
+        //        SqlCommand SqlCmd = new SqlCommand();
+        //        SqlCmd.Connection = SqlCon;
+        //        SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idpac";
+        //        SqlCmd.CommandType = CommandType.StoredProcedure;
+
+        //        SqlParameter ParIDBuscar = new SqlParameter();
+        //        ParIDBuscar.ParameterName = "@id_pac";
+        //        ParIDBuscar.SqlDbType = SqlDbType.Int;
+        //        ParIDBuscar.Size = 50;
+        //        ParIDBuscar.Value = id_pac;
+        //        SqlCmd.Parameters.Add(ParIDBuscar);
+
+        //        SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+        //        SqlDat.Fill(DtResultado);
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //        DtResultado = null;
+        //    }
+
+
+
+
+        //    int id_del_plan_terapeutico = 0;
+
+
+        //    if (DtResultado.Rows.Count <= 0)
+        //    {
+
+        //        //MessageBox.Show("whoops!");
+        //        id_del_plan_terapeutico = 0;
+
+        //    }
+        //    else
+        //    {
+        //        id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][0]);
+        //    }
+
+
+        //    return id_del_plan_terapeutico;
+
+
+        //    //Se cargara en el txtbox 2 opciones: 
+        //    // 1. Sin PlanEstudio
+        //    // 2. Con PlanEstudio
+
+        //    //el id dependera de la opcion
+        //    //en caso de ser la primera, el id será 0
+        //    //en caso de ser la segunda, primero se valida la fecha de dicho registro 
+        //    //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
+
+        //}
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan terapeutico de una Historia en particular
+        /// </summary>
+        /// <param name="idhistoria"></param>
+        /// <returns></returns>
+        private int buscar_plan_terapeutico_de_historia(int idhistoria)
         {
 
-            //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
+            //aca se buscará cual es el ID de el PlanTerapeutico de esa historia en particular
 
-            DataTable DtResultado = new DataTable("PlanTerapeuticoDelPac");
+            DataTable DtResultado = new DataTable("PlanTerapeuticoDeHistoria");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idpac";
+                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idhistoria";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIDBuscar = new SqlParameter();
-                ParIDBuscar.ParameterName = "@id_pac";
+                ParIDBuscar.ParameterName = "@idhistoria";
                 ParIDBuscar.SqlDbType = SqlDbType.Int;
                 ParIDBuscar.Size = 50;
-                ParIDBuscar.Value = id_pac;
+                ParIDBuscar.Value = idhistoria;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_del_plan_terapeutico = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                //MessageBox.Show("whoops!");
+                id_del_plan_terapeutico = 0;
+
+            }
+            else
+            {
+                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][14]);
+            }
+
+
+            return id_del_plan_terapeutico;
+
+
+        }
+
+
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan terapeutico de una Evolucion en particular
+        /// </summary>
+        /// <param name="idevolucion"></param>
+        /// <returns></returns>
+        private int buscar_plan_terapeutico_de_evolucion(int idevolucion)
+        {
+
+            //aca se buscará cual es el ID de el PlanTerapeutico de esa evolucion en particular
+
+            DataTable DtResultado = new DataTable("PlanTerapeuticoDeEvolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idevolucion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@idevolucion";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idevolucion;
                 SqlCmd.Parameters.Add(ParIDBuscar);
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
@@ -1934,19 +2062,7 @@ namespace CapaPresentacion
             return id_del_plan_terapeutico;
 
 
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanEstudio
-            // 2. Con PlanEstudio
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-            //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
-
         }
-
-
-
 
 
 
@@ -1988,34 +2104,6 @@ namespace CapaPresentacion
         }
 
 
-
-
-
-        private void buscar_plan_terapeutico_del_pac()
-        {
-            //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
-
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanTerapeutico
-            // 2. Con PlanTerapeutico
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-                //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanTerapeutico
-        }
-
-        private void lbl_id_pac_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        //private void cbPlanEstudio_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //    OpcionPlanEstudio();
-
-        //}
 
         private void btnReporte_Historia_Click(object sender, EventArgs e)
         {
@@ -2087,13 +2175,13 @@ namespace CapaPresentacion
 
             if (id_del_paciente_a_cargar > 0)
             {
-                this.lbl_idpac.Text = id_del_paciente_a_cargar.ToString();
+                this.lbl_idhistoria.Text = id_del_paciente_a_cargar.ToString();
 
                 Cargar_Historia_En_Campos();
 
                 Gestionar_PlanEstudio();
 
-                Gestionar_PlanTerapeutico();
+                Gestionar_PlanTerapeutico_Historia();
 
             }
             else
@@ -2350,7 +2438,7 @@ namespace CapaPresentacion
                     {
 
 
-                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
                         {
 
                             MensajeError("Ya existe una historia para este paciente.");
@@ -2358,13 +2446,14 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            int idPlanEstudio = TraerIdPlanEstudio(this.txtNumero_Documento.Text);
-                            int idPlanTerapeutico = TraerIdPlanTerapeutico(this.txtNumero_Documento.Text);
+                            //int idPlanEstudio = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
+                            int idPlanEstudio = 0; //placeholder
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
                             var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
                             string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
 
-                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
                             this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
                             
 
@@ -2427,7 +2516,7 @@ namespace CapaPresentacion
                     this.Botones();
                     this.Limpiar();
                     this.Mostrar();
-                    this.lbl_idpac.Text = "";
+                    this.lbl_idhistoria.Text = "";
 
 
                 }
@@ -2775,6 +2864,12 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void lbl_planterapeutico_id_TextChanged(object sender, EventArgs e)
+        {
+            Gestionar_PlanTerapeutico_Historia();
+        }
+
 
 
     }

@@ -21,13 +21,6 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
 
 
-        ////variables donde se guardaran valores traidos de otros forms
-
-        public string Cedula_paciente_perteneciente { get; set; }
-
-        public string Cedula_paciente_perteneciente_evol { get; set; }
-
-
 
         /// <summary>
         /// Data to transfer into / out of form
@@ -157,7 +150,6 @@ namespace CapaPresentacion
 
                     this.IsNuevo = false;
                     this.Deshabilitar();
-                    //this.Close();
 
 
                 }
@@ -196,6 +188,12 @@ namespace CapaPresentacion
         private void frmPlanTerapeutico_Load(object sender, EventArgs e)
         {
 
+
+            //Llenar el combobox de Medicamentos que estan registrados en la BD
+            LlenarCbMedicamento();
+
+
+
             // Realizar la carga de datos del paciente y bloquear los txtbox
             CargarDatosPaciente();
 
@@ -203,13 +201,12 @@ namespace CapaPresentacion
             //Asignar la fecha de emision de hoy
             this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
 
-
-
-            //Llenar el combobox de Medicamentos que estan registrados en la BD
-            LlenarCbMedicamento();
-
-
             Deshabilitar();
+
+            
+
+
+            //en caso de que la historia ya tenga un ID de PlanTerapeutico almacenado en la BD
 
 
 
@@ -219,7 +216,14 @@ namespace CapaPresentacion
         private void CargarDatosPaciente()
         {
             // mandar la cedula del paciente a este form y cargar los datos.
-            
+            int id_del_paciente_a_cargar;
+
+            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
+
+            if (id_del_paciente_a_cargar <= 0)
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
 
         }
 
@@ -263,14 +267,6 @@ namespace CapaPresentacion
 
 
 
-            //this.cbPresentacion.DataSource = NReceta.Mostrar();
-            //cbPresentacion.ValueMember = "presentacion";
-            //cbPresentacion.DisplayMember = "presentacion";
-
-            //this.cbDosis.DataSource = NReceta.Mostrar();
-            //cbDosis.ValueMember = "dosis";
-            //cbDosis.DisplayMember = "dosis";
-
         }
 
 
@@ -311,16 +307,8 @@ namespace CapaPresentacion
 
 
                 //Ejecutamos nuestro comando
-
                 int resultados = SqlCmd.ExecuteNonQuery();
 
-
-                //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-                //// Add a range of items  
-                //int[] presentaciones = { rpta };
-                //AuthorList.AddRange(authors);
 
 
             }
@@ -334,9 +322,8 @@ namespace CapaPresentacion
             }
 
 
-
+            
             return Lista_de_id_presentaciones;
-
 
         }
 
@@ -376,18 +363,6 @@ namespace CapaPresentacion
 
             }
 
-          
-
-            
-
-
-
-            //para testear el contenido del array
-            //foreach (string item in meds_array)
-            //{
-            //    MessageBox.Show(" wea: " + item + "");
-            //}
-
 
 
 
@@ -414,6 +389,7 @@ namespace CapaPresentacion
 
         private void Deshabilitar()
         {
+
             this.groupBox_Recipe.Enabled = false;
 
             this.groupBox_Indicaciones.Enabled = false;
@@ -521,12 +497,6 @@ namespace CapaPresentacion
 
 
 
-            //// Read List items  
-            //foreach (string name in names)
-            //{
-            //    Console.Write($"{name}, ");
-            //}
-
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -562,21 +532,7 @@ namespace CapaPresentacion
             this.cbDosis.DataSource = dosis;
         }
 
-        private void cbMedicamento_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void cbMedicamento_DropDownClosed(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbMedicamento_ValueMemberChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -584,25 +540,12 @@ namespace CapaPresentacion
                 e.KeyChar -= (char)32;
         }
 
-        private void cbPresentacion_Enter(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cbMedicamento_TextChanged(object sender, EventArgs e)
         {
             string nombre_med;
 
             nombre_med = this.cbMedicamento.Text;
-
-            
-
 
 
         }
@@ -615,10 +558,6 @@ namespace CapaPresentacion
             {
 
 
-
-                MessageBox.Show("el medicamento si existe :) ");
-
-
                 DataTable tablita = new DataTable();
 
                 tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
@@ -628,8 +567,6 @@ namespace CapaPresentacion
 
 
                 this.cbPresentacion.DataSource = presentaciones;
-
-
 
 
 
@@ -882,21 +819,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            int id_del_paciente_a_cargar;
-
-            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
-
-            if (id_del_paciente_a_cargar > 0)
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("Este paciente no esta registrado");
-            }
-        }
 
         private void frmPlanTerapeutico_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -904,5 +826,11 @@ namespace CapaPresentacion
            
         }
 
+        private void lupa_Click(object sender, EventArgs e)
+        {
+            CargarDatosPaciente();
+        }
+
+      
     }
 }
