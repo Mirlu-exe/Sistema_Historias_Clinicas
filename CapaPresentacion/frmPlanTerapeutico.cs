@@ -108,15 +108,24 @@ namespace CapaPresentacion
 
                         string hoy = DateTime.Now.ToShortDateString();
 
-                        StringBuilder sb = new StringBuilder();
-                        foreach (string s in listBox1.Items)
-                            sb.Append(s);
 
-                        string recipe_e_indicaciones = sb.ToString();
+
+                        //esta es la antigua forma de unir todas las lineas en un solo string
+                        ////StringBuilder sb = new StringBuilder();
+                        ////foreach (string s in listBox1.Items)
+                        ////    sb.Append(s);
+
+                        ////string recipe_e_indicaciones = sb.ToString();
+
+
+
+                        //este es el mejor metodo para hacerlo un string y separarlo con un salto de linea \n
+                        var listaRecipeIndicaciones = listBox1.Items.Cast<String>().ToList(); //convertir el control en una lista
+                        string cadenaRecipeIndicaciones = string.Join("\n", listaRecipeIndicaciones); //convertir la lista en un string separando cada linea por una coma
 
 
                         SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
-                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", recipe_e_indicaciones);
+                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", cadenaRecipeIndicaciones);
                         SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
 
 
@@ -308,11 +317,15 @@ namespace CapaPresentacion
                 this.lbl_idplanterapeutico.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
                 this.lbl_fecha_emision.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][3]);
 
-                //string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);
+                string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);
 
-                //List<string> recipe_indicaciones_separados_con_coma = recipe_indicaciones_cadena.Split(new char[] { ',' }).ToList();
+                List<string> recipe_indicaciones_separados_con_coma = recipe_indicaciones_cadena.Split(new char[] { '\n' }).ToList();
 
-                //this.listBox1.DataSource = recipe_indicaciones_separados_con_coma;
+                this.listBox1.DataSource = recipe_indicaciones_separados_con_coma;
+
+                ////List<string> recipe_indicaciones_separados = recipe_indicaciones_cadena.Split( new[] { Environment.NewLine },StringSplitOptions.None ).ToList();
+
+                ////this.listBox1.DataSource = recipe_indicaciones_separados;
 
 
             }
@@ -587,7 +600,7 @@ namespace CapaPresentacion
 
 
             // Add more items to the list  
-            listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  \n Indicaciones: " + indic + "  \n");
+            listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  Indicaciones: " + indic + "  ");
 
 
 
