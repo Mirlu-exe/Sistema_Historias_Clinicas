@@ -163,7 +163,7 @@ namespace CapaPresentacion
 
 
         //Método BuscarPresentacion
-        private void BuscarPresentacion()
+        private void BuscarPresentacion() // cambio Carlos forma pirata  preguntar a mirla donde conseguir los procedimientos almacenados
         {
             /*DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("presentacion LIKE '%{0}%'", this.txtBuscar.Text);
@@ -176,6 +176,21 @@ namespace CapaPresentacion
 
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
+
+        // Metodo BuscarDosis No funciona
+
+       /* private void BuscarDosis() 
+        {
+
+            this.dataListado.DataSource = NReceta.BuscarDosis(this.txtBuscar.Text);
+            this.OcultarColumnas();
+
+
+
+            lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
+
+
+        }*/
 
 
 
@@ -321,11 +336,16 @@ namespace CapaPresentacion
                 this.BuscarMedicamento();
 
             }
-            else
+            else if (this.cmbTipoReceta.Text.Equals("Presentacion"))
             {
 
                 this.BuscarPresentacion();
             }
+            else
+            {
+              //  this.BuscarDosis();
+            }
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

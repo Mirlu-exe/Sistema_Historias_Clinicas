@@ -399,14 +399,14 @@ namespace CapaDatos
         //Método BuscarMedicamento
         public DataTable BuscarMedicamento(DReceta Receta)
         {
-            DataTable DtResultado = new DataTable("Receta");
+            DataTable DtResultado = new DataTable("Meds_Nombres");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sbbuscar_receta_medicamento";
+                SqlCmd.CommandText = "sbbuscar_receta_Nomb_medicamento";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();
@@ -430,17 +430,50 @@ namespace CapaDatos
 
 
 
-
+        // Buscar Presentacion Medicamentos
         public DataTable BuscarPresentacion(DReceta Receta)
         {
-            DataTable DtResultado = new DataTable("Meds_Nombres");
+            DataTable DtResultado = new DataTable("Meds_Presentacion");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sbbuscar_receta_Nomb_medicamento";
+                SqlCmd.CommandText = "sbbuscar_receta_medicamentosCG";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@textobuscar";
+                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Receta.TextoBuscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+        //Buscar Medicamentos Dosis
+
+        public DataTable BuscarDosis(DReceta Receta)
+        {
+            DataTable DtResultado = new DataTable("Meds_Dosis");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sbbuscar_receta_Dosis_medicamento";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();

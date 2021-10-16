@@ -34,7 +34,11 @@ namespace CapaPresentacion
         private void frmInformesMedicosReferenciaMedicas_Load(object sender, EventArgs e)
         {
             LlenarComboMedicos();
+            //Mostrar_Informes_Meds();
+            this.dataListado.DataSource = Mostrar_Informe_Referencia();
 
+            this.OcultarColumnas();
+            lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
             Deshabilitar();
 
             this.Top = 0;
@@ -84,6 +88,47 @@ namespace CapaPresentacion
 
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnas()
+        {
+            this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[3].Visible = false;
+            this.dataListado.Columns[4].Visible = false;
+            this.dataListado.Columns[5].Visible = false;
+            this.dataListado.Columns["idpaciente"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
+
+        }
+
+ 
+
+        //Método Mostrar Informes
+        public DataTable Mostrar_Informe_Referencia()
+        {
+            DataTable DtResultado = new DataTable("Informes");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "SELECT *FROM InformesParaReferencias INNER JOIN Paciente ON InformesParaReferencias.id = Paciente.idpaciente";
+                SqlCmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+
+
         private int Buscar_idPac_por_cedula()
         {
 
@@ -109,7 +154,7 @@ namespace CapaPresentacion
 
                 this.txtNombre_Paciente.Text = nombre_del_pac;
                 this.txtSexo.Text = sexo_del_pac;
-
+                
 
 
                 //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(paciente_tabla.Rows.Count);
@@ -159,10 +204,12 @@ namespace CapaPresentacion
                     id_evol = Convert.ToInt32(evoluciones_por_historia.Rows[0][0]);
 
                 }
-                else
+                else //aca tengo que poner la edad
                 {
                     MessageBox.Show("La historia NO tiene evoluciones");
                     id_evol = 0;
+                    txtEdadSuc_Evol.Clear();
+
                 }
 
 
@@ -234,6 +281,7 @@ namespace CapaPresentacion
                 else
                 {
                     MessageBox.Show("La historia NO tiene evoluciones");
+                    txtEdadSuc_Evol.Clear();
                 }
 
 
@@ -290,6 +338,15 @@ namespace CapaPresentacion
 
                     this.txtHistoriaFamiliar.Text = historia_familiar_del_pac;
                     this.txtHistoriaPersonal.Text = historia_personal_del_pac;
+
+                    DateTime Edad_Pac = Convert.ToDateTime(dtHistoriasPerPaciente.Rows[0][4]);
+
+                    //DateTime Fecha_Nac_Pac = new DateTime(Edad_Pac); //Fecha de nacimiento
+                    int edad = DateTime.Today.AddTicks(-Edad_Pac.Ticks).Year - 1;
+                    string edad_paciente = Convert.ToString(edad);
+
+                    this.txtEdadSuc_Evol.Text = edad_paciente;
+
 
 
                     //se envia el id de la historia para buscar sus ultima evolucion

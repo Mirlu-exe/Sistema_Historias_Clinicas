@@ -133,7 +133,7 @@ namespace CapaPresentacion
 
             this.dataListado.DataSource = NMedicosConfianza.Mostrar();
             this.OcultarColumnas();
-            lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
+            lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
 
@@ -700,6 +700,12 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.label4, "Campo Obligatorio");
         }
 
+        private void labe12_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label12, "Campo Obligatorio");
+        }
+
+
         private void txtBuscar_TextChanged_1(object sender, EventArgs e)
         {
             if (this.cblBusqueda.Text.Equals("Nombre"))
@@ -724,7 +730,7 @@ namespace CapaPresentacion
             }
             else
             {
-                this.MensajeError("Debe de seleccionar primero el paciente a Modificar");
+                this.MensajeError("Debe de seleccionar primero el Doctor a Modificar");
             }
 
         }
