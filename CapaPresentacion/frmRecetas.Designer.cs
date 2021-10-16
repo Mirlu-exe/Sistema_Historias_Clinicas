@@ -156,7 +156,8 @@
             this.cmbTipoReceta.FormattingEnabled = true;
             this.cmbTipoReceta.Items.AddRange(new object[] {
             "Medicamento",
-            "Presentacion"});
+            "Presentacion",
+            "Dosis"});
             this.cmbTipoReceta.Location = new System.Drawing.Point(730, 197);
             this.cmbTipoReceta.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoReceta.Name = "cmbTipoReceta";
