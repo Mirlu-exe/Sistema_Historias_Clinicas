@@ -57,12 +57,43 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtecg, "Ingrese el ecg paciente");
             this.ttMensaje.SetToolTip(this.txtParaclinicos, "Ingrese los rayos X del paciente");
             this.ttMensaje.SetToolTip(this.txtEcocardiograma, "Ingrese el ecocardiograma del paciente");
-            //this.ttMensaje.SetToolTip(this.cbPlanEstudio, "Ingrese el plan de estudio");
-            //this.ttMensaje.SetToolTip(this.cbPlanTerapeutico, "Ingrese el plan terapeutico");
+            this.ttMensaje.SetToolTip(this.btnVerPlanEstudio, "Ingrese el plan de estudio");
+            this.ttMensaje.SetToolTip(this.btnVerPlanTerapeutico, "Ingrese el plan terapeutico");
 
             this.btnAnular.Enabled = false;
         }
 
+
+
+        private void  frmHistoria_Load(object sender, EventArgs e)
+        {
+
+            autocompletar_diagnosticos();
+
+            autocompletar_diagnosticos_evol();
+
+            this.MostrarHistoriasActivas();
+            this.Top = 0;
+            this.Left = 0;
+            this.Mostrar();
+            this.Deshabilitar();
+            this.Botones();
+
+            OcultarColumnas();
+
+
+            //Evento "Load" en la pestaña de Historia
+            Gestionar_PlanEstudio_Historia();
+            Gestionar_PlanTerapeutico_Historia();
+
+
+            //Evento "Load" en la pestaña de Evolucion
+            Gestionar_PlanEstudio_Evol();
+            Gestionar_PlanTerapeutico_Evol();
+
+
+
+        }
 
 
         /// <summary>
@@ -81,39 +112,10 @@ namespace CapaPresentacion
 
 
 
-        private void  frmHistoria_Load(object sender, EventArgs e)
-        {
-
-            autocompletar_diagnosticos();
-
-            autocompletar_diagnosticos_evol();
-
-            this.MostrarHistoriasActivas();
-            this.Top = 0;
-            this.Left = 0;
-            this.Mostrar();
-            this.Deshabilitar();
-            this.Botones();
-            //this.LlenarComboDiagnosticos();
-
-            //this.LlenarCbPlanTerapeutico();
 
 
 
-            OcultarColumnas();
-            //dataListado.Columns["idpaciente"].Visible = false;
 
-            Gestionar_PlanEstudio();
-
-            Gestionar_PlanTerapeutico_Historia();
-
-            Gestionar_PlanEstudio_Evol();
-
-            //Gestionar_PlanTerapeutico_Evol();
-
-
-
-        }
 
 
         private int TraerIdPlanEstudio(string cedula_pac)
@@ -647,38 +649,31 @@ namespace CapaPresentacion
 
 
 
-        private void Gestionar_PlanEstudio()
+        private void Gestionar_PlanEstudio_Historia()
         {
-
 
 
             ///////////////////////////// PLAN ESTUDIO WIP //////////////////////////////
 
+            //se busca segun el id de la historia a ver si existe un plan de estudio
 
 
-            //se busca segun la cedula y segun la fecha de emision a ver si existe un plan de estudio
+            int id_plan_estudio_historia = buscar_plan_estudio_de_historia(Convert.ToInt32(this.lbl_idhistoria.Text));
 
-            //si la fecha es igual a la de la historia, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan de estudio
-
-
-            if (TraerIdPlanEstudio(this.txtNumero_Documento.Text) == 0)
+            if (id_plan_estudio_historia == 0)
             {
-                this.btnVerPlanEstudio.Text = "Sin plan de estudio seleccionado";
+                this.btnVerPlanEstudio.Text = "Sin plan de estudio";
                 this.btnVerPlanEstudio.BackColor = Color.DarkGray;
+                this.lbl_planestudio_id.Text = Convert.ToString(id_plan_estudio_historia);
             }
             else
             {
-                //buscar la fecha de ese plan de estudio para ver si es del dia de hoy, o es muy vieja.
 
-                this.btnVerPlanEstudio.Text = "Plan de estudio asignado";
+                this.btnVerPlanEstudio.Text = "Plan estudio asignado";
                 this.btnVerPlanEstudio.BackColor = Color.LightSeaGreen;
+                this.lbl_planestudio_id.Text = Convert.ToString(id_plan_estudio_historia);
 
             }
-
-
-
 
 
         }
@@ -1842,71 +1837,66 @@ namespace CapaPresentacion
 
 
 
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan estudio de una Historia en particular
+        /// </summary>
+        /// <param name="idhistoria"></param>
+        /// <returns></returns>
+        private int buscar_plan_estudio_de_historia(int idhistoria)
+        {
 
-        //private int buscar_plan_terapeutico_del_pac(int id_pac)
-        //{
+            //aca se buscará cual es el ID de el PlanEstudio de esa historia en particular
 
-        //    //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
+            DataTable DtResultado = new DataTable("PlanEstudioDeHistoria");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idplanestudio_segun_idhistoria";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
-        //    DataTable DtResultado = new DataTable("PlanTerapeuticoDelPac");
-        //    SqlConnection SqlCon = new SqlConnection();
-        //    try
-        //    {
-        //        SqlCon.ConnectionString = Conexion.Cn;
-        //        SqlCommand SqlCmd = new SqlCommand();
-        //        SqlCmd.Connection = SqlCon;
-        //        SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idpac";
-        //        SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@idhistoria";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idhistoria;
+                SqlCmd.Parameters.Add(ParIDBuscar);
 
-        //        SqlParameter ParIDBuscar = new SqlParameter();
-        //        ParIDBuscar.ParameterName = "@id_pac";
-        //        ParIDBuscar.SqlDbType = SqlDbType.Int;
-        //        ParIDBuscar.Size = 50;
-        //        ParIDBuscar.Value = id_pac;
-        //        SqlCmd.Parameters.Add(ParIDBuscar);
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
 
-        //        SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-        //        SqlDat.Fill(DtResultado);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //        DtResultado = null;
-        //    }
-
-
-
-
-        //    int id_del_plan_terapeutico = 0;
-
-
-        //    if (DtResultado.Rows.Count <= 0)
-        //    {
-
-        //        //MessageBox.Show("whoops!");
-        //        id_del_plan_terapeutico = 0;
-
-        //    }
-        //    else
-        //    {
-        //        id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][0]);
-        //    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
 
 
-        //    return id_del_plan_terapeutico;
 
 
-        //    //Se cargara en el txtbox 2 opciones: 
-        //    // 1. Sin PlanEstudio
-        //    // 2. Con PlanEstudio
+            int id_del_plan_estudio = 0;
 
-        //    //el id dependera de la opcion
-        //    //en caso de ser la primera, el id será 0
-        //    //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-        //    //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
 
-        //}
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                id_del_plan_estudio = 0;
+
+            }
+            else
+            {
+                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][14]);
+            }
+
+
+            return id_del_plan_estudio;
+
+
+        }
+
 
 
         /// <summary>
@@ -1955,7 +1945,6 @@ namespace CapaPresentacion
             if (DtResultado.Rows.Count <= 0)
             {
 
-                //MessageBox.Show("whoops!");
                 id_del_plan_terapeutico = 0;
 
             }
@@ -1969,6 +1958,17 @@ namespace CapaPresentacion
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2088,17 +2088,24 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudio_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio();
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
+            // Add a child form Estudio
 
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Documento.Text);
+
+            child.DataAvailable += new EventHandler(child_DataAvailable);
+            child.Data = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
         }
 
         private void btnVerPlanTerapeutico_Click(object sender, EventArgs e)
         {
 
-            // Add a child form
+            // Add a child form Terapeutico
 
             frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
 
@@ -2149,7 +2156,7 @@ namespace CapaPresentacion
 
                 Cargar_Historia_En_Campos();
 
-                Gestionar_PlanEstudio();
+                Gestionar_PlanEstudio_Historia();
 
                 Gestionar_PlanTerapeutico_Historia();
 
@@ -2614,7 +2621,7 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio();
+            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Documento_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
@@ -2802,39 +2809,19 @@ namespace CapaPresentacion
 
             ///////////////////////////// PLAN ESTUDIO WIP //////////////////////////////
 
-            //se busca segun el id_evol y segun la fecha de emision a ver si existe un plan de estudio
-
-            //si la fecha es igual a la de la evolucion, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan de estudio
-
-
-            //if (TraerIdPlanEstudio_Evol(this.lbl_id_evol) == 0)
-            //{
-            //    this.btnVerPlanEstudioEvol.Text = "Sin plan de estudio seleccionado";
-            //    this.btnVerPlanEstudioEvol.BackColor = Color.DarkGray;
-            //}
-            //else
-            //{
-            //    //buscar la fecha de ese plan de estudio para ver si es del dia de hoy, o es muy vieja.
-
-            //    this.btnVerPlanEstudioEvol.Text = "Plan de estudio asignado";
-            //    this.btnVerPlanEstudioEvol.BackColor = Color.LightSeaGreen;
-
-            //}
 
 
         }
 
-        private void label12_Click(object sender, EventArgs e)
+
+        private void Gestionar_PlanTerapeutico_Evol()
         {
+            ///////////////////////////// PLAN TERAPEUTICO WIP //////////////////////////////
+
+
 
         }
 
-        private void frmHistoria_Activated(object sender, EventArgs e)
-        {
-
-        }
 
 
         //Este evento es para que cada vez que cambie el valor de este txtbox, se pueda cambiar el color y texto del boton.

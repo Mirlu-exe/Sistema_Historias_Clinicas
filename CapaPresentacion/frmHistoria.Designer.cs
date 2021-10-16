@@ -1348,7 +1348,6 @@
             this.label12.Size = new System.Drawing.Size(48, 32);
             this.label12.TabIndex = 281;
             this.label12.Text = "🔎";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label15
             // 
@@ -2166,7 +2165,6 @@
             this.Name = "frmHistoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHistoria";
-            this.Activated += new System.EventHandler(this.frmHistoria_Activated);
             this.Load += new System.EventHandler(this.frmHistoria_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);

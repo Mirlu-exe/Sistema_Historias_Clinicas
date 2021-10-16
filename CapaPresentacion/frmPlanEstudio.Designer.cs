@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsReceta = new CapaPresentacion.dsReceta();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
@@ -43,8 +43,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbLab = new System.Windows.Forms.ComboBox();
-            this.btnQuitarLab = new System.Windows.Forms.Button();
-            this.btnAñadirLab = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
@@ -57,17 +55,20 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar_informe = new System.Windows.Forms.Button();
-            this.btnGuardar_informe = new System.Windows.Forms.Button();
-            this.btnNuevo_informe = new System.Windows.Forms.Button();
+            this.btnCancelar_PlanEstudio = new System.Windows.Forms.Button();
+            this.btnAsignar_PlanEstudio = new System.Windows.Forms.Button();
+            this.btnNuevo_PlanEstudio = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnImprimirEstudios = new System.Windows.Forms.Button();
+            this.btnImprimirExamenes = new System.Windows.Forms.Button();
+            this.lbl_idplanestudio = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.lbl_fecha_emision = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCedulaPac_Estudio = new System.Windows.Forms.TextBox();
             this.lbl_id_evol = new System.Windows.Forms.Label();
             this.lbl_id_historia = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,25 +79,27 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnQuitarExamen = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox_Recipe = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbEstudios = new System.Windows.Forms.ComboBox();
-            this.btnQuitarEstudios = new System.Windows.Forms.Button();
-            this.btnAñadirEstudios = new System.Windows.Forms.Button();
+            this.btnAñadirExamen = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnSeleccionarPlanEstudio = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnQuitarEstudio = new System.Windows.Forms.Button();
+            this.btnAñadirEstudio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.groupBox_Plan_Estudio_Listas.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -105,6 +108,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox_Recipe.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dsRecetaBindingSource
@@ -192,28 +196,6 @@
             this.cbLab.Size = new System.Drawing.Size(365, 30);
             this.cbLab.TabIndex = 241;
             // 
-            // btnQuitarLab
-            // 
-            this.btnQuitarLab.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnQuitarLab.Location = new System.Drawing.Point(453, 189);
-            this.btnQuitarLab.Name = "btnQuitarLab";
-            this.btnQuitarLab.Size = new System.Drawing.Size(89, 86);
-            this.btnQuitarLab.TabIndex = 240;
-            this.btnQuitarLab.Text = "-";
-            this.btnQuitarLab.UseVisualStyleBackColor = false;
-            this.btnQuitarLab.Click += new System.EventHandler(this.btnQuitarLab_Click);
-            // 
-            // btnAñadirLab
-            // 
-            this.btnAñadirLab.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnAñadirLab.Location = new System.Drawing.Point(453, 97);
-            this.btnAñadirLab.Name = "btnAñadirLab";
-            this.btnAñadirLab.Size = new System.Drawing.Size(89, 86);
-            this.btnAñadirLab.TabIndex = 239;
-            this.btnAñadirLab.Text = "+";
-            this.btnAñadirLab.UseVisualStyleBackColor = false;
-            this.btnAñadirLab.Click += new System.EventHandler(this.btnAñadir_Click);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
@@ -289,50 +271,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -430,29 +412,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(409, 9);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(639, 60);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Plan de Estudio";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1690, 70);
-            this.panel3.TabIndex = 250;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -468,65 +427,65 @@
             this.label1.TabIndex = 238;
             this.label1.Text = "Examenes de laboratorio";
             // 
-            // btnCancelar_informe
+            // btnCancelar_PlanEstudio
             // 
-            this.btnCancelar_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar_informe.FlatAppearance.BorderSize = 0;
-            this.btnCancelar_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCancelar_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar_informe.Location = new System.Drawing.Point(1393, 301);
-            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar_informe.Name = "btnCancelar_informe";
-            this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
-            this.btnCancelar_informe.TabIndex = 246;
-            this.btnCancelar_informe.Text = "Cancelar";
-            this.btnCancelar_informe.UseVisualStyleBackColor = false;
+            this.btnCancelar_PlanEstudio.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar_PlanEstudio.FlatAppearance.BorderSize = 0;
+            this.btnCancelar_PlanEstudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCancelar_PlanEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar_PlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnCancelar_PlanEstudio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnCancelar_PlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar_PlanEstudio.Location = new System.Drawing.Point(1383, 346);
+            this.btnCancelar_PlanEstudio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar_PlanEstudio.Name = "btnCancelar_PlanEstudio";
+            this.btnCancelar_PlanEstudio.Size = new System.Drawing.Size(188, 90);
+            this.btnCancelar_PlanEstudio.TabIndex = 246;
+            this.btnCancelar_PlanEstudio.Text = "Cancelar";
+            this.btnCancelar_PlanEstudio.UseVisualStyleBackColor = false;
             // 
-            // btnGuardar_informe
+            // btnAsignar_PlanEstudio
             // 
-            this.btnGuardar_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar_informe.FlatAppearance.BorderSize = 0;
-            this.btnGuardar_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnGuardar_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnGuardar_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnGuardar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar_informe.Location = new System.Drawing.Point(1393, 214);
-            this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuardar_informe.Name = "btnGuardar_informe";
-            this.btnGuardar_informe.Size = new System.Drawing.Size(188, 79);
-            this.btnGuardar_informe.TabIndex = 243;
-            this.btnGuardar_informe.Text = "Guardar";
-            this.btnGuardar_informe.UseVisualStyleBackColor = false;
-            this.btnGuardar_informe.Click += new System.EventHandler(this.btnGuardar_informe_Click);
+            this.btnAsignar_PlanEstudio.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAsignar_PlanEstudio.FlatAppearance.BorderSize = 0;
+            this.btnAsignar_PlanEstudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAsignar_PlanEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignar_PlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnAsignar_PlanEstudio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnAsignar_PlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignar_PlanEstudio.Location = new System.Drawing.Point(1383, 214);
+            this.btnAsignar_PlanEstudio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAsignar_PlanEstudio.Name = "btnAsignar_PlanEstudio";
+            this.btnAsignar_PlanEstudio.Size = new System.Drawing.Size(188, 124);
+            this.btnAsignar_PlanEstudio.TabIndex = 243;
+            this.btnAsignar_PlanEstudio.Text = "☑ Guardar y asignar este Plan Estudio";
+            this.btnAsignar_PlanEstudio.UseVisualStyleBackColor = false;
+            this.btnAsignar_PlanEstudio.Click += new System.EventHandler(this.btnGuardar_informe_Click);
             // 
-            // btnNuevo_informe
+            // btnNuevo_PlanEstudio
             // 
-            this.btnNuevo_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNuevo_informe.FlatAppearance.BorderSize = 0;
-            this.btnNuevo_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnNuevo_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo_informe.Location = new System.Drawing.Point(1393, 127);
-            this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNuevo_informe.Name = "btnNuevo_informe";
-            this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
-            this.btnNuevo_informe.TabIndex = 244;
-            this.btnNuevo_informe.Text = "Nuevo";
-            this.btnNuevo_informe.UseVisualStyleBackColor = false;
-            this.btnNuevo_informe.Click += new System.EventHandler(this.btnNuevo_informe_Click);
+            this.btnNuevo_PlanEstudio.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNuevo_PlanEstudio.FlatAppearance.BorderSize = 0;
+            this.btnNuevo_PlanEstudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnNuevo_PlanEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo_PlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnNuevo_PlanEstudio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnNuevo_PlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo_PlanEstudio.Location = new System.Drawing.Point(1383, 127);
+            this.btnNuevo_PlanEstudio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo_PlanEstudio.Name = "btnNuevo_PlanEstudio";
+            this.btnNuevo_PlanEstudio.Size = new System.Drawing.Size(188, 79);
+            this.btnNuevo_PlanEstudio.TabIndex = 244;
+            this.btnNuevo_PlanEstudio.Text = "Nuevo";
+            this.btnNuevo_PlanEstudio.UseVisualStyleBackColor = false;
+            this.btnNuevo_PlanEstudio.Click += new System.EventHandler(this.btnNuevo_informe_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 90);
+            this.tabControl1.Location = new System.Drawing.Point(-5, 57);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1601, 892);
@@ -534,13 +493,16 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.tabPage1.Controls.Add(this.btnSeleccionarPlanEstudio);
+            this.tabPage1.BackColor = System.Drawing.Color.Teal;
+            this.tabPage1.Controls.Add(this.btnImprimirEstudios);
+            this.tabPage1.Controls.Add(this.btnImprimirExamenes);
+            this.tabPage1.Controls.Add(this.lbl_idplanestudio);
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.lbl_fecha_emision);
-            this.tabPage1.Controls.Add(this.btnCancelar_informe);
+            this.tabPage1.Controls.Add(this.btnCancelar_PlanEstudio);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.btnGuardar_informe);
-            this.tabPage1.Controls.Add(this.btnNuevo_informe);
+            this.tabPage1.Controls.Add(this.btnAsignar_PlanEstudio);
+            this.tabPage1.Controls.Add(this.btnNuevo_PlanEstudio);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
@@ -549,12 +511,69 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Plan de Estudio";
             // 
+            // btnImprimirEstudios
+            // 
+            this.btnImprimirEstudios.BackColor = System.Drawing.SystemColors.Control;
+            this.btnImprimirEstudios.FlatAppearance.BorderSize = 0;
+            this.btnImprimirEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnImprimirEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnImprimirEstudios.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnImprimirEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirEstudios.Location = new System.Drawing.Point(1383, 735);
+            this.btnImprimirEstudios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimirEstudios.Name = "btnImprimirEstudios";
+            this.btnImprimirEstudios.Size = new System.Drawing.Size(188, 90);
+            this.btnImprimirEstudios.TabIndex = 285;
+            this.btnImprimirEstudios.Text = "Imprimir Estudios";
+            this.btnImprimirEstudios.UseVisualStyleBackColor = false;
+            // 
+            // btnImprimirExamenes
+            // 
+            this.btnImprimirExamenes.BackColor = System.Drawing.SystemColors.Control;
+            this.btnImprimirExamenes.FlatAppearance.BorderSize = 0;
+            this.btnImprimirExamenes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnImprimirExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirExamenes.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnImprimirExamenes.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnImprimirExamenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirExamenes.Location = new System.Drawing.Point(1383, 640);
+            this.btnImprimirExamenes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimirExamenes.Name = "btnImprimirExamenes";
+            this.btnImprimirExamenes.Size = new System.Drawing.Size(188, 90);
+            this.btnImprimirExamenes.TabIndex = 284;
+            this.btnImprimirExamenes.Text = "Imprimir Examenes";
+            this.btnImprimirExamenes.UseVisualStyleBackColor = false;
+            // 
+            // lbl_idplanestudio
+            // 
+            this.lbl_idplanestudio.AutoSize = true;
+            this.lbl_idplanestudio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idplanestudio.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl_idplanestudio.Location = new System.Drawing.Point(1500, 48);
+            this.lbl_idplanestudio.Name = "lbl_idplanestudio";
+            this.lbl_idplanestudio.Size = new System.Drawing.Size(22, 28);
+            this.lbl_idplanestudio.TabIndex = 283;
+            this.lbl_idplanestudio.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.LightGray;
+            this.label16.Location = new System.Drawing.Point(1388, 48);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(105, 28);
+            this.label16.TabIndex = 282;
+            this.label16.Text = "ID del plan:";
+            // 
             // lbl_fecha_emision
             // 
             this.lbl_fecha_emision.AutoSize = true;
             this.lbl_fecha_emision.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_fecha_emision.ForeColor = System.Drawing.Color.MintCream;
-            this.lbl_fecha_emision.Location = new System.Drawing.Point(1387, 395);
+            this.lbl_fecha_emision.Location = new System.Drawing.Point(1387, 440);
             this.lbl_fecha_emision.Name = "lbl_fecha_emision";
             this.lbl_fecha_emision.Size = new System.Drawing.Size(190, 32);
             this.lbl_fecha_emision.TabIndex = 247;
@@ -563,6 +582,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtCedulaPac_Estudio);
             this.groupBox1.Controls.Add(this.lbl_id_evol);
             this.groupBox1.Controls.Add(this.lbl_id_historia);
             this.groupBox1.Controls.Add(this.label14);
@@ -573,14 +593,25 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtNumero_Documento);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox1.Location = new System.Drawing.Point(45, 24);
+            this.groupBox1.Location = new System.Drawing.Point(21, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1341, 84);
+            this.groupBox1.Size = new System.Drawing.Size(1355, 84);
             this.groupBox1.TabIndex = 232;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
+            // 
+            // txtCedulaPac_Estudio
+            // 
+            this.txtCedulaPac_Estudio.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCedulaPac_Estudio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedulaPac_Estudio.Enabled = false;
+            this.txtCedulaPac_Estudio.Location = new System.Drawing.Point(140, 37);
+            this.txtCedulaPac_Estudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCedulaPac_Estudio.Name = "txtCedulaPac_Estudio";
+            this.txtCedulaPac_Estudio.ReadOnly = true;
+            this.txtCedulaPac_Estudio.Size = new System.Drawing.Size(145, 28);
+            this.txtCedulaPac_Estudio.TabIndex = 291;
             // 
             // lbl_id_evol
             // 
@@ -692,33 +723,34 @@
             this.label6.TabIndex = 227;
             this.label6.Text = "Nombre";
             // 
-            // txtNumero_Documento
-            // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(141, 38);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(143, 28);
-            this.txtNumero_Documento.TabIndex = 231;
-            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.btnQuitarEstudio);
+            this.groupBox3.Controls.Add(this.btnAñadirEstudio);
+            this.groupBox3.Controls.Add(this.btnQuitarExamen);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.btnQuitarEstudios);
-            this.groupBox3.Controls.Add(this.btnAñadirEstudios);
+            this.groupBox3.Controls.Add(this.btnAñadirExamen);
             this.groupBox3.Controls.Add(this.groupBox_Plan_Estudio_Listas);
-            this.groupBox3.Controls.Add(this.btnQuitarLab);
-            this.groupBox3.Controls.Add(this.btnAñadirLab);
             this.groupBox3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox3.Location = new System.Drawing.Point(31, 123);
+            this.groupBox3.Location = new System.Drawing.Point(21, 127);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1355, 698);
             this.groupBox3.TabIndex = 233;
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // btnQuitarExamen
+            // 
+            this.btnQuitarExamen.BackColor = System.Drawing.Color.Teal;
+            this.btnQuitarExamen.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarExamen.ForeColor = System.Drawing.Color.MintCream;
+            this.btnQuitarExamen.Location = new System.Drawing.Point(453, 128);
+            this.btnQuitarExamen.Name = "btnQuitarExamen";
+            this.btnQuitarExamen.Size = new System.Drawing.Size(89, 86);
+            this.btnQuitarExamen.TabIndex = 245;
+            this.btnQuitarExamen.Text = "-";
+            this.btnQuitarExamen.UseVisualStyleBackColor = false;
             // 
             // groupBox4
             // 
@@ -804,47 +836,81 @@
             this.cbEstudios.Size = new System.Drawing.Size(368, 30);
             this.cbEstudios.TabIndex = 232;
             // 
-            // btnQuitarEstudios
+            // btnAñadirExamen
             // 
-            this.btnQuitarEstudios.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnQuitarEstudios.Location = new System.Drawing.Point(453, 481);
-            this.btnQuitarEstudios.Name = "btnQuitarEstudios";
-            this.btnQuitarEstudios.Size = new System.Drawing.Size(89, 86);
-            this.btnQuitarEstudios.TabIndex = 245;
-            this.btnQuitarEstudios.Text = "-";
-            this.btnQuitarEstudios.UseVisualStyleBackColor = false;
-            // 
-            // btnAñadirEstudios
-            // 
-            this.btnAñadirEstudios.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnAñadirEstudios.Location = new System.Drawing.Point(453, 389);
-            this.btnAñadirEstudios.Name = "btnAñadirEstudios";
-            this.btnAñadirEstudios.Size = new System.Drawing.Size(89, 86);
-            this.btnAñadirEstudios.TabIndex = 244;
-            this.btnAñadirEstudios.Text = "+";
-            this.btnAñadirEstudios.UseVisualStyleBackColor = false;
-            this.btnAñadirEstudios.Click += new System.EventHandler(this.btnAñadirEstudios_Click);
+            this.btnAñadirExamen.BackColor = System.Drawing.Color.Teal;
+            this.btnAñadirExamen.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadirExamen.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAñadirExamen.Location = new System.Drawing.Point(453, 36);
+            this.btnAñadirExamen.Name = "btnAñadirExamen";
+            this.btnAñadirExamen.Size = new System.Drawing.Size(89, 86);
+            this.btnAñadirExamen.TabIndex = 244;
+            this.btnAñadirExamen.Text = "+";
+            this.btnAñadirExamen.UseVisualStyleBackColor = false;
             // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // btnSeleccionarPlanEstudio
+            // panel3
             // 
-            this.btnSeleccionarPlanEstudio.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSeleccionarPlanEstudio.FlatAppearance.BorderSize = 0;
-            this.btnSeleccionarPlanEstudio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnSeleccionarPlanEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionarPlanEstudio.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnSeleccionarPlanEstudio.ForeColor = System.Drawing.Color.MintCream;
-            this.btnSeleccionarPlanEstudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeleccionarPlanEstudio.Location = new System.Drawing.Point(1393, 464);
-            this.btnSeleccionarPlanEstudio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSeleccionarPlanEstudio.Name = "btnSeleccionarPlanEstudio";
-            this.btnSeleccionarPlanEstudio.Size = new System.Drawing.Size(188, 122);
-            this.btnSeleccionarPlanEstudio.TabIndex = 250;
-            this.btnSeleccionarPlanEstudio.Text = "☑ Seleccionar este Plan Estudio";
-            this.btnSeleccionarPlanEstudio.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.Color.Teal;
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1690, 52);
+            this.panel3.TabIndex = 252;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(413, -4);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(639, 60);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "🩺    Plan de Estudio";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(36, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(520, 95);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Crystal Clear";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnQuitarEstudio
+            // 
+            this.btnQuitarEstudio.BackColor = System.Drawing.Color.Teal;
+            this.btnQuitarEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarEstudio.ForeColor = System.Drawing.Color.MintCream;
+            this.btnQuitarEstudio.Location = new System.Drawing.Point(451, 483);
+            this.btnQuitarEstudio.Name = "btnQuitarEstudio";
+            this.btnQuitarEstudio.Size = new System.Drawing.Size(89, 86);
+            this.btnQuitarEstudio.TabIndex = 247;
+            this.btnQuitarEstudio.Text = "-";
+            this.btnQuitarEstudio.UseVisualStyleBackColor = false;
+            // 
+            // btnAñadirEstudio
+            // 
+            this.btnAñadirEstudio.BackColor = System.Drawing.Color.Teal;
+            this.btnAñadirEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadirEstudio.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAñadirEstudio.Location = new System.Drawing.Point(451, 391);
+            this.btnAñadirEstudio.Name = "btnAñadirEstudio";
+            this.btnAñadirEstudio.Size = new System.Drawing.Size(89, 86);
+            this.btnAñadirEstudio.TabIndex = 246;
+            this.btnAñadirEstudio.Text = "+";
+            this.btnAñadirEstudio.UseVisualStyleBackColor = false;
             // 
             // frmPlanEstudio
             // 
@@ -866,7 +932,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -880,6 +945,7 @@
             this.groupBox_Recipe.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -890,20 +956,17 @@
         private dsReceta dsReceta;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorIcono;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btnCancelar_informe;
+        private System.Windows.Forms.Button btnCancelar_PlanEstudio;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSexo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre_Paciente;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
-        private System.Windows.Forms.Button btnGuardar_informe;
-        private System.Windows.Forms.Button btnNuevo_informe;
+        private System.Windows.Forms.Button btnAsignar_PlanEstudio;
+        private System.Windows.Forms.Button btnNuevo_PlanEstudio;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox_Recipe;
         private System.Windows.Forms.ComboBox cbLab;
@@ -911,8 +974,6 @@
         private System.Windows.Forms.GroupBox groupBox_Plan_Estudio_Listas;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnQuitarLab;
-        private System.Windows.Forms.Button btnAñadirLab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAnular;
@@ -927,8 +988,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnQuitarEstudios;
-        private System.Windows.Forms.Button btnAñadirEstudios;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbEstudios;
@@ -941,6 +1000,17 @@
         private System.Windows.Forms.Label lbl_id_historia;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnSeleccionarPlanEstudio;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnQuitarExamen;
+        private System.Windows.Forms.Button btnAñadirExamen;
+        private System.Windows.Forms.Label lbl_idplanestudio;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnImprimirEstudios;
+        private System.Windows.Forms.Button btnImprimirExamenes;
+        private System.Windows.Forms.TextBox txtCedulaPac_Estudio;
+        private System.Windows.Forms.Button btnQuitarEstudio;
+        private System.Windows.Forms.Button btnAñadirEstudio;
     }
 }

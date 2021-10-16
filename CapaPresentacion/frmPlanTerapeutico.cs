@@ -110,14 +110,6 @@ namespace CapaPresentacion
 
 
 
-                        //esta es la antigua forma de unir todas las lineas en un solo string
-                        ////StringBuilder sb = new StringBuilder();
-                        ////foreach (string s in listBox1.Items)
-                        ////    sb.Append(s);
-
-                        ////string recipe_e_indicaciones = sb.ToString();
-
-
 
                         //este es el mejor metodo para hacerlo un string y separarlo con un salto de linea \n
                         var listaRecipeIndicaciones = listBox1.Items.Cast<String>().ToList(); //convertir el control en una lista

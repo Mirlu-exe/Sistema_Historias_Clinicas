@@ -320,7 +320,6 @@ namespace CapaPresentacion
 
         private void btnPlanEstudios_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmPlanEstudio());
         }
 
         private void lblAcceso_Click(object sender, EventArgs e)
