@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsReceta = new CapaPresentacion.dsReceta();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox_Plan_Estudio_Listas = new System.Windows.Forms.GroupBox();
@@ -80,6 +78,8 @@
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnQuitarEstudio = new System.Windows.Forms.Button();
+            this.btnAñadirEstudio = new System.Windows.Forms.Button();
             this.btnQuitarExamen = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -92,10 +92,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnQuitarEstudio = new System.Windows.Forms.Button();
-            this.btnAñadirEstudio = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
+            this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsReceta = new CapaPresentacion.dsReceta();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.groupBox_Plan_Estudio_Listas.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -109,17 +107,9 @@
             this.groupBox_Recipe.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dsRecetaBindingSource
-            // 
-            this.dsRecetaBindingSource.DataSource = this.dsReceta;
-            this.dsRecetaBindingSource.Position = 0;
-            // 
-            // dsReceta
-            // 
-            this.dsReceta.DataSetName = "dsReceta";
-            this.dsReceta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ttMensaje
             // 
@@ -175,21 +165,10 @@
             // 
             // cbLab
             // 
+            this.cbLab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbLab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbLab.BackColor = System.Drawing.SystemColors.Control;
             this.cbLab.FormattingEnabled = true;
-            this.cbLab.Items.AddRange(new object[] {
-            "Hematologia completa",
-            "Glicemia",
-            "Urea",
-            "Creatinina",
-            "Acido urico",
-            "Colesterol total y fraccionado",
-            "Trigliceridos ",
-            "Transaminasas piruvica",
-            "Transaminasas oxalacetica",
-            "Proteinas totales y fraccionadas",
-            "Tiempo de protrombina",
-            "TIempo parcial de tromboplastina"});
             this.cbLab.Location = new System.Drawing.Point(17, 63);
             this.cbLab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLab.Name = "cbLab";
@@ -271,50 +250,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -667,6 +646,7 @@
             this.label3.Size = new System.Drawing.Size(31, 24);
             this.label3.TabIndex = 282;
             this.label3.Text = "🔎";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtSexo
             // 
@@ -739,6 +719,30 @@
             this.groupBox3.TabIndex = 233;
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // btnQuitarEstudio
+            // 
+            this.btnQuitarEstudio.BackColor = System.Drawing.Color.Teal;
+            this.btnQuitarEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarEstudio.ForeColor = System.Drawing.Color.MintCream;
+            this.btnQuitarEstudio.Location = new System.Drawing.Point(451, 483);
+            this.btnQuitarEstudio.Name = "btnQuitarEstudio";
+            this.btnQuitarEstudio.Size = new System.Drawing.Size(89, 86);
+            this.btnQuitarEstudio.TabIndex = 247;
+            this.btnQuitarEstudio.Text = "-";
+            this.btnQuitarEstudio.UseVisualStyleBackColor = false;
+            // 
+            // btnAñadirEstudio
+            // 
+            this.btnAñadirEstudio.BackColor = System.Drawing.Color.Teal;
+            this.btnAñadirEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadirEstudio.ForeColor = System.Drawing.Color.MintCream;
+            this.btnAñadirEstudio.Location = new System.Drawing.Point(451, 391);
+            this.btnAñadirEstudio.Name = "btnAñadirEstudio";
+            this.btnAñadirEstudio.Size = new System.Drawing.Size(89, 86);
+            this.btnAñadirEstudio.TabIndex = 246;
+            this.btnAñadirEstudio.Text = "+";
+            this.btnAñadirEstudio.UseVisualStyleBackColor = false;
             // 
             // btnQuitarExamen
             // 
@@ -817,19 +821,6 @@
             this.cbEstudios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbEstudios.BackColor = System.Drawing.SystemColors.Control;
             this.cbEstudios.FormattingEnabled = true;
-            this.cbEstudios.Items.AddRange(new object[] {
-            "Electroencefalograma",
-            "Ecosonograma Abdominal",
-            "Ecosonograma Prostatico",
-            "Rayos X de torax",
-            "Ecocardiograma",
-            "Holter del ritmo",
-            "Monitoreo ambulatorio de presion artereal (MAPA)",
-            "Prueba de esfuerzo",
-            "Ecocardiograma Estres con Dobutamina",
-            "Angiografia de arterias coronarias",
-            "Calcio Score Coronario",
-            "Angiotomografia de coronarias"});
             this.cbEstudios.Location = new System.Drawing.Point(17, 58);
             this.cbEstudios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEstudios.Name = "cbEstudios";
@@ -888,29 +879,15 @@
             this.label13.Text = "Crystal Clear";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnQuitarEstudio
+            // dsRecetaBindingSource
             // 
-            this.btnQuitarEstudio.BackColor = System.Drawing.Color.Teal;
-            this.btnQuitarEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarEstudio.ForeColor = System.Drawing.Color.MintCream;
-            this.btnQuitarEstudio.Location = new System.Drawing.Point(451, 483);
-            this.btnQuitarEstudio.Name = "btnQuitarEstudio";
-            this.btnQuitarEstudio.Size = new System.Drawing.Size(89, 86);
-            this.btnQuitarEstudio.TabIndex = 247;
-            this.btnQuitarEstudio.Text = "-";
-            this.btnQuitarEstudio.UseVisualStyleBackColor = false;
+            this.dsRecetaBindingSource.DataSource = this.dsReceta;
+            this.dsRecetaBindingSource.Position = 0;
             // 
-            // btnAñadirEstudio
+            // dsReceta
             // 
-            this.btnAñadirEstudio.BackColor = System.Drawing.Color.Teal;
-            this.btnAñadirEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadirEstudio.ForeColor = System.Drawing.Color.MintCream;
-            this.btnAñadirEstudio.Location = new System.Drawing.Point(451, 391);
-            this.btnAñadirEstudio.Name = "btnAñadirEstudio";
-            this.btnAñadirEstudio.Size = new System.Drawing.Size(89, 86);
-            this.btnAñadirEstudio.TabIndex = 246;
-            this.btnAñadirEstudio.Text = "+";
-            this.btnAñadirEstudio.UseVisualStyleBackColor = false;
+            this.dsReceta.DataSetName = "dsReceta";
+            this.dsReceta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmPlanEstudio
             // 
@@ -924,8 +901,6 @@
             this.Name = "frmPlanEstudio";
             this.Text = "frmPlanEstudio";
             this.Load += new System.EventHandler(this.frmPlanEstudio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.groupBox_Plan_Estudio_Listas.ResumeLayout(false);
             this.groupBox_Plan_Estudio_Listas.PerformLayout();
@@ -946,6 +921,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsRecetaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReceta)).EndInit();
             this.ResumeLayout(false);
 
         }

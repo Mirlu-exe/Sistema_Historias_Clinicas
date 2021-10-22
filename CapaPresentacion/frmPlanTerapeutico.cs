@@ -25,7 +25,7 @@ namespace CapaPresentacion
         /// <summary>
         /// Data to transfer into / out of form
         /// </summary>
-        public string Data
+        public string Data_PlanTerapeutico
         {
             get { return lbl_idplanterapeutico.Text; }
             set { lbl_idplanterapeutico.Text = value; }
@@ -52,14 +52,14 @@ namespace CapaPresentacion
         /// <summary>
         /// Event to indicate new data is available
         /// </summary>
-        public event EventHandler DataAvailable;
+        public event EventHandler DataAvailable_PlanTerapeutico;
         /// <summary>
         /// Called to signal to subscribers that new data is available
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnDataAvailable(EventArgs e)
+        protected virtual void OnDataAvailable_PlanTerapeutico(EventArgs e)
         {
-            EventHandler eh = DataAvailable;
+            EventHandler eh = DataAvailable_PlanTerapeutico;
             if (eh != null)
             {
                 eh(this, e);
@@ -167,7 +167,7 @@ namespace CapaPresentacion
 
 
             //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
-            OnDataAvailable(null);
+            OnDataAvailable_PlanTerapeutico(null);
 
 
 

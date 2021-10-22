@@ -26,7 +26,7 @@ namespace CapaPresentacion
         /// <summary>
         /// Data to transfer into / out of form
         /// </summary>
-        public string Data
+        public string Data_PlanEstudio
         {
             get { return lbl_idplanestudio.Text; }
             set { lbl_idplanestudio.Text = value; }
@@ -46,14 +46,14 @@ namespace CapaPresentacion
         /// <summary>
         /// Event to indicate new data is available
         /// </summary>
-        public event EventHandler DataAvailable;
+        public event EventHandler DataAvailable_PlanEstudio;
         /// <summary>
         /// Called to signal to subscribers that new data is available
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnDataAvailable(EventArgs e)
+        protected virtual void OnDataAvailable_PlanEstudio(EventArgs e)
         {
-            EventHandler eh = DataAvailable;
+            EventHandler eh = DataAvailable_PlanEstudio;
             if (eh != null)
             {
                 eh(this, e);
@@ -161,7 +161,7 @@ namespace CapaPresentacion
 
 
             //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
-            OnDataAvailable(null);
+            OnDataAvailable_PlanEstudio(null);
 
 
 
@@ -244,6 +244,84 @@ namespace CapaPresentacion
 
         }
 
+        //Para llenar el cbExamenes
+        private void LlenarCbExamenes()
+        {
+
+            //llenar el cb examenes aplicando autocompletado
+
+            DataTable tabla_examenes = new DataTable();
+
+            tabla_examenes = NPlanEstudio.CargarNombreExamenLab();
+
+            if (tabla_examenes == null)
+            {
+                MessageBox.Show("No hay registros en examenes ");
+
+            }
+            else
+            {
+                List<string> exam = tabla_examenes.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+                string[] exam_array = exam.ToArray();
+
+                var autoComplete = new AutoCompleteStringCollection();
+                autoComplete.AddRange(exam_array);
+
+                this.cbLab.AutoCompleteCustomSource = autoComplete;
+
+                //traer toda la tabla de examenes laboratorio
+                cbLab.ValueMember = "id"; //id
+                cbLab.DisplayMember = "nombre"; //examen
+
+
+
+
+            }
+
+
+        }
+
+
+
+        //Para llenar el cbEstudio
+        private void LlenarCbEstudios()
+        {
+
+            //llenar el cb estudios aplicando autocompletado
+
+            DataTable tabla_estudios = new DataTable();
+
+            tabla_estudios = NPlanEstudio.CargarNombreEstudios();
+
+            if (tabla_estudios == null)
+            {
+                MessageBox.Show("No hay registros en estudios ");
+
+            }
+            else
+            {
+                List<string> est = tabla_estudios.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+                string[] est_array = est.ToArray();
+
+                var autoComplete = new AutoCompleteStringCollection();
+                autoComplete.AddRange(est_array);
+
+                this.cbEstudios.AutoCompleteCustomSource = autoComplete;
+
+                //traer toda la tabla de estudios
+                cbEstudios.ValueMember = "id"; //id
+                cbEstudios.DisplayMember = "nombre"; //estudio
+
+
+            }
+
+
+        }
+
+
+
 
 
 
@@ -264,7 +342,7 @@ namespace CapaPresentacion
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sp_buscar_plan_Estudio";
+                SqlCmd.CommandText = "sp_buscar_plan_estudio";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIDBuscar = new SqlParameter();
@@ -576,5 +654,13 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            CargarDatosPaciente();
+        }
+
+
+
     }
 }

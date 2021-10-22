@@ -97,36 +97,34 @@ namespace CapaPresentacion
 
 
         /// <summary>
-        /// The child has data available - get it.
+        /// The child PlanTerapeutico has data available - get it.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void child_DataAvailable(object sender, EventArgs e)
+        void child_DataAvailable_PlanTerapeutico(object sender, EventArgs e)
         {
             frmPlanTerapeutico child = sender as frmPlanTerapeutico;
             if (child != null)
             {
-                lbl_planterapeutico_id.Text = child.Data;
+                lbl_planterapeutico_id.Text = child.Data_PlanTerapeutico;
             }
         }
 
 
-
-
-
-
-
-
-
-        private int TraerIdPlanEstudio(string cedula_pac)
+        /// <summary>
+        /// The child PlanEstudio has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanEstudio(object sender, EventArgs e)
         {
-            int id_plan_estudio = 0;
-
-            id_plan_estudio = buscar_plan_estudio_del_pac(Convert.ToInt32(this.lbl_idhistoria.Text));
-        
-            return id_plan_estudio;
-
+            frmPlanEstudio child = sender as frmPlanEstudio;
+            if (child != null)
+            {
+                lbl_planestudio_id.Text = child.Data_PlanEstudio;
+            }
         }
+
 
 
 
@@ -1769,70 +1767,6 @@ namespace CapaPresentacion
         }
 
 
-        private int buscar_plan_estudio_del_pac(int id_pac)
-        {
-
-            //aca se buscará cual es el ID de el PlanEstudio de ese paciente.
-
-                DataTable DtResultado = new DataTable("PlanEstudioDelPac");
-                SqlConnection SqlCon = new SqlConnection();
-                try
-                {
-                    SqlCon.ConnectionString = Conexion.Cn;
-                    SqlCommand SqlCmd = new SqlCommand();
-                    SqlCmd.Connection = SqlCon;
-                    SqlCmd.CommandText = "sp_buscar_idplanestudio_segun_idpac";
-                    SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParIDBuscar = new SqlParameter();
-                ParIDBuscar.ParameterName = "@id_paciente";
-                ParIDBuscar.SqlDbType = SqlDbType.Int;
-                ParIDBuscar.Size = 50;
-                ParIDBuscar.Value = id_pac;
-                SqlCmd.Parameters.Add(ParIDBuscar);
-
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                    SqlDat.Fill(DtResultado);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                    DtResultado = null;
-                }
-
-
-            int id_del_plan_estudio = 0;
-
-
-            if (DtResultado.Rows.Count <= 0 )
-            {
-
-                //MessageBox.Show("whoops!");
-                id_del_plan_estudio = 0;
-
-            }
-            else
-            {
-                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][0]);
-            }
-
-
-            return id_del_plan_estudio;
-
-
-            
-
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanEstudio
-            // 2. Con PlanEstudio
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-            //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
-
-        }
 
 
 
@@ -2092,8 +2026,8 @@ namespace CapaPresentacion
 
             frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Documento.Text);
 
-            child.DataAvailable += new EventHandler(child_DataAvailable);
-            child.Data = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+            child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
+            child.Data_PlanEstudio = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
 
             child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
             child.MinimizeBox = false; //quitar boton de minimizar
@@ -2109,8 +2043,8 @@ namespace CapaPresentacion
 
             frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
 
-            child.DataAvailable += new EventHandler(child_DataAvailable);
-            child.Data = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+            child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
+            child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
 
             child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
             child.MinimizeBox = false; //quitar boton de minimizar
@@ -2424,8 +2358,7 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            //int idPlanEstudio = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
-                            int idPlanEstudio = 0; //placeholder
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
                             int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
                             var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
