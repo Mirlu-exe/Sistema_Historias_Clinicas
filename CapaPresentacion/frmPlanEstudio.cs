@@ -39,7 +39,15 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            this.ttMensaje.SetToolTip(this.txtNombre_Paciente, "Ingrese el Nombre del Paciente");
 
+            this.ttMensaje.SetToolTip(this.btnAñadirEstudio, "Añadir Estudio al Plan  Estudio");
+            this.ttMensaje.SetToolTip(this.btnQuitarEstudio, "Quitar Estudio del Plan Estudio");
+
+            this.ttMensaje.SetToolTip(this.btnAñadirExamen, "Añadir Examenes al Plan  Estudio");
+            this.ttMensaje.SetToolTip(this.btnQuitarExamen, "Quitar Examenes del Plan Estudio");
+
+            txtCedulaPac_Estudio.Text = cedula;
 
         }
 
