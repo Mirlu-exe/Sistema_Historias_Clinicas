@@ -635,6 +635,7 @@ namespace CapaPresentacion
 
         private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //convertir minusculas a mayusculas
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
         }

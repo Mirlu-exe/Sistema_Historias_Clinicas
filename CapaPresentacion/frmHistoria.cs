@@ -1822,7 +1822,7 @@ namespace CapaPresentacion
             }
             else
             {
-                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][14]);
+                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][13]);
             }
 
 
@@ -2027,7 +2027,7 @@ namespace CapaPresentacion
             frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Documento.Text);
 
             child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
-            child.Data_PlanEstudio = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+            child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
 
             child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
             child.MinimizeBox = false; //quitar boton de minimizar
@@ -2358,7 +2358,7 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            int idPlanEstudio = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
                             int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
                             var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
@@ -2769,6 +2769,22 @@ namespace CapaPresentacion
             {
                 this.btnVerPlanTerapeutico.Text = "Plan terapeutico asignado";
                 this.btnVerPlanTerapeutico.BackColor = Color.LightSeaGreen;
+
+            }
+        }
+
+        //Este evento es para que cada vez que cambie el valor de este txtbox, se pueda cambiar el color y texto del boton.
+        private void lbl_planestudio_id_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbl_planestudio_id.Text == "0")
+            {
+                this.btnVerPlanEstudio.Text = "Sin plan estudio";
+                this.btnVerPlanEstudio.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanEstudio.Text = "Plan estudio asignado";
+                this.btnVerPlanEstudio.BackColor = Color.LightSeaGreen;
 
             }
         }

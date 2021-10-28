@@ -108,19 +108,35 @@ namespace CapaPresentacion
                         SqlCmd.CommandText = "spinsertar_planestudio";
                         SqlCmd.CommandType = CommandType.StoredProcedure;
 
+
                         string hoy = DateTime.Now.ToShortDateString();
 
 
+                        //construir el string de Laboratorios
+                        StringBuilder sb_lab = new StringBuilder();
+                        foreach (string a in listBox1.Items)
+                            sb_lab.Append(a);
+
+                        string laboratorios_all = sb_lab.ToString();
 
 
-                        //este es el mejor metodo para hacerlo un string y separarlo con un salto de linea \n
-                        var listaExamenesEstudios = listBox1.Items.Cast<String>().ToList(); //convertir el control en una lista
-                        string cadenaExamenesEstudios = string.Join("\n", listaExamenesEstudios); //convertir la lista en un string separando cada linea por una coma
+
+                        //construir el string de Examen
+                        StringBuilder sb_estudios = new StringBuilder();
+                        foreach (string b in listBox2.Items)
+                            sb_estudios.Append(b);
+
+                        string estudios_all = sb_estudios.ToString();
+
+
 
 
                         SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
-                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", cadenaExamenesEstudios);
+                        SqlCmd.Parameters.AddWithValue("@laboratorios_all", laboratorios_all);
+                        SqlCmd.Parameters.AddWithValue("@estudios_all", estudios_all);
                         SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
+
+
 
 
                         //Ejecutamos nuestro comando
@@ -396,14 +412,22 @@ namespace CapaPresentacion
                 //meter los row/column de esa datatable en cada campo del form
 
                 this.lbl_idplanestudio.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][0]);
-                this.lbl_fecha_emision.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][3]);
+                this.lbl_fecha_emision.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0]["fecha_emision"]);
 
-                string examenes_estudios_cadena = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][2]);
 
-                List<string> examenes_estudios_separados_con_coma = examenes_estudios_cadena.Split(new char[] { '\n' }).ToList();
+                //Traer los Examenes de laboratorio listbox
+                string examenes_cadena = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][2]);
 
-                this.listBox1.DataSource = examenes_estudios_separados_con_coma;
+                List<string> examenes_separados_con_coma = examenes_cadena.Split(new char[] { '\n' }).ToList();
 
+                this.listBox1.DataSource = examenes_separados_con_coma;
+
+                //Traer los Estudios listbox
+                string estudios_cadena = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][3]);
+
+                List<string> estudios_separados_con_coma = estudios_cadena.Split(new char[] { '\n' }).ToList();
+
+                this.listBox2.DataSource = estudios_separados_con_coma;
 
 
             }
@@ -523,99 +547,6 @@ namespace CapaPresentacion
         private void btnGuardar_informe_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                string rpta = "";
-                if (this.txtNombre_Paciente.Text == string.Empty)
-                {
-                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    this.tabControl1.SelectedIndex = 1;
-                }
-                else
-                {
-
-
-
-                    if (this.IsNuevo)
-                    {
-
-
-                        SqlConnection SqlCon = new SqlConnection();
-
-
-
-                        //Código
-                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-                        SqlCon.Open();
-                        //Establecer el Comando
-                        SqlCommand SqlCmd = new SqlCommand();
-                        SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "spinsertar_planestudio";
-                        SqlCmd.CommandType = CommandType.StoredProcedure;
-
-
-                        string hoy = DateTime.Now.ToShortDateString();
-
-
-                        //construir el string de Laboratorios
-                        StringBuilder sb_lab = new StringBuilder();
-                        foreach (string a in listBox1.Items)
-                            sb_lab.Append(a);
-
-                        string laboratorios_all = sb_lab.ToString();
-
-
-
-                        //construir el string de Examen
-                        StringBuilder sb_estudios = new StringBuilder();
-                        foreach (string b in listBox2.Items)
-                            sb_estudios.Append(b);
-
-                        string estudios_all = sb_estudios.ToString();
-
-
-
-
-                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
-                        SqlCmd.Parameters.AddWithValue("@laboratorios_all", laboratorios_all);
-                        SqlCmd.Parameters.AddWithValue("@estudios_all", estudios_all);
-                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
-
-
-                        //Ejecutamos nuestro comando
-
-                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-
-
-                    }
-
-
-
-                    if (this.IsNuevo)
-                    {
-                        MessageBox.Show("Se Insertó de forma correcta el plan de estudio");
-                    }
-
-
-                    this.IsNuevo = false;
-                    this.Limpiar();
-                    this.Deshabilitar();
-
-
-
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-
-
         }
 
 
@@ -668,6 +599,192 @@ namespace CapaPresentacion
             CargarDatosPaciente();
         }
 
+        private void btnAñadirExamen_Click(object sender, EventArgs e)
+        {
+
+            string examen = this.cbLab.Text;
+
+
+            // Add more items to the list  
+            listBox1.Items.Add( examen + "  ");
+
+
+        }
+
+        private void btnQuitarExamen_Click(object sender, EventArgs e)
+        {
+            int posicion = listBox1.SelectedIndex;
+
+            if (posicion == -1)
+            {
+                MessageBox.Show("seleccione un elemento para quitar de el Plan Estudio");
+            }
+            else
+            {
+
+
+                listBox1.Items.RemoveAt(posicion);
+            }
+        }
+
+        private void btnAñadirEstudio_Click(object sender, EventArgs e)
+        {
+            string estudio = this.cbEstudios.Text;
+
+
+            // Add more items to the list  
+            listBox2.Items.Add(estudio + "  ");
+
+
+        }
+
+        private void btnQuitarEstudio_Click(object sender, EventArgs e)
+        {
+            int posicion = listBox2.SelectedIndex;
+
+            if (posicion == -1)
+            {
+                MessageBox.Show("seleccione un elemento para quitar de el Plan Estudio");
+            }
+            else
+            {
+
+
+                listBox2.Items.RemoveAt(posicion);
+            }
+        }
+
+        private DataTable TraerLab(string nombre_lab)
+        {
+
+            DataTable DtResultado = new DataTable("NombreLab");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_mostrar_exameneslab_por_nombre";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParLabBuscar = new SqlParameter();
+                ParLabBuscar.ParameterName = "@nombre_lab";
+                ParLabBuscar.SqlDbType = SqlDbType.VarChar;
+                ParLabBuscar.Value = nombre_lab;
+                SqlCmd.Parameters.Add(ParLabBuscar);
+
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+            return DtResultado;
+
+
+        }
+
+
+        private void cbLab_Leave(object sender, EventArgs e)
+        {
+
+            if (validarExisteExamen(this.cbLab.Text))
+            {
+
+
+                DataTable tablita = new DataTable();
+
+                tablita = TraerLab(this.cbLab.Text);
+
+                List<string> lab = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+
+                this.cbLab.DataSource = lab;
+
+
+
+            }
+            else if (!validarExisteExamen(this.cbLab.Text))
+            {
+
+
+                MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
+                this.cbLab.Text = string.Empty;
+                this.cbLab.Focus();
+
+
+            }
+            else
+            {
+                MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
+                this.cbLab.Text = string.Empty;
+                this.cbLab.Focus();
+            }
+        }
+
+        public bool validarExisteExamen(string nombre_examen)
+        {
+
+
+            SqlDataReader dr;
+
+            bool resultado = false;
+
+
+            SqlConnection SqlCon = new SqlConnection();
+
+
+
+            //Código
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.Open();
+            //Establecer el Comando
+            SqlCommand SqlCmd = new SqlCommand("select * from ExamenesLaboratorio where nombre ='" + nombre_examen + "' ");
+            SqlCmd.Connection = SqlCon;
+
+
+
+            try
+            {
+
+                dr = SqlCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    resultado = true;
+
+                }
+
+                dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error.", ex.Message);
+            }
+
+            return resultado;
+
+        }
+
+        private void cbLab_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //convertir minusculas a mayusculas
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cbEstudios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //convertir minusculas a mayusculas
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
 
 
     }

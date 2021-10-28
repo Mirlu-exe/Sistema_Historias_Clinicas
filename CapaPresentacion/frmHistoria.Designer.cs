@@ -313,6 +313,7 @@
             this.lbl_planestudio_id.Size = new System.Drawing.Size(191, 32);
             this.lbl_planestudio_id.TabIndex = 285;
             this.lbl_planestudio_id.Text = "lbl_planestudio_id";
+            this.lbl_planestudio_id.TextChanged += new System.EventHandler(this.lbl_planestudio_id_TextChanged);
             // 
             // listboxDiagnosticosFinales
             // 
