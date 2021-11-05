@@ -59,6 +59,8 @@ namespace CapaPresentacion
             this.Botones();
             SoloPacientesActivos();
 
+            this.cblEstado.SelectedIndex = 0;
+
 
         }
 

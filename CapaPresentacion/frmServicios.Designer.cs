@@ -358,6 +358,7 @@
             this.txtidServicio.Name = "txtidServicio";
             this.txtidServicio.Size = new System.Drawing.Size(105, 22);
             this.txtidServicio.TabIndex = 168;
+            this.txtidServicio.Visible = false;
             // 
             // label4
             // 
@@ -370,6 +371,7 @@
             this.label4.Size = new System.Drawing.Size(87, 32);
             this.label4.TabIndex = 167;
             this.label4.Text = "Codigo";
+            this.label4.Visible = false;
             // 
             // txtCosto
             // 

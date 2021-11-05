@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaDatos;
+using CapaNegocio;
+using CapaPresentacion;
 
 namespace CapaPresentacion
 {
@@ -17,6 +19,7 @@ namespace CapaPresentacion
         public frmRespaldoBaseDatos()
         {
             InitializeComponent();
+
         }
 
 
@@ -69,7 +72,7 @@ namespace CapaPresentacion
                 SqlCommand command1 = new SqlCommand(cmd, conexion); // llamado
 
                 command1.ExecuteNonQuery();
-                MessageBox.Show("Data base  done successfuly"); // mensaje de guardado
+                MessageBox.Show("respaldo de Base de datos generada exitosamente"); // mensaje de guardado
 
                 conexion.Close(); // close 
 
@@ -79,7 +82,6 @@ namespace CapaPresentacion
 
             }
         }
-
 
 
         private void btnBrowseRestaurar_Click(object sender, EventArgs e)
@@ -103,43 +105,21 @@ namespace CapaPresentacion
         private void btnRestore_Click(object sender, EventArgs e)
         {
 
-            string database = conexion.Database.ToString();
-            conexion.Open();
+            frmConfirmarContraseña frm = new frmConfirmarContraseña(this.textBox2.Text); //aca le estoy enviando la cadena de el bak a restaurar
 
-            try
-            {
+            frm.ShowDialog();
 
-                string str1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE ");
-                SqlCommand cmd1 = new SqlCommand(str1, conexion);
 
-                cmd1.ExecuteNonQuery();
 
-                string str2 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK= '" + textBox2.Text + "' WITH REPLACE;";
-                SqlCommand cmd2 = new SqlCommand(str2, conexion);
 
-                cmd2.ExecuteNonQuery();
 
-                string str3 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
-                SqlCommand cmd3 = new SqlCommand(str3, conexion);
 
-                cmd3.ExecuteNonQuery();
-
-                MessageBox.Show("Database restore done succeessfuly ");
-                conexion.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                conexion.Close();
-
-            }
 
 
         }
 
 
 
-       
+
     }
 }

@@ -182,7 +182,6 @@
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cblBusqueda.TabIndex = 194;
-            
             // 
             // dataListado
             // 
@@ -392,6 +391,7 @@
             // 
             this.cblEstado.BackColor = System.Drawing.SystemColors.Control;
             this.cblEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cblEstado.Enabled = false;
             this.cblEstado.FormattingEnabled = true;
             this.cblEstado.Items.AddRange(new object[] {
             "Activo",
