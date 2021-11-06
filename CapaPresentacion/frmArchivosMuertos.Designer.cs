@@ -29,98 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArchivosMuertos));
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.txtcedulabuscar = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtMostrarTalla = new System.Windows.Forms.TextBox();
-            this.txtMostrarPeso = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtPaciente = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnBuscarFechaMuertos = new System.Windows.Forms.Button();
-            this.dtpBuscarArchivoMuerto2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaBuscarMuerto = new System.Windows.Forms.DateTimePicker();
-            this.datalistadoMuertos = new System.Windows.Forms.DataGridView();
-            this.lblCantidadArchivosMuertos = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label44 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_lista_evol_ci = new System.Windows.Forms.Label();
-            this.lbl_lista_evol_nombre = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.lbl_lista_evol_id_historia = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.txtOcupacion = new System.Windows.Forms.TextBox();
-            this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.cblTipo_Documento = new System.Windows.Forms.ComboBox();
-            this.dtpFecha_Nacimiento = new System.Windows.Forms.DateTimePicker();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.cblSexo = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.dgv_lista_evol = new System.Windows.Forms.DataGridView();
@@ -174,19 +91,14 @@
             this.cbDiagnosticos = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel7.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoMuertos)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lista_evol)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -201,7 +113,7 @@
             this.panel7.Location = new System.Drawing.Point(5, 5);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1914, 60);
+            this.panel7.Size = new System.Drawing.Size(1914, 31);
             this.panel7.TabIndex = 162;
             // 
             // label49
@@ -211,987 +123,10 @@
             this.label49.Location = new System.Drawing.Point(636, 0);
             this.label49.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(519, 60);
+            this.label49.Size = new System.Drawing.Size(519, 31);
             this.label49.TabIndex = 7;
             this.label49.Text = "Archivos Muertos";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.txtcedulabuscar);
-            this.tabPage4.Controls.Add(this.textBox3);
-            this.tabPage4.Controls.Add(this.label16);
-            this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Controls.Add(this.label14);
-            this.tabPage4.Controls.Add(this.textBox2);
-            this.tabPage4.Controls.Add(this.label12);
-            this.tabPage4.Controls.Add(this.textBox1);
-            this.tabPage4.Controls.Add(this.txtMostrarTalla);
-            this.tabPage4.Controls.Add(this.txtMostrarPeso);
-            this.tabPage4.Controls.Add(this.label19);
-            this.tabPage4.Controls.Add(this.label18);
-            this.tabPage4.Controls.Add(this.txtPaciente);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.panel5);
-            this.tabPage4.Controls.Add(this.btnBuscarFechaMuertos);
-            this.tabPage4.Controls.Add(this.dtpBuscarArchivoMuerto2);
-            this.tabPage4.Controls.Add(this.dtpFechaBuscarMuerto);
-            this.tabPage4.Controls.Add(this.datalistadoMuertos);
-            this.tabPage4.Controls.Add(this.lblCantidadArchivosMuertos);
-            this.tabPage4.Location = new System.Drawing.Point(4, 41);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1568, 676);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Historias Anuladas";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // txtcedulabuscar
-            // 
-            this.txtcedulabuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtcedulabuscar.Enabled = false;
-            this.txtcedulabuscar.Location = new System.Drawing.Point(370, 115);
-            this.txtcedulabuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtcedulabuscar.Mask = "##.###.###";
-            this.txtcedulabuscar.Name = "txtcedulabuscar";
-            this.txtcedulabuscar.Size = new System.Drawing.Size(143, 39);
-            this.txtcedulabuscar.TabIndex = 232;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(141, 303);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 39);
-            this.textBox3.TabIndex = 168;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label16.Location = new System.Drawing.Point(47, 301);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(87, 32);
-            this.label16.TabIndex = 167;
-            this.label16.Text = "Buscar:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label15.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label15.Location = new System.Drawing.Point(284, 115);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(90, 32);
-            this.label15.TabIndex = 166;
-            this.label15.Text = "Cedula:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label14.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label14.Location = new System.Drawing.Point(447, 173);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(146, 32);
-            this.label14.TabIndex = 165;
-            this.label14.Text = "Diagnosticos:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(600, 173);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 39);
-            this.textBox2.TabIndex = 164;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label12.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label12.Location = new System.Drawing.Point(1019, 108);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(173, 32);
-            this.label12.TabIndex = 163;
-            this.label12.Text = "Fecha Consulta:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(1199, 108);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 39);
-            this.textBox1.TabIndex = 162;
-            // 
-            // txtMostrarTalla
-            // 
-            this.txtMostrarTalla.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMostrarTalla.Enabled = false;
-            this.txtMostrarTalla.Location = new System.Drawing.Point(1099, 173);
-            this.txtMostrarTalla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMostrarTalla.Name = "txtMostrarTalla";
-            this.txtMostrarTalla.Size = new System.Drawing.Size(113, 39);
-            this.txtMostrarTalla.TabIndex = 161;
-            // 
-            // txtMostrarPeso
-            // 
-            this.txtMostrarPeso.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMostrarPeso.Enabled = false;
-            this.txtMostrarPeso.Location = new System.Drawing.Point(887, 170);
-            this.txtMostrarPeso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMostrarPeso.Name = "txtMostrarPeso";
-            this.txtMostrarPeso.Size = new System.Drawing.Size(113, 39);
-            this.txtMostrarPeso.TabIndex = 160;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label19.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label19.Location = new System.Drawing.Point(1021, 176);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 32);
-            this.label19.TabIndex = 159;
-            this.label19.Text = "Talla";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label18.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label18.Location = new System.Drawing.Point(815, 173);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(61, 32);
-            this.label18.TabIndex = 158;
-            this.label18.Text = "Peso";
-            // 
-            // txtPaciente
-            // 
-            this.txtPaciente.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPaciente.Enabled = false;
-            this.txtPaciente.Location = new System.Drawing.Point(771, 108);
-            this.txtPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPaciente.Name = "txtPaciente";
-            this.txtPaciente.Size = new System.Drawing.Size(165, 39);
-            this.txtPaciente.TabIndex = 155;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label11.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label11.Location = new System.Drawing.Point(661, 109);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(103, 32);
-            this.label11.TabIndex = 154;
-            this.label11.Text = "Nombre:";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.DimGray;
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(4, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1560, 49);
-            this.panel5.TabIndex = 153;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(632, -4);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(519, 60);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Historias Anuladas";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBuscarFechaMuertos
-            // 
-            this.btnBuscarFechaMuertos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFechaMuertos.FlatAppearance.BorderSize = 0;
-            this.btnBuscarFechaMuertos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnBuscarFechaMuertos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarFechaMuertos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnBuscarFechaMuertos.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnBuscarFechaMuertos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFechaMuertos.Location = new System.Drawing.Point(665, 301);
-            this.btnBuscarFechaMuertos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarFechaMuertos.Name = "btnBuscarFechaMuertos";
-            this.btnBuscarFechaMuertos.Size = new System.Drawing.Size(164, 36);
-            this.btnBuscarFechaMuertos.TabIndex = 144;
-            this.btnBuscarFechaMuertos.Text = "Buscar";
-            this.btnBuscarFechaMuertos.UseVisualStyleBackColor = false;
-            // 
-            // dtpBuscarArchivoMuerto2
-            // 
-            this.dtpBuscarArchivoMuerto2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dtpBuscarArchivoMuerto2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBuscarArchivoMuerto2.Location = new System.Drawing.Point(497, 301);
-            this.dtpBuscarArchivoMuerto2.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpBuscarArchivoMuerto2.Name = "dtpBuscarArchivoMuerto2";
-            this.dtpBuscarArchivoMuerto2.Size = new System.Drawing.Size(160, 39);
-            this.dtpBuscarArchivoMuerto2.TabIndex = 32;
-            // 
-            // dtpFechaBuscarMuerto
-            // 
-            this.dtpFechaBuscarMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dtpFechaBuscarMuerto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaBuscarMuerto.Location = new System.Drawing.Point(313, 301);
-            this.dtpFechaBuscarMuerto.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpFechaBuscarMuerto.Name = "dtpFechaBuscarMuerto";
-            this.dtpFechaBuscarMuerto.Size = new System.Drawing.Size(160, 39);
-            this.dtpFechaBuscarMuerto.TabIndex = 31;
-            // 
-            // datalistadoMuertos
-            // 
-            this.datalistadoMuertos.AllowUserToAddRows = false;
-            this.datalistadoMuertos.AllowUserToDeleteRows = false;
-            this.datalistadoMuertos.AllowUserToOrderColumns = true;
-            this.datalistadoMuertos.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoMuertos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.datalistadoMuertos.ColumnHeadersHeight = 50;
-            this.datalistadoMuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadoMuertos.DefaultCellStyle = dataGridViewCellStyle18;
-            this.datalistadoMuertos.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.datalistadoMuertos.Location = new System.Drawing.Point(53, 346);
-            this.datalistadoMuertos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.datalistadoMuertos.MultiSelect = false;
-            this.datalistadoMuertos.Name = "datalistadoMuertos";
-            this.datalistadoMuertos.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoMuertos.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.datalistadoMuertos.RowHeadersWidth = 51;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoMuertos.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.datalistadoMuertos.RowTemplate.Height = 24;
-            this.datalistadoMuertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoMuertos.Size = new System.Drawing.Size(1495, 285);
-            this.datalistadoMuertos.TabIndex = 29;
-            this.datalistadoMuertos.DoubleClick += new System.EventHandler(this.datalistadoMuertos_DoubleClick);
-            // 
-            // lblCantidadArchivosMuertos
-            // 
-            this.lblCantidadArchivosMuertos.AutoSize = true;
-            this.lblCantidadArchivosMuertos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblCantidadArchivosMuertos.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblCantidadArchivosMuertos.Location = new System.Drawing.Point(1301, 640);
-            this.lblCantidadArchivosMuertos.Name = "lblCantidadArchivosMuertos";
-            this.lblCantidadArchivosMuertos.Size = new System.Drawing.Size(75, 32);
-            this.lblCantidadArchivosMuertos.TabIndex = 28;
-            this.lblCantidadArchivosMuertos.Text = "label4";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.tabControl1.Location = new System.Drawing.Point(15, 89);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1576, 721);
-            this.tabControl1.TabIndex = 161;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.textBox4);
-            this.tabPage6.Controls.Add(this.label17);
-            this.tabPage6.Controls.Add(this.label20);
-            this.tabPage6.Controls.Add(this.label21);
-            this.tabPage6.Controls.Add(this.textBox5);
-            this.tabPage6.Controls.Add(this.label22);
-            this.tabPage6.Controls.Add(this.textBox6);
-            this.tabPage6.Controls.Add(this.textBox8);
-            this.tabPage6.Controls.Add(this.label38);
-            this.tabPage6.Controls.Add(this.textBox9);
-            this.tabPage6.Controls.Add(this.comboBox1);
-            this.tabPage6.Controls.Add(this.textBox10);
-            this.tabPage6.Controls.Add(this.label39);
-            this.tabPage6.Controls.Add(this.button1);
-            this.tabPage6.Controls.Add(this.dateTimePicker1);
-            this.tabPage6.Controls.Add(this.dateTimePicker2);
-            this.tabPage6.Controls.Add(this.dataGridView1);
-            this.tabPage6.Controls.Add(this.label44);
-            this.tabPage6.Controls.Add(this.panel3);
-            this.tabPage6.Controls.Add(this.lbl_lista_evol_ci);
-            this.tabPage6.Controls.Add(this.lbl_lista_evol_nombre);
-            this.tabPage6.Controls.Add(this.label47);
-            this.tabPage6.Controls.Add(this.lbl_lista_evol_id_historia);
-            this.tabPage6.Controls.Add(this.label43);
-            this.tabPage6.Controls.Add(this.label42);
-            this.tabPage6.Location = new System.Drawing.Point(4, 41);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1568, 676);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Evoluciones Anuladas";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(130, 270);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(165, 39);
-            this.textBox4.TabIndex = 220;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label17.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label17.Location = new System.Drawing.Point(36, 268);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(87, 32);
-            this.label17.TabIndex = 219;
-            this.label17.Text = "Buscar:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label20.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label20.Location = new System.Drawing.Point(594, 82);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(90, 32);
-            this.label20.TabIndex = 218;
-            this.label20.Text = "Cedula:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label21.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label21.Location = new System.Drawing.Point(436, 140);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(146, 32);
-            this.label21.TabIndex = 217;
-            this.label21.Text = "Diagnosticos:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(589, 140);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(165, 39);
-            this.textBox5.TabIndex = 216;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label22.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label22.Location = new System.Drawing.Point(1008, 75);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(173, 32);
-            this.label22.TabIndex = 215;
-            this.label22.Text = "Fecha Consulta:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(1188, 75);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(165, 39);
-            this.textBox6.TabIndex = 214;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(966, 140);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(323, 39);
-            this.textBox8.TabIndex = 212;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label38.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label38.Location = new System.Drawing.Point(792, 140);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(167, 32);
-            this.label38.TabIndex = 210;
-            this.label38.Text = "Observaciones:";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(764, 82);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(176, 39);
-            this.textBox9.TabIndex = 209;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(692, 80);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(65, 40);
-            this.comboBox1.TabIndex = 208;
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(385, 81);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(165, 39);
-            this.textBox10.TabIndex = 207;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label39.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label39.Location = new System.Drawing.Point(275, 82);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(103, 32);
-            this.label39.TabIndex = 206;
-            this.label39.Text = "Nombre:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(654, 268);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 36);
-            this.button1.TabIndex = 205;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(486, 268);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(160, 39);
-            this.dateTimePicker1.TabIndex = 204;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(302, 268);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(160, 39);
-            this.dateTimePicker2.TabIndex = 203;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridView1.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 313);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1495, 285);
-            this.dataGridView1.TabIndex = 202;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label44.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label44.Location = new System.Drawing.Point(1290, 607);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(75, 32);
-            this.label44.TabIndex = 201;
-            this.label44.Text = "label4";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1568, 49);
-            this.panel3.TabIndex = 200;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(632, -4);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 60);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Evoluciones Anuladas";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_lista_evol_ci
-            // 
-            this.lbl_lista_evol_ci.AutoSize = true;
-            this.lbl_lista_evol_ci.Location = new System.Drawing.Point(175, 268);
-            this.lbl_lista_evol_ci.Name = "lbl_lista_evol_ci";
-            this.lbl_lista_evol_ci.Size = new System.Drawing.Size(0, 32);
-            this.lbl_lista_evol_ci.TabIndex = 199;
-            // 
-            // lbl_lista_evol_nombre
-            // 
-            this.lbl_lista_evol_nombre.AutoSize = true;
-            this.lbl_lista_evol_nombre.Location = new System.Drawing.Point(175, 217);
-            this.lbl_lista_evol_nombre.Name = "lbl_lista_evol_nombre";
-            this.lbl_lista_evol_nombre.Size = new System.Drawing.Size(0, 32);
-            this.lbl_lista_evol_nombre.TabIndex = 198;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(36, 165);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(0, 32);
-            this.label47.TabIndex = 197;
-            // 
-            // lbl_lista_evol_id_historia
-            // 
-            this.lbl_lista_evol_id_historia.AutoSize = true;
-            this.lbl_lista_evol_id_historia.Location = new System.Drawing.Point(175, 165);
-            this.lbl_lista_evol_id_historia.Name = "lbl_lista_evol_id_historia";
-            this.lbl_lista_evol_id_historia.Size = new System.Drawing.Size(0, 32);
-            this.lbl_lista_evol_id_historia.TabIndex = 196;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label43.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label43.Location = new System.Drawing.Point(774, 138);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(0, 32);
-            this.label43.TabIndex = 159;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label42.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label42.Location = new System.Drawing.Point(1449, 138);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(0, 32);
-            this.label42.TabIndex = 155;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.textBox7);
-            this.tabPage7.Controls.Add(this.label53);
-            this.tabPage7.Controls.Add(this.button2);
-            this.tabPage7.Controls.Add(this.dateTimePicker3);
-            this.tabPage7.Controls.Add(this.dateTimePicker4);
-            this.tabPage7.Controls.Add(this.dataGridView2);
-            this.tabPage7.Controls.Add(this.txtTelefono);
-            this.tabPage7.Controls.Add(this.txtNumero_Documento);
-            this.tabPage7.Controls.Add(this.label37);
-            this.tabPage7.Controls.Add(this.label45);
-            this.tabPage7.Controls.Add(this.label46);
-            this.tabPage7.Controls.Add(this.txtOcupacion);
-            this.tabPage7.Controls.Add(this.txtNombre_Paciente);
-            this.tabPage7.Controls.Add(this.label50);
-            this.tabPage7.Controls.Add(this.cblTipo_Documento);
-            this.tabPage7.Controls.Add(this.dtpFecha_Nacimiento);
-            this.tabPage7.Controls.Add(this.label51);
-            this.tabPage7.Controls.Add(this.label52);
-            this.tabPage7.Controls.Add(this.cblSexo);
-            this.tabPage7.Controls.Add(this.panel1);
-            this.tabPage7.Location = new System.Drawing.Point(4, 41);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1568, 676);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Pacientes Anulados";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(139, 288);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(165, 39);
-            this.textBox7.TabIndex = 226;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label53.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label53.Location = new System.Drawing.Point(45, 286);
-            this.label53.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(87, 32);
-            this.label53.TabIndex = 225;
-            this.label53.Text = "Buscar:";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.button2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(663, 286);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 36);
-            this.button2.TabIndex = 224;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(495, 286);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(160, 39);
-            this.dateTimePicker3.TabIndex = 223;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(311, 286);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(160, 39);
-            this.dateTimePicker4.TabIndex = 222;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridView2.ColumnHeadersHeight = 50;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridView2.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView2.Location = new System.Drawing.Point(51, 331);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            this.dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle28;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1495, 285);
-            this.dataGridView2.TabIndex = 221;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTelefono.Location = new System.Drawing.Point(1162, 169);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.Mask = "(####).###.####";
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(264, 39);
-            this.txtTelefono.TabIndex = 199;
-            // 
-            // txtNumero_Documento
-            // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(365, 118);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(143, 39);
-            this.txtNumero_Documento.TabIndex = 198;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label37.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label37.Location = new System.Drawing.Point(180, 111);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(85, 32);
-            this.label37.TabIndex = 187;
-            this.label37.Text = "Cedula";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label45.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label45.Location = new System.Drawing.Point(1044, 172);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(98, 32);
-            this.label45.TabIndex = 197;
-            this.label45.Text = "Telefono";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label46.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label46.Location = new System.Drawing.Point(180, 159);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(98, 32);
-            this.label46.TabIndex = 188;
-            this.label46.Text = "Nombre";
-            // 
-            // txtOcupacion
-            // 
-            this.txtOcupacion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtOcupacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOcupacion.Location = new System.Drawing.Point(1162, 111);
-            this.txtOcupacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtOcupacion.Name = "txtOcupacion";
-            this.txtOcupacion.Size = new System.Drawing.Size(315, 39);
-            this.txtOcupacion.TabIndex = 196;
-            // 
-            // txtNombre_Paciente
-            // 
-            this.txtNombre_Paciente.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombre_Paciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre_Paciente.Location = new System.Drawing.Point(291, 170);
-            this.txtNombre_Paciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNombre_Paciente.Name = "txtNombre_Paciente";
-            this.txtNombre_Paciente.Size = new System.Drawing.Size(195, 39);
-            this.txtNombre_Paciente.TabIndex = 189;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label50.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label50.Location = new System.Drawing.Point(1018, 113);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(124, 32);
-            this.label50.TabIndex = 195;
-            this.label50.Text = "Ocupacion";
-            // 
-            // cblTipo_Documento
-            // 
-            this.cblTipo_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.cblTipo_Documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblTipo_Documento.FormattingEnabled = true;
-            this.cblTipo_Documento.Items.AddRange(new object[] {
-            "V",
-            "E"});
-            this.cblTipo_Documento.Location = new System.Drawing.Point(291, 117);
-            this.cblTipo_Documento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cblTipo_Documento.Name = "cblTipo_Documento";
-            this.cblTipo_Documento.Size = new System.Drawing.Size(67, 40);
-            this.cblTipo_Documento.TabIndex = 190;
-            // 
-            // dtpFecha_Nacimiento
-            // 
-            this.dtpFecha_Nacimiento.CustomFormat = "";
-            this.dtpFecha_Nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha_Nacimiento.Location = new System.Drawing.Point(703, 118);
-            this.dtpFecha_Nacimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpFecha_Nacimiento.Name = "dtpFecha_Nacimiento";
-            this.dtpFecha_Nacimiento.Size = new System.Drawing.Size(264, 39);
-            this.dtpFecha_Nacimiento.TabIndex = 191;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label51.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label51.Location = new System.Drawing.Point(555, 117);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(122, 32);
-            this.label51.TabIndex = 192;
-            this.label51.Text = "Fecha nac.";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label52.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label52.Location = new System.Drawing.Point(596, 165);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(62, 32);
-            this.label52.TabIndex = 193;
-            this.label52.Text = "Sexo";
-            // 
-            // cblSexo
-            // 
-            this.cblSexo.BackColor = System.Drawing.SystemColors.Control;
-            this.cblSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblSexo.FormattingEnabled = true;
-            this.cblSexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cblSexo.Location = new System.Drawing.Point(703, 170);
-            this.cblSexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cblSexo.Name = "cblSexo";
-            this.cblSexo.Size = new System.Drawing.Size(143, 40);
-            this.cblSexo.TabIndex = 194;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1568, 49);
-            this.panel1.TabIndex = 154;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(632, -4);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(519, 60);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Pacientes Anulados";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label41
             // 
@@ -1221,42 +156,42 @@
             this.dgv_lista_evol.AllowUserToDeleteRows = false;
             this.dgv_lista_evol.AllowUserToOrderColumns = true;
             this.dgv_lista_evol.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_lista_evol.ColumnHeadersHeight = 50;
             this.dgv_lista_evol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_lista_evol.Location = new System.Drawing.Point(3, 2);
             this.dgv_lista_evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_lista_evol.MultiSelect = false;
             this.dgv_lista_evol.Name = "dgv_lista_evol";
             this.dgv_lista_evol.ReadOnly = true;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_lista_evol.RowHeadersWidth = 51;
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_lista_evol.RowTemplate.Height = 24;
             this.dgv_lista_evol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_lista_evol.Size = new System.Drawing.Size(1741, 587);
@@ -1792,6 +727,59 @@
             this.label3.TabIndex = 7;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(5, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1914, 74);
+            this.panel1.TabIndex = 200;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(781, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(575, 71);
+            this.button1.TabIndex = 197;
+            this.button1.Text = "Papelera de Reciclaje";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DimGray;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 10.8F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(171, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(575, 71);
+            this.button2.TabIndex = 198;
+            this.button2.Text = "Pacientes Fallecidos";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(5, 36);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1914, 775);
+            this.panelContenedor.TabIndex = 199;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
+            // 
             // frmArchivosMuertos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1799,8 +787,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1924, 816);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.tabControl1);
             this.MinimizeBox = false;
             this.Name = "frmArchivosMuertos";
             this.Padding = new System.Windows.Forms.Padding(5);
@@ -1808,20 +797,8 @@
             this.Load += new System.EventHandler(this.frmArchivosMuertos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel7.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoMuertos)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lista_evol)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1831,23 +808,6 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnBuscarFechaMuertos;
-        private System.Windows.Forms.DateTimePicker dtpBuscarArchivoMuerto2;
-        private System.Windows.Forms.DateTimePicker dtpFechaBuscarMuerto;
-        private System.Windows.Forms.DataGridView datalistadoMuertos;
-        private System.Windows.Forms.Label lblCantidadArchivosMuertos;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label lbl_lista_evol_ci;
-        private System.Windows.Forms.Label lbl_lista_evol_nombre;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label lbl_lista_evol_id_historia;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.DataGridView dgv_lista_evol;
@@ -1901,60 +861,9 @@
         private System.Windows.Forms.ComboBox cbDiagnosticos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtMostrarTalla;
-        private System.Windows.Forms.TextBox txtMostrarPeso;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtPaciente;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.MaskedTextBox txtTelefono;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox txtOcupacion;
-        private System.Windows.Forms.TextBox txtNombre_Paciente;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.ComboBox cblTipo_Documento;
-        private System.Windows.Forms.DateTimePicker dtpFecha_Nacimiento;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.ComboBox cblSexo;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.MaskedTextBox txtcedulabuscar;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }
