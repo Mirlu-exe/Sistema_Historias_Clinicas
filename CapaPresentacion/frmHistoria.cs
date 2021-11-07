@@ -1742,11 +1742,7 @@ namespace CapaPresentacion
 
         }
 
-        private void btnAbrirArchivoMuerto_Click(object sender, EventArgs e)
-        {
-            frmArchivosMuertos frm = new frmArchivosMuertos();
-            frm.ShowDialog();
-        }
+        
 
         private void cbPlanTerapeutico_MouseDoubleClick(object sender, MouseEventArgs e)
         {

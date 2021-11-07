@@ -28,7 +28,6 @@ namespace CapaNegocio
             Obj.Fecha_Nacimiento = fecha_nacimiento;
             Obj.Sexo = sexo;
             Obj.Estado_Civil = estado_civil;
-
             Obj.Direccion = direccion;
             Obj.Ocupacion = ocupacion;
             Obj.Telefono = telefono;

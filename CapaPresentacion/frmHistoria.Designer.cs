@@ -37,7 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoria));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -184,7 +183,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2133,33 +2131,12 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnAbrirArchivoMuerto
-            // 
-            this.btnAbrirArchivoMuerto.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAbrirArchivoMuerto.FlatAppearance.BorderSize = 0;
-            this.btnAbrirArchivoMuerto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAbrirArchivoMuerto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbrirArchivoMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnAbrirArchivoMuerto.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAbrirArchivoMuerto.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirArchivoMuerto.Image")));
-            this.btnAbrirArchivoMuerto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbrirArchivoMuerto.Location = new System.Drawing.Point(1322, 8);
-            this.btnAbrirArchivoMuerto.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbrirArchivoMuerto.Name = "btnAbrirArchivoMuerto";
-            this.btnAbrirArchivoMuerto.Size = new System.Drawing.Size(340, 41);
-            this.btnAbrirArchivoMuerto.TabIndex = 160;
-            this.btnAbrirArchivoMuerto.Text = "Abrir Archivo Muerto";
-            this.btnAbrirArchivoMuerto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
-            this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
-            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
-            this.Controls.Add(this.btnAbrirArchivoMuerto);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -2261,7 +2238,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
-        private System.Windows.Forms.Button btnAbrirArchivoMuerto;
         private System.Windows.Forms.Label lbldesde;
         private System.Windows.Forms.DateTimePicker DtpFecha2;
         private System.Windows.Forms.DateTimePicker DtpFecha1;
