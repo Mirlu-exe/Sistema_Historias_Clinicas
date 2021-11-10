@@ -730,19 +730,19 @@ namespace CapaPresentacion
 
         private void cblTipo_Documento_Leave(object sender, EventArgs e)
         {
-            if (cblTipo_Documento.SelectedIndex == -1)
-            {
-                errorIcono.SetError(cblTipo_Documento, "Seleccione una opción");
-            }
+            //if (cblTipo_Documento.SelectedIndex == -1)
+            //{
+            //    errorIcono.SetError(cblTipo_Documento, "Seleccione una opción");
+            //}
         }
 
         private void txtNombre_Paciente_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre_Paciente.Text))
-            {
+            //if (string.IsNullOrEmpty(txtNombre_Paciente.Text))
+            //{
 
-                errorIcono.SetError(txtNombre_Paciente, "Introduzca el nombre del paciente.");
-            }
+            //    errorIcono.SetError(txtNombre_Paciente, "Introduzca el nombre del paciente.");
+            //}
         }
 
         private void btnGrafica_Click(object sender, EventArgs e)
@@ -814,6 +814,34 @@ namespace CapaPresentacion
 
         }
 
-       
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if ((!(char.IsDigit(ch))) && Convert.ToInt32(ch) != 8)
+            {
+                e.Handled = true;
+
+            }
+            else if (char.IsControl(ch))
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtTalla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if ((!(char.IsDigit(ch))) && Convert.ToInt32(ch) != 8)
+            {
+                e.Handled = true;
+
+            }
+            else if (char.IsControl(ch))
+            {
+                e.Handled = false;
+            }
+        }
     }
 }
