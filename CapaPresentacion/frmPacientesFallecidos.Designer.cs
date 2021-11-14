@@ -84,7 +84,7 @@
             this.dgv_PacientesFallecidos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_PacientesFallecidos.RowTemplate.Height = 24;
             this.dgv_PacientesFallecidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_PacientesFallecidos.Size = new System.Drawing.Size(1090, 479);
+            this.dgv_PacientesFallecidos.Size = new System.Drawing.Size(1473, 504);
             this.dgv_PacientesFallecidos.TabIndex = 16;
             // 
             // Anular
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 610);
+            this.ClientSize = new System.Drawing.Size(1809, 690);
             this.Controls.Add(this.dgv_PacientesFallecidos);
             this.Name = "frmPacientesFallecidos";
             this.Text = "frmPacientesFallecidos";

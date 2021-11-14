@@ -26,15 +26,27 @@ namespace CapaPresentacion
 
             this.dgv_Pacientes.DataSource = MostrarPacientesAnulados();
 
+            OcultarColumnasPaciente();
+
             this.dgv_Historia.DataSource = MostrarHistoriasAnuladas();
+
+            OcultarColumnasHistoria();
 
             this.dgv_Evol.DataSource = MostrarEvolucionesAnuladas();
 
+            //OcultarColumnasHistoria();
+
             this.dgv_Citas.DataSource = MostrarCitasAnuladas();
+
+            OcultarColumnasCitas();
 
             this.dgv_Servicios.DataSource = MostrarServiciosAnulados();
 
+            OcultarColumnasServicio();
+
             this.dgv_Diagnosticos.DataSource = MostrarDiagnosticosAnulados();
+
+            OcultarColumnasDiagnosticos();
 
         }
 
@@ -69,6 +81,16 @@ namespace CapaPresentacion
             return DtResultado;
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnasPaciente()
+        {
+
+            this.dgv_Pacientes.Columns["idpaciente"].Visible = false;
+            this.dgv_Pacientes.Columns["estado"].Visible = false;
+            this.dgv_Pacientes.Columns["is_dead"].Visible = false;
+
+        }
+
         public DataTable MostrarHistoriasAnuladas()
         {
             DataTable DtResultado = new DataTable("HistoriasAnuladas");
@@ -92,6 +114,20 @@ namespace CapaPresentacion
             }
             return DtResultado;
         }
+
+        //Método para ocultar columnas
+        private void OcultarColumnasHistoria()
+        {
+
+            this.dgv_Historia.Columns["idhistoria"].Visible = false;
+            this.dgv_Historia.Columns["idpaciente"].Visible = false;
+            this.dgv_Historia.Columns["estado"].Visible = false;
+            this.dgv_Historia.Columns["plan_estudio"].Visible = false;
+            this.dgv_Historia.Columns["plan_terapeutico"].Visible = false;
+
+        }
+
+
 
         public DataTable MostrarEvolucionesAnuladas()
         {
@@ -141,6 +177,16 @@ namespace CapaPresentacion
             return DtResultado;
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnasCitas()
+        {
+
+            this.dgv_Citas.Columns["idcita"].Visible = false;
+            this.dgv_Citas.Columns["estado"].Visible = false;
+
+        }
+
+
         public DataTable MostrarServiciosAnulados()
         {
             DataTable DtResultado = new DataTable("ServiciosAnulados");
@@ -164,6 +210,16 @@ namespace CapaPresentacion
             }
             return DtResultado;
         }
+
+        //Método para ocultar columnas
+        private void OcultarColumnasServicio()
+        {
+
+            this.dgv_Servicios.Columns["idservicio"].Visible = false;
+            this.dgv_Servicios.Columns["estado"].Visible = false;
+
+        }
+
 
         public DataTable MostrarDiagnosticosAnulados()
         {
@@ -189,6 +245,20 @@ namespace CapaPresentacion
             return DtResultado;
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnasDiagnosticos()
+        {
+
+            this.dgv_Diagnosticos.Columns["iddiagnostico"].Visible = false;
+            this.dgv_Diagnosticos.Columns["estado"].Visible = false;
+
+        }
+
+
+        private void dgv_Pacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     
 }

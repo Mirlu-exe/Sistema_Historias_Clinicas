@@ -745,7 +745,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(781, 0);
+            this.button1.Location = new System.Drawing.Point(295, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(575, 71);
             this.button1.TabIndex = 197;
@@ -761,7 +761,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(171, 0);
+            this.button2.Location = new System.Drawing.Point(940, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(575, 71);
             this.button2.TabIndex = 198;
@@ -794,6 +794,7 @@
             this.Name = "frmArchivosMuertos";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "frmArchivosMuertos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmArchivosMuertos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel7.ResumeLayout(false);
