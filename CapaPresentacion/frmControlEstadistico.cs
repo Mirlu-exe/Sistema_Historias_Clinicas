@@ -991,5 +991,27 @@ namespace CapaPresentacion
             MessageBox.Show("Aviso!: este tipo de grafico permite solo 1 campo para generar la grafica.");
             
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            this.saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                if (this.saveFileDialog1.FileName.Length > 0)
+                {
+                    this.myChart.SaveImage(this.saveFileDialog1.FileName, ChartImageFormat.Jpeg);
+                    MessageBox.Show("Se ha exportado");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
     }
 }

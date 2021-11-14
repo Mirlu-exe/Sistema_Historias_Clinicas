@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelContenedor = new System.Windows.Forms.Panel();
@@ -62,6 +62,8 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.chkAnular = new System.Windows.Forms.CheckBox();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.myChart)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.groupClaseGrafico.SuspendLayout();
@@ -76,21 +78,21 @@
             // 
             // myChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.myChart.ChartAreas.Add(chartArea5);
+            chartArea2.Name = "ChartArea1";
+            this.myChart.ChartAreas.Add(chartArea2);
             this.myChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.myChart.Legends.Add(legend5);
+            legend2.Name = "Legend1";
+            this.myChart.Legends.Add(legend2);
             this.myChart.Location = new System.Drawing.Point(0, 0);
             this.myChart.Margin = new System.Windows.Forms.Padding(4);
             this.myChart.Name = "myChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Serie1";
-            series5.XValueMember = "sexo, edad";
-            series5.YValueMembers = "10, 44";
-            series5.YValuesPerPoint = 6;
-            this.myChart.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Serie1";
+            series2.XValueMember = "sexo, edad";
+            series2.YValueMembers = "10, 44";
+            series2.YValuesPerPoint = 6;
+            this.myChart.Series.Add(series2);
             this.myChart.Size = new System.Drawing.Size(1003, 572);
             this.myChart.TabIndex = 0;
             this.myChart.Text = "chart1";
@@ -439,11 +441,28 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(404, 848);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(104, 33);
+            this.btnExportar.TabIndex = 253;
+            this.btnExportar.Text = "Reporte";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.AddExtension = false;
+            this.saveFileDialog1.DefaultExt = "jpg";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
             // frmControlEstadistico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1695, 893);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.groupClaseGrafico);
             this.Controls.Add(this.dpHasta);
@@ -509,5 +528,16 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.CheckBox chkAnular;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+
+
+
     }
+
+
+
+
+
 }
+
