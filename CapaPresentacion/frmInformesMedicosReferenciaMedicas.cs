@@ -666,5 +666,95 @@ namespace CapaPresentacion
         {
             //this.Medicos_Cargar_Txt();
         }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Anular Esta cita pacientes", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in dataListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+
+
+
+                            SqlConnection SqlCon = new SqlConnection();
+
+
+
+
+
+
+
+                            //Código
+                            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                            SqlCon.Open();
+                            //Establecer el Comando
+                            SqlCommand SqlCmd = new SqlCommand();
+                            SqlCmd.Connection = SqlCon;
+                            SqlCmd.CommandText = "update cita set estado = @d1 where idcita = @d2";
+                            //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+
+                            //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
+                            SqlCmd.Parameters.AddWithValue("@d1", "Inactivo");
+                            SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo));
+
+
+
+
+
+                            //Ejecutamos nuestro comando
+
+                            rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "";
+
+
+
+
+
+                            //Rpta = NCliente.Eliminar(Convert.ToInt32(Codigo));
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Anulo Correctamente la cita");
+                                this.OperacionAnularCita();
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+
+                        }
+                    }
+
+                    Mostrar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+        }
+
+        private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListado.Columns["Anular"].Index)
+            {
+                DataGridViewCheckBoxCell ChkAnular = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["Anular"];
+                ChkAnular.Value = !Convert.ToBoolean(ChkAnular.Value);
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtSexo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtHistoriaPersonal = new System.Windows.Forms.TextBox();
@@ -85,7 +86,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -205,6 +205,17 @@
             this.groupBox1.TabIndex = 232;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Paciente";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.CadetBlue;
+            this.label8.ForeColor = System.Drawing.Color.MintCream;
+            this.label8.Location = new System.Drawing.Point(316, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 24);
+            this.label8.TabIndex = 282;
+            this.label8.Text = "🔎";
             // 
             // txtSexo
             // 
@@ -667,6 +678,7 @@
             this.btnAnular.TabIndex = 237;
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // cblBusqueda
             // 
@@ -737,6 +749,7 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
             this.dataListado.TabIndex = 235;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             // 
             // Anular
             // 
@@ -829,17 +842,6 @@
             this.btnBuscar.TabIndex = 229;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.CadetBlue;
-            this.label8.ForeColor = System.Drawing.Color.MintCream;
-            this.label8.Location = new System.Drawing.Point(316, 41);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 24);
-            this.label8.TabIndex = 282;
-            this.label8.Text = "🔎";
             // 
             // frmInformesMedicosReferenciaMedicas
             // 

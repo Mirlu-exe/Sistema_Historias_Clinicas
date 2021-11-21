@@ -57,10 +57,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTalla = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtIdpaciente = new System.Windows.Forms.TextBox();
-            this.txtPeso = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -83,6 +81,11 @@
             this.btnSangre = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtTalla = new System.Windows.Forms.MaskedTextBox();
+            this.txtPeso = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -424,17 +427,6 @@
             this.label4.TabIndex = 157;
             this.label4.Text = "Cedula";
             // 
-            // txtTalla
-            // 
-            this.txtTalla.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTalla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTalla.Location = new System.Drawing.Point(1175, 272);
-            this.txtTalla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTalla.Name = "txtTalla";
-            this.txtTalla.Size = new System.Drawing.Size(96, 22);
-            this.txtTalla.TabIndex = 182;
-            this.txtTalla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTalla_KeyPress);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -457,17 +449,6 @@
             this.txtIdpaciente.Size = new System.Drawing.Size(67, 15);
             this.txtIdpaciente.TabIndex = 159;
             this.txtIdpaciente.Visible = false;
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPeso.Location = new System.Drawing.Point(1175, 226);
-            this.txtPeso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(96, 22);
-            this.txtPeso.TabIndex = 180;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // label7
             // 
@@ -741,12 +722,73 @@
             this.label19.TabIndex = 205;
             this.label19.Text = "Mt";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label18.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.label18.Location = new System.Drawing.Point(519, 406);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 32);
+            this.label18.TabIndex = 206;
+            this.label18.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label20.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.label20.Location = new System.Drawing.Point(1005, 219);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(25, 32);
+            this.label20.TabIndex = 207;
+            this.label20.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label21.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.label21.Location = new System.Drawing.Point(1005, 267);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(25, 32);
+            this.label21.TabIndex = 208;
+            this.label21.Text = "*";
+            // 
+            // txtTalla
+            // 
+            this.txtTalla.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTalla.Location = new System.Drawing.Point(1175, 277);
+            this.txtTalla.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTalla.Mask = "##,##";
+            this.txtTalla.Name = "txtTalla";
+            this.txtTalla.Size = new System.Drawing.Size(67, 22);
+            this.txtTalla.TabIndex = 209;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPeso.Location = new System.Drawing.Point(1175, 229);
+            this.txtPeso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPeso.Mask = "##,##";
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(67, 22);
+            this.txtPeso.TabIndex = 210;
+            // 
             // frmPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1475, 912);
+            this.Controls.Add(this.txtPeso);
+            this.Controls.Add(this.txtTalla);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSangre);
@@ -772,10 +814,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTalla);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtIdpaciente);
-            this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label16);
@@ -830,10 +870,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTalla;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtIdpaciente;
-        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label16;
@@ -856,5 +894,10 @@
         private System.Windows.Forms.Button btnSangre;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.MaskedTextBox txtPeso;
+        private System.Windows.Forms.MaskedTextBox txtTalla;
     }
 }

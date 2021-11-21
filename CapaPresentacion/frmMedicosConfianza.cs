@@ -582,7 +582,7 @@ namespace CapaPresentacion
             rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
 
 
-            MessageBox.Show("HOLAAAAA :D");
+            
 
 
         }

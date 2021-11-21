@@ -512,10 +512,13 @@ namespace CapaPresentacion
                             rpta = NPacientes.Anular(Convert.ToInt32(Codigo));
 
 
+
+
+
                             if (rpta.Equals("OK"))
                             {
                                 this.MensajeOk("Se Anuló Correctamente El Paciente");
-                                //this.OperacionAnularPaciente();
+                                this.OperacionAnularPaciente();
                             }
                             else
                             {

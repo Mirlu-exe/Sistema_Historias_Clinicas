@@ -467,7 +467,7 @@ namespace CapaDatos
                 //Establecer el Comando
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speliminar_paciente";
+                SqlCmd.CommandText = "spanular_paciente";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIdpaciente = new SqlParameter();
