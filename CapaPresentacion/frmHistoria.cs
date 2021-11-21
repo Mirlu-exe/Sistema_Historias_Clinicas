@@ -2784,5 +2784,16 @@ namespace CapaPresentacion
 
             }
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            frmDeathDetailsInput frm = new frmDeathDetailsInput();
+
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+
+            frm.ShowDialog();
+        }
     }
 }

@@ -136,6 +136,12 @@
     <Compile Include="frmControlEstadistico.Designer.cs">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDeathDetailsInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeathDetailsInput.Designer.cs">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiagnostico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmControlEstadistico.resx">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeathDetailsInput.resx">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnostico.resx">
       <DependentUpon>frmDiagnostico.cs</DependentUpon>
