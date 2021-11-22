@@ -110,6 +110,15 @@ namespace CapaNegocio
             return Obj.BuscarTalla(Obj);
         }
 
+        //Método CambiarEstadoMuerto que llama al método CambiarEstadoMuerto de la clase DPacientes
+        //de la CapaDatos
+        public static string CambiarEstadoMuerto(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.CambiarEstadoMuerto(Obj);
+        }
+
 
 
     }

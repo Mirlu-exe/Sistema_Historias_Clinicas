@@ -54,6 +54,7 @@ namespace CapaDatos
         private string _Estado;
 
 
+
         private string _TextoBuscar;
 
        
@@ -153,6 +154,7 @@ namespace CapaDatos
             set { _Estado = value; }
         }
 
+
         public string TextoBuscar
         {
             get { return _TextoBuscar; }
@@ -168,7 +170,7 @@ namespace CapaDatos
 
         public DPacientes(int idpaciente,string nombre, string tipo_cedula, string num_cedula,
             string fecha_nacimiento,string sexo,string estado_civil, string direccion,
-            string ocupacion, string telefono, string correo, string peso, string talla, string estado, string texto_buscar)
+            string ocupacion, string telefono, string correo, string peso, string talla, string estado, string texto_buscar, int is_dead )
         {
             this.Idpaciente = idpaciente;
             this.Nombre=nombre;
@@ -185,7 +187,6 @@ namespace CapaDatos
             this.Talla = talla;
             this.Estado = estado;
             this.TextoBuscar = texto_buscar;
-           
 
         }
 
@@ -694,6 +695,51 @@ namespace CapaDatos
             return DtResultado;
 
         }
+
+
+        //Método CambiarEstadoMuerto
+        public string CambiarEstadoMuerto(DPacientes Paciente)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_cambiarestadomuerto_paciente";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdpaciente = new SqlParameter();
+                ParIdpaciente.ParameterName = "@idpaciente";
+                ParIdpaciente.SqlDbType = SqlDbType.Int;
+                ParIdpaciente.Value = Paciente.Idpaciente;
+                SqlCmd.Parameters.Add(ParIdpaciente);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Movió el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+
+
+
 
     }
 }

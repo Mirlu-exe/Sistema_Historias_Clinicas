@@ -354,9 +354,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo' and Paciente.is_dead=0 ; ", conDataBase);
 
 
 
@@ -393,55 +391,7 @@ namespace CapaPresentacion
         }
 
 
-
-
-
-
-        ////Método Mostrar Muertos
-        //private void MostrarHistoriasAnuladas()
-        //{
-
-
-        //    string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-        //    SqlConnection conDataBase = new SqlConnection(Cn);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-        //    SqlCommand cmdDataBase = new SqlCommand("SELECT Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Inactivo'; ", conDataBase);
-
-
-
-
-
-        //    try
-        //    {
-
-        //        SqlDataAdapter sda = new SqlDataAdapter();
-        //        sda.SelectCommand = cmdDataBase;
-        //        dbdataset = new DataTable();
-        //        sda.Fill(dbdataset);
-        //        BindingSource bSource = new BindingSource();
-
-        //        bSource.DataSource = dbdataset;
-        //        datalistadoMuertos.DataSource = bSource;
-        //        sda.Update(dbdataset);
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-
-        //        MessageBox.Show("Ha ocurrido un error");
-        //    }
-
-
-
-        //    OcultarColumnas();
-
-
-        //    lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
-        //}
-
+        
 
         void autocompletar_diagnosticos()
         {
@@ -2785,15 +2735,27 @@ namespace CapaPresentacion
             }
         }
 
-        private void label9_Click(object sender, EventArgs e)
+
+        private void btnPacienteFallecido_Click(object sender, EventArgs e)
         {
-            frmDeathDetailsInput frm = new frmDeathDetailsInput();
+           
+            if (datalistadohistorias.SelectedRows.Count > 0)
+            {
+                string id_paciente_seleccionado = datalistadohistorias.SelectedRows[0].Cells["idpaciente"].Value.ToString();
 
-            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+                frmDeathDetailsInput child = new frmDeathDetailsInput(id_paciente_seleccionado);
 
-            frm.StartPosition = FormStartPosition.CenterScreen;
+                child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+                child.MinimizeBox = false; //quitar boton de minimizar
+                //child.Height = 800; //altura
+                //child.Width = 1200; //anchura
+                child.ShowDialog();
 
-            frm.ShowDialog();
+            }
+
+
+           
+
         }
     }
 }

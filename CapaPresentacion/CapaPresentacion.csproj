@@ -100,12 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmArchivosMuertos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmArchivosMuertos.Designer.cs">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -429,9 +423,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmArchivosMuertos.resx">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
