@@ -599,7 +599,7 @@ namespace CapaDatos
 
 
 
-        public DataTable BuscarNum_Documento(DPacientes Paciente)
+        public DataTable BuscarNum_Cedula(DPacientes Paciente)
         {
             DataTable DtResultado = new DataTable("Paciente");
             SqlConnection SqlCon = new SqlConnection();
@@ -608,7 +608,7 @@ namespace CapaDatos
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_paciente_num_documento";
+                SqlCmd.CommandText = "spbuscar_paciente_num_Cedula";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParTextoBuscar = new SqlParameter();

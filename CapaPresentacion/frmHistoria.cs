@@ -153,7 +153,7 @@ namespace CapaPresentacion
         private void Limpiar()
         {
 
-            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtSexo.Text = string.Empty;
 
@@ -1148,7 +1148,7 @@ namespace CapaPresentacion
 
             this.label_hstra.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
-            this.txtNumero_Documento.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNumero_Cedula.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
             //Mostrar el tab de Historia
             this.tabControl1.SelectedIndex = 0;
@@ -1498,7 +1498,7 @@ namespace CapaPresentacion
             //Para que se muestre la pestaña de Evolucion.
             this.tabControl1.SelectedIndex = 2;
 
-            this.txtNumero_Documento_Evol.Text = txtNumero_Documento.Text;
+            this.txtNumero_Cedula_Evol.Text = txtNumero_Cedula.Text;
 
             //cargar los datos segun cedula cargada
 
@@ -1553,7 +1553,7 @@ namespace CapaPresentacion
                         //MensajeError("No se pueden dejar campos vacios");
                         /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                         errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                        errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                        errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                         errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                         errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -1919,11 +1919,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -1970,7 +1970,7 @@ namespace CapaPresentacion
         {
             // Add a child form Estudio
 
-            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Documento.Text);
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text);
 
             child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
             child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
@@ -1987,7 +1987,7 @@ namespace CapaPresentacion
 
             // Add a child form Terapeutico
 
-            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text);
 
             child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
             child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
@@ -2000,7 +2000,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar == (char)13)
@@ -2271,7 +2271,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNumero_Documento.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
+                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
                     string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
                     string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
 
@@ -2279,7 +2279,7 @@ namespace CapaPresentacion
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -2417,7 +2417,7 @@ namespace CapaPresentacion
         private void LimpiarEvol()
         {
 
-            this.txtNumero_Documento_Evol.Text = string.Empty;
+            this.txtNumero_Cedula_Evol.Text = string.Empty;
             this.txtNombre_Evol.Text = string.Empty;
             this.txtSexoEvol.Text = string.Empty;
             this.txtEdadActual.Text = string.Empty;
@@ -2500,7 +2500,7 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Documento_Evol.Text);
+            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
@@ -2508,7 +2508,7 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento_Evol.Text);
+            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();

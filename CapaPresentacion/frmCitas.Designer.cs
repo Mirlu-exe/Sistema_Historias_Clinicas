@@ -83,7 +83,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula = new System.Windows.Forms.MaskedTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblCitasHoy = new System.Windows.Forms.Label();
             this.LblHora = new System.Windows.Forms.Label();
@@ -688,7 +688,7 @@
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.txtCodigoPaciente);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtNumero_Documento);
+            this.groupBox1.Controls.Add(this.txtNumero_Cedula);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox1.Location = new System.Drawing.Point(80, 85);
             this.groupBox1.Name = "groupBox1";
@@ -751,16 +751,16 @@
             this.label9.TabIndex = 227;
             this.label9.Text = "Nombre";
             // 
-            // txtNumero_Documento
+            // txtNumero_Cedula
             // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(169, 43);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(143, 22);
-            this.txtNumero_Documento.TabIndex = 231;
-            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
+            this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula.Location = new System.Drawing.Point(169, 43);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula.Mask = "##.###.###";
+            this.txtNumero_Cedula.Name = "txtNumero_Cedula";
+            this.txtNumero_Cedula.Size = new System.Drawing.Size(143, 22);
+            this.txtNumero_Cedula.TabIndex = 231;
+            this.txtNumero_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Cedula_KeyPress);
             // 
             // tabPage2
             // 
@@ -1008,7 +1008,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre_Paciente;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Label lbl_usuario;

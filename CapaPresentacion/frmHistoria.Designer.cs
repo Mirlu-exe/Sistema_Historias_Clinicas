@@ -57,7 +57,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula = new System.Windows.Forms.MaskedTextBox();
             this.btnVerPlanTerapeutico = new System.Windows.Forms.Button();
             this.btnVerPlanEstudio = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombre_Evol = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento_Evol = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula_Evol = new System.Windows.Forms.MaskedTextBox();
             this.btnVerPlanTerapeuticoEvol = new System.Windows.Forms.Button();
             this.btnVerPlanEstudioEvol = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -391,7 +391,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtNumero_Documento);
+            this.groupBox1.Controls.Add(this.txtNumero_Cedula);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox1.Location = new System.Drawing.Point(27, 85);
             this.groupBox1.Name = "groupBox1";
@@ -491,16 +491,16 @@
             this.label6.TabIndex = 227;
             this.label6.Text = "Nombre";
             // 
-            // txtNumero_Documento
+            // txtNumero_Cedula
             // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(98, 41);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(128, 39);
-            this.txtNumero_Documento.TabIndex = 231;
-            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
+            this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula.Location = new System.Drawing.Point(98, 41);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula.Mask = "##.###.###";
+            this.txtNumero_Cedula.Name = "txtNumero_Cedula";
+            this.txtNumero_Cedula.Size = new System.Drawing.Size(128, 39);
+            this.txtNumero_Cedula.TabIndex = 231;
+            this.txtNumero_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Cedula_KeyPress);
             // 
             // btnVerPlanTerapeutico
             // 
@@ -1338,7 +1338,7 @@
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtNombre_Evol);
             this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.txtNumero_Documento_Evol);
+            this.groupBox4.Controls.Add(this.txtNumero_Cedula_Evol);
             this.groupBox4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox4.Location = new System.Drawing.Point(27, 85);
             this.groupBox4.Name = "groupBox4";
@@ -1438,15 +1438,15 @@
             this.label18.TabIndex = 227;
             this.label18.Text = "Nombre";
             // 
-            // txtNumero_Documento_Evol
+            // txtNumero_Cedula_Evol
             // 
-            this.txtNumero_Documento_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento_Evol.Location = new System.Drawing.Point(98, 41);
-            this.txtNumero_Documento_Evol.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento_Evol.Mask = "##.###.###";
-            this.txtNumero_Documento_Evol.Name = "txtNumero_Documento_Evol";
-            this.txtNumero_Documento_Evol.Size = new System.Drawing.Size(128, 39);
-            this.txtNumero_Documento_Evol.TabIndex = 231;
+            this.txtNumero_Cedula_Evol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula_Evol.Location = new System.Drawing.Point(98, 41);
+            this.txtNumero_Cedula_Evol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula_Evol.Mask = "##.###.###";
+            this.txtNumero_Cedula_Evol.Name = "txtNumero_Cedula_Evol";
+            this.txtNumero_Cedula_Evol.Size = new System.Drawing.Size(128, 39);
+            this.txtNumero_Cedula_Evol.TabIndex = 231;
             // 
             // btnVerPlanTerapeuticoEvol
             // 
@@ -2275,7 +2275,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre_Paciente;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_idhistoria;
         private System.Windows.Forms.DateTimePicker dtpNacimientoPac;
@@ -2301,7 +2301,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtNombre_Evol;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento_Evol;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula_Evol;
         private System.Windows.Forms.Button btnVerPlanTerapeuticoEvol;
         private System.Windows.Forms.Button btnVerPlanEstudioEvol;
         private System.Windows.Forms.Label label19;

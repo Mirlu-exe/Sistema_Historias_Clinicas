@@ -39,7 +39,7 @@ namespace CapaPresentacion
             InitializeComponent();
 
             this.ttMensaje.SetToolTip(this.txtNombre_Paciente, "Ingrese el Nombre del Paciente");
-            this.ttMensaje.SetToolTip(this.txtCedulaPac_Terapeutico, "Ingrese el numero de documento");
+            this.ttMensaje.SetToolTip(this.txtCedulaPac_Terapeutico, "Ingrese el numero de Cedula");
 
             this.ttMensaje.SetToolTip(this.btnAñadir, "Añadir Recipe e Indicaciones al Plan Terapeutico");
             this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan Terapeutico");
@@ -517,7 +517,7 @@ namespace CapaPresentacion
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -551,7 +551,7 @@ namespace CapaPresentacion
 
 
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar == (char)13)
@@ -903,7 +903,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_TextChanged(object sender, EventArgs e)
+        private void txtNumero_Cedula_TextChanged(object sender, EventArgs e)
         {
             int id_del_paciente_a_cargar;
 

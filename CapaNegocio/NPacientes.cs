@@ -89,11 +89,11 @@ namespace CapaNegocio
             return Obj.BuscarNombre(Obj);
         }
 
-        public static DataTable BuscarNum_Documento(string textobuscar)
+        public static DataTable BuscarNum_Cedula(string textobuscar)
         {
             DPacientes Obj = new DPacientes();
             Obj.TextoBuscar = textobuscar;
-            return Obj.BuscarNum_Documento(Obj);
+            return Obj.BuscarNum_Cedula(Obj);
         }
 
         public static DataTable BuscarPeso(string textobuscar)
