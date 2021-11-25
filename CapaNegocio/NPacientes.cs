@@ -74,6 +74,15 @@ namespace CapaNegocio
             return Obj.Anular(Obj);
         }
 
+        //Método Restaurar que llama al método Eliminar de la clase DPacientes
+        //de la CapaDatos
+        public static string Restaurar(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.Restaurar(Obj);
+        }
+
         //Método Mostrar que llama al método Mostrar de la clase DPacientes
         //de la CapaDatos
         public static DataTable Mostrar()

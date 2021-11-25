@@ -537,6 +537,46 @@ namespace CapaDatos
             return rpta;
         }
 
+        //Método Anular
+        public string Restaurar(DPacientes Paciente)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_restaurar_paciente";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdpaciente = new SqlParameter();
+                ParIdpaciente.ParameterName = "@idpaciente";
+                ParIdpaciente.SqlDbType = SqlDbType.Int;
+                ParIdpaciente.Value = Paciente.Idpaciente;
+                SqlCmd.Parameters.Add(ParIdpaciente);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Restauro el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
         //Método Mostrar
         public DataTable Mostrar()
         {

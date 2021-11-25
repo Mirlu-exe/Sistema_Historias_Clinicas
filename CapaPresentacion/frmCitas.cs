@@ -559,8 +559,15 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
+                MessageBox.Show("error " + ex.ToString() + "");  
 
             }
+
+
+            int Dolares = Convert.ToInt32(this.txtCosto.Text);
+
+
+
         }
 
         private void btnAnular_Click(object sender, EventArgs e)

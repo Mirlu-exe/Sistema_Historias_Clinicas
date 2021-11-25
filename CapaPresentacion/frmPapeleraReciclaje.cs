@@ -257,8 +257,75 @@ namespace CapaPresentacion
 
         private void dgv_Pacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == dgv_Pacientes.Columns["Restaurar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkAnular = (DataGridViewCheckBoxCell)dgv_Pacientes.Rows[e.RowIndex].Cells["Restaurar"];
+                ChkAnular.Value = !Convert.ToBoolean(ChkAnular.Value);
+            }
         }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Restaurar los/el registros", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in dgv_Pacientes.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NPacientes.Restaurar(Convert.ToInt32(Codigo));
+
+
+                            if (rpta.Equals("OK"))
+                            {
+                                MessageBox.Show("Se Restauró Correctamente El Paciente");
+                                //this.OperacionRestaurarPaciente();
+                            }
+                            else
+                            {
+                                MessageBox.Show(rpta);
+                            }
+
+                        }
+                    }
+
+                    this.dgv_Pacientes.DataSource = MostrarPacientesAnulados();
+
+                    OcultarColumnasPaciente();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void chkAnular_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAnular.Checked)
+            {
+                this.dgv_Pacientes.Columns[0].Visible = true;
+                this.btnRestaurar.Enabled = true;
+            }
+            else
+            {
+                this.dgv_Pacientes.Columns[0].Visible = false;
+                this.btnRestaurar.Enabled = false;
+            }
+        }
+
+
+
     }
     
 }
