@@ -100,12 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmArchivosMuertos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmArchivosMuertos.Designer.cs">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +129,12 @@
     </Compile>
     <Compile Include="frmControlEstadistico.Designer.cs">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeathDetailsInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeathDetailsInput.Designer.cs">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiagnostico.cs">
       <SubType>Form</SubType>
@@ -201,6 +201,18 @@
     </Compile>
     <Compile Include="frmPaciente.Designer.cs">
       <DependentUpon>frmPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPacientesFallecidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPacientesFallecidos.Designer.cs">
+      <DependentUpon>frmPacientesFallecidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPapeleraReciclaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPapeleraReciclaje.Designer.cs">
+      <DependentUpon>frmPapeleraReciclaje.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlanEstudio.cs">
       <SubType>Form</SubType>
@@ -411,9 +423,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmArchivosMuertos.resx">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmControlEstadistico.resx">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeathDetailsInput.resx">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnostico.resx">
       <DependentUpon>frmDiagnostico.cs</DependentUpon>
@@ -461,6 +473,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaciente.resx">
       <DependentUpon>frmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPacientesFallecidos.resx">
+      <DependentUpon>frmPacientesFallecidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPapeleraReciclaje.resx">
+      <DependentUpon>frmPapeleraReciclaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlanEstudio.resx">
       <DependentUpon>frmPlanEstudio.cs</DependentUpon>

@@ -154,7 +154,7 @@ namespace CapaPresentacion
         }
 
 
-        private void BuscarNum_Documento()
+        private void BuscarNum_Cedula()
         {
 
             /*DataView DV = new DataView(dbdataset);
@@ -164,7 +164,7 @@ namespace CapaPresentacion
 
 
 
-            this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarNum_Cedula(this.txtBuscar.Text);
             this.OcultarColumnas();
 
             lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
@@ -194,7 +194,7 @@ namespace CapaPresentacion
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -611,7 +611,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 

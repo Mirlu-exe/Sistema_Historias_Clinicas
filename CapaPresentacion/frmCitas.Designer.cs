@@ -73,6 +73,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnReporte_Cita = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCostoBs = new System.Windows.Forms.TextBox();
             this.txtEstadoCita = new System.Windows.Forms.TextBox();
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -83,7 +86,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula = new System.Windows.Forms.MaskedTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblCitasHoy = new System.Windows.Forms.Label();
             this.LblHora = new System.Windows.Forms.Label();
@@ -99,6 +102,7 @@
             this.servicioTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.ServicioTableAdapter();
             this.fKCitaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.citaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -171,7 +175,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(132, 791);
+            this.btnAnular.Location = new System.Drawing.Point(281, 789);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 55);
@@ -189,10 +193,10 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(481, 472);
+            this.btnBuscar.Location = new System.Drawing.Point(637, 493);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(165, 55);
+            this.btnBuscar.Size = new System.Drawing.Size(165, 34);
             this.btnBuscar.TabIndex = 182;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -229,7 +233,7 @@
             this.cmbBusqueda.Items.AddRange(new object[] {
             "Paciente",
             "Servicio"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(132, 482);
+            this.cmbBusqueda.Location = new System.Drawing.Point(286, 487);
             this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusqueda.Name = "cmbBusqueda";
             this.cmbBusqueda.Size = new System.Drawing.Size(160, 40);
@@ -303,12 +307,12 @@
             this.chkAnular.AutoSize = true;
             this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(1289, 484);
+            this.chkAnular.Location = new System.Drawing.Point(132, 799);
             this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(103, 36);
+            this.chkAnular.Size = new System.Drawing.Size(151, 36);
             this.chkAnular.TabIndex = 175;
-            this.chkAnular.Text = "Anular";
+            this.chkAnular.Text = "Seleccionar";
             this.chkAnular.UseVisualStyleBackColor = true;
             this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
@@ -327,7 +331,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(298, 492);
+            this.txtBuscar.Location = new System.Drawing.Point(454, 500);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(176, 22);
@@ -472,12 +476,12 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label8.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label8.Location = new System.Drawing.Point(200, 111);
+            this.label8.Location = new System.Drawing.Point(112, 111);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 32);
+            this.label8.Size = new System.Drawing.Size(160, 32);
             this.label8.TabIndex = 158;
-            this.label8.Text = "Costo";
+            this.label8.Text = "Costo en USD:";
             // 
             // lblIdservicio
             // 
@@ -574,6 +578,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.btnReporte_Cita);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -610,6 +615,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.txtCostoBs);
             this.groupBox2.Controls.Add(this.txtEstadoCita);
             this.groupBox2.Controls.Add(this.lbl_usuario);
             this.groupBox2.Controls.Add(this.label6);
@@ -632,6 +640,42 @@
             this.groupBox2.TabIndex = 234;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de la Cita ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label15.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label15.Location = new System.Drawing.Point(111, 146);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(154, 32);
+            this.label15.TabIndex = 198;
+            this.label15.Text = "Costo en VES:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label14.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label14.Location = new System.Drawing.Point(508, 146);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 32);
+            this.label14.TabIndex = 197;
+            this.label14.Text = "Bs.";
+            // 
+            // txtCostoBs
+            // 
+            this.txtCostoBs.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCostoBs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCostoBs.Enabled = false;
+            this.txtCostoBs.Location = new System.Drawing.Point(279, 156);
+            this.txtCostoBs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCostoBs.Name = "txtCostoBs";
+            this.txtCostoBs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCostoBs.Size = new System.Drawing.Size(222, 22);
+            this.txtCostoBs.TabIndex = 196;
             // 
             // txtEstadoCita
             // 
@@ -688,7 +732,7 @@
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.txtCodigoPaciente);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtNumero_Documento);
+            this.groupBox1.Controls.Add(this.txtNumero_Cedula);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox1.Location = new System.Drawing.Point(80, 85);
             this.groupBox1.Name = "groupBox1";
@@ -751,16 +795,16 @@
             this.label9.TabIndex = 227;
             this.label9.Text = "Nombre";
             // 
-            // txtNumero_Documento
+            // txtNumero_Cedula
             // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(169, 43);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(143, 22);
-            this.txtNumero_Documento.TabIndex = 231;
-            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
+            this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula.Location = new System.Drawing.Point(169, 43);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula.Mask = "##.###.###";
+            this.txtNumero_Cedula.Name = "txtNumero_Cedula";
+            this.txtNumero_Cedula.Size = new System.Drawing.Size(143, 22);
+            this.txtNumero_Cedula.TabIndex = 231;
+            this.txtNumero_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Cedula_KeyPress);
             // 
             // tabPage2
             // 
@@ -913,6 +957,17 @@
             this.citaBindingSource2.DataMember = "Cita";
             this.citaBindingSource2.DataSource = this.dsPrincipal;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label20.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label20.Location = new System.Drawing.Point(126, 490);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(153, 32);
+            this.label20.TabIndex = 284;
+            this.label20.Text = "Buscar según:";
+            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1008,7 +1063,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre_Paciente;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Label lbl_usuario;
@@ -1017,5 +1072,9 @@
         private System.Windows.Forms.BindingSource citaBindingSource2;
         private System.Windows.Forms.Label lblCitasHoy;
         private System.Windows.Forms.Button btnReporte_Cita;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox txtCostoBs;
+        private System.Windows.Forms.Label label20;
     }
 }

@@ -28,7 +28,6 @@ namespace CapaNegocio
             Obj.Fecha_Nacimiento = fecha_nacimiento;
             Obj.Sexo = sexo;
             Obj.Estado_Civil = estado_civil;
-
             Obj.Direccion = direccion;
             Obj.Ocupacion = ocupacion;
             Obj.Telefono = telefono;
@@ -75,6 +74,15 @@ namespace CapaNegocio
             return Obj.Anular(Obj);
         }
 
+        //Método Restaurar que llama al método Eliminar de la clase DPacientes
+        //de la CapaDatos
+        public static string Restaurar(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.Restaurar(Obj);
+        }
+
         //Método Mostrar que llama al método Mostrar de la clase DPacientes
         //de la CapaDatos
         public static DataTable Mostrar()
@@ -90,11 +98,11 @@ namespace CapaNegocio
             return Obj.BuscarNombre(Obj);
         }
 
-        public static DataTable BuscarNum_Documento(string textobuscar)
+        public static DataTable BuscarNum_Cedula(string textobuscar)
         {
             DPacientes Obj = new DPacientes();
             Obj.TextoBuscar = textobuscar;
-            return Obj.BuscarNum_Documento(Obj);
+            return Obj.BuscarNum_Cedula(Obj);
         }
 
         public static DataTable BuscarPeso(string textobuscar)
@@ -109,6 +117,15 @@ namespace CapaNegocio
             DPacientes Obj = new DPacientes();
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarTalla(Obj);
+        }
+
+        //Método CambiarEstadoMuerto que llama al método CambiarEstadoMuerto de la clase DPacientes
+        //de la CapaDatos
+        public static string CambiarEstadoMuerto(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.CambiarEstadoMuerto(Obj);
         }
 
 

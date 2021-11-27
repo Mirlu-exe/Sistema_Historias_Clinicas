@@ -76,7 +76,7 @@ namespace CapaPresentacion
 
         private void Limpiar()
         {
-            this.txtNumero_Documento.Clear();
+            this.txtNumero_Cedula.Clear();
             this.cbMedicosConfianza.SelectedIndex = -1;
         }
 
@@ -84,7 +84,7 @@ namespace CapaPresentacion
         {
             Habilitar();
 
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
         }
 
@@ -132,11 +132,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -380,7 +380,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -538,7 +538,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNumero_Documento.Text == string.Empty || this.cbMedicosConfianza.SelectedIndex == -1)
+                if (this.txtNumero_Cedula.Text == string.Empty || this.cbMedicosConfianza.SelectedIndex == -1)
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -634,7 +634,7 @@ namespace CapaPresentacion
             //this.Botones();
             this.Limpiar();
             this.Habilitar();
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
         //    this.tabControl1.SelectedIndex = 1;
 

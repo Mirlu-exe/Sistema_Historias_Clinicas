@@ -153,7 +153,7 @@ namespace CapaPresentacion
         private void Limpiar()
         {
 
-            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtSexo.Text = string.Empty;
 
@@ -354,9 +354,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo' and Paciente.is_dead=0 ; ", conDataBase);
 
 
 
@@ -393,55 +391,7 @@ namespace CapaPresentacion
         }
 
 
-
-
-
-
-        ////Método Mostrar Muertos
-        //private void MostrarHistoriasAnuladas()
-        //{
-
-
-        //    string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-        //    SqlConnection conDataBase = new SqlConnection(Cn);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-        //    SqlCommand cmdDataBase = new SqlCommand("SELECT Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Inactivo'; ", conDataBase);
-
-
-
-
-
-        //    try
-        //    {
-
-        //        SqlDataAdapter sda = new SqlDataAdapter();
-        //        sda.SelectCommand = cmdDataBase;
-        //        dbdataset = new DataTable();
-        //        sda.Fill(dbdataset);
-        //        BindingSource bSource = new BindingSource();
-
-        //        bSource.DataSource = dbdataset;
-        //        datalistadoMuertos.DataSource = bSource;
-        //        sda.Update(dbdataset);
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-
-        //        MessageBox.Show("Ha ocurrido un error");
-        //    }
-
-
-
-        //    OcultarColumnas();
-
-
-        //    lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
-        //}
-
+        
 
         void autocompletar_diagnosticos()
         {
@@ -1198,7 +1148,7 @@ namespace CapaPresentacion
 
             this.label_hstra.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
-            this.txtNumero_Documento.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNumero_Cedula.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
             //Mostrar el tab de Historia
             this.tabControl1.SelectedIndex = 0;
@@ -1548,7 +1498,7 @@ namespace CapaPresentacion
             //Para que se muestre la pestaña de Evolucion.
             this.tabControl1.SelectedIndex = 2;
 
-            this.txtNumero_Documento_Evol.Text = txtNumero_Documento.Text;
+            this.txtNumero_Cedula_Evol.Text = txtNumero_Cedula.Text;
 
             //cargar los datos segun cedula cargada
 
@@ -1603,7 +1553,7 @@ namespace CapaPresentacion
                         //MensajeError("No se pueden dejar campos vacios");
                         /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                         errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                        errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                        errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                         errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                         errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -1742,11 +1692,7 @@ namespace CapaPresentacion
 
         }
 
-        private void btnAbrirArchivoMuerto_Click(object sender, EventArgs e)
-        {
-            frmArchivosMuertos frm = new frmArchivosMuertos();
-            frm.ShowDialog();
-        }
+        
 
         private void cbPlanTerapeutico_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -1973,11 +1919,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -2024,7 +1970,7 @@ namespace CapaPresentacion
         {
             // Add a child form Estudio
 
-            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Documento.Text);
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text);
 
             child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
             child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
@@ -2041,7 +1987,7 @@ namespace CapaPresentacion
 
             // Add a child form Terapeutico
 
-            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text);
 
             child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
             child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
@@ -2054,7 +2000,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar == (char)13)
@@ -2325,7 +2271,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNumero_Documento.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
+                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
                     string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
                     string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
 
@@ -2333,7 +2279,7 @@ namespace CapaPresentacion
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -2471,7 +2417,7 @@ namespace CapaPresentacion
         private void LimpiarEvol()
         {
 
-            this.txtNumero_Documento_Evol.Text = string.Empty;
+            this.txtNumero_Cedula_Evol.Text = string.Empty;
             this.txtNombre_Evol.Text = string.Empty;
             this.txtSexoEvol.Text = string.Empty;
             this.txtEdadActual.Text = string.Empty;
@@ -2554,7 +2500,7 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Documento_Evol.Text);
+            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
@@ -2562,7 +2508,7 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento_Evol.Text);
+            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text);
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
@@ -2787,6 +2733,29 @@ namespace CapaPresentacion
                 this.btnVerPlanEstudio.BackColor = Color.LightSeaGreen;
 
             }
+        }
+
+
+        private void btnPacienteFallecido_Click(object sender, EventArgs e)
+        {
+           
+            if (datalistadohistorias.SelectedRows.Count > 0)
+            {
+                string id_paciente_seleccionado = datalistadohistorias.SelectedRows[0].Cells["idpaciente"].Value.ToString();
+
+                frmDeathDetailsInput child = new frmDeathDetailsInput(id_paciente_seleccionado);
+
+                child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+                child.MinimizeBox = false; //quitar boton de minimizar
+                //child.Height = 800; //altura
+                //child.Width = 1200; //anchura
+                child.ShowDialog();
+
+            }
+
+
+           
+
         }
     }
 }

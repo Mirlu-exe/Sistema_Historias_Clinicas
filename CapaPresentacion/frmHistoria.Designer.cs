@@ -37,7 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoria));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -58,7 +57,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre_Paciente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula = new System.Windows.Forms.MaskedTextBox();
             this.btnVerPlanTerapeutico = new System.Windows.Forms.Button();
             this.btnVerPlanEstudio = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
@@ -98,6 +97,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPacienteFallecido = new System.Windows.Forms.Button();
             this.btnReporte_Historia = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombre_Evol = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtNumero_Documento_Evol = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero_Cedula_Evol = new System.Windows.Forms.MaskedTextBox();
             this.btnVerPlanTerapeuticoEvol = new System.Windows.Forms.Button();
             this.btnVerPlanEstudioEvol = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -184,7 +184,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAbrirArchivoMuerto = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -392,7 +391,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtNombre_Paciente);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtNumero_Documento);
+            this.groupBox1.Controls.Add(this.txtNumero_Cedula);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox1.Location = new System.Drawing.Point(27, 85);
             this.groupBox1.Name = "groupBox1";
@@ -492,16 +491,16 @@
             this.label6.TabIndex = 227;
             this.label6.Text = "Nombre";
             // 
-            // txtNumero_Documento
+            // txtNumero_Cedula
             // 
-            this.txtNumero_Documento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento.Location = new System.Drawing.Point(98, 41);
-            this.txtNumero_Documento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento.Mask = "##.###.###";
-            this.txtNumero_Documento.Name = "txtNumero_Documento";
-            this.txtNumero_Documento.Size = new System.Drawing.Size(128, 39);
-            this.txtNumero_Documento.TabIndex = 231;
-            this.txtNumero_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Documento_KeyPress);
+            this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula.Location = new System.Drawing.Point(98, 41);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula.Mask = "##.###.###";
+            this.txtNumero_Cedula.Name = "txtNumero_Cedula";
+            this.txtNumero_Cedula.Size = new System.Drawing.Size(128, 39);
+            this.txtNumero_Cedula.TabIndex = 231;
+            this.txtNumero_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Cedula_KeyPress);
             // 
             // btnVerPlanTerapeutico
             // 
@@ -712,21 +711,23 @@
             this.cmbEstadoHistoria.Items.AddRange(new object[] {
             "Activo",
             "Anulado"});
-            this.cmbEstadoHistoria.Location = new System.Drawing.Point(1378, 832);
+            this.cmbEstadoHistoria.Location = new System.Drawing.Point(1378, 919);
             this.cmbEstadoHistoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstadoHistoria.Name = "cmbEstadoHistoria";
             this.cmbEstadoHistoria.Size = new System.Drawing.Size(191, 40);
             this.cmbEstadoHistoria.TabIndex = 83;
             this.cmbEstadoHistoria.Text = "Activo";
+            this.cmbEstadoHistoria.Visible = false;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(1488, 796);
+            this.label36.Location = new System.Drawing.Point(1488, 883);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(81, 32);
             this.label36.TabIndex = 82;
             this.label36.Text = "Estado";
+            this.label36.Visible = false;
             // 
             // label35
             // 
@@ -969,6 +970,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnPacienteFallecido);
             this.tabPage2.Controls.Add(this.btnReporte_Historia);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.btnAnular);
@@ -984,6 +986,24 @@
             this.tabPage2.Text = "Lista de Historias Clínicas";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // btnPacienteFallecido
+            // 
+            this.btnPacienteFallecido.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPacienteFallecido.FlatAppearance.BorderSize = 0;
+            this.btnPacienteFallecido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnPacienteFallecido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPacienteFallecido.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnPacienteFallecido.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPacienteFallecido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPacienteFallecido.Location = new System.Drawing.Point(407, 219);
+            this.btnPacienteFallecido.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPacienteFallecido.Name = "btnPacienteFallecido";
+            this.btnPacienteFallecido.Size = new System.Drawing.Size(349, 43);
+            this.btnPacienteFallecido.TabIndex = 289;
+            this.btnPacienteFallecido.Text = "Mover a Pacientes Fallecidos";
+            this.btnPacienteFallecido.UseVisualStyleBackColor = false;
+            this.btnPacienteFallecido.Click += new System.EventHandler(this.btnPacienteFallecido_Click);
             // 
             // btnReporte_Historia
             // 
@@ -1114,7 +1134,7 @@
             this.lblHistoriasActivas.AutoSize = true;
             this.lblHistoriasActivas.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblHistoriasActivas.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblHistoriasActivas.Location = new System.Drawing.Point(779, 230);
+            this.lblHistoriasActivas.Location = new System.Drawing.Point(829, 229);
             this.lblHistoriasActivas.Name = "lblHistoriasActivas";
             this.lblHistoriasActivas.Size = new System.Drawing.Size(74, 32);
             this.lblHistoriasActivas.TabIndex = 13;
@@ -1318,7 +1338,7 @@
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtNombre_Evol);
             this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.txtNumero_Documento_Evol);
+            this.groupBox4.Controls.Add(this.txtNumero_Cedula_Evol);
             this.groupBox4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.groupBox4.Location = new System.Drawing.Point(27, 85);
             this.groupBox4.Name = "groupBox4";
@@ -1418,15 +1438,15 @@
             this.label18.TabIndex = 227;
             this.label18.Text = "Nombre";
             // 
-            // txtNumero_Documento_Evol
+            // txtNumero_Cedula_Evol
             // 
-            this.txtNumero_Documento_Evol.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Documento_Evol.Location = new System.Drawing.Point(98, 41);
-            this.txtNumero_Documento_Evol.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Documento_Evol.Mask = "##.###.###";
-            this.txtNumero_Documento_Evol.Name = "txtNumero_Documento_Evol";
-            this.txtNumero_Documento_Evol.Size = new System.Drawing.Size(128, 39);
-            this.txtNumero_Documento_Evol.TabIndex = 231;
+            this.txtNumero_Cedula_Evol.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumero_Cedula_Evol.Location = new System.Drawing.Point(98, 41);
+            this.txtNumero_Cedula_Evol.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero_Cedula_Evol.Mask = "##.###.###";
+            this.txtNumero_Cedula_Evol.Name = "txtNumero_Cedula_Evol";
+            this.txtNumero_Cedula_Evol.Size = new System.Drawing.Size(128, 39);
+            this.txtNumero_Cedula_Evol.TabIndex = 231;
             // 
             // btnVerPlanTerapeuticoEvol
             // 
@@ -2133,33 +2153,12 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnAbrirArchivoMuerto
-            // 
-            this.btnAbrirArchivoMuerto.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAbrirArchivoMuerto.FlatAppearance.BorderSize = 0;
-            this.btnAbrirArchivoMuerto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAbrirArchivoMuerto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbrirArchivoMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnAbrirArchivoMuerto.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAbrirArchivoMuerto.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirArchivoMuerto.Image")));
-            this.btnAbrirArchivoMuerto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbrirArchivoMuerto.Location = new System.Drawing.Point(1322, 8);
-            this.btnAbrirArchivoMuerto.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbrirArchivoMuerto.Name = "btnAbrirArchivoMuerto";
-            this.btnAbrirArchivoMuerto.Size = new System.Drawing.Size(340, 41);
-            this.btnAbrirArchivoMuerto.TabIndex = 160;
-            this.btnAbrirArchivoMuerto.Text = "Abrir Archivo Muerto";
-            this.btnAbrirArchivoMuerto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAbrirArchivoMuerto.UseVisualStyleBackColor = false;
-            this.btnAbrirArchivoMuerto.Click += new System.EventHandler(this.btnAbrirArchivoMuerto_Click);
-            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
-            this.Controls.Add(this.btnAbrirArchivoMuerto);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -2261,7 +2260,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
-        private System.Windows.Forms.Button btnAbrirArchivoMuerto;
         private System.Windows.Forms.Label lbldesde;
         private System.Windows.Forms.DateTimePicker DtpFecha2;
         private System.Windows.Forms.DateTimePicker DtpFecha1;
@@ -2277,7 +2275,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre_Paciente;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_idhistoria;
         private System.Windows.Forms.DateTimePicker dtpNacimientoPac;
@@ -2303,7 +2301,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtNombre_Evol;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox txtNumero_Documento_Evol;
+        private System.Windows.Forms.MaskedTextBox txtNumero_Cedula_Evol;
         private System.Windows.Forms.Button btnVerPlanTerapeuticoEvol;
         private System.Windows.Forms.Button btnVerPlanEstudioEvol;
         private System.Windows.Forms.Label label19;
@@ -2344,5 +2342,6 @@
         private System.Windows.Forms.TextBox txtEdadActual;
         private System.Windows.Forms.Label lbl_planterapeutico_id;
         private System.Windows.Forms.Label lbl_planestudio_id;
+        private System.Windows.Forms.Button btnPacienteFallecido;
     }
 }

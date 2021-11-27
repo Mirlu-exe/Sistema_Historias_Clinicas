@@ -126,8 +126,6 @@ namespace CapaPresentacion
         private void Mostrar()
         {
 
-
-
             this.dataListado.DataSource = NDiagnostico.Mostrar();
             this.OcultarColumnas();
             lblTotal.Text = "Total de Diagnosticos: " + Convert.ToString(dataListado.Rows.Count);

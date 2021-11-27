@@ -28,7 +28,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            this.ttMensaje.SetToolTip(this.txtNumero_Documento, "Escriba la cedula del paciente");
+            this.ttMensaje.SetToolTip(this.txtNumero_Cedula, "Escriba la cedula del paciente");
 
             this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la cita");
 
@@ -73,11 +73,13 @@ namespace CapaPresentacion
             this.dataListado.Columns["idpaciente"].Visible = false;
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["idservicio"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
             this.dgv_citashoy.Columns["idcita"].Visible = false;
             this.dgv_citashoy.Columns["idpaciente"].Visible = false;
             this.dgv_citashoy.Columns["idusuario"].Visible = false;
             this.dgv_citashoy.Columns["idservicio"].Visible = false;
+            this.dgv_citashoy.Columns["estado"].Visible = false;
 
         }
 
@@ -185,7 +187,7 @@ namespace CapaPresentacion
         //Limpiar todos los controles del formulario
         private void Limpiar()
         {
-            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
 
@@ -205,7 +207,7 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar(bool valor)
         {
-            this.txtNumero_Documento.ReadOnly = !valor;
+            this.txtNumero_Cedula.ReadOnly = !valor;
             //this.txtBuscarServicio.ReadOnly = !valor;
 
 
@@ -246,7 +248,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
             try
             {
@@ -294,7 +296,7 @@ namespace CapaPresentacion
             groupBox2.Enabled = true;
 
 
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
             UsuarioResponsable();
 
@@ -310,7 +312,7 @@ namespace CapaPresentacion
             {
                 string rpta = "";
                 if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodServicio.Text) ||
-                    cmbServicios.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Documento.Text))
+                    cmbServicios.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Cedula.Text))
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -508,7 +510,7 @@ namespace CapaPresentacion
 
 
             this.txtCodigoPaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
-            this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNumero_Cedula.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
             this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Paciente"].Value);
             this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
 
@@ -559,8 +561,15 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
+                MessageBox.Show("error " + ex.ToString() + "");  
 
             }
+
+
+            int Dolares = Convert.ToInt32(this.txtCosto.Text);
+
+
+
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -603,7 +612,7 @@ namespace CapaPresentacion
 
 
                             //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
-                            SqlCmd.Parameters.AddWithValue("@d1", "Anular");
+                            SqlCmd.Parameters.AddWithValue("@d1", "Inactivo");
                             SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo));
 
 
@@ -1005,11 +1014,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -1037,7 +1046,7 @@ namespace CapaPresentacion
         }
 
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
