@@ -73,11 +73,13 @@ namespace CapaPresentacion
             this.dataListado.Columns["idpaciente"].Visible = false;
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["idservicio"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
             this.dgv_citashoy.Columns["idcita"].Visible = false;
             this.dgv_citashoy.Columns["idpaciente"].Visible = false;
             this.dgv_citashoy.Columns["idusuario"].Visible = false;
             this.dgv_citashoy.Columns["idservicio"].Visible = false;
+            this.dgv_citashoy.Columns["estado"].Visible = false;
 
         }
 

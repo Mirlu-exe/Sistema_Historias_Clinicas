@@ -58,6 +58,10 @@
             this.dgv_all_dead = new System.Windows.Forms.DataGridView();
             this.Restaurar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_id = new System.Windows.Forms.Label();
+            this.lbl_cedula = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgv_Evolución_fallecido = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,10 +72,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_Paciente_fallecido = new System.Windows.Forms.DataGridView();
-            this.lbl_cedula = new System.Windows.Forms.Label();
-            this.lbl_id = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -163,7 +163,6 @@
             // btnBorrar_fallecido
             // 
             this.btnBorrar_fallecido.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBorrar_fallecido.Enabled = false;
             this.btnBorrar_fallecido.FlatAppearance.BorderSize = 0;
             this.btnBorrar_fallecido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnBorrar_fallecido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -181,7 +180,6 @@
             // btnRestaurar_fallecido
             // 
             this.btnRestaurar_fallecido.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRestaurar_fallecido.Enabled = false;
             this.btnRestaurar_fallecido.FlatAppearance.BorderSize = 0;
             this.btnRestaurar_fallecido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnRestaurar_fallecido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -216,7 +214,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1660, 763);
+            this.tabPage1.Size = new System.Drawing.Size(1530, 763);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado total";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -315,6 +313,50 @@
             this.tabPage2.Size = new System.Drawing.Size(1530, 763);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ficha del Paciente Fallecido";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(1274, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 32);
+            this.label9.TabIndex = 227;
+            this.label9.Text = "Cedula:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(1243, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 32);
+            this.label8.TabIndex = 226;
+            this.label8.Text = "ID del pac:";
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lbl_id.ForeColor = System.Drawing.Color.Black;
+            this.lbl_id.Location = new System.Drawing.Point(1370, 59);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(66, 32);
+            this.lbl_id.TabIndex = 225;
+            this.lbl_id.Text = "lbl_id";
+            // 
+            // lbl_cedula
+            // 
+            this.lbl_cedula.AutoSize = true;
+            this.lbl_cedula.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lbl_cedula.ForeColor = System.Drawing.Color.Black;
+            this.lbl_cedula.Location = new System.Drawing.Point(1370, 112);
+            this.lbl_cedula.Name = "lbl_cedula";
+            this.lbl_cedula.Size = new System.Drawing.Size(64, 32);
+            this.lbl_cedula.TabIndex = 224;
+            this.lbl_cedula.Text = "lbl_ci";
             // 
             // label6
             // 
@@ -533,50 +575,6 @@
             this.dgv_Paciente_fallecido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Paciente_fallecido.Size = new System.Drawing.Size(1429, 186);
             this.dgv_Paciente_fallecido.TabIndex = 215;
-            // 
-            // lbl_cedula
-            // 
-            this.lbl_cedula.AutoSize = true;
-            this.lbl_cedula.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lbl_cedula.ForeColor = System.Drawing.Color.Black;
-            this.lbl_cedula.Location = new System.Drawing.Point(1370, 112);
-            this.lbl_cedula.Name = "lbl_cedula";
-            this.lbl_cedula.Size = new System.Drawing.Size(64, 32);
-            this.lbl_cedula.TabIndex = 224;
-            this.lbl_cedula.Text = "lbl_ci";
-            // 
-            // lbl_id
-            // 
-            this.lbl_id.AutoSize = true;
-            this.lbl_id.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lbl_id.ForeColor = System.Drawing.Color.Black;
-            this.lbl_id.Location = new System.Drawing.Point(1370, 59);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(66, 32);
-            this.lbl_id.TabIndex = 225;
-            this.lbl_id.Text = "lbl_id";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(1243, 59);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 32);
-            this.label8.TabIndex = 226;
-            this.label8.Text = "ID del pac:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(1274, 112);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 32);
-            this.label9.TabIndex = 227;
-            this.label9.Text = "Cedula:";
             // 
             // frmPacientesFallecidos
             // 

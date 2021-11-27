@@ -271,7 +271,7 @@ namespace CapaPresentacion
             {
                 DialogResult Opcion;
                 Opcion = MessageBox.Show("Realmente Desea Restaurar los/el registros", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
+                
                 if (Opcion == DialogResult.OK)
                 {
                     string Codigo;
