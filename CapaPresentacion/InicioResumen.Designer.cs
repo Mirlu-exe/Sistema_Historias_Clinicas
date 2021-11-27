@@ -78,10 +78,6 @@
             this.dsPrincipal = new CapaPresentacion.dsPrincipal();
             this.citaTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.CitaTableAdapter();
             this.btnCuposAgotados = new System.Windows.Forms.Button();
-            this.txtTasa = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnActualizarTasa = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
@@ -660,70 +656,12 @@
             this.btnCuposAgotados.UseVisualStyleBackColor = false;
             this.btnCuposAgotados.Click += new System.EventHandler(this.btnCuposAgotados_Click);
             // 
-            // txtTasa
-            // 
-            this.txtTasa.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTasa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTasa.Location = new System.Drawing.Point(325, 729);
-            this.txtTasa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTasa.Name = "txtTasa";
-            this.txtTasa.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTasa.Size = new System.Drawing.Size(222, 27);
-            this.txtTasa.TabIndex = 279;
-            this.txtTasa.TextChanged += new System.EventHandler(this.txtTasa_TextChanged);
-            this.txtTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasa_KeyPress);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label16.Location = new System.Drawing.Point(319, 695);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(135, 32);
-            this.label16.TabIndex = 278;
-            this.label16.Text = "Tasa del día:";
-            // 
-            // btnActualizarTasa
-            // 
-            this.btnActualizarTasa.BackColor = System.Drawing.SystemColors.Control;
-            this.btnActualizarTasa.FlatAppearance.BorderSize = 0;
-            this.btnActualizarTasa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnActualizarTasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizarTasa.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizarTasa.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnActualizarTasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizarTasa.Location = new System.Drawing.Point(661, 723);
-            this.btnActualizarTasa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnActualizarTasa.Name = "btnActualizarTasa";
-            this.btnActualizarTasa.Size = new System.Drawing.Size(165, 33);
-            this.btnActualizarTasa.TabIndex = 280;
-            this.btnActualizarTasa.Text = "Actualizar";
-            this.btnActualizarTasa.UseVisualStyleBackColor = false;
-            this.btnActualizarTasa.Click += new System.EventHandler(this.btnActualizarTasa_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(553, 723);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 32);
-            this.label2.TabIndex = 281;
-            this.label2.Text = "Bs. per $";
-            // 
             // InicioResumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnActualizarTasa);
-            this.Controls.Add(this.txtTasa);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.btnCuposAgotados);
             this.Controls.Add(this.btnCuposDisponiblesHoy);
             this.Controls.Add(this.btnAyuda);
@@ -829,9 +767,5 @@
         private System.Windows.Forms.BindingSource citaBindingSource;
         private dsPrincipalTableAdapters.CitaTableAdapter citaTableAdapter;
         private System.Windows.Forms.Button btnCuposAgotados;
-        public System.Windows.Forms.TextBox txtTasa;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btnActualizarTasa;
-        private System.Windows.Forms.Label label2;
     }
 }

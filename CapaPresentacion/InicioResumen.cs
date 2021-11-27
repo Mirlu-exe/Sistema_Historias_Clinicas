@@ -400,38 +400,6 @@ namespace CapaPresentacion
 
         }
 
-        private void txtTasa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (ch == 46 && txtTasa.Text.IndexOf('.') != -1)
-            {
-                e.Handled = true;
-                return;
-            }
-
-            if ( ! char.IsDigit(ch) && ch != 8 && ch != 46)
-            {
-                e.Handled = true;
-
-            }
-
-        }
-
-
-
-        private void txtTasa_TextChanged(object sender, EventArgs e)
-        {
-
-            
-
-        }
-
-        private void btnActualizarTasa_Click(object sender, EventArgs e)
-        {
-                MessageBox.Show("la tasa del dia es: " + this.txtTasa.Text + " :)");
-        }
-
 
     }
 }

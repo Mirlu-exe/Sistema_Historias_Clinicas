@@ -665,6 +665,8 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 DtResultado = null;
+
+                
             }
             return DtResultado;
 

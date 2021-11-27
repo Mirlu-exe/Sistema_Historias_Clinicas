@@ -195,6 +195,7 @@ namespace CapaPresentacion
             this.txtCodUsuario.Text = string.Empty;
             this.txtCodigoPaciente.Text = string.Empty;
             this.txtCosto.Text = string.Empty;
+            this.txtCostoBs.Text = string.Empty;
             this.lbl_usuario.Text = string.Empty;
             this.cmbServicios.SelectedIndex = -1;
 
@@ -566,7 +567,7 @@ namespace CapaPresentacion
             }
 
 
-            int Dolares = Convert.ToInt32(this.txtCosto.Text);
+           // int Dolares = Convert.ToInt32(this.txtCosto.Text);
 
 
 
@@ -1091,6 +1092,31 @@ namespace CapaPresentacion
         {
             frmListadoCitasUsuario frm = new frmListadoCitasUsuario();
             frm.Show();
+        }
+
+        private void btnActualizarTasa_Click(object sender, EventArgs e)
+        {
+            decimal CostoEnBolivares = Convert.ToDecimal(this.txtCosto.Text) * Convert.ToDecimal(this.txtTasa.Text);
+
+            this.txtCostoBs.Text = Convert.ToString(CostoEnBolivares);
+
+        }
+
+        private void txtTasa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txtTasa.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+
+            }
         }
     }
 }
