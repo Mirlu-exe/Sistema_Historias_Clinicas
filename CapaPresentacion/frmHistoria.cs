@@ -2192,7 +2192,7 @@ namespace CapaPresentacion
             //this.btnVerPlanTerapeuticoEvol
             this.cblTipo_Sangre.SelectedIndex = -1;
             this.txtDiagnosticosEvol.Text = string.Empty;
-            this.listboxDiagnosticosFinales_Evol.Items.Clear();
+            //this.listboxDiagnosticosFinales_Evol.Items.Clear();
 
 
 
@@ -2535,6 +2535,60 @@ namespace CapaPresentacion
         private bool IsNuevo_evol = false;
 
         private bool IsEditar_evol = false;
+
+        private int Buscar_idhistoria_segun_idpac(int idpac)
+        {
+
+            //aca se buscará cual es el ID de la historia de ese paciente en particular
+
+            DataTable DtResultado = new DataTable("HistoriaSegunIdPac");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idhistoria_segun_idpac";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@idpac";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idpac;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_historia = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                id_historia = 0;
+
+            }
+            else
+            {
+                id_historia = Convert.ToInt32(DtResultado.Rows[0]["idhistoria"]);
+            }
+
+
+            return id_historia;
+
+        }
 
 
 
@@ -3051,7 +3105,7 @@ namespace CapaPresentacion
 
                         //insertar nueva evolucion
                         rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_id_evol.Text), this.dtpFechaConsulta_Evol.Value,
-                                this.txtEdadSuc.Text, planTerapeutico_Evol, planEstudio_Evol, this.txtObservacionesEvol.Text, cadenaDiagnosticos_Evol, Convert.ToString(this.txtProxConsultaEvol.Text), this.cbEstado_Evol.Text);
+                                this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos_Evol, planEstudio_Evol, planTerapeutico_Evol, this.txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text, this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, this.cbEstado_Evol.Text);
 
                     }
 
@@ -3117,7 +3171,15 @@ namespace CapaPresentacion
 
                 if (id_del_paciente_a_cargar_evol > 0)
                 {
-                    this.lbl_idhistoria.Text = id_del_paciente_a_cargar_evol.ToString();
+                    this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
+
+
+                    //para buscar el id de la historia correspondiente a este paciente.
+                    int id_historia_del_pac_frmEvol;
+
+                    id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
+
+                    this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
 
 
                     this.MostrarEvolucionesDelPac();
@@ -3194,9 +3256,8 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
-                    string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) ||
-                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
+                if (string.IsNullOrEmpty(this.txtNombre_Evol.Text) || string.IsNullOrEmpty(this.txtNombre_Evol.Text) || string.IsNullOrEmpty(this.txtSexoEvol.Text) ||
+                    string.IsNullOrEmpty(this.txtMotivoConsultaEvol.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
 
                 {
                     MensajeError("No se pueden dejar campos vacios");
@@ -3215,36 +3276,21 @@ namespace CapaPresentacion
 
 
 
-                    if (this.IsNuevo)
+                    if (this.IsNuevo_evol)
                     {
 
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_id_planestudio_evol.Text);
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_id_planterapeutico_evol.Text);
 
-                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
-                        {
-
-                            MensajeError("Ya existe una historia para este paciente.");
-
-                        }
-                        else
-                        {
-                            int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
-                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
-
-                            var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
+                            var listaDiagnosticos = listboxDiagnosticosFinales_Evol.Items.Cast<String>().ToList(); //convertir el control en una lista
                             string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
 
-                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
-                            this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
-
-
-                        }
-
-
+                            rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_idhistoria_frmEvol.Text.Trim()), this.dtpFechaConsulta.Value, this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text,  this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, "Activo");
 
 
 
                     }
-                    else if (this.IsEditar)
+                    else if (this.IsEditar_evol)
                     {
 
 
@@ -3272,15 +3318,15 @@ namespace CapaPresentacion
 
 
 
-                        if (this.IsNuevo)
+                        if (this.IsNuevo_evol)
                         {
-                            this.MensajeOk("Se Insertó de forma correcta la historia medica");
-                            this.OperacionInsertarHistoria();
+                            this.MensajeOk("Se Insertó de forma correcta la evolucion");
+                            //this.OperacionInsertarEvolucion();
                         }
                         else
                         {
-                            this.MensajeOk("Se Actualizó de forma correcta la historia medica");
-                            this.OperacionEditarHistoria();
+                            this.MensajeOk("Se Actualizó de forma correcta la evolucion");
+                            //this.OperacionEditarEvolucion();
                         }
 
                     }
@@ -3291,13 +3337,13 @@ namespace CapaPresentacion
                         this.MensajeError(rpta);
                     }
 
-                    this.IsNuevo = false;
-                    this.IsEditar = false;
-                    this.Botones();
-                    this.Limpiar();
-                    this.Mostrar();
-                    this.lbl_idhistoria.Text = "";
-
+                    this.IsNuevo_evol = false;
+                    this.IsEditar_evol = false;
+                    this.BotonesEvol();
+                    this.LimpiarEvol();
+                   
+                    this.lbl_id_evol.Text = "";
+                    this.lbl_idhistoria_frmEvol.Text = "";
 
                 }
             }

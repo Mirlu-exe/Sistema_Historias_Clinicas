@@ -375,11 +375,23 @@
     <Compile Include="Reportes\frmListaPlanEstudio.Designer.cs">
       <DependentUpon>frmListaPlanEstudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteAuditorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteAuditorias.Designer.cs">
+      <DependentUpon>frmReporteAuditorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteCitasMedicasTotales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\frmReporteCitasMedicasTotales.Designer.cs">
       <DependentUpon>frmReporteCitasMedicasTotales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteInformeMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteInformeMedico.Designer.cs">
+      <DependentUpon>frmReporteInformeMedico.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportePacientes.cs">
       <SubType>Form</SubType>
@@ -560,8 +572,14 @@
     <EmbeddedResource Include="Reportes\frmListaPlanEstudio.resx">
       <DependentUpon>frmListaPlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteAuditorias.resx">
+      <DependentUpon>frmReporteAuditorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReporteCitasMedicasTotales.resx">
       <DependentUpon>frmReporteCitasMedicasTotales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteInformeMedico.resx">
+      <DependentUpon>frmReporteInformeMedico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportePacientes.resx">
       <DependentUpon>frmReportePacientes.cs</DependentUpon>

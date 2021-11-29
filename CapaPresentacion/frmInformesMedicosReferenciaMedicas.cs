@@ -195,7 +195,7 @@ namespace CapaPresentacion
 
                 if (Cant_evol_por_historia > 0)
                 {
-                    MessageBox.Show("La historia tiene evoluciones :)");
+                   // MessageBox.Show("La historia tiene evoluciones :)");
 
                     DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[evoluciones_por_historia.Rows.Count - 1][2]);
                     
@@ -206,7 +206,7 @@ namespace CapaPresentacion
                 }
                 else //aca tengo que poner la edad
                 {
-                    MessageBox.Show("La historia NO tiene evoluciones");
+                    //MessageBox.Show("La historia NO tiene evoluciones");
                     id_evol = 0;
                     txtEdadSuc_Evol.Clear();
 
@@ -264,11 +264,11 @@ namespace CapaPresentacion
 
                 if (Cant_evol_por_historia > 0)
                 {
-                    MessageBox.Show("La historia tiene evoluciones :)");
+                  //  MessageBox.Show("La historia tiene evoluciones :)");
 
-                    DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[0][2]);
-                    string edad_sucesiva = Convert.ToString(evoluciones_por_historia.Rows[0][3]);
-                    string diagnosticos_evol = Convert.ToString(evoluciones_por_historia.Rows[0][4]);
+                    DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[0]["fecha_consulta"]);
+                    string edad_sucesiva = Convert.ToString(evoluciones_por_historia.Rows[0]["edad_suc"]);
+                    string diagnosticos_evol = Convert.ToString(evoluciones_por_historia.Rows[0]["diagnosticos"]);
                     string planterapeutico_evol = Convert.ToString(evoluciones_por_historia.Rows[0][6]);
 
                     this.txtFecha_Ultima_Evol.Text = fecha_evol.ToString("dd/MM/yyyy");
@@ -280,7 +280,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("La historia NO tiene evoluciones");
+                    //MessageBox.Show("La historia NO tiene evoluciones");
                     txtEdadSuc_Evol.Clear();
                 }
 
@@ -339,14 +339,7 @@ namespace CapaPresentacion
                     this.txtHistoriaFamiliar.Text = historia_familiar_del_pac;
                     this.txtHistoriaPersonal.Text = historia_personal_del_pac;
 
-                    DateTime Edad_Pac = Convert.ToDateTime(dtHistoriasPerPaciente.Rows[0][4]);
-
-                    //DateTime Fecha_Nac_Pac = new DateTime(Edad_Pac); //Fecha de nacimiento
-                    int edad = DateTime.Today.AddTicks(-Edad_Pac.Ticks).Year - 1;
-                    string edad_paciente = Convert.ToString(edad);
-
-                    this.txtEdadSuc_Evol.Text = edad_paciente;
-
+                    
 
 
                     //se envia el id de la historia para buscar sus ultima evolucion
@@ -665,6 +658,46 @@ namespace CapaPresentacion
         private void cbMedicosConfianza_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.Medicos_Cargar_Txt();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            //Campos de busqueda:
+
+
+            if (cblBusqueda.SelectedIndex == 0) //Cedula del Paciente
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 1) //Nombre del Paciente
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 2) //Especialidad del Médico
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 3) //Nombre del Médico
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un campo para buscar");
+            }
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmReporteInformeMedico frm = new frmReporteInformeMedico();
+            frm.Show();
         }
     }
 }

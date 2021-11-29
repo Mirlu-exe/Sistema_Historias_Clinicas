@@ -553,6 +553,12 @@ namespace CapaPresentacion
                     this.txtCodServicio.Text = idservicio;
                     this.txtCosto.Text = costo;
 
+                    double tasa = Convert.ToDouble(this.txtTasa.Text);
+                    double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+                    double montoVEF = montoUSD * tasa;
+
+                    this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
 
                 }
 
@@ -1096,9 +1102,12 @@ namespace CapaPresentacion
 
         private void btnActualizarTasa_Click(object sender, EventArgs e)
         {
-            decimal CostoEnBolivares = Convert.ToDecimal(this.txtCosto.Text) * Convert.ToDecimal(this.txtTasa.Text);
 
-            this.txtCostoBs.Text = Convert.ToString(CostoEnBolivares);
+            double tasa = Convert.ToDouble(this.txtTasa.Text);
+            double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+            double montoVEF = montoUSD * tasa;
+
+            this.txtCostoBs.Text = Convert.ToString(montoVEF);
 
         }
 

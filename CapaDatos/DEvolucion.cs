@@ -20,6 +20,8 @@ namespace CapaDatos
 
         public string edad_suc { get; set; }
 
+        public string motivo_consulta { get; set; }
+
         public int plan_terapeutico { get; set; }
 
         public int plan_estudio { get; set; }
@@ -29,6 +31,16 @@ namespace CapaDatos
         public string diagnosticos { get; set; }
 
         public string prox_consulta { get; set; }
+
+        public string examen_fisico { get; set; }
+
+        public string laboratorio { get; set; }
+
+        public string examenes_paraclinicos { get; set; }
+
+        public string EKG { get; set; }
+
+        public string ecocardiograma { get; set; }
 
         public string estado { get; set; }
 
@@ -85,11 +97,6 @@ namespace CapaDatos
                 SqlCmd.CommandText = "spinsertar_evolucion";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //SqlParameter ParIdEvolucion = new SqlParameter();
-                //ParIdEvolucion.ParameterName = "@idevolucion";
-                //ParIdEvolucion.SqlDbType = SqlDbType.Int;
-                //ParIdEvolucion.Direction = ParameterDirection.Output;
-                //SqlCmd.Parameters.Add(ParIdEvolucion);
 
                 SqlParameter ParIdHistoria = new SqlParameter();
                 ParIdHistoria.ParameterName = "@idhistoria";
@@ -111,6 +118,13 @@ namespace CapaDatos
                 ParEdad_suc.Size = 10;
                 ParEdad_suc.Value = Evolucion.edad_suc;
                 SqlCmd.Parameters.Add(ParEdad_suc);
+
+                SqlParameter ParMotivo = new SqlParameter();
+                ParMotivo.ParameterName = "@motivo_consulta";
+                ParMotivo.SqlDbType = SqlDbType.VarChar;
+                ParMotivo.Size = 100;
+                ParMotivo.Value = Evolucion.motivo_consulta;
+                SqlCmd.Parameters.Add(ParMotivo);
 
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
@@ -141,11 +155,46 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(ParObservaciones);
 
                 SqlParameter ParFecha_Prox_Consulta = new SqlParameter();
-                ParFecha_Prox_Consulta.ParameterName = "@fecha_prox_consulta";
+                ParFecha_Prox_Consulta.ParameterName = "@prox_consulta";
                 ParFecha_Prox_Consulta.SqlDbType = SqlDbType.VarChar;
                 ParFecha_Prox_Consulta.Size = 8;
                 ParFecha_Prox_Consulta.Value = Evolucion.fecha_consulta;
                 SqlCmd.Parameters.Add(ParFecha_Prox_Consulta);
+
+                SqlParameter ParExamenFisico = new SqlParameter();
+                ParExamenFisico.ParameterName = "@examen_fisico";
+                ParExamenFisico.SqlDbType = SqlDbType.VarChar;
+                ParExamenFisico.Size = 100;
+                ParExamenFisico.Value = Evolucion.examen_fisico;
+                SqlCmd.Parameters.Add(ParExamenFisico);
+
+                SqlParameter ParLab= new SqlParameter();
+                ParLab.ParameterName = "@laboratorio";
+                ParLab.SqlDbType = SqlDbType.VarChar;
+                ParLab.Size = 200;
+                ParLab.Value = Evolucion.laboratorio;
+                SqlCmd.Parameters.Add(ParLab);
+
+                SqlParameter ParParaclinicos = new SqlParameter();
+                ParParaclinicos.ParameterName = "@examenes_paraclinicos";
+                ParParaclinicos.SqlDbType = SqlDbType.VarChar;
+                ParParaclinicos.Size = 200;
+                ParParaclinicos.Value = Evolucion.examenes_paraclinicos;
+                SqlCmd.Parameters.Add(ParParaclinicos);
+
+                SqlParameter ParEKG = new SqlParameter();
+                ParEKG.ParameterName = "@EKG";
+                ParEKG.SqlDbType = SqlDbType.VarChar;
+                ParEKG.Size = 200;
+                ParEKG.Value = Evolucion.EKG;
+                SqlCmd.Parameters.Add(ParEKG);
+
+                SqlParameter ParEcocardiograma = new SqlParameter();
+                ParEcocardiograma.ParameterName = "@ecocardiograma";
+                ParEcocardiograma.SqlDbType = SqlDbType.VarChar;
+                ParEcocardiograma.Size = 200;
+                ParEcocardiograma.Value = Evolucion.ecocardiograma;
+                SqlCmd.Parameters.Add(ParEcocardiograma);
 
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
