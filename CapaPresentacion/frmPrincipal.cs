@@ -60,6 +60,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnInformeMedicoRef.Enabled = true;
+                this.btnReportes.Enabled = true;
+                this.btnArchivoMuerto.Enabled = true;
+                this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Hide();
 
             }
@@ -77,6 +80,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = false;
                 this.btnMedicosConfianza.Enabled = false;
                 this.btnInformeMedicoRef.Enabled = false;
+                this.btnReportes.Enabled = false;
+                this.btnArchivoMuerto.Enabled = false;
+                this.btnPapelera.Enabled = false;
                 this.btnHerramientasAdmin.Hide();
             }
 
@@ -95,6 +101,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnInformeMedicoRef.Enabled = true;
+                this.btnReportes.Enabled = true;
+                this.btnArchivoMuerto.Enabled = true;
+                this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Show();
 
             }

@@ -113,6 +113,7 @@
             this.chkAnular = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbl_id_pac_frmEvol = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgv_Lista_Evoluciones_de_pac = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -196,7 +197,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lbl_id_pac_frmEvol = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1240,6 +1240,16 @@
             this.groupBox3.TabIndex = 162;
             this.groupBox3.TabStop = false;
             // 
+            // lbl_id_pac_frmEvol
+            // 
+            this.lbl_id_pac_frmEvol.AutoSize = true;
+            this.lbl_id_pac_frmEvol.Location = new System.Drawing.Point(1537, 240);
+            this.lbl_id_pac_frmEvol.Name = "lbl_id_pac_frmEvol";
+            this.lbl_id_pac_frmEvol.Size = new System.Drawing.Size(27, 32);
+            this.lbl_id_pac_frmEvol.TabIndex = 296;
+            this.lbl_id_pac_frmEvol.Text = "0";
+            this.lbl_id_pac_frmEvol.Visible = false;
+            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.White;
@@ -1343,6 +1353,7 @@
             this.lbl_idhistoria_frmEvol.Size = new System.Drawing.Size(27, 32);
             this.lbl_idhistoria_frmEvol.TabIndex = 293;
             this.lbl_idhistoria_frmEvol.Text = "0";
+            this.lbl_idhistoria_frmEvol.Visible = false;
             // 
             // txtProxConsultaEvol
             // 
@@ -1465,6 +1476,7 @@
             this.lbl_id_evol.Size = new System.Drawing.Size(27, 32);
             this.lbl_id_evol.TabIndex = 279;
             this.lbl_id_evol.Text = "0";
+            this.lbl_id_evol.Visible = false;
             this.lbl_id_evol.Click += new System.EventHandler(this.lbl_id_historia_evol_Click);
             // 
             // label11
@@ -2305,15 +2317,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // lbl_id_pac_frmEvol
-            // 
-            this.lbl_id_pac_frmEvol.AutoSize = true;
-            this.lbl_id_pac_frmEvol.Location = new System.Drawing.Point(1537, 240);
-            this.lbl_id_pac_frmEvol.Name = "lbl_id_pac_frmEvol";
-            this.lbl_id_pac_frmEvol.Size = new System.Drawing.Size(27, 32);
-            this.lbl_id_pac_frmEvol.TabIndex = 296;
-            this.lbl_id_pac_frmEvol.Text = "0";
             // 
             // frmHistoria
             // 
