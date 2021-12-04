@@ -96,7 +96,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(519, 60);
             this.label9.TabIndex = 7;
-            this.label9.Text = "Registro de Recetas";
+            this.label9.Text = "Registro de Medicamento";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18

@@ -341,7 +341,7 @@
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(364, 49);
             this.btnRecetas.TabIndex = 5;
-            this.btnRecetas.Text = "     Recetas";
+            this.btnRecetas.Text = "     Medicamentos";
             this.btnRecetas.UseVisualStyleBackColor = true;
             this.btnRecetas.Click += new System.EventHandler(this.btnRecetas_Click);
             // 
