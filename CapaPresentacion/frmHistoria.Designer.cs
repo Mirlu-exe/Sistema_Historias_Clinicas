@@ -2117,6 +2117,7 @@
             this.BtnReporteListaEvolucion.TabIndex = 200;
             this.BtnReporteListaEvolucion.Text = "Generar reporte";
             this.BtnReporteListaEvolucion.UseVisualStyleBackColor = true;
+            this.BtnReporteListaEvolucion.Click += new System.EventHandler(this.BtnReporteListaEvolucion_Click);
             // 
             // lbl_lista_evol_ci
             // 

@@ -27,11 +27,15 @@ namespace CapaPresentacion
 
         private void frmListadoCitasUsuario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaCitasMedicasTotales' Puede moverla o quitarla según sea necesario.
+            //this.spListaCitasMedicasTotalesTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasTotales);
 
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaCitasMedicasUsuarios' Puede moverla o quitarla según sea necesario.
 
-           this.spListaCitasMedicasUsuariosTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasUsuarios, Usuarios);
+            this.spListaCitasMedicasTotalesTableAdapter.Fill(this.dsPrincipal.spListaCitasMedicasTotales);
             this.reportViewer1.RefreshReport();
         }
+
+        
     }
 }

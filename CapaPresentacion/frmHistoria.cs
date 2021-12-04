@@ -3409,7 +3409,10 @@ namespace CapaPresentacion
             }
         }
 
-
-
+        private void BtnReporteListaEvolucion_Click(object sender, EventArgs e)
+        {
+            frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
+            frm.Show();
+        }
     }
 }

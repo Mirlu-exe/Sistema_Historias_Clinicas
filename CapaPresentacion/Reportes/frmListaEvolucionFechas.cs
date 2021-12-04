@@ -31,6 +31,11 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void frmListaEvolucionFechas_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaEvolucionFechas' Puede moverla o quitarla según sea necesario.

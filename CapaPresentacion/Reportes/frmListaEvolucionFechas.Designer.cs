@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
             this.spListaEvolucionFechasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPrincipal = new CapaPresentacion.dsPrincipal();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spListaEvolucionFechasTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.spListaEvolucionFechasTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spListaEvolucionFechasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
             this.SuspendLayout();
+            // 
+            // spListaEvolucionFechasBindingSource
+            // 
+            this.spListaEvolucionFechasBindingSource.DataMember = "spListaEvolucionFechas";
+            this.spListaEvolucionFechasBindingSource.DataSource = this.dsPrincipal;
+            // 
+            // dsPrincipal
+            // 
+            this.dsPrincipal.DataSetName = "dsPrincipal";
+            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +60,7 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // dsPrincipal
-            // 
-            this.dsPrincipal.DataSetName = "dsPrincipal";
-            this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spListaEvolucionFechasBindingSource
-            // 
-            this.spListaEvolucionFechasBindingSource.DataMember = "spListaEvolucionFechas";
-            this.spListaEvolucionFechasBindingSource.DataSource = this.dsPrincipal;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // spListaEvolucionFechasTableAdapter
             // 
@@ -74,8 +75,8 @@
             this.Name = "frmListaEvolucionFechas";
             this.Text = "frmListaEvolucionFechas";
             this.Load += new System.EventHandler(this.frmListaEvolucionFechas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spListaEvolucionFechasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }
