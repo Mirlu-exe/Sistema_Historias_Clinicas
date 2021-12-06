@@ -190,7 +190,7 @@ namespace CapaDatos
 
         }
 
-
+        
         //Métodos
         public string Insertar(DPacientes Paciente)
         {

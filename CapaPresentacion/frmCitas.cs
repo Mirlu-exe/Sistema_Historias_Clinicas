@@ -41,6 +41,11 @@ namespace CapaPresentacion
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+
+            //traer la tasa del dia guardado en la BD
+            traerTasaDelDia();
+
+
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Servicio' Puede moverla o quitarla según sea necesario.
             this.servicioTableAdapter.Fill(this.dsPrincipal.Servicio);
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Cita' Puede moverla o quitarla según sea necesario.
@@ -83,6 +88,36 @@ namespace CapaPresentacion
 
         }
 
+        public void traerTasaDelDia()
+        {
+            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Query = "select Tasa_del_dia from TasaDelDia ;";
+            SqlConnection conDataBase = new SqlConnection(CN);
+            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+            SqlDataReader Lectura;
+
+            try
+            {
+
+                conDataBase.Open();
+                Lectura = cmdDataBase.ExecuteReader();
+
+                while (Lectura.Read())
+                {
+
+                    this.txtTasa.Text = (Lectura["Tasa_del_dia"].ToString() );
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
 
         public void fillComboServicios()
         {
@@ -340,7 +375,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado) values (@d1,@d2,@d3,@d4,@d5)";
+                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT) values (@d1,@d2,@d3,@d4,@d5, @d6)";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -352,6 +387,7 @@ namespace CapaPresentacion
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
                         SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
 
 
 
@@ -1103,11 +1139,29 @@ namespace CapaPresentacion
         private void btnActualizarTasa_Click(object sender, EventArgs e)
         {
 
-            double tasa = Convert.ToDouble(this.txtTasa.Text);
-            double montoUSD = Convert.ToDouble(this.txtCosto.Text);
-            double montoVEF = montoUSD * tasa;
 
-            this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
+
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "UPDATE TasaDelDia SET Tasa_del_dia = '" + this.txtTasa.Text + "' ";
+
+            
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se actualizó la tasa";
+
+
 
         }
 
@@ -1126,6 +1180,31 @@ namespace CapaPresentacion
                 e.Handled = true;
 
             }
+        }
+
+        private void txtTasa_TextChanged(object sender, EventArgs e)
+        {
+
+            if ( !(this.txtCosto.Text == "") )
+            {
+
+                double tasa = Convert.ToDouble(this.txtTasa.Text);
+
+                MessageBox.Show("la tasa es:" + tasa + "");
+
+                double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+
+                MessageBox.Show("el monto usd es:" + montoUSD + "");
+
+                double montoVEF = montoUSD * tasa;
+
+                this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
+                MessageBox.Show("el total es:" + tasa + "");
+
+            }
+
+           
         }
     }
 }
