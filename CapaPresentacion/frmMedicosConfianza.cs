@@ -769,6 +769,11 @@ namespace CapaPresentacion
             } 
             else { btnAnular.Enabled = false; }
         }
+
+        private void txtNombre_Medico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

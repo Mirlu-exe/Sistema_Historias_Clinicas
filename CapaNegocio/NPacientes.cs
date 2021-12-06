@@ -83,6 +83,16 @@ namespace CapaNegocio
             return Obj.Restaurar(Obj);
         }
 
+        //Método Restaurar que llama al método Eliminar de la clase DPacientes
+        //de la CapaDatos
+        public static string RestaurarPacienteMuerto(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.RestaurarPacienteMuerto(Obj);
+        }
+
+
         //Método Mostrar que llama al método Mostrar de la clase DPacientes
         //de la CapaDatos
         public static DataTable Mostrar()
@@ -126,6 +136,13 @@ namespace CapaNegocio
             DPacientes Obj = new DPacientes();
             Obj.Idpaciente = idpaciente;
             return Obj.CambiarEstadoMuerto(Obj);
+        }
+
+        public static string Muerto_a_papelera(int idpaciente)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.Idpaciente = idpaciente;
+            return Obj.Muerto_a_Papelera(Obj);
         }
 
 

@@ -54,8 +54,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkAnular = new System.Windows.Forms.CheckBox();
             this.dgv_Pacientes = new System.Windows.Forms.DataGridView();
             this.Restaurar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnBorrar_def = new System.Windows.Forms.Button();
+            this.btnRestaurar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgv_Historia = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -71,15 +74,12 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dgv_Diagnosticos = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnRestaurar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cblBusqueda = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.chkAnular = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pacientes)).BeginInit();
@@ -108,7 +108,7 @@
             this.tabControl1.Location = new System.Drawing.Point(25, 165);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1574, 711);
+            this.tabControl1.Size = new System.Drawing.Size(1642, 711);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -116,15 +116,29 @@
             // 
             this.tabPage1.Controls.Add(this.chkAnular);
             this.tabPage1.Controls.Add(this.dgv_Pacientes);
-            this.tabPage1.Controls.Add(this.btnBorrar);
+            this.tabPage1.Controls.Add(this.btnBorrar_def);
             this.tabPage1.Controls.Add(this.btnRestaurar);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1566, 676);
+            this.tabPage1.Size = new System.Drawing.Size(1634, 676);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pacientes";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chkAnular
+            // 
+            this.chkAnular.AutoSize = true;
+            this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
+            this.chkAnular.Location = new System.Drawing.Point(1381, 23);
+            this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkAnular.Name = "chkAnular";
+            this.chkAnular.Size = new System.Drawing.Size(178, 36);
+            this.chkAnular.TabIndex = 206;
+            this.chkAnular.Text = "Seleccionados";
+            this.chkAnular.UseVisualStyleBackColor = true;
+            this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
             // dgv_Pacientes
             // 
@@ -185,13 +199,49 @@
             this.Restaurar.ReadOnly = true;
             this.Restaurar.Width = 125;
             // 
+            // btnBorrar_def
+            // 
+            this.btnBorrar_def.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBorrar_def.FlatAppearance.BorderSize = 0;
+            this.btnBorrar_def.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnBorrar_def.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar_def.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnBorrar_def.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnBorrar_def.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrar_def.Location = new System.Drawing.Point(1382, 224);
+            this.btnBorrar_def.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBorrar_def.Name = "btnBorrar_def";
+            this.btnBorrar_def.Size = new System.Drawing.Size(231, 119);
+            this.btnBorrar_def.TabIndex = 166;
+            this.btnBorrar_def.Text = "Borrar Definitivamente";
+            this.btnBorrar_def.UseVisualStyleBackColor = false;
+            this.btnBorrar_def.Click += new System.EventHandler(this.btnBorrar_def_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRestaurar.FlatAppearance.BorderSize = 0;
+            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestaurar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnRestaurar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestaurar.Location = new System.Drawing.Point(1382, 161);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(231, 55);
+            this.btnRestaurar.TabIndex = 165;
+            this.btnRestaurar.Text = "Restaurar";
+            this.btnRestaurar.UseVisualStyleBackColor = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgv_Historia);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1799, 676);
+            this.tabPage2.Size = new System.Drawing.Size(1566, 676);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Historia";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -259,7 +309,7 @@
             this.tabPage3.Controls.Add(this.dgv_Evol);
             this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1799, 676);
+            this.tabPage3.Size = new System.Drawing.Size(1566, 676);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Evolucion";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -327,7 +377,7 @@
             this.tabPage4.Controls.Add(this.dgv_Citas);
             this.tabPage4.Location = new System.Drawing.Point(4, 31);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1799, 676);
+            this.tabPage4.Size = new System.Drawing.Size(1566, 676);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Citas";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -395,7 +445,7 @@
             this.tabPage5.Controls.Add(this.dgv_Servicios);
             this.tabPage5.Location = new System.Drawing.Point(4, 31);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1799, 676);
+            this.tabPage5.Size = new System.Drawing.Size(1566, 676);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Servicios";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -463,7 +513,7 @@
             this.tabPage6.Controls.Add(this.dgv_Diagnosticos);
             this.tabPage6.Location = new System.Drawing.Point(4, 31);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1799, 676);
+            this.tabPage6.Size = new System.Drawing.Size(1566, 676);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Diagnosticos";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -526,41 +576,6 @@
             this.dataGridViewCheckBoxColumn5.ReadOnly = true;
             this.dataGridViewCheckBoxColumn5.Width = 125;
             // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRestaurar.FlatAppearance.BorderSize = 0;
-            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestaurar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnRestaurar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestaurar.Location = new System.Drawing.Point(1394, 161);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(165, 55);
-            this.btnRestaurar.TabIndex = 165;
-            this.btnRestaurar.Text = "Restaurar";
-            this.btnRestaurar.UseVisualStyleBackColor = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBorrar.FlatAppearance.BorderSize = 0;
-            this.btnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnBorrar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(1394, 224);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(165, 55);
-            this.btnBorrar.TabIndex = 166;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
@@ -605,6 +620,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(1077, 158);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -638,20 +654,6 @@
             this.label16.Size = new System.Drawing.Size(153, 32);
             this.label16.TabIndex = 205;
             this.label16.Text = "Buscar según:";
-            // 
-            // chkAnular
-            // 
-            this.chkAnular.AutoSize = true;
-            this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(1382, 105);
-            this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(178, 36);
-            this.chkAnular.TabIndex = 206;
-            this.chkAnular.Text = "Seleccionados";
-            this.chkAnular.UseVisualStyleBackColor = true;
-            this.chkAnular.CheckedChanged += new System.EventHandler(this.chkAnular_CheckedChanged);
             // 
             // frmPapeleraReciclaje
             // 
@@ -712,7 +714,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn5;
         private System.Windows.Forms.Button btnRestaurar;
-        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnBorrar_def;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;

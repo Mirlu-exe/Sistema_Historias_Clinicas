@@ -96,7 +96,6 @@ namespace CapaPresentacion
                 this.Habilitar(true);
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
-                this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
             else
@@ -104,7 +103,6 @@ namespace CapaPresentacion
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
 

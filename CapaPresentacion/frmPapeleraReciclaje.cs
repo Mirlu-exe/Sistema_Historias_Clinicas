@@ -16,6 +16,10 @@ namespace CapaPresentacion
 {
     public partial class frmPapeleraReciclaje : Form
     {
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
         public frmPapeleraReciclaje()
         {
             InitializeComponent();
@@ -23,6 +27,16 @@ namespace CapaPresentacion
 
         private void frmPapeleraReciclaje_Load(object sender, EventArgs e)
         {
+
+            if (Session_Actual.Acceso == "Administrador")
+            {
+                this.btnBorrar_def.Enabled = true;
+            }
+            else
+            {
+                this.btnBorrar_def.Enabled = false;
+            }
+
 
             this.dgv_Pacientes.DataSource = MostrarPacientesAnulados();
 
@@ -324,8 +338,32 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnBorrar_def_Click(object sender, EventArgs e)
+        {
+            //insertar codigo que haga un hard delete
+
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea borrar definitivamente los pacientes seleccionados?", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+
+                    frmConfirmarContraseña_BorrarRegistros frm = new frmConfirmarContraseña_BorrarRegistros(); 
+
+                    frm.ShowDialog();
 
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+
+        }
     }
     
 }

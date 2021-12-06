@@ -110,12 +110,6 @@ namespace CapaPresentacion
             frm.ShowDialog();
 
 
-
-
-
-
-
-
         }
 
 

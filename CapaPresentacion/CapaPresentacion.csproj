@@ -124,6 +124,12 @@
     <Compile Include="frmConfirmarContraseña.Designer.cs">
       <DependentUpon>frmConfirmarContraseña.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfirmarContraseña_BorrarRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmarContraseña_BorrarRegistros.Designer.cs">
+      <DependentUpon>frmConfirmarContraseña_BorrarRegistros.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmControlEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,12 +298,6 @@
     <Compile Include="frmVistaPacientes.Designer.cs">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerarGraficos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGenerarGraficos.Designer.cs">
-      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
-    </Compile>
     <Compile Include="InicioResumen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +447,9 @@
     <EmbeddedResource Include="frmConfirmarContraseña.resx">
       <DependentUpon>frmConfirmarContraseña.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmarContraseña_BorrarRegistros.resx">
+      <DependentUpon>frmConfirmarContraseña_BorrarRegistros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmControlEstadistico.resx">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
     </EmbeddedResource>
@@ -530,9 +533,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVistaPacientes.resx">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerarGraficos.resx">
-      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioResumen.resx">
       <DependentUpon>InicioResumen.cs</DependentUpon>

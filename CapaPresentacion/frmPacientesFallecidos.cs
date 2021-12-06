@@ -178,51 +178,96 @@ namespace CapaPresentacion
 
         private void btnRestaurar_fallecido_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string rpta_estadomuerto = "";
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Restaurar los/el registros", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            //    string rpta_detallesmuerte = "";
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string rpta = "";
 
-            //    if (string.IsNullOrEmpty(this.txtCausaMuerte.Text))
-
-            //    {
-            //        MessageBox.Show("No se pueden dejar campos vacios");
-
-            //    }
-
-
-            //    // Cambiar el estado de is_dead en el registro del Paciente.
-            //    rpta_estadovivo = NPacientes.CambiarEstadoVivo(Convert.ToInt32(this.lbl_id.Text));
-
-            //    BorrarFichaFallecido(); //aca es donde se borra la ficha de fallecimiento en la tabla DeathDetails
+                    foreach (DataGridViewRow row in dgv_all_dead.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NPacientes.RestaurarPacienteMuerto(Convert.ToInt32(Codigo));
 
 
-            //    if (rpta_estadovivo.Equals("OK"))
-            //    {
-            //        MessageBox.Show("Se ha restaurado el Paciente exitosamente.");
-            //        this.OperacionPacienteVivo();
-            //    }
+                            if (rpta.Equals("OK"))
+                            {
+                                MessageBox.Show("Se Restauró Correctamente el Paciente");
+                                //this.OperacionRestaurarPaciente();
+                            }
+                            else
+                            {
+                                MessageBox.Show(rpta);
+                            }
 
-            //    else
-            //    {
-            //        MessageBox.Show(rpta_estadovivo);
-            //        MessageBox.Show(rpta_detallesmuerte);
-            //    }
+                        }
+                    }
+
+                    this.dgv_all_dead.DataSource = MostrarTodosPacientesMuertos();
+
+                    //OcultarColumnas();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
 
 
 
-            //    //cerrar ventana
-            //    this.Close();
 
 
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message + ex.StackTrace);
-            //}
+        }
 
+        private void btnBorrar_fallecido_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Anular los/el pacientes", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in dgv_all_dead.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NPacientes.Muerto_a_papelera(Convert.ToInt32(Codigo));
+
+                            //MessageBox.Show("spaceonomy wish me luck");
+
+                            if (rpta.Equals("OK"))
+                            {
+                                MessageBox.Show("Se Anuló Correctamente el Paciente fallecido");
+                                //this.OperacionAnularPaciente();
+                            }
+                            else
+                            {
+                                MessageBox.Show(rpta);
+                            }
+
+
+                        }
+                    }
+                    this.dgv_all_dead.DataSource = MostrarTodosPacientesMuertos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

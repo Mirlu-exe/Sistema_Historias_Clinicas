@@ -875,6 +875,11 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void txtDosis_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
