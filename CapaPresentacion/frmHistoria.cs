@@ -14,9 +14,26 @@ using CapaDatos;
 
 namespace CapaPresentacion
 {
+    
     public partial class frmHistoria : Form
     {
 
+        public class Global
+        {
+            private DateTime _fecha1, _fecha2;
+            public DateTime Fecha1
+            {
+                get { return _fecha1; }
+                set { _fecha1 = value; }
+            }
+
+            public DateTime Fecha2
+            {
+                get { return _fecha2; }
+                set { _fecha2 = value; }
+            }
+
+        }
 
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
@@ -51,9 +68,10 @@ namespace CapaPresentacion
             this.btnAnular.Enabled = false;
         }
 
+        
 
 
-        private void  frmHistoria_Load(object sender, EventArgs e)
+    private void  frmHistoria_Load(object sender, EventArgs e)
         {
 
             autocompletar_diagnosticos();
@@ -81,7 +99,8 @@ namespace CapaPresentacion
             //Evento "Load" en la pestaña de Evolucion
             Gestionar_PlanEstudio_Evolucion();
             Gestionar_PlanTerapeutico_Evolucion();
-
+            MostrarFechasActivas();
+           
 
 
         }
@@ -718,8 +737,13 @@ namespace CapaPresentacion
 
 
         //Método Mostrar
-        private void MostrarFechasActivas(string fecha1, string fecha2)
+        private void MostrarFechasActivas()
         {
+
+
+           DateTime fecha1 = DtpFecha1.Value;
+           DateTime fecha2 = DtpFecha2.Value;
+
 
 
             /*string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
@@ -2261,6 +2285,7 @@ namespace CapaPresentacion
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
             frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text);
+            
             frm.FormBorderStyle = FormBorderStyle.FixedDialog;
             frm.MinimizeBox = false;
             frm.Show();
@@ -2958,7 +2983,7 @@ namespace CapaPresentacion
 
                 Gestionar_PlanTerapeutico_Evolucion();
 
-                
+                MostrarFechasActivas();
 
             }
             else
@@ -3194,60 +3219,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void label12_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void cbEstadoEvol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbTipoSangreEvol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listboxDiagnosticosFinales_Evol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDiagnosticosEvol_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCancelarEvol_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label37_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label38_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtGuardarEvol_Click(object sender, EventArgs e)
         {
@@ -3376,7 +3348,7 @@ namespace CapaPresentacion
 
             Cargar_Todo_Evolucion();
 
-
+            MostrarFechasActivas();
         }
 
         private void lbl_id_planestudio_evol_TextChanged(object sender, EventArgs e)
@@ -3410,9 +3382,19 @@ namespace CapaPresentacion
         }
 
         private void BtnReporteListaEvolucion_Click(object sender, EventArgs e)
+
         {
+
             frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
+
+            FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
+
+            FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
+
+            
             frm.Show();
+
+            MessageBox.Show("jsdsd");
         }
     }
 }

@@ -1432,7 +1432,6 @@
             this.listboxDiagnosticosFinales_Evol.ScrollAlwaysVisible = true;
             this.listboxDiagnosticosFinales_Evol.Size = new System.Drawing.Size(1179, 132);
             this.listboxDiagnosticosFinales_Evol.TabIndex = 284;
-            this.listboxDiagnosticosFinales_Evol.SelectedIndexChanged += new System.EventHandler(this.listboxDiagnosticosFinales_Evol_SelectedIndexChanged);
             // 
             // btnQuitarDiag_Evol
             // 
@@ -1466,7 +1465,6 @@
             this.txtDiagnosticosEvol.Name = "txtDiagnosticosEvol";
             this.txtDiagnosticosEvol.Size = new System.Drawing.Size(1179, 39);
             this.txtDiagnosticosEvol.TabIndex = 280;
-            this.txtDiagnosticosEvol.TextChanged += new System.EventHandler(this.txtDiagnosticosEvol_TextChanged);
             // 
             // lbl_id_evol
             // 
@@ -1555,7 +1553,6 @@
             this.label12.Size = new System.Drawing.Size(48, 32);
             this.label12.TabIndex = 281;
             this.label12.Text = "🔎";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label15
             // 
@@ -1682,7 +1679,6 @@
             this.label20.Size = new System.Drawing.Size(141, 32);
             this.label20.TabIndex = 172;
             this.label20.Text = "Diagnósticos";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // panel1
             // 
@@ -1723,7 +1719,6 @@
             this.txtCancelarEvol.TabIndex = 145;
             this.txtCancelarEvol.Text = "Cancelar";
             this.txtCancelarEvol.UseVisualStyleBackColor = false;
-            this.txtCancelarEvol.Click += new System.EventHandler(this.txtCancelarEvol_Click);
             // 
             // txtEditarEvol
             // 
@@ -1804,7 +1799,6 @@
             this.cbEstadoEvol.Size = new System.Drawing.Size(191, 40);
             this.cbEstadoEvol.TabIndex = 83;
             this.cbEstadoEvol.Text = "Activo";
-            this.cbEstadoEvol.SelectedIndexChanged += new System.EventHandler(this.cbEstadoEvol_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -1814,7 +1808,6 @@
             this.label23.Size = new System.Drawing.Size(81, 32);
             this.label23.TabIndex = 82;
             this.label23.Text = "Estado";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label37
             // 
@@ -1824,7 +1817,6 @@
             this.label37.Size = new System.Drawing.Size(179, 32);
             this.label37.TabIndex = 80;
             this.label37.Text = "Plan Terapeutico";
-            this.label37.Click += new System.EventHandler(this.label37_Click);
             // 
             // label38
             // 
@@ -1834,7 +1826,6 @@
             this.label38.Size = new System.Drawing.Size(169, 32);
             this.label38.TabIndex = 78;
             this.label38.Text = "Plan de Estudio";
-            this.label38.Click += new System.EventHandler(this.label38_Click);
             // 
             // label39
             // 

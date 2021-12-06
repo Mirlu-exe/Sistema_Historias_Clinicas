@@ -100,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FechasReportesEvolucion.cs" />
     <Compile Include="frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
