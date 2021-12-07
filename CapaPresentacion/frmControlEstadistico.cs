@@ -149,7 +149,7 @@ namespace CapaPresentacion
 
         private void EfectoFechas()
         {
-            if (this.cbRangoFecha.SelectedIndex == 3)
+            if (this.cbRangoFecha.SelectedIndex == 4)
             {
                 this.dpDesde.Visible = true;
                 this.dpHasta.Visible = true;
@@ -234,21 +234,28 @@ namespace CapaPresentacion
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy");
                                 break;
-                            case 1: //Ultimos 7 días
-                                fIni = DateTime.Now;
-                                fFin = DateTime.Now.AddDays(-7);
+                            case 1: //Esta semana
+                                fIni = DateTime.Now.AddDays(-7);
+                                fFin = DateTime.Now;
+                                parteFecha = " del día " +fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+                                MessageBox.Show(parteFecha.ToString());
+                                break;
+                            case 2: //ultimos 15 dias 
+                                fIni = DateTime.Now.AddDays(-15);
+                                fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
                                 break;
-                            case 2: //Este mes
-                                fIni = DateTime.Now;
-                                fFin = DateTime.Now.AddDays((DateTime.Now.Day - 1) * -1);
+                            case 3: //Este mes
+                                fIni = DateTime.Now.AddDays((DateTime.Now.Day - 1) * -1);
+                                fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
                                 break;
-                            case 3: //Rango específico
-
+                            case 4: //Rango específico
                                 fIni = dpDesde.Value;
                                 fFin = dpHasta.Value;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+
+                                MessageBox.Show(parteFecha.ToString());
 
                                 if (Convert.ToInt32(fIni.ToString("yyyMMdd")) > Convert.ToInt32(fFin.ToString("yyyMMdd")))
                                 {
@@ -256,13 +263,15 @@ namespace CapaPresentacion
                                     HabilitarControlesGraficos();
                                     return;
                                 }
-
                                 break;
+
+
                         }
 
                         sql_comando.Parameters.Add("FIni", SqlDbType.SmallDateTime).Value = fIni;
                         sql_comando.Parameters.Add("FFin", SqlDbType.SmallDateTime).Value = fFin;
 
+                        
                         DataTable dta_consulta = new DataTable();
                         dta_consulta.Load(sql_comando.ExecuteReader());
 
@@ -272,7 +281,6 @@ namespace CapaPresentacion
                             this.lblDataNotFound.Visible = true;
                             return;
                         }
-
 
 
                         SeriesChartType type = SeriesChartType.Column;
@@ -302,6 +310,7 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
                 HabilitarControlesGraficos();
+                MessageBox.Show(ex.ToString());
             }
 
             Application.DoEvents();

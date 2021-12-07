@@ -775,6 +775,7 @@
             // 
             this.txtEcocardiograma.BackColor = System.Drawing.SystemColors.Control;
             this.txtEcocardiograma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEcocardiograma.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEcocardiograma.Enabled = false;
             this.txtEcocardiograma.Location = new System.Drawing.Point(922, 351);
             this.txtEcocardiograma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -796,6 +797,7 @@
             // 
             this.txtParaclinicos.BackColor = System.Drawing.SystemColors.Control;
             this.txtParaclinicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtParaclinicos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtParaclinicos.Enabled = false;
             this.txtParaclinicos.Location = new System.Drawing.Point(482, 586);
             this.txtParaclinicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -817,6 +819,7 @@
             // 
             this.txtecg.BackColor = System.Drawing.SystemColors.Control;
             this.txtecg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtecg.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtecg.Enabled = false;
             this.txtecg.Location = new System.Drawing.Point(922, 237);
             this.txtecg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -838,6 +841,7 @@
             // 
             this.txtLaboratorio.BackColor = System.Drawing.SystemColors.Control;
             this.txtLaboratorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLaboratorio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLaboratorio.Enabled = false;
             this.txtLaboratorio.Location = new System.Drawing.Point(482, 474);
             this.txtLaboratorio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -859,6 +863,7 @@
             // 
             this.txtExamenFisico.BackColor = System.Drawing.SystemColors.Control;
             this.txtExamenFisico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExamenFisico.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtExamenFisico.Enabled = false;
             this.txtExamenFisico.Location = new System.Drawing.Point(482, 351);
             this.txtExamenFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -880,6 +885,7 @@
             // 
             this.txtTratamiento_Actual.BackColor = System.Drawing.SystemColors.Control;
             this.txtTratamiento_Actual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTratamiento_Actual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTratamiento_Actual.Enabled = false;
             this.txtTratamiento_Actual.Location = new System.Drawing.Point(482, 240);
             this.txtTratamiento_Actual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -912,6 +918,7 @@
             // 
             this.txtHistoriaPersonal.BackColor = System.Drawing.SystemColors.Control;
             this.txtHistoriaPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHistoriaPersonal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHistoriaPersonal.Enabled = false;
             this.txtHistoriaPersonal.Location = new System.Drawing.Point(41, 586);
             this.txtHistoriaPersonal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -933,6 +940,7 @@
             // 
             this.txtHistoriaFamiliar.BackColor = System.Drawing.SystemColors.Control;
             this.txtHistoriaFamiliar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHistoriaFamiliar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHistoriaFamiliar.Enabled = false;
             this.txtHistoriaFamiliar.Location = new System.Drawing.Point(41, 474);
             this.txtHistoriaFamiliar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -954,6 +962,7 @@
             // 
             this.txtEnfermedadActual.BackColor = System.Drawing.SystemColors.Control;
             this.txtEnfermedadActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEnfermedadActual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEnfermedadActual.Enabled = false;
             this.txtEnfermedadActual.Location = new System.Drawing.Point(41, 351);
             this.txtEnfermedadActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -975,6 +984,7 @@
             // 
             this.txtMotivoConsulta.BackColor = System.Drawing.SystemColors.Control;
             this.txtMotivoConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMotivoConsulta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMotivoConsulta.Enabled = false;
             this.txtMotivoConsulta.Location = new System.Drawing.Point(41, 240);
             this.txtMotivoConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -107,6 +107,10 @@ namespace CapaPresentacion
             this.txtCorreo.ReadOnly = !valor;
             this.txtPeso.ReadOnly = !valor;
             this.txtTalla.ReadOnly = !valor;
+            this.cblTipo_Cedula.Enabled = valor;
+            this.cblEstado.Enabled = valor;
+            this.cblEstado_Civil.Enabled = valor;
+            this.cblSexo.Enabled = valor;
 
             this.txtDireccion.ReadOnly = !valor;
             this.txtOcupacion.ReadOnly = !valor;
@@ -524,9 +528,6 @@ namespace CapaPresentacion
 
 
 
-
-
-
                         }
                     }
                     this.Mostrar();
@@ -818,29 +819,36 @@ namespace CapaPresentacion
         {
             char ch = e.KeyChar;
 
-            if ((!(char.IsDigit(ch))) && Convert.ToInt32(ch) != 8)
+            if (ch == 46 && txtPeso.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
             {
                 e.Handled = true;
 
             }
-            else if (char.IsControl(ch))
-            {
-                e.Handled = false;
-            }
+
+
+
         }
 
         private void txtTalla_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
-            if ((!(char.IsDigit(ch))) && Convert.ToInt32(ch) != 8)
+            if (ch == 46 && txtTalla.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
             {
                 e.Handled = true;
 
-            }
-            else if (char.IsControl(ch))
-            {
-                e.Handled = false;
             }
         }
     }

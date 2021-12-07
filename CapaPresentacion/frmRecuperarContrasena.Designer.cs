@@ -385,6 +385,7 @@
             this.lbl_id_user.Size = new System.Drawing.Size(77, 17);
             this.lbl_id_user.TabIndex = 48;
             this.lbl_id_user.Text = "lbl_id_user";
+            this.lbl_id_user.Visible = false;
             // 
             // frmRecuperarContrasena
             // 
