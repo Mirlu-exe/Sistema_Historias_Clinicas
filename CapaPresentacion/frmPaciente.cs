@@ -350,7 +350,7 @@ namespace CapaPresentacion
             SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
-            SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' ");
+            SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' and estado = 'Activo' ");
             SqlCmd.Connection = SqlCon;
 
             //SqlCmd.CommandType = CommandType.StoredProcedure;

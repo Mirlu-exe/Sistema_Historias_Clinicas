@@ -64,5 +64,16 @@ namespace CapaNegocio
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarNombre(Obj);
         }
+
+
+        public static string Restaurar(int id_serv)
+        {
+            DServicio Obj = new DServicio();
+            Obj.Idservicio = id_serv;
+            return Obj.Restaurar(Obj);
+        }
+
+
+
     }
 }

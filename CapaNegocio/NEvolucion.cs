@@ -63,5 +63,16 @@ namespace CapaNegocio
             return Obj.Editar(Obj);
         }
 
+
+        //Método Restaurar que llama al método Eliminar de la clase DPacientes
+        //de la CapaDatos
+        public static string Restaurar(int idevol)
+        {
+            DEvolucion Obj = new DEvolucion();
+            Obj.id_evol = idevol;
+            return Obj.Restaurar(Obj);
+        }
+
+
     }
 }

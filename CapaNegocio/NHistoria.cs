@@ -48,5 +48,14 @@ namespace CapaNegocio
             return Obj.Insertar(Obj);
         }
 
+        public static string Restaurar(int idpaciente)
+        {
+            DHistoria Obj = new DHistoria();
+            Obj.Id_paciente = idpaciente;
+            return Obj.Restaurar(Obj);
+        }
+
+
+
     }
 }

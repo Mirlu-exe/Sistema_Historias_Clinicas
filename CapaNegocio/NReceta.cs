@@ -108,5 +108,14 @@ namespace CapaNegocio
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarDosis(Obj);
         }
+
+        public static string Restaurar(int id_med)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Idedicamento = id_med;
+            return Obj.Restaurar(Obj);
+        }
+
+
     }
 }
