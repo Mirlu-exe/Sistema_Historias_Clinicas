@@ -48,7 +48,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtCodigoDiag = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtidDiagnostico = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TxtEstado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtCodigoDiag = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -301,17 +301,6 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // txtCodigoDiag
-            // 
-            this.txtCodigoDiag.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodigoDiag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodigoDiag.Location = new System.Drawing.Point(204, 176);
-            this.txtCodigoDiag.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCodigoDiag.Name = "txtCodigoDiag";
-            this.txtCodigoDiag.Size = new System.Drawing.Size(183, 22);
-            this.txtCodigoDiag.TabIndex = 153;
-            this.txtCodigoDiag.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -323,7 +312,6 @@
             this.label6.Size = new System.Drawing.Size(87, 32);
             this.label6.TabIndex = 152;
             this.label6.Text = "Codigo";
-            this.label6.Visible = false;
             // 
             // txtidDiagnostico
             // 
@@ -427,7 +415,6 @@
             this.lblCampoObligatorio.Size = new System.Drawing.Size(25, 32);
             this.lblCampoObligatorio.TabIndex = 166;
             this.lblCampoObligatorio.Text = "*";
-            this.lblCampoObligatorio.Visible = false;
             this.lblCampoObligatorio.MouseHover += new System.EventHandler(this.lblCampoObligatorio_MouseHover);
             // 
             // label3
@@ -476,6 +463,16 @@
             this.label7.TabIndex = 184;
             this.label7.Text = "Buscar según:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtCodigoDiag
+            // 
+            this.txtCodigoDiag.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodigoDiag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodigoDiag.Location = new System.Drawing.Point(204, 176);
+            this.txtCodigoDiag.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigoDiag.Name = "txtCodigoDiag";
+            this.txtCodigoDiag.Size = new System.Drawing.Size(183, 22);
+            this.txtCodigoDiag.TabIndex = 153;
             // 
             // frmDiagnostico
             // 
@@ -537,7 +534,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox txtCodigoDiag;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtidDiagnostico;
         private System.Windows.Forms.Label label4;
@@ -551,5 +547,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtEstado;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCodigoDiag;
     }
 }

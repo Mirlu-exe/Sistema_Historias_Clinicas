@@ -142,7 +142,9 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NReceta.Mostrar();
+           
             this.OcultarColumnas();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
@@ -620,6 +622,7 @@ namespace CapaPresentacion
             DataTable DtResultado = new DataTable("tablita");
 
             SqlConnection SqlCon = new SqlConnection();
+            
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
@@ -639,7 +642,12 @@ namespace CapaPresentacion
 
                 MessageBox.Show("NO FURULA " + ex.ToString() + "");
             }
+
+            if (DtResultado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en los medicamentos"); }
+
             return DtResultado;
+
+           
 
         }
 

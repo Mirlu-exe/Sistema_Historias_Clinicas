@@ -342,7 +342,7 @@
             this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
             this.txtNumero_Cedula.Location = new System.Drawing.Point(305, 216);
             this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero_Cedula.Mask = "##.###.###";
+            this.txtNumero_Cedula.Mask = "##,###,###";
             this.txtNumero_Cedula.Name = "txtNumero_Cedula";
             this.txtNumero_Cedula.Size = new System.Drawing.Size(143, 22);
             this.txtNumero_Cedula.TabIndex = 185;

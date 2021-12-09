@@ -159,6 +159,7 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NPacientes.Mostrar();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en Pacientes"); }
             this.OcultarColumnas();
             SoloPacientesActivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
@@ -788,7 +789,7 @@ namespace CapaPresentacion
 
             //dataListado.DataSource = DV;
 
-
+            
             (dataListado.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo'");
 
         }

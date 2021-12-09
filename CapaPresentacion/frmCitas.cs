@@ -286,27 +286,40 @@ namespace CapaPresentacion
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
             SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
-            try
-            {
+         
 
-                SqlDataAdapter sda = new SqlDataAdapter();
-                sda.SelectCommand = cmdDataBase;
-                dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataListado.DataSource = bSource;
-                sda.Update(dbdataset);
+                try
+                {
 
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
 
-                MessageBox.Show("Ha ocurrido un error");
-            }
+                    SqlDataAdapter sda = new SqlDataAdapter();
+                    sda.SelectCommand = cmdDataBase;
+                    dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataListado.DataSource = bSource;
+                    sda.Update(dbdataset);
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+
+                    MessageBox.Show("Ha ocurrido un error");
+                }
+
+
+
+            if (dataListado.Rows.Count == 0 ) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+
+            
+
+           
 
 
 

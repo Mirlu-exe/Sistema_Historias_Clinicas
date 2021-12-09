@@ -127,6 +127,7 @@ namespace CapaPresentacion
         {
 
             this.dataListado.DataSource = NDiagnostico.Mostrar();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en Diagnostico"); }
             this.OcultarColumnas();
             lblTotal.Text = "Total de Diagnosticos: " + Convert.ToString(dataListado.Rows.Count);
         }

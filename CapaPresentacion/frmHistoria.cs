@@ -414,9 +414,10 @@ namespace CapaPresentacion
             }
 
 
-
+          
             OcultarColumnas();
 
+           
 
             lblHistoriasActivas.Text = "Total de Historias : " + Convert.ToString(datalistadohistorias.Rows.Count);
         }
@@ -1475,7 +1476,7 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            
+            if (datalistadohistorias.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
         }
 
         //private void label2_MouseHover(object sender, EventArgs e)
@@ -1504,6 +1505,8 @@ namespace CapaPresentacion
             {
                 datalistadohistorias.Columns["idhistoria"].Visible = false;
                 datalistadohistorias.Columns["idpaciente"].Visible = false;
+                MostrarHistoriasActivas();
+                if (datalistadohistorias.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las historias"); }
             }
 
             

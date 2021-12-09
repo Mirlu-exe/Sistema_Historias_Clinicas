@@ -132,6 +132,7 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NMedicosConfianza.Mostrar();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro de medicos de confianza"); }
             this.OcultarColumnas();
             lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
         }
