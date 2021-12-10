@@ -12,7 +12,7 @@ namespace CapaPresentacion
 {
     public partial class frmListaEvolucionFechas : Form
     {
-        private DateTime _fecha1, _fecha2;
+       /* private DateTime _fecha1, _fecha2;
 
         public DateTime fecha1
         {
@@ -24,7 +24,7 @@ namespace CapaPresentacion
         {
             get { return _fecha2; }
             set { _fecha2 = value; }
-        }
+        }*/
         
         public frmListaEvolucionFechas()
         {
@@ -49,8 +49,10 @@ namespace CapaPresentacion
 
             MessageBox.Show(fecha1.ToString("d") + " y " + fecha2.ToString("d"));
 
+
+            MessageBox.Show("sda");
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spListaEvolucionFechas' Puede moverla o quitarla según sea necesario.
-            this.spListaEvolucionFechasTableAdapter.Fill(this.dsPrincipal.spListaEvolucionFechas, fecha1, fecha2);
+            this.spListaEvolucionFechasTableAdapter.Fill(this.dsPrincipal.spListaEvolucionFechas, FechasReportesEvolucion.Fecha1.Date, FechasReportesEvolucion.Fecha2.Date);
 
             MessageBox.Show("a");
             this.reportViewer1.RefreshReport();
