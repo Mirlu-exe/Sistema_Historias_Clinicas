@@ -683,6 +683,7 @@
             this.btnSangre.Text = "Encontrar donantes de sangre compatible";
             this.btnSangre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSangre.UseVisualStyleBackColor = false;
+            this.btnSangre.Visible = false;
             this.btnSangre.Click += new System.EventHandler(this.btnSangre_Click);
             // 
             // label5
