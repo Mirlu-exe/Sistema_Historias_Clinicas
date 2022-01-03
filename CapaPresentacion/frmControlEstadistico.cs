@@ -1016,9 +1016,9 @@ namespace CapaPresentacion
                     MessageBox.Show("Se ha exportado");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
         }
 

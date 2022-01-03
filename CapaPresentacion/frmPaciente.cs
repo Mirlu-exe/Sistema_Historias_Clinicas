@@ -55,7 +55,7 @@ namespace CapaPresentacion
 
 
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
             SoloPacientesActivos();
 
@@ -85,40 +85,59 @@ namespace CapaPresentacion
         {
 
             this.txtNombre_Paciente.Text = string.Empty;
+            this.cblTipo_Cedula.SelectedIndex = -1;
             this.txtNumero_Cedula.Text = string.Empty;
             this.txtCorreo.Text = string.Empty;
             this.txtPeso.Text = string.Empty;
             this.txtTalla.Text = string.Empty;
-
+            this.cblEstado_Civil.SelectedIndex = -1;
             this.txtDireccion.Text = string.Empty;
             this.txtOcupacion.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
+            this.dtpFecha_Nacimiento.Value = DateTime.Now;
+            this.cblSexo.SelectedIndex = -1;
 
 
 
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtIdpaciente.ReadOnly = !valor;
-            this.txtNombre_Paciente.ReadOnly = !valor;
-            this.txtNumero_Cedula.ReadOnly = !valor;
-            this.txtCorreo.ReadOnly = !valor;
-            this.txtPeso.ReadOnly = !valor;
-            this.txtTalla.ReadOnly = !valor;
-            this.cblTipo_Cedula.Enabled = valor;
-            this.cblEstado.Enabled = valor;
-            this.cblEstado_Civil.Enabled = valor;
-            this.cblSexo.Enabled = valor;
+            this.txtIdpaciente.Enabled = true;
+            this.txtNombre_Paciente.Enabled = true;
+            this.txtNumero_Cedula.Enabled = true;
+            this.txtCorreo.Enabled= true;
+            this.txtPeso.Enabled = true;
+            this.txtTalla.Enabled = true;
+            this.cblTipo_Cedula.Enabled = true;
+            this.cblEstado.Enabled = true;
+            this.cblEstado_Civil.Enabled = true;
+            this.cblSexo.Enabled = true;
+            this.txtDireccion.Enabled= true;
+            this.txtOcupacion.Enabled = true;
+            this.txtTelefono.Enabled= true;
+            this.dtpFecha_Nacimiento.Enabled = true;
 
-            this.txtDireccion.ReadOnly = !valor;
-            this.txtOcupacion.ReadOnly = !valor;
-            this.txtTelefono.ReadOnly = !valor;
+        }
 
-
-
-            //this.btnLimpiar.Enabled = valor;
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtIdpaciente.Enabled = false;
+            this.txtNombre_Paciente.Enabled = false;
+            this.txtNumero_Cedula.Enabled = false;
+            this.txtCorreo.Enabled = false;
+            this.txtPeso.Enabled = false;
+            this.txtTalla.Enabled = false;
+            this.cblTipo_Cedula.Enabled = false;
+            this.cblEstado.Enabled = false;
+            this.cblEstado_Civil.Enabled = false;
+            this.cblSexo.Enabled = false;
+            this.txtDireccion.Enabled = false;
+            this.txtOcupacion.Enabled = false;
+            this.txtTelefono.Enabled = false;
+            this.dtpFecha_Nacimiento.Enabled = false;
 
         }
 
@@ -127,7 +146,7 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
@@ -135,7 +154,7 @@ namespace CapaPresentacion
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
@@ -207,8 +226,8 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
-            this.txtNombre_Paciente.Focus();
+            this.Habilitar();
+            this.cblTipo_Cedula.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -220,7 +239,7 @@ namespace CapaPresentacion
             {
                 string rpta = "";
                 if (string.IsNullOrEmpty(txtNombre_Paciente.Text) || cblTipo_Cedula.SelectedIndex == -1 || cblSexo.SelectedIndex == -1 || cblEstado_Civil.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Cedula.Text)
-                    || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtPeso.Text) || string.IsNullOrEmpty(txtTalla.Text) || string.IsNullOrEmpty(txtOcupacion.Text) || string.IsNullOrEmpty(txtTelefono.Text))
+                    || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtPeso.Text) || string.IsNullOrEmpty(txtTalla.Text) || string.IsNullOrEmpty(txtTelefono.Text))
                 {
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
@@ -476,7 +495,8 @@ namespace CapaPresentacion
                 this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
 
-                this.Habilitar(false);
+                this.Deshabilitar();
+                this.btnEditar.Enabled = true;
             }
             else
             {
@@ -494,7 +514,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.txtIdpaciente.Text = string.Empty;
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
