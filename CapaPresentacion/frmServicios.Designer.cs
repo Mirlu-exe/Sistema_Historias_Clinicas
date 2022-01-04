@@ -138,7 +138,7 @@
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 28);
-            this.btnBuscar.TabIndex = 180;
+            this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -248,7 +248,7 @@
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(176, 22);
-            this.txtBuscar.TabIndex = 175;
+            this.txtBuscar.TabIndex = 5;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnGuardar
@@ -264,7 +264,7 @@
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(165, 55);
-            this.btnGuardar.TabIndex = 173;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -282,7 +282,7 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(165, 55);
-            this.btnCancelar.TabIndex = 172;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -300,7 +300,7 @@
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(165, 55);
-            this.btnNuevo.TabIndex = 171;
+            this.btnNuevo.TabIndex = 4;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -365,7 +365,7 @@
             this.txtCosto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(289, 22);
-            this.txtCosto.TabIndex = 166;
+            this.txtCosto.TabIndex = 1;
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // label2
@@ -388,7 +388,7 @@
             this.txtNombreServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreServicio.Name = "txtNombreServicio";
             this.txtNombreServicio.Size = new System.Drawing.Size(289, 22);
-            this.txtNombreServicio.TabIndex = 164;
+            this.txtNombreServicio.TabIndex = 0;
             // 
             // label1
             // 

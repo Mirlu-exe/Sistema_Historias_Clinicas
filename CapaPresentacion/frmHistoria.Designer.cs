@@ -1193,7 +1193,7 @@
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1783, 975);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Evoluciones";
+            this.tabPage5.Text = "Evolucion";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox3

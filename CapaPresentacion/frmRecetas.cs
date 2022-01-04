@@ -43,7 +43,7 @@ namespace CapaPresentacion
         private void frmRecetas_Load(object sender, EventArgs e)
         {
             
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
 
             //aca uso el left join
@@ -89,19 +89,24 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtidReceta.ReadOnly = !valor;
-            this.txtMedicamento.ReadOnly = !valor;
-            this.txtPresentacion.ReadOnly = !valor;
-            this.txtDosis.ReadOnly = !valor;
+            this.txtidReceta.Enabled = true;
+            this.txtMedicamento.Enabled = true;
+            this.txtPresentacion.Enabled = true;
+            this.txtDosis.Enabled = true;
 
 
+        }
 
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtidReceta.Enabled = false;
+            this.txtMedicamento.Enabled = false;
+            this.txtPresentacion.Enabled = false;
+            this.txtDosis.Enabled = false;
 
-
-
-            //this.btnLimpiar.Enabled = valor;
 
         }
 
@@ -110,14 +115,14 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -130,9 +135,7 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            //this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
-             //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["id"].Visible = false;
         }
 
 
@@ -202,7 +205,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
+            this.Habilitar();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -305,7 +308,7 @@ namespace CapaPresentacion
             {
                 this.IsEditar = true;
                 this.Botones();
-                this.Habilitar(true);
+                this.Habilitar();
             }
             else
             {
@@ -319,7 +322,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)

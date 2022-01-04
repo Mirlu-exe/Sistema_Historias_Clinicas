@@ -47,7 +47,7 @@ namespace CapaPresentacion
         private void frmDiagnostico_Load(object sender, EventArgs e)
         {
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
         }
 
@@ -77,18 +77,23 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtidDiagnostico.ReadOnly = !valor;
-            this.txtCodigoDiag.ReadOnly = !valor;
-            this.txtEnfermedad.ReadOnly = !valor;
-            this.txtTipo.ReadOnly = !valor;
+            this.txtidDiagnostico.Enabled = true;
+            this.txtCodigoDiag.Enabled = true;
+            this.txtEnfermedad.Enabled = true;
+            this.txtTipo.Enabled = true;
 
 
+        }
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtidDiagnostico.Enabled = false;
+            this.txtCodigoDiag.Enabled = false;
+            this.txtEnfermedad.Enabled = false;
+            this.txtTipo.Enabled = false;
 
-
-
-            //this.btnLimpiar.Enabled = valor;
 
         }
 
@@ -97,14 +102,14 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();;
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -118,6 +123,7 @@ namespace CapaPresentacion
         {
 
             this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
         }
 
@@ -185,7 +191,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
+            this.Habilitar();
             this.txtCodigoDiag.Focus();
         }
 
@@ -315,7 +321,7 @@ namespace CapaPresentacion
             {
                 this.IsEditar = true;
                 this.Botones();
-                this.Habilitar(true);
+                this.Habilitar();
             }
             else
             {
@@ -329,7 +335,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(false);
+            this.Deshabilitar();;
         }
 
         private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)

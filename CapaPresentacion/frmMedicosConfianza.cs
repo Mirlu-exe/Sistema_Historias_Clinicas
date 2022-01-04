@@ -47,7 +47,7 @@ namespace CapaPresentacion
         {
 
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
 
         }
@@ -84,16 +84,25 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtNombre_Medico.ReadOnly = !valor;
-            this.txtCorreo.ReadOnly = !valor;
-            this.txtEspecialidad.ReadOnly = !valor;
-            this.txtDireccion.ReadOnly = !valor;
-            this.txtTelefono.ReadOnly = !valor;
+            this.txtNombre_Medico.Enabled = true;
+            this.txtCorreo.Enabled = true;
+            this.txtEspecialidad.Enabled = true;
+            this.txtDireccion.Enabled = true;
+            this.txtTelefono.Enabled = true;
 
+        }
 
-            //this.btnLimpiar.Enabled = valor;
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtNombre_Medico.Enabled = false;
+            this.txtCorreo.Enabled = false;
+            this.txtEspecialidad.Enabled = false;
+            this.txtDireccion.Enabled = false;
+            this.txtTelefono.Enabled = false;
+
 
         }
 
@@ -102,14 +111,14 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -121,8 +130,9 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            //this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["id"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
+            this.dataListado.Columns["id_referencia"].Visible = false;
 
         }
 
@@ -177,7 +187,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
+            this.Habilitar();
             this.txtNombre_Medico.Focus();
         }
 
@@ -328,7 +338,7 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.IsNuevo = false;
                 this.Botones();
-                //this.Habilitar(true);
+                //this.Habilitar();
             }
             else
             {
@@ -397,7 +407,7 @@ namespace CapaPresentacion
             this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
 
-            this.Habilitar(false);
+            this.Deshabilitar();
 
 
         }
@@ -409,7 +419,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.txtNombre_Medico.Text = string.Empty;
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -661,17 +671,7 @@ namespace CapaPresentacion
 
         private void txtCorreo_Leave(object sender, EventArgs e)
         {
-            if (validarEmail(this.txtCorreo.Text))
-            {
 
-            }
-            else
-            {
-                MessageBox.Show("Direccion de correo electronico no valido, el correo debe cumplir con un formato: nombre@dominio.com , " + "debe escribir un correo valido.", "Validacion de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.txtCorreo.SelectAll();
-                this.txtCorreo.Focus();
-
-            }
         }
 
 
@@ -727,7 +727,7 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.IsNuevo = false;
                 this.Botones();
-                //this.Habilitar(true);
+                //this.Habilitar();
             }
             else
             {

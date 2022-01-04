@@ -169,6 +169,7 @@ namespace CapaPresentacion
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["password"].Visible = false;
             this.dataListado.Columns["salt"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
         }
 

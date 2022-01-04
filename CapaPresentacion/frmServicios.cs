@@ -75,16 +75,10 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar(bool valor)
         {
-            this.txtidServicio.ReadOnly = !valor;
-            this.txtNombreServicio.ReadOnly = !valor;
-            this.txtCosto.ReadOnly = !valor;
+            this.txtidServicio.Enabled = valor;
+            this.txtNombreServicio.Enabled = valor;
+            this.txtCosto.Enabled= valor;
 
-
-
-
-
-
-            //this.btnLimpiar.Enabled = valor;
 
         }
 
@@ -113,8 +107,9 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            //this.dataListado.Columns[0].Visible = false;
+            this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
         }
 

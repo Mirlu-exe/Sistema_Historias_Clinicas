@@ -51,9 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtidDiagnostico = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtEnfermedad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
             this.lblCampoObligatorio = new System.Windows.Forms.Label();
@@ -61,6 +59,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TxtEstado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtEnfermedad = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtCodigoDiag = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
@@ -338,17 +338,6 @@
             this.label4.Text = "ID";
             this.label4.Visible = false;
             // 
-            // txtTipo
-            // 
-            this.txtTipo.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTipo.Location = new System.Drawing.Point(180, 393);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(362, 22);
-            this.txtTipo.TabIndex = 149;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -360,18 +349,6 @@
             this.label2.Size = new System.Drawing.Size(58, 32);
             this.label2.TabIndex = 148;
             this.label2.Text = "Tipo";
-            // 
-            // txtEnfermedad
-            // 
-            this.txtEnfermedad.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEnfermedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnfermedad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEnfermedad.Location = new System.Drawing.Point(180, 268);
-            this.txtEnfermedad.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEnfermedad.Multiline = true;
-            this.txtEnfermedad.Name = "txtEnfermedad";
-            this.txtEnfermedad.Size = new System.Drawing.Size(362, 48);
-            this.txtEnfermedad.TabIndex = 147;
             // 
             // label1
             // 
@@ -464,15 +441,35 @@
             this.label7.Text = "Buscar según:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // txtEnfermedad
+            // 
+            this.txtEnfermedad.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEnfermedad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEnfermedad.Location = new System.Drawing.Point(180, 267);
+            this.txtEnfermedad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEnfermedad.Name = "txtEnfermedad";
+            this.txtEnfermedad.Size = new System.Drawing.Size(362, 22);
+            this.txtEnfermedad.TabIndex = 185;
+            // 
+            // txtTipo
+            // 
+            this.txtTipo.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTipo.Location = new System.Drawing.Point(180, 392);
+            this.txtTipo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(362, 22);
+            this.txtTipo.TabIndex = 186;
+            // 
             // txtCodigoDiag
             // 
             this.txtCodigoDiag.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodigoDiag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodigoDiag.Location = new System.Drawing.Point(204, 176);
+            this.txtCodigoDiag.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoDiag.Location = new System.Drawing.Point(180, 186);
             this.txtCodigoDiag.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoDiag.Name = "txtCodigoDiag";
-            this.txtCodigoDiag.Size = new System.Drawing.Size(183, 22);
-            this.txtCodigoDiag.TabIndex = 153;
+            this.txtCodigoDiag.Size = new System.Drawing.Size(189, 22);
+            this.txtCodigoDiag.TabIndex = 187;
             // 
             // frmDiagnostico
             // 
@@ -480,6 +477,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1695, 949);
+            this.Controls.Add(this.txtCodigoDiag);
+            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.txtEnfermedad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TxtEstado);
             this.Controls.Add(this.label5);
@@ -496,13 +496,10 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtCodigoDiag);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtidDiagnostico);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtEnfermedad);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -537,9 +534,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtidDiagnostico;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEnfermedad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Label lblCampoObligatorio;
@@ -547,6 +542,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtEstado;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtEnfermedad;
+        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtCodigoDiag;
     }
 }
