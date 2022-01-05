@@ -599,11 +599,10 @@ namespace CapaPresentacion
                 this.txtHistoriaPersonal.Text = Convert.ToString(HistoriaDelPac.Rows[0][6]);
                 this.txtTratamiento_Actual.Text = Convert.ToString(HistoriaDelPac.Rows[0][7]);
                 this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][8]);
-                this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
-                this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
-                this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
-                this.txtParaclinicos.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
-                this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][13]);
+                this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
+                this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
+                this.txtParaclinicos.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
+                this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
                 this.cblTipo_Sangre.Text = Convert.ToString(HistoriaDelPac.Rows[0][16]);
 
                 string diagnosticos_cadena = Convert.ToString(HistoriaDelPac.Rows[0][17]);
@@ -1794,6 +1793,8 @@ namespace CapaPresentacion
 
                 Cargar_Todo_Historia();
 
+                CargarEvolucion();
+
             }
         }
 
@@ -1819,6 +1820,9 @@ namespace CapaPresentacion
             if (id_del_paciente_a_cargar > 0)
             {
                 this.lbl_idhistoria.Text = id_del_paciente_a_cargar.ToString();
+
+                //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
+                this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
 
                 Cargar_Historia_En_Campos();
 
@@ -3193,35 +3197,44 @@ namespace CapaPresentacion
             if (e.KeyChar == (char)13)
             {
 
-                int id_del_paciente_a_cargar_evol;
-
-                id_del_paciente_a_cargar_evol = Buscar_idPac_por_cedula_evol();
-
-                if (id_del_paciente_a_cargar_evol > 0)
-                {
-                    this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
-
-
-                    //para buscar el id de la historia correspondiente a este paciente.
-                    int id_historia_del_pac_frmEvol;
-
-                    id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
-
-                    this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
-
-
-                    this.MostrarEvolucionesDelPac();
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Este paciente no esta registrado");
-                }
+                CargarEvolucion();
 
             }
         }
 
+
+        private void CargarEvolucion()
+        {
+
+            //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
+            this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
+
+            int id_del_paciente_a_cargar_evol;
+
+            id_del_paciente_a_cargar_evol = Buscar_idPac_por_cedula_evol();
+
+            if (id_del_paciente_a_cargar_evol > 0)
+            {
+                this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
+
+
+                //para buscar el id de la historia correspondiente a este paciente.
+                int id_historia_del_pac_frmEvol;
+
+                id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
+
+                this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
+
+
+                this.MostrarEvolucionesDelPac();
+
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
+        }
 
 
         private void txtGuardarEvol_Click(object sender, EventArgs e)
@@ -3398,6 +3411,11 @@ namespace CapaPresentacion
             frm.Show();
 
             MessageBox.Show("jsdsd");
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
