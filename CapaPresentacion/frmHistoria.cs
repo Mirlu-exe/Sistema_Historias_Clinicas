@@ -591,7 +591,10 @@ namespace CapaPresentacion
 
                 //meter los row/column de esa datatable en cada campo del form
 
+
+                
                 this.lbl_idhistoria.Text = Convert.ToString(HistoriaDelPac.Rows[0][0]);
+                this.lbl_id_pac_frmHistoria.Text = Convert.ToString(HistoriaDelPac.Rows[0][1]);
                 this.dtpFechaConsulta.Value = Convert.ToDateTime(HistoriaDelPac.Rows[0][2]);
                 this.txtMotivoConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
                 this.txtEnfermedadActual.Text = Convert.ToString(HistoriaDelPac.Rows[0][4]);
@@ -1817,6 +1820,10 @@ namespace CapaPresentacion
 
             id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
 
+            //poner el id del paciente
+            //this.lbl_id_pac_frmHistoria.Text = id_del_paciente_a_cargar.ToString();
+
+
             if (id_del_paciente_a_cargar > 0)
             {
                 this.lbl_idhistoria.Text = id_del_paciente_a_cargar.ToString();
@@ -2061,12 +2068,12 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
-                    string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
-                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
+                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) ||
+                    string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
+                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
 
                 {
-                    MensajeError("No se pueden dejar campos vacios");
+                    MensajeError("No se puede dejar campos importantes en blanco, porfavor verifique");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
                     errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
@@ -2115,19 +2122,27 @@ namespace CapaPresentacion
                     {
 
 
-                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
-                        //{
 
-                        //    rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtRazonConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
-                        //this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtRayos_X.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, this.txtDiagnosticos.Text, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
+                        {
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
+
+                            var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
+                            string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
+
+                            rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), Convert.ToInt32(this.lbl_id_pac_frmHistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                            this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
 
 
+                        }
+                        else
+                        {
 
-                        //}
-                        //else
-                        //{
-                        //    MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
-                        //}
+
+                            MensajeError("No se puede editar un registro que no existe. Porfavor verifique los datos");
+
+                        }
 
 
                     }
@@ -2207,11 +2222,12 @@ namespace CapaPresentacion
         private void LimpiarEvol()
         {
 
-            this.txtNumero_Cedula_Evol.Text = string.Empty;
-            this.txtNombre_Evol.Text = string.Empty;
-            this.txtSexoEvol.Text = string.Empty;
-            this.txtEdadSuc.Text = string.Empty;
+            //this.txtNumero_Cedula_Evol.Text = string.Empty;
+            //this.txtNombre_Evol.Text = string.Empty;
+            //this.txtSexoEvol.Text = string.Empty;
+            //this.txtEdadSuc.Text = string.Empty;
 
+            this.txtMotivoConsultaEvol.Text = string.Empty;
             this.txtObservacionesEvol.Text = string.Empty;
             this.txtProxConsultaEvol.Text = string.Empty;
             this.txtExamenFisicoEvol.Text = string.Empty;
@@ -3013,7 +3029,7 @@ namespace CapaPresentacion
             //lblCedulaPaciente_evol.Text = this.lbl_ci_pac.Text;
 
             //para llevar los datos de la Historia a la pestaña de Lista Evolucion
-            lbl_lista_evol_id_historia.Text = this.label_hstra.Text;
+            //lbl_lista_evol_id_historia.Text = this.label_hstra.Text;
             //lbl_lista_evol_ci.Text = this.lbl_ci_pac.Text;
             //lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
 
@@ -3090,13 +3106,26 @@ namespace CapaPresentacion
 
 
 
-            //OcultarColumnas();
+            OcultarColumnas_Evoluciones();
 
 
             //lblEvolucionesActivas.Text = "Total de Evoluciones de este paciente : " + Convert.ToString(dgvEvol.Rows.Count);
         }
 
+        //Método para ocultar columnas de el datagrid Evoluciones
+        private void OcultarColumnas_Evoluciones()
+        {
 
+            this.dgv_Lista_Evoluciones_de_pac.Columns["id"].Visible = false;
+            this.dgv_Lista_Evoluciones_de_pac.Columns["idhistoria"].Visible = false;
+
+            this.dgv_Lista_Evoluciones_de_pac.Columns["plan_estudio"].Visible = false;
+            this.dgv_Lista_Evoluciones_de_pac.Columns["plan_terapeutico"].Visible = false;
+
+            this.dgv_Lista_Evoluciones_de_pac.Columns["estado"].Visible = false;
+            //this.dgv_Lista_Evoluciones_de_pac.Columns["is_dead"].Visible = false;
+
+        }
 
         private void btnGuardar_evol_Click(object sender, EventArgs e)
         {
@@ -3244,11 +3273,11 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNombre_Evol.Text) || string.IsNullOrEmpty(this.txtNombre_Evol.Text) || string.IsNullOrEmpty(this.txtSexoEvol.Text) ||
-                    string.IsNullOrEmpty(this.txtMotivoConsultaEvol.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
+                if (string.IsNullOrEmpty(this.txtNombre_Evol.Text) ||
+                    string.IsNullOrEmpty(this.txtProxConsultaEvol.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
 
                 {
-                    MensajeError("No se pueden dejar campos vacios");
+                    MensajeError("No se pueden dejar los campos obligatorios vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
                     errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
@@ -3329,9 +3358,12 @@ namespace CapaPresentacion
                     this.IsEditar_evol = false;
                     this.BotonesEvol();
                     this.LimpiarEvol();
-                   
+
                     this.lbl_id_evol.Text = "";
-                    this.lbl_idhistoria_frmEvol.Text = "";
+                    //this.lbl_idhistoria_frmEvol.Text = "";
+
+                    CargarEvolucion();
+
 
                 }
             }
@@ -3414,6 +3446,45 @@ namespace CapaPresentacion
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSexo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkAnular_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                this.dgv_lista_evol.Columns[0].Visible = true;
+                this.btnAnular_All_Evol.Enabled = true;
+            }
+            else
+            {
+                this.dgv_lista_evol.Columns[0].Visible = false;
+                this.btnAnular_All_Evol.Enabled = false;
+            }
+        }
+
+        private void txtEdadSuc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_Lista_Evoluciones_de_pac_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
