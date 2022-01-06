@@ -3488,5 +3488,43 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void label61_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.label61.Text == "▼")
+            {
+                //aca se minimiza el datadrid y los campos de busqueda
+                this.groupBox5.Height = 30;
+                this.label22.Visible = false;
+                this.cblBusqueda_evol_pac.Visible = false;
+                this.txtBuscar_evol_pac.Visible = false;
+                this.dgv_Lista_Evoluciones_de_pac.Visible = false;
+                this.label60.Visible = false;
+                this.label61.Text = "►";
+
+
+            }
+
+            else if (this.label61.Text == "►")
+            {
+                //aca se maximiza el datadrid y los campos de busqueda
+                this.groupBox5.Height = 188;
+                this.label22.Visible = true;
+                this.cblBusqueda_evol_pac.Visible = true;
+                this.txtBuscar_evol_pac.Visible = true;
+                this.dgv_Lista_Evoluciones_de_pac.Visible = true;
+                this.label60.Visible = true;
+                this.label61.Text = "▼";
+
+            }
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
