@@ -82,12 +82,14 @@ namespace CapaPresentacion
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["idservicio"].Visible = false;
             this.dataListado.Columns["estado"].Visible = false;
+            this.dataListado.Columns["Anular"].Visible = false;
 
             this.dgv_citashoy.Columns["idcita"].Visible = false;
             this.dgv_citashoy.Columns["idpaciente"].Visible = false;
             this.dgv_citashoy.Columns["idusuario"].Visible = false;
             this.dgv_citashoy.Columns["idservicio"].Visible = false;
             this.dgv_citashoy.Columns["estado"].Visible = false;
+            //this.dgv_citashoy.Columns["anular"].Visible = false;
 
         }
 
@@ -405,7 +407,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d5", "Activo");
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
                         SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida() );
-                        SqlCmd.Parameters.AddWithValue("@d8", this.timePicker.Value);
+                        SqlCmd.Parameters.AddWithValue("@d8", this.timePicker.Text);
 
 
 
@@ -572,7 +574,7 @@ namespace CapaPresentacion
             this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
 
             this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
-            this.timePicker.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["hora"].Value);
+            this.timePicker.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["hora"].Value.ToString());
 
             bool isSuspended = Convert.ToBoolean(this.dataListado.CurrentRow.Cells["suspendida"].Value);
 
@@ -677,7 +679,7 @@ namespace CapaPresentacion
 
 
                             //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
-                            SqlCmd.Parameters.AddWithValue("@d1", "Inactivo");
+                            SqlCmd.Parameters.AddWithValue("@d1", "Anulado");
                             SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo));
 
 
@@ -697,6 +699,7 @@ namespace CapaPresentacion
                             if (rpta.Equals("OK"))
                             {
                                 this.MensajeOk("Se Anulo Correctamente la cita");
+                                this.RevisarCitasHoy();
                                 this.OperacionAnularCita();
                             }
                             else
@@ -948,7 +951,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) +"' AND Cita.estado = 'Activo' ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.hora, Cita.idservicio, Servicio.nombre as Servicio, Cita.suspendida, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) +"' AND Cita.estado = 'Activo' ", conDataBase);
 
             try
             {
@@ -1245,6 +1248,11 @@ namespace CapaPresentacion
             }
 
            
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

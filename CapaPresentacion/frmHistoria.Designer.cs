@@ -208,6 +208,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label62 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2273,6 +2274,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label62);
             this.tabPage6.Controls.Add(this.lblhasta);
             this.tabPage6.Controls.Add(this.lbldesde);
             this.tabPage6.Controls.Add(this.DtpFecha2);
@@ -2500,6 +2502,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label62.Location = new System.Drawing.Point(86, 441);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(301, 32);
+            this.label62.TabIndex = 205;
+            this.label62.Text = "Fechas para generar reporte";
+            // 
             // frmHistoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2715,5 +2727,6 @@
         private System.Windows.Forms.TextBox txtBuscar_evol_pac;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label62;
     }
 }
