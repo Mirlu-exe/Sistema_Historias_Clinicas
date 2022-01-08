@@ -423,7 +423,7 @@ namespace CapaPresentacion
 
 
                     }
-                    else
+                    else // ESTA ES LA FUNCION EDITAR
                     {
 
                         SqlConnection SqlCon = new SqlConnection();
@@ -436,7 +436,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, estado = @d5 where idcita=@d6";
+                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, CostoT = @d5, suspendida = @d6 , estado = @d7, hora = @d8 where idcita=@d9";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -447,8 +447,14 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", "Activo");
-                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToInt32(this.txtCodCita.Text));
+
+                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDouble(this.txtCostoBs.Text)); 
+
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToBoolean(this.IsCitaSuspendida() ));
+                        SqlCmd.Parameters.AddWithValue("@d7", "Activo");
+
+                        SqlCmd.Parameters.AddWithValue("@d8", timePicker.Text);
+                        SqlCmd.Parameters.AddWithValue("@d9", Convert.ToInt32(this.txtCodCita.Text));
 
 
 
@@ -888,7 +894,7 @@ namespace CapaPresentacion
             {
                 DtResultado = null;
 
-                MessageBox.Show("NO FURULA " + ex.ToString() + "");
+                MessageBox.Show("Error " + ex.ToString() + "");
             }
             return DtResultado;
 
@@ -1182,6 +1188,25 @@ namespace CapaPresentacion
         private void btnActualizarTasa_Click(object sender, EventArgs e)
         {
 
+            if (!(this.txtCosto.Text == ""))
+            {
+
+
+                double tasa = Convert.ToDouble(this.txtTasa.Text);
+
+
+
+                double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+
+
+
+                double montoVEF = montoUSD * tasa;
+
+                this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
+
+
+            }
 
 
 
@@ -1228,31 +1253,23 @@ namespace CapaPresentacion
         private void txtTasa_TextChanged(object sender, EventArgs e)
         {
 
-            if ( !(this.txtCosto.Text == "") )
-            {
-
-                double tasa = Convert.ToDouble(this.txtTasa.Text);
-
-                MessageBox.Show("la tasa es:" + tasa + "");
-
-                double montoUSD = Convert.ToDouble(this.txtCosto.Text);
-
-                MessageBox.Show("el monto usd es:" + montoUSD + "");
-
-                double montoVEF = montoUSD * tasa;
-
-                this.txtCostoBs.Text = Convert.ToString(montoVEF);
-
-                MessageBox.Show("el total es:" + tasa + "");
-
-            }
-
+          
+          
            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtTasa_TextChanged_1(object sender, EventArgs e)
+        {
+            
+
+           
+
+            
         }
     }
 }
