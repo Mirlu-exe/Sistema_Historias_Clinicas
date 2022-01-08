@@ -2126,8 +2126,8 @@ namespace CapaPresentacion
 
 
 
-                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
-                        {
+                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
+                        //{
                             int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
                             int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
@@ -2138,14 +2138,14 @@ namespace CapaPresentacion
                             this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
 
 
-                        }
-                        else
-                        {
+                        //}
+                        //else
+                        //{
 
 
-                            MensajeError("No se puede editar un registro que no existe. Porfavor verifique los datos");
+                        //    MensajeError("No se puede editar un registro que no existe. Porfavor verifique los datos");
 
-                        }
+                        //}
 
 
                     }

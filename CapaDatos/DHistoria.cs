@@ -296,7 +296,8 @@ namespace CapaDatos
                 SqlParameter ParIdhistoria = new SqlParameter();
                 ParIdhistoria.ParameterName = "@id_historia";
                 ParIdhistoria.SqlDbType = SqlDbType.Int;
-                ParIdhistoria.Direction = ParameterDirection.Output;
+                ParIdhistoria.Size = 50;
+                ParIdhistoria.Value = Historia.Id_historia;
                 SqlCmd.Parameters.Add(ParIdhistoria);
 
                 SqlParameter ParIdpaciente = new SqlParameter();
@@ -338,7 +339,7 @@ namespace CapaDatos
                 Parantecedentes_personales.ParameterName = "@antecedentes_personales";
                 Parantecedentes_personales.SqlDbType = SqlDbType.VarChar;
                 Parantecedentes_personales.Size = 100;
-                Parantecedentes_personales.Value = Historia.Antecedentes_familiares;
+                Parantecedentes_personales.Value = Historia.Antecedentes_personales;
                 SqlCmd.Parameters.Add(Parantecedentes_personales);
 
 
