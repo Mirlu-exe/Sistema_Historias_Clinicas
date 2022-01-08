@@ -233,6 +233,7 @@ namespace CapaPresentacion
             this.txtCostoBs.Text = string.Empty;
             this.lbl_usuario.Text = string.Empty;
             this.cmbServicios.SelectedIndex = -1;
+            this.rbActiva.Checked = true;
 
 
 
@@ -284,7 +285,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Cita.suspendida, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
          
 
@@ -349,7 +350,7 @@ namespace CapaPresentacion
 
             UsuarioResponsable();
 
-            this.txtEstadoCita.Text = "Activo";
+            //this.txtEstadoCita.Text = "Activa";
 
 
 
@@ -388,7 +389,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT) values (@d1,@d2,@d3,@d4,@d5, @d6)";
+                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT, suspendida) values (@d1,@d2,@d3,@d4,@d5, @d6, @d7)";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -397,10 +398,10 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d1", Convert.ToInt32(this.txtCodigoPaciente.Text));
                         SqlCmd.Parameters.AddWithValue("@d2", id_usuario_que_lo_registro);
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
-
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", "Activo");
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
+                        SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida() );
 
 
 
@@ -445,7 +446,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", "Activo");
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToInt32(this.txtCodCita.Text));
 
 
@@ -485,7 +486,7 @@ namespace CapaPresentacion
                     this.Mostrar();
                     this.RevisarCitasHoy();
 
-                    this.txtEstadoCita.Text = string.Empty;
+                   // this.txtEstadoCita.Text = string.Empty;
 
 
                 }
@@ -524,7 +525,7 @@ namespace CapaPresentacion
             groupBox1.Enabled = false;
             groupBox2.Enabled = false;
 
-            this.txtEstadoCita.Text = string.Empty;
+            //this.txtEstadoCita.Text = string.Empty;
 
         }
 
@@ -573,8 +574,18 @@ namespace CapaPresentacion
 
             this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
 
-            this.txtEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+            //this.txtEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
+            bool isSuspended = Convert.ToBoolean(this.dataListado.CurrentRow.Cells["suspendida"].Value);
+
+            if (isSuspended == true)
+            {
+                this.rbSuspendida.Checked = true;
+            }
+            else 
+            {
+                this.rbActiva.Checked = true;
+            }
 
         }
 
@@ -749,10 +760,28 @@ namespace CapaPresentacion
         }
 
 
+        private bool IsCitaSuspendida()
+        {
+
+            bool is_cita_suspendida = false;
+
+            if (this.rbActiva.Checked)
+            {
+                is_cita_suspendida = false;
+            }
+            else if (this.rbSuspendida.Checked)
+            {
+                is_cita_suspendida = true;
+            }
+
+            return is_cita_suspendida;
+        }
+
+
 
         private void OperacionEditarCita()
         {
-            txtEstadoCita.Enabled = false;
+            //txtEstadoCita.Enabled = false;
 
             // Operacion Anular
             string rpta2 = "";

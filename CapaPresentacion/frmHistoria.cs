@@ -1796,6 +1796,9 @@ namespace CapaPresentacion
 
                 Cargar_Todo_Historia();
 
+                //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
+                this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
+
                 CargarEvolucion();
 
             }
@@ -3235,8 +3238,7 @@ namespace CapaPresentacion
         private void CargarEvolucion()
         {
 
-            //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
-            this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
+            
 
             int id_del_paciente_a_cargar_evol;
 
