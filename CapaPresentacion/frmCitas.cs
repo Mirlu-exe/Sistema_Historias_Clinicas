@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 using CapaDatos;
 using CapaNegocio;
 
@@ -33,14 +34,16 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la cita");
 
             fillComboServicios();
-            
 
+            //timePicker.Format = DateTimePickerFormat.Custom;
+            //timePicker.CustomFormat = "hh':'mm tt";
 
             this.btnAnular.Enabled = false;
         }
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+
 
             //traer la tasa del dia guardado en la BD
             traerTasaDelDia();
@@ -285,7 +288,7 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Cita.suspendida, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.hora, Servicio.nombre as Servicio, Cita.idservicio,Cita.suspendida, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
          
 
@@ -389,7 +392,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT, suspendida) values (@d1,@d2,@d3,@d4,@d5, @d6, @d7)";
+                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT, suspendida, hora) values (@d1,@d2,@d3,@d4,@d5, @d6, @d7, @d8)";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -402,6 +405,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d5", "Activo");
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
                         SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida() );
+                        SqlCmd.Parameters.AddWithValue("@d8", this.timePicker.Value);
 
 
 
@@ -409,11 +413,6 @@ namespace CapaPresentacion
                         //Ejecutamos nuestro comando
 
                         rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-
-
-
 
 
 
@@ -573,8 +572,7 @@ namespace CapaPresentacion
             this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
 
             this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
-
-            //this.txtEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+            this.timePicker.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["hora"].Value);
 
             bool isSuspended = Convert.ToBoolean(this.dataListado.CurrentRow.Cells["suspendida"].Value);
 
