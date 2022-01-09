@@ -29,7 +29,7 @@ namespace CapaPresentacion
         private void frmControlEstadistico_Load(object sender, EventArgs e)
         {
             this.CargarCamposParametros();
-            this.Habilitar();
+            this.Deshabilitar();
             this.Botones();
 
             lblFechaHora.Text = DateTime.Now.ToString();
@@ -149,7 +149,7 @@ namespace CapaPresentacion
 
         private void EfectoFechas()
         {
-            if (this.cbRangoFecha.SelectedIndex == 4)
+            if (this.cbRangoFecha.SelectedIndex == 5)
             {
                 this.dpDesde.Visible = true;
                 this.dpHasta.Visible = true;
@@ -192,11 +192,14 @@ namespace CapaPresentacion
             if (this.lbFiltroTipo.SelectedItems[0].ToString() == "TODOS")
                 cantidadElegidos++;
 
-            if (cantidadElegidos > 1 && rbGraficoTorta.Checked)
-            {
-                MessageBox.Show("el grafico de tortas se debe de utilizar para 1 tipo de enfermedad o tipo de enfermedad");
-                return;
-            }
+            //if (cantidadElegidos > 1 && rbGraficoTorta.Checked)
+            //{
+
+            //        MessageBox.Show("el grafico de tortas se debe de utilizar para 1 tipo de enfermedad o tipo de enfermedad");
+                
+
+            //    return;
+            //}
 
             InhabilitarControlesGraficos();
 
@@ -250,7 +253,13 @@ namespace CapaPresentacion
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
                                 break;
-                            case 4: //Rango específico
+                            case 4: //Este año
+                                string fecha_inicio_año = "01/01/" + Convert.ToString(DateTime.Now.Year) +"";
+                                fIni = Convert.ToDateTime(fecha_inicio_año);
+                                fFin = DateTime.Now;
+                                parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+                                break;
+                            case 5: //Rango específico
                                 fIni = dpDesde.Value;
                                 fFin = dpHasta.Value;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
@@ -837,22 +846,34 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar()
         {
-            //this.rbPaciente.Enabled = true;
-            //this.rbHistoriaMedica.Enabled = true;
-            //this.rbUsuarios.Enabled = true;
+            this.cbTipoGrafico.Enabled = true;
+            this.lbFiltroTipo.Enabled = true;
+            this.cbCampo.Enabled = true;
+            this.cbRangoFecha.Enabled = true;
+            this.dpDesde.Enabled = true;
+            this.dpHasta.Enabled = true;
+            this.btnCrearGrafico.Enabled = true;
+            this.groupClaseGrafico.Enabled = true;
             this.cbCampo.Enabled = true;
             this.lblFechaHora.Enabled = true;
+            this.btnExportar.Enabled = true;
 
         }
 
         //Deshabilitar los controles del formulario
         private void Deshabilitar()
         {
-            //this.rbPaciente.Enabled = false;
-            //this.rbHistoriaMedica.Enabled = false;
-            //this.rbUsuarios.Enabled = false;
+            this.cbTipoGrafico.Enabled = false;
+            this.lbFiltroTipo.Enabled = false;
+            this.cbCampo.Enabled = false;
+            this.cbRangoFecha.Enabled = false;
+            this.dpDesde.Enabled = false;
+            this.dpHasta.Enabled = false;
+            this.btnCrearGrafico.Enabled = false;
+            this.groupClaseGrafico.Enabled = false;
             this.cbCampo.Enabled = false;
             this.lblFechaHora.Enabled = false;
+            this.btnExportar.Enabled = false;
 
         }
 
@@ -1022,5 +1043,9 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

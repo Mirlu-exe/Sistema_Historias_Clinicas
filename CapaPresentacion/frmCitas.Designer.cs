@@ -743,7 +743,7 @@
             // rbSuspendida
             // 
             this.rbSuspendida.AutoSize = true;
-            this.rbSuspendida.Location = new System.Drawing.Point(851, 157);
+            this.rbSuspendida.Location = new System.Drawing.Point(877, 157);
             this.rbSuspendida.Name = "rbSuspendida";
             this.rbSuspendida.Size = new System.Drawing.Size(104, 21);
             this.rbSuspendida.TabIndex = 200;
@@ -754,7 +754,7 @@
             // 
             this.rbActiva.AutoSize = true;
             this.rbActiva.Checked = true;
-            this.rbActiva.Location = new System.Drawing.Point(778, 157);
+            this.rbActiva.Location = new System.Drawing.Point(796, 156);
             this.rbActiva.Name = "rbActiva";
             this.rbActiva.Size = new System.Drawing.Size(67, 21);
             this.rbActiva.TabIndex = 199;

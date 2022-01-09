@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelContenedor = new System.Windows.Forms.Panel();
@@ -53,14 +53,11 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.lblFechaHora = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCrearGrafico = new System.Windows.Forms.Button();
             this.cbCampo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAnular = new System.Windows.Forms.Button();
-            this.chkAnular = new System.Windows.Forms.CheckBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -78,21 +75,20 @@
             // 
             // myChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.myChart.ChartAreas.Add(chartArea1);
-            this.myChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.myChart.Legends.Add(legend1);
+            chartArea6.Name = "ChartArea1";
+            this.myChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.myChart.Legends.Add(legend6);
             this.myChart.Location = new System.Drawing.Point(0, 0);
             this.myChart.Margin = new System.Windows.Forms.Padding(4);
             this.myChart.Name = "myChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Serie1";
-            series1.XValueMember = "sexo, edad";
-            series1.YValueMembers = "10, 44";
-            series1.YValuesPerPoint = 6;
-            this.myChart.Series.Add(series1);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Serie1";
+            series6.XValueMember = "sexo, edad";
+            series6.YValueMembers = "10, 44";
+            series6.YValuesPerPoint = 6;
+            this.myChart.Series.Add(series6);
             this.myChart.Size = new System.Drawing.Size(1003, 572);
             this.myChart.TabIndex = 0;
             this.myChart.Text = "chart1";
@@ -101,7 +97,7 @@
             // 
             this.panelContenedor.Controls.Add(this.lblDataNotFound);
             this.panelContenedor.Controls.Add(this.myChart);
-            this.panelContenedor.Location = new System.Drawing.Point(28, 173);
+            this.panelContenedor.Location = new System.Drawing.Point(638, 163);
             this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1003, 572);
@@ -109,7 +105,7 @@
             // 
             // lblDataNotFound
             // 
-            this.lblDataNotFound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDataNotFound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataNotFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataNotFound.Location = new System.Drawing.Point(0, 0);
             this.lblDataNotFound.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -123,7 +119,7 @@
             // rbGraficoTorta
             // 
             this.rbGraficoTorta.AutoSize = true;
-            this.rbGraficoTorta.Location = new System.Drawing.Point(908, 25);
+            this.rbGraficoTorta.Location = new System.Drawing.Point(8, 83);
             this.rbGraficoTorta.Margin = new System.Windows.Forms.Padding(4);
             this.rbGraficoTorta.Name = "rbGraficoTorta";
             this.rbGraficoTorta.Size = new System.Drawing.Size(63, 21);
@@ -136,7 +132,7 @@
             // rbGraficoBarrasApiladas
             // 
             this.rbGraficoBarrasApiladas.AutoSize = true;
-            this.rbGraficoBarrasApiladas.Location = new System.Drawing.Point(672, 25);
+            this.rbGraficoBarrasApiladas.Location = new System.Drawing.Point(165, 54);
             this.rbGraficoBarrasApiladas.Margin = new System.Windows.Forms.Padding(4);
             this.rbGraficoBarrasApiladas.Name = "rbGraficoBarrasApiladas";
             this.rbGraficoBarrasApiladas.Size = new System.Drawing.Size(129, 21);
@@ -149,7 +145,7 @@
             // rbGraficoBarras
             // 
             this.rbGraficoBarras.AutoSize = true;
-            this.rbGraficoBarras.Location = new System.Drawing.Point(480, 25);
+            this.rbGraficoBarras.Location = new System.Drawing.Point(165, 23);
             this.rbGraficoBarras.Margin = new System.Windows.Forms.Padding(4);
             this.rbGraficoBarras.Name = "rbGraficoBarras";
             this.rbGraficoBarras.Size = new System.Drawing.Size(71, 21);
@@ -162,7 +158,7 @@
             // rbGraficoColumnasApiladas
             // 
             this.rbGraficoColumnasApiladas.AutoSize = true;
-            this.rbGraficoColumnasApiladas.Location = new System.Drawing.Point(207, 25);
+            this.rbGraficoColumnasApiladas.Location = new System.Drawing.Point(8, 54);
             this.rbGraficoColumnasApiladas.Margin = new System.Windows.Forms.Padding(4);
             this.rbGraficoColumnasApiladas.Name = "rbGraficoColumnasApiladas";
             this.rbGraficoColumnasApiladas.Size = new System.Drawing.Size(149, 21);
@@ -175,7 +171,7 @@
             // rbGraficoColumnas
             // 
             this.rbGraficoColumnas.AutoSize = true;
-            this.rbGraficoColumnas.Location = new System.Drawing.Point(47, 25);
+            this.rbGraficoColumnas.Location = new System.Drawing.Point(8, 25);
             this.rbGraficoColumnas.Margin = new System.Windows.Forms.Padding(4);
             this.rbGraficoColumnas.Name = "rbGraficoColumnas";
             this.rbGraficoColumnas.Size = new System.Drawing.Size(91, 21);
@@ -192,30 +188,30 @@
             this.groupClaseGrafico.Controls.Add(this.rbGraficoBarras);
             this.groupClaseGrafico.Controls.Add(this.rbGraficoColumnasApiladas);
             this.groupClaseGrafico.Controls.Add(this.rbGraficoColumnas);
-            this.groupClaseGrafico.Location = new System.Drawing.Point(28, 753);
+            this.groupClaseGrafico.Location = new System.Drawing.Point(65, 652);
             this.groupClaseGrafico.Margin = new System.Windows.Forms.Padding(4);
             this.groupClaseGrafico.Name = "groupClaseGrafico";
             this.groupClaseGrafico.Padding = new System.Windows.Forms.Padding(4);
-            this.groupClaseGrafico.Size = new System.Drawing.Size(1003, 70);
+            this.groupClaseGrafico.Size = new System.Drawing.Size(323, 112);
             this.groupClaseGrafico.TabIndex = 251;
             this.groupClaseGrafico.TabStop = false;
             this.groupClaseGrafico.Text = "Estilo de Grafico";
             // 
             // dpHasta
             // 
-            this.dpHasta.Location = new System.Drawing.Point(1108, 624);
+            this.dpHasta.Location = new System.Drawing.Point(65, 601);
             this.dpHasta.Margin = new System.Windows.Forms.Padding(4);
             this.dpHasta.Name = "dpHasta";
-            this.dpHasta.Size = new System.Drawing.Size(263, 22);
+            this.dpHasta.Size = new System.Drawing.Size(322, 22);
             this.dpHasta.TabIndex = 250;
             this.dpHasta.Visible = false;
             // 
             // dpDesde
             // 
-            this.dpDesde.Location = new System.Drawing.Point(1108, 594);
+            this.dpDesde.Location = new System.Drawing.Point(64, 571);
             this.dpDesde.Margin = new System.Windows.Forms.Padding(4);
             this.dpDesde.Name = "dpDesde";
-            this.dpDesde.Size = new System.Drawing.Size(263, 22);
+            this.dpDesde.Size = new System.Drawing.Size(322, 22);
             this.dpDesde.TabIndex = 249;
             this.dpDesde.Visible = false;
             // 
@@ -228,11 +224,12 @@
             "Esta semana",
             "Últimos 15 días",
             "Este mes",
+            "Este año",
             "Rango específico"});
-            this.cbRangoFecha.Location = new System.Drawing.Point(1108, 565);
+            this.cbRangoFecha.Location = new System.Drawing.Point(65, 541);
             this.cbRangoFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRangoFecha.Name = "cbRangoFecha";
-            this.cbRangoFecha.Size = new System.Drawing.Size(263, 24);
+            this.cbRangoFecha.Size = new System.Drawing.Size(322, 24);
             this.cbRangoFecha.TabIndex = 248;
             this.cbRangoFecha.SelectedIndexChanged += new System.EventHandler(this.cbRangoFecha_SelectedIndexChanged);
             // 
@@ -241,20 +238,20 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(1105, 531);
+            this.label5.Location = new System.Drawing.Point(59, 507);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(182, 32);
+            this.label5.Size = new System.Drawing.Size(339, 32);
             this.label5.TabIndex = 247;
-            this.label5.Text = "Rango de Fecha:";
+            this.label5.Text = "Rango de Fecha de los registros:";
             // 
             // lbFiltroTipo
             // 
             this.lbFiltroTipo.FormattingEnabled = true;
             this.lbFiltroTipo.ItemHeight = 16;
-            this.lbFiltroTipo.Location = new System.Drawing.Point(1111, 311);
+            this.lbFiltroTipo.Location = new System.Drawing.Point(64, 269);
             this.lbFiltroTipo.Margin = new System.Windows.Forms.Padding(4);
             this.lbFiltroTipo.Name = "lbFiltroTipo";
-            this.lbFiltroTipo.Size = new System.Drawing.Size(260, 132);
+            this.lbFiltroTipo.Size = new System.Drawing.Size(322, 132);
             this.lbFiltroTipo.TabIndex = 246;
             this.lbFiltroTipo.SelectedIndexChanged += new System.EventHandler(this.lbFiltroTipo_SelectedIndexChanged);
             // 
@@ -263,11 +260,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(1105, 275);
+            this.label4.Location = new System.Drawing.Point(59, 233);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 32);
+            this.label4.Size = new System.Drawing.Size(250, 32);
             this.label4.TabIndex = 245;
-            this.label4.Text = "Filtro por Tipo:";
+            this.label4.Text = "Elementos de los datos:";
             // 
             // cbTipoGrafico
             // 
@@ -276,10 +273,10 @@
             this.cbTipoGrafico.Items.AddRange(new object[] {
             "Diagnósticos",
             "Tipos de Enfermedades"});
-            this.cbTipoGrafico.Location = new System.Drawing.Point(1108, 240);
+            this.cbTipoGrafico.Location = new System.Drawing.Point(64, 197);
             this.cbTipoGrafico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTipoGrafico.Name = "cbTipoGrafico";
-            this.cbTipoGrafico.Size = new System.Drawing.Size(263, 24);
+            this.cbTipoGrafico.Size = new System.Drawing.Size(323, 24);
             this.cbTipoGrafico.TabIndex = 243;
             this.cbTipoGrafico.SelectedIndexChanged += new System.EventHandler(this.onChangeCbTipo);
             // 
@@ -288,11 +285,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(1101, 204);
+            this.label1.Location = new System.Drawing.Point(58, 163);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 32);
+            this.label1.Size = new System.Drawing.Size(182, 32);
             this.label1.TabIndex = 244;
-            this.label1.Text = "Tipo:";
+            this.label1.Text = "Datos a analizar:";
             // 
             // timer2
             // 
@@ -322,23 +319,12 @@
             this.label12.Text = "Control Estadístico";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblTotal.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotal.Location = new System.Drawing.Point(1355, 851);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(182, 32);
-            this.lblTotal.TabIndex = 241;
-            this.lblTotal.Text = "total de registros";
-            // 
             // lblFechaHora
             // 
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaHora.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFechaHora.Location = new System.Drawing.Point(1105, 703);
+            this.lblFechaHora.Location = new System.Drawing.Point(978, 820);
             this.lblFechaHora.Name = "lblFechaHora";
             this.lblFechaHora.Size = new System.Drawing.Size(146, 32);
             this.lblFechaHora.TabIndex = 240;
@@ -349,7 +335,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(1101, 671);
+            this.label3.Location = new System.Drawing.Point(703, 820);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(269, 32);
             this.label3.TabIndex = 239;
@@ -360,10 +346,10 @@
             this.btnCrearGrafico.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnCrearGrafico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCrearGrafico.ForeColor = System.Drawing.Color.White;
-            this.btnCrearGrafico.Location = new System.Drawing.Point(1111, 737);
+            this.btnCrearGrafico.Location = new System.Drawing.Point(65, 770);
             this.btnCrearGrafico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCrearGrafico.Name = "btnCrearGrafico";
-            this.btnCrearGrafico.Size = new System.Drawing.Size(263, 86);
+            this.btnCrearGrafico.Size = new System.Drawing.Size(319, 45);
             this.btnCrearGrafico.TabIndex = 237;
             this.btnCrearGrafico.Text = "Generar Gráfico";
             this.btnCrearGrafico.UseVisualStyleBackColor = false;
@@ -374,12 +360,13 @@
             this.cbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCampo.FormattingEnabled = true;
             this.cbCampo.Items.AddRange(new object[] {
+            "Sin agrupar",
             "Sexo",
             "Rango de Edad"});
-            this.cbCampo.Location = new System.Drawing.Point(1108, 488);
+            this.cbCampo.Location = new System.Drawing.Point(64, 456);
             this.cbCampo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCampo.Name = "cbCampo";
-            this.cbCampo.Size = new System.Drawing.Size(263, 24);
+            this.cbCampo.Size = new System.Drawing.Size(322, 24);
             this.cbCampo.TabIndex = 236;
             this.cbCampo.SelectedIndexChanged += new System.EventHandler(this.cbCampo_SelectedIndexChanged);
             // 
@@ -388,52 +375,22 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(1101, 453);
+            this.label6.Location = new System.Drawing.Point(58, 422);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 32);
+            this.label6.Size = new System.Drawing.Size(169, 32);
             this.label6.TabIndex = 238;
-            this.label6.Text = "Campo:";
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAnular.FlatAppearance.BorderSize = 0;
-            this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(1227, 848);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(121, 43);
-            this.btnAnular.TabIndex = 234;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.UseVisualStyleBackColor = false;
-            // 
-            // chkAnular
-            // 
-            this.chkAnular.AutoSize = true;
-            this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(1117, 848);
-            this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(103, 36);
-            this.chkAnular.TabIndex = 233;
-            this.chkAnular.Text = "Anular";
-            this.chkAnular.UseVisualStyleBackColor = true;
+            this.label6.Text = "Agrupar según:";
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNuevo.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnNuevo.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(48, 123);
+            this.btnNuevo.Location = new System.Drawing.Point(64, 110);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(121, 43);
@@ -444,12 +401,15 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(404, 848);
+            this.btnExportar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnExportar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Location = new System.Drawing.Point(64, 820);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(104, 33);
+            this.btnExportar.Size = new System.Drawing.Size(320, 46);
             this.btnExportar.TabIndex = 253;
-            this.btnExportar.Text = "Reporte";
-            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Text = "Exportar ";
+            this.btnExportar.UseVisualStyleBackColor = false;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // saveFileDialog1
@@ -462,28 +422,26 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1695, 893);
-            this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.panelContenedor);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1695, 940);
             this.Controls.Add(this.groupClaseGrafico);
-            this.Controls.Add(this.dpHasta);
-            this.Controls.Add(this.dpDesde);
-            this.Controls.Add(this.cbRangoFecha);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lbFiltroTipo);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cbTipoGrafico);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.dpHasta);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.lblFechaHora);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCrearGrafico);
-            this.Controls.Add(this.cbCampo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnAnular);
-            this.Controls.Add(this.chkAnular);
+            this.Controls.Add(this.lblFechaHora);
+            this.Controls.Add(this.dpDesde);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbCampo);
+            this.Controls.Add(this.btnCrearGrafico);
+            this.Controls.Add(this.cbRangoFecha);
             this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.cbTipoGrafico);
+            this.Controls.Add(this.lbFiltroTipo);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmControlEstadistico";
             this.Text = "frmControlEstadistico";
@@ -520,20 +478,14 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblFechaHora;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCrearGrafico;
         private System.Windows.Forms.ComboBox cbCampo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnAnular;
-        private System.Windows.Forms.CheckBox chkAnular;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-
-
-
     }
 
 
