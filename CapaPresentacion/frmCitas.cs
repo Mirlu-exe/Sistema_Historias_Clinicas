@@ -561,7 +561,6 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
-
             //cargar todos los datos en el formulario
 
             this.txtCodCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcita"].Value);
