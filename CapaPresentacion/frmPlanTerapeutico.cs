@@ -594,7 +594,7 @@ namespace CapaPresentacion
             // Add more items to the list  
             listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  Indicaciones: " + indic + "  ");
 
-
+            //LIMPIAR CAMPOS
 
         }
 

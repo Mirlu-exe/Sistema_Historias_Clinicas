@@ -799,5 +799,10 @@ namespace CapaPresentacion
                 if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en plan de estudio"); }
             }
         }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
