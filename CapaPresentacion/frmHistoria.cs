@@ -120,6 +120,19 @@ namespace CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// The child PlanTerapeutico_Evol has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanTerapeutico_Evol(object sender, EventArgs e)
+        {
+            frmPlanTerapeutico child = sender as frmPlanTerapeutico;
+            if (child != null)
+            {
+                lbl_id_planterapeutico_evol.Text = child.Data_PlanTerapeutico_Evol;
+            }
+        }
 
         /// <summary>
         /// The child PlanEstudio has data available - get it.
@@ -1775,7 +1788,7 @@ namespace CapaPresentacion
 
             // Add a child form Terapeutico
 
-            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text);
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text, false);
 
             child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
             child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
@@ -2319,11 +2332,24 @@ namespace CapaPresentacion
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text);
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
-            MessageBox.Show("a");
+            //frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text, true);
+            //frm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //frm.MinimizeBox = false;
+            //frm.Show();
+            //MessageBox.Show("a");
+
+            // Add a child form Terapeutico
+
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text, true);
+
+            child.DataAvailable_PlanTerapeutico_Evol += new EventHandler(child_DataAvailable_PlanTerapeutico_Evol);
+            child.Data_PlanTerapeutico_Evol = this.lbl_id_planterapeutico_evol.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
         }
 
         private void AddDiagnosticToList_Evol()
@@ -3276,7 +3302,7 @@ namespace CapaPresentacion
             {
                 string rpta = "";
                 if (string.IsNullOrEmpty(this.txtNombre_Evol.Text) ||
-                    string.IsNullOrEmpty(this.txtProxConsultaEvol.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
+                    string.IsNullOrEmpty(this.txtProxConsultaEvol.Text) || string.IsNullOrEmpty(this.txtExamenFisicoEvol.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
 
                 {
                     MensajeError("No se pueden dejar los campos obligatorios vacios");
@@ -3528,5 +3554,22 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void dtpFechaNac_Evol_ValueChanged(object sender, EventArgs e)
+        {
+            // Save today's date.
+            var today = DateTime.Today;
+
+            // Calculate the age.
+            var age = today.Year - dtpFechaNac_Evol.Value.Year;
+
+            // Go back to the year in which the person was born in case of a leap year
+            if (dtpFechaNac_Evol.Value.Date > today.AddYears(-age)) age--;
+
+            this.txtEdadSuc.Text = age.ToString();
+
+        }
+
+
     }
 }

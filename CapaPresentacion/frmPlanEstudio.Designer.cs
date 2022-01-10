@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox_Plan_Estudio_Listas = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbLab = new System.Windows.Forms.ComboBox();
+            this.cbTipoLab = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
@@ -93,6 +93,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.dsRecetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsReceta = new CapaPresentacion.dsReceta();
+            this.cbLab = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.groupBox_Plan_Estudio_Listas.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -162,24 +165,24 @@
             this.label8.TabIndex = 227;
             this.label8.Text = "Plan de Estudio";
             // 
-            // cbLab
+            // cbTipoLab
             // 
-            this.cbLab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbLab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbLab.BackColor = System.Drawing.SystemColors.Control;
-            this.cbLab.FormattingEnabled = true;
-            this.cbLab.Items.AddRange(new object[] {
+            this.cbTipoLab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoLab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbTipoLab.BackColor = System.Drawing.SystemColors.Control;
+            this.cbTipoLab.FormattingEnabled = true;
+            this.cbTipoLab.Items.AddRange(new object[] {
             "HEMATOLOGIA COMPLETA",
             "GLICEMIA",
             "UREA",
             "CREATININA"});
-            this.cbLab.Location = new System.Drawing.Point(17, 63);
-            this.cbLab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbLab.Name = "cbLab";
-            this.cbLab.Size = new System.Drawing.Size(365, 30);
-            this.cbLab.TabIndex = 241;
-            this.cbLab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbLab_KeyPress);
-            this.cbLab.Leave += new System.EventHandler(this.cbLab_Leave);
+            this.cbTipoLab.Location = new System.Drawing.Point(17, 113);
+            this.cbTipoLab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTipoLab.Name = "cbTipoLab";
+            this.cbTipoLab.Size = new System.Drawing.Size(365, 30);
+            this.cbTipoLab.TabIndex = 241;
+            this.cbTipoLab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbLab_KeyPress);
+            this.cbTipoLab.Leave += new System.EventHandler(this.cbLab_Leave);
             // 
             // tabPage2
             // 
@@ -256,50 +259,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -782,12 +785,15 @@
             // groupBox_Recipe
             // 
             this.groupBox_Recipe.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox_Recipe.Controls.Add(this.label7);
+            this.groupBox_Recipe.Controls.Add(this.label5);
             this.groupBox_Recipe.Controls.Add(this.cbLab);
+            this.groupBox_Recipe.Controls.Add(this.cbTipoLab);
             this.groupBox_Recipe.Controls.Add(this.label1);
             this.groupBox_Recipe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox_Recipe.Location = new System.Drawing.Point(8, 70);
+            this.groupBox_Recipe.Location = new System.Drawing.Point(8, 27);
             this.groupBox_Recipe.Name = "groupBox_Recipe";
-            this.groupBox_Recipe.Size = new System.Drawing.Size(419, 178);
+            this.groupBox_Recipe.Size = new System.Drawing.Size(419, 263);
             this.groupBox_Recipe.TabIndex = 242;
             this.groupBox_Recipe.TabStop = false;
             // 
@@ -891,6 +897,45 @@
             this.dsReceta.DataSetName = "dsReceta";
             this.dsReceta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // cbLab
+            // 
+            this.cbLab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbLab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbLab.BackColor = System.Drawing.SystemColors.Control;
+            this.cbLab.FormattingEnabled = true;
+            this.cbLab.Items.AddRange(new object[] {
+            "HEMATOLOGIA COMPLETA",
+            "GLICEMIA",
+            "UREA",
+            "CREATININA"});
+            this.cbLab.Location = new System.Drawing.Point(17, 185);
+            this.cbLab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbLab.Name = "cbLab";
+            this.cbLab.Size = new System.Drawing.Size(365, 30);
+            this.cbLab.TabIndex = 242;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(14, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 32);
+            this.label5.TabIndex = 243;
+            this.label5.Text = "Tipo:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(14, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(221, 32);
+            this.label7.TabIndex = 244;
+            this.label7.Text = "Nombre de examen:";
+            // 
             // frmPlanEstudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -947,7 +992,7 @@
         private System.Windows.Forms.Button btnNuevo_PlanEstudio;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox_Recipe;
-        private System.Windows.Forms.ComboBox cbLab;
+        private System.Windows.Forms.ComboBox cbTipoLab;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox_Plan_Estudio_Listas;
         private System.Windows.Forms.ListBox listBox1;
@@ -989,5 +1034,8 @@
         private System.Windows.Forms.TextBox txtCedulaPac_Estudio;
         private System.Windows.Forms.Button btnQuitarEstudio;
         private System.Windows.Forms.Button btnAñadirEstudio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbLab;
     }
 }

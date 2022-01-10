@@ -41,7 +41,7 @@
             this.btnNuevo_plan_terapeutico = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lbl_idplanterapeutico = new System.Windows.Forms.Label();
+            this.lbl_idplanterapeutico_historia = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.btnAsignarPlanTerapeutico = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -84,6 +84,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lbl_idplanterapeutico_evol = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -184,7 +185,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Teal;
-            this.tabPage1.Controls.Add(this.lbl_idplanterapeutico);
+            this.tabPage1.Controls.Add(this.lbl_idplanterapeutico_evol);
+            this.tabPage1.Controls.Add(this.lbl_idplanterapeutico_historia);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.btnAsignarPlanTerapeutico);
             this.tabPage1.Controls.Add(this.button3);
@@ -201,23 +203,23 @@
             this.tabPage1.Text = "Plan Terapeutico";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // lbl_idplanterapeutico
+            // lbl_idplanterapeutico_historia
             // 
-            this.lbl_idplanterapeutico.AutoSize = true;
-            this.lbl_idplanterapeutico.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idplanterapeutico.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_idplanterapeutico.Location = new System.Drawing.Point(1483, 25);
-            this.lbl_idplanterapeutico.Name = "lbl_idplanterapeutico";
-            this.lbl_idplanterapeutico.Size = new System.Drawing.Size(22, 28);
-            this.lbl_idplanterapeutico.TabIndex = 281;
-            this.lbl_idplanterapeutico.Text = "0";
+            this.lbl_idplanterapeutico_historia.AutoSize = true;
+            this.lbl_idplanterapeutico_historia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idplanterapeutico_historia.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl_idplanterapeutico_historia.Location = new System.Drawing.Point(1383, 40);
+            this.lbl_idplanterapeutico_historia.Name = "lbl_idplanterapeutico_historia";
+            this.lbl_idplanterapeutico_historia.Size = new System.Drawing.Size(22, 28);
+            this.lbl_idplanterapeutico_historia.TabIndex = 281;
+            this.lbl_idplanterapeutico_historia.Text = "0";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.LightGray;
-            this.label16.Location = new System.Drawing.Point(1371, 25);
+            this.label16.Location = new System.Drawing.Point(1371, 12);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(105, 28);
@@ -787,6 +789,17 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // lbl_idplanterapeutico_evol
+            // 
+            this.lbl_idplanterapeutico_evol.AutoSize = true;
+            this.lbl_idplanterapeutico_evol.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idplanterapeutico_evol.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl_idplanterapeutico_evol.Location = new System.Drawing.Point(1383, 77);
+            this.lbl_idplanterapeutico_evol.Name = "lbl_idplanterapeutico_evol";
+            this.lbl_idplanterapeutico_evol.Size = new System.Drawing.Size(22, 28);
+            this.lbl_idplanterapeutico_evol.TabIndex = 282;
+            this.lbl_idplanterapeutico_evol.Text = "0";
+            // 
             // frmPlanTerapeutico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -872,7 +885,8 @@
         private System.Windows.Forms.Label lupa;
         private System.Windows.Forms.TextBox txtCedulaPac_Terapeutico;
         private System.Windows.Forms.Button btnAsignarPlanTerapeutico;
-        private System.Windows.Forms.Label lbl_idplanterapeutico;
+        private System.Windows.Forms.Label lbl_idplanterapeutico_historia;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbl_idplanterapeutico_evol;
     }
 }

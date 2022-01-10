@@ -20,21 +20,32 @@ namespace CapaPresentacion
 
         private bool IsNuevo = false;
 
+        private bool IsEvolucion = false;
+
 
 
         /// <summary>
-        /// Data to transfer into / out of form
+        /// Data to transfer into / out of form Historia
         /// </summary>
         public string Data_PlanTerapeutico
         {
-            get { return lbl_idplanterapeutico.Text; }
-            set { lbl_idplanterapeutico.Text = value; }
+            get { return lbl_idplanterapeutico_historia.Text; }
+            set { lbl_idplanterapeutico_historia.Text = value; }
+        }
+
+        /// <summary>
+        /// Data to transfer into / out of form Evolucion
+        /// </summary>
+        public string Data_PlanTerapeutico_Evol
+        {
+            get { return lbl_idplanterapeutico_evol.Text; }
+            set { lbl_idplanterapeutico_evol.Text = value; }
         }
 
 
 
 
-        public frmPlanTerapeutico(string cedula)
+        public frmPlanTerapeutico(string cedula, bool isEvolucion)
         {
             InitializeComponent();
 
@@ -45,6 +56,8 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan Terapeutico");
 
             txtCedulaPac_Terapeutico.Text = cedula;
+            IsEvolucion = isEvolucion;
+
 
         }
 
@@ -65,6 +78,27 @@ namespace CapaPresentacion
                 eh(this, e);
             }
         }
+
+
+        /// <summary>
+        /// Event to indicate new data is available EVOLUCION
+        /// </summary>
+        public event EventHandler DataAvailable_PlanTerapeutico_Evol;
+        /// <summary>
+        /// Called to signal to subscribers that new data is available EVOLUCION
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnDataAvailable_PlanTerapeutico_Evol(EventArgs e)
+        {
+            EventHandler eh_evol = DataAvailable_PlanTerapeutico_Evol;
+            if (eh_evol != null)
+            {
+                eh_evol(this, e);
+            }
+        }
+
+
+
         /// <summary>
         /// Tell the parent the data is ready.
         /// </summary>
@@ -134,8 +168,19 @@ namespace CapaPresentacion
                         cmd.CommandText = "select @@IDENTITY";
                         int Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
 
+
+
                         //se asigna el id al label para mostrar cual es el id del plan terapeutico recien guardado
-                        this.lbl_idplanterapeutico.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+
+                        if (IsEvolucion == false)
+                        {
+                            this.lbl_idplanterapeutico_historia.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+                        }
+                        else if (IsEvolucion == true)
+                        {
+                            this.lbl_idplanterapeutico_evol.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+                        }
+                        
 
                        
 
@@ -164,10 +209,18 @@ namespace CapaPresentacion
 
 
 
+            if (IsEvolucion == false)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanTerapeutico(null);
 
+            }
+            else if (IsEvolucion == true)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanTerapeutico_Evol(null);
+            }
 
-            //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
-            OnDataAvailable_PlanTerapeutico(null);
 
 
 
@@ -208,7 +261,7 @@ namespace CapaPresentacion
 
 
             //en caso de que la historia ya tenga un ID de PlanTerapeutico almacenado en la BD
-            if (this.lbl_idplanterapeutico.Text == "0")
+            if (this.lbl_idplanterapeutico_historia.Text == "0")
             {
                 //no posee un plan terapeutico
                 this.btnNuevo_plan_terapeutico.Enabled = true;
@@ -291,7 +344,7 @@ namespace CapaPresentacion
         private void Cargar_Plan_Terapeutico_En_Campos()
         {
 
-            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(Convert.ToInt32(this.lbl_idplanterapeutico.Text));
+            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text));
 
             if (PlanTerapeutico_del_Paciente.Rows.Count <= 0)
             {
@@ -306,7 +359,7 @@ namespace CapaPresentacion
 
                 //meter los row/column de esa datatable en cada campo del form
 
-                this.lbl_idplanterapeutico.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
+                this.lbl_idplanterapeutico_historia.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
                 this.lbl_fecha_emision.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][3]);
 
                 string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);

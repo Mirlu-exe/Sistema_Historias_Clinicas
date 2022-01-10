@@ -292,11 +292,11 @@ namespace CapaPresentacion
                 var autoComplete = new AutoCompleteStringCollection();
                 autoComplete.AddRange(exam_array);
 
-                this.cbLab.AutoCompleteCustomSource = autoComplete;
+                this.cbTipoLab.AutoCompleteCustomSource = autoComplete;
 
                 //traer toda la tabla de examenes laboratorio
-                cbLab.ValueMember = "id"; //id
-                cbLab.DisplayMember = "nombre"; //examen
+                cbTipoLab.ValueMember = "id"; //id
+                cbTipoLab.DisplayMember = "nombre"; //examen
 
 
 
@@ -531,7 +531,7 @@ namespace CapaPresentacion
         private void btnAñadir_Click(object sender, EventArgs e)
         {
 
-            string laboratorio = this.cbLab.Text;
+            string laboratorio = this.cbTipoLab.Text;
             
             //string nota = this.txtNota.Text;
             // Add more items to the list  
@@ -602,7 +602,7 @@ namespace CapaPresentacion
         private void btnAñadirExamen_Click(object sender, EventArgs e)
         {
 
-            string examen = this.cbLab.Text;
+            string examen = this.cbTipoLab.Text;
 
 
             // Add more items to the list  
@@ -693,37 +693,37 @@ namespace CapaPresentacion
         private void cbLab_Leave(object sender, EventArgs e)
         {
 
-            if (validarExisteExamen(this.cbLab.Text))
+            if (validarExisteExamen(this.cbTipoLab.Text))
             {
 
 
                 DataTable tablita = new DataTable();
 
-                tablita = TraerLab(this.cbLab.Text);
+                tablita = TraerLab(this.cbTipoLab.Text);
 
                 List<string> lab = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
 
 
-                this.cbLab.DataSource = lab;
+                this.cbTipoLab.DataSource = lab;
 
 
 
             }
-            else if (!validarExisteExamen(this.cbLab.Text))
+            else if (!validarExisteExamen(this.cbTipoLab.Text))
             {
 
 
                 MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
-                this.cbLab.Text = string.Empty;
-                this.cbLab.Focus();
+                this.cbTipoLab.Text = string.Empty;
+                this.cbTipoLab.Focus();
 
 
             }
             else
             {
                 MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
-                this.cbLab.Text = string.Empty;
-                this.cbLab.Focus();
+                this.cbTipoLab.Text = string.Empty;
+                this.cbTipoLab.Focus();
             }
         }
 
