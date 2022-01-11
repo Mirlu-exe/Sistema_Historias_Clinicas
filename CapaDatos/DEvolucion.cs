@@ -158,7 +158,7 @@ namespace CapaDatos
                 ParFecha_Prox_Consulta.ParameterName = "@prox_consulta";
                 ParFecha_Prox_Consulta.SqlDbType = SqlDbType.VarChar;
                 ParFecha_Prox_Consulta.Size = 8;
-                ParFecha_Prox_Consulta.Value = Evolucion.fecha_consulta;
+                ParFecha_Prox_Consulta.Value = Evolucion.prox_consulta;
                 SqlCmd.Parameters.Add(ParFecha_Prox_Consulta);
 
                 SqlParameter ParExamenFisico = new SqlParameter();

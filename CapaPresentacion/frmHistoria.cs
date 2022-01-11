@@ -148,6 +148,19 @@ namespace CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// The child PlanEstudio_Evol has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanEstudio_Evol(object sender, EventArgs e)
+        {
+            frmPlanEstudio child = sender as frmPlanEstudio;
+            if (child != null)
+            {
+                lbl_id_planestudio_evol.Text = child.Data_PlanEstudio_Evol;
+            }
+        }
 
 
 
@@ -238,7 +251,6 @@ namespace CapaPresentacion
             this.btnVerPlanEstudio.Enabled = true;
             this.btnVerPlanTerapeutico.Enabled = true;
             this.cblTipo_Sangre.Enabled = true;
-            //this.cbDiagnosticos.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales.Enabled = true;
         }
@@ -259,7 +271,6 @@ namespace CapaPresentacion
             this.btnVerPlanEstudio.Enabled = false;
             this.btnVerPlanTerapeutico.Enabled = false;
             this.cblTipo_Sangre.Enabled = false;
-            //this.cbDiagnosticos.Enabled = false;
             this.txtDiagnosticos.Enabled = false;
             this.listboxDiagnosticosFinales.Enabled = false;
             this.cblTipo_Sangre.SelectedIndex = 0;
@@ -1771,7 +1782,7 @@ namespace CapaPresentacion
         {
             // Add a child form Estudio
 
-            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text);
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text,false);
 
             child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
             child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
@@ -2323,11 +2334,24 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text);
+            //frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text, true);
             
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
+            //frm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //frm.MinimizeBox = false;
+            //frm.Show();
+
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text, true);
+
+            child.DataAvailable_PlanEstudio_Evol += new EventHandler(child_DataAvailable_PlanEstudio_Evol);
+            child.Data_PlanEstudio_Evol = this.lbl_id_planestudio_evol.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
+
+
         }
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
@@ -2807,6 +2831,7 @@ namespace CapaPresentacion
                 this.btnVerPlanEstudioEvol.Text = "Plan de estudio asignado";
                 this.btnVerPlanEstudioEvol.BackColor = Color.LightSeaGreen;
                 this.lbl_id_planestudio_evol.Text = Convert.ToString(id_plan_estudio_evolucion);
+                this.btnVerPlanEstudioEvol.Enabled = true;
 
             }
 
@@ -2837,6 +2862,7 @@ namespace CapaPresentacion
                 this.btnVerPlanTerapeuticoEvol.Text = "Plan terapeutico asignado";
                 this.btnVerPlanTerapeuticoEvol.BackColor = Color.LightSeaGreen;
                 this.lbl_id_planterapeutico_evol.Text = Convert.ToString(id_plan_terapeutico_evolucion);
+                this.btnVerPlanTerapeuticoEvol.Enabled = true;
 
             }
         }
@@ -2895,7 +2921,7 @@ namespace CapaPresentacion
             }
             else
             {
-                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][13]);
+                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0]["plan_estudio"]);
             }
 
 
@@ -2958,7 +2984,7 @@ namespace CapaPresentacion
             }
             else
             {
-                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][0]);
+                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0]["plan_terapeutico"]);
             }
 
 
@@ -3330,7 +3356,7 @@ namespace CapaPresentacion
                             var listaDiagnosticos = listboxDiagnosticosFinales_Evol.Items.Cast<String>().ToList(); //convertir el control en una lista
                             string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
 
-                            rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_idhistoria_frmEvol.Text.Trim()), this.dtpFechaConsulta.Value, this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text,  this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, "Activo");
+                            rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_idhistoria_frmEvol.Text.Trim()), this.dtpFechaConsulta.Value, this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text,  this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, "Activo");
 
 
 

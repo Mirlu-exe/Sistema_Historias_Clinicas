@@ -257,28 +257,24 @@ namespace CapaPresentacion
 
             Deshabilitar();
 
-            
+
 
 
             //en caso de que la historia ya tenga un ID de PlanTerapeutico almacenado en la BD
-            if (this.lbl_idplanterapeutico_historia.Text == "0")
-            {
-                //no posee un plan terapeutico
-                this.btnNuevo_plan_terapeutico.Enabled = true;
-                this.btnAsignarPlanTerapeutico.Enabled = true;
-                this.btnCancelar.Enabled = true;
-            }
-            else
-            {
-                //ya tiene un plan terapeutico asignado
-                this.btnNuevo_plan_terapeutico.Enabled = false;
-                this.btnAsignarPlanTerapeutico.Enabled = false;
-                this.btnCancelar.Enabled = false;
 
+            if (Convert.ToInt32(this.lbl_idplanterapeutico_evol.Text) > 0)
+            {
                 //cargar dicho plan terapeutico
-                Cargar_Plan_Terapeutico_En_Campos();
-
+                Cargar_Plan_Terapeutico_En_Campos(Convert.ToInt32(this.lbl_idplanterapeutico_evol.Text));
             }
+
+            if (Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text) > 0)
+            {
+                //cargar dicho plan terapeutico
+                Cargar_Plan_Terapeutico_En_Campos(Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text));
+            }
+
+
 
 
         }
@@ -341,10 +337,10 @@ namespace CapaPresentacion
         }
 
 
-        private void Cargar_Plan_Terapeutico_En_Campos()
+        private void Cargar_Plan_Terapeutico_En_Campos(int id_planterapeutico)
         {
 
-            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text));
+            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(id_planterapeutico);
 
             if (PlanTerapeutico_del_Paciente.Rows.Count <= 0)
             {
@@ -359,7 +355,7 @@ namespace CapaPresentacion
 
                 //meter los row/column de esa datatable en cada campo del form
 
-                this.lbl_idplanterapeutico_historia.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
+                //this.lbl_idplanterapeutico_historia.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
                 this.lbl_fecha_emision.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][3]);
 
                 string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);

@@ -18,24 +18,34 @@ namespace CapaPresentacion
 
         private bool IsNuevo = false;
 
+
+        private bool IsEvolucion = false;
+
+
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
 
-
-
         /// <summary>
-        /// Data to transfer into / out of form
+        /// Data to transfer into / out of form Historia
         /// </summary>
         public string Data_PlanEstudio
         {
-            get { return lbl_idplanestudio.Text; }
-            set { lbl_idplanestudio.Text = value; }
+            get { return lbl_idplanestudio_historia.Text; }
+            set { lbl_idplanestudio_historia.Text = value; }
+        }
+
+        /// <summary>
+        /// Data to transfer into / out of form Evolucion
+        /// </summary>
+        public string Data_PlanEstudio_Evol
+        {
+            get { return lbl_idplanestudio_evol.Text; }
+            set { lbl_idplanestudio_evol.Text = value; }
         }
 
 
 
-
-        public frmPlanEstudio(string cedula)
+        public frmPlanEstudio(string cedula, bool isEvolucion)
         {
             InitializeComponent();
 
@@ -44,10 +54,11 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.btnAñadirEstudio, "Añadir Estudio al Plan  Estudio");
             this.ttMensaje.SetToolTip(this.btnQuitarEstudio, "Quitar Estudio del Plan Estudio");
 
-            this.ttMensaje.SetToolTip(this.btnAñadirExamen, "Añadir Examenes al Plan  Estudio");
-            this.ttMensaje.SetToolTip(this.btnQuitarExamen, "Quitar Examenes del Plan Estudio");
+            //this.ttMensaje.SetToolTip(this.btnAñadirExamen, "Añadir Examenes al Plan  Estudio");
+            //this.ttMensaje.SetToolTip(this.btnQuitarExamen, "Quitar Examenes del Plan Estudio");
 
             txtCedulaPac_Estudio.Text = cedula;
+            IsEvolucion = isEvolucion;
 
         }
 
@@ -67,6 +78,31 @@ namespace CapaPresentacion
                 eh(this, e);
             }
         }
+
+
+
+
+        /// <summary>
+        /// Event to indicate new data is available EVOLUCION
+        /// </summary>
+        public event EventHandler DataAvailable_PlanEstudio_Evol;
+        /// <summary>
+        /// Called to signal to subscribers that new data is available EVOLUCION
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnDataAvailable_PlanEstudio_Evol(EventArgs e)
+        {
+            EventHandler eh_evol = DataAvailable_PlanEstudio_Evol;
+            if (eh_evol != null)
+            {
+                eh_evol(this, e);
+            }
+        }
+
+
+
+
+
         /// <summary>
         /// Tell the parent the data is ready.
         /// </summary>
@@ -112,12 +148,23 @@ namespace CapaPresentacion
                         string hoy = DateTime.Now.ToShortDateString();
 
 
-                        //construir el string de Laboratorios
-                        StringBuilder sb_lab = new StringBuilder();
-                        foreach (string a in listBox1.Items)
-                            sb_lab.Append(a);
+                        ////construir el string de Laboratorios
+                        //StringBuilder sb_lab = new StringBuilder();
+                        //foreach (string a in listBox1.Items)
+                        //    sb_lab.Append(a);
 
-                        string laboratorios_all = sb_lab.ToString();
+                        //string laboratorios_all = sb_lab.ToString();
+
+                        //construir el string de Laboratorios
+                        string message = "Laboratorio: \n";
+                        foreach (object item in chklistboxLab.CheckedItems)
+                        {
+                            DataRowView row = item as DataRowView;
+                            message +=  row["nombre"];
+                            message += Environment.NewLine;
+                        }
+
+                        string laboratorios_all = message.ToString();
 
 
 
@@ -152,8 +199,20 @@ namespace CapaPresentacion
                         cmd.CommandText = "select @@IDENTITY";
                         int Id_plan_estudio_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
 
+                        ////se asigna el id al label para mostrar cual es el id del plan estudio recien guardado
+                        //this.lbl_idplanestudio.Text = Convert.ToString(Id_plan_estudio_recien_guardado);
+
+
                         //se asigna el id al label para mostrar cual es el id del plan estudio recien guardado
-                        this.lbl_idplanestudio.Text = Convert.ToString(Id_plan_estudio_recien_guardado);
+
+                        if (IsEvolucion == false)
+                        {
+                            this.lbl_idplanestudio_historia.Text = Convert.ToString(Id_plan_estudio_recien_guardado);
+                        }
+                        else if (IsEvolucion == true)
+                        {
+                            this.lbl_idplanestudio_evol.Text = Convert.ToString(Id_plan_estudio_recien_guardado);
+                        }
 
 
 
@@ -184,8 +243,17 @@ namespace CapaPresentacion
 
 
 
-            //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
-            OnDataAvailable_PlanEstudio(null);
+            if (IsEvolucion == false)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanEstudio(null);
+
+            }
+            else if (IsEvolucion == true)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanEstudio_Evol(null);
+            }
 
 
 
@@ -200,12 +268,18 @@ namespace CapaPresentacion
         private void frmPlanEstudio_Load(object sender, EventArgs e)
         {
 
+
+
+       
+
+
             this.listBox1.Items.Add("Laboratorio: ");
+
 
             this.listBox2.Items.Add("Estudios: ");
 
 
-
+            LlenarChkListBoxLab();
 
             //Llenar el combobox de Examenes de laboratorio que estan registrados en la BD
             LlenarCbExamenes();
@@ -230,7 +304,7 @@ namespace CapaPresentacion
 
 
             //en caso de que la historia ya tenga un ID de PlanEstudio almacenado en la BD
-            if (this.lbl_idplanestudio.Text == "0")
+            if (this.lbl_idplanestudio_historia.Text == "0")
             {
                 //no posee un plan estudio
                 this.btnNuevo_PlanEstudio.Enabled = true;
@@ -245,9 +319,31 @@ namespace CapaPresentacion
                 this.btnCancelar.Enabled = false;
 
                 //cargar dicho plan estudio
-                Cargar_Plan_Estudio_En_Campos();
+                Cargar_Plan_Estudio_En_Campos(Convert.ToInt32(this.lbl_idplanestudio_historia.Text));
 
             }
+
+
+            //en caso de que la evolucion ya tenga un ID de PlanEstudio almacenado en la BD
+            if (this.lbl_idplanestudio_evol.Text == "0")
+            {
+                //no posee un plan estudio
+                this.btnNuevo_PlanEstudio.Enabled = true;
+                this.btnAsignar_PlanEstudio.Enabled = true;
+                this.btnCancelar.Enabled = true;
+            }
+            else
+            {
+                //ya tiene un plan estudio asignado
+                this.btnNuevo_PlanEstudio.Enabled = false;
+                this.btnAsignar_PlanEstudio.Enabled = false;
+                this.btnCancelar.Enabled = false;
+
+                //cargar dicho plan estudio
+                Cargar_Plan_Estudio_En_Campos(Convert.ToInt32(this.lbl_idplanestudio_evol.Text));
+
+            }
+
 
         }
 
@@ -268,9 +364,12 @@ namespace CapaPresentacion
 
         }
 
-        //Para llenar el cbExamenes
-        private void LlenarCbExamenes()
+
+        //Para llenar el chklistboxlab
+        private void LlenarChkListBoxLab()
         {
+
+
 
             //llenar el cb examenes aplicando autocompletado
 
@@ -285,23 +384,53 @@ namespace CapaPresentacion
             }
             else
             {
-                List<string> exam = tabla_examenes.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
-
-                string[] exam_array = exam.ToArray();
-
-                var autoComplete = new AutoCompleteStringCollection();
-                autoComplete.AddRange(exam_array);
-
-                this.cbTipoLab.AutoCompleteCustomSource = autoComplete;
-
-                //traer toda la tabla de examenes laboratorio
-                cbTipoLab.ValueMember = "id"; //id
-                cbTipoLab.DisplayMember = "nombre"; //examen
-
-
-
+               
+                //Assign DataTable as DataSource.
+                chklistboxLab.DataSource = tabla_examenes;
+                chklistboxLab.DisplayMember = "nombre";
+                chklistboxLab.ValueMember = "id";
 
             }
+
+        }
+
+
+
+
+        //Para llenar el cbExamenes
+        private void LlenarCbExamenes()
+        {
+
+            //llenar el cb examenes aplicando autocompletado
+
+            //DataTable tabla_examenes = new DataTable();
+
+            //tabla_examenes = NPlanEstudio.CargarNombreExamenLab();
+
+            //if (tabla_examenes == null)
+            //{
+            //    MessageBox.Show("No hay registros en examenes ");
+
+            //}
+            //else
+            //{
+            //    List<string> exam = tabla_examenes.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+            //    string[] exam_array = exam.ToArray();
+
+            //    var autoComplete = new AutoCompleteStringCollection();
+            //    autoComplete.AddRange(exam_array);
+
+            //    this.cbTipoLab.AutoCompleteCustomSource = autoComplete;
+
+            //    //traer toda la tabla de examenes laboratorio
+            //    cbTipoLab.ValueMember = "id"; //id
+            //    cbTipoLab.DisplayMember = "tipo_examen"; //examen
+
+
+
+
+            //}
 
 
         }
@@ -393,10 +522,10 @@ namespace CapaPresentacion
 
 
 
-        private void Cargar_Plan_Estudio_En_Campos()
+        private void Cargar_Plan_Estudio_En_Campos(int id_planestudio)
         {
 
-            DataTable PlanEstudio_del_Paciente = Datos_PlanEstudio(Convert.ToInt32(this.lbl_idplanestudio.Text));
+            DataTable PlanEstudio_del_Paciente = Datos_PlanEstudio(Convert.ToInt32(id_planestudio));
 
             if (PlanEstudio_del_Paciente.Rows.Count <= 0)
             {
@@ -411,7 +540,7 @@ namespace CapaPresentacion
 
                 //meter los row/column de esa datatable en cada campo del form
 
-                this.lbl_idplanestudio.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][0]);
+                //this.lbl_idplanestudio_historia.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0][0]);
                 this.lbl_fecha_emision.Text = Convert.ToString(PlanEstudio_del_Paciente.Rows[0]["fecha_emision"]);
 
 
@@ -528,21 +657,21 @@ namespace CapaPresentacion
 
         }
 
-        private void btnAñadir_Click(object sender, EventArgs e)
-        {
+        //private void btnAñadir_Click(object sender, EventArgs e)
+        //{
 
-            string laboratorio = this.cbTipoLab.Text;
+        //    string laboratorio = this.cbTipoLab.Text;
             
-            //string nota = this.txtNota.Text;
-            // Add more items to the list  
-            //listBox1.Items.Add(examen + " " + muestra + "  \n Notas: " + nota + "  \n");
+        //    //string nota = this.txtNota.Text;
+        //    // Add more items to the list  
+        //    //listBox1.Items.Add(examen + " " + muestra + "  \n Notas: " + nota + "  \n");
 
 
-            // Add more items to the list  
-            listBox1.Items.Add(laboratorio + " ");
+        //    // Add more items to the list  
+        //    listBox1.Items.Add(laboratorio + " ");
 
             
-        }
+        //}
 
         private void btnGuardar_informe_Click(object sender, EventArgs e)
         {
@@ -599,33 +728,33 @@ namespace CapaPresentacion
             CargarDatosPaciente();
         }
 
-        private void btnAñadirExamen_Click(object sender, EventArgs e)
-        {
+        //private void btnAñadirExamen_Click(object sender, EventArgs e)
+        //{
 
-            string examen = this.cbTipoLab.Text;
-
-
-            // Add more items to the list  
-            listBox1.Items.Add( examen + "  ");
+        //    string examen = this.cbTipoLab.Text;
 
 
-        }
-
-        private void btnQuitarExamen_Click(object sender, EventArgs e)
-        {
-            int posicion = listBox1.SelectedIndex;
-
-            if (posicion == -1)
-            {
-                MessageBox.Show("seleccione un elemento para quitar de el Plan Estudio");
-            }
-            else
-            {
+        //    // Add more items to the list  
+        //    listBox1.Items.Add( examen + "  ");
 
 
-                listBox1.Items.RemoveAt(posicion);
-            }
-        }
+        //}
+
+        //private void btnQuitarExamen_Click(object sender, EventArgs e)
+        //{
+        //    int posicion = listBox1.SelectedIndex;
+
+        //    if (posicion == -1)
+        //    {
+        //        MessageBox.Show("seleccione un elemento para quitar de el Plan Estudio");
+        //    }
+        //    else
+        //    {
+
+
+        //        listBox1.Items.RemoveAt(posicion);
+        //    }
+        //}
 
         private void btnAñadirEstudio_Click(object sender, EventArgs e)
         {
@@ -693,38 +822,38 @@ namespace CapaPresentacion
         private void cbLab_Leave(object sender, EventArgs e)
         {
 
-            if (validarExisteExamen(this.cbTipoLab.Text))
-            {
+            //if (validarExisteExamen(this.cbTipoLab.Text))
+            //{
 
 
-                DataTable tablita = new DataTable();
+            //    DataTable tablita = new DataTable();
 
-                tablita = TraerLab(this.cbTipoLab.Text);
+            //    tablita = TraerLab(this.cbTipoLab.Text);
 
-                List<string> lab = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
-
-
-                this.cbTipoLab.DataSource = lab;
+            //    List<string> lab = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
 
 
-
-            }
-            else if (!validarExisteExamen(this.cbTipoLab.Text))
-            {
+            //    this.cbTipoLab.DataSource = lab;
 
 
-                MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
-                this.cbTipoLab.Text = string.Empty;
-                this.cbTipoLab.Focus();
+
+            //}
+            //else if (!validarExisteExamen(this.cbTipoLab.Text))
+            //{
 
 
-            }
-            else
-            {
-                MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
-                this.cbTipoLab.Text = string.Empty;
-                this.cbTipoLab.Focus();
-            }
+            //    MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
+            //    this.cbTipoLab.Text = string.Empty;
+            //    this.cbTipoLab.Focus();
+
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("el examen no existe, porfavor ingrese un nombre válido");
+            //    this.cbTipoLab.Text = string.Empty;
+            //    this.cbTipoLab.Focus();
+            //}
         }
 
         public bool validarExisteExamen(string nombre_examen)
@@ -804,5 +933,33 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void chklistboxLab_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            
+        }
+
+        private void chklistboxLab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            this.listBox1.Items.Clear();
+
+            //construir el string de Laboratorios
+            string message = "Laboratorio: \n";
+            foreach (object item in chklistboxLab.CheckedItems)
+            {
+                DataRowView row = item as DataRowView;
+                message += row["nombre"];
+                message += Environment.NewLine;
+
+            }
+
+            this.listBox1.Items.Add(message.ToString());
+
+
+
+        }
+
+
     }
 }
