@@ -417,5 +417,10 @@ namespace CapaPresentacion
         {
             AbrirFormEnPanel(new frmPapeleraReciclaje());
         }
+
+        private void btnInformeMedico_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmInformesMedicos());
+        }
     }
 }

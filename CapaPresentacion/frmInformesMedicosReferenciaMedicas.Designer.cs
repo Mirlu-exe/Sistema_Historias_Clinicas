@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,17 +49,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.txtHistoriaFamiliar = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtEspecialidadMed = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtDireccionMedico = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTelefonoMedico = new System.Windows.Forms.TextBox();
-            this.cbMedicosConfianza = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtFecha_Ultima_Evol = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -88,15 +77,26 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbMedicosConfianza = new System.Windows.Forms.ComboBox();
+            this.txtTelefonoMedico = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDireccionMedico = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEspecialidadMed = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label12
@@ -291,148 +291,6 @@
             this.txtHistoriaFamiliar.ReadOnly = true;
             this.txtHistoriaFamiliar.Size = new System.Drawing.Size(533, 88);
             this.txtHistoriaFamiliar.TabIndex = 237;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtCorreo);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtEspecialidadMed);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.txtDireccionMedico);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.txtTelefonoMedico);
-            this.groupBox3.Controls.Add(this.cbMedicosConfianza);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.groupBox3.Location = new System.Drawing.Point(45, 611);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1213, 205);
-            this.groupBox3.TabIndex = 233;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Médico de Confianza a Referir";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label7.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label7.Location = new System.Drawing.Point(457, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 32);
-            this.label7.TabIndex = 242;
-            this.label7.Text = "Correo:";
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCorreo.Location = new System.Drawing.Point(463, 84);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCorreo.Multiline = true;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.ReadOnly = true;
-            this.txtCorreo.Size = new System.Drawing.Size(352, 27);
-            this.txtCorreo.TabIndex = 241;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(77, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
-            this.label1.TabIndex = 238;
-            this.label1.Text = "Especialidad:";
-            // 
-            // txtEspecialidadMed
-            // 
-            this.txtEspecialidadMed.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEspecialidadMed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEspecialidadMed.Location = new System.Drawing.Point(83, 154);
-            this.txtEspecialidadMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEspecialidadMed.Multiline = true;
-            this.txtEspecialidadMed.Name = "txtEspecialidadMed";
-            this.txtEspecialidadMed.ReadOnly = true;
-            this.txtEspecialidadMed.Size = new System.Drawing.Size(352, 27);
-            this.txtEspecialidadMed.TabIndex = 237;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(457, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 32);
-            this.label3.TabIndex = 236;
-            this.label3.Text = "Teléfono:";
-            // 
-            // txtDireccionMedico
-            // 
-            this.txtDireccionMedico.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDireccionMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDireccionMedico.Location = new System.Drawing.Point(847, 80);
-            this.txtDireccionMedico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDireccionMedico.Multiline = true;
-            this.txtDireccionMedico.Name = "txtDireccionMedico";
-            this.txtDireccionMedico.ReadOnly = true;
-            this.txtDireccionMedico.Size = new System.Drawing.Size(339, 88);
-            this.txtDireccionMedico.TabIndex = 235;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(841, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 32);
-            this.label2.TabIndex = 234;
-            this.label2.Text = "Dirección:";
-            // 
-            // txtTelefonoMedico
-            // 
-            this.txtTelefonoMedico.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTelefonoMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelefonoMedico.Location = new System.Drawing.Point(463, 154);
-            this.txtTelefonoMedico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTelefonoMedico.Multiline = true;
-            this.txtTelefonoMedico.Name = "txtTelefonoMedico";
-            this.txtTelefonoMedico.ReadOnly = true;
-            this.txtTelefonoMedico.Size = new System.Drawing.Size(352, 27);
-            this.txtTelefonoMedico.TabIndex = 233;
-            // 
-            // cbMedicosConfianza
-            // 
-            this.cbMedicosConfianza.BackColor = System.Drawing.SystemColors.Control;
-            this.cbMedicosConfianza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMedicosConfianza.FormattingEnabled = true;
-            this.cbMedicosConfianza.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cbMedicosConfianza.Location = new System.Drawing.Point(80, 83);
-            this.cbMedicosConfianza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMedicosConfianza.Name = "cbMedicosConfianza";
-            this.cbMedicosConfianza.Size = new System.Drawing.Size(355, 30);
-            this.cbMedicosConfianza.TabIndex = 232;
-            this.cbMedicosConfianza.SelectionChangeCommitted += new System.EventHandler(this.cbMedicosConfianza_SelectionChangeCommitted);
-            this.cbMedicosConfianza.DropDownClosed += new System.EventHandler(this.cbMedicosConfianza_DropDownClosed);
-            this.cbMedicosConfianza.Leave += new System.EventHandler(this.cbMedicosConfianza_Leave);
-            this.cbMedicosConfianza.Validated += new System.EventHandler(this.cbMedicosConfianza_Validated);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(72, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 32);
-            this.label5.TabIndex = 227;
-            this.label5.Text = "Nombre del Médico:";
             // 
             // groupBox4
             // 
@@ -737,50 +595,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -879,6 +737,148 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label5.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label5.Location = new System.Drawing.Point(72, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 32);
+            this.label5.TabIndex = 227;
+            this.label5.Text = "Nombre del Médico:";
+            // 
+            // cbMedicosConfianza
+            // 
+            this.cbMedicosConfianza.BackColor = System.Drawing.SystemColors.Control;
+            this.cbMedicosConfianza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMedicosConfianza.FormattingEnabled = true;
+            this.cbMedicosConfianza.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cbMedicosConfianza.Location = new System.Drawing.Point(80, 83);
+            this.cbMedicosConfianza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMedicosConfianza.Name = "cbMedicosConfianza";
+            this.cbMedicosConfianza.Size = new System.Drawing.Size(355, 30);
+            this.cbMedicosConfianza.TabIndex = 232;
+            this.cbMedicosConfianza.SelectionChangeCommitted += new System.EventHandler(this.cbMedicosConfianza_SelectionChangeCommitted);
+            this.cbMedicosConfianza.DropDownClosed += new System.EventHandler(this.cbMedicosConfianza_DropDownClosed);
+            this.cbMedicosConfianza.Leave += new System.EventHandler(this.cbMedicosConfianza_Leave);
+            this.cbMedicosConfianza.Validated += new System.EventHandler(this.cbMedicosConfianza_Validated);
+            // 
+            // txtTelefonoMedico
+            // 
+            this.txtTelefonoMedico.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTelefonoMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefonoMedico.Location = new System.Drawing.Point(463, 154);
+            this.txtTelefonoMedico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTelefonoMedico.Multiline = true;
+            this.txtTelefonoMedico.Name = "txtTelefonoMedico";
+            this.txtTelefonoMedico.ReadOnly = true;
+            this.txtTelefonoMedico.Size = new System.Drawing.Size(352, 27);
+            this.txtTelefonoMedico.TabIndex = 233;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label2.Location = new System.Drawing.Point(841, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 32);
+            this.label2.TabIndex = 234;
+            this.label2.Text = "Dirección:";
+            // 
+            // txtDireccionMedico
+            // 
+            this.txtDireccionMedico.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccionMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDireccionMedico.Location = new System.Drawing.Point(847, 80);
+            this.txtDireccionMedico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDireccionMedico.Multiline = true;
+            this.txtDireccionMedico.Name = "txtDireccionMedico";
+            this.txtDireccionMedico.ReadOnly = true;
+            this.txtDireccionMedico.Size = new System.Drawing.Size(339, 88);
+            this.txtDireccionMedico.TabIndex = 235;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label3.Location = new System.Drawing.Point(457, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 32);
+            this.label3.TabIndex = 236;
+            this.label3.Text = "Teléfono:";
+            // 
+            // txtEspecialidadMed
+            // 
+            this.txtEspecialidadMed.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEspecialidadMed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEspecialidadMed.Location = new System.Drawing.Point(83, 154);
+            this.txtEspecialidadMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEspecialidadMed.Multiline = true;
+            this.txtEspecialidadMed.Name = "txtEspecialidadMed";
+            this.txtEspecialidadMed.ReadOnly = true;
+            this.txtEspecialidadMed.Size = new System.Drawing.Size(352, 27);
+            this.txtEspecialidadMed.TabIndex = 237;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label1.Location = new System.Drawing.Point(77, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 32);
+            this.label1.TabIndex = 238;
+            this.label1.Text = "Especialidad:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCorreo.Location = new System.Drawing.Point(463, 84);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCorreo.Multiline = true;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.ReadOnly = true;
+            this.txtCorreo.Size = new System.Drawing.Size(352, 27);
+            this.txtCorreo.TabIndex = 241;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label7.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label7.Location = new System.Drawing.Point(457, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 32);
+            this.label7.TabIndex = 242;
+            this.label7.Text = "Correo:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtCorreo);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtEspecialidadMed);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.txtDireccionMedico);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.txtTelefonoMedico);
+            this.groupBox3.Controls.Add(this.cbMedicosConfianza);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.groupBox3.Location = new System.Drawing.Point(45, 611);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1213, 205);
+            this.groupBox3.TabIndex = 233;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Médico de Confianza a Referir";
+            // 
             // frmInformesMedicosReferenciaMedicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -897,8 +897,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -906,6 +904,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -926,14 +926,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtHistoriaFamiliar;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbMedicosConfianza;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDireccionMedico;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTelefonoMedico;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox txtPlanTerapeutico_Evol;
         private System.Windows.Forms.Label label21;
@@ -946,8 +939,6 @@
         private System.Windows.Forms.Button btnGuardar_informe;
         private System.Windows.Forms.TextBox txtSexo;
         private System.Windows.Forms.TextBox txtFecha_Ultima_Evol;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEspecialidadMed;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -962,10 +953,19 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEspecialidadMed;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDireccionMedico;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTelefonoMedico;
+        private System.Windows.Forms.ComboBox cbMedicosConfianza;
+        private System.Windows.Forms.Label label5;
     }
 }

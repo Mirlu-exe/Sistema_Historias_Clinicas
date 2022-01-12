@@ -173,6 +173,12 @@
     <Compile Include="frmHistoria.Designer.cs">
       <DependentUpon>frmHistoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformesMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformesMedicos.Designer.cs">
+      <DependentUpon>frmInformesMedicos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInformesMedicosReferenciaMedicas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +478,9 @@
     <EmbeddedResource Include="frmHistoria.resx">
       <DependentUpon>frmHistoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInformesMedicos.resx">
+      <DependentUpon>frmInformesMedicos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInformesMedicosReferenciaMedicas.resx">
       <DependentUpon>frmInformesMedicosReferenciaMedicas.cs</DependentUpon>
     </EmbeddedResource>
@@ -604,6 +613,7 @@
     <EmbeddedResource Include="Reportes\rptListaPlanEstudio.rdlc" />
     <EmbeddedResource Include="Reportes\rptPacientes.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
+    <EmbeddedResource Include="report_informe_medico.rdlc" />
     <EmbeddedResource Include="usercontrol_evol.resx">
       <DependentUpon>usercontrol_evol.cs</DependentUpon>
     </EmbeddedResource>
