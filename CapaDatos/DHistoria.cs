@@ -50,6 +50,8 @@ namespace CapaDatos
 
         private string _Diagnosticos;
 
+        private int _Idpac_a_buscar;
+
 
 
 
@@ -71,8 +73,12 @@ namespace CapaDatos
         public string Estado { get => _Estado; set => _Estado = value; }
         public string Tipo_sangre { get => _Tipo_sangre; set => _Tipo_sangre = value; }
         public string Diagnosticos { get => _Diagnosticos; set => _Diagnosticos = value; }
+
         public int Id_paciente { get => _Id_paciente; set => _Id_paciente = value; }
         public int Id_historia { get => _Id_historia; set => _Id_historia = value; }
+
+        public int Idpac_a_buscar { get => _Idpac_a_buscar; set => _Idpac_a_buscar = value; }
+
 
         //Constructores
         public DHistoria()
@@ -85,7 +91,7 @@ namespace CapaDatos
             string tratamiento_actual, string examen_fisico, string laboratorio, 
             string ecg, string paraclinicos, string ecocardiograma, 
             int plan_estudio, int plan_terapeutico, string estado, 
-            string tipo_sangre, string diagnosticos )
+            string tipo_sangre, string diagnosticos, int idpac_a_buscar )
         {
             this.Id_paciente = id_paciente;
             this.Fecha_consulta = fecha_consulta;
@@ -104,6 +110,7 @@ namespace CapaDatos
             this.Estado = estado;
             this.Tipo_sangre = tipo_sangre;
             this.Diagnosticos = diagnosticos;
+            this.Idpac_a_buscar = idpac_a_buscar;
         }
 
 
@@ -492,6 +499,38 @@ namespace CapaDatos
 
 
 
+        public DataTable Buscar_historia_segun_idpac(DHistoria Historia)
+        {
+            DataTable DtResultado = new DataTable("Historia");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_historia_segun_idpac";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@idpac_a_buscar";
+                ParTextoBuscar.SqlDbType = SqlDbType.Int;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Historia.Idpac_a_buscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+
+
+            }
+            return DtResultado;
+
+        }
 
 
 

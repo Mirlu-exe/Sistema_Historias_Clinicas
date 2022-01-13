@@ -12,6 +12,11 @@ namespace CapaDatos
     public class DEvolucion
     {
 
+
+
+        private int _Idhistoria_a_buscar;
+
+
         public int id_evol { get; set; }
 
         public int id_historia { get; set; }
@@ -43,6 +48,9 @@ namespace CapaDatos
         public string ecocardiograma { get; set; }
 
         public string estado { get; set; }
+
+        public int Idhistoria_a_buscar { get => _Idhistoria_a_buscar; set => _Idhistoria_a_buscar = value; }
+
 
 
 
@@ -367,6 +375,43 @@ namespace CapaDatos
             }
             return rpta;
         }
+
+
+        public DataTable Buscar_ultima_evolucion_segun_idhistoria(DEvolucion Evolucion)
+        {
+            DataTable DtResultado = new DataTable("Evolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_ultima_evolucion_segun_idhistoria";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@idhistoria";
+                ParTextoBuscar.SqlDbType = SqlDbType.Int;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Evolucion.Idhistoria_a_buscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+
+
+            }
+            return DtResultado;
+
+        }
+
+
+
 
 
     }

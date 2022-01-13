@@ -74,5 +74,15 @@ namespace CapaNegocio
         }
 
 
+        public static DataTable Buscar_Ultima_Evol_segun_idhistoria(int id_historia)
+        {
+
+            DEvolucion Obj = new DEvolucion();
+            Obj.Idhistoria_a_buscar = id_historia;
+            return Obj.Buscar_ultima_evolucion_segun_idhistoria(Obj);
+
+        }
+
+
     }
 }

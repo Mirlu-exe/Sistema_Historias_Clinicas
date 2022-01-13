@@ -84,6 +84,15 @@ namespace CapaNegocio
             return Obj.Restaurar(Obj);
         }
 
+        public static DataTable Buscar_Historia_segun_idpac(int id_pac)
+        {
+
+            DHistoria Obj = new DHistoria();
+            Obj.Idpac_a_buscar= id_pac;
+            return Obj.Buscar_historia_segun_idpac(Obj);
+
+        }
+
 
 
     }
