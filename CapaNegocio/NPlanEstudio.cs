@@ -72,6 +72,12 @@ namespace CapaNegocio
             return new DPlanEstudio().CargarNombreEstudios();
         }
 
+        public static DataTable Buscar_PlanEstudio_segun_id(int id_planestudio)
+        {
+            DPlanEstudio Obj = new DPlanEstudio();
+            Obj.Id_a_buscar = id_planestudio;
+            return Obj.Buscar_PlanEstudio_segun_id(Obj);
+        }
 
 
     }

@@ -18,6 +18,7 @@ namespace CapaDatos
 
         private string _ListaEstudios;
 
+        private int _Id_a_buscar;
 
         public int IdPlanEstudio
         {
@@ -37,6 +38,11 @@ namespace CapaDatos
             set { _ListaEstudios = value; }
         }
 
+        public int Id_a_buscar
+        {
+            get { return _Id_a_buscar; }
+            set { _Id_a_buscar = value; }
+        }
 
 
         //Constructores
@@ -181,6 +187,41 @@ namespace CapaDatos
             return DtResultado;
 
         }
+
+
+        //Método BuscarPlanEstudio_segun_id
+        public DataTable Buscar_PlanEstudio_segun_id(DPlanEstudio planEstudio)
+        {
+            DataTable DtResultado = new DataTable("PlanEstudio");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_plan_estudio_segun_id";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdBuscar = new SqlParameter();
+                ParIdBuscar.ParameterName = "@id";
+                ParIdBuscar.SqlDbType = SqlDbType.Int;
+                ParIdBuscar.Size = 50;
+                ParIdBuscar.Value = planEstudio.Id_a_buscar;
+                SqlCmd.Parameters.Add(ParIdBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+
 
 
     }

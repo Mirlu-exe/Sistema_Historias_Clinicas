@@ -35,6 +35,8 @@ namespace CapaDatos
 
         private string _TextoBuscar;
 
+        private int _Id_a_buscar;
+
        
 
         public int Idreceta
@@ -76,8 +78,15 @@ namespace CapaDatos
             set { _TextoBuscar = value; }
         }
 
+        public int Id_a_buscar
+        {
+            get { return _Id_a_buscar; }
+            set { _Id_a_buscar = value; }
+        }
 
-            //Constructores
+
+
+        //Constructores
         public DReceta()
         {
 
@@ -529,6 +538,47 @@ namespace CapaDatos
             }
             return rpta;
         }
+
+
+
+        //Método BuscarPlanTerapeutico_segun_id
+        public DataTable Buscar_PlanTerapeutico_segun_id(DReceta planTerapeutico)
+        {
+            DataTable DtResultado = new DataTable("PlanTerapeutico");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_plan_terapeutico_segun_id";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdBuscar = new SqlParameter();
+                ParIdBuscar.ParameterName = "@id";
+                ParIdBuscar.SqlDbType = SqlDbType.Int;
+                ParIdBuscar.Size = 50;
+                ParIdBuscar.Value = planTerapeutico.Id_a_buscar;
+                SqlCmd.Parameters.Add(ParIdBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+
+
+
+
+
+
 
 
     }

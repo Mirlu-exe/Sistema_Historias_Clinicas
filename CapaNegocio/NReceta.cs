@@ -117,5 +117,14 @@ namespace CapaNegocio
         }
 
 
+        public static DataTable Buscar_PlanTerapeutico_segun_id(int id_planterapeutico)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Id_a_buscar = id_planterapeutico;
+            return Obj.Buscar_PlanTerapeutico_segun_id(Obj);
+        }
+
+
+
     }
 }
