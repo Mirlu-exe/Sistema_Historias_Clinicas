@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnInformeMedico = new System.Windows.Forms.Button();
             this.btnPapelera = new System.Windows.Forms.Button();
             this.btnArchivoMuerto = new System.Windows.Forms.Button();
             this.btnMedicosConfianza = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.btnInformeMedico = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -108,6 +108,24 @@
             this.MenuVertical.Size = new System.Drawing.Size(364, 1023);
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // btnInformeMedico
+            // 
+            this.btnInformeMedico.FlatAppearance.BorderSize = 0;
+            this.btnInformeMedico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnInformeMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInformeMedico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnInformeMedico.ForeColor = System.Drawing.Color.White;
+            this.btnInformeMedico.Image = ((System.Drawing.Image)(resources.GetObject("btnInformeMedico.Image")));
+            this.btnInformeMedico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInformeMedico.Location = new System.Drawing.Point(0, 564);
+            this.btnInformeMedico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInformeMedico.Name = "btnInformeMedico";
+            this.btnInformeMedico.Size = new System.Drawing.Size(364, 49);
+            this.btnInformeMedico.TabIndex = 45;
+            this.btnInformeMedico.Text = "          Informe Médico";
+            this.btnInformeMedico.UseVisualStyleBackColor = true;
+            this.btnInformeMedico.Click += new System.EventHandler(this.btnInformeMedico_Click);
             // 
             // btnPapelera
             // 
@@ -588,24 +606,6 @@
             // ttMensaje
             // 
             this.ttMensaje.IsBalloon = true;
-            // 
-            // btnInformeMedico
-            // 
-            this.btnInformeMedico.FlatAppearance.BorderSize = 0;
-            this.btnInformeMedico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnInformeMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformeMedico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnInformeMedico.ForeColor = System.Drawing.Color.White;
-            this.btnInformeMedico.Image = global::CapaPresentacion.Properties.Resources.list_3_smoll;
-            this.btnInformeMedico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInformeMedico.Location = new System.Drawing.Point(0, 564);
-            this.btnInformeMedico.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInformeMedico.Name = "btnInformeMedico";
-            this.btnInformeMedico.Size = new System.Drawing.Size(364, 49);
-            this.btnInformeMedico.TabIndex = 45;
-            this.btnInformeMedico.Text = "          Informe Médico";
-            this.btnInformeMedico.UseVisualStyleBackColor = true;
-            this.btnInformeMedico.Click += new System.EventHandler(this.btnInformeMedico_Click);
             // 
             // frmPrincipal
             // 
