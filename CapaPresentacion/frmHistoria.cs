@@ -3605,5 +3605,16 @@ namespace CapaPresentacion
         {
             this.LimpiarEvol();
         }
+
+        private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+
+            //if (listboxDiagnosticosFinales.Container == 0) 
+            //{
+
+            //}
+
+        }
     }
 }
