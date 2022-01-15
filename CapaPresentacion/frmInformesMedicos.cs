@@ -34,7 +34,7 @@ namespace CapaPresentacion
 
         private void frmInformesMedicos_Load(object sender, EventArgs e)
         {
-
+            this.richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
         }
 
         private void BuscarInfo()
@@ -99,8 +99,6 @@ namespace CapaPresentacion
                 string recipe_indicaciones = Convert.ToString(TablaPlanTerapeutico.Rows[0]["recipe_indicaciones"]);
 
 
-
-
                 // Armar toda la plantilla
 
                 string Plantilla_Informe = "ID del paciente: " + id_paciente + " \n ID historia: " + id_historia + " \n ID Ultima evolucion:" + id_evol + " \n " +
@@ -141,7 +139,9 @@ namespace CapaPresentacion
 
 
                 //Aqui se vacia el string dentro del richtextbox
-                this.richTextBox1.Text = Plantilla_Informe;
+                this.richTextBox1.Text = Plantilla_Informe.ToString();
+
+
 
 
             }
@@ -158,3 +158,46 @@ namespace CapaPresentacion
 
     }
 }
+
+
+
+
+////
+////GUIA PARA EL MARKDOWN DE RTF:
+
+//int monthlyAmountNeeded = 10;
+
+//StringBuilder text = new StringBuilder();
+
+////append format header information;
+
+//text.Append(@"{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}" +
+
+//                    @"{\f1\fnil Times New Roman;}}\viewkind4\uc1\pard\lang2052\f0\fs34");
+
+//                //append content
+
+//                text.Append(@"For an annual desired salary of :");
+
+//                // the \b and \b0 stands for bolden
+
+//                text.Append(@"\b " + monthlyAmountNeeded.ToString() + @"\b0");
+
+
+//                // the \par stands for newline, equal to '\n'
+
+//                text.Append(@"\par\par");
+
+//                // the \i and \i0 stands for Italicization
+
+//                text.Append(@"\i*these figures are assuming a 12% " +
+
+//                    @"return on your investment minus 4% inflation\i0");
+
+//                // the end
+
+//                text.Append(@"}");
+
+
+
+//                this.richTextBox1.Rtf = text.ToString();

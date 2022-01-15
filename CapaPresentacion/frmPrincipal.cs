@@ -59,7 +59,7 @@ namespace CapaPresentacion
                 this.btnHerramientasAdmin.Enabled = false;
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
-                this.btnInformeMedicoRef.Enabled = true;
+                this.btnEstudios.Enabled = true;
                 this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
@@ -79,7 +79,7 @@ namespace CapaPresentacion
                 this.btnHerramientasAdmin.Enabled = false;
                 this.btnControlEstadistico.Enabled = false;
                 this.btnMedicosConfianza.Enabled = false;
-                this.btnInformeMedicoRef.Enabled = false;
+                this.btnEstudios.Enabled = false;
                 this.btnReportes.Enabled = false;
                 this.btnArchivoMuerto.Enabled = false;
                 this.btnPapelera.Enabled = false;
@@ -100,7 +100,7 @@ namespace CapaPresentacion
                 this.btnHerramientasAdmin.Enabled = true;
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
-                this.btnInformeMedicoRef.Enabled = true;
+                this.btnEstudios.Enabled = true;
                 this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
@@ -421,6 +421,11 @@ namespace CapaPresentacion
         private void btnInformeMedico_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new frmInformesMedicos());
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

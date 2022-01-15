@@ -644,6 +644,10 @@ namespace CapaPresentacion
             listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  Indicaciones: " + indic + "  ");
 
             //LIMPIAR CAMPOS
+            this.cbMedicamento.Text = string.Empty;
+            this.cbDosis.Text = string.Empty;
+            this.cbPresentacion.Text = string.Empty;
+
 
         }
 
@@ -701,45 +705,53 @@ namespace CapaPresentacion
 
         private void cbMedicamento_Leave(object sender, EventArgs e)
         {
+
+            if (this.cbMedicamento.Text == "") //en caso de estar vacio
+            {
+                //no hacer nada
+            }
+            else //en caso de tener texto, realizar la busqueda
+            {
+                if (validarExisteMedicamento(this.cbMedicamento.Text))
+                {
+
+
+                    DataTable tablita = new DataTable();
+
+                    tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
+
+                    List<string> presentaciones = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+
+
+                    this.cbPresentacion.DataSource = presentaciones;
+
+
+
+                }
+                else if (!validarExisteMedicamento(this.cbMedicamento.Text))
+                {
+
+
+                    MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                    this.cbMedicamento.Text = string.Empty;
+                    this.cbPresentacion.Text = string.Empty;
+                    this.cbDosis.Text = string.Empty;
+                    this.cbMedicamento.Focus();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                    this.cbMedicamento.Text = string.Empty;
+                    this.cbPresentacion.Text = string.Empty;
+                    this.cbDosis.Text = string.Empty;
+                    this.cbMedicamento.Focus();
+                }
+            }
+
             
-
-            if ( validarExisteMedicamento(this.cbMedicamento.Text)  )
-            {
-
-
-                DataTable tablita = new DataTable();
-
-                tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
-
-                List<string> presentaciones = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
-
-
-
-                this.cbPresentacion.DataSource = presentaciones;
-
-
-
-            }
-            else if ( !validarExisteMedicamento(this.cbMedicamento.Text))
-            {
-
-
-                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
-                this.cbMedicamento.Text = string.Empty;
-                this.cbPresentacion.Text = string.Empty;
-                this.cbDosis.Text = string.Empty;
-                this.cbMedicamento.Focus();
-
-
-            }
-            else
-            {
-                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
-                this.cbMedicamento.Text = string.Empty;
-                this.cbPresentacion.Text = string.Empty;
-                this.cbDosis.Text = string.Empty;
-                this.cbMedicamento.Focus();
-            }
 
         }
 

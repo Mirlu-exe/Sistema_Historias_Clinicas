@@ -76,7 +76,8 @@ namespace CapaPresentacion
             string Resp2 = (this.txtResp2.Text).ToUpper();
             string Resp3 = (this.txtResp3.Text).ToUpper();
 
-            MessageBox.Show("Sus respuestas fueron: 1=" + Resp1 + "  2=" + Resp2 + "  3=" + Resp3 + ".");
+            //mensaje de testeo
+            //MessageBox.Show("Sus respuestas fueron: 1=" + Resp1 + "  2=" + Resp2 + "  3=" + Resp3 + ".");
 
 
 
@@ -85,7 +86,7 @@ namespace CapaPresentacion
                 CompararRespuestas(Convert.ToInt32(lbl_id_user.Text), Convert.ToInt32(label3.Text), this.txtResp3.Text) == true)
             {
 
-                MessageBox.Show("Felicitaciones! todas las respuestas coinciden :D");
+                MessageBox.Show("Todas las respuestas coinciden :) puede proceder a cambiar su contraseña");
 
                 frmEditarContrasena frm2 = new frmEditarContrasena(lbl_id_user.Text, "fuera del principal");
                 frm2.Show();
@@ -140,13 +141,13 @@ namespace CapaPresentacion
 
             if (tablita_usuarios.Rows.Count > 0)
             {
-                MessageBox.Show("Se encontro una coincidencia :) ");
+                //MessageBox.Show("Se encontro una coincidencia ");
 
                 this.gbPreguntasSeguridad.Enabled = true;
 
                 int id_del_usuario = Convert.ToInt32(tablita_usuarios.Rows[0][0]);
 
-                MessageBox.Show("El id del usuario es: " + id_del_usuario + "");
+                //MessageBox.Show("El id del usuario es: " + id_del_usuario + "");
 
                 CargarPreguntas(id_del_usuario);
 
@@ -158,7 +159,7 @@ namespace CapaPresentacion
 
             }else
             {
-                MessageBox.Show("Ese usuario no existe! >:( ");
+                MessageBox.Show("Ese usuario no existe! ");
                 this.gbPreguntasSeguridad.Enabled = false;
             }
 
@@ -189,7 +190,7 @@ namespace CapaPresentacion
 
             if (tablita_preguntas.Rows.Count > 0)
             {
-                MessageBox.Show("Tiene preguntas de seguridad :)");
+                MessageBox.Show("Responda las siguientes preguntas de seguridad");
 
                 
                 /////////////sacando pregunta 1

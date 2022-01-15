@@ -258,33 +258,39 @@
             this.lbl_Id1.AutoSize = true;
             this.lbl_Id1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_Id1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Id1.Location = new System.Drawing.Point(732, 117);
+            this.lbl_Id1.Location = new System.Drawing.Point(758, 114);
             this.lbl_Id1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Id1.Name = "lbl_Id1";
-            this.lbl_Id1.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id1.Size = new System.Drawing.Size(78, 32);
             this.lbl_Id1.TabIndex = 65;
+            this.lbl_Id1.Text = "lblidp1";
+            this.lbl_Id1.Visible = false;
             // 
             // lbl_Id2
             // 
             this.lbl_Id2.AutoSize = true;
             this.lbl_Id2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_Id2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Id2.Location = new System.Drawing.Point(732, 197);
+            this.lbl_Id2.Location = new System.Drawing.Point(758, 197);
             this.lbl_Id2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Id2.Name = "lbl_Id2";
-            this.lbl_Id2.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id2.Size = new System.Drawing.Size(81, 32);
             this.lbl_Id2.TabIndex = 66;
+            this.lbl_Id2.Text = "lblidp2";
+            this.lbl_Id2.Visible = false;
             // 
             // lbl_Id3
             // 
             this.lbl_Id3.AutoSize = true;
             this.lbl_Id3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lbl_Id3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Id3.Location = new System.Drawing.Point(732, 268);
+            this.lbl_Id3.Location = new System.Drawing.Point(758, 268);
             this.lbl_Id3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Id3.Name = "lbl_Id3";
-            this.lbl_Id3.Size = new System.Drawing.Size(0, 32);
+            this.lbl_Id3.Size = new System.Drawing.Size(81, 32);
             this.lbl_Id3.TabIndex = 67;
+            this.lbl_Id3.Text = "lblidp3";
+            this.lbl_Id3.Visible = false;
             // 
             // frmConfigPreguntasSeguridad
             // 
@@ -312,7 +318,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "frmConfigPreguntasSeguridad";
-            this.Text = "frmConfigPreguntasSeguridad";
+            this.Text = "Configurar Preguntas de Seguridad";
             this.Load += new System.EventHandler(this.frmConfigPreguntasSeguridad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

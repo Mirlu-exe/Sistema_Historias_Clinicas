@@ -224,11 +224,11 @@ namespace CapaPresentacion
             this.txtecg.Text = string.Empty;
             this.txtParaclinicos.Text = string.Empty;
             this.txtEcocardiograma.Text = string.Empty;
-            //this.btnVerPlanEstudioEvol
-            //this.btnVerPlanTerapeuticoEvol
+            this.lbl_planestudio_id.Text = "0";
+            this.lbl_planterapeutico_id.Text = "0";
             this.cblTipo_Sangre.Text = string.Empty;
             this.txtDiagnosticos.Text = string.Empty;
-            //this.listboxDiagnosticosFinales.Items.Clear();
+            this.listboxDiagnosticosFinales.DataSource = null;
             
 
 
@@ -2245,33 +2245,7 @@ namespace CapaPresentacion
         }
 
 
-        //Limpiar todos los controles del formulario
-        private void LimpiarEvol()
-        {
-
-            //this.txtNumero_Cedula_Evol.Text = string.Empty;
-            //this.txtNombre_Evol.Text = string.Empty;
-            //this.txtSexoEvol.Text = string.Empty;
-            //this.txtEdadSuc.Text = string.Empty;
-
-            this.txtMotivoConsultaEvol.Text = string.Empty;
-            this.txtObservacionesEvol.Text = string.Empty;
-            this.txtProxConsultaEvol.Text = string.Empty;
-            this.txtExamenFisicoEvol.Text = string.Empty;
-            this.txtLaboratorioEvol.Text = string.Empty;
-            this.txtParaclinicosEvol.Text = string.Empty;
-            this.txtEkgEvol.Text = string.Empty;
-            this.txtEcocardiogramaEvol.Text = string.Empty;
-            //this.btnVerPlanEstudioEvol
-            //this.btnVerPlanTerapeuticoEvol
-            this.cblTipo_Sangre.SelectedIndex = -1;
-            this.txtDiagnosticosEvol.Text = string.Empty;
-            //this.listboxDiagnosticosFinales_Evol.Items.Clear();
-
-
-
-
-        }
+      
 
 
         //Habilitar los controles del formulario
@@ -2636,6 +2610,37 @@ namespace CapaPresentacion
         private bool IsNuevo_evol = false;
 
         private bool IsEditar_evol = false;
+
+
+
+        //Limpiar todos los controles del formulario Evolucion
+        private void LimpiarEvol()
+        {
+
+            this.txtNumero_Cedula_Evol.Text = string.Empty;
+            this.txtNombre_Evol.Text = string.Empty;
+            this.txtSexoEvol.Text = string.Empty;
+
+            this.txtMotivoConsultaEvol.Text = string.Empty;
+            this.txtMotivoConsultaEvol.Text = string.Empty;
+            this.txtObservacionesEvol.Text = string.Empty;
+            this.txtProxConsultaEvol.Text = string.Empty;
+            this.txtExamenFisicoEvol.Text = string.Empty;
+            this.txtLaboratorioEvol.Text = string.Empty;
+            this.txtParaclinicosEvol.Text = string.Empty;
+            this.txtEkgEvol.Text = string.Empty;
+            this.txtEcocardiogramaEvol.Text = string.Empty;
+
+            this.lbl_id_planestudio_evol.Text = "0";
+            this.lbl_id_planterapeutico_evol.Text = "0";
+
+            this.txtDiagnosticosEvol.Text = string.Empty;
+            this.listboxDiagnosticosFinales_Evol.DataSource = null;
+
+            this.dgv_Lista_Evoluciones_de_pac.DataSource = null;
+
+
+        }
 
         private int Buscar_idhistoria_segun_idpac(int idpac)
         {
@@ -3596,6 +3601,9 @@ namespace CapaPresentacion
 
         }
 
-
+        private void txtCancelarEvol_Click(object sender, EventArgs e)
+        {
+            this.LimpiarEvol();
+        }
     }
 }

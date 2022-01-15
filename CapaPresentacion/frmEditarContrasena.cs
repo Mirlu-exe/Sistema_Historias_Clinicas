@@ -56,7 +56,7 @@ namespace CapaPresentacion
 
             id_del_usuario = Convert.ToInt32(lbl_id_usuario.Text);
 
-            MessageBox.Show("El id del usuario que coincide es: " +id_del_usuario+ ".");
+            //MessageBox.Show("El id del usuario que coincide es: " +id_del_usuario+ ".");
 
             DataTable tablita = new DataTable();
 
