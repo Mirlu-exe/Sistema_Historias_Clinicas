@@ -70,7 +70,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -117,7 +117,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -165,7 +165,7 @@ namespace CapaPresentacion
         private void MostrarPacientesANegativo()
         {
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -214,7 +214,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -261,7 +261,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -308,7 +308,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -356,7 +356,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -402,7 +402,7 @@ namespace CapaPresentacion
         private void MostrarPacientesOPositivo()
         {
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -449,7 +449,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn2 = "Data Source=Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn2 = "Data Source=Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase2 = new SqlConnection(Cn2);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);

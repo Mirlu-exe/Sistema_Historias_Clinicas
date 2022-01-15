@@ -224,11 +224,11 @@ namespace CapaPresentacion
             this.txtecg.Text = string.Empty;
             this.txtParaclinicos.Text = string.Empty;
             this.txtEcocardiograma.Text = string.Empty;
-            this.lbl_planestudio_id.Text = "0";
-            this.lbl_planterapeutico_id.Text = "0";
+            //this.btnVerPlanEstudioEvol
+            //this.btnVerPlanTerapeuticoEvol
             this.cblTipo_Sangre.Text = string.Empty;
             this.txtDiagnosticos.Text = string.Empty;
-            this.listboxDiagnosticosFinales.DataSource = null;
+            //this.listboxDiagnosticosFinales.Items.Clear();
             
 
 
@@ -361,7 +361,7 @@ namespace CapaPresentacion
 
 
 
-            /*string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            /*string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -407,7 +407,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo' and Paciente.is_dead=0 ; ", conDataBase);
 
@@ -452,7 +452,7 @@ namespace CapaPresentacion
         void autocompletar_diagnosticos()
         {
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             DataTable datos = new DataTable();
@@ -478,7 +478,7 @@ namespace CapaPresentacion
         void autocompletar_diagnosticos_evol()
         {
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             DataTable datos = new DataTable();
@@ -726,7 +726,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -773,7 +773,7 @@ namespace CapaPresentacion
 
 
 
-            /*string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            /*string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -820,7 +820,7 @@ namespace CapaPresentacion
         {
 
 
-            /*string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            /*string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
@@ -1031,7 +1031,7 @@ namespace CapaPresentacion
 
 
         //                //Código
-        //                SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+        //                SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
         //                SqlCon.Open();
         //                //Establecer el Comando
         //                SqlCommand SqlCmd = new SqlCommand();
@@ -1080,7 +1080,7 @@ namespace CapaPresentacion
 
 
         //                //Código
-        //                SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+        //                SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
         //                SqlCon.Open();
         //                //Establecer el Comando
         //                SqlCommand SqlCmd = new SqlCommand();
@@ -1238,7 +1238,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("SELECT * " +
                 "FROM Evoluciones " +
@@ -1320,7 +1320,7 @@ namespace CapaPresentacion
 
 
                             //Código
-                            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                             SqlCon.Open();
                             //Establecer el Comando
                             SqlCommand SqlCmd = new SqlCommand();
@@ -1384,7 +1384,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -1426,7 +1426,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -1468,7 +1468,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -1783,6 +1783,7 @@ namespace CapaPresentacion
             // Add a child form Estudio
 
             frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text,false);
+            child.rptEncabezado = "Fecha Plan Estudio: " + DateTime.Today.Date + ". " + txtNombre_Paciente.Text + " C.I.#: " + txtNumero_Cedula.Text + " Sexo: " + txtSexo.Text;
 
             child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
             child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
@@ -1800,6 +1801,7 @@ namespace CapaPresentacion
             // Add a child form Terapeutico
 
             frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text, false);
+            child.rptEncabezado = "Fecha: " + DateTime.Today.Date + ". " + txtNombre_Paciente.Text + " C.I.#: " + txtNumero_Cedula.Text + " Sexo: " + txtSexo.Text;
 
             child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
             child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
@@ -1809,7 +1811,6 @@ namespace CapaPresentacion
             child.Height = 800; //altura
             child.Width = 1200; //anchura
             child.Show();
-
         }
 
         private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -1995,7 +1996,7 @@ namespace CapaPresentacion
 
 
             //Código
-            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from Diagnostico where enfermedad ='" + diagnostico_escrito + "' ");
@@ -2051,7 +2052,7 @@ namespace CapaPresentacion
 
 
             //Código
-            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from Historia where idpaciente ='" + idpac + "' ");
@@ -2245,7 +2246,33 @@ namespace CapaPresentacion
         }
 
 
-      
+        //Limpiar todos los controles del formulario
+        private void LimpiarEvol()
+        {
+
+            //this.txtNumero_Cedula_Evol.Text = string.Empty;
+            //this.txtNombre_Evol.Text = string.Empty;
+            //this.txtSexoEvol.Text = string.Empty;
+            //this.txtEdadSuc.Text = string.Empty;
+
+            this.txtMotivoConsultaEvol.Text = string.Empty;
+            this.txtObservacionesEvol.Text = string.Empty;
+            this.txtProxConsultaEvol.Text = string.Empty;
+            this.txtExamenFisicoEvol.Text = string.Empty;
+            this.txtLaboratorioEvol.Text = string.Empty;
+            this.txtParaclinicosEvol.Text = string.Empty;
+            this.txtEkgEvol.Text = string.Empty;
+            this.txtEcocardiogramaEvol.Text = string.Empty;
+            //this.btnVerPlanEstudioEvol
+            //this.btnVerPlanTerapeuticoEvol
+            this.cblTipo_Sangre.SelectedIndex = -1;
+            this.txtDiagnosticosEvol.Text = string.Empty;
+            //this.listboxDiagnosticosFinales_Evol.Items.Clear();
+
+
+
+
+        }
 
 
         //Habilitar los controles del formulario
@@ -2610,37 +2637,6 @@ namespace CapaPresentacion
         private bool IsNuevo_evol = false;
 
         private bool IsEditar_evol = false;
-
-
-
-        //Limpiar todos los controles del formulario Evolucion
-        private void LimpiarEvol()
-        {
-
-            this.txtNumero_Cedula_Evol.Text = string.Empty;
-            this.txtNombre_Evol.Text = string.Empty;
-            this.txtSexoEvol.Text = string.Empty;
-
-            this.txtMotivoConsultaEvol.Text = string.Empty;
-            this.txtMotivoConsultaEvol.Text = string.Empty;
-            this.txtObservacionesEvol.Text = string.Empty;
-            this.txtProxConsultaEvol.Text = string.Empty;
-            this.txtExamenFisicoEvol.Text = string.Empty;
-            this.txtLaboratorioEvol.Text = string.Empty;
-            this.txtParaclinicosEvol.Text = string.Empty;
-            this.txtEkgEvol.Text = string.Empty;
-            this.txtEcocardiogramaEvol.Text = string.Empty;
-
-            this.lbl_id_planestudio_evol.Text = "0";
-            this.lbl_id_planterapeutico_evol.Text = "0";
-
-            this.txtDiagnosticosEvol.Text = string.Empty;
-            this.listboxDiagnosticosFinales_Evol.DataSource = null;
-
-            this.dgv_Lista_Evoluciones_de_pac.DataSource = null;
-
-
-        }
 
         private int Buscar_idhistoria_segun_idpac(int idpac)
         {
@@ -3135,7 +3131,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("SELECT Evoluciones.id, Evoluciones.idhistoria, Evoluciones.fecha_consulta, Evoluciones.edad_suc, Evoluciones.motivo_consulta, Evoluciones.observaciones, Evoluciones.prox_consulta, Evoluciones.examen_fisico, Evoluciones.laboratorio, Evoluciones.examenes_paraclinicos, Evoluciones.EKG, Evoluciones.ecocardiograma, Evoluciones.plan_estudio, Evoluciones.plan_terapeutico, Evoluciones.diagnosticos, Evoluciones.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente INNER JOIN Evoluciones ON Historia.idhistoria = Evoluciones.idhistoria WHERE Historia.estado = 'Activo' and Paciente.is_dead=0 and Paciente.num_cedula = '"+ this.txtNumero_Cedula_Evol.Text +"' ;", conDataBase);
             
@@ -3601,20 +3597,6 @@ namespace CapaPresentacion
 
         }
 
-        private void txtCancelarEvol_Click(object sender, EventArgs e)
-        {
-            this.LimpiarEvol();
-        }
 
-        private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-
-            //if (listboxDiagnosticosFinales.Container == 0) 
-            //{
-
-            //}
-
-        }
     }
 }

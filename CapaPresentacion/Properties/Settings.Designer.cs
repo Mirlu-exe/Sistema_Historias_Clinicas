@@ -37,7 +37,7 @@ namespace CapaPresentacion.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIRLU\\SQLEXPRESS;Initial Catalog=dbclinica;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADRIAN-PC\\SQLEXPRESS;Initial Catalog=dbclinica;Integrated Security=True")]
         public string dbclinicaConnectionString1 {
             get {
                 return ((string)(this["dbclinicaConnectionString1"]));

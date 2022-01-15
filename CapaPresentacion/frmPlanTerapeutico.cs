@@ -11,11 +11,15 @@ using System.Data.SqlClient;
 
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
     public partial class frmPlanTerapeutico : Form
     {
+        public string rptEncabezado;
+        public string rptDetalle;
+        public string rptFirma = "Dr. Félix Eduardo Montaño Vallés \n Médico Internista Cardiólogo Clínico \n CI#: 6.320.809 \n MPPS#: 50.859. CMA#: 6.445";
 
 
         private bool IsNuevo = false;
@@ -132,7 +136,7 @@ namespace CapaPresentacion
 
 
                         //Código
-                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                         SqlCon.Open();
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
@@ -644,10 +648,6 @@ namespace CapaPresentacion
             listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  Indicaciones: " + indic + "  ");
 
             //LIMPIAR CAMPOS
-            this.cbMedicamento.Text = string.Empty;
-            this.cbDosis.Text = string.Empty;
-            this.cbPresentacion.Text = string.Empty;
-
 
         }
 
@@ -705,53 +705,45 @@ namespace CapaPresentacion
 
         private void cbMedicamento_Leave(object sender, EventArgs e)
         {
-
-            if (this.cbMedicamento.Text == "") //en caso de estar vacio
-            {
-                //no hacer nada
-            }
-            else //en caso de tener texto, realizar la busqueda
-            {
-                if (validarExisteMedicamento(this.cbMedicamento.Text))
-                {
-
-
-                    DataTable tablita = new DataTable();
-
-                    tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
-
-                    List<string> presentaciones = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
-
-
-
-                    this.cbPresentacion.DataSource = presentaciones;
-
-
-
-                }
-                else if (!validarExisteMedicamento(this.cbMedicamento.Text))
-                {
-
-
-                    MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
-                    this.cbMedicamento.Text = string.Empty;
-                    this.cbPresentacion.Text = string.Empty;
-                    this.cbDosis.Text = string.Empty;
-                    this.cbMedicamento.Focus();
-
-
-                }
-                else
-                {
-                    MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
-                    this.cbMedicamento.Text = string.Empty;
-                    this.cbPresentacion.Text = string.Empty;
-                    this.cbDosis.Text = string.Empty;
-                    this.cbMedicamento.Focus();
-                }
-            }
-
             
+
+            if ( validarExisteMedicamento(this.cbMedicamento.Text)  )
+            {
+
+
+                DataTable tablita = new DataTable();
+
+                tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
+
+                List<string> presentaciones = tablita.AsEnumerable().Select(r => r.Field<string>("nombre")).ToList();
+
+
+
+                this.cbPresentacion.DataSource = presentaciones;
+
+
+
+            }
+            else if ( !validarExisteMedicamento(this.cbMedicamento.Text))
+            {
+
+
+                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                this.cbMedicamento.Text = string.Empty;
+                this.cbPresentacion.Text = string.Empty;
+                this.cbDosis.Text = string.Empty;
+                this.cbMedicamento.Focus();
+
+
+            }
+            else
+            {
+                MessageBox.Show("el medicamento no existe, porfavor ingrese un nombre válido");
+                this.cbMedicamento.Text = string.Empty;
+                this.cbPresentacion.Text = string.Empty;
+                this.cbDosis.Text = string.Empty;
+                this.cbMedicamento.Focus();
+            }
 
         }
 
@@ -774,7 +766,7 @@ namespace CapaPresentacion
 
 
             //Código
-            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from Meds_Nombres where nombre ='" + nombre_medicamento + "' ");
@@ -998,6 +990,35 @@ namespace CapaPresentacion
             {
 
                 if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en plan de terapeutico"); }
+            }
+        }
+
+        private void btnImprimirRecipe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rptDetalle = string.Empty;
+                foreach (var item in listBox1.Items)
+                {
+                    rptDetalle += "- " + item.ToString() + "\n";
+                }
+
+
+                CrystalReport_Recipe miReporte = new CrystalReport_Recipe();
+                miReporte.SetParameterValue("rptEncabezado", rptEncabezado);
+                miReporte.SetParameterValue("rptDetalle", rptDetalle);
+                miReporte.SetParameterValue("rptFirma", rptFirma);
+
+                frmVisualizadorCrystal visu = new frmVisualizadorCrystal();
+                visu.cryVisualizador.ReportSource = miReporte;
+                visu.cryVisualizador.ShowRefreshButton = false;
+                visu.cryVisualizador.ShowGroupTreeButton = false;
+
+                visu.Show();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

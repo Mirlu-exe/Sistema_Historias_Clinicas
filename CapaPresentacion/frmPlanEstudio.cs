@@ -10,11 +10,17 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
     public partial class frmPlanEstudio : Form
     {
+
+        public string rptEncabezado;
+        public string rptDetalle1;
+        public string rptDetalle2;
+        public string rptFirma = "Dr. Félix Eduardo Montaño Vallés \n Médico Internista Cardiólogo Clínico \n CI#: 6.320.809 \n MPPS#: 50.859. CMA#: 6.445";
 
         private bool IsNuevo = false;
 
@@ -136,7 +142,7 @@ namespace CapaPresentacion
 
 
                         //Código
-                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                         SqlCon.Open();
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
@@ -870,7 +876,7 @@ namespace CapaPresentacion
 
 
             //Código
-            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from ExamenesLaboratorio where nombre ='" + nombre_examen + "' ");
@@ -960,6 +966,48 @@ namespace CapaPresentacion
 
         }
 
+        private void btnImprimirExamenes_Click(object sender, EventArgs e)
+        {
 
+          
+
+
+        }
+
+        private void btnImprimirEstudios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rptDetalle1 = string.Empty;
+                rptDetalle2 = string.Empty;
+                foreach (var item in listBox1.Items)
+                {
+                    rptDetalle1 += "- " + item.ToString() + "\n";
+                }
+
+                foreach (var item in listBox2.Items)
+                {
+                    rptDetalle2 += "- " + item.ToString() + "\n";
+                }
+
+
+                CrystalReport_PlanEstudio miReporte = new CrystalReport_PlanEstudio();
+                miReporte.SetParameterValue("rptEncabezado", rptEncabezado);
+                miReporte.SetParameterValue("rptDetalle1", rptDetalle1);
+                miReporte.SetParameterValue("rptDetalle2", rptDetalle2);
+                miReporte.SetParameterValue("rptFirma", rptFirma);
+
+                frmVisualizadorCrystal visu = new frmVisualizadorCrystal();
+                visu.cryVisualizador.ReportSource = miReporte;
+                visu.cryVisualizador.ShowRefreshButton = false;
+                visu.cryVisualizador.ShowGroupTreeButton = false;
+
+                visu.Show();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

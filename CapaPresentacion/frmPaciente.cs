@@ -169,8 +169,6 @@ namespace CapaPresentacion
 
             this.dataListado.Columns[0].Visible = false;
             this.dataListado.Columns[1].Visible = false;
-            this.dataListado.Columns["estado"].Visible = false;
-            this.dataListado.Columns["is_dead"].Visible = false;
 
         }
 
@@ -369,7 +367,7 @@ namespace CapaPresentacion
 
 
             //Código
-            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' and estado = 'Activo' ");
@@ -577,7 +575,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -620,7 +618,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -662,7 +660,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -799,7 +797,7 @@ namespace CapaPresentacion
         {
 
 
-            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            //string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             //SqlConnection conDataBase = new SqlConnection(Cn);
 
             //SqlDataAdapter cmdDataBase = new SqlDataAdapter("Paciente", conDataBase);

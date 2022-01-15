@@ -37,7 +37,7 @@ namespace CapaPresentacion
 
             DataTable dbdataset;
 
-            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("Select * from Paciente where idpaciente = " + this.lblidpac.Text + "", conDataBase);
 
@@ -137,7 +137,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -175,7 +175,7 @@ namespace CapaPresentacion
             SqlConnection SqlCon2 = new SqlConnection();
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();

@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -74,6 +76,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -322,10 +325,22 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\CrystalReport_InformeMedico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_InformeMedico.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\CrystalReport_PlanEstudio.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport_PlanEstudio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport_Recipe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_Recipe.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\frmGraficoRegistrosPacientes.cs">
@@ -417,6 +432,12 @@
     </Compile>
     <Compile Include="Reportes\frmtListadoHistoriaPaciente.Designer.cs">
       <DependentUpon>frmtListadoHistoriaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmVisualizadorCrystal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmVisualizadorCrystal.Designer.cs">
+      <DependentUpon>frmVisualizadorCrystal.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReportePacientes.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -551,9 +572,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport_InformeMedico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_InformeMedico.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CrystalReport_PlanEstudio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_PlanEstudio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport_Recipe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_Recipe.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmGraficoRegistrosPacientes.resx">
       <DependentUpon>frmGraficoRegistrosPacientes.cs</DependentUpon>
@@ -599,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmtListadoHistoriaPaciente.resx">
       <DependentUpon>frmtListadoHistoriaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmVisualizadorCrystal.resx">
+      <DependentUpon>frmVisualizadorCrystal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptGraficoInicionSesion.rdlc" />
     <EmbeddedResource Include="Reportes\rptGraficoRegistroPacientes.rdlc" />
@@ -669,6 +701,10 @@
     <None Include="Resources\statistics_smoll.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\x64\msvcr100.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial120.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr100.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial120.dll" />
     <None Include="Resources\medical-prescription_smoll.png" />
     <None Include="Resources\informacion-personal.png" />
     <None Include="Resources\bowl-1_smoll.png" />
@@ -688,18 +724,6 @@
     <None Include="Resources\calendar_smoll.png" />
     <None Include="Resources\check  calendar.png" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

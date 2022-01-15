@@ -1,21 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using CapaNegocio;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using CapaNegocio;
-using CapaDatos;
-
+using CrystalDecisions.CrystalReports;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
     public partial class frmInformesMedicos : Form
     {
+
+        public string rptCabecera1;
+        public string rptCabecera2;
+        public string rptDetalle;
+        public string rptAntecedentes;
+        public string rptExamen;
+        public string rptLaboratorio;
+        public string rptOtrosParaclinicos;
+        public string rptEKG;
+        public string rptEcocardiograma;
+        public string rptDiagnosticos;
+        public string rptIndica;
+        public string rptSolicita;
+        public string rptFirma;
+
         public frmInformesMedicos()
         {
             InitializeComponent();
@@ -34,7 +42,7 @@ namespace CapaPresentacion
 
         private void frmInformesMedicos_Load(object sender, EventArgs e)
         {
-            this.richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+
         }
 
         private void BuscarInfo()
@@ -99,6 +107,8 @@ namespace CapaPresentacion
                 string recipe_indicaciones = Convert.ToString(TablaPlanTerapeutico.Rows[0]["recipe_indicaciones"]);
 
 
+
+
                 // Armar toda la plantilla
 
                 string Plantilla_Informe = "ID del paciente: " + id_paciente + " \n ID historia: " + id_historia + " \n ID Ultima evolucion:" + id_evol + " \n " +
@@ -137,11 +147,24 @@ namespace CapaPresentacion
 
 
 
+                //para generar el informe en crystal
+                rptCabecera1 = "ID del paciente: " + id_paciente + " \n ID historia: " + id_historia + " \n ID Ultima evolucion:" + id_evol;
+                rptCabecera2 = "Fecha informe: " + DateTime.Today.Date + ". " + nombre_pac + " C.I.#: " + ci_pac + " Edad: " + edad_evol + " años. Sexo: " + sexo_pac;
+                rptDetalle = "Se trata de paciente de " + edad_evol + " años de edad, quién acude a consulta, por presentar " + motivo_consulta_evol + " por lo que se decide indicar tratamiento y exámenes paraclínicos.";
+                rptAntecedentes = "Con Antecedentes Familiares de " + antecedentes_fam + " y Antecedentes Personales de " + antecedentes_personales;
+                rptExamen = examenes;
+                rptLaboratorio = laboratorio;
+                rptOtrosParaclinicos = examenes_paraclinicos;
+                rptEKG =  ekg;
+                rptEcocardiograma =  eco;
+                rptDiagnosticos =  diagnosticos_evol;
+                rptIndica = recipe_indicaciones;
+                rptSolicita = estudios_solicitados + laboratorios_solicitados;
+                rptFirma = "Dr. Félix Eduardo Montaño Vallés \n Médico Internista Cardiólogo Clínico \n CI#: 6.320.809 \n MPPS#: 50.859. CMA#: 6.445";
+
 
                 //Aqui se vacia el string dentro del richtextbox
-                this.richTextBox1.Text = Plantilla_Informe.ToString();
-
-
+                this.richTextBox1.Text = Plantilla_Informe;
 
 
             }
@@ -154,50 +177,47 @@ namespace CapaPresentacion
 
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                CrystalReport_InformeMedico miReporte = new CrystalReport_InformeMedico();
+                miReporte.SetParameterValue("rptCabecera1", rptCabecera1);
+                miReporte.SetParameterValue("rptCabecera2", rptCabecera2);
+                miReporte.SetParameterValue("rptDetalle", rptDetalle);
+                miReporte.SetParameterValue("rptAntecedentes", rptAntecedentes);
+                miReporte.SetParameterValue("rptExamen", rptExamen);
+                miReporte.SetParameterValue("rptLaboratorio", rptLaboratorio);
+                miReporte.SetParameterValue("rptOtrosParaclinicos", rptOtrosParaclinicos);
+                miReporte.SetParameterValue("rptEKG", rptEKG);
+                miReporte.SetParameterValue("rptEcocardiograma", rptEcocardiograma);
+                miReporte.SetParameterValue("rptDiagnosticos", rptDiagnosticos);
+                miReporte.SetParameterValue("rptIndica", rptIndica);
+                miReporte.SetParameterValue("rptSolicita", rptSolicita);
+                miReporte.SetParameterValue("rptFirma", rptFirma);
+
+                frmVisualizadorCrystal visu = new frmVisualizadorCrystal();
+                visu.cryVisualizador.ReportSource = miReporte;
+                visu.cryVisualizador.ShowRefreshButton = false;
+                visu.cryVisualizador.ShowGroupTreeButton = false;
+
+                visu.Show();
+
+       
+            }
+            catch (Exception)
+            {
+
+            }
 
 
+        }
+
+        private void btnNuevo_informe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-
-
-
-
-////
-////GUIA PARA EL MARKDOWN DE RTF:
-
-//int monthlyAmountNeeded = 10;
-
-//StringBuilder text = new StringBuilder();
-
-////append format header information;
-
-//text.Append(@"{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}" +
-
-//                    @"{\f1\fnil Times New Roman;}}\viewkind4\uc1\pard\lang2052\f0\fs34");
-
-//                //append content
-
-//                text.Append(@"For an annual desired salary of :");
-
-//                // the \b and \b0 stands for bolden
-
-//                text.Append(@"\b " + monthlyAmountNeeded.ToString() + @"\b0");
-
-
-//                // the \par stands for newline, equal to '\n'
-
-//                text.Append(@"\par\par");
-
-//                // the \i and \i0 stands for Italicization
-
-//                text.Append(@"\i*these figures are assuming a 12% " +
-
-//                    @"return on your investment minus 4% inflation\i0");
-
-//                // the end
-
-//                text.Append(@"}");
-
-
-
-//                this.richTextBox1.Rtf = text.ToString();

@@ -16,14 +16,14 @@ namespace CapaPresentacion.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport_PlanEstudio : ReportClass {
+    public class CrystalReport_Recipe : ReportClass {
         
-        public CrystalReport_PlanEstudio() {
+        public CrystalReport_Recipe() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport_PlanEstudio.rpt";
+                return "CrystalReport_Recipe.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CapaPresentacion.Reportes {
         
         public override string FullResourceName {
             get {
-                return "CapaPresentacion.Reportes.CrystalReport_PlanEstudio.rpt";
+                return "CapaPresentacion.Reportes.CrystalReport_Recipe.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace CapaPresentacion.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,9 @@ namespace CapaPresentacion.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
         
@@ -106,7 +98,7 @@ namespace CapaPresentacion.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_rptDetalle1 {
+        public CrystalDecisions.Shared.IParameterField Parameter_rptDetalle {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -114,25 +106,17 @@ namespace CapaPresentacion.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_rptDetalle2 {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.Shared.IParameterField Parameter_rptFirma {
             get {
-                return this.DataDefinition.ParameterFields[3];
+                return this.DataDefinition.ParameterFields[2];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport_PlanEstudio : Component, ICachedReport {
+    public class CachedCrystalReport_Recipe : Component, ICachedReport {
         
-        public CachedCrystalReport_PlanEstudio() {
+        public CachedCrystalReport_Recipe() {
         }
         
         [Browsable(false)]
@@ -169,7 +153,7 @@ namespace CapaPresentacion.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport_PlanEstudio rpt = new CrystalReport_PlanEstudio();
+            CrystalReport_Recipe rpt = new CrystalReport_Recipe();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -56,7 +56,7 @@ namespace CapaPresentacion
 
             id_del_usuario = Convert.ToInt32(lbl_id_usuario.Text);
 
-            //MessageBox.Show("El id del usuario que coincide es: " +id_del_usuario+ ".");
+            MessageBox.Show("El id del usuario que coincide es: " +id_del_usuario+ ".");
 
             DataTable tablita = new DataTable();
 
@@ -208,7 +208,7 @@ namespace CapaPresentacion
 
 
 
-            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
