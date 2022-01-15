@@ -105,7 +105,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
 
@@ -254,7 +254,7 @@ namespace CapaPresentacion
                 string Pregunt1 = this.Pregunta1Cbx.Text;
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = "select * from Preguntas_Usuario where Pregunta = '" + Pregunt1 + "' ;";
                 SqlConnection conDataBase = new SqlConnection(CN);
                 SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
@@ -308,7 +308,7 @@ namespace CapaPresentacion
                 string Pregunt2 = this.Pregunta2Cbx.Text;
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = "select * from Preguntas_Usuario where Pregunta = '" + Pregunt2 + "' ;";
                 SqlConnection conDataBase = new SqlConnection(CN);
                 SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
@@ -362,7 +362,7 @@ namespace CapaPresentacion
                 string Pregunt3 = this.Pregunta3Cbx.Text;
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = "select * from Preguntas_Usuario where Pregunta = '" + Pregunt3 + "' ;";
                 SqlConnection conDataBase = new SqlConnection(CN);
                 SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
@@ -414,7 +414,7 @@ namespace CapaPresentacion
             SqlConnection SqlCon2 = new SqlConnection();
 
 
-            SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon2.Open();
 
             SqlCommand SqlCmd2 = new SqlCommand();
@@ -450,7 +450,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + Id_Usuario + "' ;", conDataBase);
@@ -474,7 +474,7 @@ namespace CapaPresentacion
                 SqlConnection SqlCon2 = new SqlConnection();
 
 
-                SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlCon2.Open();
 
                 SqlCommand SqlCmd2 = new SqlCommand();
@@ -529,7 +529,7 @@ namespace CapaPresentacion
 
 
 
-        //    SqlCon2.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+        //    SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
         //    SqlCon2.Open();
 
         //    SqlCommand SqlCmd2 = new SqlCommand();
@@ -565,7 +565,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + id_user + "' ;", conDataBase);

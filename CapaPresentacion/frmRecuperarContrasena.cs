@@ -129,7 +129,7 @@ namespace CapaPresentacion
         private void btnVerificarExistenciaUsername_Click(object sender, EventArgs e)
         {
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Usuario where login like '" + txt_verificar_username.Text + "' ", conDataBase);
@@ -178,7 +178,7 @@ namespace CapaPresentacion
 
             //
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = " + id_usuario + "", conDataBase);
@@ -198,7 +198,7 @@ namespace CapaPresentacion
                 this.label1.Text = Convert.ToString(id_de_la_pregunta1);
 
 
-                string Con = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Con = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBasewea = new SqlConnection(Con);
 
                 SqlDataAdapter cmdDataBasewea = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta1+ "", conDataBasewea);
@@ -218,7 +218,7 @@ namespace CapaPresentacion
                 int id_de_la_pregunta2 = Convert.ToInt32(tablita_preguntas.Rows[1][2]);
                 this.label2.Text = Convert.ToString(id_de_la_pregunta2);
 
-                string Con2 = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Con2 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBasewea2 = new SqlConnection(Con2);
 
                 SqlDataAdapter cmdDataBasewea2 = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta2 + "", conDataBasewea2);
@@ -236,7 +236,7 @@ namespace CapaPresentacion
                 int id_de_la_pregunta3 = Convert.ToInt32(tablita_preguntas.Rows[2][2]);
                 this.label3.Text = Convert.ToString(id_de_la_pregunta3);
 
-                string Con3 = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Con3 = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBasewea3 = new SqlConnection(Con3);
 
                 SqlDataAdapter cmdDataBasewea3 = new SqlDataAdapter("select * from Preguntas_Usuario where id_pregunta =  " + id_de_la_pregunta3 + "", conDataBasewea3);
@@ -272,7 +272,7 @@ namespace CapaPresentacion
 
             //me traigo las respuestas de las preguntas y las comparo con los textbox
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
 
             SqlDataAdapter cmdDataBase = new SqlDataAdapter("select * from Respuestas_Usuario where idusuario = '" + id_user + "' and idpregunta = '" + id_de_pregunta +  "' ", conDataBase);

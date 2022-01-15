@@ -22,7 +22,7 @@ namespace CapaPresentacion
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
 
-        SqlConnection conexion = new SqlConnection("SERVER=ADRIAN-PC\\SQLEXPRESS; DATABASE=dbclinica; Integrated Security=true");
+        SqlConnection conexion = new SqlConnection("SERVER=MIRLU\\SQLEXPRESS; DATABASE=dbclinica; Integrated Security=true");
 
         string idusuario, login, clave, acceso, nombre;
 
@@ -69,7 +69,7 @@ namespace CapaPresentacion
             SqlConnection SqlCon = new SqlConnection();
 
             //Código
-            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select salt from Usuario where login ='" + username_ingresado + "' ");
@@ -109,7 +109,7 @@ namespace CapaPresentacion
             SqlConnection SqlCon = new SqlConnection();
 
             //Código
-            SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
             SqlCommand SqlCmd = new SqlCommand("select password from Usuario where login ='" + username_ingresado + "' ");
@@ -167,7 +167,7 @@ namespace CapaPresentacion
             {
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = "select * from Usuario where login = '" + username_ingresado + "' and password = '" + encriptedPass + "' ;";
                 SqlConnection conDataBase = new SqlConnection(CN);
                 SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);

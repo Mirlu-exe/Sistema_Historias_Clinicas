@@ -84,7 +84,7 @@ namespace CapaPresentacion
             this.cbTipoGrafico.Enabled = false;
             this.lbFiltroTipo.Enabled = false;
 
-            string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             string Query = (this.cbTipoGrafico.SelectedIndex == 0) ? "select ltrim(rtrim(upper(enfermedad))) as tipo from Diagnostico order by 1" : "select ltrim(rtrim(upper(tipo))) as tipo from Diagnostico group by tipo order by 1;";
 
             System.Data.SqlClient.SqlConnection conDataBase = new System.Data.SqlClient.SqlConnection(CN);
@@ -210,7 +210,7 @@ namespace CapaPresentacion
 
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = (this.cbTipoGrafico.SelectedIndex == 0) ? "GraficoEnfermedades" : "GraficoEnfermedadesTipo";
 
 

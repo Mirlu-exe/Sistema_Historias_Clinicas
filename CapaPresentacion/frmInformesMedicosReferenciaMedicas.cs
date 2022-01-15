@@ -174,7 +174,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("SELECT * " +
                 "FROM Evoluciones " +
@@ -243,7 +243,7 @@ namespace CapaPresentacion
 
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("SELECT * " +
                 "FROM Evoluciones " +
@@ -307,7 +307,7 @@ namespace CapaPresentacion
         {
 
 
-            string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
             SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Historia.historia_familiar, Historia.historia_personal, Historia.estado FROM Historia where Historia.estado = 'Activo' and Historia.idpaciente = " + id_pac_seleccionado + " ; ", conDataBase);
 
@@ -407,7 +407,7 @@ namespace CapaPresentacion
         private void BuscarHistoria_por_Pac_id( int id_del_paciente)
         {
 
-                string Cn = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 SqlConnection conDataBase = new SqlConnection(Cn);
                 SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Historia.historia_familiar, Historia.historia_personal, Historia.estado FROM Historia where Historia.estado = 'Activo' and Historia.idpaciente = " + id_del_paciente + " ; ", conDataBase);
 
@@ -472,7 +472,7 @@ namespace CapaPresentacion
                 string nombremed = this.cbMedicosConfianza.Text;
 
 
-                string CN = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                 string Query = "select * from MedicoConfianza where nombre = '" + nombremed + "' ;";
                 SqlConnection conDataBase = new SqlConnection(CN);
                 SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
@@ -554,7 +554,7 @@ namespace CapaPresentacion
 
 
                         //Código
-                        SqlCon.ConnectionString = "Data Source=ADRIAN-PC\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
                         SqlCon.Open();
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();

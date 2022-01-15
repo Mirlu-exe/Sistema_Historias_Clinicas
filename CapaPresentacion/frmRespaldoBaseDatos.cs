@@ -28,7 +28,7 @@ namespace CapaPresentacion
 
 
 
-        SqlConnection conexion = new SqlConnection("SERVER=ADRIAN-PC\\SQLEXPRESS; DATABASE=dbclinica; Integrated Security=true");
+        SqlConnection conexion = new SqlConnection("SERVER=MIRLU\\SQLEXPRESS; DATABASE=dbclinica; Integrated Security=true");
 
 
         private void btnBrowseGenerar_Click(object sender, EventArgs e)
