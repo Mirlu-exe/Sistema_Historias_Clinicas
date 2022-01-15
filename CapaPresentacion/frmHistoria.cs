@@ -73,6 +73,7 @@ namespace CapaPresentacion
 
     private void  frmHistoria_Load(object sender, EventArgs e)
         {
+            validacion_listbox();
 
             autocompletar_diagnosticos();
 
@@ -99,6 +100,7 @@ namespace CapaPresentacion
             //Evento "Load" en la pestaña de Evolucion
             Gestionar_PlanEstudio_Evolucion();
             Gestionar_PlanTerapeutico_Evolucion();
+            
             MostrarFechasActivas();
            
 
@@ -283,6 +285,7 @@ namespace CapaPresentacion
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
                 this.Habilitar();
+
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
@@ -662,7 +665,7 @@ namespace CapaPresentacion
             ///////////////////////////// PLAN ESTUDIO WIP //////////////////////////////
 
             //se busca segun el id de la historia a ver si existe un plan de estudio
-
+            validacion_listbox();
 
             int id_plan_estudio_historia = buscar_plan_estudio_de_historia(Convert.ToInt32(this.lbl_idhistoria.Text));
 
@@ -985,8 +988,10 @@ namespace CapaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            validacion_listbox();
             this.IsNuevo = true;
             this.IsEditar = false;
+            
             this.Botones();
             this.Limpiar();
             this.Habilitar();
@@ -3606,14 +3611,23 @@ namespace CapaPresentacion
             this.LimpiarEvol();
         }
 
-        private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
+        private void validacion_listbox()
         {
+           
 
+            if (listboxDiagnosticosFinales.Items.Count > 0) 
+            {
+                MessageBox.Show("hi komo tas ?");
+                this.btnVerPlanTerapeutico.Enabled = false ;
+                this.btnVerPlanEstudio.Enabled = false;
+            
+            }else 
+            {
+                MessageBox.Show("hi komo tas false?");
+                btnVerPlanTerapeutico.Enabled = false;
+                btnVerPlanEstudio.Enabled = false;
 
-            //if (listboxDiagnosticosFinales.Container == 0) 
-            //{
-
-            //}
+            }
 
         }
     }

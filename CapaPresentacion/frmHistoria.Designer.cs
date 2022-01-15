@@ -455,7 +455,6 @@
             this.listboxDiagnosticosFinales.ScrollAlwaysVisible = true;
             this.listboxDiagnosticosFinales.Size = new System.Drawing.Size(1215, 132);
             this.listboxDiagnosticosFinales.TabIndex = 284;
-            this.listboxDiagnosticosFinales.SelectedValueChanged += new System.EventHandler(this.listboxDiagnosticosFinales_SelectedValueChanged);
             this.listboxDiagnosticosFinales.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listboxDiagnosticosFinales_KeyUp);
             // 
             // btnQuitarDiag

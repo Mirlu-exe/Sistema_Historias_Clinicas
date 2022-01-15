@@ -55,7 +55,7 @@ namespace CapaPresentacion
             this.citaTableAdapter.Fill(this.dsPrincipal.Cita);
             this.Habilitar(false);
             this.Botones();
-           
+
 
             dtpFechaCita.Value = DateTime.Now.Date;
             LblHora.Text = DateTime.Now.Date.ToShortDateString();
@@ -110,7 +110,7 @@ namespace CapaPresentacion
                 while (Lectura.Read())
                 {
 
-                    this.txtTasa.Text = (Lectura["Tasa_del_dia"].ToString() );
+                    this.txtTasa.Text = (Lectura["Tasa_del_dia"].ToString());
 
                 }
 
@@ -208,7 +208,7 @@ namespace CapaPresentacion
 
 
 
-        
+
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
@@ -292,40 +292,40 @@ namespace CapaPresentacion
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
             SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.hora, Servicio.nombre as Servicio, Cita.idservicio,Cita.suspendida, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
-         
-
-                try
-                {
 
 
-
-                    SqlDataAdapter sda = new SqlDataAdapter();
-                    sda.SelectCommand = cmdDataBase;
-                    dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataListado.DataSource = bSource;
-                    sda.Update(dbdataset);
+            try
+            {
 
 
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
 
-                    MessageBox.Show("Ha ocurrido un error");
-                }
+                bSource.DataSource = dbdataset;
+                dataListado.DataSource = bSource;
+                sda.Update(dbdataset);
 
 
 
-            if (dataListado.Rows.Count == 0 ) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
 
-            
+                MessageBox.Show("Ha ocurrido un error");
+            }
 
-           
+
+
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+
+
+
+
 
 
 
@@ -406,7 +406,7 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
                         SqlCmd.Parameters.AddWithValue("@d5", "Activo");
                         SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
-                        SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida() );
+                        SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida());
                         SqlCmd.Parameters.AddWithValue("@d8", this.timePicker.Text);
 
 
@@ -448,9 +448,9 @@ namespace CapaPresentacion
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
 
-                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDouble(this.txtCostoBs.Text)); 
+                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDouble(this.txtCostoBs.Text));
 
-                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToBoolean(this.IsCitaSuspendida() ));
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToBoolean(this.IsCitaSuspendida()));
                         SqlCmd.Parameters.AddWithValue("@d7", "Activo");
 
                         SqlCmd.Parameters.AddWithValue("@d8", timePicker.Text);
@@ -493,7 +493,7 @@ namespace CapaPresentacion
                     this.Mostrar();
                     this.RevisarCitasHoy();
 
-                   // this.txtEstadoCita.Text = string.Empty;
+                    // this.txtEstadoCita.Text = string.Empty;
 
 
                 }
@@ -587,7 +587,7 @@ namespace CapaPresentacion
             {
                 this.rbSuspendida.Checked = true;
             }
-            else 
+            else
             {
                 this.rbActiva.Checked = true;
             }
@@ -633,12 +633,12 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
-                MessageBox.Show("error " + ex.ToString() + "");  
+                MessageBox.Show("error " + ex.ToString() + "");
 
             }
 
 
-           // int Dolares = Convert.ToInt32(this.txtCosto.Text);
+            // int Dolares = Convert.ToInt32(this.txtCosto.Text);
 
 
 
@@ -956,14 +956,14 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.suspendida, Cita.hora, Cita.Estado FROM Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) + "' AND Cita.estado = 'Activo' ORDER BY Cita.hora ASC ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.suspendida, Cita.hora, Cita.Estado FROM Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '" + (DateTime.Now.ToShortDateString()) + "' AND Cita.estado = 'Activo' ORDER BY Cita.hora ASC ", conDataBase);
 
             try
             {
 
                 string Citashoy = DateTime.Now.ToShortDateString();
 
-               // MessageBox.Show("hoy es: " + Citashoy + " :)");
+                // MessageBox.Show("hoy es: " + Citashoy + " :)");
 
                 SqlDataAdapter sda = new SqlDataAdapter();
                 sda.SelectCommand = cmdDataBase;
@@ -1001,13 +1001,13 @@ namespace CapaPresentacion
 
             //validacion de cupos maximos
 
-            if (Cupos == 5) 
+            if (Cupos == 5)
             {
                 MessageBox.Show("A alcanzado le monto maximo de citas diarias");
                 btnNuevo.Enabled = false;
 
             }
-            else 
+            else
             { btnNuevo.Enabled = true; }
 
 
@@ -1086,17 +1086,17 @@ namespace CapaPresentacion
 
         }
 
-      
+
         private void btnCitasHoy_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
         }
 
-   
+
 
         private void dtpFechaCita_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -1222,7 +1222,7 @@ namespace CapaPresentacion
             SqlCmd2.Connection = SqlCon2;
             SqlCmd2.CommandText = "UPDATE TasaDelDia SET Tasa_del_dia = '" + this.txtTasa.Text + "' ";
 
-            
+
 
             //Ejecutamos nuestro comando
 
@@ -1252,9 +1252,9 @@ namespace CapaPresentacion
         private void txtTasa_TextChanged(object sender, EventArgs e)
         {
 
-          
-          
-           
+
+
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -1264,11 +1264,50 @@ namespace CapaPresentacion
 
         private void txtTasa_TextChanged_1(object sender, EventArgs e)
         {
-            
 
-           
 
-            
+
+
+
+        }
+
+        private void validacion_tiempo()
+        {
+
+
+            DateTime Hora_consulta = timePicker.Value;
+
+
+            if (Hora_consulta.Hour >= 16 || Hora_consulta.Hour <= 7 ) 
+            {
+                MessageBox.Show("Su cita no a sido agendada. Seleccione una hora entre las 07:00 y las 16:00.");
+            }else 
+            {
+
+            }
+        }
+
+        private void timePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime Hora_consulta = timePicker.Value;
+
+            MessageBox.Show("hora: "+ Hora_consulta.Hour);
+
+            if (Hora_consulta.Hour >= 7 && Hora_consulta.Hour <= 16)
+            {
+                this.btnGuardar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Su cita no a sido agendada. Seleccione una hora entre las 07:00 y las 16:00.");
+                this.btnGuardar.Enabled = false;
+                
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
