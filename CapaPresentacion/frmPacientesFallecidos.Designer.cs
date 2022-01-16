@@ -46,16 +46,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.btnBuscar_fallecidos = new System.Windows.Forms.Button();
-            this.txtBuscar_fallecidos = new System.Windows.Forms.TextBox();
-            this.cblBusqueda_fallecidos = new System.Windows.Forms.ComboBox();
             this.btnBorrar_fallecido = new System.Windows.Forms.Button();
             this.btnRestaurar_fallecido = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.dgv_all_dead = new System.Windows.Forms.DataGridView();
+            this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -71,7 +69,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_Paciente_fallecido = new System.Windows.Forms.DataGridView();
-            this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cblBusqueda_fallecidos = new System.Windows.Forms.ComboBox();
+            this.txtBuscar_fallecidos = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -106,17 +106,6 @@
             this.label1.Text = "†  Pacientes Fallecidos ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label16.Location = new System.Drawing.Point(886, 125);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(153, 32);
-            this.label16.TabIndex = 213;
-            this.label16.Text = "Buscar según:";
-            // 
             // btnBuscar_fallecidos
             // 
             this.btnBuscar_fallecidos.BackColor = System.Drawing.SystemColors.Control;
@@ -126,39 +115,13 @@
             this.btnBuscar_fallecidos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBuscar_fallecidos.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar_fallecidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar_fallecidos.Location = new System.Drawing.Point(1405, 119);
+            this.btnBuscar_fallecidos.Location = new System.Drawing.Point(1237, 15);
             this.btnBuscar_fallecidos.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar_fallecidos.Name = "btnBuscar_fallecidos";
             this.btnBuscar_fallecidos.Size = new System.Drawing.Size(113, 43);
             this.btnBuscar_fallecidos.TabIndex = 210;
             this.btnBuscar_fallecidos.Text = "Buscar";
             this.btnBuscar_fallecidos.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar_fallecidos
-            // 
-            this.txtBuscar_fallecidos.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar_fallecidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar_fallecidos.Location = new System.Drawing.Point(1218, 132);
-            this.txtBuscar_fallecidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBuscar_fallecidos.Name = "txtBuscar_fallecidos";
-            this.txtBuscar_fallecidos.Size = new System.Drawing.Size(176, 27);
-            this.txtBuscar_fallecidos.TabIndex = 211;
-            // 
-            // cblBusqueda_fallecidos
-            // 
-            this.cblBusqueda_fallecidos.BackColor = System.Drawing.SystemColors.Control;
-            this.cblBusqueda_fallecidos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblBusqueda_fallecidos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.cblBusqueda_fallecidos.ForeColor = System.Drawing.Color.DarkCyan;
-            this.cblBusqueda_fallecidos.FormattingEnabled = true;
-            this.cblBusqueda_fallecidos.Items.AddRange(new object[] {
-            "Nombre",
-            "Cedula"});
-            this.cblBusqueda_fallecidos.Location = new System.Drawing.Point(1051, 122);
-            this.cblBusqueda_fallecidos.Margin = new System.Windows.Forms.Padding(4);
-            this.cblBusqueda_fallecidos.Name = "cblBusqueda_fallecidos";
-            this.cblBusqueda_fallecidos.Size = new System.Drawing.Size(160, 40);
-            this.cblBusqueda_fallecidos.TabIndex = 212;
             // 
             // btnBorrar_fallecido
             // 
@@ -169,7 +132,7 @@
             this.btnBorrar_fallecido.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnBorrar_fallecido.ForeColor = System.Drawing.Color.DarkRed;
             this.btnBorrar_fallecido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar_fallecido.Location = new System.Drawing.Point(1479, 313);
+            this.btnBorrar_fallecido.Location = new System.Drawing.Point(1237, 172);
             this.btnBorrar_fallecido.Margin = new System.Windows.Forms.Padding(4);
             this.btnBorrar_fallecido.Name = "btnBorrar_fallecido";
             this.btnBorrar_fallecido.Size = new System.Drawing.Size(165, 55);
@@ -187,7 +150,7 @@
             this.btnRestaurar_fallecido.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnRestaurar_fallecido.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnRestaurar_fallecido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestaurar_fallecido.Location = new System.Drawing.Point(1479, 230);
+            this.btnRestaurar_fallecido.Location = new System.Drawing.Point(1237, 97);
             this.btnRestaurar_fallecido.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestaurar_fallecido.Name = "btnRestaurar_fallecido";
             this.btnRestaurar_fallecido.Size = new System.Drawing.Size(165, 55);
@@ -211,7 +174,13 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.dgv_all_dead);
+            this.tabPage1.Controls.Add(this.btnBuscar_fallecidos);
+            this.tabPage1.Controls.Add(this.cblBusqueda_fallecidos);
+            this.tabPage1.Controls.Add(this.txtBuscar_fallecidos);
+            this.tabPage1.Controls.Add(this.btnRestaurar_fallecido);
+            this.tabPage1.Controls.Add(this.btnBorrar_fallecido);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -278,9 +247,16 @@
             this.dgv_all_dead.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_all_dead.RowTemplate.Height = 24;
             this.dgv_all_dead.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_all_dead.Size = new System.Drawing.Size(1401, 683);
+            this.dgv_all_dead.Size = new System.Drawing.Size(1206, 683);
             this.dgv_all_dead.TabIndex = 16;
             this.dgv_all_dead.DoubleClick += new System.EventHandler(this.dgv_all_dead_DoubleClick);
+            // 
+            // Seleccion
+            // 
+            this.Seleccion.HeaderText = "Seleccion";
+            this.Seleccion.MinimumWidth = 6;
+            this.Seleccion.Name = "Seleccion";
+            this.Seleccion.Width = 125;
             // 
             // tabPage2
             // 
@@ -302,7 +278,7 @@
             this.tabPage2.Controls.Add(this.dgv_Paciente_fallecido);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1428, 763);
+            this.tabPage2.Size = new System.Drawing.Size(1037, 763);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ficha del Paciente Fallecido";
             // 
@@ -570,12 +546,42 @@
             this.dgv_Paciente_fallecido.Size = new System.Drawing.Size(1364, 186);
             this.dgv_Paciente_fallecido.TabIndex = 215;
             // 
-            // Seleccion
+            // cblBusqueda_fallecidos
             // 
-            this.Seleccion.HeaderText = "Seleccion";
-            this.Seleccion.MinimumWidth = 6;
-            this.Seleccion.Name = "Seleccion";
-            this.Seleccion.Width = 125;
+            this.cblBusqueda_fallecidos.BackColor = System.Drawing.SystemColors.Control;
+            this.cblBusqueda_fallecidos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cblBusqueda_fallecidos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.cblBusqueda_fallecidos.ForeColor = System.Drawing.Color.DarkCyan;
+            this.cblBusqueda_fallecidos.FormattingEnabled = true;
+            this.cblBusqueda_fallecidos.Items.AddRange(new object[] {
+            "Nombre",
+            "Cedula"});
+            this.cblBusqueda_fallecidos.Location = new System.Drawing.Point(883, 18);
+            this.cblBusqueda_fallecidos.Margin = new System.Windows.Forms.Padding(4);
+            this.cblBusqueda_fallecidos.Name = "cblBusqueda_fallecidos";
+            this.cblBusqueda_fallecidos.Size = new System.Drawing.Size(160, 40);
+            this.cblBusqueda_fallecidos.TabIndex = 212;
+            // 
+            // txtBuscar_fallecidos
+            // 
+            this.txtBuscar_fallecidos.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBuscar_fallecidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar_fallecidos.Location = new System.Drawing.Point(1050, 26);
+            this.txtBuscar_fallecidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBuscar_fallecidos.Name = "txtBuscar_fallecidos";
+            this.txtBuscar_fallecidos.Size = new System.Drawing.Size(176, 27);
+            this.txtBuscar_fallecidos.TabIndex = 211;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label16.Location = new System.Drawing.Point(718, 21);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(153, 32);
+            this.label16.TabIndex = 213;
+            this.label16.Text = "Buscar según:";
             // 
             // frmPacientesFallecidos
             // 
@@ -583,13 +589,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1809, 949);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.btnBuscar_fallecidos);
-            this.Controls.Add(this.txtBuscar_fallecidos);
-            this.Controls.Add(this.cblBusqueda_fallecidos);
-            this.Controls.Add(this.btnBorrar_fallecido);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnRestaurar_fallecido);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPacientesFallecidos";
             this.Text = "frmPacientesFallecidos";
@@ -605,7 +605,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Historia_fallecido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Paciente_fallecido)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -613,10 +612,7 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnBuscar_fallecidos;
-        private System.Windows.Forms.TextBox txtBuscar_fallecidos;
-        private System.Windows.Forms.ComboBox cblBusqueda_fallecidos;
         private System.Windows.Forms.Button btnBorrar_fallecido;
         private System.Windows.Forms.Button btnRestaurar_fallecido;
         private System.Windows.Forms.TabControl tabControl1;
@@ -639,5 +635,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccion;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cblBusqueda_fallecidos;
+        private System.Windows.Forms.TextBox txtBuscar_fallecidos;
     }
 }

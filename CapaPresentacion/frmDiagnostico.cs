@@ -34,7 +34,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            this.ttMensaje.SetToolTip(this.txtCodigoDiag, "Ingrese el Codigo del diagnostico");
+           
 
             this.ttMensaje.SetToolTip(this.txtEnfermedad, "Ingrese la enfermedad");
 
@@ -69,7 +69,7 @@ namespace CapaPresentacion
         private void Limpiar()
         {
             this.txtidDiagnostico.Text = string.Empty;
-            this.txtCodigoDiag.Text = string.Empty;
+            
             this.txtEnfermedad.Text = string.Empty;
             this.txtTipo.Text = string.Empty;
 
@@ -80,7 +80,7 @@ namespace CapaPresentacion
         private void Habilitar()
         {
             this.txtidDiagnostico.Enabled = true;
-            this.txtCodigoDiag.Enabled = true;
+            
             this.txtEnfermedad.Enabled = true;
             this.txtTipo.Enabled = true;
 
@@ -90,7 +90,7 @@ namespace CapaPresentacion
         private void Deshabilitar()
         {
             this.txtidDiagnostico.Enabled = false;
-            this.txtCodigoDiag.Enabled = false;
+            
             this.txtEnfermedad.Enabled = false;
             this.txtTipo.Enabled = false;
 
@@ -122,7 +122,7 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            this.dataListado.Columns[1].Visible = false;
+            //this.dataListado.Columns[1].Visible = false;
             this.dataListado.Columns["estado"].Visible = false;
 
         }
@@ -192,7 +192,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar();
-            this.txtCodigoDiag.Focus();
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -201,7 +201,7 @@ namespace CapaPresentacion
             {
                 string rpta = "";
                 string rpta2 = "";
-                if (this.txtCodigoDiag.Text == string.Empty || this.txtEnfermedad.Text == string.Empty || this.txtTipo.Text == string.Empty)
+                if ( this.txtEnfermedad.Text == string.Empty || this.txtTipo.Text == string.Empty)
                 {
                     MensajeError("No se pueden dejar campos vacios");
 
@@ -215,7 +215,7 @@ namespace CapaPresentacion
                     {
 
 
-                        rpta = NDiagnostico.Insertar(this.txtCodigoDiag.Text.Trim().ToUpper(),
+                        rpta = NDiagnostico.Insertar(
                         this.txtEnfermedad.Text.Trim().ToUpper(),
                         this.txtTipo.Text.Trim().ToUpper(), "Activo");
 
@@ -264,7 +264,7 @@ namespace CapaPresentacion
 
 
 
-                        rpta = NDiagnostico.Editar(Convert.ToInt32(this.txtidDiagnostico.Text), this.txtCodigoDiag.Text.Trim().ToUpper(),
+                        rpta = NDiagnostico.Editar(Convert.ToInt32(this.txtidDiagnostico.Text),
                          this.txtEnfermedad.Text.Trim().ToUpper(),
                          this.txtTipo.Text.Trim().ToUpper());
 
@@ -410,7 +410,7 @@ namespace CapaPresentacion
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
             this.txtidDiagnostico.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["iddiagnostico"].Value);
-            this.txtCodigoDiag.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["codigo"].Value);
+            
             this.txtEnfermedad.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["enfermedad"].Value);
             this.txtTipo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo"].Value);
             this.TxtEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
