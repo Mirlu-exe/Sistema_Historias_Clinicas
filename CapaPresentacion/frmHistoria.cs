@@ -52,18 +52,32 @@ namespace CapaPresentacion
 
             this.ttMensaje.SetToolTip(this.dtpFechaConsulta, "Ingrese la fecha de consulta");
 
-            this.ttMensaje.SetToolTip(this.txtMotivoConsulta, "Ingrese la razon de la consulta");
-            this.ttMensaje.SetToolTip(this.txtEnfermedadActual, "Ingrese la enfermedad actual");
-            this.ttMensaje.SetToolTip(this.txtHistoriaPersonal, "Ingrese la historia personal");
-            this.ttMensaje.SetToolTip(this.txtHistoriaFamiliar, "Ingrese la historia familiar");
-            this.ttMensaje.SetToolTip(this.txtTratamiento_Actual, "Ingrese el tratamiento actual");
-            this.ttMensaje.SetToolTip(this.txtExamenFisico, "Ingrese el examen fisico");
-            this.ttMensaje.SetToolTip(this.txtLaboratorio, "Ingrese el laboratorio");
-            this.ttMensaje.SetToolTip(this.txtecg, "Ingrese el ecg paciente");
-            this.ttMensaje.SetToolTip(this.txtParaclinicos, "Ingrese los rayos X del paciente");
-            this.ttMensaje.SetToolTip(this.txtEcocardiograma, "Ingrese el ecocardiograma del paciente");
-            this.ttMensaje.SetToolTip(this.btnVerPlanEstudio, "Ingrese el plan de estudio");
-            this.ttMensaje.SetToolTip(this.btnVerPlanTerapeutico, "Ingrese el plan terapeutico");
+            this.ttMensaje.SetToolTip(this.txtMotivoConsulta, "la razon principal de la consulta");
+            this.ttMensaje.SetToolTip(this.txtEnfermedadActual, "relato cronologico de las manifestaciones clinicas (sintomas y signos)");
+            this.ttMensaje.SetToolTip(this.txtHistoriaPersonal, " enfermedades, intervenciones, alergias, hospitalizaciones y habitos.");
+            this.ttMensaje.SetToolTip(this.txtHistoriaFamiliar, "enfermedades padecidas por los familiares directos");
+            this.ttMensaje.SetToolTip(this.txtTratamiento_Actual, "medicamentos que esta recibiendo el paciente antes de venir a la consulta.");
+            this.ttMensaje.SetToolTip(this.txtExamenFisico, "exploracion de todo el individuo para buscar signos de enfermedades.");
+            this.ttMensaje.SetToolTip(this.txtLaboratorio, "analisis de los examenes de laboratorio que ya trae el paciente.");
+            this.ttMensaje.SetToolTip(this.txtecg, "analisis del sistema electrico del corazon, el estudio puede traerlo hecho.");
+            this.ttMensaje.SetToolTip(this.txtParaclinicos, "analisis de examenes radiologicos, ecograficos, etc, que ya trae el paciente");
+            this.ttMensaje.SetToolTip(this.txtEcocardiograma, "analisis de la funcion y estructura del corazon, el estudio puede traerlo hecho.");
+            this.ttMensaje.SetToolTip(this.btnVerPlanEstudio, "son las ordenes para realizar pruebas de laboratorio y estudios especiales solicitados al paciente para confirmar o descartar el diagnostico clinico.");
+            this.ttMensaje.SetToolTip(this.btnVerPlanTerapeutico, "es el conjunto de acciones donde se nombran los medicamentos y la manera de usarlos para aliviar o curar la enfermedad.");
+            this.ttMensaje.SetToolTip(this.cblTipo_Sangre, "grupo sangineo al que corresponde el paciente");
+            this.ttMensaje.SetToolTip(this.txtDiagnosticos, "son las enfermedades o sindromes precisados por el medico tras un analisis del paciente");
+
+            this.ttMensaje.SetToolTip(this.txtMotivoConsultaEvol, "la razon principal de la consulta");
+            this.ttMensaje.SetToolTip(this.txtObservacionesEvol, "evolución de los signos y síntomas revisión de nuevos examenes o revision de examenes solicitados para confirmar diagnosticos, cambiar tratamiento de ser necesario. También para consultas posteriores debido a otros cuadros clínicos.");
+            this.ttMensaje.SetToolTip(this.txtProxConsultaEvol, "es la sugerencia de el momento para una próxima revisión médica.");
+            this.ttMensaje.SetToolTip(this.txtExamenFisicoEvol, "exploracion de todo el individuo para buscar signos de enfermedades.");
+            this.ttMensaje.SetToolTip(this.txtLaboratorioEvol, "analisis de los examenes de laboratorio que ya trae el paciente.");
+            this.ttMensaje.SetToolTip(this.txtParaclinicosEvol, "analisis de examenes radiologicos, ecograficos, etc, que ya trae el paciente");
+            this.ttMensaje.SetToolTip(this.txtEkgEvol, "analisis del sistema electrico del corazon, el estudio puede traerlo hecho.");
+            this.ttMensaje.SetToolTip(this.txtEcocardiogramaEvol, " analisis de la funcion y estructura del corazon, el estudio puede traerlo hecho.");
+            this.ttMensaje.SetToolTip(this.btnVerPlanEstudioEvol, "son las ordenes para realizar pruebas de laboratorio y estudios especiales solicitados al paciente para confirmar o descartar el diagnostico clinico.");
+            this.ttMensaje.SetToolTip(this.btnVerPlanTerapeuticoEvol, "es el conjunto de acciones donde se nombran los medicamentos y la manera de usarlos para aliviar o curar la enfermedad.");
+            this.ttMensaje.SetToolTip(this.txtDiagnosticosEvol, "son las enfermedades o sindromes precisados por el medico tras un analisis del paciente");
 
             this.btnAnular.Enabled = false;
         }
@@ -3615,19 +3629,19 @@ namespace CapaPresentacion
         {
            
 
-            if (listboxDiagnosticosFinales.Items.Count > 0) 
-            {
-                MessageBox.Show("hi komo tas ?");
-                this.btnVerPlanTerapeutico.Enabled = false ;
-                this.btnVerPlanEstudio.Enabled = false;
+            //if (listboxDiagnosticosFinales.Items.Count > 0) 
+            //{
+            //    MessageBox.Show("hi komo tas ?");
+            //    this.btnVerPlanTerapeutico.Enabled = false ;
+            //    this.btnVerPlanEstudio.Enabled = false;
             
-            }else 
-            {
-                MessageBox.Show("hi komo tas false?");
-                btnVerPlanTerapeutico.Enabled = false;
-                btnVerPlanEstudio.Enabled = false;
+            //}else 
+            //{
+            //    MessageBox.Show("hi komo tas false?");
+            //    btnVerPlanTerapeutico.Enabled = false;
+            //    btnVerPlanEstudio.Enabled = false;
 
-            }
+            //}
 
         }
     }

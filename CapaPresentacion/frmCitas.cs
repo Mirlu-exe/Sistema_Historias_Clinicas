@@ -1271,27 +1271,12 @@ namespace CapaPresentacion
 
         }
 
-        private void validacion_tiempo()
-        {
-
-
-            DateTime Hora_consulta = timePicker.Value;
-
-
-            if (Hora_consulta.Hour >= 16 || Hora_consulta.Hour <= 7 ) 
-            {
-                MessageBox.Show("Su cita no a sido agendada. Seleccione una hora entre las 07:00 y las 16:00.");
-            }else 
-            {
-
-            }
-        }
 
         private void timePicker_ValueChanged(object sender, EventArgs e)
         {
             DateTime Hora_consulta = timePicker.Value;
 
-            MessageBox.Show("hora: "+ Hora_consulta.Hour);
+            //MessageBox.Show("hora: "+ Hora_consulta.Hour);
 
             if (Hora_consulta.Hour >= 7 && Hora_consulta.Hour <= 16)
             {
