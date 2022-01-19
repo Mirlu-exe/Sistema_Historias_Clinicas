@@ -145,7 +145,19 @@ namespace CapaNegocio
             return Obj.Muerto_a_Papelera(Obj);
         }
 
+        public static DataTable BuscarMuertoCedula(string textobuscar)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarMuertoCedula(Obj);
+        }
 
+        public static DataTable BuscarMuertoNombre(string textobuscar)
+        {
+            DPacientes Obj = new DPacientes();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarMuertoNombre(Obj);
+        }
 
     }
 }
