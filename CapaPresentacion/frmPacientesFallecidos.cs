@@ -25,8 +25,21 @@ namespace CapaPresentacion
             this.dgv_all_dead.DataSource = MostrarTodosPacientesMuertos();
         }
 
+        private void OcultarColumnas()
+        {
 
+            this.dgv_all_dead.Columns[0].Visible = false;
+            this.dgv_all_dead.Columns[1].Visible = false;
+            this.dgv_all_dead.Columns["estado"].Visible = false;
+            this.dgv_all_dead.Columns["is_dead"].Visible = false;
 
+        }
+        private void SolofallecidosActivos()
+        {
+
+            (dgv_all_dead.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo'");
+
+        }
 
         private void dgv_all_dead_DoubleClick(object sender, EventArgs e)
         {
@@ -42,7 +55,6 @@ namespace CapaPresentacion
                 this.dtp_Death_Date.Value = Convert.ToDateTime(this.dgv_all_dead.CurrentRow.Cells["fecha_muerte"].Value);
 
                 this.txtCausaMuerte.Text = Convert.ToString(this.dgv_all_dead.CurrentRow.Cells["causa_muerte"].Value);
-
 
                 MostrarPacienteFallecido();
 
@@ -87,10 +99,26 @@ namespace CapaPresentacion
             return DtResultado;
         }
 
+        public void Buscar_paciente_fallecidos_Cedula() 
+        {
+            this.dgv_all_dead.DataSource = NPacientes.BuscarMuertoCedula(this.txtBuscar_fallecidos.Text);
+          this.OcultarColumnas();
+         //   SolofallecidosActivos();
+            lblTotal.Text = "Todos los pacientes fallecidos: " + Convert.ToString(dgv_all_dead.Rows.Count);
+        }
+
+        public void Buscar_paciente_fallecidos_Nombre()
+        {
+            this.dgv_all_dead.DataSource = NPacientes.BuscarMuertoNombre(this.txtBuscar_fallecidos.Text);
+               this.OcultarColumnas();
+            //   SolofallecidosActivos();
+            lblTotal.Text = "Todos los pacientes fallecidos: " + Convert.ToString(dgv_all_dead.Rows.Count);
+        }
+
         public void MostrarPacienteFallecido()
         {
-            this.dgv_Paciente_fallecido.DataSource = NPacientes.BuscarNum_Cedula(lbl_cedula.Text);
-           
+            this.dgv_Paciente_fallecido.DataSource = NPacientes.BuscarNum_Cedula(this.lbl_cedula.Text);
+         
         }
 
         public DataTable MostrarHistoriaFallecido(int id_pac)
@@ -268,6 +296,34 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void txtBuscar_fallecidos_TextChanged(object sender, EventArgs e)
+        {
+            if (this.cblBusqueda_fallecidos.Text.Equals("Nombre"))
+            {
+
+                this.Buscar_paciente_fallecidos_Nombre();
+            }
+            else if (this.cblBusqueda_fallecidos.Text.Equals("Cedula"))
+            {
+                this.Buscar_paciente_fallecidos_Cedula();
+            }
+
+        }
+
+        private void btnBuscar_fallecidos_Click(object sender, EventArgs e)
+        {
+            if (this.cblBusqueda_fallecidos.Text.Equals("Nombre"))
+            {
+
+                 this.Buscar_paciente_fallecidos_Nombre();
+            }
+            else if (this.cblBusqueda_fallecidos.Text.Equals("Cedula"))
+            {
+                this.Buscar_paciente_fallecidos_Cedula();
+            }
+
         }
     }
 }

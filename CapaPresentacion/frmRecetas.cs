@@ -184,7 +184,7 @@ namespace CapaPresentacion
 
         // Metodo BuscarDosis No funciona
 
-       /* private void BuscarDosis() 
+        private void BuscarDosis() 
         {
 
             this.dataListado.DataSource = NReceta.BuscarDosis(this.txtBuscar.Text);
@@ -195,7 +195,7 @@ namespace CapaPresentacion
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
 
 
-        }*/
+        }
 
 
 
@@ -348,7 +348,7 @@ namespace CapaPresentacion
             }
             else
             {
-              //  this.BuscarDosis();
+              this.BuscarDosis();
             }
 
         }
@@ -358,12 +358,14 @@ namespace CapaPresentacion
             if (this.cmbTipoReceta.Text.Equals("Medicamento"))
             {
                 this.BuscarMedicamento();
-
+            }
+            else if (this.cmbTipoReceta.Text.Equals("Presentacion"))
+            {
+               this.BuscarPresentacion();
             }
             else
             {
-
-                this.BuscarPresentacion();
+                this.BuscarDosis();
             }
         }
 
