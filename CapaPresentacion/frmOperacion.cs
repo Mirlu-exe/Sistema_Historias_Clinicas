@@ -55,9 +55,17 @@ namespace CapaPresentacion
 
             this.datalistadoOperaciones.DataSource = NOperacion.Mostrar();
 
-
+            OcultarColumnas();
 
             lblCantidadOperaciones.Text = "Total de Operaciones: " + Convert.ToString(datalistadoOperaciones.Rows.Count);
+        }
+
+
+
+        //Método para ocultar columnas
+        private void OcultarColumnas()
+        {
+            this.datalistadoOperaciones.Columns["idoperacion"].Visible = false;
         }
 
 

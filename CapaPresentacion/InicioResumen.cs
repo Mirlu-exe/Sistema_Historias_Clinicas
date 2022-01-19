@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
+using System.Text.RegularExpressions;
 
 
 using System.Data.SqlClient;
@@ -398,5 +399,7 @@ namespace CapaPresentacion
             MessageBox.Show("No hay mas cupos disponibles!!, intente otro dia por favor");
 
         }
+
+
     }
 }

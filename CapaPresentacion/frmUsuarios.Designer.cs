@@ -513,6 +513,7 @@
             // 
             this.cmbEstado.BackColor = System.Drawing.SystemColors.Control;
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.Enabled = false;
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cmbEstado.ForeColor = System.Drawing.Color.DarkCyan;
             this.cmbEstado.FormattingEnabled = true;

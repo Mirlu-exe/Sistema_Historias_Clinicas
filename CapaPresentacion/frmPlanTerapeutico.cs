@@ -11,38 +11,232 @@ using System.Data.SqlClient;
 
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
     public partial class frmPlanTerapeutico : Form
     {
+        public string rptEncabezado;
+        public string rptDetalle;
+        public string rptFirma = "Dr. Félix Eduardo Montaño Vallés \n Médico Internista Cardiólogo Clínico \n CI#: 6.320.809 \n MPPS#: 50.859. CMA#: 6.445";
 
 
         private bool IsNuevo = false;
 
-
-        ////variables donde se guardaran valores traidos de otros forms
-
-        public string Cedula_paciente_perteneciente { get; set; }
-
-        public string Cedula_paciente_perteneciente_evol { get; set; }
+        private bool IsEvolucion = false;
 
 
 
+        /// <summary>
+        /// Data to transfer into / out of form Historia
+        /// </summary>
+        public string Data_PlanTerapeutico
+        {
+            get { return lbl_idplanterapeutico_historia.Text; }
+            set { lbl_idplanterapeutico_historia.Text = value; }
+        }
 
-        public frmPlanTerapeutico(string cedula)
+        /// <summary>
+        /// Data to transfer into / out of form Evolucion
+        /// </summary>
+        public string Data_PlanTerapeutico_Evol
+        {
+            get { return lbl_idplanterapeutico_evol.Text; }
+            set { lbl_idplanterapeutico_evol.Text = value; }
+        }
+
+
+
+
+        public frmPlanTerapeutico(string cedula, bool isEvolucion)
         {
             InitializeComponent();
 
             this.ttMensaje.SetToolTip(this.txtNombre_Paciente, "Ingrese el Nombre del Paciente");
-            this.ttMensaje.SetToolTip(this.txtCedulaPac_Terapeutico, "Ingrese el numero de documento");
+            this.ttMensaje.SetToolTip(this.txtCedulaPac_Terapeutico, "Ingrese el numero de Cedula");
 
-            this.ttMensaje.SetToolTip(this.btnAñadir, "Añadir Recipe e Indicaciones al Plan de Estudio");
-            this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan de Estudio");
+            this.ttMensaje.SetToolTip(this.btnAñadir, "Añadir Recipe e Indicaciones al Plan Terapeutico");
+            this.ttMensaje.SetToolTip(this.btnQuitar, "Quitar Recipe e Indicaciones del Plan Terapeutico");
 
             txtCedulaPac_Terapeutico.Text = cedula;
+            IsEvolucion = isEvolucion;
+
 
         }
+
+
+        /// <summary>
+        /// Event to indicate new data is available
+        /// </summary>
+        public event EventHandler DataAvailable_PlanTerapeutico;
+        /// <summary>
+        /// Called to signal to subscribers that new data is available
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnDataAvailable_PlanTerapeutico(EventArgs e)
+        {
+            EventHandler eh = DataAvailable_PlanTerapeutico;
+            if (eh != null)
+            {
+                eh(this, e);
+            }
+        }
+
+
+        /// <summary>
+        /// Event to indicate new data is available EVOLUCION
+        /// </summary>
+        public event EventHandler DataAvailable_PlanTerapeutico_Evol;
+        /// <summary>
+        /// Called to signal to subscribers that new data is available EVOLUCION
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnDataAvailable_PlanTerapeutico_Evol(EventArgs e)
+        {
+            EventHandler eh_evol = DataAvailable_PlanTerapeutico_Evol;
+            if (eh_evol != null)
+            {
+                eh_evol(this, e);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Tell the parent the data is ready.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private void btnSeleccionarPlanTerapeutico_Click(object sender, EventArgs e)
+        {
+
+            //Dentro de este try se hace la insercion de los datos de PlanTerapeutico a la BD
+            try
+            {
+                string rpta = "";
+                if (this.txtNombre_Paciente.Text == string.Empty)
+                {
+                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    this.tabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+
+
+
+                    if (this.IsNuevo)
+                    {
+
+
+                        SqlConnection SqlCon = new SqlConnection();
+
+
+
+                        //Código
+                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                        SqlCon.Open();
+                        //Establecer el Comando
+                        SqlCommand SqlCmd = new SqlCommand();
+                        SqlCmd.Connection = SqlCon;
+                        SqlCmd.CommandText = "spinsertar_planterapeutico";
+                        SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                        string hoy = DateTime.Now.ToShortDateString();
+
+
+
+
+                        //este es el mejor metodo para hacerlo un string y separarlo con un salto de linea \n
+                        var listaRecipeIndicaciones = listBox1.Items.Cast<String>().ToList(); //convertir el control en una lista
+                        string cadenaRecipeIndicaciones = string.Join("\n", listaRecipeIndicaciones); //convertir la lista en un string separando cada linea por una coma
+
+
+                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
+                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", cadenaRecipeIndicaciones);
+                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
+
+
+                        //Ejecutamos nuestro comando
+
+                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
+
+
+
+                        //Establecer el Comando para traer el id del ultimo row añadido
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = SqlCon;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "select @@IDENTITY";
+                        int Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+
+                        //se asigna el id al label para mostrar cual es el id del plan terapeutico recien guardado
+
+                        if (IsEvolucion == false)
+                        {
+                            this.lbl_idplanterapeutico_historia.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+                        }
+                        else if (IsEvolucion == true)
+                        {
+                            this.lbl_idplanterapeutico_evol.Text = Convert.ToString(Id_plan_terapeutico_recien_guardado);
+                        }
+                        
+
+                       
+
+                    }
+
+
+
+                    if (this.IsNuevo)
+                    {
+                        MessageBox.Show("Se Insertó de forma correcta el plan terapeutico");
+                    }
+
+
+                    this.IsNuevo = false;
+                    this.Deshabilitar();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+
+
+
+
+            if (IsEvolucion == false)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanTerapeutico(null);
+
+            }
+            else if (IsEvolucion == true)
+            {
+                //esto es para enviar la señal al frmHistoria para hacerle saber que la data está disponible
+                OnDataAvailable_PlanTerapeutico_Evol(null);
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -53,17 +247,39 @@ namespace CapaPresentacion
         {
 
 
-            CargarDatosPaciente();
-
-            //LlenarComboRecipe();
-
+            //Llenar el combobox de Medicamentos que estan registrados en la BD
             LlenarCbMedicamento();
 
+
+
+            // Realizar la carga de datos del paciente y bloquear los txtbox
+            CargarDatosPaciente();
+
+
+            //Asignar la fecha de emision de hoy
+            this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
 
             Deshabilitar();
 
 
-            this.lbl_fecha_emision.Text = DateTime.Now.ToShortDateString();
+
+
+            //en caso de que la historia ya tenga un ID de PlanTerapeutico almacenado en la BD
+
+            if (Convert.ToInt32(this.lbl_idplanterapeutico_evol.Text) > 0)
+            {
+                //cargar dicho plan terapeutico
+                Cargar_Plan_Terapeutico_En_Campos(Convert.ToInt32(this.lbl_idplanterapeutico_evol.Text));
+            }
+
+            if (Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text) > 0)
+            {
+                //cargar dicho plan terapeutico
+                Cargar_Plan_Terapeutico_En_Campos(Convert.ToInt32(this.lbl_idplanterapeutico_historia.Text));
+            }
+
+
+
 
         }
 
@@ -71,9 +287,97 @@ namespace CapaPresentacion
         private void CargarDatosPaciente()
         {
             // mandar la cedula del paciente a este form y cargar los datos.
-            
+            int id_del_paciente_a_cargar;
+
+            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
+
+            if (id_del_paciente_a_cargar <= 0)
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
 
         }
+
+
+        /// <summary>
+        /// Es una tabla donde se guardan todos los datos de el Plan Terapeutico extraidos de un query.
+        /// </summary>
+        /// <param name="idplanterapeutico"></param>
+        /// <returns></returns>
+        private DataTable Datos_PlanTerapeutico(int idplanterapeutico)
+        {
+            //aca se buscará el plan terapeutico que coincida con ese id exacto
+
+            DataTable DtResultado = new DataTable("Datos_PlanTerapeutico");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_plan_terapeutico";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_plan_terapeutico";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idplanterapeutico;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+            return DtResultado;
+
+        }
+
+
+        private void Cargar_Plan_Terapeutico_En_Campos(int id_planterapeutico)
+        {
+
+            DataTable PlanTerapeutico_del_Paciente = Datos_PlanTerapeutico(id_planterapeutico);
+
+            if (PlanTerapeutico_del_Paciente.Rows.Count <= 0)
+            {
+
+                MessageBox.Show("Este paciente NO tiene plan terapeutico :s porfavor contacte al admin");
+                PlanTerapeutico_del_Paciente = null;
+
+            }
+            else
+            {
+
+
+                //meter los row/column de esa datatable en cada campo del form
+
+                //this.lbl_idplanterapeutico_historia.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][0]);
+                this.lbl_fecha_emision.Text = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][3]);
+
+                string recipe_indicaciones_cadena = Convert.ToString(PlanTerapeutico_del_Paciente.Rows[0][2]);
+
+                List<string> recipe_indicaciones_separados_con_coma = recipe_indicaciones_cadena.Split(new char[] { '\n' }).ToList();
+
+                this.listBox1.DataSource = recipe_indicaciones_separados_con_coma;
+
+                ////List<string> recipe_indicaciones_separados = recipe_indicaciones_cadena.Split( new[] { Environment.NewLine },StringSplitOptions.None ).ToList();
+
+                ////this.listBox1.DataSource = recipe_indicaciones_separados;
+
+
+            }
+
+
+        }
+
 
 
         //Para llenar el cbMedicamento
@@ -115,14 +419,6 @@ namespace CapaPresentacion
 
 
 
-            //this.cbPresentacion.DataSource = NReceta.Mostrar();
-            //cbPresentacion.ValueMember = "presentacion";
-            //cbPresentacion.DisplayMember = "presentacion";
-
-            //this.cbDosis.DataSource = NReceta.Mostrar();
-            //cbDosis.ValueMember = "dosis";
-            //cbDosis.DisplayMember = "dosis";
-
         }
 
 
@@ -163,16 +459,8 @@ namespace CapaPresentacion
 
 
                 //Ejecutamos nuestro comando
-
                 int resultados = SqlCmd.ExecuteNonQuery();
 
-
-                //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-                //// Add a range of items  
-                //int[] presentaciones = { rpta };
-                //AuthorList.AddRange(authors);
 
 
             }
@@ -186,9 +474,8 @@ namespace CapaPresentacion
             }
 
 
-
+            
             return Lista_de_id_presentaciones;
-
 
         }
 
@@ -228,18 +515,6 @@ namespace CapaPresentacion
 
             }
 
-          
-
-            
-
-
-
-            //para testear el contenido del array
-            //foreach (string item in meds_array)
-            //{
-            //    MessageBox.Show(" wea: " + item + "");
-            //}
-
 
 
 
@@ -266,6 +541,7 @@ namespace CapaPresentacion
 
         private void Deshabilitar()
         {
+
             this.groupBox_Recipe.Enabled = false;
 
             this.groupBox_Indicaciones.Enabled = false;
@@ -294,7 +570,7 @@ namespace CapaPresentacion
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -328,7 +604,7 @@ namespace CapaPresentacion
 
 
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar == (char)13)
@@ -369,15 +645,9 @@ namespace CapaPresentacion
 
 
             // Add more items to the list  
-            listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  \n Indicaciones: " + indic + "  \n");
+            listBox1.Items.Add( med + " " + presentacion + " " + dosis + "  Indicaciones: " + indic + "  ");
 
-
-
-            //// Read List items  
-            //foreach (string name in names)
-            //{
-            //    Console.Write($"{name}, ");
-            //}
+            //LIMPIAR CAMPOS
 
         }
 
@@ -399,103 +669,6 @@ namespace CapaPresentacion
 
         }
 
-        private void btnGuardar_informe_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                string rpta = "";
-                if (this.txtNombre_Paciente.Text == string.Empty)
-                {
-                    MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    this.tabControl1.SelectedIndex = 1;
-                }
-                else
-                {
-
-
-
-                    if (this.IsNuevo)
-                    {
-
-
-                        SqlConnection SqlCon = new SqlConnection();
-
-
-
-                        //Código
-                        SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-                        SqlCon.Open();
-                        //Establecer el Comando
-                        SqlCommand SqlCmd = new SqlCommand();
-                        SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "spinsertar_planterapeutico";
-                        SqlCmd.CommandType = CommandType.StoredProcedure;
-
-
-
-
-                        string hoy = DateTime.Now.ToShortDateString();
-
-
-
-                        StringBuilder sb = new StringBuilder();
-                        foreach (string s in listBox1.Items)
-                        sb.Append(s);
-
-                        string recipe_e_indicaciones = sb.ToString();
-
-
-                        SqlCmd.Parameters.AddWithValue("@idpaciente", Buscar_idPac_por_cedula());
-                        SqlCmd.Parameters.AddWithValue("@listamedicamentos", recipe_e_indicaciones);
-                        SqlCmd.Parameters.AddWithValue("@fechaemision", hoy);
-
-
-                        //Ejecutamos nuestro comando
-
-                        rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
-
-
-                        //Establecer el Comando para traer el id del ultimo row añadido
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = SqlCon;
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "select @@IDENTITY";
-  //                      Id_plan_terapeutico_recien_guardado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        
-                        
-
-
-                    }
-                    
-
-
-                    if (this.IsNuevo)
-                    {
-                        MessageBox.Show("Se Insertó de forma correcta el plan terapeutico");
-                    }
-
-
-                    this.IsNuevo = false;
-                    //this.Limpiar();
-                    this.Deshabilitar();
-
-
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-
-        }
-
-
 
 
         private void cbPresentacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -511,47 +684,21 @@ namespace CapaPresentacion
             this.cbDosis.DataSource = dosis;
         }
 
-        private void cbMedicamento_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void cbMedicamento_DropDownClosed(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbMedicamento_ValueMemberChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void cbMedicamento_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //convertir minusculas a mayusculas
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
         }
 
-        private void cbPresentacion_Enter(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cbMedicamento_TextChanged(object sender, EventArgs e)
         {
             string nombre_med;
 
             nombre_med = this.cbMedicamento.Text;
-
-            
-
 
 
         }
@@ -564,10 +711,6 @@ namespace CapaPresentacion
             {
 
 
-
-                MessageBox.Show("el medicamento si existe :) ");
-
-
                 DataTable tablita = new DataTable();
 
                 tablita = TraerPresentacionMedicamento(this.cbMedicamento.Text);
@@ -577,8 +720,6 @@ namespace CapaPresentacion
 
 
                 this.cbPresentacion.DataSource = presentaciones;
-
-
 
 
 
@@ -800,14 +941,14 @@ namespace CapaPresentacion
 
         private void cbDosis_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("tamos listos con el recipe");
+            //MessageBox.Show("tamos listos con el recipe");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //agarra la posicion del item seleccionado en el listbox
             int posicion = listBox1.SelectedIndex;
 
-            MessageBox.Show("aaaa  "  + posicion.ToString() + "");
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -815,7 +956,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_TextChanged(object sender, EventArgs e)
+        private void txtNumero_Cedula_TextChanged(object sender, EventArgs e)
         {
             int id_del_paciente_a_cargar;
 
@@ -831,26 +972,54 @@ namespace CapaPresentacion
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            int id_del_paciente_a_cargar;
-
-            id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
-
-            if (id_del_paciente_a_cargar > 0)
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("Este paciente no esta registrado");
-            }
-        }
 
         private void frmPlanTerapeutico_FormClosing(object sender, FormClosingEventArgs e)
         {
 
            
+        }
+
+        private void lupa_Click(object sender, EventArgs e)
+        {
+            CargarDatosPaciente();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
+            {
+
+                if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en plan de terapeutico"); }
+            }
+        }
+
+        private void btnImprimirRecipe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rptDetalle = string.Empty;
+                foreach (var item in listBox1.Items)
+                {
+                    rptDetalle += "- " + item.ToString() + "\n";
+                }
+
+
+                CrystalReport_Recipe miReporte = new CrystalReport_Recipe();
+                miReporte.SetParameterValue("rptEncabezado", rptEncabezado);
+                miReporte.SetParameterValue("rptDetalle", rptDetalle);
+                miReporte.SetParameterValue("rptFirma", rptFirma);
+
+                frmVisualizadorCrystal visu = new frmVisualizadorCrystal();
+                visu.cryVisualizador.ReportSource = miReporte;
+                visu.cryVisualizador.ShowRefreshButton = false;
+                visu.cryVisualizador.ShowGroupTreeButton = false;
+
+                visu.Show();
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

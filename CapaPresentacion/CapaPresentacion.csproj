@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -74,6 +76,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -100,12 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReceta.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmArchivosMuertos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmArchivosMuertos.Designer.cs">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </Compile>
+    <Compile Include="FechasReportesEvolucion.cs" />
     <Compile Include="frmCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,11 +122,29 @@
     <Compile Include="frmConfigPreguntasSeguridad.Designer.cs">
       <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfirmarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmarContraseña.Designer.cs">
+      <DependentUpon>frmConfirmarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfirmarContraseña_BorrarRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmarContraseña_BorrarRegistros.Designer.cs">
+      <DependentUpon>frmConfirmarContraseña_BorrarRegistros.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmControlEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmControlEstadistico.Designer.cs">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeathDetailsInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeathDetailsInput.Designer.cs">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiagnostico.cs">
       <SubType>Form</SubType>
@@ -159,6 +175,12 @@
     </Compile>
     <Compile Include="frmHistoria.Designer.cs">
       <DependentUpon>frmHistoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformesMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformesMedicos.Designer.cs">
+      <DependentUpon>frmInformesMedicos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInformesMedicosReferenciaMedicas.cs">
       <SubType>Form</SubType>
@@ -195,6 +217,18 @@
     </Compile>
     <Compile Include="frmPaciente.Designer.cs">
       <DependentUpon>frmPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPacientesFallecidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPacientesFallecidos.Designer.cs">
+      <DependentUpon>frmPacientesFallecidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPapeleraReciclaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPapeleraReciclaje.Designer.cs">
+      <DependentUpon>frmPapeleraReciclaje.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlanEstudio.cs">
       <SubType>Form</SubType>
@@ -274,12 +308,6 @@
     <Compile Include="frmVistaPacientes.Designer.cs">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerarGraficos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGenerarGraficos.Designer.cs">
-      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
-    </Compile>
     <Compile Include="InicioResumen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,10 +325,22 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\CrystalReport_InformeMedico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_InformeMedico.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\CrystalReport_PlanEstudio.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport_PlanEstudio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport_Recipe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_Recipe.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\frmGraficoRegistrosPacientes.cs">
@@ -357,11 +397,23 @@
     <Compile Include="Reportes\frmListaPlanEstudio.Designer.cs">
       <DependentUpon>frmListaPlanEstudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteAuditorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteAuditorias.Designer.cs">
+      <DependentUpon>frmReporteAuditorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteCitasMedicasTotales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\frmReporteCitasMedicasTotales.Designer.cs">
       <DependentUpon>frmReporteCitasMedicasTotales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteInformeMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteInformeMedico.Designer.cs">
+      <DependentUpon>frmReporteInformeMedico.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportePacientes.cs">
       <SubType>Form</SubType>
@@ -380,6 +432,12 @@
     </Compile>
     <Compile Include="Reportes\frmtListadoHistoriaPaciente.Designer.cs">
       <DependentUpon>frmtListadoHistoriaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmVisualizadorCrystal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmVisualizadorCrystal.Designer.cs">
+      <DependentUpon>frmVisualizadorCrystal.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReportePacientes.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -405,9 +463,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmArchivosMuertos.resx">
-      <DependentUpon>frmArchivosMuertos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCitas.resx">
       <DependentUpon>frmCitas.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,8 +472,17 @@
     <EmbeddedResource Include="frmConfigPreguntasSeguridad.resx">
       <DependentUpon>frmConfigPreguntasSeguridad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmarContraseña.resx">
+      <DependentUpon>frmConfirmarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmarContraseña_BorrarRegistros.resx">
+      <DependentUpon>frmConfirmarContraseña_BorrarRegistros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmControlEstadistico.resx">
       <DependentUpon>frmControlEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeathDetailsInput.resx">
+      <DependentUpon>frmDeathDetailsInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnostico.resx">
       <DependentUpon>frmDiagnostico.cs</DependentUpon>
@@ -434,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistoria.resx">
       <DependentUpon>frmHistoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformesMedicos.resx">
+      <DependentUpon>frmInformesMedicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInformesMedicosReferenciaMedicas.resx">
       <DependentUpon>frmInformesMedicosReferenciaMedicas.cs</DependentUpon>
@@ -452,6 +519,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaciente.resx">
       <DependentUpon>frmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPacientesFallecidos.resx">
+      <DependentUpon>frmPacientesFallecidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPapeleraReciclaje.resx">
+      <DependentUpon>frmPapeleraReciclaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlanEstudio.resx">
       <DependentUpon>frmPlanEstudio.cs</DependentUpon>
@@ -492,9 +565,6 @@
     <EmbeddedResource Include="frmVistaPacientes.resx">
       <DependentUpon>frmVistaPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerarGraficos.resx">
-      <DependentUpon>frmGenerarGraficos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InicioResumen.resx">
       <DependentUpon>InicioResumen.cs</DependentUpon>
     </EmbeddedResource>
@@ -502,9 +572,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport_InformeMedico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_InformeMedico.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CrystalReport_PlanEstudio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport_PlanEstudio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport_Recipe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_Recipe.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmGraficoRegistrosPacientes.resx">
       <DependentUpon>frmGraficoRegistrosPacientes.cs</DependentUpon>
@@ -533,8 +611,14 @@
     <EmbeddedResource Include="Reportes\frmListaPlanEstudio.resx">
       <DependentUpon>frmListaPlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteAuditorias.resx">
+      <DependentUpon>frmReporteAuditorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReporteCitasMedicasTotales.resx">
       <DependentUpon>frmReporteCitasMedicasTotales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteInformeMedico.resx">
+      <DependentUpon>frmReporteInformeMedico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportePacientes.resx">
       <DependentUpon>frmReportePacientes.cs</DependentUpon>
@@ -544,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmtListadoHistoriaPaciente.resx">
       <DependentUpon>frmtListadoHistoriaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmVisualizadorCrystal.resx">
+      <DependentUpon>frmVisualizadorCrystal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptGraficoInicionSesion.rdlc" />
     <EmbeddedResource Include="Reportes\rptGraficoRegistroPacientes.rdlc" />
@@ -558,6 +645,7 @@
     <EmbeddedResource Include="Reportes\rptListaPlanEstudio.rdlc" />
     <EmbeddedResource Include="Reportes\rptPacientes.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
+    <EmbeddedResource Include="report_informe_medico.rdlc" />
     <EmbeddedResource Include="usercontrol_evol.resx">
       <DependentUpon>usercontrol_evol.cs</DependentUpon>
     </EmbeddedResource>
@@ -613,6 +701,10 @@
     <None Include="Resources\statistics_smoll.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\x64\msvcr100.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial120.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr100.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial120.dll" />
     <None Include="Resources\medical-prescription_smoll.png" />
     <None Include="Resources\informacion-personal.png" />
     <None Include="Resources\bowl-1_smoll.png" />
@@ -632,18 +724,6 @@
     <None Include="Resources\calendar_smoll.png" />
     <None Include="Resources\check  calendar.png" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

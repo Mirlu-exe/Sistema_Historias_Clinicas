@@ -79,6 +79,8 @@ namespace CapaPresentacion
 
             OcultarColumnas();
 
+            this.cmbEstado.SelectedIndex = 0;
+
         }
 
 
@@ -125,6 +127,7 @@ namespace CapaPresentacion
             this.txtClave.ReadOnly = !valor;
             this.txtLogin.ReadOnly = !valor;
             this.txtCorreo.ReadOnly = !valor;
+           
 
 
 
@@ -166,6 +169,7 @@ namespace CapaPresentacion
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["password"].Visible = false;
             this.dataListado.Columns["salt"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
 
         }
 
@@ -309,7 +313,7 @@ namespace CapaPresentacion
 
                             rpta = NUsuario.Insertar(this.txtNombreUsuario.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(),
                             this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                            this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
+                            this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, "Activo", pswd_salt);
 
 
 
@@ -366,7 +370,7 @@ namespace CapaPresentacion
 
                         rpta = NUsuario.Editar(Convert.ToInt32(this.txtCodigoUsuario.Text), this.txtNombreUsuario.Text.Trim().ToUpper(), this.txtCorreo.Text.Trim().ToUpper(),
                          this.txtCargo.Text.Trim().ToUpper(), this.txtEspecialidad.Text.Trim().ToUpper(),
-                         this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, this.cmbEstado.Text, pswd_salt);
+                         this.cmbAcceso.Text, this.txtLogin.Text.Trim().ToUpper(), pswd_encrypt, "Activo", pswd_salt);
 
                         
 
@@ -468,7 +472,6 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.Botones();
                 this.Habilitar(true);
-                this.cmbEstado.Enabled = true;
             }
             else
             {

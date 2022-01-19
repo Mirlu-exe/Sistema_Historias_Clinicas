@@ -43,7 +43,7 @@ namespace CapaPresentacion
         private void frmRecetas_Load(object sender, EventArgs e)
         {
             
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
 
             //aca uso el left join
@@ -89,19 +89,24 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtidReceta.ReadOnly = !valor;
-            this.txtMedicamento.ReadOnly = !valor;
-            this.txtPresentacion.ReadOnly = !valor;
-            this.txtDosis.ReadOnly = !valor;
+            this.txtidReceta.Enabled = true;
+            this.txtMedicamento.Enabled = true;
+            this.txtPresentacion.Enabled = true;
+            this.txtDosis.Enabled = true;
 
 
+        }
 
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtidReceta.Enabled = false;
+            this.txtMedicamento.Enabled = false;
+            this.txtPresentacion.Enabled = false;
+            this.txtDosis.Enabled = false;
 
-
-
-            //this.btnLimpiar.Enabled = valor;
 
         }
 
@@ -110,14 +115,14 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -130,9 +135,7 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            //this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
-             //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["id"].Visible = false;
         }
 
 
@@ -142,7 +145,9 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NReceta.Mostrar();
+           
             this.OcultarColumnas();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
@@ -163,7 +168,7 @@ namespace CapaPresentacion
 
 
         //Método BuscarPresentacion
-        private void BuscarPresentacion()
+        private void BuscarPresentacion() // cambio Carlos forma pirata  preguntar a mirla donde conseguir los procedimientos almacenados
         {
             /*DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("presentacion LIKE '%{0}%'", this.txtBuscar.Text);
@@ -177,6 +182,21 @@ namespace CapaPresentacion
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
+        // Metodo BuscarDosis No funciona
+
+       /* private void BuscarDosis() 
+        {
+
+            this.dataListado.DataSource = NReceta.BuscarDosis(this.txtBuscar.Text);
+            this.OcultarColumnas();
+
+
+
+            lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
+
+
+        }*/
+
 
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -185,7 +205,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
+            this.Habilitar();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -288,7 +308,7 @@ namespace CapaPresentacion
             {
                 this.IsEditar = true;
                 this.Botones();
-                this.Habilitar(true);
+                this.Habilitar();
             }
             else
             {
@@ -302,7 +322,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -321,11 +341,16 @@ namespace CapaPresentacion
                 this.BuscarMedicamento();
 
             }
-            else
+            else if (this.cmbTipoReceta.Text.Equals("Presentacion"))
             {
 
                 this.BuscarPresentacion();
             }
+            else
+            {
+              //  this.BuscarDosis();
+            }
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -600,6 +625,7 @@ namespace CapaPresentacion
             DataTable DtResultado = new DataTable("tablita");
 
             SqlConnection SqlCon = new SqlConnection();
+            
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
@@ -619,7 +645,12 @@ namespace CapaPresentacion
 
                 MessageBox.Show("NO FURULA " + ex.ToString() + "");
             }
+
+            if (DtResultado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en los medicamentos"); }
+
             return DtResultado;
+
+           
 
         }
 
@@ -852,6 +883,11 @@ namespace CapaPresentacion
         }
 
         private void txtPresentacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDosis_TextChanged(object sender, EventArgs e)
         {
 
         }

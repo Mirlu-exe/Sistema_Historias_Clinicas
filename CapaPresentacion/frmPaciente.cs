@@ -36,8 +36,8 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.ttMensaje.SetToolTip(this.txtNombre_Paciente, "Ingrese el Nombre del Paciente");
-            this.ttMensaje.SetToolTip(this.cblTipo_Documento, "Seleccione el tipo de documento");
-            this.ttMensaje.SetToolTip(this.txtNumero_Documento, "Ingrese el numero de documento");
+            this.ttMensaje.SetToolTip(this.cblTipo_Cedula, "Seleccione el tipo de Cedula");
+            this.ttMensaje.SetToolTip(this.txtNumero_Cedula, "Ingrese el numero de Cedula");
             this.ttMensaje.SetToolTip(this.txtCorreo, "Ingrese el correo");
             this.ttMensaje.SetToolTip(this.txtTalla, "Ingrese la talla del paciente");
             this.ttMensaje.SetToolTip(this.cblSexo, "Seleccione el sexo del paciente");
@@ -55,9 +55,11 @@ namespace CapaPresentacion
 
 
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
             SoloPacientesActivos();
+
+            this.cblEstado.SelectedIndex = 0;
 
 
         }
@@ -83,36 +85,59 @@ namespace CapaPresentacion
         {
 
             this.txtNombre_Paciente.Text = string.Empty;
-            this.txtNumero_Documento.Text = string.Empty;
+            this.cblTipo_Cedula.SelectedIndex = -1;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtCorreo.Text = string.Empty;
             this.txtPeso.Text = string.Empty;
             this.txtTalla.Text = string.Empty;
-
+            this.cblEstado_Civil.SelectedIndex = -1;
             this.txtDireccion.Text = string.Empty;
             this.txtOcupacion.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
+            this.dtpFecha_Nacimiento.Value = DateTime.Now;
+            this.cblSexo.SelectedIndex = -1;
 
 
 
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtIdpaciente.ReadOnly = !valor;
-            this.txtNombre_Paciente.ReadOnly = !valor;
-            this.txtNumero_Documento.ReadOnly = !valor;
-            this.txtCorreo.ReadOnly = !valor;
-            this.txtPeso.ReadOnly = !valor;
-            this.txtTalla.ReadOnly = !valor;
+            this.txtIdpaciente.Enabled = true;
+            this.txtNombre_Paciente.Enabled = true;
+            this.txtNumero_Cedula.Enabled = true;
+            this.txtCorreo.Enabled= true;
+            this.txtPeso.Enabled = true;
+            this.txtTalla.Enabled = true;
+            this.cblTipo_Cedula.Enabled = true;
+            this.cblEstado.Enabled = true;
+            this.cblEstado_Civil.Enabled = true;
+            this.cblSexo.Enabled = true;
+            this.txtDireccion.Enabled= true;
+            this.txtOcupacion.Enabled = true;
+            this.txtTelefono.Enabled= true;
+            this.dtpFecha_Nacimiento.Enabled = true;
 
-            this.txtDireccion.ReadOnly = !valor;
-            this.txtOcupacion.ReadOnly = !valor;
-            this.txtTelefono.ReadOnly = !valor;
+        }
 
-
-
-            //this.btnLimpiar.Enabled = valor;
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtIdpaciente.Enabled = false;
+            this.txtNombre_Paciente.Enabled = false;
+            this.txtNumero_Cedula.Enabled = false;
+            this.txtCorreo.Enabled = false;
+            this.txtPeso.Enabled = false;
+            this.txtTalla.Enabled = false;
+            this.cblTipo_Cedula.Enabled = false;
+            this.cblEstado.Enabled = false;
+            this.cblEstado_Civil.Enabled = false;
+            this.cblSexo.Enabled = false;
+            this.txtDireccion.Enabled = false;
+            this.txtOcupacion.Enabled = false;
+            this.txtTelefono.Enabled = false;
+            this.dtpFecha_Nacimiento.Enabled = false;
 
         }
 
@@ -121,7 +146,7 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
@@ -129,7 +154,7 @@ namespace CapaPresentacion
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
@@ -153,6 +178,7 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NPacientes.Mostrar();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en Pacientes"); }
             this.OcultarColumnas();
             SoloPacientesActivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
@@ -178,7 +204,7 @@ namespace CapaPresentacion
         }
 
 
-        private void BuscarNum_Documento()
+        private void BuscarNum_Cedula()
         {
 
             /*DataView DV = new DataView(dbdataset);
@@ -188,7 +214,7 @@ namespace CapaPresentacion
 
 
 
-            this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarNum_Cedula(this.txtBuscar.Text);
             this.OcultarColumnas();
             SoloPacientesActivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
@@ -200,8 +226,8 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
-            this.txtNombre_Paciente.Focus();
+            this.Habilitar();
+            this.cblTipo_Cedula.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -212,13 +238,13 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(txtNombre_Paciente.Text) || cblTipo_Documento.SelectedIndex == -1 || cblSexo.SelectedIndex == -1 || cblEstado_Civil.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Documento.Text)
-                    || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtPeso.Text) || string.IsNullOrEmpty(txtTalla.Text) || string.IsNullOrEmpty(txtOcupacion.Text) || string.IsNullOrEmpty(txtTelefono.Text))
+                if (string.IsNullOrEmpty(txtNombre_Paciente.Text) || cblTipo_Cedula.SelectedIndex == -1 || cblSexo.SelectedIndex == -1 || cblEstado_Civil.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Cedula.Text)
+                    || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtPeso.Text) || string.IsNullOrEmpty(txtTalla.Text) || string.IsNullOrEmpty(txtTelefono.Text))
                 {
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -243,7 +269,7 @@ namespace CapaPresentacion
                     {
 
 
-                        if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
+                        if (this.validarExistePaciente(this.txtNumero_Cedula.Text) == true)
                         {
 
                             MensajeError("Ya existe un paciente con este numero de cedula.");
@@ -253,7 +279,7 @@ namespace CapaPresentacion
                         {
 
                             rpta = NPacientes.Insertar(this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                            this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                            this.cblTipo_Cedula.Text, this.txtNumero_Cedula.Text.Trim().ToUpper(),
                             this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
                             this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
                             txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
@@ -269,11 +295,11 @@ namespace CapaPresentacion
                     {
 
 
-                        if (this.validarExistePaciente(this.txtNumero_Documento.Text) == true)
+                        if (this.validarExistePaciente(this.txtNumero_Cedula.Text) == true)
                         {
 
                             rpta = NPacientes.Editar(Convert.ToInt32(this.txtIdpaciente.Text), this.txtNombre_Paciente.Text.Trim().ToUpper(),
-                            this.cblTipo_Documento.Text, this.txtNumero_Documento.Text.Trim().ToUpper(),
+                            this.cblTipo_Cedula.Text, this.txtNumero_Cedula.Text.Trim().ToUpper(),
                             this.dtpFecha_Nacimiento.Text, this.cblSexo.Text, this.cblEstado_Civil.Text,
                             this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
                             txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
@@ -344,7 +370,7 @@ namespace CapaPresentacion
             SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlCon.Open();
             //Establecer el Comando
-            SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' ");
+            SqlCommand SqlCmd = new SqlCommand("select * from Paciente where num_cedula ='" + ci + "' and estado = 'Activo' ");
             SqlCmd.Connection = SqlCon;
 
             //SqlCmd.CommandType = CommandType.StoredProcedure;
@@ -397,9 +423,9 @@ namespace CapaPresentacion
 
                 this.BuscarNombre();
             }
-            else if (this.cblBusqueda.Text.Equals("Documento"))
+            else if (this.cblBusqueda.Text.Equals("Cedula"))
             {
-                this.BuscarNum_Documento();
+                this.BuscarNum_Cedula();
             }
         }
 
@@ -412,9 +438,9 @@ namespace CapaPresentacion
 
                 this.BuscarNombre();
             }
-            else if (this.cblBusqueda.Text.Equals("Documento"))
+            else if (this.cblBusqueda.Text.Equals("Cedula"))
             {
-                this.BuscarNum_Documento();
+                this.BuscarNum_Cedula();
             }
         }
 
@@ -451,8 +477,8 @@ namespace CapaPresentacion
 
                 this.txtIdpaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
                 this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
-                this.cblTipo_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_cedula"].Value);
-                this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
+                this.cblTipo_Cedula.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_cedula"].Value);
+                this.txtNumero_Cedula.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
                 this.dtpFecha_Nacimiento.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["fecha_nacimiento"].Value);
                 this.cblSexo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["sexo"].Value);
                 this.cblEstado_Civil.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado_civil"].Value);
@@ -469,7 +495,8 @@ namespace CapaPresentacion
                 this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
 
-                this.Habilitar(false);
+                this.Deshabilitar();
+                this.btnEditar.Enabled = true;
             }
             else
             {
@@ -487,7 +514,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.txtIdpaciente.Text = string.Empty;
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -519,9 +546,6 @@ namespace CapaPresentacion
                             {
                                 this.MensajeError(rpta);
                             }
-
-
-
 
 
 
@@ -664,7 +688,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -726,21 +750,21 @@ namespace CapaPresentacion
             }
         }
 
-        private void cblTipo_Documento_Leave(object sender, EventArgs e)
+        private void cblTipo_Cedula_Leave(object sender, EventArgs e)
         {
-            if (cblTipo_Documento.SelectedIndex == -1)
-            {
-                errorIcono.SetError(cblTipo_Documento, "Seleccione una opción");
-            }
+            //if (cblTipo_Cedula.SelectedIndex == -1)
+            //{
+            //    errorIcono.SetError(cblTipo_Cedula, "Seleccione una opción");
+            //}
         }
 
         private void txtNombre_Paciente_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre_Paciente.Text))
-            {
+            //if (string.IsNullOrEmpty(txtNombre_Paciente.Text))
+            //{
 
-                errorIcono.SetError(txtNombre_Paciente, "Introduzca el nombre del paciente.");
-            }
+            //    errorIcono.SetError(txtNombre_Paciente, "Introduzca el nombre del paciente.");
+            //}
         }
 
         private void btnGrafica_Click(object sender, EventArgs e)
@@ -785,7 +809,7 @@ namespace CapaPresentacion
 
             //dataListado.DataSource = DV;
 
-
+            
             (dataListado.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo'");
 
         }
@@ -812,6 +836,41 @@ namespace CapaPresentacion
 
         }
 
-       
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txtPeso.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+
+            }
+
+
+
+        }
+
+        private void txtTalla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txtTalla.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+
+            }
+        }
     }
 }

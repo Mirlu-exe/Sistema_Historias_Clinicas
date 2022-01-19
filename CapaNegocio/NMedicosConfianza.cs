@@ -102,6 +102,13 @@ namespace CapaNegocio
             return Obj.Anular(Obj);
         }
 
+        public static string Restaurar(int id_medico)
+        {
+            DMedicosConfianza Obj = new DMedicosConfianza();
+            Obj.Idmedico = id_medico;
+            return Obj.Restaurar(Obj);
+        }
+
 
     }
 }

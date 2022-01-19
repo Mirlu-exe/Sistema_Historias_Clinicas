@@ -87,5 +87,15 @@ namespace CapaNegocio
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarTipo(Obj);
         }
+
+        public static string Restaurar(int id_diagnostico)
+        {
+            DDiagnostico Obj = new DDiagnostico();
+            Obj.Iddiagnostico = id_diagnostico;
+            return Obj.Restaurar(Obj);
+        }
+
+
+
     }
 }

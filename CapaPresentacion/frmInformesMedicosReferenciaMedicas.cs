@@ -34,7 +34,11 @@ namespace CapaPresentacion
         private void frmInformesMedicosReferenciaMedicas_Load(object sender, EventArgs e)
         {
             LlenarComboMedicos();
+            //Mostrar_Informes_Meds();
+            this.dataListado.DataSource = Mostrar_Informe_Referencia();
 
+            this.OcultarColumnas();
+            lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
             Deshabilitar();
 
             this.Top = 0;
@@ -72,7 +76,7 @@ namespace CapaPresentacion
 
         private void Limpiar()
         {
-            this.txtNumero_Documento.Clear();
+            this.txtNumero_Cedula.Clear();
             this.cbMedicosConfianza.SelectedIndex = -1;
         }
 
@@ -80,18 +84,61 @@ namespace CapaPresentacion
         {
             Habilitar();
 
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
         }
+
+        //Método para ocultar columnas
+        private void OcultarColumnas()
+        {
+            this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[3].Visible = false;
+            this.dataListado.Columns[4].Visible = false;
+            this.dataListado.Columns[5].Visible = false;
+            this.dataListado.Columns["idpaciente"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
+
+        }
+
+ 
+
+        //Método Mostrar Informes
+        public DataTable Mostrar_Informe_Referencia()
+        {
+            DataTable DtResultado = new DataTable("Informes");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "SELECT *FROM InformesParaReferencias INNER JOIN Paciente ON InformesParaReferencias.id = Paciente.idpaciente";
+                SqlCmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+                
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+
+
+        }
+
+
 
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -109,7 +156,7 @@ namespace CapaPresentacion
 
                 this.txtNombre_Paciente.Text = nombre_del_pac;
                 this.txtSexo.Text = sexo_del_pac;
-
+                
 
 
                 //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(paciente_tabla.Rows.Count);
@@ -150,7 +197,7 @@ namespace CapaPresentacion
 
                 if (Cant_evol_por_historia > 0)
                 {
-                    MessageBox.Show("La historia tiene evoluciones :)");
+                   // MessageBox.Show("La historia tiene evoluciones :)");
 
                     DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[evoluciones_por_historia.Rows.Count - 1][2]);
                     
@@ -159,10 +206,12 @@ namespace CapaPresentacion
                     id_evol = Convert.ToInt32(evoluciones_por_historia.Rows[0][0]);
 
                 }
-                else
+                else //aca tengo que poner la edad
                 {
-                    MessageBox.Show("La historia NO tiene evoluciones");
+                    //MessageBox.Show("La historia NO tiene evoluciones");
                     id_evol = 0;
+                    txtEdadSuc_Evol.Clear();
+
                 }
 
 
@@ -217,11 +266,11 @@ namespace CapaPresentacion
 
                 if (Cant_evol_por_historia > 0)
                 {
-                    MessageBox.Show("La historia tiene evoluciones :)");
+                  //  MessageBox.Show("La historia tiene evoluciones :)");
 
-                    DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[0][2]);
-                    string edad_sucesiva = Convert.ToString(evoluciones_por_historia.Rows[0][3]);
-                    string diagnosticos_evol = Convert.ToString(evoluciones_por_historia.Rows[0][4]);
+                    DateTime fecha_evol = Convert.ToDateTime(evoluciones_por_historia.Rows[0]["fecha_consulta"]);
+                    string edad_sucesiva = Convert.ToString(evoluciones_por_historia.Rows[0]["edad_suc"]);
+                    string diagnosticos_evol = Convert.ToString(evoluciones_por_historia.Rows[0]["diagnosticos"]);
                     string planterapeutico_evol = Convert.ToString(evoluciones_por_historia.Rows[0][6]);
 
                     this.txtFecha_Ultima_Evol.Text = fecha_evol.ToString("dd/MM/yyyy");
@@ -233,7 +282,8 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("La historia NO tiene evoluciones");
+                    //MessageBox.Show("La historia NO tiene evoluciones");
+                    txtEdadSuc_Evol.Clear();
                 }
 
 
@@ -291,6 +341,8 @@ namespace CapaPresentacion
                     this.txtHistoriaFamiliar.Text = historia_familiar_del_pac;
                     this.txtHistoriaPersonal.Text = historia_personal_del_pac;
 
+                    
+
 
                     //se envia el id de la historia para buscar sus ultima evolucion
                     CargarEvolucionesDeLaHistoria(id_historia_del_pac);
@@ -318,12 +370,13 @@ namespace CapaPresentacion
         private void LlenarComboMedicos()
         {
             this.cbMedicosConfianza.DataSource = NMedicosConfianza.Mostrar();
+
             cbMedicosConfianza.ValueMember = "nombre";
             cbMedicosConfianza.DisplayMember = "nombre";
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -481,7 +534,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNumero_Documento.Text == string.Empty || this.cbMedicosConfianza.SelectedIndex == -1)
+                if (this.txtNumero_Cedula.Text == string.Empty || this.cbMedicosConfianza.SelectedIndex == -1)
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -577,7 +630,7 @@ namespace CapaPresentacion
             //this.Botones();
             this.Limpiar();
             this.Habilitar();
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
         //    this.tabControl1.SelectedIndex = 1;
 
@@ -608,6 +661,63 @@ namespace CapaPresentacion
         private void cbMedicosConfianza_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.Medicos_Cargar_Txt();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            //Campos de busqueda:
+
+
+            if (cblBusqueda.SelectedIndex == 0) //Cedula del Paciente
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 1) //Nombre del Paciente
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 2) //Especialidad del Médico
+            {
+
+            }
+            else if (cblBusqueda.SelectedIndex == 3) //Nombre del Médico
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un campo para buscar");
+            }
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        
+
+        private void tabControl1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
+            {
+
+                if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro Informes Medicos de Confianza"); }
+
+            }
+
         }
     }
 }

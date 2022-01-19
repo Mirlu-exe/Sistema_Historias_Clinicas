@@ -14,21 +14,26 @@ using CapaDatos;
 
 namespace CapaPresentacion
 {
+    
     public partial class frmHistoria : Form
     {
 
-        private bool IsNuevo = false;
+        public class Global
+        {
+            private DateTime _fecha1, _fecha2;
+            public DateTime Fecha1
+            {
+                get { return _fecha1; }
+                set { _fecha1 = value; }
+            }
 
-        private bool IsEditar = false;
+            public DateTime Fecha2
+            {
+                get { return _fecha2; }
+                set { _fecha2 = value; }
+            }
 
-
-
-        private bool IsNuevo_evol = false;
-
-        private bool IsEditar_evol = false;
-
-
-
+        }
 
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
@@ -57,18 +62,16 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.txtecg, "Ingrese el ecg paciente");
             this.ttMensaje.SetToolTip(this.txtParaclinicos, "Ingrese los rayos X del paciente");
             this.ttMensaje.SetToolTip(this.txtEcocardiograma, "Ingrese el ecocardiograma del paciente");
-            //this.ttMensaje.SetToolTip(this.cbPlanEstudio, "Ingrese el plan de estudio");
-            //this.ttMensaje.SetToolTip(this.cbPlanTerapeutico, "Ingrese el plan terapeutico");
+            this.ttMensaje.SetToolTip(this.btnVerPlanEstudio, "Ingrese el plan de estudio");
+            this.ttMensaje.SetToolTip(this.btnVerPlanTerapeutico, "Ingrese el plan terapeutico");
 
             this.btnAnular.Enabled = false;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
-        private void  frmHistoria_Load(object sender, EventArgs e)
+
+    private void  frmHistoria_Load(object sender, EventArgs e)
         {
 
             autocompletar_diagnosticos();
@@ -76,53 +79,113 @@ namespace CapaPresentacion
             autocompletar_diagnosticos_evol();
 
             this.MostrarHistoriasActivas();
+
+            
+
             this.Top = 0;
             this.Left = 0;
             this.Mostrar();
             this.Deshabilitar();
             this.Botones();
-            //this.LlenarComboDiagnosticos();
-
-            //this.LlenarCbPlanTerapeutico();
-
-
 
             OcultarColumnas();
-            //dataListado.Columns["idpaciente"].Visible = false;
 
-            Gestionar_PlanEstudio();
 
-            Gestionar_PlanTerapeutico();
+            //Evento "Load" en la pestaña de Historia
+            Gestionar_PlanEstudio_Historia();
+            Gestionar_PlanTerapeutico_Historia();
 
-            Gestionar_PlanEstudio_Evol();
 
-            //Gestionar_PlanTerapeutico_Evol();
-
+            //Evento "Load" en la pestaña de Evolucion
+            Gestionar_PlanEstudio_Evolucion();
+            Gestionar_PlanTerapeutico_Evolucion();
+            MostrarFechasActivas();
+           
 
 
         }
 
 
-        private int TraerIdPlanEstudio(string cedula_pac)
+        /// <summary>
+        /// The child PlanTerapeutico has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanTerapeutico(object sender, EventArgs e)
         {
-            int id_plan_estudio = 0;
-
-            id_plan_estudio = buscar_plan_estudio_del_pac(Convert.ToInt32(this.lbl_idpac.Text));
-        
-            return id_plan_estudio;
-
+            frmPlanTerapeutico child = sender as frmPlanTerapeutico;
+            if (child != null)
+            {
+                lbl_planterapeutico_id.Text = child.Data_PlanTerapeutico;
+            }
         }
 
-        private int TraerIdPlanTerapeutico(string cedula_pac)
+        /// <summary>
+        /// The child PlanTerapeutico_Evol has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanTerapeutico_Evol(object sender, EventArgs e)
         {
-            int id_plan_terapeutico = 0;
-
-            id_plan_terapeutico = buscar_plan_terapeutico_del_pac(Convert.ToInt32(this.lbl_idpac.Text));
-
-            return id_plan_terapeutico;
-
+            frmPlanTerapeutico child = sender as frmPlanTerapeutico;
+            if (child != null)
+            {
+                lbl_id_planterapeutico_evol.Text = child.Data_PlanTerapeutico_Evol;
+            }
         }
 
+        /// <summary>
+        /// The child PlanEstudio has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanEstudio(object sender, EventArgs e)
+        {
+            frmPlanEstudio child = sender as frmPlanEstudio;
+            if (child != null)
+            {
+                lbl_planestudio_id.Text = child.Data_PlanEstudio;
+            }
+        }
+
+        /// <summary>
+        /// The child PlanEstudio_Evol has data available - get it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void child_DataAvailable_PlanEstudio_Evol(object sender, EventArgs e)
+        {
+            frmPlanEstudio child = sender as frmPlanEstudio;
+            if (child != null)
+            {
+                lbl_id_planestudio_evol.Text = child.Data_PlanEstudio_Evol;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ////////////////////////////////////////////////// AREA DE CODIGO PARA LAS HISTORIAS //////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        private bool IsNuevo = false;
+
+        private bool IsEditar = false;
 
 
 
@@ -147,7 +210,7 @@ namespace CapaPresentacion
         private void Limpiar()
         {
 
-            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtSexo.Text = string.Empty;
 
@@ -188,7 +251,6 @@ namespace CapaPresentacion
             this.btnVerPlanEstudio.Enabled = true;
             this.btnVerPlanTerapeutico.Enabled = true;
             this.cblTipo_Sangre.Enabled = true;
-            //this.cbDiagnosticos.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales.Enabled = true;
         }
@@ -209,7 +271,6 @@ namespace CapaPresentacion
             this.btnVerPlanEstudio.Enabled = false;
             this.btnVerPlanTerapeutico.Enabled = false;
             this.cblTipo_Sangre.Enabled = false;
-            //this.cbDiagnosticos.Enabled = false;
             this.txtDiagnosticos.Enabled = false;
             this.listboxDiagnosticosFinales.Enabled = false;
             this.cblTipo_Sangre.SelectedIndex = 0;
@@ -348,9 +409,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-            //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo'; ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.motivo_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.paraclinicos, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado, Historia.tipo_sangre, Historia.diagnosticos FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Activo' and Paciente.is_dead=0 ; ", conDataBase);
 
 
 
@@ -379,63 +438,16 @@ namespace CapaPresentacion
             }
 
 
-
+          
             OcultarColumnas();
 
+           
 
             lblHistoriasActivas.Text = "Total de Historias : " + Convert.ToString(datalistadohistorias.Rows.Count);
         }
 
 
-
-
-
-
-        ////Método Mostrar Muertos
-        //private void MostrarHistoriasAnuladas()
-        //{
-
-
-        //    string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-        //    SqlConnection conDataBase = new SqlConnection(Cn);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
-        //    //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-        //    SqlCommand cmdDataBase = new SqlCommand("SELECT Historia.idhistoria, Historia.idpaciente, Paciente.nombre as Paciente, Paciente.tipo_cedula, Paciente.num_cedula, Historia.fecha_consulta, Historia.razon_consulta, Historia.enfermedad_actual, Historia.historia_familiar, Historia.historia_personal, Historia.tratamiento_actual, Historia.examen_fisico, Historia.ecg, Historia.laboratorio, Historia.rayos_x, Historia.ecocardiograma, Historia.plan_estudio, Historia.plan_terapeutico, Historia.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente where Historia.estado = 'Inactivo'; ", conDataBase);
-
-
-
-
-
-        //    try
-        //    {
-
-        //        SqlDataAdapter sda = new SqlDataAdapter();
-        //        sda.SelectCommand = cmdDataBase;
-        //        dbdataset = new DataTable();
-        //        sda.Fill(dbdataset);
-        //        BindingSource bSource = new BindingSource();
-
-        //        bSource.DataSource = dbdataset;
-        //        datalistadoMuertos.DataSource = bSource;
-        //        sda.Update(dbdataset);
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-
-        //        MessageBox.Show("Ha ocurrido un error");
-        //    }
-
-
-
-        //    OcultarColumnas();
-
-
-        //    lblCantidadArchivosMuertos.Text = "Total de Historias: " + Convert.ToString(datalistadoMuertos.Rows.Count);
-        //}
-
+        
 
         void autocompletar_diagnosticos()
         {
@@ -536,45 +548,15 @@ namespace CapaPresentacion
             lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);
         }*/
 
-        //Método BuscarTalla
-        private void BuscarTalla()
-        {
-           // this.dataListado.DataSource = NPacientes.BuscarTalla(this.txtBuscar1.Text);
-            this.OcultarColumnas();
-          //  lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-        }
+     
 
 
-        //Método BuscarPeso
-        private void BuscarPeso()
-        {
-            //this.dataListado.DataSource = NPacientes.BuscarPeso(this.txtBuscar.Text);
-            this.OcultarColumnas();
-            //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-        }
-
-        //Método BuscarPeso
-        private void BuscarCedula()
-        {
-
-            //this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar1.Text);
-            this.OcultarColumnas();
-
-            //lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
-            
-            /*DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("num_cedula LIKE '%{0}%'", this.txtBuscar.Text);
-            dataListado.DataSource = DV;
-
-
-
-
-
-            lblTotal.Text = "Total de Citas: " + Convert.ToString(dataListado.Rows.Count);*/
-        }
-
-
-        private DataTable Datos_De_La_Historia( int id_pac)
+        /// <summary>
+        /// Es una tabla donde se guardan todos los datos de la historia extraidos de un query.
+        /// </summary>
+        /// <param name="id_pac"></param>
+        /// <returns></returns>
+        private DataTable Datos_De_La_Historia(int id_pac)
         {
             //aca se buscará la historia del paciente segun su id
 
@@ -608,8 +590,8 @@ namespace CapaPresentacion
 
             return DtResultado;
 
-
         }
+
 
 
         private void Cargar_Historia_En_Campos()
@@ -622,7 +604,7 @@ namespace CapaPresentacion
             if (HistoriaDelPac.Rows.Count <= 0)
             {
 
-                MessageBox.Show("Este paciente NO tiene historia.");
+                MessageBox.Show("Este paciente no tiene historia registrada previamente.");
                 HistoriaDelPac = null;
 
             }
@@ -634,6 +616,9 @@ namespace CapaPresentacion
                 //meter los row/column de esa datatable en cada campo del form
 
 
+                
+                this.lbl_idhistoria.Text = Convert.ToString(HistoriaDelPac.Rows[0][0]);
+                this.lbl_id_pac_frmHistoria.Text = Convert.ToString(HistoriaDelPac.Rows[0][1]);
                 this.dtpFechaConsulta.Value = Convert.ToDateTime(HistoriaDelPac.Rows[0][2]);
                 this.txtMotivoConsulta.Text = Convert.ToString(HistoriaDelPac.Rows[0][3]);
                 this.txtEnfermedadActual.Text = Convert.ToString(HistoriaDelPac.Rows[0][4]);
@@ -641,11 +626,10 @@ namespace CapaPresentacion
                 this.txtHistoriaPersonal.Text = Convert.ToString(HistoriaDelPac.Rows[0][6]);
                 this.txtTratamiento_Actual.Text = Convert.ToString(HistoriaDelPac.Rows[0][7]);
                 this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][8]);
-                this.txtExamenFisico.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
-                this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
-                this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
-                this.txtParaclinicos.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
-                this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][13]);
+                this.txtLaboratorio.Text = Convert.ToString(HistoriaDelPac.Rows[0][9]);
+                this.txtecg.Text = Convert.ToString(HistoriaDelPac.Rows[0][10]);
+                this.txtParaclinicos.Text = Convert.ToString(HistoriaDelPac.Rows[0][11]);
+                this.txtEcocardiograma.Text = Convert.ToString(HistoriaDelPac.Rows[0][12]);
                 this.cblTipo_Sangre.Text = Convert.ToString(HistoriaDelPac.Rows[0][16]);
 
                 string diagnosticos_cadena = Convert.ToString(HistoriaDelPac.Rows[0][17]);
@@ -671,67 +655,59 @@ namespace CapaPresentacion
 
 
 
-        private void Gestionar_PlanEstudio()
+        private void Gestionar_PlanEstudio_Historia()
         {
-
 
 
             ///////////////////////////// PLAN ESTUDIO WIP //////////////////////////////
 
+            //se busca segun el id de la historia a ver si existe un plan de estudio
 
 
-            //se busca segun la cedula y segun la fecha de emision a ver si existe un plan de estudio
+            int id_plan_estudio_historia = buscar_plan_estudio_de_historia(Convert.ToInt32(this.lbl_idhistoria.Text));
 
-            //si la fecha es igual a la de la historia, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan de estudio
-
-
-            if (TraerIdPlanEstudio(this.txtNumero_Documento.Text) == 0)
+            if (id_plan_estudio_historia == 0)
             {
-                this.btnVerPlanEstudio.Text = "Sin plan de estudio seleccionado";
+                this.btnVerPlanEstudio.Text = "Sin plan de estudio";
                 this.btnVerPlanEstudio.BackColor = Color.DarkGray;
+                this.lbl_planestudio_id.Text = Convert.ToString(id_plan_estudio_historia);
             }
             else
             {
-                //buscar la fecha de ese plan de estudio para ver si es del dia de hoy, o es muy vieja.
 
                 this.btnVerPlanEstudio.Text = "Plan de estudio asignado";
                 this.btnVerPlanEstudio.BackColor = Color.LightSeaGreen;
+                this.lbl_planestudio_id.Text = Convert.ToString(id_plan_estudio_historia);
 
             }
-
-
-
 
 
         }
 
 
-        private void Gestionar_PlanTerapeutico()
+        private void Gestionar_PlanTerapeutico_Historia()
         {
 
 
             ///////////////////////////// PLAN TERAPEUTICO WIP //////////////////////////////
 
-            //se busca segun la cedula y segun la fecha de emision a ver si existe un plan terapeutico
-
-            //si la fecha es igual a la de la historia, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan terapeutico
+            //se busca segun el id de la historia a ver si existe un plan terapeutico
 
 
-            if (TraerIdPlanTerapeutico(this.txtNumero_Documento.Text) == 0)
+            int id_plan_terapeutico_historia = buscar_plan_terapeutico_de_historia(Convert.ToInt32(this.lbl_idhistoria.Text));
+
+            if ( id_plan_terapeutico_historia == 0)
             {
-                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico seleccionado";
+                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico";
                 this.btnVerPlanTerapeutico.BackColor = Color.DarkGray;
+                this.lbl_planterapeutico_id.Text = Convert.ToString(id_plan_terapeutico_historia);
             }
             else
             {
-                //buscar la fecha de ese plan terapeutico para ver si es del dia de hoy, o es muy vieja.
 
                 this.btnVerPlanTerapeutico.Text = "Plan terapeutico asignado";
                 this.btnVerPlanTerapeutico.BackColor = Color.LightSeaGreen;
+                this.lbl_planterapeutico_id.Text = Convert.ToString(id_plan_terapeutico_historia);
 
             }
         }
@@ -788,8 +764,13 @@ namespace CapaPresentacion
 
 
         //Método Mostrar
-        private void MostrarFechasActivas(string fecha1, string fecha2)
+        private void MostrarFechasActivas()
         {
+
+
+           DateTime fecha1 = DtpFecha1.Value;
+           DateTime fecha2 = DtpFecha2.Value;
+
 
 
             /*string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
@@ -1176,7 +1157,7 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.lbl_id_historia.Text.Equals(""))
+            if (!this.label_hstra.Text.Equals(""))
             {
                 this.IsEditar = true;
                 this.Botones();
@@ -1228,9 +1209,9 @@ namespace CapaPresentacion
 
             int id_historia_seleccionada = Convert.ToInt32(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
-            this.lbl_id_historia.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
+            this.label_hstra.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["idhistoria"].Value);
 
-            this.txtNumero_Documento.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNumero_Cedula.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
 
             //Mostrar el tab de Historia
             this.tabControl1.SelectedIndex = 0;
@@ -1521,7 +1502,7 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            
+            if (datalistadohistorias.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
         }
 
         //private void label2_MouseHover(object sender, EventArgs e)
@@ -1550,6 +1531,8 @@ namespace CapaPresentacion
             {
                 datalistadohistorias.Columns["idhistoria"].Visible = false;
                 datalistadohistorias.Columns["idpaciente"].Visible = false;
+                MostrarHistoriasActivas();
+                if (datalistadohistorias.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las historias"); }
             }
 
             
@@ -1557,199 +1540,6 @@ namespace CapaPresentacion
 
         }
 
-        private void tabPage6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        //Este es el boton de añadir evolucion nueva (el boton azul que esta en el formulario Historias)
-        private void btnAnadirEvol_Click(object sender, EventArgs e)
-        {
-
-            //para llevar los datos de la Historia a Evolucion
-            lbl_id_historia_evol.Text = this.lbl_id_historia.Text;
-            //lblNombrePaciente_evol.Text = this.lbl_nombre_pac.Text;
-            //lblCedulaPaciente_evol.Text = this.lbl_ci_pac.Text;
-
-            //para llevar los datos de la Historia a la pestaña de Lista Evolucion
-            lbl_lista_evol_id_historia.Text = this.lbl_id_historia.Text;
-            //lbl_lista_evol_ci.Text = this.lbl_ci_pac.Text;
-            //lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
-
-            //Para que se muestre la pestaña de Evolucion.
-            this.tabControl1.SelectedIndex = 2;
-
-            this.txtNumero_Documento_Evol.Text = txtNumero_Documento.Text;
-
-            //cargar los datos segun cedula cargada
-
-
-
-            //insertar evolucion
-
-
-
-            //anular evolucion
-
-
-
-
-        }
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private int Contar_evol_segun_id_historia(int id_de_la_historia)
-        {
-
-
-            DataTable dt_evol = new DataTable();
-
-            dt_evol = NEvolucion.MostrarEvolucion(id_de_la_historia);
-
-            int cant_evoluciones = dt_evol.Rows.Count;
-
-            MessageBox.Show("La cantidad de evoluciones asociadas con la historia seleccionada es: " + Convert.ToString(cant_evoluciones) + " :D");
-
-            return cant_evoluciones;
-
-        }
-
-
-        private void btnGuardar_evol_Click(object sender, EventArgs e)
-        {
-
-
-                try
-                {
-
-                    //validacion de campos vacios
-
-                    string rpta = "";
-                    if (string.IsNullOrEmpty(this.txtObservacionesEvol.Text) || string.IsNullOrEmpty(this.txtProxConsultaEvol.Text))
-                    {
-                        //MensajeError("No se pueden dejar campos vacios");
-                        /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
-                        errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                        errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
-                        errorIcono.SetError(txtUsuario, "Ingrese un Valor");
-                        errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
-
-                    }
-                    else
-                    {
-
-
-
-
-                        if (this.IsNuevo_evol)
-                        {
-
-                        //WIP
-                        int planTerapeutico_Evol = 0; //añadir el id del plan terapeutico seleccionado
-                        int planEstudio_Evol = 0; //añadir el id del plan de estudio seleccionado
-
-                        var listaDiagnosticos_Evol = listboxDiagnosticosFinales_Evol.Items.Cast<String>().ToList(); //convertir el control en una lista
-                        string cadenaDiagnosticos_Evol = string.Join(",", listaDiagnosticos_Evol); //convertir la lista en un string separando cada diagnostico por una coma
-
-
-                        //insertar nueva evolucion
-                        rpta = NEvolucion.Insertar( Convert.ToInt32(this.lbl_id_historia_evol.Text), this.dtpFechaConsulta_Evol.Value, 
-                                this.txtEdadActual.Text, planTerapeutico_Evol, planEstudio_Evol, this.txtObservacionesEvol.Text, cadenaDiagnosticos_Evol, this.txtProxConsultaEvol.Text, this.cbEstado_Evol.Text);
-
-                        }
-                        
-
-
-                    
-                        //else if (this.IsEditar_evol)
-                        //{
-
-
-                        //    if (Contar_evol_segun_id_historia(Convert.ToInt32(this.lbl_id_historia_evol.Text)) > 0)
-                        //{
-
-
-                        //    //editar evolucion
-                        //    rpta = NEvolucion.Editar(Convert.ToInt32(this.lbl_id_paciente_select.Text), Convert.ToInt32(this.lbl_id_historia_evol.Text), this.dtpFechaConsulta_Evol.Value, this.txtEdadActual.Text, this);
-                        //}
-                        //    else
-                        //    {
-                        //        MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
-                        //    }
-
-
-
-                        //}
-
-
-                        //if (rpta.Equals("OK"))
-                        //{
-
-
-
-
-                        //    if (this.IsNuevo_evol)
-                        //    {
-                        //        this.MensajeOk("Se Insertó de forma correcta la evolucion");
-                        //        //this.OperacionInsertarEvol();
-                        //    }
-                        //    else
-                        //    {
-                        //        this.MensajeOk("Se Actualizó de forma correcta la evolucion");
-                        //        //this.OperacionEditarEvol();
-                        //    }
-
-                        //}
-                        else
-                        {
-
-
-                            this.MensajeError(rpta);
-                        }
-
-                        this.IsNuevo_evol = false;
-                        this.IsEditar_evol = false;
-                        //this.Botones_evol();
-                        //this.Limpiar_evol();
-                        this.lbl_id_historia_evol.Text = "";
-
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
-                }
-            
-
-
-        }
-
-        private void btnNueva_evol_Click(object sender, EventArgs e)
-        {
-            this.IsNuevo_evol = true;
-            this.IsEditar_evol = false;
-            //this.Botones_evol();
-            //this.Limpiar_evol();
-            //this.Habilitar_evol(true);
-
-
-
-        }
-
-        private void btnEditar_evol_Click(object sender, EventArgs e)
-        {
-            this.IsNuevo_evol = false;
-            this.IsEditar_evol = true;
-            //this.Boton_evol();
-            //this.Limpiar_evol();
-            //this.Habilitar_evol(true);
-        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -1774,11 +1564,7 @@ namespace CapaPresentacion
 
         }
 
-        private void btnAbrirArchivoMuerto_Click(object sender, EventArgs e)
-        {
-            frmArchivosMuertos frm = new frmArchivosMuertos();
-            frm.ShowDialog();
-        }
+        
 
         private void cbPlanTerapeutico_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -1799,94 +1585,97 @@ namespace CapaPresentacion
         }
 
 
-        private int buscar_plan_estudio_del_pac(int id_pac)
+
+
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan estudio de una Historia en particular
+        /// </summary>
+        /// <param name="idhistoria"></param>
+        /// <returns></returns>
+        private int buscar_plan_estudio_de_historia(int idhistoria)
         {
 
-            //aca se buscará cual es el ID de el PlanEstudio de ese paciente.
+            //aca se buscará cual es el ID de el PlanEstudio de esa historia en particular
 
-                DataTable DtResultado = new DataTable("PlanEstudioDelPac");
-                SqlConnection SqlCon = new SqlConnection();
-                try
-                {
-                    SqlCon.ConnectionString = Conexion.Cn;
-                    SqlCommand SqlCmd = new SqlCommand();
-                    SqlCmd.Connection = SqlCon;
-                    SqlCmd.CommandText = "sp_buscar_idplanestudio_segun_idpac";
-                    SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParIDBuscar = new SqlParameter();
-                ParIDBuscar.ParameterName = "@id_paciente";
-                ParIDBuscar.SqlDbType = SqlDbType.Int;
-                ParIDBuscar.Size = 50;
-                ParIDBuscar.Value = id_pac;
-                SqlCmd.Parameters.Add(ParIDBuscar);
-
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                    SqlDat.Fill(DtResultado);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                    DtResultado = null;
-                }
-
-
-            int id_del_plan_estudio = 0;
-
-
-            if (DtResultado.Rows.Count <= 0 )
-            {
-
-                //MessageBox.Show("whoops!");
-                id_del_plan_estudio = 0;
-
-            }
-            else
-            {
-                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][0]);
-            }
-
-
-            return id_del_plan_estudio;
-
-
-            
-
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanEstudio
-            // 2. Con PlanEstudio
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-            //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
-
-        }
-
-
-
-
-        private int buscar_plan_terapeutico_del_pac(int id_pac)
-        {
-
-            //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
-
-            DataTable DtResultado = new DataTable("PlanTerapeuticoDelPac");
+            DataTable DtResultado = new DataTable("PlanEstudioDeHistoria");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon.ConnectionString = Conexion.Cn;
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idpac";
+                SqlCmd.CommandText = "sp_buscar_idplanestudio_segun_idhistoria";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIDBuscar = new SqlParameter();
-                ParIDBuscar.ParameterName = "@id_pac";
+                ParIDBuscar.ParameterName = "@idhistoria";
                 ParIDBuscar.SqlDbType = SqlDbType.Int;
                 ParIDBuscar.Size = 50;
-                ParIDBuscar.Value = id_pac;
+                ParIDBuscar.Value = idhistoria;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_del_plan_estudio = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                id_del_plan_estudio = 0;
+
+            }
+            else
+            {
+                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0][13]);
+            }
+
+
+            return id_del_plan_estudio;
+
+
+        }
+
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan terapeutico de una Historia en particular
+        /// </summary>
+        /// <param name="idhistoria"></param>
+        /// <returns></returns>
+        private int buscar_plan_terapeutico_de_historia(int idhistoria)
+        {
+
+            //aca se buscará cual es el ID de el PlanTerapeutico de esa historia en particular
+
+            DataTable DtResultado = new DataTable("PlanTerapeuticoDeHistoria");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idhistoria";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@idhistoria";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idhistoria;
                 SqlCmd.Parameters.Add(ParIDBuscar);
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
@@ -1908,29 +1697,31 @@ namespace CapaPresentacion
             if (DtResultado.Rows.Count <= 0)
             {
 
-                //MessageBox.Show("whoops!");
                 id_del_plan_terapeutico = 0;
 
             }
             else
             {
-                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][0]);
+                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0][14]);
             }
 
 
             return id_del_plan_terapeutico;
 
 
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanEstudio
-            // 2. Con PlanEstudio
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-            //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanEstudio
-
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1940,11 +1731,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -1976,34 +1767,6 @@ namespace CapaPresentacion
 
 
 
-
-
-        private void buscar_plan_terapeutico_del_pac()
-        {
-            //aca se buscará cual es el ID de el PlanTerapeutico de ese paciente.
-
-            //Se cargara en el txtbox 2 opciones: 
-            // 1. Sin PlanTerapeutico
-            // 2. Con PlanTerapeutico
-
-            //el id dependera de la opcion
-            //en caso de ser la primera, el id será 0
-            //en caso de ser la segunda, primero se valida la fecha de dicho registro 
-                //(si es de hoy, se guarda el id. Si es muy vieja se muestra un messagebox pidiendo crear un nuevo PlanTerapeutico
-        }
-
-        private void lbl_id_pac_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        //private void cbPlanEstudio_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //    OpcionPlanEstudio();
-
-        //}
-
         private void btnReporte_Historia_Click(object sender, EventArgs e)
         {
             frmListaHistorialTotal frm = new frmListaHistorialTotal();
@@ -2017,30 +1780,51 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudio_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio();
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
+            // Add a child form Estudio
 
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula.Text,false);
+            child.rptEncabezado = "Fecha Plan Estudio: " + DateTime.Today.Date + ". " + txtNombre_Paciente.Text + " C.I.#: " + txtNumero_Cedula.Text + " Sexo: " + txtSexo.Text;
+
+            child.DataAvailable_PlanEstudio += new EventHandler(child_DataAvailable_PlanEstudio);
+            child.Data_PlanEstudio = this.lbl_planestudio_id.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
         }
 
         private void btnVerPlanTerapeutico_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento.Text);
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
 
+            // Add a child form Terapeutico
 
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula.Text, false);
+            child.rptEncabezado = "Fecha: " + DateTime.Today.Date + ". " + txtNombre_Paciente.Text + " C.I.#: " + txtNumero_Cedula.Text + " Sexo: " + txtSexo.Text;
+
+            child.DataAvailable_PlanTerapeutico += new EventHandler(child_DataAvailable_PlanTerapeutico);
+            child.Data_PlanTerapeutico = this.lbl_planterapeutico_id.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar == (char)13)
             {
 
                 Cargar_Todo_Historia();
+
+                //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
+                this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
+
+                CargarEvolucion();
 
             }
         }
@@ -2064,15 +1848,22 @@ namespace CapaPresentacion
 
             id_del_paciente_a_cargar = Buscar_idPac_por_cedula();
 
+            //poner el id del paciente
+            //this.lbl_id_pac_frmHistoria.Text = id_del_paciente_a_cargar.ToString();
+
+
             if (id_del_paciente_a_cargar > 0)
             {
-                this.lbl_idpac.Text = id_del_paciente_a_cargar.ToString();
+                this.lbl_idhistoria.Text = id_del_paciente_a_cargar.ToString();
+
+                //aca se llena el campo de cedula de Evol con la misma cedula que la Historia
+                this.txtNumero_Cedula_Evol.Text = this.txtNumero_Cedula.Text;
 
                 Cargar_Historia_En_Campos();
 
-                Gestionar_PlanEstudio();
+                Gestionar_PlanEstudio_Historia();
 
-                Gestionar_PlanTerapeutico();
+                Gestionar_PlanTerapeutico_Historia();
 
             }
             else
@@ -2111,6 +1902,7 @@ namespace CapaPresentacion
                         break;
                     }
                 }
+
                 if (!found)
                 {
                     listboxDiagnosticosFinales.Items.Add(diagnostico);
@@ -2304,15 +2096,15 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(this.txtNumero_Documento.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) || string.IsNullOrEmpty(this.txtSexo.Text) ||
-                    string.IsNullOrEmpty(this.txtMotivoConsulta.Text) || string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
-                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || string.IsNullOrEmpty(this.txtLaboratorio.Text) || string.IsNullOrEmpty(this.txtParaclinicos.Text) || string.IsNullOrEmpty(this.txtecg.Text) || string.IsNullOrEmpty(this.txtEcocardiograma.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
+                if (string.IsNullOrEmpty(this.txtNumero_Cedula.Text) || string.IsNullOrEmpty(this.txtNombre_Paciente.Text) ||
+                    string.IsNullOrEmpty(this.txtEnfermedadActual.Text) || string.IsNullOrEmpty(this.txtHistoriaFamiliar.Text) || string.IsNullOrEmpty(this.txtHistoriaPersonal.Text) || 
+                    string.IsNullOrEmpty(this.txtTratamiento_Actual.Text) || string.IsNullOrEmpty(this.txtExamenFisico.Text) || this.listboxDiagnosticosFinales.Items.Count == 0)
 
                 {
-                    MensajeError("No se pueden dejar campos vacios");
+                    MensajeError("No se puede dejar campos importantes en blanco, porfavor verifique");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -2329,7 +2121,7 @@ namespace CapaPresentacion
                     {
 
 
-                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+                        if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
                         {
 
                             MensajeError("Ya existe una historia para este paciente.");
@@ -2337,13 +2129,13 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            int idPlanEstudio = TraerIdPlanEstudio(this.txtNumero_Documento.Text);
-                            int idPlanTerapeutico = TraerIdPlanTerapeutico(this.txtNumero_Documento.Text);
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
                             var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
                             string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
 
-                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                            rpta = NHistoria.Insertar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
                             this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
                             
 
@@ -2358,18 +2150,26 @@ namespace CapaPresentacion
                     {
 
 
-                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+
+                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idhistoria.Text)) == true)
                         //{
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_planestudio_id.Text);
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_planterapeutico_id.Text);
 
-                        //    rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtRazonConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
-                        //this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtRayos_X.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, this.txtDiagnosticos.Text, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+                            var listaDiagnosticos = listboxDiagnosticosFinales.Items.Cast<String>().ToList(); //convertir el control en una lista
+                            string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
 
+                            rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), Convert.ToInt32(this.lbl_id_pac_frmHistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                            this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
 
 
                         //}
                         //else
                         //{
-                        //    MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
+
+
+                        //    MensajeError("No se puede editar un registro que no existe. Porfavor verifique los datos");
+
                         //}
 
 
@@ -2406,7 +2206,7 @@ namespace CapaPresentacion
                     this.Botones();
                     this.Limpiar();
                     this.Mostrar();
-                    this.lbl_idpac.Text = "";
+                    this.lbl_idhistoria.Text = "";
 
 
                 }
@@ -2450,11 +2250,12 @@ namespace CapaPresentacion
         private void LimpiarEvol()
         {
 
-            this.txtNumero_Documento_Evol.Text = string.Empty;
-            this.txtNombre_Evol.Text = string.Empty;
-            this.txtSexoEvol.Text = string.Empty;
-            this.txtEdadActual.Text = string.Empty;
+            //this.txtNumero_Cedula_Evol.Text = string.Empty;
+            //this.txtNombre_Evol.Text = string.Empty;
+            //this.txtSexoEvol.Text = string.Empty;
+            //this.txtEdadSuc.Text = string.Empty;
 
+            this.txtMotivoConsultaEvol.Text = string.Empty;
             this.txtObservacionesEvol.Text = string.Empty;
             this.txtProxConsultaEvol.Text = string.Empty;
             this.txtExamenFisicoEvol.Text = string.Empty;
@@ -2466,7 +2267,7 @@ namespace CapaPresentacion
             //this.btnVerPlanTerapeuticoEvol
             this.cblTipo_Sangre.SelectedIndex = -1;
             this.txtDiagnosticosEvol.Text = string.Empty;
-            this.listboxDiagnosticosFinales_Evol.Items.Clear();
+            //this.listboxDiagnosticosFinales_Evol.Items.Clear();
 
 
 
@@ -2479,6 +2280,7 @@ namespace CapaPresentacion
         {
             this.txtObservacionesEvol.Enabled = true;
             this.txtProxConsultaEvol.Enabled = true;
+            this.txtMotivoConsultaEvol.Enabled = true;
             this.txtExamenFisicoEvol.Enabled = true;
             this.txtLaboratorioEvol.Enabled = true;
             this.txtParaclinicosEvol.Enabled = true;
@@ -2486,7 +2288,6 @@ namespace CapaPresentacion
             this.txtEkgEvol.Enabled = true;
             this.btnVerPlanTerapeuticoEvol.Enabled = true;
             this.btnVerPlanEstudioEvol.Enabled = true;
-            this.cblTipo_Sangre.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales_Evol.Enabled = true;
             this.btnAnadirEvol.Enabled = true;
@@ -2497,6 +2298,7 @@ namespace CapaPresentacion
         //Deshabilitar los controles del formulario
         private void DeshabilitarEvol()
         {
+            this.txtMotivoConsultaEvol.Enabled = false;
             this.txtObservacionesEvol.Enabled = false;
             this.txtProxConsultaEvol.Enabled = false;
             this.txtExamenFisicoEvol.Enabled = false;
@@ -2533,19 +2335,46 @@ namespace CapaPresentacion
 
         private void btnVerPlanEstudioEvol_Click(object sender, EventArgs e)
         {
-            frmPlanEstudio frm = new frmPlanEstudio();
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
+            //frmPlanEstudio frm = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text, true);
+            
+            //frm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //frm.MinimizeBox = false;
+            //frm.Show();
+
+            frmPlanEstudio child = new frmPlanEstudio(this.txtNumero_Cedula_Evol.Text, true);
+
+            child.DataAvailable_PlanEstudio_Evol += new EventHandler(child_DataAvailable_PlanEstudio_Evol);
+            child.Data_PlanEstudio_Evol = this.lbl_id_planestudio_evol.Text; //aqui se está enviando el id del plan estudio que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
+
+
         }
 
         private void btnVerPlanTerapeuticoEvol_Click(object sender, EventArgs e)
         {
-            frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Documento_Evol.Text);
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.MinimizeBox = false;
-            frm.Show();
-            MessageBox.Show("a");
+            //frmPlanTerapeutico frm = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text, true);
+            //frm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //frm.MinimizeBox = false;
+            //frm.Show();
+            //MessageBox.Show("a");
+
+            // Add a child form Terapeutico
+
+            frmPlanTerapeutico child = new frmPlanTerapeutico(this.txtNumero_Cedula_Evol.Text, true);
+
+            child.DataAvailable_PlanTerapeutico_Evol += new EventHandler(child_DataAvailable_PlanTerapeutico_Evol);
+            child.Data_PlanTerapeutico_Evol = this.lbl_id_planterapeutico_evol.Text; //aqui se está enviando el id del plan terapeutico que ya esta almacenado en la historia.
+
+            child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+            child.MinimizeBox = false; //quitar boton de minimizar
+            child.Height = 800; //altura
+            child.Width = 1200; //anchura
+            child.Show();
         }
 
         private void AddDiagnosticToList_Evol()
@@ -2716,33 +2545,959 @@ namespace CapaPresentacion
         //}
 
 
-        private void Gestionar_PlanEstudio_Evol()
+
+
+
+        //Este evento es para que cada vez que cambie el valor de este txtbox, se pueda cambiar el color y texto del boton.
+        private void lbl_planterapeutico_id_TextChanged(object sender, EventArgs e)
         {
+            if (this.lbl_planterapeutico_id.Text == "0")
+            {
+                this.btnVerPlanTerapeutico.Text = "Sin plan terapeutico";
+                this.btnVerPlanTerapeutico.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanTerapeutico.Text = "Plan terapeutico asignado";
+                this.btnVerPlanTerapeutico.BackColor = Color.LightSeaGreen;
+
+            }
+        }
+
+        //Este evento es para que cada vez que cambie el valor de este txtbox, se pueda cambiar el color y texto del boton.
+        private void lbl_planestudio_id_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbl_planestudio_id.Text == "0")
+            {
+                this.btnVerPlanEstudio.Text = "Sin plan de estudio";
+                this.btnVerPlanEstudio.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanEstudio.Text = "Plan de estudio asignado";
+                this.btnVerPlanEstudio.BackColor = Color.LightSeaGreen;
+
+            }
+        }
+
+
+        private void btnPacienteFallecido_Click(object sender, EventArgs e)
+        {
+           
+            if (datalistadohistorias.SelectedRows.Count > 0)
+            {
+                string id_paciente_seleccionado = datalistadohistorias.SelectedRows[0].Cells["idpaciente"].Value.ToString();
+
+                frmDeathDetailsInput child = new frmDeathDetailsInput(id_paciente_seleccionado);
+
+                child.FormBorderStyle = FormBorderStyle.FixedDialog; //el borde es fijo
+                child.MinimizeBox = false; //quitar boton de minimizar
+                //child.Height = 800; //altura
+                //child.Width = 1200; //anchura
+                child.ShowDialog();
+
+            }
+
+
+           
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ////////////////////////////////////////////////// AREA DE CODIGO PARA LAS EVOLUCIONES ////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        private bool IsNuevo_evol = false;
+
+        private bool IsEditar_evol = false;
+
+        private int Buscar_idhistoria_segun_idpac(int idpac)
+        {
+
+            //aca se buscará cual es el ID de la historia de ese paciente en particular
+
+            DataTable DtResultado = new DataTable("HistoriaSegunIdPac");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idhistoria_segun_idpac";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@idpac";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idpac;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_historia = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                id_historia = 0;
+
+            }
+            else
+            {
+                id_historia = Convert.ToInt32(DtResultado.Rows[0]["idhistoria"]);
+            }
+
+
+            return id_historia;
+
+        }
+
+
+
+        private int Buscar_idPac_por_cedula_evol()
+        {
+
+            string cedula_del_pac = this.txtNumero_Cedula_Evol.Text;
+
+            DataTable paciente_tabla = new DataTable();
+
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
+
+            int id_del_pac = 0;
+
+            if (paciente_tabla.Rows.Count == 0)
+            {
+                //MessageBox.Show("no existe ese paciente");
+                id_del_pac = 0;
+            }
+            else
+            {
+
+                id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
+                this.dtpFechaNac_Evol.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
+
+
+                this.txtNombre_Evol.Text = nombre_del_pac;
+                this.txtSexoEvol.Text = sexo_del_pac;
+
+                //aca deberia ir una minifuncion para calcular la edad aproximada del paciente
+                //CalcularEdadSuc();
+
+
+            }
+
+            return id_del_pac;
+
+        }
+
+
+
+        private void Cargar_Evolucion_En_Campos()
+        {
+
+            
+
+            //para verificar si tiene una Historia registrada. Esta es una validación importante porque en caso de que no tenga, no se puede permitir registrar una evolucion.
+
+            int id_pac = Buscar_idPac_por_cedula_evol();
+
+            DataTable HistoriaDelPac = Datos_De_La_Historia(id_pac);
+            
+            
+            if (HistoriaDelPac.Rows.Count <= 0)
+            {
+                //verificar si tiene historia, en caso de que no tenga, no se puede permitir registrar una evolucion!!
+
+                MessageBox.Show("ADVERTENCIA: Este paciente NO tiene Historia, por lo tanto no se le pueden anexar Evoluciones. Porfavor, registre la Historia primero para proceder con el registro de Evoluciones.");
+                HistoriaDelPac = null;
+
+                DeshabilitarEvol();
+
+            }
+            else
+            {
+
+
+                //meter los row/column de ese row seleccionado en cada campo del form
+
+                if (dgv_Lista_Evoluciones_de_pac.SelectedRows.Count > 0)
+                {
+                   
+
+                    this.lbl_id_evol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["id"].Value.ToString();
+                    this.lbl_idhistoria_frmEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["idhistoria"].Value.ToString();
+                    this.dtpFechaConsulta_Evol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["fecha_consulta"].Value.ToString();
+                    this.txtEdadSuc.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["edad_suc"].Value.ToString();
+                    this.txtMotivoConsultaEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["motivo_consulta"].Value.ToString();
+                    this.txtObservacionesEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["observaciones"].Value.ToString();
+                    this.txtProxConsultaEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["prox_consulta"].Value.ToString();
+                    this.txtExamenFisicoEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["examen_fisico"].Value.ToString();
+                    this.txtLaboratorioEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["laboratorio"].Value.ToString();
+                    this.txtParaclinicosEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["examenes_paraclinicos"].Value.ToString();
+                    this.txtEkgEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["EKG"].Value.ToString();
+                    this.txtEcocardiogramaEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["ecocardiograma"].Value.ToString();
+                    this.lbl_id_planestudio_evol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["plan_estudio"].Value.ToString();
+                    this.lbl_id_planterapeutico_evol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["plan_terapeutico"].Value.ToString();
+                    this.cbEstadoEvol.Text = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["estado"].Value.ToString();
+
+
+                    string diagnosticos_cadena = dgv_Lista_Evoluciones_de_pac.SelectedRows[0].Cells["diagnosticos"].Value.ToString();
+
+                    List<string> diagnosticos_separados_con_coma = diagnosticos_cadena.Split(new char[] { ',' }).ToList();
+
+                    this.listboxDiagnosticosFinales_Evol.DataSource = diagnosticos_separados_con_coma;
+
+
+                }
+
+               
+
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+        private void Gestionar_PlanEstudio_Evolucion()
+        {
+
 
             ///////////////////////////// PLAN ESTUDIO WIP //////////////////////////////
 
-            //se busca segun el id_evol y segun la fecha de emision a ver si existe un plan de estudio
-
-            //si la fecha es igual a la de la evolucion, se selecciona.
-
-            //si la fecha es diferente, se debe crear un nuevo plan de estudio
+            //se busca segun el id de la evolucion a ver si existe un plan de estudio
 
 
-            //if (TraerIdPlanEstudio_Evol(this.lbl_id_evol) == 0)
-            //{
-            //    this.btnVerPlanEstudioEvol.Text = "Sin plan de estudio seleccionado";
-            //    this.btnVerPlanEstudioEvol.BackColor = Color.DarkGray;
-            //}
-            //else
-            //{
-            //    //buscar la fecha de ese plan de estudio para ver si es del dia de hoy, o es muy vieja.
+            int id_plan_estudio_evolucion = buscar_plan_estudio_de_evolucion(Convert.ToInt32(this.lbl_id_evol.Text));
 
-            //    this.btnVerPlanEstudioEvol.Text = "Plan de estudio asignado";
-            //    this.btnVerPlanEstudioEvol.BackColor = Color.LightSeaGreen;
+            if (id_plan_estudio_evolucion == 0)
+            {
+                this.btnVerPlanEstudioEvol.Text = "Sin plan de estudio";
+                this.btnVerPlanEstudioEvol.BackColor = Color.DarkGray;
+                this.lbl_id_planestudio_evol.Text = Convert.ToString(id_plan_estudio_evolucion);
+            }
+            else
+            {
 
-            //}
+                this.btnVerPlanEstudioEvol.Text = "Plan de estudio asignado";
+                this.btnVerPlanEstudioEvol.BackColor = Color.LightSeaGreen;
+                this.lbl_id_planestudio_evol.Text = Convert.ToString(id_plan_estudio_evolucion);
+                this.btnVerPlanEstudioEvol.Enabled = true;
+
+            }
 
 
+        }
+
+
+        private void Gestionar_PlanTerapeutico_Evolucion()
+        {
+
+
+            ///////////////////////////// PLAN TERAPEUTICO WIP //////////////////////////////
+
+            //se busca segun el id de la evolucion a ver si existe un plan terapeutico
+
+
+            int id_plan_terapeutico_evolucion = buscar_plan_terapeutico_de_evolucion(Convert.ToInt32(this.lbl_id_evol.Text));
+
+            if (id_plan_terapeutico_evolucion == 0)
+            {
+                this.btnVerPlanTerapeuticoEvol.Text = "Sin plan terapeutico";
+                this.btnVerPlanTerapeuticoEvol.BackColor = Color.DarkGray;
+                this.lbl_id_planterapeutico_evol.Text = Convert.ToString(id_plan_terapeutico_evolucion);
+            }
+            else
+            {
+
+                this.btnVerPlanTerapeuticoEvol.Text = "Plan terapeutico asignado";
+                this.btnVerPlanTerapeuticoEvol.BackColor = Color.LightSeaGreen;
+                this.lbl_id_planterapeutico_evol.Text = Convert.ToString(id_plan_terapeutico_evolucion);
+                this.btnVerPlanTerapeuticoEvol.Enabled = true;
+
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan estudio de una Evolucion en particular
+        /// </summary>
+        /// <param name="idevolucion"></param>
+        /// <returns></returns>
+        private int buscar_plan_estudio_de_evolucion(int idevolucion)
+        {
+
+            //aca se buscará cual es el ID de el PlanEstudio de esa historia en particular
+
+            DataTable DtResultado = new DataTable("PlanEstudioDeEvolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idplanestudio_segun_idevolucion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_evolucion";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idevolucion;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_del_plan_estudio = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                id_del_plan_estudio = 0;
+
+            }
+            else
+            {
+                id_del_plan_estudio = Convert.ToInt32(DtResultado.Rows[0]["plan_estudio"]);
+            }
+
+
+            return id_del_plan_estudio;
+
+
+        }
+
+
+
+        /// <summary>
+        /// Esta funcion sirve para buscar el ID del plan terapeutico de una Evolucion en particular
+        /// </summary>
+        /// <param name="idevolucion"></param>
+        /// <returns></returns>
+        private int buscar_plan_terapeutico_de_evolucion(int idevolucion)
+        {
+
+            //aca se buscará cual es el ID de el PlanTerapeutico de esa evolucion en particular
+
+            DataTable DtResultado = new DataTable("PlanTerapeuticoDeEvolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_idplanterapeutico_segun_idevolucion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_evolucion";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = idevolucion;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+
+
+            int id_del_plan_terapeutico = 0;
+
+
+            if (DtResultado.Rows.Count <= 0)
+            {
+
+                //MessageBox.Show("whoops!");
+                id_del_plan_terapeutico = 0;
+
+            }
+            else
+            {
+                id_del_plan_terapeutico = Convert.ToInt32(DtResultado.Rows[0]["plan_terapeutico"]);
+            }
+
+
+            return id_del_plan_terapeutico;
+
+
+        }
+
+
+
+        /// <summary>
+        /// Es una tabla donde se guardan todos los datos de la evolucion extraidos de un query. Se busca mediante el id_evolucion
+        /// </summary>
+        /// <param name="id_evol"></param>
+        /// <returns></returns>
+        private DataTable Datos_De_La_Evolucion(int id_evol)
+        {
+            //aca se buscará la evolucion del paciente segun el id evol
+
+            DataTable DtResultado = new DataTable("Datos_Evolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_evolucion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIDBuscar = new SqlParameter();
+                ParIDBuscar.ParameterName = "@id_evol";
+                ParIDBuscar.SqlDbType = SqlDbType.Int;
+                ParIDBuscar.Size = 50;
+                ParIDBuscar.Value = id_evol;
+                SqlCmd.Parameters.Add(ParIDBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DtResultado = null;
+            }
+
+
+            return DtResultado;
+
+        }
+
+
+
+
+
+
+
+
+        private void Cargar_Todo_Evolucion()
+        {
+            int id_del_paciente_a_cargar_evol;
+
+            id_del_paciente_a_cargar_evol = Buscar_idPac_por_cedula_evol();
+
+            if (id_del_paciente_a_cargar_evol > 0)
+            {
+                this.lbl_idhistoria.Text = id_del_paciente_a_cargar_evol.ToString();
+
+                
+
+                Cargar_Evolucion_En_Campos();
+
+                Gestionar_PlanEstudio_Evolucion();
+
+                Gestionar_PlanTerapeutico_Evolucion();
+
+                MostrarFechasActivas();
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado WTF :(");
+            }
+
+
+
+
+        }
+
+        //Este es el boton de añadir evolucion nueva (el boton azul que esta en el formulario Historias)
+        private void btnAnadirEvol_Click(object sender, EventArgs e)
+        {
+
+            //para llevar los datos de la Historia a Evolucion
+            lbl_id_evol.Text = this.label_hstra.Text;
+            //lblNombrePaciente_evol.Text = this.lbl_nombre_pac.Text;
+            //lblCedulaPaciente_evol.Text = this.lbl_ci_pac.Text;
+
+            //para llevar los datos de la Historia a la pestaña de Lista Evolucion
+            //lbl_lista_evol_id_historia.Text = this.label_hstra.Text;
+            //lbl_lista_evol_ci.Text = this.lbl_ci_pac.Text;
+            //lbl_lista_evol_nombre.Text = this.lbl_nombre_pac.Text;
+
+            //Para que se muestre la pestaña de Evolucion.
+            this.tabControl1.SelectedIndex = 2;
+
+            this.txtNumero_Cedula_Evol.Text = txtNumero_Cedula.Text;
+
+            //cargar los datos segun cedula cargada
+
+
+
+            //insertar evolucion
+
+
+
+            //anular evolucion
+
+
+
+
+        }
+
+
+        private int Contar_evol_segun_id_historia(int id_de_la_historia)
+        {
+
+
+            DataTable dt_evol = new DataTable();
+
+            dt_evol = NEvolucion.MostrarEvolucion(id_de_la_historia);
+
+            int cant_evoluciones = dt_evol.Rows.Count;
+
+            MessageBox.Show("La cantidad de evoluciones asociadas con la historia seleccionada es: " + Convert.ToString(cant_evoluciones) + " :D");
+
+            return cant_evoluciones;
+
+        }
+
+
+        private void MostrarEvolucionesDelPac()
+        {
+
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("SELECT Evoluciones.id, Evoluciones.idhistoria, Evoluciones.fecha_consulta, Evoluciones.edad_suc, Evoluciones.motivo_consulta, Evoluciones.observaciones, Evoluciones.prox_consulta, Evoluciones.examen_fisico, Evoluciones.laboratorio, Evoluciones.examenes_paraclinicos, Evoluciones.EKG, Evoluciones.ecocardiograma, Evoluciones.plan_estudio, Evoluciones.plan_terapeutico, Evoluciones.diagnosticos, Evoluciones.estado FROM Paciente INNER JOIN Historia ON Paciente.idpaciente = Historia.idpaciente INNER JOIN Evoluciones ON Historia.idhistoria = Evoluciones.idhistoria WHERE Historia.estado = 'Activo' and Paciente.is_dead=0 and Paciente.num_cedula = '"+ this.txtNumero_Cedula_Evol.Text +"' ;", conDataBase);
+            
+
+
+
+            try
+            {
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                this.dgv_Lista_Evoluciones_de_pac.DataSource = bSource;
+                sda.Update(dbdataset);
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show("Ha ocurrido un error" + ex.ToString());
+            }
+
+
+
+            OcultarColumnas_Evoluciones();
+
+
+            //lblEvolucionesActivas.Text = "Total de Evoluciones de este paciente : " + Convert.ToString(dgvEvol.Rows.Count);
+        }
+
+        //Método para ocultar columnas de el datagrid Evoluciones
+        private void OcultarColumnas_Evoluciones()
+        {
+
+            this.dgv_Lista_Evoluciones_de_pac.Columns["id"].Visible = false;
+            this.dgv_Lista_Evoluciones_de_pac.Columns["idhistoria"].Visible = false;
+
+            this.dgv_Lista_Evoluciones_de_pac.Columns["plan_estudio"].Visible = false;
+            this.dgv_Lista_Evoluciones_de_pac.Columns["plan_terapeutico"].Visible = false;
+
+            this.dgv_Lista_Evoluciones_de_pac.Columns["estado"].Visible = false;
+            //this.dgv_Lista_Evoluciones_de_pac.Columns["is_dead"].Visible = false;
+
+        }
+
+        private void btnGuardar_evol_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+
+                //validacion de campos vacios
+
+                string rpta = "";
+                if (string.IsNullOrEmpty(this.txtObservacionesEvol.Text) || string.IsNullOrEmpty(this.txtProxConsultaEvol.Text))
+                {
+                    //MensajeError("No se pueden dejar campos vacios");
+                    /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
+                    errorIcono.SetError(txtApellidos, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
+                    errorIcono.SetError(txtUsuario, "Ingrese un Valor");
+                    errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
+
+                }
+                else
+                {
+
+
+
+
+                    if (this.IsNuevo_evol)
+                    {
+
+                        //WIP
+                        int planTerapeutico_Evol = 0; //añadir el id del plan terapeutico seleccionado
+                        int planEstudio_Evol = 0; //añadir el id del plan de estudio seleccionado
+
+                        var listaDiagnosticos_Evol = listboxDiagnosticosFinales_Evol.Items.Cast<String>().ToList(); //convertir el control en una lista
+                        string cadenaDiagnosticos_Evol = string.Join(",", listaDiagnosticos_Evol); //convertir la lista en un string separando cada diagnostico por una coma
+
+
+                        //insertar nueva evolucion
+                        rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_id_evol.Text), this.dtpFechaConsulta_Evol.Value,
+                                this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos_Evol, planEstudio_Evol, planTerapeutico_Evol, this.txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text, this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, this.cbEstado_Evol.Text);
+
+                    }
+
+
+
+                    else
+                    {
+
+
+                        this.MensajeError(rpta);
+                    }
+
+                    this.IsNuevo_evol = false;
+                    this.IsEditar_evol = false;
+                    //this.Botones_evol();
+                    //this.Limpiar_evol();
+                    this.lbl_id_evol.Text = "";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+
+
+        }
+
+        private void btnNueva_evol_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo_evol = true;
+            this.IsEditar_evol = false;
+            //this.Botones_evol();
+            //this.Limpiar_evol();
+            //this.Habilitar_evol(true);
+
+
+
+        }
+
+        private void btnEditar_evol_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo_evol = false;
+            this.IsEditar_evol = true;
+            //this.Boton_evol();
+            //this.Limpiar_evol();
+            //this.Habilitar_evol(true);
+        }
+
+
+
+
+        private void txtNumero_Cedula_Evol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+
+                CargarEvolucion();
+
+            }
+        }
+
+
+        private void CargarEvolucion()
+        {
+
+            
+
+            int id_del_paciente_a_cargar_evol;
+
+            id_del_paciente_a_cargar_evol = Buscar_idPac_por_cedula_evol();
+
+            if (id_del_paciente_a_cargar_evol > 0)
+            {
+                this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
+
+
+                //para buscar el id de la historia correspondiente a este paciente.
+                int id_historia_del_pac_frmEvol;
+
+                id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
+
+                this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
+
+
+                this.MostrarEvolucionesDelPac();
+
+
+            }
+            else
+            {
+                MessageBox.Show("Este paciente no esta registrado");
+            }
+        }
+
+
+        private void txtGuardarEvol_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                string rpta = "";
+                if (string.IsNullOrEmpty(this.txtNombre_Evol.Text) ||
+                    string.IsNullOrEmpty(this.txtProxConsultaEvol.Text) || string.IsNullOrEmpty(this.txtExamenFisicoEvol.Text) || this.listboxDiagnosticosFinales_Evol.Items.Count == 0)
+
+                {
+                    MensajeError("No se pueden dejar los campos obligatorios vacios");
+                    /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
+                    errorIcono.SetError(txtApellidos, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
+                    errorIcono.SetError(txtUsuario, "Ingrese un Valor");
+                    errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
+
+                }
+
+
+                else
+                {
+
+
+
+
+                    if (this.IsNuevo_evol)
+                    {
+
+                            int idPlanEstudio = Convert.ToInt32(this.lbl_id_planestudio_evol.Text);
+                            int idPlanTerapeutico = Convert.ToInt32(this.lbl_id_planterapeutico_evol.Text);
+
+                            var listaDiagnosticos = listboxDiagnosticosFinales_Evol.Items.Cast<String>().ToList(); //convertir el control en una lista
+                            string cadenaDiagnosticos = string.Join(",", listaDiagnosticos); //convertir la lista en un string separando cada diagnostico por una coma
+
+                            rpta = NEvolucion.Insertar(Convert.ToInt32(this.lbl_idhistoria_frmEvol.Text.Trim()), this.dtpFechaConsulta.Value, this.txtEdadSuc.Text, this.txtMotivoConsultaEvol.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.txtObservacionesEvol.Text, this.txtProxConsultaEvol.Text,  this.txtExamenFisicoEvol.Text, this.txtLaboratorioEvol.Text, this.txtParaclinicosEvol.Text, this.txtEkgEvol.Text, this.txtEcocardiogramaEvol.Text, "Activo");
+
+
+
+                    }
+                    else if (this.IsEditar_evol)
+                    {
+
+
+                        //if (this.validarExisteHistoria(Convert.ToInt32(this.lbl_idpac.Text)) == true)
+                        //{
+
+                        //    rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idpac.Text.Trim()), this.dtpFechaConsulta.Value, this.txtRazonConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
+                        //this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtRayos_X.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, this.txtDiagnosticos.Text, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+
+
+
+                        //}
+                        //else
+                        //{
+                        //    MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
+                        //}
+
+
+                    }
+
+
+                    if (rpta.Equals("OK"))
+                    {
+
+
+
+
+                        if (this.IsNuevo_evol)
+                        {
+                            this.MensajeOk("Se Insertó de forma correcta la evolucion");
+                            //this.OperacionInsertarEvolucion();
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se Actualizó de forma correcta la evolucion");
+                            //this.OperacionEditarEvolucion();
+                        }
+
+                    }
+                    else
+                    {
+
+
+                        this.MensajeError(rpta);
+                    }
+
+                    this.IsNuevo_evol = false;
+                    this.IsEditar_evol = false;
+                    this.BotonesEvol();
+                    this.LimpiarEvol();
+
+                    this.lbl_id_evol.Text = "";
+                    //this.lbl_idhistoria_frmEvol.Text = "";
+
+                    CargarEvolucion();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+
+        }
+
+        private void txtEditarEvol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_id_historia_evol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_Lista_Evoluciones_de_pac_DoubleClick(object sender, EventArgs e)
+        {
+            //this.lbl_id_evol.Text = Convert.ToString(this.dgv_Lista_Evoluciones_de_pac.CurrentRow.Cells["id"].Value);
+
+            //this.lbl_idhistoria_frmEvol.Text = Convert.ToString(this.dgv_Lista_Evoluciones_de_pac.CurrentRow.Cells["idhistoria"].Value);
+
+            //this.txtNumero_Cedula_Evol.Text = Convert.ToString(this.datalistadohistorias.CurrentRow.Cells["num_cedula"].Value);
+
+
+            Cargar_Todo_Evolucion();
+
+            MostrarFechasActivas();
+        }
+
+        private void lbl_id_planestudio_evol_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbl_id_planestudio_evol.Text == "0")
+            {
+                this.btnVerPlanEstudioEvol.Text = "Sin plan de estudio";
+                this.btnVerPlanEstudioEvol.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanEstudioEvol.Text = "Plan de estudio asignado";
+                this.btnVerPlanEstudioEvol.BackColor = Color.LightSeaGreen;
+
+            }
+        }
+
+        private void lbl_id_planterapeutico_evol_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbl_id_planterapeutico_evol.Text == "0")
+            {
+                this.btnVerPlanTerapeuticoEvol.Text = "Sin plan terapeutico";
+                this.btnVerPlanTerapeuticoEvol.BackColor = Color.DarkGray;
+            }
+            else
+            {
+                this.btnVerPlanTerapeuticoEvol.Text = "Plan terapeutico asignado";
+                this.btnVerPlanTerapeuticoEvol.BackColor = Color.LightSeaGreen;
+
+            }
+        }
+
+        private void BtnReporteListaEvolucion_Click(object sender, EventArgs e)
+
+        {
+
+            frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
+
+            FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
+
+            FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
+
+            
+            frm.Show();
+
+            MessageBox.Show("jsdsd");
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -2750,8 +3505,95 @@ namespace CapaPresentacion
 
         }
 
-        private void frmHistoria_Activated(object sender, EventArgs e)
+        private void txtSexo_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkAnular_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                this.dgv_lista_evol.Columns[0].Visible = true;
+                this.btnAnular_All_Evol.Enabled = true;
+            }
+            else
+            {
+                this.dgv_lista_evol.Columns[0].Visible = false;
+                this.btnAnular_All_Evol.Enabled = false;
+            }
+        }
+
+        private void txtEdadSuc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_Lista_Evoluciones_de_pac_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label61_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.label61.Text == "▼")
+            {
+                //aca se minimiza el datadrid y los campos de busqueda
+                this.groupBox5.Height = 30;
+                this.label22.Visible = false;
+                this.cblBusqueda_evol_pac.Visible = false;
+                this.txtBuscar_evol_pac.Visible = false;
+                this.dgv_Lista_Evoluciones_de_pac.Visible = false;
+                this.label60.Visible = false;
+                this.label61.Text = "►";
+
+
+            }
+
+            else if (this.label61.Text == "►")
+            {
+                //aca se maximiza el datadrid y los campos de busqueda
+                this.groupBox5.Height = 188;
+                this.label22.Visible = true;
+                this.cblBusqueda_evol_pac.Visible = true;
+                this.txtBuscar_evol_pac.Visible = true;
+                this.dgv_Lista_Evoluciones_de_pac.Visible = true;
+                this.label60.Visible = true;
+                this.label61.Text = "▼";
+
+            }
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaNac_Evol_ValueChanged(object sender, EventArgs e)
+        {
+            // Save today's date.
+            var today = DateTime.Today;
+
+            // Calculate the age.
+            var age = today.Year - dtpFechaNac_Evol.Value.Year;
+
+            // Go back to the year in which the person was born in case of a leap year
+            if (dtpFechaNac_Evol.Value.Date > today.AddYears(-age)) age--;
+
+            this.txtEdadSuc.Text = age.ToString();
 
         }
 

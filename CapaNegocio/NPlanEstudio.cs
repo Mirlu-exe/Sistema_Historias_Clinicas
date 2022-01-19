@@ -57,6 +57,28 @@ namespace CapaNegocio
         }
 
 
+        //Método CargarNombreExamen que llama al método Mostrar de la clase DPlanEstudio
+        //de la CapaDatos
+        public static DataTable CargarNombreExamenLab()
+        {
+            return new DPlanEstudio().CargarNombreExamenLab();
+        }
+
+
+        //Método CargarNombreEstudios que llama al método Mostrar de la clase DPlanEstudio
+        //de la CapaDatos
+        public static DataTable CargarNombreEstudios()
+        {
+            return new DPlanEstudio().CargarNombreEstudios();
+        }
+
+        public static DataTable Buscar_PlanEstudio_segun_id(int id_planestudio)
+        {
+            DPlanEstudio Obj = new DPlanEstudio();
+            Obj.Id_a_buscar = id_planestudio;
+            return Obj.Buscar_PlanEstudio_segun_id(Obj);
+        }
+
 
     }
 

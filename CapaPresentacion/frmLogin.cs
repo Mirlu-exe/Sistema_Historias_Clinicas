@@ -32,7 +32,7 @@ namespace CapaPresentacion
         }
 
 
-        
+
 
 
         string idusuario, login, clave, acceso, nombre;
@@ -81,7 +81,7 @@ namespace CapaPresentacion
         private void lblRecuperarPassword_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+
             //codigo para recuperar contraseña
 
             //abrir un form con 3 txtbox con 3 lbls con las preguntas de seguridad
@@ -104,7 +104,7 @@ namespace CapaPresentacion
         {
 
             this.AccederAlSistema();
-     
+
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)

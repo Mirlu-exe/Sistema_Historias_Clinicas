@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 using CapaDatos;
 using CapaNegocio;
 
@@ -28,19 +29,26 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            this.ttMensaje.SetToolTip(this.txtNumero_Documento, "Escriba la cedula del paciente");
+            this.ttMensaje.SetToolTip(this.txtNumero_Cedula, "Escriba la cedula del paciente");
 
             this.ttMensaje.SetToolTip(this.dtpFechaCita, "Ingrese la fecha de la cita");
 
             fillComboServicios();
-            
 
+            //timePicker.Format = DateTimePickerFormat.Custom;
+            //timePicker.CustomFormat = "hh':'mm tt";
 
             this.btnAnular.Enabled = false;
         }
 
         private void frmCitas_Load(object sender, EventArgs e)
         {
+
+
+            //traer la tasa del dia guardado en la BD
+            traerTasaDelDia();
+
+
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Servicio' Puede moverla o quitarla según sea necesario.
             this.servicioTableAdapter.Fill(this.dsPrincipal.Servicio);
             // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Cita' Puede moverla o quitarla según sea necesario.
@@ -73,14 +81,48 @@ namespace CapaPresentacion
             this.dataListado.Columns["idpaciente"].Visible = false;
             this.dataListado.Columns["idusuario"].Visible = false;
             this.dataListado.Columns["idservicio"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
+            this.dataListado.Columns["Anular"].Visible = false;
 
             this.dgv_citashoy.Columns["idcita"].Visible = false;
             this.dgv_citashoy.Columns["idpaciente"].Visible = false;
             this.dgv_citashoy.Columns["idusuario"].Visible = false;
             this.dgv_citashoy.Columns["idservicio"].Visible = false;
+            this.dgv_citashoy.Columns["estado"].Visible = false;
+            //this.dgv_citashoy.Columns["anular"].Visible = false;
 
         }
 
+        public void traerTasaDelDia()
+        {
+            string CN = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            string Query = "select Tasa_del_dia from TasaDelDia ;";
+            SqlConnection conDataBase = new SqlConnection(CN);
+            SqlCommand cmdDataBase = new SqlCommand(Query, conDataBase);
+            SqlDataReader Lectura;
+
+            try
+            {
+
+                conDataBase.Open();
+                Lectura = cmdDataBase.ExecuteReader();
+
+                while (Lectura.Read())
+                {
+
+                    this.txtTasa.Text = (Lectura["Tasa_del_dia"].ToString() );
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
 
         public void fillComboServicios()
         {
@@ -185,7 +227,7 @@ namespace CapaPresentacion
         //Limpiar todos los controles del formulario
         private void Limpiar()
         {
-            this.txtNumero_Documento.Text = string.Empty;
+            this.txtNumero_Cedula.Text = string.Empty;
             this.txtNombre_Paciente.Text = string.Empty;
             this.txtTelefono.Text = string.Empty;
 
@@ -193,8 +235,10 @@ namespace CapaPresentacion
             this.txtCodUsuario.Text = string.Empty;
             this.txtCodigoPaciente.Text = string.Empty;
             this.txtCosto.Text = string.Empty;
+            this.txtCostoBs.Text = string.Empty;
             this.lbl_usuario.Text = string.Empty;
             this.cmbServicios.SelectedIndex = -1;
+            this.rbActiva.Checked = true;
 
 
 
@@ -205,7 +249,7 @@ namespace CapaPresentacion
         //Habilitar los controles del formulario
         private void Habilitar(bool valor)
         {
-            this.txtNumero_Documento.ReadOnly = !valor;
+            this.txtNumero_Cedula.ReadOnly = !valor;
             //this.txtBuscarServicio.ReadOnly = !valor;
 
 
@@ -246,29 +290,42 @@ namespace CapaPresentacion
             SqlConnection conDataBase = new SqlConnection(Cn);
             //SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.nombre, Usuario.idusuario, Usuario.nombre, Usuario.cargo from Cita inner join Paciente on Cita.idpaciente = Paciente.idpaciente inner join Usuario on Cita.idusuario = Usuario.idusuario ", conDataBase);
             //SqlCommand cmdDataBase = new SqlCommand("select * from Cita where estado = 'Activo'; ", conDataBase);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.hora, Servicio.nombre as Servicio, Cita.idservicio,Cita.suspendida, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario WHERE Cita.estado = 'Activo'", conDataBase);
 
-            try
-            {
+         
 
-                SqlDataAdapter sda = new SqlDataAdapter();
-                sda.SelectCommand = cmdDataBase;
-                dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataListado.DataSource = bSource;
-                sda.Update(dbdataset);
+                try
+                {
 
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
 
-                MessageBox.Show("Ha ocurrido un error");
-            }
+                    SqlDataAdapter sda = new SqlDataAdapter();
+                    sda.SelectCommand = cmdDataBase;
+                    dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataListado.DataSource = bSource;
+                    sda.Update(dbdataset);
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+
+                    MessageBox.Show("Ha ocurrido un error");
+                }
+
+
+
+            if (dataListado.Rows.Count == 0 ) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+
+            
+
+           
 
 
 
@@ -294,11 +351,11 @@ namespace CapaPresentacion
             groupBox2.Enabled = true;
 
 
-            this.txtNumero_Documento.Focus();
+            this.txtNumero_Cedula.Focus();
 
             UsuarioResponsable();
 
-            this.txtEstadoCita.Text = "Activo";
+            //this.txtEstadoCita.Text = "Activa";
 
 
 
@@ -310,7 +367,7 @@ namespace CapaPresentacion
             {
                 string rpta = "";
                 if (string.IsNullOrEmpty(txtCodigoPaciente.Text) || string.IsNullOrEmpty(txtCodServicio.Text) ||
-                    cmbServicios.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Documento.Text))
+                    cmbServicios.SelectedIndex == -1 || string.IsNullOrEmpty(txtNumero_Cedula.Text))
                 {
                     MessageBox.Show("No puede dejar campos vacios o sin seleccionar. ", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -337,7 +394,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado) values (@d1,@d2,@d3,@d4,@d5)";
+                        SqlCmd.CommandText = "insert into Cita (idpaciente, idusuario, fecha, idservicio, estado, CostoT, suspendida, hora) values (@d1,@d2,@d3,@d4,@d5, @d6, @d7, @d8)";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -346,9 +403,11 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d1", Convert.ToInt32(this.txtCodigoPaciente.Text));
                         SqlCmd.Parameters.AddWithValue("@d2", id_usuario_que_lo_registro);
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
-
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
+                        SqlCmd.Parameters.AddWithValue("@d5", "Activo");
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToDecimal(this.txtCostoBs.Text));
+                        SqlCmd.Parameters.AddWithValue("@d7", IsCitaSuspendida() );
+                        SqlCmd.Parameters.AddWithValue("@d8", this.timePicker.Text);
 
 
 
@@ -363,13 +422,8 @@ namespace CapaPresentacion
 
 
 
-
-
-
-
-
                     }
-                    else
+                    else // ESTA ES LA FUNCION EDITAR
                     {
 
                         SqlConnection SqlCon = new SqlConnection();
@@ -382,7 +436,7 @@ namespace CapaPresentacion
                         //Establecer el Comando
                         SqlCommand SqlCmd = new SqlCommand();
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, estado = @d5 where idcita=@d6";
+                        SqlCmd.CommandText = "update Cita set idpaciente = @d1, idusuario = @d2, fecha = @d3, idservicio = @d4, CostoT = @d5, suspendida = @d6 , estado = @d7, hora = @d8 where idcita=@d9";
                         //SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -393,8 +447,14 @@ namespace CapaPresentacion
                         SqlCmd.Parameters.AddWithValue("@d3", this.dtpFechaCita.Text);
 
                         SqlCmd.Parameters.AddWithValue("@d4", Convert.ToInt32(this.txtCodServicio.Text));
-                        SqlCmd.Parameters.AddWithValue("@d5", this.txtEstadoCita.Text);
-                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToInt32(this.txtCodCita.Text));
+
+                        SqlCmd.Parameters.AddWithValue("@d5", Convert.ToDouble(this.txtCostoBs.Text)); 
+
+                        SqlCmd.Parameters.AddWithValue("@d6", Convert.ToBoolean(this.IsCitaSuspendida() ));
+                        SqlCmd.Parameters.AddWithValue("@d7", "Activo");
+
+                        SqlCmd.Parameters.AddWithValue("@d8", timePicker.Text);
+                        SqlCmd.Parameters.AddWithValue("@d9", Convert.ToInt32(this.txtCodCita.Text));
 
 
 
@@ -433,7 +493,7 @@ namespace CapaPresentacion
                     this.Mostrar();
                     this.RevisarCitasHoy();
 
-                    this.txtEstadoCita.Text = string.Empty;
+                   // this.txtEstadoCita.Text = string.Empty;
 
 
                 }
@@ -472,7 +532,7 @@ namespace CapaPresentacion
             groupBox1.Enabled = false;
             groupBox2.Enabled = false;
 
-            this.txtEstadoCita.Text = string.Empty;
+            //this.txtEstadoCita.Text = string.Empty;
 
         }
 
@@ -501,14 +561,13 @@ namespace CapaPresentacion
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
-
             //cargar todos los datos en el formulario
 
             this.txtCodCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcita"].Value);
 
 
             this.txtCodigoPaciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idpaciente"].Value);
-            this.txtNumero_Documento.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
+            this.txtNumero_Cedula.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["num_cedula"].Value);
             this.txtNombre_Paciente.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Paciente"].Value);
             this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
 
@@ -520,9 +579,18 @@ namespace CapaPresentacion
             this.cmbServicios.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Servicio"].Value);
 
             this.dtpFechaCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha"].Value);
+            this.timePicker.Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["hora"].Value.ToString());
 
-            this.txtEstadoCita.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
+            bool isSuspended = Convert.ToBoolean(this.dataListado.CurrentRow.Cells["suspendida"].Value);
 
+            if (isSuspended == true)
+            {
+                this.rbSuspendida.Checked = true;
+            }
+            else 
+            {
+                this.rbActiva.Checked = true;
+            }
 
         }
 
@@ -550,6 +618,12 @@ namespace CapaPresentacion
                     this.txtCodServicio.Text = idservicio;
                     this.txtCosto.Text = costo;
 
+                    double tasa = Convert.ToDouble(this.txtTasa.Text);
+                    double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+                    double montoVEF = montoUSD * tasa;
+
+                    this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
 
                 }
 
@@ -559,8 +633,15 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
+                MessageBox.Show("error " + ex.ToString() + "");  
 
             }
+
+
+           // int Dolares = Convert.ToInt32(this.txtCosto.Text);
+
+
+
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -603,7 +684,7 @@ namespace CapaPresentacion
 
 
                             //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
-                            SqlCmd.Parameters.AddWithValue("@d1", "Anular");
+                            SqlCmd.Parameters.AddWithValue("@d1", "Anulado");
                             SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo));
 
 
@@ -623,6 +704,7 @@ namespace CapaPresentacion
                             if (rpta.Equals("OK"))
                             {
                                 this.MensajeOk("Se Anulo Correctamente la cita");
+                                this.RevisarCitasHoy();
                                 this.OperacionAnularCita();
                             }
                             else
@@ -684,10 +766,28 @@ namespace CapaPresentacion
         }
 
 
+        private bool IsCitaSuspendida()
+        {
+
+            bool is_cita_suspendida = false;
+
+            if (this.rbActiva.Checked)
+            {
+                is_cita_suspendida = false;
+            }
+            else if (this.rbSuspendida.Checked)
+            {
+                is_cita_suspendida = true;
+            }
+
+            return is_cita_suspendida;
+        }
+
+
 
         private void OperacionEditarCita()
         {
-            txtEstadoCita.Enabled = false;
+            //txtEstadoCita.Enabled = false;
 
             // Operacion Anular
             string rpta2 = "";
@@ -793,7 +893,7 @@ namespace CapaPresentacion
             {
                 DtResultado = null;
 
-                MessageBox.Show("NO FURULA " + ex.ToString() + "");
+                MessageBox.Show("Error " + ex.ToString() + "");
             }
             return DtResultado;
 
@@ -856,7 +956,7 @@ namespace CapaPresentacion
 
             string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
             SqlConnection conDataBase = new SqlConnection(Cn);
-            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.Estado from Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) +"' AND Cita.estado = 'Activo' ", conDataBase);
+            SqlCommand cmdDataBase = new SqlCommand("select Cita.idcita, Cita.idpaciente, Paciente.num_cedula, Paciente.telefono, Paciente.nombre as Paciente, Cita.idusuario, Usuario.login, Cita.fecha, Cita.idservicio, Servicio.nombre as Servicio, Cita.suspendida, Cita.hora, Cita.Estado FROM Cita INNER JOIN dbo.Paciente ON dbo.Cita.idpaciente = dbo.Paciente.idpaciente INNER JOIN dbo.Servicio ON dbo.Cita.idservicio = dbo.Servicio.idservicio INNER JOIN dbo.Usuario ON dbo.Cita.idusuario = dbo.Usuario.idusuario where fecha LIKE '"+ (DateTime.Now.ToShortDateString()) + "' AND Cita.estado = 'Activo' ORDER BY Cita.hora ASC ", conDataBase);
 
             try
             {
@@ -1005,11 +1105,11 @@ namespace CapaPresentacion
         private int Buscar_idPac_por_cedula()
         {
 
-            string cedula_del_pac = this.txtNumero_Documento.Text;
+            string cedula_del_pac = this.txtNumero_Cedula.Text;
 
             DataTable paciente_tabla = new DataTable();
 
-            paciente_tabla = NPacientes.BuscarNum_Documento(cedula_del_pac);
+            paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
             int id_del_pac = 0;
 
@@ -1037,7 +1137,7 @@ namespace CapaPresentacion
         }
 
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -1082,6 +1182,93 @@ namespace CapaPresentacion
         {
             frmListadoCitasUsuario frm = new frmListadoCitasUsuario();
             frm.Show();
+        }
+
+        private void btnActualizarTasa_Click(object sender, EventArgs e)
+        {
+
+            if (!(this.txtCosto.Text == ""))
+            {
+
+
+                double tasa = Convert.ToDouble(this.txtTasa.Text);
+
+
+
+                double montoUSD = Convert.ToDouble(this.txtCosto.Text);
+
+
+
+                double montoVEF = montoUSD * tasa;
+
+                this.txtCostoBs.Text = Convert.ToString(montoVEF);
+
+
+
+            }
+
+
+
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "UPDATE TasaDelDia SET Tasa_del_dia = '" + this.txtTasa.Text + "' ";
+
+            
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se actualizó la tasa";
+
+
+
+        }
+
+        private void txtTasa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 46 && txtTasa.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+
+            }
+        }
+
+        private void txtTasa_TextChanged(object sender, EventArgs e)
+        {
+
+          
+          
+           
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTasa_TextChanged_1(object sender, EventArgs e)
+        {
+            
+
+           
+
+            
         }
     }
 }

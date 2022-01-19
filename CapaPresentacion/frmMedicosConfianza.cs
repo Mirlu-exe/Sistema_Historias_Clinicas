@@ -47,7 +47,7 @@ namespace CapaPresentacion
         {
 
             this.Mostrar();
-            this.Habilitar(false);
+            this.Deshabilitar();
             this.Botones();
 
         }
@@ -84,16 +84,25 @@ namespace CapaPresentacion
         }
 
         //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
+        private void Habilitar()
         {
-            this.txtNombre_Medico.ReadOnly = !valor;
-            this.txtCorreo.ReadOnly = !valor;
-            this.txtEspecialidad.ReadOnly = !valor;
-            this.txtDireccion.ReadOnly = !valor;
-            this.txtTelefono.ReadOnly = !valor;
+            this.txtNombre_Medico.Enabled = true;
+            this.txtCorreo.Enabled = true;
+            this.txtEspecialidad.Enabled = true;
+            this.txtDireccion.Enabled = true;
+            this.txtTelefono.Enabled = true;
 
+        }
 
-            //this.btnLimpiar.Enabled = valor;
+        //Deshabilitar los controles del formulario
+        private void Deshabilitar()
+        {
+            this.txtNombre_Medico.Enabled = false;
+            this.txtCorreo.Enabled = false;
+            this.txtEspecialidad.Enabled = false;
+            this.txtDireccion.Enabled = false;
+            this.txtTelefono.Enabled = false;
+
 
         }
 
@@ -102,14 +111,14 @@ namespace CapaPresentacion
         {
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
-                this.Habilitar(true);
+                this.Habilitar();
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
             else
             {
-                this.Habilitar(false);
+                this.Deshabilitar();
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -121,8 +130,9 @@ namespace CapaPresentacion
         private void OcultarColumnas()
         {
 
-            //this.dataListado.Columns[0].Visible = false;
-            //this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["id"].Visible = false;
+            this.dataListado.Columns["estado"].Visible = false;
+            this.dataListado.Columns["id_referencia"].Visible = false;
 
         }
 
@@ -132,8 +142,9 @@ namespace CapaPresentacion
 
 
             this.dataListado.DataSource = NMedicosConfianza.Mostrar();
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro de medicos de confianza"); }
             this.OcultarColumnas();
-            lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
+            lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
 
@@ -154,7 +165,7 @@ namespace CapaPresentacion
         }
 
 
-        private void BuscarNum_Documento()
+        private void BuscarNum_Cedula()
         {
 
             /*DataView DV = new DataView(dbdataset);
@@ -164,7 +175,7 @@ namespace CapaPresentacion
 
 
 
-            this.dataListado.DataSource = NPacientes.BuscarNum_Documento(this.txtBuscar.Text);
+            this.dataListado.DataSource = NPacientes.BuscarNum_Cedula(this.txtBuscar.Text);
             this.OcultarColumnas();
 
             lblTotal.Text = "Total de Colegas: " + Convert.ToString(dataListado.Rows.Count);
@@ -176,7 +187,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Habilitar(true);
+            this.Habilitar();
             this.txtNombre_Medico.Focus();
         }
 
@@ -194,7 +205,7 @@ namespace CapaPresentacion
                     MensajeError("No se pueden dejar campos vacios");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtApellidos, "Ingrese un Valor");
-                    errorIcono.SetError(txtNum_Documento, "Ingrese un Valor");
+                    errorIcono.SetError(txtNum_Cedula, "Ingrese un Valor");
                     errorIcono.SetError(txtUsuario, "Ingrese un Valor");
                     errorIcono.SetError(txtPassword, "Ingrese un Valor");*/
 
@@ -327,7 +338,7 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.IsNuevo = false;
                 this.Botones();
-                //this.Habilitar(true);
+                //this.Habilitar();
             }
             else
             {
@@ -396,7 +407,7 @@ namespace CapaPresentacion
             this.cblEstado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["estado"].Value);
 
 
-            this.Habilitar(false);
+            this.Deshabilitar();
 
 
         }
@@ -408,7 +419,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.txtNombre_Medico.Text = string.Empty;
-            this.Habilitar(false);
+            this.Deshabilitar();
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -611,7 +622,7 @@ namespace CapaPresentacion
 
         }
 
-        private void txtNumero_Documento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_Cedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -660,17 +671,7 @@ namespace CapaPresentacion
 
         private void txtCorreo_Leave(object sender, EventArgs e)
         {
-            if (validarEmail(this.txtCorreo.Text))
-            {
 
-            }
-            else
-            {
-                MessageBox.Show("Direccion de correo electronico no valido, el correo debe cumplir con un formato: nombre@dominio.com , " + "debe escribir un correo valido.", "Validacion de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.txtCorreo.SelectAll();
-                this.txtCorreo.Focus();
-
-            }
         }
 
 
@@ -700,6 +701,12 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.label4, "Campo Obligatorio");
         }
 
+        private void labe12_MouseHover(object sender, EventArgs e)
+        {
+            this.ttMensaje.SetToolTip(this.label12, "Campo Obligatorio");
+        }
+
+
         private void txtBuscar_TextChanged_1(object sender, EventArgs e)
         {
             if (this.cblBusqueda.Text.Equals("Nombre"))
@@ -720,11 +727,11 @@ namespace CapaPresentacion
                 this.IsEditar = true;
                 this.IsNuevo = false;
                 this.Botones();
-                //this.Habilitar(true);
+                //this.Habilitar();
             }
             else
             {
-                this.MensajeError("Debe de seleccionar primero el paciente a Modificar");
+                this.MensajeError("Debe de seleccionar primero el Doctor a Modificar");
             }
 
         }
@@ -762,6 +769,11 @@ namespace CapaPresentacion
                 btnAnular.Enabled = false;
             } 
             else { btnAnular.Enabled = false; }
+        }
+
+        private void txtNombre_Medico_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

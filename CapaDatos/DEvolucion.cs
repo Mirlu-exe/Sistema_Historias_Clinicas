@@ -12,6 +12,11 @@ namespace CapaDatos
     public class DEvolucion
     {
 
+
+
+        private int _Idhistoria_a_buscar;
+
+
         public int id_evol { get; set; }
 
         public int id_historia { get; set; }
@@ -19,6 +24,8 @@ namespace CapaDatos
         public DateTime fecha_consulta { get; set; }
 
         public string edad_suc { get; set; }
+
+        public string motivo_consulta { get; set; }
 
         public int plan_terapeutico { get; set; }
 
@@ -30,7 +37,20 @@ namespace CapaDatos
 
         public string prox_consulta { get; set; }
 
+        public string examen_fisico { get; set; }
+
+        public string laboratorio { get; set; }
+
+        public string examenes_paraclinicos { get; set; }
+
+        public string EKG { get; set; }
+
+        public string ecocardiograma { get; set; }
+
         public string estado { get; set; }
+
+        public int Idhistoria_a_buscar { get => _Idhistoria_a_buscar; set => _Idhistoria_a_buscar = value; }
+
 
 
 
@@ -85,11 +105,6 @@ namespace CapaDatos
                 SqlCmd.CommandText = "spinsertar_evolucion";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //SqlParameter ParIdEvolucion = new SqlParameter();
-                //ParIdEvolucion.ParameterName = "@idevolucion";
-                //ParIdEvolucion.SqlDbType = SqlDbType.Int;
-                //ParIdEvolucion.Direction = ParameterDirection.Output;
-                //SqlCmd.Parameters.Add(ParIdEvolucion);
 
                 SqlParameter ParIdHistoria = new SqlParameter();
                 ParIdHistoria.ParameterName = "@idhistoria";
@@ -111,6 +126,13 @@ namespace CapaDatos
                 ParEdad_suc.Size = 10;
                 ParEdad_suc.Value = Evolucion.edad_suc;
                 SqlCmd.Parameters.Add(ParEdad_suc);
+
+                SqlParameter ParMotivo = new SqlParameter();
+                ParMotivo.ParameterName = "@motivo_consulta";
+                ParMotivo.SqlDbType = SqlDbType.VarChar;
+                ParMotivo.Size = 100;
+                ParMotivo.Value = Evolucion.motivo_consulta;
+                SqlCmd.Parameters.Add(ParMotivo);
 
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
@@ -141,11 +163,46 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(ParObservaciones);
 
                 SqlParameter ParFecha_Prox_Consulta = new SqlParameter();
-                ParFecha_Prox_Consulta.ParameterName = "@fecha_prox_consulta";
+                ParFecha_Prox_Consulta.ParameterName = "@prox_consulta";
                 ParFecha_Prox_Consulta.SqlDbType = SqlDbType.VarChar;
                 ParFecha_Prox_Consulta.Size = 8;
-                ParFecha_Prox_Consulta.Value = Evolucion.fecha_consulta;
+                ParFecha_Prox_Consulta.Value = Evolucion.prox_consulta;
                 SqlCmd.Parameters.Add(ParFecha_Prox_Consulta);
+
+                SqlParameter ParExamenFisico = new SqlParameter();
+                ParExamenFisico.ParameterName = "@examen_fisico";
+                ParExamenFisico.SqlDbType = SqlDbType.VarChar;
+                ParExamenFisico.Size = 100;
+                ParExamenFisico.Value = Evolucion.examen_fisico;
+                SqlCmd.Parameters.Add(ParExamenFisico);
+
+                SqlParameter ParLab= new SqlParameter();
+                ParLab.ParameterName = "@laboratorio";
+                ParLab.SqlDbType = SqlDbType.VarChar;
+                ParLab.Size = 200;
+                ParLab.Value = Evolucion.laboratorio;
+                SqlCmd.Parameters.Add(ParLab);
+
+                SqlParameter ParParaclinicos = new SqlParameter();
+                ParParaclinicos.ParameterName = "@examenes_paraclinicos";
+                ParParaclinicos.SqlDbType = SqlDbType.VarChar;
+                ParParaclinicos.Size = 200;
+                ParParaclinicos.Value = Evolucion.examenes_paraclinicos;
+                SqlCmd.Parameters.Add(ParParaclinicos);
+
+                SqlParameter ParEKG = new SqlParameter();
+                ParEKG.ParameterName = "@EKG";
+                ParEKG.SqlDbType = SqlDbType.VarChar;
+                ParEKG.Size = 200;
+                ParEKG.Value = Evolucion.EKG;
+                SqlCmd.Parameters.Add(ParEKG);
+
+                SqlParameter ParEcocardiograma = new SqlParameter();
+                ParEcocardiograma.ParameterName = "@ecocardiograma";
+                ParEcocardiograma.SqlDbType = SqlDbType.VarChar;
+                ParEcocardiograma.Size = 200;
+                ParEcocardiograma.Value = Evolucion.ecocardiograma;
+                SqlCmd.Parameters.Add(ParEcocardiograma);
 
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
@@ -278,6 +335,81 @@ namespace CapaDatos
             }
             return rpta;
         }
+
+        //Método Restaurar
+        public string Restaurar(DEvolucion Evolucion)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_restaurar_evol";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Value = Evolucion.id_evol;
+                SqlCmd.Parameters.Add(ParId);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Restauro el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+
+        public DataTable Buscar_ultima_evolucion_segun_idhistoria(DEvolucion Evolucion)
+        {
+            DataTable DtResultado = new DataTable("Evolucion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_ultima_evolucion_segun_idhistoria";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@idhistoria";
+                ParTextoBuscar.SqlDbType = SqlDbType.Int;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Evolucion.Idhistoria_a_buscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+
+
+            }
+            return DtResultado;
+
+        }
+
 
 
 

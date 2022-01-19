@@ -101,5 +101,30 @@ namespace CapaNegocio
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarPresentacion(Obj);
         }
+
+        public static DataTable BuscarDosis(string textobuscar)
+        {
+            DReceta Obj = new DReceta();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarDosis(Obj);
+        }
+
+        public static string Restaurar(int id_med)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Idedicamento = id_med;
+            return Obj.Restaurar(Obj);
+        }
+
+
+        public static DataTable Buscar_PlanTerapeutico_segun_id(int id_planterapeutico)
+        {
+            DReceta Obj = new DReceta();
+            Obj.Id_a_buscar = id_planterapeutico;
+            return Obj.Buscar_PlanTerapeutico_segun_id(Obj);
+        }
+
+
+
     }
 }

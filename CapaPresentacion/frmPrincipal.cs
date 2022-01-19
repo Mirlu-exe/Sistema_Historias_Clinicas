@@ -60,6 +60,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnInformeMedicoRef.Enabled = true;
+                this.btnReportes.Enabled = true;
+                this.btnArchivoMuerto.Enabled = true;
+                this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Hide();
 
             }
@@ -77,6 +80,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = false;
                 this.btnMedicosConfianza.Enabled = false;
                 this.btnInformeMedicoRef.Enabled = false;
+                this.btnReportes.Enabled = false;
+                this.btnArchivoMuerto.Enabled = false;
+                this.btnPapelera.Enabled = false;
                 this.btnHerramientasAdmin.Hide();
             }
 
@@ -95,6 +101,9 @@ namespace CapaPresentacion
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnInformeMedicoRef.Enabled = true;
+                this.btnReportes.Enabled = true;
+                this.btnArchivoMuerto.Enabled = true;
+                this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Show();
 
             }
@@ -320,7 +329,6 @@ namespace CapaPresentacion
 
         private void btnPlanEstudios_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmPlanEstudio());
         }
 
         private void lblAcceso_Click(object sender, EventArgs e)
@@ -398,6 +406,21 @@ namespace CapaPresentacion
         private void BarraTitulo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmPacientesFallecidos());
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmPapeleraReciclaje());
+        }
+
+        private void btnInformeMedico_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmInformesMedicos());
         }
     }
 }

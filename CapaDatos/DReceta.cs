@@ -16,11 +16,6 @@ namespace CapaDatos
 
 
 
-
-
-
-
-
         private string _Medicamento;
 
 
@@ -39,6 +34,8 @@ namespace CapaDatos
 
 
         private string _TextoBuscar;
+
+        private int _Id_a_buscar;
 
        
 
@@ -81,8 +78,15 @@ namespace CapaDatos
             set { _TextoBuscar = value; }
         }
 
+        public int Id_a_buscar
+        {
+            get { return _Id_a_buscar; }
+            set { _Id_a_buscar = value; }
+        }
 
-            //Constructores
+
+
+        //Constructores
         public DReceta()
         {
 
@@ -399,40 +403,6 @@ namespace CapaDatos
         //Método BuscarMedicamento
         public DataTable BuscarMedicamento(DReceta Receta)
         {
-            DataTable DtResultado = new DataTable("Receta");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.Cn;
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sbbuscar_receta_medicamento";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParTextoBuscar = new SqlParameter();
-                ParTextoBuscar.ParameterName = "@textobuscar";
-                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextoBuscar.Size = 50;
-                ParTextoBuscar.Value = Receta.TextoBuscar;
-                SqlCmd.Parameters.Add(ParTextoBuscar);
-
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                SqlDat.Fill(DtResultado);
-
-            }
-            catch (Exception ex)
-            {
-                DtResultado = null;
-            }
-            return DtResultado;
-
-        }
-
-
-
-
-        public DataTable BuscarPresentacion(DReceta Receta)
-        {
             DataTable DtResultado = new DataTable("Meds_Nombres");
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -461,6 +431,155 @@ namespace CapaDatos
             return DtResultado;
 
         }
+
+
+
+        // Buscar Presentacion Medicamentos
+        public DataTable BuscarPresentacion(DReceta Receta)
+        {
+            DataTable DtResultado = new DataTable("Meds_Presentacion");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sbbuscar_receta_medicamentosCG";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@textobuscar";
+                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Receta.TextoBuscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+        //Buscar Medicamentos Dosis
+
+        public DataTable BuscarDosis(DReceta Receta)
+        {
+            DataTable DtResultado = new DataTable("Meds_Dosis");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sbbuscar_receta_Dosis_medicamento";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParTextoBuscar = new SqlParameter();
+                ParTextoBuscar.ParameterName = "@textobuscar";
+                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextoBuscar.Size = 50;
+                ParTextoBuscar.Value = Receta.TextoBuscar;
+                SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+        //Método Restaurar
+        public string Restaurar(DReceta Receta)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                //Código
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCon.Open();
+                //Establecer el Comando
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_restaurar_receta";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Value = Receta.Idedicamento;
+                SqlCmd.Parameters.Add(ParId);
+
+
+                //Ejecutamos nuestro comando
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Restauro el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+
+
+        //Método BuscarPlanTerapeutico_segun_id
+        public DataTable Buscar_PlanTerapeutico_segun_id(DReceta planTerapeutico)
+        {
+            DataTable DtResultado = new DataTable("PlanTerapeutico");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "sp_buscar_plan_terapeutico_segun_id";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdBuscar = new SqlParameter();
+                ParIdBuscar.ParameterName = "@id";
+                ParIdBuscar.SqlDbType = SqlDbType.Int;
+                ParIdBuscar.Size = 50;
+                ParIdBuscar.Value = planTerapeutico.Id_a_buscar;
+                SqlCmd.Parameters.Add(ParIdBuscar);
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+
+
+
+
+
+
+
 
     }
 }
