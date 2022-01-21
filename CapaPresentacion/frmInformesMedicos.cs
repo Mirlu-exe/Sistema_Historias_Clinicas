@@ -113,13 +113,24 @@ namespace CapaPresentacion
                         //Fetch PlanEstudio de UltimaEvolucion
                         DataTable TablaPlanEstudio;
                         TablaPlanEstudio = NPlanEstudio.Buscar_PlanEstudio_segun_id(id_plan_estudio);
-                        string estudios_solicitados = Convert.ToString(TablaPlanEstudio.Rows[0]["estudios"]);
-                        string laboratorios_solicitados = Convert.ToString(TablaPlanEstudio.Rows[0]["laboratorios"]);
+                        string estudios_solicitados = "-";
+                        string laboratorios_solicitados = "-";
+
+                        if (TablaPlanEstudio.Rows.Count > 0)
+                        {
+                            estudios_solicitados = Convert.ToString(TablaPlanEstudio.Rows[0]["estudios"]);
+                            laboratorios_solicitados = Convert.ToString(TablaPlanEstudio.Rows[0]["laboratorios"]);
+                        }
 
                         //Fetch PlanTerapeutico de UltimaEvolucion
                         DataTable TablaPlanTerapeutico;
                         TablaPlanTerapeutico = NReceta.Buscar_PlanTerapeutico_segun_id(id_plan_terapeutico);
-                        string recipe_indicaciones = Convert.ToString(TablaPlanTerapeutico.Rows[0]["recipe_indicaciones"]);
+                        string recipe_indicaciones = "-";
+
+                        if (TablaPlanTerapeutico.Rows.Count > 0)
+                        {
+                            recipe_indicaciones = Convert.ToString(TablaPlanTerapeutico.Rows[0]["recipe_indicaciones"]);
+                        }
 
 
 
@@ -217,6 +228,20 @@ namespace CapaPresentacion
 
 
         }
+
+
+        ////funcion para buscar campos vacios en un datatable
+        //public static bool HasNull(this DataTable table)
+        //{
+        //    foreach (DataColumn column in table.Columns)
+        //    {
+        //        if (table.Rows.OfType<DataRow>().Any(r => r.IsNull(column)))
+        //            return true;
+        //    }
+
+        //    return false;
+        //}
+
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
