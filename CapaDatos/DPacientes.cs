@@ -602,7 +602,12 @@ namespace CapaDatos
 
                 //Ejecutamos nuestro comando
 
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Restauro el Registro";
+                int numero_filas_afectadas = SqlCmd.ExecuteNonQuery();
+
+                rpta = numero_filas_afectadas == 2 ? "OK" : "No se Restauro el Registro"; //en ese query hay 2 comandos, asi que se deben modificar 2 filas
+
+                ////este es el comando original, no se que hacer para que verifique que en efecto se realizaron los dos queries del procedimiento almacenado
+                //rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Restauro el Registro";
 
 
             }

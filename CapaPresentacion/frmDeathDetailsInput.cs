@@ -86,6 +86,12 @@ namespace CapaPresentacion
                     }
 
 
+                if (ExisteFichaMuerto(Convert.ToInt32(this.lblidpac.Text))) //en caso de que la ficha de muerto ya exista
+                {
+                    MessageBox.Show("Este paciente ya tiene una ficha de fallecimiento.");
+                }
+                else
+                {
                     // Cambiar el estado de is_dead en el registro del Paciente.
                     rpta_estadomuerto = NPacientes.CambiarEstadoMuerto(Convert.ToInt32(this.lblidpac.Text));
 
@@ -94,14 +100,14 @@ namespace CapaPresentacion
 
                     if (rpta_estadomuerto.Equals("OK"))
                     {
-                    MessageBox.Show("Se ha movido el Paciente al Archivo Muerto exitosamente.");
-                    this.OperacionPacienteMuerto();
+                        MessageBox.Show("Se ha movido el Paciente al Archivo Muerto exitosamente.");
+                        this.OperacionPacienteMuerto();
                     }
-                        
+
                     else
                     {
-                    MessageBox.Show(rpta_estadomuerto);
-                    MessageBox.Show(rpta_detallesmuerte);
+                        MessageBox.Show(rpta_estadomuerto);
+                        MessageBox.Show(rpta_detallesmuerte);
                     }
 
 
@@ -109,9 +115,12 @@ namespace CapaPresentacion
                     //cerrar ventana
                     this.Close();
 
-
-                    
                 }
+
+
+
+
+            }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + ex.StackTrace);
@@ -122,6 +131,30 @@ namespace CapaPresentacion
 
         }
 
+
+
+        private bool ExisteFichaMuerto(int id_paciente)
+        {
+            bool rpta;
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "SELECT * FROM DeathDetails WHERE id_Paciente = ' " + id_paciente + " '";
+
+
+            //Ejecutamos nuestro comando
+
+            rpta = SqlCmd2.ExecuteNonQuery() == 1 ? true : false;
+
+            return rpta;
+        }
 
 
         private void InsertarFichaFallecido()
