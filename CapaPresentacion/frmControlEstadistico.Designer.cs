@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelContenedor = new System.Windows.Forms.Panel();
@@ -75,20 +75,20 @@
             // 
             // myChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.myChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.myChart.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.myChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.myChart.Legends.Add(legend2);
             this.myChart.Location = new System.Drawing.Point(0, 0);
             this.myChart.Margin = new System.Windows.Forms.Padding(4);
             this.myChart.Name = "myChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Serie1";
-            series6.XValueMember = "sexo, edad";
-            series6.YValueMembers = "10, 44";
-            series6.YValuesPerPoint = 6;
-            this.myChart.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Serie1";
+            series2.XValueMember = "sexo, edad";
+            series2.YValueMembers = "10, 44";
+            series2.YValuesPerPoint = 6;
+            this.myChart.Series.Add(series2);
             this.myChart.Size = new System.Drawing.Size(1003, 572);
             this.myChart.TabIndex = 0;
             this.myChart.Text = "chart1";
@@ -221,7 +221,7 @@
             this.cbRangoFecha.FormattingEnabled = true;
             this.cbRangoFecha.Items.AddRange(new object[] {
             "Hoy",
-            "Esta semana",
+            "Últimos 7 días",
             "Últimos 15 días",
             "Este mes",
             "Este año",
@@ -360,7 +360,6 @@
             this.cbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCampo.FormattingEnabled = true;
             this.cbCampo.Items.AddRange(new object[] {
-            "Sin agrupar",
             "Sexo",
             "Rango de Edad"});
             this.cbCampo.Location = new System.Drawing.Point(64, 456);
