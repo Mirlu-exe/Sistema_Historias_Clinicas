@@ -47,8 +47,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-           
-            
+
 
             this.ttMensaje.SetToolTip(this.dtpFechaConsulta, "Ingrese la fecha de consulta");
 
@@ -116,7 +115,6 @@ namespace CapaPresentacion
             Gestionar_PlanTerapeutico_Evolucion();
             
             MostrarFechasActivas();
-           
 
 
         }
@@ -264,11 +262,16 @@ namespace CapaPresentacion
             this.txtecg.Enabled = true;
             this.txtParaclinicos.Enabled = true;
             this.txtEcocardiograma.Enabled = true;
-            this.btnVerPlanEstudio.Enabled = true;
-            this.btnVerPlanTerapeutico.Enabled = true;
+            //this.btnVerPlanEstudio.Enabled = true;
+            //this.btnVerPlanTerapeutico.Enabled = true;
             this.cblTipo_Sangre.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales.Enabled = true;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
+
         }
 
         //Habilitar los controles del formulario
@@ -284,12 +287,16 @@ namespace CapaPresentacion
             this.txtecg.Enabled = false;
             this.txtParaclinicos.Enabled = false;
             this.txtEcocardiograma.Enabled = false;
-            this.btnVerPlanEstudio.Enabled = false;
-            this.btnVerPlanTerapeutico.Enabled = false;
+            //this.btnVerPlanEstudio.Enabled = false;
+            //this.btnVerPlanTerapeutico.Enabled = false;
             this.cblTipo_Sangre.Enabled = false;
             this.txtDiagnosticos.Enabled = false;
             this.listboxDiagnosticosFinales.Enabled = false;
             this.cblTipo_Sangre.SelectedIndex = 0;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
         }
 
 
@@ -317,7 +324,40 @@ namespace CapaPresentacion
         }
 
 
+        private void RevisarSiListboxEstaVacio()
+        {
 
+            //historias
+
+            int cant_items_diagnosticos_historia = this.listboxDiagnosticosFinales.Items.Count;
+
+            if (cant_items_diagnosticos_historia < 1)
+            {
+                this.btnVerPlanEstudio.Enabled = false;
+                this.btnVerPlanTerapeutico.Enabled = false;
+            }
+            else
+            {
+                this.btnVerPlanEstudio.Enabled = true;
+                this.btnVerPlanTerapeutico.Enabled = true;
+            }
+
+
+
+            //evoluciones
+            int cant_items_diagnosticos_evol = this.listboxDiagnosticosFinales_Evol.Items.Count;
+
+            if (cant_items_diagnosticos_evol < 1)
+            {
+                this.btnVerPlanEstudioEvol.Enabled = false;
+                this.btnVerPlanTerapeuticoEvol.Enabled = false;
+            }
+            else
+            {
+                this.btnVerPlanEstudioEvol.Enabled = true;
+                this.btnVerPlanTerapeuticoEvol.Enabled = true;
+            }
+        }
 
 
 
@@ -1918,6 +1958,9 @@ namespace CapaPresentacion
 
                         this.Focus();
 
+                        //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                        RevisarSiListboxEstaVacio();
+
                         break;
                     }
                 }
@@ -1926,12 +1969,20 @@ namespace CapaPresentacion
                 {
                     listboxDiagnosticosFinales.Items.Add(diagnostico);
                     this.txtDiagnosticos.Text = string.Empty;
+
+                    //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                    RevisarSiListboxEstaVacio();
+
                 }
 
 
             }
             else
             {
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
+
                 //si el texto escrito NO existe en la base de datos de Diagnosticos
                 MessageBox.Show("ERROR! El diagnostico '" + diagnostico + "' no se encuentra en la base de datos. Porfavor, verifique el texto ingresado.");
 
@@ -1977,6 +2028,9 @@ namespace CapaPresentacion
             {
                 //quitar el item del listbox
                 listboxDiagnosticosFinales.Items.RemoveAt(posicion);
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
             }
         }
 
@@ -2305,12 +2359,16 @@ namespace CapaPresentacion
             this.txtParaclinicosEvol.Enabled = true;
             this.txtEcocardiogramaEvol.Enabled = true;
             this.txtEkgEvol.Enabled = true;
-            this.btnVerPlanTerapeuticoEvol.Enabled = true;
-            this.btnVerPlanEstudioEvol.Enabled = true;
+            //this.btnVerPlanTerapeuticoEvol.Enabled = true;
+            //this.btnVerPlanEstudioEvol.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales_Evol.Enabled = true;
             this.btnAnadirEvol.Enabled = true;
             this.btnQuitarDiag_Evol.Enabled = true;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
 
         }
 
@@ -2332,6 +2390,9 @@ namespace CapaPresentacion
             this.listboxDiagnosticosFinales_Evol.Enabled = false;
             this.btnAnadirEvol.Enabled = false;
             this.btnQuitarDiag_Evol.Enabled = false;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
 
         }
 
@@ -2417,6 +2478,9 @@ namespace CapaPresentacion
 
                         this.Focus();
 
+                        //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                        RevisarSiListboxEstaVacio();
+
                         break;
                     }
                 }
@@ -2424,12 +2488,19 @@ namespace CapaPresentacion
                 {
                     listboxDiagnosticosFinales_Evol.Items.Add(diagnostico);
                     this.txtDiagnosticosEvol.Text = string.Empty;
+
+                    //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                    RevisarSiListboxEstaVacio();
                 }
 
 
             }
             else
             {
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
+
                 //si el texto escrito NO existe en la base de datos de Diagnosticos
                 MessageBox.Show("ERROR! El diagnostico '" + diagnostico + "' no se encuentra en la base de datos. Porfavor, verifique el texto ingresado.");
 
@@ -2475,6 +2546,9 @@ namespace CapaPresentacion
             {
                 //quitar el item del listbox
                 listboxDiagnosticosFinales_Evol.Items.RemoveAt(posicion);
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
             }
         }
 
@@ -3635,6 +3709,26 @@ namespace CapaPresentacion
 
             //}
 
+        }
+
+        private void listboxDiagnosticosFinales_DataSourceChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
