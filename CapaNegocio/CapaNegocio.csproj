@@ -60,6 +60,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="NDiagnostico.cs" />
     <Compile Include="NEditarContrasena.cs" />
+    <Compile Include="NEstudio.cs" />
     <Compile Include="NEvolucion.cs" />
     <Compile Include="NHistoria.cs" />
     <Compile Include="NMedicosConfianza.cs" />

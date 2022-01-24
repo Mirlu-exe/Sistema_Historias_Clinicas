@@ -61,6 +61,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DDiagnostico.cs" />
     <Compile Include="DEditarContrasena.cs" />
+    <Compile Include="DEstudio.cs" />
     <Compile Include="DEvolucion.cs" />
     <Compile Include="DHistoria.cs" />
     <Compile Include="DMedicosConfianza.cs" />

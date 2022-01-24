@@ -82,10 +82,6 @@ namespace CapaPresentacion
             this.txtDosis.Text = string.Empty;
 
 
-
-
-
-
         }
 
         //Habilitar los controles del formulario
@@ -147,7 +143,7 @@ namespace CapaPresentacion
             this.dataListado.DataSource = NReceta.Mostrar();
            
             this.OcultarColumnas();
-            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro"); }
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
