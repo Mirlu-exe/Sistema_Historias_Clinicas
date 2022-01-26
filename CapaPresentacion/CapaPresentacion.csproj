@@ -433,6 +433,12 @@
     <Compile Include="Reportes\frmReportePlanEstudio.Designer.cs">
       <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteUsuarios.Designer.cs">
+      <DependentUpon>frmReporteUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmtListadoHistoriaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -635,6 +641,9 @@
     <EmbeddedResource Include="Reportes\frmReportePlanEstudio.resx">
       <DependentUpon>frmReportePlanEstudio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteUsuarios.resx">
+      <DependentUpon>frmReporteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmtListadoHistoriaPaciente.resx">
       <DependentUpon>frmtListadoHistoriaPaciente.cs</DependentUpon>
     </EmbeddedResource>
@@ -654,6 +663,7 @@
     <EmbeddedResource Include="Reportes\rptListaPlanEstudio.rdlc" />
     <EmbeddedResource Include="Reportes\rptPacientes.rdlc" />
     <EmbeddedResource Include="Reportes\rptRecetas.rdlc" />
+    <EmbeddedResource Include="Reportes\rptUsuariosTotales.rdlc" />
     <EmbeddedResource Include="report_informe_medico.rdlc" />
     <EmbeddedResource Include="usercontrol_evol.resx">
       <DependentUpon>usercontrol_evol.cs</DependentUpon>
