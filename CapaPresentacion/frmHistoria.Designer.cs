@@ -199,12 +199,11 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgv_lista_evol = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label43 = new System.Windows.Forms.Label();
+            this.lblEvolTotales = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.btnAnular_All_Evol = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -2266,6 +2265,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.lblEvolTotales);
             this.tabPage6.Controls.Add(this.label62);
             this.tabPage6.Controls.Add(this.lblhasta);
             this.tabPage6.Controls.Add(this.lbldesde);
@@ -2273,10 +2273,8 @@
             this.tabPage6.Controls.Add(this.DtpFecha1);
             this.tabPage6.Controls.Add(this.BtnReporteListaEvolucion);
             this.tabPage6.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage6.Controls.Add(this.label43);
             this.tabPage6.Controls.Add(this.panel6);
             this.tabPage6.Controls.Add(this.btnAnular_All_Evol);
-            this.tabPage6.Controls.Add(this.label42);
             this.tabPage6.Controls.Add(this.checkBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 41);
             this.tabPage6.Name = "tabPage6";
@@ -2284,6 +2282,7 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Lista de Evoluciones";
             this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
             // label62
             // 
@@ -2411,16 +2410,16 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Width = 125;
             // 
-            // label43
+            // lblEvolTotales
             // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label43.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label43.Location = new System.Drawing.Point(774, 138);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(299, 32);
-            this.label43.TabIndex = 159;
-            this.label43.Text = "Todas las evoluciones totales";
+            this.lblEvolTotales.AutoSize = true;
+            this.lblEvolTotales.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.lblEvolTotales.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblEvolTotales.Location = new System.Drawing.Point(425, 819);
+            this.lblEvolTotales.Name = "lblEvolTotales";
+            this.lblEvolTotales.Size = new System.Drawing.Size(299, 32);
+            this.lblEvolTotales.TabIndex = 159;
+            this.lblEvolTotales.Text = "Todas las evoluciones totales";
             // 
             // panel6
             // 
@@ -2474,17 +2473,6 @@
             this.btnAnular_All_Evol.TabIndex = 157;
             this.btnAnular_All_Evol.Text = "Anular";
             this.btnAnular_All_Evol.UseVisualStyleBackColor = false;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label42.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label42.Location = new System.Drawing.Point(1449, 138);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(74, 32);
-            this.label42.TabIndex = 155;
-            this.label42.Text = "label3";
             // 
             // checkBox1
             // 
@@ -2603,9 +2591,8 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button btnAnular_All_Evol;
-        private System.Windows.Forms.Label label42;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label lblEvolTotales;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAnadirEvol;
         private System.Windows.Forms.DataGridView dgv_lista_evol;

@@ -93,6 +93,7 @@ namespace CapaPresentacion
             autocompletar_diagnosticos_evol();
 
             this.MostrarHistoriasActivas();
+            this.MostrarEvolucionesActivas();
 
             
 
@@ -503,8 +504,50 @@ namespace CapaPresentacion
             lblHistoriasActivas.Text = "Total de Historias : " + Convert.ToString(datalistadohistorias.Rows.Count);
         }
 
+        //Método Mostrar Todas las Evoluciones
+        private void MostrarEvolucionesActivas()
+        {
 
-        
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("SELECT * FROM Evoluciones WHERE Estado = 'Activo'; ", conDataBase);
+
+
+
+
+
+            try
+            {
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dgv_lista_evol.DataSource = bSource;
+                sda.Update(dbdataset);
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show("Ha ocurrido un error" + ex);
+            }
+
+
+
+            //OcultarColumnas();
+
+
+
+            this.lblEvolTotales.Text = "Total de Evoluciones : " + Convert.ToString(dgv_lista_evol.Rows.Count);
+        }
+
 
         void autocompletar_diagnosticos()
         {
@@ -3729,6 +3772,11 @@ namespace CapaPresentacion
         private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
