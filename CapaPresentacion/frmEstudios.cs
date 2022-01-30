@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -333,6 +334,12 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteEstudios frm = new frmReporteEstudios();
+            frm.Show();
         }
     }
 }

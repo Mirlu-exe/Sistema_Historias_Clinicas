@@ -1533,14 +1533,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó una historia clinica");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Editado una historia. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -2277,6 +2278,7 @@ namespace CapaPresentacion
 
                             rpta = NHistoria.Editar(Convert.ToInt32(this.lbl_idhistoria.Text.Trim()), Convert.ToInt32(this.lbl_id_pac_frmHistoria.Text.Trim()), this.dtpFechaConsulta.Value, this.txtMotivoConsulta.Text, this.txtEnfermedadActual.Text, this.txtHistoriaFamiliar.Text, this.txtHistoriaPersonal.Text, this.txtTratamiento_Actual.Text,
                             this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
+
 
 
                         //}

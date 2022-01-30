@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 
 namespace CapaPresentacion
@@ -888,6 +889,12 @@ namespace CapaPresentacion
         private void txtDosis_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteMedicamentos frm = new frmReporteMedicamentos();
+            frm.Show();
         }
     }
     
