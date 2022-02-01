@@ -868,8 +868,6 @@ namespace CapaPresentacion
         {
 
 
-           DateTime fecha1 = DtpFecha1.Value;
-           DateTime fecha2 = DtpFecha2.Value;
 
 
 
@@ -3626,16 +3624,16 @@ namespace CapaPresentacion
 
         {
 
-            frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
+            //frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
 
-            FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
+            //FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
 
-            FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
+            //FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
 
             
-            frm.Show();
+            //frm.Show();
 
-            MessageBox.Show("jsdsd");
+            //MessageBox.Show("jsdsd");
         }
 
         private void label12_Click(object sender, EventArgs e)

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -191,12 +191,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.lblEvolTotales = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.lblhasta = new System.Windows.Forms.Label();
-            this.lbldesde = new System.Windows.Forms.Label();
-            this.DtpFecha2 = new System.Windows.Forms.DateTimePicker();
-            this.DtpFecha1 = new System.Windows.Forms.DateTimePicker();
-            this.BtnReporteListaEvolucion = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgv_lista_evol = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -1231,45 +1225,45 @@
             this.datalistadohistorias.AllowUserToDeleteRows = false;
             this.datalistadohistorias.AllowUserToOrderColumns = true;
             this.datalistadohistorias.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.datalistadohistorias.ColumnHeadersHeight = 50;
             this.datalistadohistorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.datalistadohistorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadohistorias.DefaultCellStyle = dataGridViewCellStyle2;
             this.datalistadohistorias.GridColor = System.Drawing.Color.DarkCyan;
             this.datalistadohistorias.Location = new System.Drawing.Point(25, 299);
             this.datalistadohistorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datalistadohistorias.MultiSelect = false;
             this.datalistadohistorias.Name = "datalistadohistorias";
             this.datalistadohistorias.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadohistorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.datalistadohistorias.RowHeadersWidth = 51;
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadohistorias.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.datalistadohistorias.RowTemplate.Height = 24;
             this.datalistadohistorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadohistorias.Size = new System.Drawing.Size(1556, 537);
@@ -1900,43 +1894,43 @@
             this.dgv_Lista_Evoluciones_de_pac.AllowUserToDeleteRows = false;
             this.dgv_Lista_Evoluciones_de_pac.AllowUserToOrderColumns = true;
             this.dgv_Lista_Evoluciones_de_pac.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_Evoluciones_de_pac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_Evoluciones_de_pac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Lista_Evoluciones_de_pac.ColumnHeadersHeight = 50;
             this.dgv_Lista_Evoluciones_de_pac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Lista_Evoluciones_de_pac.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Lista_Evoluciones_de_pac.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_Lista_Evoluciones_de_pac.GridColor = System.Drawing.Color.DarkCyan;
             this.dgv_Lista_Evoluciones_de_pac.Location = new System.Drawing.Point(16, 61);
             this.dgv_Lista_Evoluciones_de_pac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_Lista_Evoluciones_de_pac.MultiSelect = false;
             this.dgv_Lista_Evoluciones_de_pac.Name = "dgv_Lista_Evoluciones_de_pac";
             this.dgv_Lista_Evoluciones_de_pac.ReadOnly = true;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_Evoluciones_de_pac.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_Evoluciones_de_pac.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_Lista_Evoluciones_de_pac.RowHeadersWidth = 51;
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_Lista_Evoluciones_de_pac.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_Lista_Evoluciones_de_pac.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_Lista_Evoluciones_de_pac.RowTemplate.Height = 24;
             this.dgv_Lista_Evoluciones_de_pac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Lista_Evoluciones_de_pac.Size = new System.Drawing.Size(1573, 158);
@@ -2284,12 +2278,6 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.lblEvolTotales);
-            this.tabPage6.Controls.Add(this.label62);
-            this.tabPage6.Controls.Add(this.lblhasta);
-            this.tabPage6.Controls.Add(this.lbldesde);
-            this.tabPage6.Controls.Add(this.DtpFecha2);
-            this.tabPage6.Controls.Add(this.DtpFecha1);
-            this.tabPage6.Controls.Add(this.BtnReporteListaEvolucion);
             this.tabPage6.Controls.Add(this.flowLayoutPanel1);
             this.tabPage6.Controls.Add(this.panel6);
             this.tabPage6.Controls.Add(this.btnAnular_All_Evol);
@@ -2307,77 +2295,19 @@
             this.lblEvolTotales.AutoSize = true;
             this.lblEvolTotales.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblEvolTotales.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblEvolTotales.Location = new System.Drawing.Point(425, 819);
+            this.lblEvolTotales.Location = new System.Drawing.Point(536, 809);
             this.lblEvolTotales.Name = "lblEvolTotales";
             this.lblEvolTotales.Size = new System.Drawing.Size(299, 32);
             this.lblEvolTotales.TabIndex = 159;
             this.lblEvolTotales.Text = "Todas las evoluciones totales";
             // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label62.Location = new System.Drawing.Point(86, 441);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(301, 32);
-            this.label62.TabIndex = 205;
-            this.label62.Text = "Fechas para generar reporte";
-            // 
-            // lblhasta
-            // 
-            this.lblhasta.AutoSize = true;
-            this.lblhasta.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblhasta.Location = new System.Drawing.Point(49, 595);
-            this.lblhasta.Name = "lblhasta";
-            this.lblhasta.Size = new System.Drawing.Size(76, 32);
-            this.lblhasta.TabIndex = 204;
-            this.lblhasta.Text = "Hasta:";
-            // 
-            // lbldesde
-            // 
-            this.lbldesde.AutoSize = true;
-            this.lbldesde.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lbldesde.Location = new System.Drawing.Point(49, 503);
-            this.lbldesde.Name = "lbldesde";
-            this.lbldesde.Size = new System.Drawing.Size(89, 32);
-            this.lbldesde.TabIndex = 203;
-            this.lbldesde.Text = "Desde: ";
-            // 
-            // DtpFecha2
-            // 
-            this.DtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha2.Location = new System.Drawing.Point(147, 590);
-            this.DtpFecha2.Name = "DtpFecha2";
-            this.DtpFecha2.Size = new System.Drawing.Size(192, 39);
-            this.DtpFecha2.TabIndex = 202;
-            this.DtpFecha2.Value = new System.DateTime(2021, 7, 29, 13, 43, 44, 0);
-            // 
-            // DtpFecha1
-            // 
-            this.DtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha1.Location = new System.Drawing.Point(147, 503);
-            this.DtpFecha1.Name = "DtpFecha1";
-            this.DtpFecha1.Size = new System.Drawing.Size(192, 39);
-            this.DtpFecha1.TabIndex = 201;
-            this.DtpFecha1.Value = new System.DateTime(2021, 7, 29, 13, 43, 44, 0);
-            // 
-            // BtnReporteListaEvolucion
-            // 
-            this.BtnReporteListaEvolucion.Location = new System.Drawing.Point(112, 675);
-            this.BtnReporteListaEvolucion.Name = "BtnReporteListaEvolucion";
-            this.BtnReporteListaEvolucion.Size = new System.Drawing.Size(192, 69);
-            this.BtnReporteListaEvolucion.TabIndex = 200;
-            this.BtnReporteListaEvolucion.Text = "Generar reporte";
-            this.BtnReporteListaEvolucion.UseVisualStyleBackColor = true;
-            this.BtnReporteListaEvolucion.Click += new System.EventHandler(this.BtnReporteListaEvolucion_Click);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.dgv_lista_evol);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(428, 173);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(44, 173);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1109, 633);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1556, 633);
             this.flowLayoutPanel1.TabIndex = 160;
             // 
             // dgv_lista_evol
@@ -2386,48 +2316,48 @@
             this.dgv_lista_evol.AllowUserToDeleteRows = false;
             this.dgv_lista_evol.AllowUserToOrderColumns = true;
             this.dgv_lista_evol.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_lista_evol.ColumnHeadersHeight = 50;
             this.dgv_lista_evol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_lista_evol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_lista_evol.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_lista_evol.GridColor = System.Drawing.Color.DarkCyan;
             this.dgv_lista_evol.Location = new System.Drawing.Point(3, 2);
             this.dgv_lista_evol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_lista_evol.MultiSelect = false;
             this.dgv_lista_evol.Name = "dgv_lista_evol";
             this.dgv_lista_evol.ReadOnly = true;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lista_evol.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_lista_evol.RowHeadersWidth = 51;
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_lista_evol.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_lista_evol.RowTemplate.Height = 24;
             this.dgv_lista_evol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_lista_evol.Size = new System.Drawing.Size(1106, 587);
+            this.dgv_lista_evol.Size = new System.Drawing.Size(1460, 587);
             this.dgv_lista_evol.TabIndex = 15;
             this.dgv_lista_evol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_lista_evol_CellContentClick);
             // 
@@ -2484,7 +2414,7 @@
             this.btnAnular_All_Evol.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular_All_Evol.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular_All_Evol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular_All_Evol.Location = new System.Drawing.Point(147, 343);
+            this.btnAnular_All_Evol.Location = new System.Drawing.Point(44, 809);
             this.btnAnular_All_Evol.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular_All_Evol.Name = "btnAnular_All_Evol";
             this.btnAnular_All_Evol.Size = new System.Drawing.Size(164, 43);
@@ -2497,7 +2427,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.checkBox1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkBox1.Location = new System.Drawing.Point(431, 132);
+            this.checkBox1.Location = new System.Drawing.Point(47, 132);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(103, 36);
@@ -2618,11 +2548,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox cblTipo_Sangre;
-        private System.Windows.Forms.Label lbldesde;
-        private System.Windows.Forms.DateTimePicker DtpFecha2;
-        private System.Windows.Forms.DateTimePicker DtpFecha1;
-        private System.Windows.Forms.Button BtnReporteListaEvolucion;
-        private System.Windows.Forms.Label lblhasta;
         private System.Windows.Forms.Button btnReporte_Historia;
         private System.Windows.Forms.Button btnVerPlanTerapeutico;
         private System.Windows.Forms.Button btnVerPlanEstudio;
@@ -2723,6 +2648,5 @@
         private System.Windows.Forms.TextBox txtBuscar_evol_pac;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label62;
     }
 }

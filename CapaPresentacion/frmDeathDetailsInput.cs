@@ -16,6 +16,12 @@ namespace CapaPresentacion
 {
     public partial class frmDeathDetailsInput : Form
     {
+
+
+        public static DUsuario Session_Actual = frmPrincipal.User_Actual;
+
+
+
         public frmDeathDetailsInput(string id_pac_muerto)
         {
             InitializeComponent();
@@ -213,12 +219,12 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
             SqlCmd2.Parameters.AddWithValue("@d2", "Se ha movido un paciente al Archivo Muerto");
-
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
             //Ejecutamos nuestro comando
 
