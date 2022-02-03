@@ -138,7 +138,7 @@
             this.btnBorrar_fallecido.Name = "btnBorrar_fallecido";
             this.btnBorrar_fallecido.Size = new System.Drawing.Size(165, 55);
             this.btnBorrar_fallecido.TabIndex = 208;
-            this.btnBorrar_fallecido.Text = "Borrar";
+            this.btnBorrar_fallecido.Text = "Anular";
             this.btnBorrar_fallecido.UseVisualStyleBackColor = false;
             this.btnBorrar_fallecido.Click += new System.EventHandler(this.btnBorrar_fallecido_Click);
             // 
