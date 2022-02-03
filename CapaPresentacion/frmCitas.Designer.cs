@@ -71,10 +71,11 @@
             this.btnCitasHoy = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtTasa = new System.Windows.Forms.MaskedTextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnActualizarTasa = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnActualizarTasa = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnReporte_Cita = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -109,12 +110,12 @@
             this.servicioTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.ServicioTableAdapter();
             this.fKCitaServicioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.citaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -126,7 +127,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.servicioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCitaServicioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource2)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorIcono
@@ -183,7 +183,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(77, 897);
+            this.btnAnular.Location = new System.Drawing.Point(338, 525);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(165, 36);
@@ -567,10 +567,10 @@
             this.btnCitasHoy.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCitasHoy.ForeColor = System.Drawing.Color.White;
             this.btnCitasHoy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCitasHoy.Location = new System.Drawing.Point(885, 6);
+            this.btnCitasHoy.Location = new System.Drawing.Point(859, 6);
             this.btnCitasHoy.Margin = new System.Windows.Forms.Padding(4);
             this.btnCitasHoy.Name = "btnCitasHoy";
-            this.btnCitasHoy.Size = new System.Drawing.Size(261, 40);
+            this.btnCitasHoy.Size = new System.Drawing.Size(287, 40);
             this.btnCitasHoy.TabIndex = 190;
             this.btnCitasHoy.Text = "Mostrar Citas para Hoy";
             this.btnCitasHoy.UseVisualStyleBackColor = false;
@@ -614,6 +614,18 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtTasa);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.btnActualizarTasa);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Location = new System.Drawing.Point(885, 371);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(534, 94);
+            this.groupBox3.TabIndex = 290;
+            this.groupBox3.TabStop = false;
+            // 
             // txtTasa
             // 
             this.txtTasa.BackColor = System.Drawing.SystemColors.Control;
@@ -625,16 +637,16 @@
             this.txtTasa.TabIndex = 289;
             this.txtTasa.TextChanged += new System.EventHandler(this.txtTasa_TextChanged_1);
             // 
-            // label16
+            // label17
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(204, 42);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 32);
-            this.label16.TabIndex = 288;
-            this.label16.Text = "Bs. per $";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label17.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label17.Location = new System.Drawing.Point(31, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(135, 32);
+            this.label17.TabIndex = 285;
+            this.label17.Text = "Tasa del día:";
             // 
             // btnActualizarTasa
             // 
@@ -654,16 +666,16 @@
             this.btnActualizarTasa.UseVisualStyleBackColor = false;
             this.btnActualizarTasa.Click += new System.EventHandler(this.btnActualizarTasa_Click);
             // 
-            // label17
+            // label16
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label17.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label17.Location = new System.Drawing.Point(31, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(135, 32);
-            this.label17.TabIndex = 285;
-            this.label17.Text = "Tasa del día:";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label16.ForeColor = System.Drawing.Color.DimGray;
+            this.label16.Location = new System.Drawing.Point(204, 42);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(101, 32);
+            this.label16.TabIndex = 288;
+            this.label16.Text = "Bs. per $";
             // 
             // label20
             // 
@@ -933,7 +945,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1558, 920);
+            this.tabPage2.Size = new System.Drawing.Size(1558, 978);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Citas para Hoy";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1065,18 +1077,6 @@
             this.citaBindingSource2.DataMember = "Cita";
             this.citaBindingSource2.DataSource = this.dsPrincipal;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtTasa);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.btnActualizarTasa);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(885, 371);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(534, 94);
-            this.groupBox3.TabIndex = 290;
-            this.groupBox3.TabStop = false;
-            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1098,6 +1098,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1112,8 +1114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.servicioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCitaServicioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.citaBindingSource2)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

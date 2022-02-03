@@ -373,6 +373,12 @@
     <Compile Include="Reportes\frmListadoCitasUsuario.Designer.cs">
       <DependentUpon>frmListadoCitasUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmListadoHistorialOp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmListadoHistorialOp.Designer.cs">
+      <DependentUpon>frmListadoHistorialOp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmListadoPlanTerapeutico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -641,6 +647,9 @@
     <EmbeddedResource Include="Reportes\frmListadoCitasUsuario.resx">
       <DependentUpon>frmListadoCitasUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmListadoHistorialOp.resx">
+      <DependentUpon>frmListadoHistorialOp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmListadoPlanTerapeutico.resx">
       <DependentUpon>frmListadoPlanTerapeutico.cs</DependentUpon>
     </EmbeddedResource>
@@ -699,6 +708,7 @@
     <EmbeddedResource Include="Reportes\rptEstudios.rdlc" />
     <EmbeddedResource Include="Reportes\rptGraficoInicionSesion.rdlc" />
     <EmbeddedResource Include="Reportes\rptGraficoRegistroPacientes.rdlc" />
+    <EmbeddedResource Include="Reportes\rptHistorialOp.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoCitasFechas.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoCitasUsuario.rdlc" />
     <EmbeddedResource Include="Reportes\rptCitasMedicasTotales.rdlc" />

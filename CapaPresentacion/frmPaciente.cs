@@ -169,6 +169,7 @@ namespace CapaPresentacion
 
             this.dataListado.Columns[0].Visible = false;
             this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["is_dead"].Visible = false;
 
         }
 

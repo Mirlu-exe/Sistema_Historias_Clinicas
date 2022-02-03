@@ -2841,25 +2841,46 @@ namespace CapaPresentacion
 
             int id_del_pac = 0;
 
-            if (paciente_tabla.Rows.Count == 0)
+            if (paciente_tabla.Rows.Count == 0 )
             {
-                //MessageBox.Show("no existe ese paciente");
+                
+                
                 id_del_pac = 0;
             }
             else
             {
+                if (dgv_Lista_Evoluciones_de_pac.Rows.Count == 0  ) 
+                {
 
-                id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
-                string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
-                string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
-                this.dtpFechaNac_Evol.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
+                    
+                    id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                    string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                    string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
+                    this.dtpFechaNac_Evol.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
 
 
-                this.txtNombre_Evol.Text = nombre_del_pac;
-                this.txtSexoEvol.Text = sexo_del_pac;
+                    this.txtNombre_Evol.Text = nombre_del_pac;
+                    this.txtSexoEvol.Text = sexo_del_pac;
 
-                //aca deberia ir una minifuncion para calcular la edad aproximada del paciente
-                //CalcularEdadSuc();
+                    //aca deberia ir una minifuncion para calcular la edad aproximada del paciente
+                    //CalcularEdadSuc();
+
+                }
+                else 
+                {
+
+                    MessageBox.Show("Este paciente no posee ninguna evolucion");
+                    id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                    string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                    string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
+                    this.dtpFechaNac_Evol.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
+
+
+                    this.txtNombre_Evol.Text = nombre_del_pac;
+                    this.txtSexoEvol.Text = sexo_del_pac;
+
+                }
+
 
 
             }
@@ -3188,6 +3209,8 @@ namespace CapaPresentacion
 
             if (id_del_paciente_a_cargar_evol > 0)
             {
+
+
                 this.lbl_idhistoria.Text = id_del_paciente_a_cargar_evol.ToString();
 
                 
@@ -3435,18 +3458,25 @@ namespace CapaPresentacion
 
             if (id_del_paciente_a_cargar_evol > 0)
             {
-                this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
+                if (id_del_paciente_a_cargar_evol != 0) 
+                {
+
+                    this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
 
 
-                //para buscar el id de la historia correspondiente a este paciente.
-                int id_historia_del_pac_frmEvol;
+                    //para buscar el id de la historia correspondiente a este paciente.
+                    int id_historia_del_pac_frmEvol;
 
-                id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
+                    id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
 
-                this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
+                    this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
 
 
-                this.MostrarEvolucionesDelPac();
+                    this.MostrarEvolucionesDelPac();
+
+                }
+                else { MessageBox.Show("Este paciente no posee ninguna evolucion"); }
+                
 
 
             }

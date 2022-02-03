@@ -224,5 +224,13 @@ namespace CapaPresentacion
                 this.dtpFechaFin.Hide();
             }
         }
+
+        private void btnGrafica_Click(object sender, EventArgs e)
+        {
+            frmListadoHistorialOp frm = new frmListadoHistorialOp();
+            frm.Show();
+
+
+        }
     }
 }

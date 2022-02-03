@@ -148,7 +148,7 @@
             this.lblCantidadOperaciones.AutoSize = true;
             this.lblCantidadOperaciones.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblCantidadOperaciones.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblCantidadOperaciones.Location = new System.Drawing.Point(929, 175);
+            this.lblCantidadOperaciones.Location = new System.Drawing.Point(929, 174);
             this.lblCantidadOperaciones.Name = "lblCantidadOperaciones";
             this.lblCantidadOperaciones.Size = new System.Drawing.Size(75, 32);
             this.lblCantidadOperaciones.TabIndex = 152;
@@ -325,6 +325,7 @@
             this.btnGrafica.TabIndex = 207;
             this.btnGrafica.Text = "Generar Reporte";
             this.btnGrafica.UseVisualStyleBackColor = false;
+            this.btnGrafica.Click += new System.EventHandler(this.btnGrafica_Click);
             // 
             // frmOperacion
             // 

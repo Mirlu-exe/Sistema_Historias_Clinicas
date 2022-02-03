@@ -32,7 +32,7 @@ namespace CapaPresentacion
             this.dgv_all_dead.Columns[1].Visible = false;
             this.dgv_all_dead.Columns["estado"].Visible = false;
             this.dgv_all_dead.Columns["is_dead"].Visible = false;
-
+            
         }
         private void SolofallecidosActivos()
         {
@@ -118,7 +118,7 @@ namespace CapaPresentacion
         public void MostrarPacienteFallecido()
         {
             this.dgv_Paciente_fallecido.DataSource = NPacientes.BuscarNum_Cedula(this.lbl_cedula.Text);
-         
+            this.OcultarColumnas();
         }
 
         public DataTable MostrarHistoriaFallecido(int id_pac)

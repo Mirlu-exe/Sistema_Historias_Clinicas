@@ -4098,6 +4098,8 @@ namespace CapaPresentacion {
             
             private global::System.Data.DataColumn columndescripcion;
             
+            private global::System.Data.DataColumn columnusuario;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OperacionDataTable() {
@@ -4157,6 +4159,14 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn usuarioColumn {
+                get {
+                    return this.columnusuario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4192,12 +4202,13 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OperacionRow AddOperacionRow(string fecha, string descripcion) {
+            public OperacionRow AddOperacionRow(string fecha, string descripcion, string usuario) {
                 OperacionRow rowOperacionRow = ((OperacionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         fecha,
-                        descripcion};
+                        descripcion,
+                        usuario};
                 rowOperacionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOperacionRow);
                 return rowOperacionRow;
@@ -4230,6 +4241,7 @@ namespace CapaPresentacion {
                 this.columnidoperacion = base.Columns["idoperacion"];
                 this.columnfecha = base.Columns["fecha"];
                 this.columndescripcion = base.Columns["descripcion"];
+                this.columnusuario = base.Columns["usuario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4241,6 +4253,8 @@ namespace CapaPresentacion {
                 base.Columns.Add(this.columnfecha);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnusuario = new global::System.Data.DataColumn("usuario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuario);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidoperacion}, true));
                 this.columnidoperacion.AutoIncrement = true;
@@ -4251,6 +4265,7 @@ namespace CapaPresentacion {
                 this.columnidoperacion.Unique = true;
                 this.columnfecha.MaxLength = 50;
                 this.columndescripcion.MaxLength = 50;
+                this.columnusuario.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24293,6 +24308,22 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string usuario {
+                get {
+                    try {
+                        return ((string)(this[this.tableOperacion.usuarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuario\' de la tabla \'Operacion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOperacion.usuarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsfechaNull() {
                 return this.IsNull(this.tableOperacion.fechaColumn);
             }
@@ -24313,6 +24344,18 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdescripcionNull() {
                 this[this.tableOperacion.descripcionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsusuarioNull() {
+                return this.IsNull(this.tableOperacion.usuarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetusuarioNull() {
+                this[this.tableOperacion.usuarioColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -36889,8 +36932,8 @@ SELECT idcita, idpaciente, idusuario, fecha, idservicio, estado FROM Cita WHERE 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Configuracion] ([nombre_empresa], [logo]) VALUES (@nombre_empr" +
-                "esa, @logo);\nSELECT idconfiguracion, nombre_empresa, logo FROM Configuracion WHE" +
-                "RE (idconfiguracion = SCOPE_IDENTITY())";
+                "esa, @logo);\r\nSELECT idconfiguracion, nombre_empresa, logo FROM Configuracion WH" +
+                "ERE (idconfiguracion = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_empresa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logo", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "logo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -38181,11 +38224,11 @@ SELECT idhistoria, idpaciente, fecha_consulta, razon_consulta, enfermedad_actual
                 "ND [plan_terapeutico] IS NULL) OR ([plan_terapeutico] = @Original_plan_terapeuti" +
                 "co)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_est" +
                 "ado)) AND ((@IsNull_tipo_sangre = 1 AND [tipo_sangre] IS NULL) OR ([tipo_sangre]" +
-                " = @Original_tipo_sangre)));\nSELECT idhistoria, idpaciente, fecha_consulta, razo" +
-                "n_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamiento" +
-                "_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio," +
-                " plan_terapeutico, estado, tipo_sangre FROM Historia WHERE (idhistoria = @idhist" +
-                "oria)";
+                " = @Original_tipo_sangre)));\r\nSELECT idhistoria, idpaciente, fecha_consulta, raz" +
+                "on_consulta, enfermedad_actual, historia_familiar, historia_personal, tratamient" +
+                "o_actual, examen_fisico, laboratorio, ecg, rayos_x, ecocardiograma, plan_estudio" +
+                ", plan_terapeutico, estado, tipo_sangre FROM Historia WHERE (idhistoria = @idhis" +
+                "toria)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idpaciente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idpaciente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_consulta", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_consulta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -39026,39 +39069,43 @@ SELECT idhistoria, idpaciente, fecha_consulta, razon_consulta, enfermedad_actual
             tableMapping.ColumnMappings.Add("idoperacion", "idoperacion");
             tableMapping.ColumnMappings.Add("fecha", "fecha");
             tableMapping.ColumnMappings.Add("descripcion", "descripcion");
+            tableMapping.ColumnMappings.Add("usuario", "usuario");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Operacion] WHERE (([idoperacion] = @Original_idoperacion) AND " +
-                "((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@" +
-                "IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_" +
-                "descripcion)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Operacion] WHERE (([idoperacion] = @Original_idoperacion) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_usuario = 1 AND [usuario] IS NULL) OR ([usuario] = @Original_usuario)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idoperacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idoperacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Operacion] ([fecha], [descripcion]) VALUES (@fecha, @descripci" +
-                "on);\nSELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = " +
-                "SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Operacion] ([fecha], [descripcion], [usuario]) VALUES (@fecha," +
+                " @descripcion, @usuario);\r\nSELECT idoperacion, fecha, descripcion, usuario FROM " +
+                "Operacion WHERE (idoperacion = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Operacion] SET [fecha] = @fecha, [descripcion] = @descripcion WHERE (([idoperacion] = @Original_idoperacion) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)));
-SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idoperacion)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Operacion] SET [fecha] = @fecha, [descripcion] = @descripcion, [usuario] = @usuario WHERE (([idoperacion] = @Original_idoperacion) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_usuario = 1 AND [usuario] IS NULL) OR ([usuario] = @Original_usuario)));
+SELECT idoperacion, fecha, descripcion, usuario FROM Operacion WHERE (idoperacion = @idoperacion)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idoperacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idoperacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idoperacion", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idoperacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -39075,7 +39122,7 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT idoperacion, fecha, descripcion FROM dbo.Operacion";
+            this._commandCollection[0].CommandText = "SELECT idoperacion, fecha, descripcion, usuario FROM dbo.Operacion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -39136,7 +39183,7 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_idoperacion, string Original_fecha, string Original_descripcion) {
+        public virtual int Delete(int Original_idoperacion, string Original_fecha, string Original_descripcion, string Original_usuario) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idoperacion));
             if ((Original_fecha == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -39153,6 +39200,14 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_descripcion));
+            }
+            if ((Original_usuario == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_usuario));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -39174,7 +39229,7 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string fecha, string descripcion) {
+        public virtual int Insert(string fecha, string descripcion, string usuario) {
             if ((fecha == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -39186,6 +39241,12 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(descripcion));
+            }
+            if ((usuario == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(usuario));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -39207,7 +39268,7 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string fecha, string descripcion, int Original_idoperacion, string Original_fecha, string Original_descripcion, int idoperacion) {
+        public virtual int Update(string fecha, string descripcion, string usuario, int Original_idoperacion, string Original_fecha, string Original_descripcion, string Original_usuario, int idoperacion) {
             if ((fecha == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -39220,24 +39281,38 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(descripcion));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_idoperacion));
-            if ((Original_fecha == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            if ((usuario == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_fecha));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(usuario));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_idoperacion));
+            if ((Original_fecha == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_fecha));
             }
             if ((Original_descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_descripcion));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_descripcion));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(idoperacion));
+            if ((Original_usuario == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_usuario));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(idoperacion));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -39258,8 +39333,8 @@ SELECT idoperacion, fecha, descripcion FROM Operacion WHERE (idoperacion = @idop
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string fecha, string descripcion, int Original_idoperacion, string Original_fecha, string Original_descripcion) {
-            return this.Update(fecha, descripcion, Original_idoperacion, Original_fecha, Original_descripcion, Original_idoperacion);
+        public virtual int Update(string fecha, string descripcion, string usuario, int Original_idoperacion, string Original_fecha, string Original_descripcion, string Original_usuario) {
+            return this.Update(fecha, descripcion, usuario, Original_idoperacion, Original_fecha, Original_descripcion, Original_usuario, Original_idoperacion);
         }
     }
     
@@ -39469,9 +39544,9 @@ SELECT idpaciente, nombre, tipo_cedula, num_cedula, fecha_nacimiento, sexo, esta
                 " NULL) OR ([correo] = @Original_correo)) AND ((@IsNull_peso = 1 AND [peso] IS NU" +
                 "LL) OR ([peso] = @Original_peso)) AND ((@IsNull_talla = 1 AND [talla] IS NULL) O" +
                 "R ([talla] = @Original_talla)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR" +
-                " ([estado] = @Original_estado)));\nSELECT idpaciente, nombre, tipo_cedula, num_ce" +
-                "dula, fecha_nacimiento, sexo, estado_civil, direccion, ocupacion, telefono, corr" +
-                "eo, peso, talla, estado FROM Paciente WHERE (idpaciente = @idpaciente)";
+                " ([estado] = @Original_estado)));\r\nSELECT idpaciente, nombre, tipo_cedula, num_c" +
+                "edula, fecha_nacimiento, sexo, estado_civil, direccion, ocupacion, telefono, cor" +
+                "reo, peso, talla, estado FROM Paciente WHERE (idpaciente = @idpaciente)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_cedula", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -40223,8 +40298,8 @@ SELECT idpaciente, nombre, tipo_cedula, num_cedula, fecha_nacimiento, sexo, esta
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PlanEstudio] ([idpaciente], [estudios], [estado]) VALUES (@idp" +
-                "aciente, @estudios, @estado);\nSELECT idplanestudio, idpaciente, estudios, estado" +
-                " FROM PlanEstudio WHERE (idplanestudio = SCOPE_IDENTITY())";
+                "aciente, @estudios, @estado);\r\nSELECT idplanestudio, idpaciente, estudios, estad" +
+                "o FROM PlanEstudio WHERE (idplanestudio = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idpaciente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idpaciente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estudios", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estudios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -41007,9 +41082,9 @@ SELECT idreceta, idpaciente, medicamento, presentacion, dosis, duracion, cantida
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Respuestas_Usuario] ([Respuesta_1], [Respuesta_2], [Respuesta_" +
-                "3]) VALUES (@Respuesta_1, @Respuesta_2, @Respuesta_3);\nSELECT idusuario, Respues" +
-                "ta_1, Respuesta_2, Respuesta_3 FROM Respuestas_Usuario WHERE (idusuario = SCOPE_" +
-                "IDENTITY())";
+                "3]) VALUES (@Respuesta_1, @Respuesta_2, @Respuesta_3);\r\nSELECT idusuario, Respue" +
+                "sta_1, Respuesta_2, Respuesta_3 FROM Respuestas_Usuario WHERE (idusuario = SCOPE" +
+                "_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Respuesta_1", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Respuesta_1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Respuesta_2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Respuesta_2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -41387,8 +41462,8 @@ SELECT idusuario, Respuesta_1, Respuesta_2, Respuesta_3 FROM Respuestas_Usuario 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Servicio] ([nombre], [costo], [estado]) VALUES (@nombre, @cost" +
-                "o, @estado);\nSELECT idservicio, nombre, costo, estado FROM Servicio WHERE (idser" +
-                "vicio = SCOPE_IDENTITY())";
+                "o, @estado);\r\nSELECT idservicio, nombre, costo, estado FROM Servicio WHERE (idse" +
+                "rvicio = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@costo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "costo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

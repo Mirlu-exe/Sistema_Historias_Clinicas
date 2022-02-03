@@ -315,14 +315,14 @@ namespace CapaPresentacion
                 //no posee un plan estudio
                 this.btnNuevo_PlanEstudio.Enabled = true;
                 this.btnAsignar_PlanEstudio.Enabled = true;
-                this.btnCancelar.Enabled = true;
+               
             }
             else
             {
                 //ya tiene un plan estudio asignado
                 this.btnNuevo_PlanEstudio.Enabled = false;
                 this.btnAsignar_PlanEstudio.Enabled = false;
-                this.btnCancelar.Enabled = false;
+               
 
                 //cargar dicho plan estudio
                 Cargar_Plan_Estudio_En_Campos(Convert.ToInt32(this.lbl_idplanestudio_historia.Text));
@@ -336,14 +336,14 @@ namespace CapaPresentacion
                 //no posee un plan estudio
                 this.btnNuevo_PlanEstudio.Enabled = true;
                 this.btnAsignar_PlanEstudio.Enabled = true;
-                this.btnCancelar.Enabled = true;
+               
             }
             else
             {
                 //ya tiene un plan estudio asignado
                 this.btnNuevo_PlanEstudio.Enabled = false;
                 this.btnAsignar_PlanEstudio.Enabled = false;
-                this.btnCancelar.Enabled = false;
+               
 
                 //cargar dicho plan estudio
                 Cargar_Plan_Estudio_En_Campos(Convert.ToInt32(this.lbl_idplanestudio_evol.Text));
@@ -931,7 +931,14 @@ namespace CapaPresentacion
             if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
             {
               
-                if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en plan de estudio"); }
+                if (dataListado.Rows.Count == 0) 
+                { MessageBox.Show("Actualmente no tiene ningun registro en plan de estudio"); }
+
+                else
+                {
+
+                }
+
             }
         }
 
@@ -1008,6 +1015,11 @@ namespace CapaPresentacion
             {
 
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
