@@ -19,8 +19,8 @@ namespace CapaPresentacion
 
         private void frmListadoHistorialOp_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.spmostrar_operacion' Puede moverla o quitarla según sea necesario.
-            this.spmostrar_operacionTableAdapter.Fill(this.dsPrincipal.spmostrar_operacion);
+            // TODO: esta línea de código carga datos en la tabla 'dsPrincipal.Operacion' Puede moverla o quitarla según sea necesario.
+            this.OperacionTableAdapter.Fill(this.dsPrincipal.Operacion);
 
             this.reportViewer1.RefreshReport();
         }

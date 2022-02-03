@@ -31,20 +31,18 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.spmostrar_operacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsPrincipal = new CapaPresentacion.dsPrincipal();
-            this.spmostraroperacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spmostrar_operacionTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.spmostrar_operacionTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.spmostrar_operacionBindingSource)).BeginInit();
+            this.OperacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OperacionTableAdapter = new CapaPresentacion.dsPrincipalTableAdapters.OperacionTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spmostraroperacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OperacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "HistorialOpTotal";
-            reportDataSource1.Value = this.spmostrar_operacionBindingSource;
+            reportDataSource1.Name = "ListadoHistorialOp";
+            reportDataSource1.Value = this.OperacionBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.Reportes.rptHistorialOp.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -53,24 +51,19 @@
             this.reportViewer1.Size = new System.Drawing.Size(850, 486);
             this.reportViewer1.TabIndex = 0;
             // 
-            // spmostrar_operacionBindingSource
-            // 
-            this.spmostrar_operacionBindingSource.DataMember = "spmostrar_operacion";
-            this.spmostrar_operacionBindingSource.DataSource = this.dsPrincipal;
-            // 
             // dsPrincipal
             // 
             this.dsPrincipal.DataSetName = "dsPrincipal";
             this.dsPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // spmostraroperacionBindingSource
+            // OperacionBindingSource
             // 
-            this.spmostraroperacionBindingSource.DataMember = "spmostrar_operacion";
-            this.spmostraroperacionBindingSource.DataSource = this.dsPrincipal;
+            this.OperacionBindingSource.DataMember = "Operacion";
+            this.OperacionBindingSource.DataSource = this.dsPrincipal;
             // 
-            // spmostrar_operacionTableAdapter
+            // OperacionTableAdapter
             // 
-            this.spmostrar_operacionTableAdapter.ClearBeforeFill = true;
+            this.OperacionTableAdapter.ClearBeforeFill = true;
             // 
             // frmListadoHistorialOp
             // 
@@ -81,9 +74,8 @@
             this.Name = "frmListadoHistorialOp";
             this.Text = "frmListadoHistorialOp";
             this.Load += new System.EventHandler(this.frmListadoHistorialOp_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.spmostrar_operacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPrincipal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spmostraroperacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OperacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,9 +83,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource OperacionBindingSource;
         private dsPrincipal dsPrincipal;
-        private System.Windows.Forms.BindingSource spmostraroperacionBindingSource;
-        private dsPrincipalTableAdapters.spmostrar_operacionTableAdapter spmostrar_operacionTableAdapter;
-        private System.Windows.Forms.BindingSource spmostrar_operacionBindingSource;
+        private dsPrincipalTableAdapters.OperacionTableAdapter OperacionTableAdapter;
     }
 }
