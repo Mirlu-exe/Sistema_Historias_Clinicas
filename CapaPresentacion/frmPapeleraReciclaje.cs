@@ -70,6 +70,14 @@ namespace CapaPresentacion
 
             //OcultarColumnasMedicos();
 
+            this.dgv_estudios.DataSource = MostrarEstudiosAnulados();
+
+            //OcultarColumnasEstudios();
+
+            this.dgv_usuarios.DataSource = MostrarUsuariosAnulados();
+
+            OcultarColumnasUsuarios();
+
         }
 
         private void tabControl1_Click(object sender, EventArgs e)
@@ -266,6 +274,67 @@ namespace CapaPresentacion
             this.dgv_Servicios.Columns["estado"].Visible = false;
 
         }
+
+
+        public DataTable MostrarEstudiosAnulados()
+        {
+            DataTable DtResultado = new DataTable("EstudiosAnulados");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_estudios_anulados";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+                MessageBox.Show(ex.ToString());
+            }
+            return DtResultado;
+        }
+
+
+        public DataTable MostrarUsuariosAnulados()
+        {
+            DataTable DtResultado = new DataTable("UsuariosAnulados");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_usuarios_anulados";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+                MessageBox.Show(ex.ToString());
+            }
+            return DtResultado;
+        }
+
+        //Método para ocultar columnas
+        private void OcultarColumnasUsuarios()
+        {
+
+            this.dgv_usuarios.Columns["password"].Visible = false;
+            this.dgv_usuarios.Columns["salt"].Visible = false;
+            this.dgv_usuarios.Columns["estado"].Visible = false;
+
+        }
+
 
         public DataTable MostrarMedicosAnulados()
         {
