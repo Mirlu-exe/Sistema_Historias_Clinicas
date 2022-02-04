@@ -18,22 +18,22 @@ namespace CapaPresentacion
     public partial class frmHistoria : Form
     {
 
-        public class Global
-        {
-            private DateTime _fecha1, _fecha2;
-            public DateTime Fecha1
-            {
-                get { return _fecha1; }
-                set { _fecha1 = value; }
-            }
+        //public class Global
+        //{
+        //    private DateTime _fecha1, _fecha2;
+        //    public DateTime Fecha1
+        //    {
+        //        get { return _fecha1; }
+        //        set { _fecha1 = value; }
+        //    }
 
-            public DateTime Fecha2
-            {
-                get { return _fecha2; }
-                set { _fecha2 = value; }
-            }
+        //    public DateTime Fecha2
+        //    {
+        //        get { return _fecha2; }
+        //        set { _fecha2 = value; }
+        //    }
 
-        }
+        //}
 
         public static DUsuario Session_Actual = frmPrincipal.User_Actual;
 
@@ -1649,7 +1649,13 @@ namespace CapaPresentacion
 
         private void dgv_lista_evol_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dgv_lista_evol.Columns["Anular_evol"].Index)
+            {
+                DataGridViewCheckBoxCell ChkAnular_evol = (DataGridViewCheckBoxCell)dgv_lista_evol.Rows[e.RowIndex].Cells["Anular_evol"];
+                ChkAnular_evol.Value = !Convert.ToBoolean(ChkAnular_evol.Value);
+            }
 
+            
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -2964,6 +2970,38 @@ namespace CapaPresentacion
 
 
 
+        private void OperacionAnularEvolucion()
+        {
+
+
+            // Operacion Anular
+            string rpta2 = "";
+
+
+            SqlConnection SqlCon2 = new SqlConnection();
+
+
+
+            SqlCon2.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlCon2.Open();
+
+            SqlCommand SqlCmd2 = new SqlCommand();
+            SqlCmd2.Connection = SqlCon2;
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
+
+
+            SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
+            SqlCmd2.Parameters.AddWithValue("@d2", "Se anuló una evolucion");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
+
+
+            //Ejecutamos nuestro comando
+
+            rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro en el historial de operaciones";
+
+
+        }
+
 
 
 
@@ -3805,6 +3843,84 @@ namespace CapaPresentacion
         private void tabPage6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAnular_All_Evol_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Anular la evolucion?", "Consultorio Medico", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo_evol;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in dgv_lista_evol.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo_evol = Convert.ToString(row.Cells[1].Value);
+
+
+
+                            SqlConnection SqlCon = new SqlConnection();
+
+
+
+
+
+
+
+                            //Código
+                            SqlCon.ConnectionString = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+                            SqlCon.Open();
+                            //Establecer el Comando
+                            SqlCommand SqlCmd = new SqlCommand();
+                            SqlCmd.Connection = SqlCon;
+                            SqlCmd.CommandText = "update Evoluciones set estado = @d1 where id = @d2";
+                            //SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+
+                            //Sqlcmd.Parameters.AddWithValue("@d1", txtNombreCliente.Text);
+                            SqlCmd.Parameters.AddWithValue("@d1", "Anulado");
+                            SqlCmd.Parameters.AddWithValue("@d2", Convert.ToInt32(Codigo_evol));
+
+
+
+
+
+                            //Ejecutamos nuestro comando
+
+                            rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "";
+
+
+
+
+
+
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Anuló Correctamente la evolucion");
+                                this.OperacionAnularEvolucion();
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+
+                        }
+                    }
+                    this.MostrarEvolucionesActivas();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }
