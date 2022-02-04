@@ -1111,6 +1111,7 @@ namespace CapaPresentacion
 
             paciente_tabla = NPacientes.BuscarNum_Cedula(cedula_del_pac);
 
+
             int id_del_pac = 0;
 
             if (paciente_tabla.Rows.Count == 0)
@@ -1121,13 +1122,26 @@ namespace CapaPresentacion
             else
             {
 
-                id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
-                string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
-                string telefono_del_pac = Convert.ToString(paciente_tabla.Rows[0][9]);
+                
+                if ( Convert.ToInt32(paciente_tabla.Rows[0][14]) == 0) // si el paciente esta vivo
+                {
 
-                this.txtNombre_Paciente.Text = nombre_del_pac;
-                this.txtTelefono.Text = telefono_del_pac;
+                    id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                    string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                    string telefono_del_pac = Convert.ToString(paciente_tabla.Rows[0][9]);
 
+                    this.txtNombre_Paciente.Text = nombre_del_pac;
+                    this.txtTelefono.Text = telefono_del_pac;
+
+                }
+                else if (Convert.ToInt32(paciente_tabla.Rows[0][14]) == 1)  //si el paciente esta muerto 
+                {
+                    MessageBox.Show("El paciente está fallecido.");
+                    id_del_pac = 0;
+                }
+
+
+               
 
 
             }
@@ -1152,7 +1166,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Este paciente no esta registrado");
+                    //MessageBox.Show("Este paciente no esta registrado");
                 }
 
             }
