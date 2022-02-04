@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -774,6 +775,12 @@ namespace CapaPresentacion
         private void txtNombre_Medico_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteMedicosConfianza frm = new frmReporteMedicosConfianza();
+            frm.Show();
         }
     }
 

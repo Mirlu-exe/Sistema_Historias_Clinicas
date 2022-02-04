@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 
 using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -602,6 +603,10 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.label3, "Campo Obligatorio");
         }
 
-        
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteDiagnosticos frm = new frmReporteDiagnosticos();
+            frm.Show();
+        }
     }
 }

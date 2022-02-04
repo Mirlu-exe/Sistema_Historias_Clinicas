@@ -156,28 +156,28 @@ namespace CapaDatos
                 SqlParameter Parmotivo_consulta = new SqlParameter();
                 Parmotivo_consulta.ParameterName = "@motivo_consulta";
                 Parmotivo_consulta.SqlDbType = SqlDbType.VarChar;
-                Parmotivo_consulta.Size = 50;
+                Parmotivo_consulta.Size = 400;
                 Parmotivo_consulta.Value = Historia.Motivo_consulta;
                 SqlCmd.Parameters.Add(Parmotivo_consulta);
 
                 SqlParameter Parenfermedad_actual = new SqlParameter();
                 Parenfermedad_actual.ParameterName = "@enfermedad_actual";
                 Parenfermedad_actual.SqlDbType = SqlDbType.VarChar;
-                Parenfermedad_actual.Size = 100;
+                Parenfermedad_actual.Size = 400;
                 Parenfermedad_actual.Value = Historia.Enfermedad_actual;
                 SqlCmd.Parameters.Add(Parenfermedad_actual);
 
                 SqlParameter Parantecedentes_familiares = new SqlParameter();
                 Parantecedentes_familiares.ParameterName = "@antecedentes_familiares";
                 Parantecedentes_familiares.SqlDbType = SqlDbType.VarChar;
-                Parantecedentes_familiares.Size = 100;
+                Parantecedentes_familiares.Size = 200;
                 Parantecedentes_familiares.Value = Historia.Antecedentes_familiares;
                 SqlCmd.Parameters.Add(Parantecedentes_familiares);
 
                 SqlParameter Parantecedentes_personales = new SqlParameter();
                 Parantecedentes_personales.ParameterName = "@antecedentes_personales";
                 Parantecedentes_personales.SqlDbType = SqlDbType.VarChar;
-                Parantecedentes_personales.Size = 100;
+                Parantecedentes_personales.Size = 200;
                 Parantecedentes_personales.Value = Historia.Antecedentes_familiares;
                 SqlCmd.Parameters.Add(Parantecedentes_personales);
 
@@ -185,49 +185,49 @@ namespace CapaDatos
                 SqlParameter Partratamiento_actual = new SqlParameter();
                 Partratamiento_actual.ParameterName = "@tratamiento_actual";
                 Partratamiento_actual.SqlDbType = SqlDbType.VarChar;
-                Partratamiento_actual.Size = 100;
+                Partratamiento_actual.Size = 400;
                 Partratamiento_actual.Value = Historia.Tratamiento_actual;
                 SqlCmd.Parameters.Add(Partratamiento_actual);
 
                 SqlParameter Parexamen_fisico = new SqlParameter();
                 Parexamen_fisico.ParameterName = "@examen_fisico";
                 Parexamen_fisico.SqlDbType = SqlDbType.VarChar;
-                Parexamen_fisico.Size = 100;
+                Parexamen_fisico.Size = 200;
                 Parexamen_fisico.Value = Historia.Examen_fisico;
                 SqlCmd.Parameters.Add(Parexamen_fisico);
 
                 SqlParameter Parlaboratorio = new SqlParameter();
                 Parlaboratorio.ParameterName = "@laboratorio";
                 Parlaboratorio.SqlDbType = SqlDbType.VarChar;
-                Parlaboratorio.Size = 100;
+                Parlaboratorio.Size = 200;
                 Parlaboratorio.Value = Historia.Laboratorio;
                 SqlCmd.Parameters.Add(Parlaboratorio);
 
                 SqlParameter Parecg = new SqlParameter();
                 Parecg.ParameterName = "@ecg";
                 Parecg.SqlDbType = SqlDbType.VarChar;
-                Parecg.Size = 100;
+                Parecg.Size = 200;
                 Parecg.Value = Historia.ECG;
                 SqlCmd.Parameters.Add(Parecg);
 
                 SqlParameter Parparaclinicos = new SqlParameter();
                 Parparaclinicos.ParameterName = "@paraclinicos";
                 Parparaclinicos.SqlDbType = SqlDbType.VarChar;
-                Parparaclinicos.Size = 100;
+                Parparaclinicos.Size = 200;
                 Parparaclinicos.Value = Historia.Paraclinicos;
                 SqlCmd.Parameters.Add(Parparaclinicos);
 
                 SqlParameter Parecocardiograma = new SqlParameter();
                 Parecocardiograma.ParameterName = "@ecocardiograma";
                 Parecocardiograma.SqlDbType = SqlDbType.VarChar;
-                Parecocardiograma.Size = 100;
+                Parecocardiograma.Size = 200;
                 Parecocardiograma.Value = Historia.Ecocardiograma;
                 SqlCmd.Parameters.Add(Parecocardiograma);
 
                 SqlParameter Partipo_sangre = new SqlParameter();
                 Partipo_sangre.ParameterName = "@tipo_sangre";
                 Partipo_sangre.SqlDbType = SqlDbType.VarChar;
-                Partipo_sangre.Size = 100;
+                Partipo_sangre.Size = 15;
                 Partipo_sangre.Value = Historia.Tipo_sangre;
                 SqlCmd.Parameters.Add(Partipo_sangre);
 
@@ -254,7 +254,7 @@ namespace CapaDatos
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
                 ParEstado.SqlDbType = SqlDbType.VarChar;
-                ParEstado.Size = 10;
+                ParEstado.Size = 50;
                 ParEstado.Value = Historia.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 
@@ -324,28 +324,28 @@ namespace CapaDatos
                 SqlParameter Parmotivo_consulta = new SqlParameter();
                 Parmotivo_consulta.ParameterName = "@motivo_consulta";
                 Parmotivo_consulta.SqlDbType = SqlDbType.VarChar;
-                Parmotivo_consulta.Size = 50;
+                Parmotivo_consulta.Size = 400;
                 Parmotivo_consulta.Value = Historia.Motivo_consulta;
                 SqlCmd.Parameters.Add(Parmotivo_consulta);
 
                 SqlParameter Parenfermedad_actual = new SqlParameter();
                 Parenfermedad_actual.ParameterName = "@enfermedad_actual";
                 Parenfermedad_actual.SqlDbType = SqlDbType.VarChar;
-                Parenfermedad_actual.Size = 100;
+                Parenfermedad_actual.Size = 400;
                 Parenfermedad_actual.Value = Historia.Enfermedad_actual;
                 SqlCmd.Parameters.Add(Parenfermedad_actual);
 
                 SqlParameter Parantecedentes_familiares = new SqlParameter();
                 Parantecedentes_familiares.ParameterName = "@antecedentes_familiares";
                 Parantecedentes_familiares.SqlDbType = SqlDbType.VarChar;
-                Parantecedentes_familiares.Size = 100;
+                Parantecedentes_familiares.Size = 200;
                 Parantecedentes_familiares.Value = Historia.Antecedentes_familiares;
                 SqlCmd.Parameters.Add(Parantecedentes_familiares);
 
                 SqlParameter Parantecedentes_personales = new SqlParameter();
                 Parantecedentes_personales.ParameterName = "@antecedentes_personales";
                 Parantecedentes_personales.SqlDbType = SqlDbType.VarChar;
-                Parantecedentes_personales.Size = 100;
+                Parantecedentes_personales.Size = 200;
                 Parantecedentes_personales.Value = Historia.Antecedentes_personales;
                 SqlCmd.Parameters.Add(Parantecedentes_personales);
 
@@ -353,49 +353,49 @@ namespace CapaDatos
                 SqlParameter Partratamiento_actual = new SqlParameter();
                 Partratamiento_actual.ParameterName = "@tratamiento_actual";
                 Partratamiento_actual.SqlDbType = SqlDbType.VarChar;
-                Partratamiento_actual.Size = 100;
+                Partratamiento_actual.Size = 400;
                 Partratamiento_actual.Value = Historia.Tratamiento_actual;
                 SqlCmd.Parameters.Add(Partratamiento_actual);
 
                 SqlParameter Parexamen_fisico = new SqlParameter();
                 Parexamen_fisico.ParameterName = "@examen_fisico";
                 Parexamen_fisico.SqlDbType = SqlDbType.VarChar;
-                Parexamen_fisico.Size = 100;
+                Parexamen_fisico.Size = 200;
                 Parexamen_fisico.Value = Historia.Examen_fisico;
                 SqlCmd.Parameters.Add(Parexamen_fisico);
 
                 SqlParameter Parlaboratorio = new SqlParameter();
                 Parlaboratorio.ParameterName = "@laboratorio";
                 Parlaboratorio.SqlDbType = SqlDbType.VarChar;
-                Parlaboratorio.Size = 100;
+                Parlaboratorio.Size = 200;
                 Parlaboratorio.Value = Historia.Laboratorio;
                 SqlCmd.Parameters.Add(Parlaboratorio);
 
                 SqlParameter Parecg = new SqlParameter();
                 Parecg.ParameterName = "@ecg";
                 Parecg.SqlDbType = SqlDbType.VarChar;
-                Parecg.Size = 100;
+                Parecg.Size = 200;
                 Parecg.Value = Historia.ECG;
                 SqlCmd.Parameters.Add(Parecg);
 
                 SqlParameter Parparaclinicos = new SqlParameter();
                 Parparaclinicos.ParameterName = "@paraclinicos";
                 Parparaclinicos.SqlDbType = SqlDbType.VarChar;
-                Parparaclinicos.Size = 100;
+                Parparaclinicos.Size = 200;
                 Parparaclinicos.Value = Historia.Paraclinicos;
                 SqlCmd.Parameters.Add(Parparaclinicos);
 
                 SqlParameter Parecocardiograma = new SqlParameter();
                 Parecocardiograma.ParameterName = "@ecocardiograma";
                 Parecocardiograma.SqlDbType = SqlDbType.VarChar;
-                Parecocardiograma.Size = 100;
+                Parecocardiograma.Size = 200;
                 Parecocardiograma.Value = Historia.Ecocardiograma;
                 SqlCmd.Parameters.Add(Parecocardiograma);
 
                 SqlParameter Partipo_sangre = new SqlParameter();
                 Partipo_sangre.ParameterName = "@tipo_sangre";
                 Partipo_sangre.SqlDbType = SqlDbType.VarChar;
-                Partipo_sangre.Size = 100;
+                Partipo_sangre.Size = 15;
                 Partipo_sangre.Value = Historia.Tipo_sangre;
                 SqlCmd.Parameters.Add(Partipo_sangre);
 
@@ -422,7 +422,7 @@ namespace CapaDatos
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
                 ParEstado.SqlDbType = SqlDbType.VarChar;
-                ParEstado.Size = 10;
+                ParEstado.Size = 50;
                 ParEstado.Value = Historia.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 

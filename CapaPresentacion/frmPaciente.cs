@@ -57,7 +57,7 @@ namespace CapaPresentacion
             this.Mostrar();
             this.Deshabilitar();
             this.Botones();
-            SoloPacientesActivos();
+            SoloPacientesActivosyVivos();
 
             this.cblEstado.SelectedIndex = 0;
 
@@ -169,6 +169,7 @@ namespace CapaPresentacion
 
             this.dataListado.Columns[0].Visible = false;
             this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns["is_dead"].Visible = false;
 
         }
 
@@ -180,7 +181,7 @@ namespace CapaPresentacion
             this.dataListado.DataSource = NPacientes.Mostrar();
             if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en Pacientes"); }
             this.OcultarColumnas();
-            SoloPacientesActivos();
+            SoloPacientesActivosyVivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
            
         }
@@ -196,7 +197,7 @@ namespace CapaPresentacion
 
             this.dataListado.DataSource = NPacientes.BuscarNombre(this.txtBuscar.Text);
             this.OcultarColumnas();
-            SoloPacientesActivos();
+            SoloPacientesActivosyVivos();
 
 
 
@@ -216,7 +217,7 @@ namespace CapaPresentacion
 
             this.dataListado.DataSource = NPacientes.BuscarNum_Cedula(this.txtBuscar.Text);
             this.OcultarColumnas();
-            SoloPacientesActivos();
+            SoloPacientesActivosyVivos();
             lblTotal.Text = "Total de Pacientes: " + Convert.ToString(dataListado.Rows.Count);
         }
 
@@ -284,7 +285,37 @@ namespace CapaPresentacion
                             this.txtDireccion.Text.Trim().ToUpper(), this.txtOcupacion.Text.Trim().ToUpper(),
                             txtTelefono.Text.Trim().ToUpper(), txtCorreo.Text.Trim().ToUpper(), this.txtPeso.Text.Trim().ToUpper(), this.txtTalla.Text.Trim().ToUpper(), this.cblEstado.Text);
 
+
+                            if (rpta.Equals("OK"))
+                            {
+
+
+
+
+                                if (this.IsNuevo)
+                                {
+                                    this.MensajeOk("Se Insertó de forma correcta el paciente");
+                                    this.OperacionInsertarPaciente();
+                                }
+                                else
+                                {
+                                    this.MensajeOk("Se Actualizó de forma correcta el paciente");
+                                    this.OperacionEditarPaciente();
+                                }
+
+                            }
+                            else
+                            {
+
+
+                                this.MensajeError(rpta);
+
+                                MessageBox.Show("woopsss insertar falló :(");
+
+                            }
+
                         }
+
 
 
 
@@ -311,34 +342,38 @@ namespace CapaPresentacion
                             MensajeError("No puede editar un registro que no existe. Porfavor, revise nuevamente los datos");
                         }
 
-
-                    }
-
-
-                    if (rpta.Equals("OK"))
-                    {
-
-
-
-
-                        if (this.IsNuevo)
+                        if (rpta.Equals("OK"))
                         {
-                            this.MensajeOk("Se Insertó de forma correcta el paciente");
-                            this.OperacionInsertarPaciente();
+
+
+
+
+                            if (this.IsNuevo)
+                            {
+                                this.MensajeOk("Se Insertó de forma correcta el paciente");
+                                this.OperacionInsertarPaciente();
+                            }
+                            else
+                            {
+                                this.MensajeOk("Se Actualizó de forma correcta el paciente");
+                                this.OperacionEditarPaciente();
+                            }
+
                         }
                         else
                         {
-                            this.MensajeOk("Se Actualizó de forma correcta el paciente");
-                            this.OperacionEditarPaciente();
+
+
+                            this.MensajeError(rpta);
+
+                            MessageBox.Show("woopsss el editar falló :(");
+
                         }
 
                     }
-                    else
-                    {
 
 
-                        this.MensajeError(rpta);
-                    }
+                 
 
                     this.IsNuevo = false;
                     this.IsEditar = false;
@@ -353,6 +388,7 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
+
             }
         }
 
@@ -793,24 +829,11 @@ namespace CapaPresentacion
         }
 
         //Filtro de Paciente activo
-        private void SoloPacientesActivos()
+        private void SoloPacientesActivosyVivos()
         {
 
+            (dataListado.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo' and is_dead = '0'");
 
-            //string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
-            //SqlConnection conDataBase = new SqlConnection(Cn);
-
-            //SqlDataAdapter cmdDataBase = new SqlDataAdapter("Paciente", conDataBase);
-
-            //DataView DV = new DataView(dbdataset);
-
-
-            //DV.RowFilter = string.Format("estado = 'Activo' ");
-
-            //dataListado.DataSource = DV;
-
-            
-            (dataListado.DataSource as DataTable).DefaultView.RowFilter = string.Format("estado = 'Activo'");
 
         }
       

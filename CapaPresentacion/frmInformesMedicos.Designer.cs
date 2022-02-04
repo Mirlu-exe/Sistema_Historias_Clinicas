@@ -47,9 +47,10 @@
             // 
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(307, 7);
+            this.label12.Location = new System.Drawing.Point(409, 9);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(479, 49);
+            this.label12.Size = new System.Drawing.Size(639, 60);
             this.label12.TabIndex = 7;
             this.label12.Text = "Informes Médicos";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -61,17 +62,19 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1223, 57);
+            this.panel3.Size = new System.Drawing.Size(1631, 70);
             this.panel3.TabIndex = 248;
             // 
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(27, 39);
+            this.label13.Location = new System.Drawing.Point(36, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(390, 77);
+            this.label13.Size = new System.Drawing.Size(520, 95);
             this.label13.TabIndex = 6;
             this.label13.Text = "Crystal Clear";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,11 +88,12 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnImprimir.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(973, 496);
+            this.btnImprimir.Location = new System.Drawing.Point(1297, 610);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(141, 73);
+            this.btnImprimir.Size = new System.Drawing.Size(188, 90);
             this.btnImprimir.TabIndex = 252;
-            this.btnImprimir.Text = "imprimir";
+            this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -102,9 +106,10 @@
             this.btnCancelar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar_informe.Location = new System.Drawing.Point(973, 416);
+            this.btnCancelar_informe.Location = new System.Drawing.Point(1297, 512);
+            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar_informe.Name = "btnCancelar_informe";
-            this.btnCancelar_informe.Size = new System.Drawing.Size(141, 73);
+            this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar_informe.TabIndex = 251;
             this.btnCancelar_informe.Text = "Cancelar";
             this.btnCancelar_informe.UseVisualStyleBackColor = false;
@@ -118,9 +123,10 @@
             this.btnGuardar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGuardar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar_informe.Location = new System.Drawing.Point(973, 345);
+            this.btnGuardar_informe.Location = new System.Drawing.Point(1297, 425);
+            this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar_informe.Name = "btnGuardar_informe";
-            this.btnGuardar_informe.Size = new System.Drawing.Size(141, 64);
+            this.btnGuardar_informe.Size = new System.Drawing.Size(188, 79);
             this.btnGuardar_informe.TabIndex = 249;
             this.btnGuardar_informe.Text = "Guardar";
             this.btnGuardar_informe.UseVisualStyleBackColor = false;
@@ -134,9 +140,10 @@
             this.btnNuevo_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo_informe.Location = new System.Drawing.Point(973, 275);
+            this.btnNuevo_informe.Location = new System.Drawing.Point(1297, 338);
+            this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNuevo_informe.Name = "btnNuevo_informe";
-            this.btnNuevo_informe.Size = new System.Drawing.Size(141, 64);
+            this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
             this.btnNuevo_informe.TabIndex = 250;
             this.btnNuevo_informe.Text = "Nuevo";
             this.btnNuevo_informe.UseVisualStyleBackColor = false;
@@ -147,10 +154,9 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.CadetBlue;
             this.label8.ForeColor = System.Drawing.Color.MintCream;
-            this.label8.Location = new System.Drawing.Point(243, 102);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(324, 126);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.Size = new System.Drawing.Size(24, 17);
             this.label8.TabIndex = 282;
             this.label8.Text = "🔎";
             // 
@@ -159,48 +165,48 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(62, 97);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(83, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 25);
+            this.label4.Size = new System.Drawing.Size(85, 32);
             this.label4.TabIndex = 226;
             this.label4.Text = "Cedula";
             // 
             // txtNumero_Cedula
             // 
             this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNumero_Cedula.Location = new System.Drawing.Point(130, 100);
+            this.txtNumero_Cedula.Location = new System.Drawing.Point(173, 123);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumero_Cedula.Mask = "##,###,###";
             this.txtNumero_Cedula.Name = "txtNumero_Cedula";
-            this.txtNumero_Cedula.Size = new System.Drawing.Size(108, 20);
+            this.txtNumero_Cedula.Size = new System.Drawing.Size(143, 22);
             this.txtNumero_Cedula.TabIndex = 231;
             this.txtNumero_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_Cedula_KeyPress);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(66, 140);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(88, 181);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(862, 539);
+            this.richTextBox1.Size = new System.Drawing.Size(1148, 653);
             this.richTextBox1.TabIndex = 283;
             this.richTextBox1.Text = "";
             // 
             // lbl_idhistoria
             // 
             this.lbl_idhistoria.AutoSize = true;
-            this.lbl_idhistoria.Location = new System.Drawing.Point(423, 102);
-            this.lbl_idhistoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_idhistoria.Location = new System.Drawing.Point(564, 126);
             this.lbl_idhistoria.Name = "lbl_idhistoria";
-            this.lbl_idhistoria.Size = new System.Drawing.Size(64, 13);
+            this.lbl_idhistoria.Size = new System.Drawing.Size(87, 17);
             this.lbl_idhistoria.TabIndex = 284;
             this.lbl_idhistoria.Text = "lbl_idhistoria";
             // 
             // frmInformesMedicos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1223, 640);
+            this.ClientSize = new System.Drawing.Size(1631, 788);
             this.Controls.Add(this.lbl_idhistoria);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label8);
@@ -212,7 +218,7 @@
             this.Controls.Add(this.btnGuardar_informe);
             this.Controls.Add(this.btnNuevo_informe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmInformesMedicos";
             this.Text = "frmInformesMedicos";
             this.Load += new System.EventHandler(this.frmInformesMedicos_Load);

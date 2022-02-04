@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -526,14 +527,11 @@ namespace CapaPresentacion
             }
         }
 
-
-
-
-
-
-
-
-
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteServicios frm = new frmReporteServicios();
+            frm.Show();
+        }
     }
 
 

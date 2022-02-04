@@ -67,6 +67,7 @@
             this.txtNombre_Medico = new System.Windows.Forms.TextBox();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.btnReporte = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
@@ -237,7 +238,7 @@
             this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(1273, 482);
+            this.btnAnular.Location = new System.Drawing.Point(153, 704);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(121, 43);
@@ -331,7 +332,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(147, 700);
+            this.lblTotal.Location = new System.Drawing.Point(281, 709);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(74, 32);
             this.lblTotal.TabIndex = 223;
@@ -526,12 +527,31 @@
             this.txtCorreo.Size = new System.Drawing.Size(265, 22);
             this.txtCorreo.TabIndex = 3;
             // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnReporte.FlatAppearance.BorderSize = 0;
+            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnReporte.ForeColor = System.Drawing.Color.White;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(1020, 709);
+            this.btnReporte.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(227, 43);
+            this.btnReporte.TabIndex = 231;
+            this.btnReporte.Text = "Generar Reporte";
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // frmMedicosConfianza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1457, 826);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtEspecialidad);
             this.Controls.Add(this.txtNombre_Medico);
@@ -607,5 +627,6 @@
         private System.Windows.Forms.TextBox txtNombre_Medico;
         private System.Windows.Forms.TextBox txtEspecialidad;
         private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Button btnReporte;
     }
 }

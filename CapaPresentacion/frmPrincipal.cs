@@ -58,8 +58,9 @@ namespace CapaPresentacion
                 this.btnOperaciones.Enabled = true;
                 this.btnHerramientasAdmin.Enabled = false;
                 this.btnControlEstadistico.Enabled = true;
+                this.btnInformeMedico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
-                this.btnInformeMedicoRef.Enabled = true;
+                this.btnEstudios.Enabled = true;
                 this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
@@ -78,8 +79,9 @@ namespace CapaPresentacion
                 this.btnOperaciones.Enabled = false;
                 this.btnHerramientasAdmin.Enabled = false;
                 this.btnControlEstadistico.Enabled = false;
+                this.btnInformeMedico.Enabled = false;
                 this.btnMedicosConfianza.Enabled = false;
-                this.btnInformeMedicoRef.Enabled = false;
+                this.btnEstudios.Enabled = false;
                 this.btnReportes.Enabled = false;
                 this.btnArchivoMuerto.Enabled = false;
                 this.btnPapelera.Enabled = false;
@@ -100,7 +102,8 @@ namespace CapaPresentacion
                 this.btnHerramientasAdmin.Enabled = true;
                 this.btnControlEstadistico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
-                this.btnInformeMedicoRef.Enabled = true;
+                this.btnInformeMedico.Enabled = true;
+                this.btnEstudios.Enabled = true;
                 this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
@@ -421,6 +424,11 @@ namespace CapaPresentacion
         private void btnInformeMedico_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new frmInformesMedicos());
+        }
+
+        private void btnEstudios_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmEstudios());
         }
     }
 }

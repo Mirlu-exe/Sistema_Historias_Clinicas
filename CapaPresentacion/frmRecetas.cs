@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaNegocio;
 using CapaDatos;
+using CapaPresentacion.Reportes;
 
 
 namespace CapaPresentacion
@@ -82,10 +83,6 @@ namespace CapaPresentacion
             this.txtDosis.Text = string.Empty;
 
 
-
-
-
-
         }
 
         //Habilitar los controles del formulario
@@ -147,7 +144,7 @@ namespace CapaPresentacion
             this.dataListado.DataSource = NReceta.Mostrar();
            
             this.OcultarColumnas();
-            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro en las Citas"); }
+            if (dataListado.Rows.Count == 0) { MessageBox.Show("Actualmente no tiene ningun registro"); }
             lblTotal.Text = "Total de Recetas: " + Convert.ToString(dataListado.Rows.Count);
         }
 
@@ -892,6 +889,12 @@ namespace CapaPresentacion
         private void txtDosis_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteMedicamentos frm = new frmReporteMedicamentos();
+            frm.Show();
         }
     }
     

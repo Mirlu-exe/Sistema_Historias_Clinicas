@@ -36,7 +36,6 @@
             this.btnArchivoMuerto = new System.Windows.Forms.Button();
             this.btnMedicosConfianza = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.btnInformeMedicoRef = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnControlEstadistico = new System.Windows.Forms.Button();
             this.btnHerramientasAdmin = new System.Windows.Forms.Button();
@@ -63,6 +62,7 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.btnEstudios = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -77,12 +77,12 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.MenuVertical.Controls.Add(this.btnEstudios);
             this.MenuVertical.Controls.Add(this.btnInformeMedico);
             this.MenuVertical.Controls.Add(this.btnPapelera);
             this.MenuVertical.Controls.Add(this.btnArchivoMuerto);
             this.MenuVertical.Controls.Add(this.btnMedicosConfianza);
             this.MenuVertical.Controls.Add(this.button7);
-            this.MenuVertical.Controls.Add(this.btnInformeMedicoRef);
             this.MenuVertical.Controls.Add(this.btnReportes);
             this.MenuVertical.Controls.Add(this.btnControlEstadistico);
             this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
@@ -172,7 +172,7 @@
             this.btnMedicosConfianza.ForeColor = System.Drawing.Color.White;
             this.btnMedicosConfianza.Image = global::CapaPresentacion.Properties.Resources.heart_1_smoll;
             this.btnMedicosConfianza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMedicosConfianza.Location = new System.Drawing.Point(-4, 450);
+            this.btnMedicosConfianza.Location = new System.Drawing.Point(-4, 507);
             this.btnMedicosConfianza.Margin = new System.Windows.Forms.Padding(4);
             this.btnMedicosConfianza.Name = "btnMedicosConfianza";
             this.btnMedicosConfianza.Size = new System.Drawing.Size(364, 49);
@@ -198,24 +198,6 @@
             this.button7.Text = "         Cerrar Sesión";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // btnInformeMedicoRef
-            // 
-            this.btnInformeMedicoRef.FlatAppearance.BorderSize = 0;
-            this.btnInformeMedicoRef.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnInformeMedicoRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformeMedicoRef.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnInformeMedicoRef.ForeColor = System.Drawing.Color.White;
-            this.btnInformeMedicoRef.Image = global::CapaPresentacion.Properties.Resources.list_3_smoll;
-            this.btnInformeMedicoRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInformeMedicoRef.Location = new System.Drawing.Point(-4, 507);
-            this.btnInformeMedicoRef.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInformeMedicoRef.Name = "btnInformeMedicoRef";
-            this.btnInformeMedicoRef.Size = new System.Drawing.Size(364, 49);
-            this.btnInformeMedicoRef.TabIndex = 41;
-            this.btnInformeMedicoRef.Text = "          Referencia Médica";
-            this.btnInformeMedicoRef.UseVisualStyleBackColor = true;
-            this.btnInformeMedicoRef.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnReportes
             // 
@@ -338,7 +320,7 @@
             this.btnHistorias.ForeColor = System.Drawing.Color.White;
             this.btnHistorias.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorias.Image")));
             this.btnHistorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorias.Location = new System.Drawing.Point(-4, 393);
+            this.btnHistorias.Location = new System.Drawing.Point(-4, 450);
             this.btnHistorias.Margin = new System.Windows.Forms.Padding(4);
             this.btnHistorias.Name = "btnHistorias";
             this.btnHistorias.Size = new System.Drawing.Size(364, 49);
@@ -356,7 +338,7 @@
             this.btnRecetas.ForeColor = System.Drawing.Color.White;
             this.btnRecetas.Image = global::CapaPresentacion.Properties.Resources.bowl_1_smoll;
             this.btnRecetas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecetas.Location = new System.Drawing.Point(-4, 336);
+            this.btnRecetas.Location = new System.Drawing.Point(-4, 393);
             this.btnRecetas.Margin = new System.Windows.Forms.Padding(4);
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(364, 49);
@@ -607,6 +589,24 @@
             // 
             this.ttMensaje.IsBalloon = true;
             // 
+            // btnEstudios
+            // 
+            this.btnEstudios.FlatAppearance.BorderSize = 0;
+            this.btnEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnEstudios.ForeColor = System.Drawing.Color.White;
+            this.btnEstudios.Image = ((System.Drawing.Image)(resources.GetObject("btnEstudios.Image")));
+            this.btnEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstudios.Location = new System.Drawing.Point(-4, 336);
+            this.btnEstudios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEstudios.Name = "btnEstudios";
+            this.btnEstudios.Size = new System.Drawing.Size(364, 49);
+            this.btnEstudios.TabIndex = 46;
+            this.btnEstudios.Text = "     Estudios";
+            this.btnEstudios.UseVisualStyleBackColor = true;
+            this.btnEstudios.Click += new System.EventHandler(this.btnEstudios_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -664,10 +664,10 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnControlEstadistico;
         private System.Windows.Forms.Button btnReportes;
-        private System.Windows.Forms.Button btnInformeMedicoRef;
         private System.Windows.Forms.Button btnMedicosConfianza;
         private System.Windows.Forms.Button btnArchivoMuerto;
         private System.Windows.Forms.Button btnPapelera;
         private System.Windows.Forms.Button btnInformeMedico;
+        private System.Windows.Forms.Button btnEstudios;
     }
 }

@@ -130,14 +130,14 @@ namespace CapaDatos
                 SqlParameter ParMotivo = new SqlParameter();
                 ParMotivo.ParameterName = "@motivo_consulta";
                 ParMotivo.SqlDbType = SqlDbType.VarChar;
-                ParMotivo.Size = 100;
+                ParMotivo.Size = 400;
                 ParMotivo.Value = Evolucion.motivo_consulta;
                 SqlCmd.Parameters.Add(ParMotivo);
 
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
                 ParDiagnosticos.SqlDbType = SqlDbType.VarChar;
-                ParDiagnosticos.Size = 200;
+                ParDiagnosticos.Size = 800;
                 ParDiagnosticos.Value = Evolucion.diagnosticos;
                 SqlCmd.Parameters.Add(ParDiagnosticos);
 
@@ -158,14 +158,14 @@ namespace CapaDatos
                 SqlParameter ParObservaciones = new SqlParameter();
                 ParObservaciones.ParameterName = "@observaciones";
                 ParObservaciones.SqlDbType = SqlDbType.VarChar;
-                ParObservaciones.Size = 300;
+                ParObservaciones.Size = 400;
                 ParObservaciones.Value = Evolucion.observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
                 SqlParameter ParFecha_Prox_Consulta = new SqlParameter();
                 ParFecha_Prox_Consulta.ParameterName = "@prox_consulta";
                 ParFecha_Prox_Consulta.SqlDbType = SqlDbType.VarChar;
-                ParFecha_Prox_Consulta.Size = 8;
+                ParFecha_Prox_Consulta.Size = 100;
                 ParFecha_Prox_Consulta.Value = Evolucion.prox_consulta;
                 SqlCmd.Parameters.Add(ParFecha_Prox_Consulta);
 
@@ -270,14 +270,14 @@ namespace CapaDatos
                 SqlParameter ParEdad_suc = new SqlParameter();
                 ParEdad_suc.ParameterName = "@edad_suc";
                 ParEdad_suc.SqlDbType = SqlDbType.VarChar;
-                ParEdad_suc.Size = 11;
+                ParEdad_suc.Size = 10;
                 ParEdad_suc.Value = Evolucion.edad_suc;
                 SqlCmd.Parameters.Add(ParEdad_suc);
 
                 SqlParameter ParDiagnosticos = new SqlParameter();
                 ParDiagnosticos.ParameterName = "@diagnosticos";
                 ParDiagnosticos.SqlDbType = SqlDbType.VarChar;
-                ParDiagnosticos.Size = 10;
+                ParDiagnosticos.Size = 800;
                 ParDiagnosticos.Value = Evolucion.diagnosticos;
                 SqlCmd.Parameters.Add(ParDiagnosticos);
 
@@ -298,7 +298,7 @@ namespace CapaDatos
                 SqlParameter ParObservaciones = new SqlParameter();
                 ParObservaciones.ParameterName = "@observaciones";
                 ParObservaciones.SqlDbType = SqlDbType.VarChar;
-                ParObservaciones.Size = 10;
+                ParObservaciones.Size = 400;
                 ParObservaciones.Value = Evolucion.observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 

@@ -47,8 +47,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-           
-            
+
 
             this.ttMensaje.SetToolTip(this.dtpFechaConsulta, "Ingrese la fecha de consulta");
 
@@ -94,6 +93,7 @@ namespace CapaPresentacion
             autocompletar_diagnosticos_evol();
 
             this.MostrarHistoriasActivas();
+            this.MostrarEvolucionesActivas();
 
             
 
@@ -116,7 +116,6 @@ namespace CapaPresentacion
             Gestionar_PlanTerapeutico_Evolucion();
             
             MostrarFechasActivas();
-           
 
 
         }
@@ -264,11 +263,16 @@ namespace CapaPresentacion
             this.txtecg.Enabled = true;
             this.txtParaclinicos.Enabled = true;
             this.txtEcocardiograma.Enabled = true;
-            this.btnVerPlanEstudio.Enabled = true;
-            this.btnVerPlanTerapeutico.Enabled = true;
+            //this.btnVerPlanEstudio.Enabled = true;
+            //this.btnVerPlanTerapeutico.Enabled = true;
             this.cblTipo_Sangre.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales.Enabled = true;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
+
         }
 
         //Habilitar los controles del formulario
@@ -284,12 +288,16 @@ namespace CapaPresentacion
             this.txtecg.Enabled = false;
             this.txtParaclinicos.Enabled = false;
             this.txtEcocardiograma.Enabled = false;
-            this.btnVerPlanEstudio.Enabled = false;
-            this.btnVerPlanTerapeutico.Enabled = false;
+            //this.btnVerPlanEstudio.Enabled = false;
+            //this.btnVerPlanTerapeutico.Enabled = false;
             this.cblTipo_Sangre.Enabled = false;
             this.txtDiagnosticos.Enabled = false;
             this.listboxDiagnosticosFinales.Enabled = false;
             this.cblTipo_Sangre.SelectedIndex = 0;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
         }
 
 
@@ -317,7 +325,40 @@ namespace CapaPresentacion
         }
 
 
+        private void RevisarSiListboxEstaVacio()
+        {
 
+            //historias
+
+            int cant_items_diagnosticos_historia = this.listboxDiagnosticosFinales.Items.Count;
+
+            if (cant_items_diagnosticos_historia < 1)
+            {
+                this.btnVerPlanEstudio.Enabled = false;
+                this.btnVerPlanTerapeutico.Enabled = false;
+            }
+            else
+            {
+                this.btnVerPlanEstudio.Enabled = true;
+                this.btnVerPlanTerapeutico.Enabled = true;
+            }
+
+
+
+            //evoluciones
+            int cant_items_diagnosticos_evol = this.listboxDiagnosticosFinales_Evol.Items.Count;
+
+            if (cant_items_diagnosticos_evol < 1)
+            {
+                this.btnVerPlanEstudioEvol.Enabled = false;
+                this.btnVerPlanTerapeuticoEvol.Enabled = false;
+            }
+            else
+            {
+                this.btnVerPlanEstudioEvol.Enabled = true;
+                this.btnVerPlanTerapeuticoEvol.Enabled = true;
+            }
+        }
 
 
 
@@ -463,8 +504,50 @@ namespace CapaPresentacion
             lblHistoriasActivas.Text = "Total de Historias : " + Convert.ToString(datalistadohistorias.Rows.Count);
         }
 
+        //Método Mostrar Todas las Evoluciones
+        private void MostrarEvolucionesActivas()
+        {
 
-        
+
+            string Cn = "Data Source=MIRLU\\SQLEXPRESS; Initial Catalog=dbclinica; Integrated Security=true";
+            SqlConnection conDataBase = new SqlConnection(Cn);
+            SqlCommand cmdDataBase = new SqlCommand("SELECT * FROM Evoluciones WHERE Estado = 'Activo'; ", conDataBase);
+
+
+
+
+
+            try
+            {
+
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dgv_lista_evol.DataSource = bSource;
+                sda.Update(dbdataset);
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show("Ha ocurrido un error" + ex);
+            }
+
+
+
+            //OcultarColumnas();
+
+
+
+            this.lblEvolTotales.Text = "Total de Evoluciones : " + Convert.ToString(dgv_lista_evol.Rows.Count);
+        }
+
 
         void autocompletar_diagnosticos()
         {
@@ -785,8 +868,6 @@ namespace CapaPresentacion
         {
 
 
-           DateTime fecha1 = DtpFecha1.Value;
-           DateTime fecha2 = DtpFecha2.Value;
 
 
 
@@ -1450,14 +1531,15 @@ namespace CapaPresentacion
 
             SqlCommand SqlCmd2 = new SqlCommand();
             SqlCmd2.Connection = SqlCon2;
-            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
+            SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion, usuario) values (@d1,@d2,@d3)";
 
 
 
 
 
             SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-            SqlCmd2.Parameters.AddWithValue("@d2", "Se editó una historia clinica");
+            SqlCmd2.Parameters.AddWithValue("@d2", "El usuario " + Session_Actual.Log + " ha Editado una historia. ");
+            SqlCmd2.Parameters.AddWithValue("@d3", Session_Actual.Log);
 
 
 
@@ -1918,6 +2000,9 @@ namespace CapaPresentacion
 
                         this.Focus();
 
+                        //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                        RevisarSiListboxEstaVacio();
+
                         break;
                     }
                 }
@@ -1926,12 +2011,20 @@ namespace CapaPresentacion
                 {
                     listboxDiagnosticosFinales.Items.Add(diagnostico);
                     this.txtDiagnosticos.Text = string.Empty;
+
+                    //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                    RevisarSiListboxEstaVacio();
+
                 }
 
 
             }
             else
             {
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
+
                 //si el texto escrito NO existe en la base de datos de Diagnosticos
                 MessageBox.Show("ERROR! El diagnostico '" + diagnostico + "' no se encuentra en la base de datos. Porfavor, verifique el texto ingresado.");
 
@@ -1977,6 +2070,9 @@ namespace CapaPresentacion
             {
                 //quitar el item del listbox
                 listboxDiagnosticosFinales.Items.RemoveAt(posicion);
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
             }
         }
 
@@ -2182,6 +2278,7 @@ namespace CapaPresentacion
                             this.txtExamenFisico.Text, this.txtLaboratorio.Text, this.txtecg.Text, this.txtParaclinicos.Text, this.txtEcocardiograma.Text, this.cblTipo_Sangre.Text, cadenaDiagnosticos, idPlanEstudio, idPlanTerapeutico, this.cmbEstadoHistoria.Text);
 
 
+
                         //}
                         //else
                         //{
@@ -2305,12 +2402,16 @@ namespace CapaPresentacion
             this.txtParaclinicosEvol.Enabled = true;
             this.txtEcocardiogramaEvol.Enabled = true;
             this.txtEkgEvol.Enabled = true;
-            this.btnVerPlanTerapeuticoEvol.Enabled = true;
-            this.btnVerPlanEstudioEvol.Enabled = true;
+            //this.btnVerPlanTerapeuticoEvol.Enabled = true;
+            //this.btnVerPlanEstudioEvol.Enabled = true;
             this.txtDiagnosticos.Enabled = true;
             this.listboxDiagnosticosFinales_Evol.Enabled = true;
             this.btnAnadirEvol.Enabled = true;
             this.btnQuitarDiag_Evol.Enabled = true;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
+
 
         }
 
@@ -2332,6 +2433,9 @@ namespace CapaPresentacion
             this.listboxDiagnosticosFinales_Evol.Enabled = false;
             this.btnAnadirEvol.Enabled = false;
             this.btnQuitarDiag_Evol.Enabled = false;
+
+            //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+            RevisarSiListboxEstaVacio();
 
         }
 
@@ -2417,6 +2521,9 @@ namespace CapaPresentacion
 
                         this.Focus();
 
+                        //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                        RevisarSiListboxEstaVacio();
+
                         break;
                     }
                 }
@@ -2424,12 +2531,19 @@ namespace CapaPresentacion
                 {
                     listboxDiagnosticosFinales_Evol.Items.Add(diagnostico);
                     this.txtDiagnosticosEvol.Text = string.Empty;
+
+                    //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                    RevisarSiListboxEstaVacio();
                 }
 
 
             }
             else
             {
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
+
                 //si el texto escrito NO existe en la base de datos de Diagnosticos
                 MessageBox.Show("ERROR! El diagnostico '" + diagnostico + "' no se encuentra en la base de datos. Porfavor, verifique el texto ingresado.");
 
@@ -2475,6 +2589,9 @@ namespace CapaPresentacion
             {
                 //quitar el item del listbox
                 listboxDiagnosticosFinales_Evol.Items.RemoveAt(posicion);
+
+                //esto revisara si los diagnosticos estan añadidos antes de habilitar plan estudio/plan terapeutico
+                RevisarSiListboxEstaVacio();
             }
         }
 
@@ -2724,13 +2841,20 @@ namespace CapaPresentacion
 
             int id_del_pac = 0;
 
-            if (paciente_tabla.Rows.Count == 0)
+            if (paciente_tabla.Rows.Count == 0 )
             {
-                //MessageBox.Show("no existe ese paciente");
+                
+                
                 id_del_pac = 0;
             }
             else
             {
+
+
+                //if (dgv_Lista_Evoluciones_de_pac.Rows.Count == 0  ) 
+                //{
+
+                //    MessageBox.Show("Este paciente no posee ninguna evolucion");
 
                 id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
                 string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
@@ -2741,8 +2865,24 @@ namespace CapaPresentacion
                 this.txtNombre_Evol.Text = nombre_del_pac;
                 this.txtSexoEvol.Text = sexo_del_pac;
 
-                //aca deberia ir una minifuncion para calcular la edad aproximada del paciente
-                //CalcularEdadSuc();
+                //    //aca deberia ir una minifuncion para calcular la edad aproximada del paciente
+                //    //CalcularEdadSuc();
+
+                //}
+                //else 
+                //{
+
+                //    id_del_pac = Convert.ToInt32(paciente_tabla.Rows[0][0]);
+                //    string nombre_del_pac = Convert.ToString(paciente_tabla.Rows[0][1]);
+                //    string sexo_del_pac = Convert.ToString(paciente_tabla.Rows[0][5]);
+                //    this.dtpFechaNac_Evol.Text = Convert.ToString(paciente_tabla.Rows[0][4]);
+
+
+                //    this.txtNombre_Evol.Text = nombre_del_pac;
+                //    this.txtSexoEvol.Text = sexo_del_pac;
+
+                //}
+
 
 
             }
@@ -3071,6 +3211,8 @@ namespace CapaPresentacion
 
             if (id_del_paciente_a_cargar_evol > 0)
             {
+
+
                 this.lbl_idhistoria.Text = id_del_paciente_a_cargar_evol.ToString();
 
                 
@@ -3318,18 +3460,21 @@ namespace CapaPresentacion
 
             if (id_del_paciente_a_cargar_evol > 0)
             {
-                this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
+
+                    this.lbl_id_pac_frmEvol.Text = id_del_paciente_a_cargar_evol.ToString();
 
 
-                //para buscar el id de la historia correspondiente a este paciente.
-                int id_historia_del_pac_frmEvol;
+                    //para buscar el id de la historia correspondiente a este paciente.
+                    int id_historia_del_pac_frmEvol;
 
-                id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
+                    id_historia_del_pac_frmEvol = Buscar_idhistoria_segun_idpac(id_del_paciente_a_cargar_evol);
 
-                this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
+                    this.lbl_idhistoria_frmEvol.Text = id_historia_del_pac_frmEvol.ToString();
 
 
-                this.MostrarEvolucionesDelPac();
+
+                    this.MostrarEvolucionesDelPac();
+
 
 
             }
@@ -3507,16 +3652,16 @@ namespace CapaPresentacion
 
         {
 
-            frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
+            //frmListaEvolucionFechas frm = new frmListaEvolucionFechas();
 
-            FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
+            //FechasReportesEvolucion.Fecha1 = DtpFecha1.Value;
 
-            FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
+            //FechasReportesEvolucion.Fecha2 = DtpFecha2.Value;
 
             
-            frm.Show();
+            //frm.Show();
 
-            MessageBox.Show("jsdsd");
+            //MessageBox.Show("jsdsd");
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -3634,6 +3779,31 @@ namespace CapaPresentacion
             //    btnVerPlanEstudio.Enabled = false;
 
             //}
+
+        }
+
+        private void listboxDiagnosticosFinales_DataSourceChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
+        }
+
+        private void listboxDiagnosticosFinales_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
 
         }
     }

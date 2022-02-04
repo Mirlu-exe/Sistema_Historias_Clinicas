@@ -23,5 +23,10 @@ namespace CapaPresentacion
             this.spListaHistorialTotalTableAdapter.Fill(this.dsPrincipal.spListaHistorialTotal);
             this.reportViewer1.RefreshReport();
         }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

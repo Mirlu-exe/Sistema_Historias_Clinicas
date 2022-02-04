@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 
 using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Reportes;
 using Utilidades;
 
 namespace CapaPresentacion
@@ -868,6 +869,14 @@ namespace CapaPresentacion
 
 
         }
+
+        private void btnReporteUsuarios_Click(object sender, EventArgs e)
+        {
+            frmReporteUsuarios frm = new frmReporteUsuarios();
+            frm.Show();
+        }
+
+
     }
 
 

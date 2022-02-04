@@ -192,14 +192,14 @@ namespace CapaPresentacion
             if (this.lbFiltroTipo.SelectedItems[0].ToString() == "TODOS")
                 cantidadElegidos++;
 
-            //if (cantidadElegidos > 1 && rbGraficoTorta.Checked)
-            //{
+            if (cantidadElegidos > 1 && rbGraficoTorta.Checked)
+            {
 
-            //        MessageBox.Show("el grafico de tortas se debe de utilizar para 1 tipo de enfermedad o tipo de enfermedad");
-                
+                MessageBox.Show("el grafico de tortas se debe de utilizar para 1 tipo de enfermedad o tipo de enfermedad");
 
-            //    return;
-            //}
+
+                return;
+            }
 
             InhabilitarControlesGraficos();
 
@@ -230,41 +230,44 @@ namespace CapaPresentacion
                         DateTime fIni = DateTime.Now;
                         DateTime fFin = DateTime.Now;
                         string parteFecha = "";
-                        switch (this.cbRangoFecha.SelectedIndex)
+                        switch (this.cbRangoFecha.SelectedIndex) 
                         {
                             case 0: //Hoy
                                 fIni = DateTime.Now;
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy");
+                                //MessageBox.Show(parteFecha.ToString());
                                 break;
-                            case 1: //Esta semana
+                            case 1: //Ultimos 7 dias
                                 fIni = DateTime.Now.AddDays(-7);
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " +fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
-                                MessageBox.Show(parteFecha.ToString());
+                                //MessageBox.Show(parteFecha.ToString());
                                 break;
                             case 2: //ultimos 15 dias 
                                 fIni = DateTime.Now.AddDays(-15);
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+                                //MessageBox.Show(parteFecha.ToString());
                                 break;
                             case 3: //Este mes
                                 fIni = DateTime.Now.AddDays((DateTime.Now.Day - 1) * -1);
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+                                //MessageBox.Show(parteFecha.ToString());
                                 break;
                             case 4: //Este año
                                 string fecha_inicio_año = "01/01/" + Convert.ToString(DateTime.Now.Year) +"";
                                 fIni = Convert.ToDateTime(fecha_inicio_año);
                                 fFin = DateTime.Now;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
+                                //MessageBox.Show(parteFecha.ToString());
                                 break;
                             case 5: //Rango específico
                                 fIni = dpDesde.Value;
                                 fFin = dpHasta.Value;
                                 parteFecha = " del día " + fIni.ToString("dd/MM/yyyy") + " al " + fFin.ToString("dd/MM/yyyy");
-
-                                MessageBox.Show(parteFecha.ToString());
+                                //MessageBox.Show(parteFecha.ToString());
 
                                 if (Convert.ToInt32(fIni.ToString("yyyMMdd")) > Convert.ToInt32(fFin.ToString("yyyMMdd")))
                                 {
