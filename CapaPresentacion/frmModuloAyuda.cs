@@ -48,5 +48,10 @@ namespace CapaPresentacion
         {
             System.Diagnostics.Process.Start("https://drive.google.com/drive/u/0/folders/1G8cinwenhFmeDiVYBdMFqnaH8gbcohUK");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sistema de Historias Clinicas Electronicas 'Crystal Clear' desarrollado por Mirla Montaño para el consultorio del Cardiologo/Internista Dr. Félix Montaño - 2022");
+        }
     }
 }

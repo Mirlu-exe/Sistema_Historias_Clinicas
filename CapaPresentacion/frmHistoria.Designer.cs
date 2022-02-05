@@ -193,6 +193,7 @@
             this.lblEvolTotales = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgv_lista_evol = new System.Windows.Forms.DataGridView();
+            this.Anular_evol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -200,7 +201,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Anular_evol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -328,6 +328,7 @@
             this.lbl_id_pac_frmHistoria.Size = new System.Drawing.Size(22, 28);
             this.lbl_id_pac_frmHistoria.TabIndex = 295;
             this.lbl_id_pac_frmHistoria.Text = "0";
+            this.lbl_id_pac_frmHistoria.Visible = false;
             // 
             // label58
             // 
@@ -340,6 +341,7 @@
             this.label58.Size = new System.Drawing.Size(66, 28);
             this.label58.TabIndex = 294;
             this.label58.Text = "id pac:";
+            this.label58.Visible = false;
             // 
             // label57
             // 
@@ -423,6 +425,7 @@
             this.lbl_planterapeutico_id.Size = new System.Drawing.Size(232, 32);
             this.lbl_planterapeutico_id.TabIndex = 286;
             this.lbl_planterapeutico_id.Text = "lbl_planterapeutico_id";
+            this.lbl_planterapeutico_id.Visible = false;
             this.lbl_planterapeutico_id.TextChanged += new System.EventHandler(this.lbl_planterapeutico_id_TextChanged);
             // 
             // lbl_planestudio_id
@@ -435,6 +438,7 @@
             this.lbl_planestudio_id.Size = new System.Drawing.Size(191, 32);
             this.lbl_planestudio_id.TabIndex = 285;
             this.lbl_planestudio_id.Text = "lbl_planestudio_id";
+            this.lbl_planestudio_id.Visible = false;
             this.lbl_planestudio_id.TextChanged += new System.EventHandler(this.lbl_planestudio_id_TextChanged);
             // 
             // listboxDiagnosticosFinales
@@ -499,6 +503,7 @@
             this.lbl_idhistoria.Size = new System.Drawing.Size(22, 28);
             this.lbl_idhistoria.TabIndex = 279;
             this.lbl_idhistoria.Text = "0";
+            this.lbl_idhistoria.Visible = false;
             // 
             // label1
             // 
@@ -833,6 +838,7 @@
             this.label_hstra.Size = new System.Drawing.Size(97, 28);
             this.label_hstra.TabIndex = 88;
             this.label_hstra.Text = "id historia:";
+            this.label_hstra.Visible = false;
             // 
             // cmbEstadoHistoria
             // 
@@ -1458,6 +1464,7 @@
             this.lbl_id_planterapeutico_evol.Size = new System.Drawing.Size(283, 32);
             this.lbl_id_planterapeutico_evol.TabIndex = 295;
             this.lbl_id_planterapeutico_evol.Text = "lbl_id_planterapeutico_evol";
+            this.lbl_id_planterapeutico_evol.Visible = false;
             this.lbl_id_planterapeutico_evol.TextChanged += new System.EventHandler(this.lbl_id_planterapeutico_evol_TextChanged);
             // 
             // label47
@@ -1570,6 +1577,7 @@
             this.lbl_id_planestudio_evol.Size = new System.Drawing.Size(242, 32);
             this.lbl_id_planestudio_evol.TabIndex = 294;
             this.lbl_id_planestudio_evol.Text = "lbl_id_planestudio_evol";
+            this.lbl_id_planestudio_evol.Visible = false;
             this.lbl_id_planestudio_evol.TextChanged += new System.EventHandler(this.lbl_id_planestudio_evol_TextChanged);
             // 
             // label46
@@ -2365,6 +2373,14 @@
             this.dgv_lista_evol.TabIndex = 15;
             this.dgv_lista_evol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_lista_evol_CellContentClick);
             // 
+            // Anular_evol
+            // 
+            this.Anular_evol.HeaderText = "Anular";
+            this.Anular_evol.MinimumWidth = 6;
+            this.Anular_evol.Name = "Anular_evol";
+            this.Anular_evol.ReadOnly = true;
+            this.Anular_evol.Width = 125;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -2436,14 +2452,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // Anular_evol
-            // 
-            this.Anular_evol.HeaderText = "Anular";
-            this.Anular_evol.MinimumWidth = 6;
-            this.Anular_evol.Name = "Anular_evol";
-            this.Anular_evol.ReadOnly = true;
-            this.Anular_evol.Width = 125;
             // 
             // frmHistoria
             // 

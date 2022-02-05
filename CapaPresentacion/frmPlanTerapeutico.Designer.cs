@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndicaciones = new System.Windows.Forms.TextBox();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
@@ -45,7 +45,6 @@
             this.lbl_idplanterapeutico_historia = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.btnAsignarPlanTerapeutico = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnImprimirRecipe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCedulaPac_Terapeutico = new System.Windows.Forms.TextBox();
@@ -146,7 +145,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(1372, 337);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar.TabIndex = 246;
@@ -163,7 +162,7 @@
             this.btnNuevo_plan_terapeutico.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo_plan_terapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo_plan_terapeutico.Location = new System.Drawing.Point(1372, 121);
-            this.btnNuevo_plan_terapeutico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo_plan_terapeutico.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo_plan_terapeutico.Name = "btnNuevo_plan_terapeutico";
             this.btnNuevo_plan_terapeutico.Size = new System.Drawing.Size(188, 79);
             this.btnNuevo_plan_terapeutico.TabIndex = 244;
@@ -191,7 +190,6 @@
             this.tabPage1.Controls.Add(this.lbl_idplanterapeutico_historia);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.btnAsignarPlanTerapeutico);
-            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.btnImprimirRecipe);
             this.tabPage1.Controls.Add(this.btnCancelar);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -216,6 +214,7 @@
             this.lbl_idplanterapeutico_evol.Size = new System.Drawing.Size(22, 28);
             this.lbl_idplanterapeutico_evol.TabIndex = 282;
             this.lbl_idplanterapeutico_evol.Text = "0";
+            this.lbl_idplanterapeutico_evol.Visible = false;
             // 
             // lbl_idplanterapeutico_historia
             // 
@@ -227,6 +226,7 @@
             this.lbl_idplanterapeutico_historia.Size = new System.Drawing.Size(22, 28);
             this.lbl_idplanterapeutico_historia.TabIndex = 281;
             this.lbl_idplanterapeutico_historia.Text = "0";
+            this.lbl_idplanterapeutico_historia.Visible = false;
             // 
             // label16
             // 
@@ -239,6 +239,7 @@
             this.label16.Size = new System.Drawing.Size(105, 28);
             this.label16.TabIndex = 280;
             this.label16.Text = "ID del plan:";
+            this.label16.Visible = false;
             // 
             // btnAsignarPlanTerapeutico
             // 
@@ -250,30 +251,13 @@
             this.btnAsignarPlanTerapeutico.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAsignarPlanTerapeutico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAsignarPlanTerapeutico.Location = new System.Drawing.Point(1371, 207);
-            this.btnAsignarPlanTerapeutico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAsignarPlanTerapeutico.Margin = new System.Windows.Forms.Padding(4);
             this.btnAsignarPlanTerapeutico.Name = "btnAsignarPlanTerapeutico";
             this.btnAsignarPlanTerapeutico.Size = new System.Drawing.Size(188, 122);
             this.btnAsignarPlanTerapeutico.TabIndex = 249;
             this.btnAsignarPlanTerapeutico.Text = "☑ Guardar y asignar este Plan Terapeutico";
             this.btnAsignarPlanTerapeutico.UseVisualStyleBackColor = false;
             this.btnAsignarPlanTerapeutico.Click += new System.EventHandler(this.btnSeleccionarPlanTerapeutico_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.button3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(1371, 729);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(188, 90);
-            this.button3.TabIndex = 248;
-            this.button3.Text = "Imprimir Indicaciones";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // btnImprimirRecipe
             // 
@@ -284,12 +268,12 @@
             this.btnImprimirRecipe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnImprimirRecipe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnImprimirRecipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirRecipe.Location = new System.Drawing.Point(1371, 633);
-            this.btnImprimirRecipe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImprimirRecipe.Location = new System.Drawing.Point(1372, 573);
+            this.btnImprimirRecipe.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimirRecipe.Name = "btnImprimirRecipe";
             this.btnImprimirRecipe.Size = new System.Drawing.Size(188, 90);
             this.btnImprimirRecipe.TabIndex = 247;
-            this.btnImprimirRecipe.Text = "Imprimir Recipe";
+            this.btnImprimirRecipe.Text = "Imprimir ";
             this.btnImprimirRecipe.UseVisualStyleBackColor = false;
             this.btnImprimirRecipe.Click += new System.EventHandler(this.btnImprimirRecipe_Click);
             // 
@@ -622,7 +606,7 @@
             this.button1.ForeColor = System.Drawing.Color.DarkCyan;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(279, 69);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 43);
             this.button1.TabIndex = 239;
@@ -639,7 +623,7 @@
             this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAnular.Location = new System.Drawing.Point(1351, 245);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(121, 43);
             this.btnAnular.TabIndex = 237;
@@ -656,7 +640,7 @@
             "Nombre",
             "Especialidad"});
             this.cblBusqueda.Location = new System.Drawing.Point(1001, 150);
-            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cblBusqueda.Name = "cblBusqueda";
             this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
             this.cblBusqueda.TabIndex = 236;
@@ -667,50 +651,50 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataListado.ColumnHeadersHeight = 50;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Anular});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataListado.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
             this.dataListado.Location = new System.Drawing.Point(17, 196);
             this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataListado.RowTemplate.Height = 24;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(1327, 610);
@@ -767,7 +751,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(1351, 194);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(121, 43);
             this.btnBuscar.TabIndex = 229;
@@ -793,7 +777,7 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1691, 52);
             this.panel3.TabIndex = 248;
@@ -823,7 +807,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1691, 788);
+            this.ClientSize = new System.Drawing.Size(1691, 887);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -899,7 +883,6 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.Label lbl_fecha_emision;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnImprimirRecipe;
         private System.Windows.Forms.Label lupa;
         private System.Windows.Forms.TextBox txtCedulaPac_Terapeutico;

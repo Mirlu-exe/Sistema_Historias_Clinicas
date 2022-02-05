@@ -62,7 +62,7 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1631, 70);
             this.panel3.TabIndex = 248;
@@ -89,7 +89,7 @@
             this.btnImprimir.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.Location = new System.Drawing.Point(1297, 610);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(188, 90);
             this.btnImprimir.TabIndex = 252;
@@ -107,7 +107,7 @@
             this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar_informe.Location = new System.Drawing.Point(1297, 512);
-            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar_informe.Name = "btnCancelar_informe";
             this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar_informe.TabIndex = 251;
@@ -124,7 +124,7 @@
             this.btnGuardar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar_informe.Location = new System.Drawing.Point(1297, 425);
-            this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar_informe.Name = "btnGuardar_informe";
             this.btnGuardar_informe.Size = new System.Drawing.Size(188, 79);
             this.btnGuardar_informe.TabIndex = 249;
@@ -141,7 +141,7 @@
             this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo_informe.Location = new System.Drawing.Point(1297, 338);
-            this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo_informe.Name = "btnNuevo_informe";
             this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
             this.btnNuevo_informe.TabIndex = 250;
@@ -175,7 +175,7 @@
             // 
             this.txtNumero_Cedula.BackColor = System.Drawing.SystemColors.Control;
             this.txtNumero_Cedula.Location = new System.Drawing.Point(173, 123);
-            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumero_Cedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero_Cedula.Mask = "##,###,###";
             this.txtNumero_Cedula.Name = "txtNumero_Cedula";
             this.txtNumero_Cedula.Size = new System.Drawing.Size(143, 22);
@@ -200,6 +200,7 @@
             this.lbl_idhistoria.Size = new System.Drawing.Size(87, 17);
             this.lbl_idhistoria.TabIndex = 284;
             this.lbl_idhistoria.Text = "lbl_idhistoria";
+            this.lbl_idhistoria.Visible = false;
             // 
             // frmInformesMedicos
             // 
