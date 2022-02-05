@@ -117,24 +117,24 @@
             this.btnRestaurarMedicos = new System.Windows.Forms.Button();
             this.dgv_Medicos = new System.Windows.Forms.DataGridView();
             this.Seleccionado_medicos = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dgv_estudios = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dgv_usuarios = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cblBusqueda = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dgv_estudios = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dgv_usuarios = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pacientes)).BeginInit();
@@ -152,11 +152,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Diagnosticos)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Medicos)).BeginInit();
-            this.panel3.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_estudios)).BeginInit();
+            this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -282,6 +282,7 @@
             this.btnBorrar_def_pac.TabIndex = 166;
             this.btnBorrar_def_pac.Text = "Borrar Definitivamente";
             this.btnBorrar_def_pac.UseVisualStyleBackColor = false;
+            this.btnBorrar_def_pac.Visible = false;
             this.btnBorrar_def_pac.Click += new System.EventHandler(this.btnBorrar_def_Click);
             // 
             // btnRestaurar_pac
@@ -1144,85 +1145,6 @@
             this.Seleccionado_medicos.ReadOnly = true;
             this.Seleccionado_medicos.Width = 125;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1809, 100);
-            this.panel3.TabIndex = 198;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.DimGray;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(551, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 60);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Papelera de reciclaje";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(1529, 140);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(113, 43);
-            this.btnBuscar.TabIndex = 202;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(1338, 157);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(176, 27);
-            this.txtBuscar.TabIndex = 203;
-            // 
-            // cblBusqueda
-            // 
-            this.cblBusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.cblBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.cblBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
-            this.cblBusqueda.FormattingEnabled = true;
-            this.cblBusqueda.Items.AddRange(new object[] {
-            "Nombre",
-            "Cedula"});
-            this.cblBusqueda.Location = new System.Drawing.Point(1171, 147);
-            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
-            this.cblBusqueda.Name = "cblBusqueda";
-            this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
-            this.cblBusqueda.TabIndex = 204;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label16.Location = new System.Drawing.Point(1006, 150);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(153, 32);
-            this.label16.TabIndex = 205;
-            this.label16.Text = "Buscar según:";
-            // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.checkBox8);
@@ -1235,19 +1157,6 @@
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Estudios";
             this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.checkBox9);
-            this.tabPage10.Controls.Add(this.button3);
-            this.tabPage10.Controls.Add(this.button4);
-            this.tabPage10.Controls.Add(this.dgv_usuarios);
-            this.tabPage10.Location = new System.Drawing.Point(4, 31);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1634, 676);
-            this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "Usuarios";
-            this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // checkBox8
             // 
@@ -1354,6 +1263,19 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Width = 125;
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.checkBox9);
+            this.tabPage10.Controls.Add(this.button3);
+            this.tabPage10.Controls.Add(this.button4);
+            this.tabPage10.Controls.Add(this.dgv_usuarios);
+            this.tabPage10.Location = new System.Drawing.Point(4, 31);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(1634, 676);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "Usuarios";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
@@ -1459,6 +1381,85 @@
             this.dataGridViewCheckBoxColumn2.ReadOnly = true;
             this.dataGridViewCheckBoxColumn2.Width = 125;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1809, 100);
+            this.panel3.TabIndex = 198;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.DimGray;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(551, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(519, 60);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Papelera de reciclaje";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(1529, 140);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(113, 43);
+            this.btnBuscar.TabIndex = 202;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(1338, 157);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(176, 27);
+            this.txtBuscar.TabIndex = 203;
+            // 
+            // cblBusqueda
+            // 
+            this.cblBusqueda.BackColor = System.Drawing.SystemColors.Control;
+            this.cblBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cblBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.cblBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
+            this.cblBusqueda.FormattingEnabled = true;
+            this.cblBusqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Cedula"});
+            this.cblBusqueda.Location = new System.Drawing.Point(1171, 147);
+            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.cblBusqueda.Name = "cblBusqueda";
+            this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
+            this.cblBusqueda.TabIndex = 204;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label16.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label16.Location = new System.Drawing.Point(1006, 150);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(153, 32);
+            this.label16.TabIndex = 205;
+            this.label16.Text = "Buscar según:";
+            // 
             // frmPapeleraReciclaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1501,13 +1502,13 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Medicos)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_estudios)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_estudios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
