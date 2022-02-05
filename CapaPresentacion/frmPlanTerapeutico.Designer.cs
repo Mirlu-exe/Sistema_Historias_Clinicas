@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndicaciones = new System.Windows.Forms.TextBox();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
@@ -69,16 +64,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAñadir = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
-            this.cblBusqueda = new System.Windows.Forms.ComboBox();
-            this.dataListado = new System.Windows.Forms.DataGridView();
-            this.Anular = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.chkAnular = new System.Windows.Forms.CheckBox();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -91,8 +76,6 @@
             this.groupBox_Indicaciones.SuspendLayout();
             this.groupBox_Recipe.SuspendLayout();
             this.groupBox_Plan_Terapeutico_Lista.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.SuspendLayout();
@@ -173,7 +156,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-5, 59);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -577,187 +559,6 @@
             this.btnAñadir.UseVisualStyleBackColor = false;
             this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.btnAnular);
-            this.tabPage2.Controls.Add(this.cblBusqueda);
-            this.tabPage2.Controls.Add(this.dataListado);
-            this.tabPage2.Controls.Add(this.lblTotal);
-            this.tabPage2.Controls.Add(this.chkAnular);
-            this.tabPage2.Controls.Add(this.txtBuscar);
-            this.tabPage2.Controls.Add(this.btnBuscar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1587, 857);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Lista Total";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(279, 69);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 43);
-            this.button1.TabIndex = 239;
-            this.button1.Text = "Imprimir";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAnular.FlatAppearance.BorderSize = 0;
-            this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(1351, 245);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(121, 43);
-            this.btnAnular.TabIndex = 237;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.UseVisualStyleBackColor = false;
-            // 
-            // cblBusqueda
-            // 
-            this.cblBusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.cblBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.cblBusqueda.ForeColor = System.Drawing.Color.DarkCyan;
-            this.cblBusqueda.FormattingEnabled = true;
-            this.cblBusqueda.Items.AddRange(new object[] {
-            "Nombre",
-            "Especialidad"});
-            this.cblBusqueda.Location = new System.Drawing.Point(1001, 150);
-            this.cblBusqueda.Margin = new System.Windows.Forms.Padding(4);
-            this.cblBusqueda.Name = "cblBusqueda";
-            this.cblBusqueda.Size = new System.Drawing.Size(160, 40);
-            this.cblBusqueda.TabIndex = 236;
-            this.cblBusqueda.Text = "Nombre";
-            // 
-            // dataListado
-            // 
-            this.dataListado.AllowUserToAddRows = false;
-            this.dataListado.AllowUserToDeleteRows = false;
-            this.dataListado.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.dataListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataListado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataListado.ColumnHeadersHeight = 50;
-            this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Anular});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataListado.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dataListado.GridColor = System.Drawing.Color.DarkCyan;
-            this.dataListado.Location = new System.Drawing.Point(17, 196);
-            this.dataListado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataListado.MultiSelect = false;
-            this.dataListado.Name = "dataListado";
-            this.dataListado.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataListado.RowHeadersWidth = 80;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListado.RowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dataListado.RowTemplate.Height = 24;
-            this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(1327, 610);
-            this.dataListado.TabIndex = 235;
-            // 
-            // Anular
-            // 
-            this.Anular.HeaderText = "Anular";
-            this.Anular.MinimumWidth = 6;
-            this.Anular.Name = "Anular";
-            this.Anular.ReadOnly = true;
-            this.Anular.Width = 125;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.lblTotal.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTotal.Location = new System.Drawing.Point(15, 807);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(74, 32);
-            this.lblTotal.TabIndex = 234;
-            this.lblTotal.Text = "label3";
-            // 
-            // chkAnular
-            // 
-            this.chkAnular.AutoSize = true;
-            this.chkAnular.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.chkAnular.ForeColor = System.Drawing.Color.DarkCyan;
-            this.chkAnular.Location = new System.Drawing.Point(21, 156);
-            this.chkAnular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkAnular.Name = "chkAnular";
-            this.chkAnular.Size = new System.Drawing.Size(103, 36);
-            this.chkAnular.TabIndex = 233;
-            this.chkAnular.Text = "Anular";
-            this.chkAnular.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBuscar.Location = new System.Drawing.Point(1168, 162);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(176, 28);
-            this.txtBuscar.TabIndex = 232;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(1351, 194);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(121, 43);
-            this.btnBuscar.TabIndex = 229;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -830,9 +631,6 @@
             this.groupBox_Recipe.PerformLayout();
             this.groupBox_Plan_Terapeutico_Lista.ResumeLayout(false);
             this.groupBox_Plan_Terapeutico_Lista.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.ResumeLayout(false);
@@ -854,17 +652,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnAnular;
-        private System.Windows.Forms.ComboBox cblBusqueda;
-        private System.Windows.Forms.DataGridView dataListado;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Anular;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.CheckBox chkAnular;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;

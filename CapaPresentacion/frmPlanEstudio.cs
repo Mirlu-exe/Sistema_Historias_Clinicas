@@ -928,18 +928,18 @@ namespace CapaPresentacion
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
-            {
+            //if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
+            //{
               
-                if (dataListado.Rows.Count == 0) 
-                { MessageBox.Show("Actualmente no tiene ningun registro en plan de estudio"); }
+            //    if (dataListado.Rows.Count == 0) 
+            //    { MessageBox.Show("Actualmente no tiene ningun registro en plan de estudio"); }
 
-                else
-                {
+            //    else
+            //    {
 
-                }
+            //    }
 
-            }
+            //}
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
