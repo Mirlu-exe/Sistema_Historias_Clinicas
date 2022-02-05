@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnEstudios = new System.Windows.Forms.Button();
             this.btnInformeMedico = new System.Windows.Forms.Button();
             this.btnPapelera = new System.Windows.Forms.Button();
             this.btnArchivoMuerto = new System.Windows.Forms.Button();
             this.btnMedicosConfianza = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.btnControlEstadistico = new System.Windows.Forms.Button();
             this.btnHerramientasAdmin = new System.Windows.Forms.Button();
             this.btnConfigPersonal = new System.Windows.Forms.Button();
@@ -62,7 +62,6 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.btnEstudios = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -83,7 +82,6 @@
             this.MenuVertical.Controls.Add(this.btnArchivoMuerto);
             this.MenuVertical.Controls.Add(this.btnMedicosConfianza);
             this.MenuVertical.Controls.Add(this.button7);
-            this.MenuVertical.Controls.Add(this.btnReportes);
             this.MenuVertical.Controls.Add(this.btnControlEstadistico);
             this.MenuVertical.Controls.Add(this.btnHerramientasAdmin);
             this.MenuVertical.Controls.Add(this.btnConfigPersonal);
@@ -108,6 +106,24 @@
             this.MenuVertical.Size = new System.Drawing.Size(364, 1023);
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // btnEstudios
+            // 
+            this.btnEstudios.FlatAppearance.BorderSize = 0;
+            this.btnEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnEstudios.ForeColor = System.Drawing.Color.White;
+            this.btnEstudios.Image = ((System.Drawing.Image)(resources.GetObject("btnEstudios.Image")));
+            this.btnEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstudios.Location = new System.Drawing.Point(-4, 336);
+            this.btnEstudios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEstudios.Name = "btnEstudios";
+            this.btnEstudios.Size = new System.Drawing.Size(364, 49);
+            this.btnEstudios.TabIndex = 46;
+            this.btnEstudios.Text = "     Estudios";
+            this.btnEstudios.UseVisualStyleBackColor = true;
+            this.btnEstudios.Click += new System.EventHandler(this.btnEstudios_Click);
             // 
             // btnInformeMedico
             // 
@@ -136,7 +152,7 @@
             this.btnPapelera.ForeColor = System.Drawing.Color.White;
             this.btnPapelera.Image = ((System.Drawing.Image)(resources.GetObject("btnPapelera.Image")));
             this.btnPapelera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPapelera.Location = new System.Drawing.Point(0, 848);
+            this.btnPapelera.Location = new System.Drawing.Point(0, 792);
             this.btnPapelera.Margin = new System.Windows.Forms.Padding(4);
             this.btnPapelera.Name = "btnPapelera";
             this.btnPapelera.Size = new System.Drawing.Size(364, 49);
@@ -154,7 +170,7 @@
             this.btnArchivoMuerto.ForeColor = System.Drawing.Color.White;
             this.btnArchivoMuerto.Image = ((System.Drawing.Image)(resources.GetObject("btnArchivoMuerto.Image")));
             this.btnArchivoMuerto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchivoMuerto.Location = new System.Drawing.Point(0, 792);
+            this.btnArchivoMuerto.Location = new System.Drawing.Point(0, 735);
             this.btnArchivoMuerto.Margin = new System.Windows.Forms.Padding(4);
             this.btnArchivoMuerto.Name = "btnArchivoMuerto";
             this.btnArchivoMuerto.Size = new System.Drawing.Size(364, 49);
@@ -199,24 +215,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // btnReportes
-            // 
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = global::CapaPresentacion.Properties.Resources.medical_prescription_smoll;
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(-4, 678);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(364, 49);
-            this.btnReportes.TabIndex = 39;
-            this.btnReportes.Text = "   Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
             // btnControlEstadistico
             // 
             this.btnControlEstadistico.FlatAppearance.BorderSize = 0;
@@ -226,7 +224,7 @@
             this.btnControlEstadistico.ForeColor = System.Drawing.Color.White;
             this.btnControlEstadistico.Image = global::CapaPresentacion.Properties.Resources.statistics_smoll;
             this.btnControlEstadistico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnControlEstadistico.Location = new System.Drawing.Point(-4, 735);
+            this.btnControlEstadistico.Location = new System.Drawing.Point(-4, 678);
             this.btnControlEstadistico.Margin = new System.Windows.Forms.Padding(4);
             this.btnControlEstadistico.Name = "btnControlEstadistico";
             this.btnControlEstadistico.Size = new System.Drawing.Size(364, 49);
@@ -589,24 +587,6 @@
             // 
             this.ttMensaje.IsBalloon = true;
             // 
-            // btnEstudios
-            // 
-            this.btnEstudios.FlatAppearance.BorderSize = 0;
-            this.btnEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnEstudios.ForeColor = System.Drawing.Color.White;
-            this.btnEstudios.Image = ((System.Drawing.Image)(resources.GetObject("btnEstudios.Image")));
-            this.btnEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstudios.Location = new System.Drawing.Point(-4, 336);
-            this.btnEstudios.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEstudios.Name = "btnEstudios";
-            this.btnEstudios.Size = new System.Drawing.Size(364, 49);
-            this.btnEstudios.TabIndex = 46;
-            this.btnEstudios.Text = "     Estudios";
-            this.btnEstudios.UseVisualStyleBackColor = true;
-            this.btnEstudios.Click += new System.EventHandler(this.btnEstudios_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -663,7 +643,6 @@
         private System.Windows.Forms.Button btnHerramientasAdmin;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.Button btnControlEstadistico;
-        private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnMedicosConfianza;
         private System.Windows.Forms.Button btnArchivoMuerto;
         private System.Windows.Forms.Button btnPapelera;

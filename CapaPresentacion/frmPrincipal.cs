@@ -61,7 +61,6 @@ namespace CapaPresentacion
                 this.btnInformeMedico.Enabled = true;
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnEstudios.Enabled = true;
-                this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Hide();
@@ -82,7 +81,6 @@ namespace CapaPresentacion
                 this.btnInformeMedico.Enabled = false;
                 this.btnMedicosConfianza.Enabled = false;
                 this.btnEstudios.Enabled = false;
-                this.btnReportes.Enabled = false;
                 this.btnArchivoMuerto.Enabled = false;
                 this.btnPapelera.Enabled = false;
                 this.btnHerramientasAdmin.Hide();
@@ -104,7 +102,6 @@ namespace CapaPresentacion
                 this.btnMedicosConfianza.Enabled = true;
                 this.btnInformeMedico.Enabled = true;
                 this.btnEstudios.Enabled = true;
-                this.btnReportes.Enabled = true;
                 this.btnArchivoMuerto.Enabled = true;
                 this.btnPapelera.Enabled = true;
                 this.btnHerramientasAdmin.Show();

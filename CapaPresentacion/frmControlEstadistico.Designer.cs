@@ -271,8 +271,7 @@
             this.cbTipoGrafico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoGrafico.FormattingEnabled = true;
             this.cbTipoGrafico.Items.AddRange(new object[] {
-            "Diagnósticos",
-            "Tipos de Enfermedades"});
+            "Diagnósticos"});
             this.cbTipoGrafico.Location = new System.Drawing.Point(35, 198);
             this.cbTipoGrafico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTipoGrafico.Name = "cbTipoGrafico";
