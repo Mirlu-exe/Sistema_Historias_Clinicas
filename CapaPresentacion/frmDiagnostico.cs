@@ -224,38 +224,6 @@ namespace CapaPresentacion
 
 
 
-                        // Operacion Insertar
-
-
-                        /*SqlConnection SqlCon2 = new SqlConnection();
-
-
-
-
-                        SqlCon2.ConnectionString = Conexion.Cn;
-                        SqlCon2.Open();
-
-                        SqlCommand SqlCmd2 = new SqlCommand();
-                        SqlCmd2.Connection = SqlCon2;
-                        SqlCmd2.CommandText = "insert into Operacion (fecha, descripcion) values (@d1,@d2)";
-
-
-
-
-
-                        SqlCmd2.Parameters.AddWithValue("@d1", DateTime.Now.ToString());
-                        SqlCmd2.Parameters.AddWithValue("@d2", "Se ha registrado un nuevo diagnostico al sistema");
-
-
-
-
-
-                        //Ejecutamos nuestro comando
-
-                        rpta2 = SqlCmd2.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";*/
-
-
-
 
 
 
@@ -336,7 +304,7 @@ namespace CapaPresentacion
             this.IsEditar = false;
             this.Botones();
             this.Limpiar();
-            this.Deshabilitar();;
+            this.Deshabilitar();
         }
 
         private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -607,6 +575,15 @@ namespace CapaPresentacion
         {
             frmReporteDiagnosticos frm = new frmReporteDiagnosticos();
             frm.Show();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
         }
     }
 }

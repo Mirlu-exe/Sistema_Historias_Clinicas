@@ -61,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReporte = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -449,12 +450,31 @@
             this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(16, 659);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(165, 55);
+            this.btnLimpiar.TabIndex = 201;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmRecetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1699, 921);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblCodPac);
@@ -522,5 +542,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

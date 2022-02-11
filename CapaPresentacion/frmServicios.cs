@@ -532,6 +532,15 @@ namespace CapaPresentacion
             frmReporteServicios frm = new frmReporteServicios();
             frm.Show();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(false);
+        }
     }
 
 

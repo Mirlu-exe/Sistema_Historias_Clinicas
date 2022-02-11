@@ -782,6 +782,16 @@ namespace CapaPresentacion
             frmReporteMedicosConfianza frm = new frmReporteMedicosConfianza();
             frm.Show();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.txtNombre_Medico.Text = string.Empty;
+            this.Deshabilitar();
+        }
     }
 
 

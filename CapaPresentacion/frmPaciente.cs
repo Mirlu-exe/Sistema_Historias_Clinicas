@@ -895,5 +895,36 @@ namespace CapaPresentacion
 
             }
         }
+
+        private void dtpFecha_Nacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            // Save today's date.
+            var today = DateTime.Today;
+
+            // Calculate the age.
+            var age = today.Year - dtpFecha_Nacimiento.Value.Year;
+
+            // Go back to the year in which the person was born in case of a leap year
+            if (dtpFecha_Nacimiento.Value.Date > today.AddYears(-age)) age--;
+
+            if (age <  12 ) 
+            {
+                MessageBox.Show("El paciente tiene que ser mayor a 12 años, para poder resivir una consulta");
+            }
+
+           // this.txtEdadSuc.Text = age.ToString();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.txtIdpaciente.Text = string.Empty;
+            this.Deshabilitar();
+
+        }
     }
 }

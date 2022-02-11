@@ -3922,5 +3922,25 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
+        }
+
+        private void btnLimpiarEvo_Click(object sender, EventArgs e)
+        {
+
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
+
+        }
     }
 }

@@ -1308,5 +1308,17 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(false);
+
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+        }
     }
 }

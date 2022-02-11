@@ -896,6 +896,15 @@ namespace CapaPresentacion
             frmReporteMedicamentos frm = new frmReporteMedicamentos();
             frm.Show();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
+        }
     }
     
 }

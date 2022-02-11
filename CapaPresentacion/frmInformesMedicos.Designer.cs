@@ -32,7 +32,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnCancelar_informe = new System.Windows.Forms.Button();
             this.btnGuardar_informe = new System.Windows.Forms.Button();
             this.btnNuevo_informe = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@
             this.txtNumero_Cedula = new System.Windows.Forms.MaskedTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lbl_idhistoria = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnImprimir.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(1297, 610);
+            this.btnImprimir.Location = new System.Drawing.Point(1297, 567);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(188, 90);
@@ -96,23 +96,6 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnCancelar_informe
-            // 
-            this.btnCancelar_informe.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar_informe.FlatAppearance.BorderSize = 0;
-            this.btnCancelar_informe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCancelar_informe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-            this.btnCancelar_informe.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnCancelar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar_informe.Location = new System.Drawing.Point(1297, 512);
-            this.btnCancelar_informe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar_informe.Name = "btnCancelar_informe";
-            this.btnCancelar_informe.Size = new System.Drawing.Size(188, 90);
-            this.btnCancelar_informe.TabIndex = 251;
-            this.btnCancelar_informe.Text = "Cancelar";
-            this.btnCancelar_informe.UseVisualStyleBackColor = false;
             // 
             // btnGuardar_informe
             // 
@@ -123,7 +106,7 @@
             this.btnGuardar_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnGuardar_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnGuardar_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar_informe.Location = new System.Drawing.Point(1297, 425);
+            this.btnGuardar_informe.Location = new System.Drawing.Point(1297, 382);
             this.btnGuardar_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar_informe.Name = "btnGuardar_informe";
             this.btnGuardar_informe.Size = new System.Drawing.Size(188, 79);
@@ -140,7 +123,7 @@
             this.btnNuevo_informe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnNuevo_informe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnNuevo_informe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo_informe.Location = new System.Drawing.Point(1297, 338);
+            this.btnNuevo_informe.Location = new System.Drawing.Point(1297, 295);
             this.btnNuevo_informe.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo_informe.Name = "btnNuevo_informe";
             this.btnNuevo_informe.Size = new System.Drawing.Size(188, 79);
@@ -202,12 +185,31 @@
             this.lbl_idhistoria.Text = "lbl_idhistoria";
             this.lbl_idhistoria.Visible = false;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(1297, 469);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(188, 90);
+            this.btnLimpiar.TabIndex = 285;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmInformesMedicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1631, 788);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lbl_idhistoria);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label8);
@@ -215,7 +217,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtNumero_Cedula);
             this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.btnCancelar_informe);
             this.Controls.Add(this.btnGuardar_informe);
             this.Controls.Add(this.btnNuevo_informe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -235,7 +236,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Button btnCancelar_informe;
         private System.Windows.Forms.Button btnGuardar_informe;
         private System.Windows.Forms.Button btnNuevo_informe;
         private System.Windows.Forms.Label label8;
@@ -243,5 +243,6 @@
         private System.Windows.Forms.MaskedTextBox txtNumero_Cedula;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lbl_idhistoria;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

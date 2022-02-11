@@ -641,17 +641,15 @@ namespace CapaPresentacion
         private void btnCancelar_informe_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void cbMedicosConfianza_Validated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtHistoriaPersonal_TextChanged(object sender, EventArgs e)
-        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+           // this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
 
         }
+
+
 
         private void cbMedicosConfianza_Leave(object sender, EventArgs e)
         {
@@ -718,6 +716,15 @@ namespace CapaPresentacion
 
             }
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.IsNuevo = false;
+            this.IsEditar = false;
+          //  this.Botones();
+            this.Limpiar();
+            this.Deshabilitar();
         }
     }
 }

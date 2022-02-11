@@ -88,6 +88,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -256,7 +257,7 @@
             this.txtHistoriaPersonal.ReadOnly = true;
             this.txtHistoriaPersonal.Size = new System.Drawing.Size(535, 88);
             this.txtHistoriaPersonal.TabIndex = 239;
-            this.txtHistoriaPersonal.TextChanged += new System.EventHandler(this.txtHistoriaPersonal_TextChanged);
+            
             // 
             // label27
             // 
@@ -473,6 +474,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.tabPage1.Controls.Add(this.btnLimpiar);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.btnCancelar_informe);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -497,7 +499,7 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.button2.ForeColor = System.Drawing.Color.DarkCyan;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1297, 340);
+            this.button2.Location = new System.Drawing.Point(1297, 438);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 90);
@@ -635,7 +637,7 @@
             this.cbMedicosConfianza.SelectionChangeCommitted += new System.EventHandler(this.cbMedicosConfianza_SelectionChangeCommitted);
             this.cbMedicosConfianza.DropDownClosed += new System.EventHandler(this.cbMedicosConfianza_DropDownClosed);
             this.cbMedicosConfianza.Leave += new System.EventHandler(this.cbMedicosConfianza_Leave);
-            this.cbMedicosConfianza.Validated += new System.EventHandler(this.cbMedicosConfianza_Validated);
+            
             // 
             // label5
             // 
@@ -879,6 +881,24 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(1297, 340);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(188, 90);
+            this.btnLimpiar.TabIndex = 248;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmInformesMedicosReferenciaMedicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -966,5 +986,6 @@
         private System.Windows.Forms.TextBox txtTelefonoMedico;
         private System.Windows.Forms.ComboBox cbMedicosConfianza;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

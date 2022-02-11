@@ -119,12 +119,12 @@ namespace CapaDatos
                 ParIddiagnostico.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIddiagnostico);
 
-                SqlParameter ParCodigo = new SqlParameter();
-                ParCodigo.ParameterName = "@codigo";
-                ParCodigo.SqlDbType = SqlDbType.VarChar;
-                ParCodigo.Size = 50;
-                ParCodigo.Value = Diagnostico.Codigo;
-                SqlCmd.Parameters.Add(ParCodigo);
+                //SqlParameter ParCodigo = new SqlParameter();
+                //ParCodigo.ParameterName = "@codigo";
+                //ParCodigo.SqlDbType = SqlDbType.VarChar;
+                //ParCodigo.Size = 50;
+                //ParCodigo.Value = Diagnostico.Codigo;
+                //SqlCmd.Parameters.Add(ParCodigo);
 
                 SqlParameter ParEnfermedad = new SqlParameter();
                 ParEnfermedad.ParameterName = "@enfermedad";
@@ -188,12 +188,12 @@ namespace CapaDatos
                 ParIddiagnostico.Value = Diagnostico.Iddiagnostico;
                 SqlCmd.Parameters.Add(ParIddiagnostico);
 
-                SqlParameter ParCodigo = new SqlParameter();
-                ParCodigo.ParameterName = "@codigo";
-                ParCodigo.SqlDbType = SqlDbType.VarChar;
-                ParCodigo.Size = 50;
-                ParCodigo.Value = Diagnostico.Codigo;
-                SqlCmd.Parameters.Add(ParCodigo);
+                //SqlParameter ParCodigo = new SqlParameter();
+                //ParCodigo.ParameterName = "@codigo";
+                //ParCodigo.SqlDbType = SqlDbType.VarChar;
+                //ParCodigo.Size = 50;
+                //ParCodigo.Value = Diagnostico.Codigo;
+                //SqlCmd.Parameters.Add(ParCodigo);
 
                 SqlParameter ParEnfermedad = new SqlParameter();
                 ParEnfermedad.ParameterName = "@enfermedad";

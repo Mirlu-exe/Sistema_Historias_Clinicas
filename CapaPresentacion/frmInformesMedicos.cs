@@ -285,5 +285,12 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNumero_Cedula.Clear();
+            lbl_idhistoria.Text = "";
+            richTextBox1.Clear();
+        }
     }
 }
