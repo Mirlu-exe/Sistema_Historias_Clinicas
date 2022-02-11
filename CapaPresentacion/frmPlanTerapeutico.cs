@@ -1026,5 +1026,20 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtIndicaciones.Clear();
+            cbDosis.SelectedIndex = -1;
+            cbPresentacion.SelectedIndex = -1;
+            cbMedicamento.Text = "";
+            
+
+        }
     }
 }

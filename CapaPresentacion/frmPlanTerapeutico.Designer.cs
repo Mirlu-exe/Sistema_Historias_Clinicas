@@ -69,6 +69,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             this.txtIndicaciones.BackColor = System.Drawing.SystemColors.Control;
             this.txtIndicaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIndicaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIndicaciones.Location = new System.Drawing.Point(23, 65);
             this.txtIndicaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIndicaciones.MaxLength = 400;
@@ -127,13 +129,14 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1372, 337);
+            this.btnCancelar.Location = new System.Drawing.Point(1371, 435);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(188, 90);
             this.btnCancelar.TabIndex = 246;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNuevo_plan_terapeutico
             // 
@@ -168,6 +171,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Teal;
+            this.tabPage1.Controls.Add(this.btnLimpiar);
             this.tabPage1.Controls.Add(this.lbl_idplanterapeutico_evol);
             this.tabPage1.Controls.Add(this.lbl_idplanterapeutico_historia);
             this.tabPage1.Controls.Add(this.label16);
@@ -250,7 +254,7 @@
             this.btnImprimirRecipe.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.btnImprimirRecipe.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnImprimirRecipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirRecipe.Location = new System.Drawing.Point(1372, 573);
+            this.btnImprimirRecipe.Location = new System.Drawing.Point(1371, 533);
             this.btnImprimirRecipe.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimirRecipe.Name = "btnImprimirRecipe";
             this.btnImprimirRecipe.Size = new System.Drawing.Size(188, 90);
@@ -603,6 +607,24 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(1371, 337);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(188, 90);
+            this.btnLimpiar.TabIndex = 283;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmPlanTerapeutico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -678,5 +700,6 @@
         private System.Windows.Forms.Label lbl_idplanterapeutico_historia;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lbl_idplanterapeutico_evol;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
