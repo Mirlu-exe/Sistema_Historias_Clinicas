@@ -112,7 +112,7 @@
             this.btnEstudios.FlatAppearance.BorderSize = 0;
             this.btnEstudios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnEstudios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstudios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnEstudios.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstudios.ForeColor = System.Drawing.Color.White;
             this.btnEstudios.Image = ((System.Drawing.Image)(resources.GetObject("btnEstudios.Image")));
             this.btnEstudios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,7 +121,7 @@
             this.btnEstudios.Name = "btnEstudios";
             this.btnEstudios.Size = new System.Drawing.Size(364, 49);
             this.btnEstudios.TabIndex = 46;
-            this.btnEstudios.Text = "     Estudios";
+            this.btnEstudios.Text = " Estudios";
             this.btnEstudios.UseVisualStyleBackColor = true;
             this.btnEstudios.Click += new System.EventHandler(this.btnEstudios_Click);
             // 
@@ -130,7 +130,7 @@
             this.btnInformeMedico.FlatAppearance.BorderSize = 0;
             this.btnInformeMedico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnInformeMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformeMedico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnInformeMedico.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformeMedico.ForeColor = System.Drawing.Color.White;
             this.btnInformeMedico.Image = ((System.Drawing.Image)(resources.GetObject("btnInformeMedico.Image")));
             this.btnInformeMedico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,7 +139,7 @@
             this.btnInformeMedico.Name = "btnInformeMedico";
             this.btnInformeMedico.Size = new System.Drawing.Size(364, 49);
             this.btnInformeMedico.TabIndex = 45;
-            this.btnInformeMedico.Text = "          Informe Médico";
+            this.btnInformeMedico.Text = " Informe Médico";
             this.btnInformeMedico.UseVisualStyleBackColor = true;
             this.btnInformeMedico.Click += new System.EventHandler(this.btnInformeMedico_Click);
             // 
@@ -148,7 +148,7 @@
             this.btnPapelera.FlatAppearance.BorderSize = 0;
             this.btnPapelera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnPapelera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPapelera.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnPapelera.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPapelera.ForeColor = System.Drawing.Color.White;
             this.btnPapelera.Image = ((System.Drawing.Image)(resources.GetObject("btnPapelera.Image")));
             this.btnPapelera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,7 +157,7 @@
             this.btnPapelera.Name = "btnPapelera";
             this.btnPapelera.Size = new System.Drawing.Size(364, 49);
             this.btnPapelera.TabIndex = 44;
-            this.btnPapelera.Text = "         Papelera de reciclaje";
+            this.btnPapelera.Text = "    Papelera de reciclaje";
             this.btnPapelera.UseVisualStyleBackColor = true;
             this.btnPapelera.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -166,7 +166,7 @@
             this.btnArchivoMuerto.FlatAppearance.BorderSize = 0;
             this.btnArchivoMuerto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnArchivoMuerto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchivoMuerto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnArchivoMuerto.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArchivoMuerto.ForeColor = System.Drawing.Color.White;
             this.btnArchivoMuerto.Image = ((System.Drawing.Image)(resources.GetObject("btnArchivoMuerto.Image")));
             this.btnArchivoMuerto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,7 +175,7 @@
             this.btnArchivoMuerto.Name = "btnArchivoMuerto";
             this.btnArchivoMuerto.Size = new System.Drawing.Size(364, 49);
             this.btnArchivoMuerto.TabIndex = 43;
-            this.btnArchivoMuerto.Text = "         Archivo Muerto";
+            this.btnArchivoMuerto.Text = " Archivo Muerto";
             this.btnArchivoMuerto.UseVisualStyleBackColor = true;
             this.btnArchivoMuerto.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -184,7 +184,7 @@
             this.btnMedicosConfianza.FlatAppearance.BorderSize = 0;
             this.btnMedicosConfianza.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnMedicosConfianza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMedicosConfianza.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnMedicosConfianza.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMedicosConfianza.ForeColor = System.Drawing.Color.White;
             this.btnMedicosConfianza.Image = global::CapaPresentacion.Properties.Resources.heart_1_smoll;
             this.btnMedicosConfianza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -193,7 +193,7 @@
             this.btnMedicosConfianza.Name = "btnMedicosConfianza";
             this.btnMedicosConfianza.Size = new System.Drawing.Size(364, 49);
             this.btnMedicosConfianza.TabIndex = 42;
-            this.btnMedicosConfianza.Text = "             Médicos de Confianza";
+            this.btnMedicosConfianza.Text = "       Médicos de Confianza";
             this.btnMedicosConfianza.UseVisualStyleBackColor = true;
             this.btnMedicosConfianza.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -220,7 +220,7 @@
             this.btnControlEstadistico.FlatAppearance.BorderSize = 0;
             this.btnControlEstadistico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnControlEstadistico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnControlEstadistico.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnControlEstadistico.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnControlEstadistico.ForeColor = System.Drawing.Color.White;
             this.btnControlEstadistico.Image = global::CapaPresentacion.Properties.Resources.statistics_smoll;
             this.btnControlEstadistico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,7 +229,7 @@
             this.btnControlEstadistico.Name = "btnControlEstadistico";
             this.btnControlEstadistico.Size = new System.Drawing.Size(364, 49);
             this.btnControlEstadistico.TabIndex = 37;
-            this.btnControlEstadistico.Text = "         Control Estadístico";
+            this.btnControlEstadistico.Text = "    Control Estadístico";
             this.btnControlEstadistico.UseVisualStyleBackColor = true;
             this.btnControlEstadistico.Click += new System.EventHandler(this.btnControlEstadistico_Click);
             // 
@@ -296,7 +296,7 @@
             this.btnOperaciones.FlatAppearance.BorderSize = 0;
             this.btnOperaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnOperaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOperaciones.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnOperaciones.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOperaciones.ForeColor = System.Drawing.Color.White;
             this.btnOperaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOperaciones.Image")));
             this.btnOperaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -314,7 +314,7 @@
             this.btnHistorias.FlatAppearance.BorderSize = 0;
             this.btnHistorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnHistorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorias.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnHistorias.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorias.ForeColor = System.Drawing.Color.White;
             this.btnHistorias.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorias.Image")));
             this.btnHistorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -323,7 +323,7 @@
             this.btnHistorias.Name = "btnHistorias";
             this.btnHistorias.Size = new System.Drawing.Size(364, 49);
             this.btnHistorias.TabIndex = 7;
-            this.btnHistorias.Text = "     Historias Medicas";
+            this.btnHistorias.Text = "    Historias Medicas";
             this.btnHistorias.UseVisualStyleBackColor = true;
             this.btnHistorias.Click += new System.EventHandler(this.btnHistorias_Click);
             // 
@@ -332,7 +332,7 @@
             this.btnRecetas.FlatAppearance.BorderSize = 0;
             this.btnRecetas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnRecetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecetas.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnRecetas.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecetas.ForeColor = System.Drawing.Color.White;
             this.btnRecetas.Image = global::CapaPresentacion.Properties.Resources.bowl_1_smoll;
             this.btnRecetas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,7 +341,7 @@
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(364, 49);
             this.btnRecetas.TabIndex = 5;
-            this.btnRecetas.Text = "     Medicamentos";
+            this.btnRecetas.Text = "  Medicamentos";
             this.btnRecetas.UseVisualStyleBackColor = true;
             this.btnRecetas.Click += new System.EventHandler(this.btnRecetas_Click);
             // 
@@ -350,7 +350,7 @@
             this.btnDiagnosticos.FlatAppearance.BorderSize = 0;
             this.btnDiagnosticos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnDiagnosticos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiagnosticos.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnDiagnosticos.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiagnosticos.ForeColor = System.Drawing.Color.White;
             this.btnDiagnosticos.Image = ((System.Drawing.Image)(resources.GetObject("btnDiagnosticos.Image")));
             this.btnDiagnosticos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -368,7 +368,7 @@
             this.btnServicios.FlatAppearance.BorderSize = 0;
             this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServicios.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnServicios.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServicios.ForeColor = System.Drawing.Color.White;
             this.btnServicios.Image = ((System.Drawing.Image)(resources.GetObject("btnServicios.Image")));
             this.btnServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -386,7 +386,7 @@
             this.btnCitas.FlatAppearance.BorderSize = 0;
             this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCitas.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnCitas.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCitas.ForeColor = System.Drawing.Color.White;
             this.btnCitas.Image = ((System.Drawing.Image)(resources.GetObject("btnCitas.Image")));
             this.btnCitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -404,7 +404,7 @@
             this.btnPacientes.FlatAppearance.BorderSize = 0;
             this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnPacientes.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
             this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
             this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
